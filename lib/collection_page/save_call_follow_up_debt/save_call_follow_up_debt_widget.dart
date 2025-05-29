@@ -2542,12 +2542,17 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                   _model.checkboxValue =
                                                                       newValue!);
                                                             },
-                                                            side: BorderSide(
-                                                              width: 2,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                            ),
+                                                            side: (FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText !=
+                                                                    null)
+                                                                ? BorderSide(
+                                                                    width: 2,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText!,
+                                                                  )
+                                                                : null,
                                                             activeColor: Color(
                                                                 0xFFFB8447),
                                                           ),

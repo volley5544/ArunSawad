@@ -451,11 +451,16 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                             safeSetState(() {});
                                           }
                                         },
-                                        side: BorderSide(
-                                          width: 2,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                        side: (FlutterFlowTheme.of(context)
+                                                    .secondaryText !=
+                                                null)
+                                            ? BorderSide(
+                                                width: 2,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText!,
+                                              )
+                                            : null,
                                         activeColor:
                                             FlutterFlowTheme.of(context)
                                                 .success,

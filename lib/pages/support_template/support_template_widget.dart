@@ -708,7 +708,6 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                       text: 'Reserve',
                                       icon: Icon(
                                         Icons.add_rounded,
-                                        color: Colors.white,
                                         size: 15.0,
                                       ),
                                       options: FFButtonOptions(
@@ -719,6 +718,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
+                                        iconColor: Colors.white,
                                         color: Color(0xFF39D2C0),
                                         textStyle: GoogleFonts.lexendDeca(
                                           color: Colors.white,
@@ -857,7 +857,6 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                       text: 'Reserve',
                                       icon: Icon(
                                         Icons.add_rounded,
-                                        color: Colors.white,
                                         size: 15.0,
                                       ),
                                       options: FFButtonOptions(
@@ -868,6 +867,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
+                                        iconColor: Colors.white,
                                         color: Color(0xFF39D2C0),
                                         textStyle: GoogleFonts.lexendDeca(
                                           color: Colors.white,
@@ -1006,7 +1006,6 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                       text: 'Reserve',
                                       icon: Icon(
                                         Icons.add_rounded,
-                                        color: Colors.white,
                                         size: 15.0,
                                       ),
                                       options: FFButtonOptions(
@@ -1017,6 +1016,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
+                                        iconColor: Colors.white,
                                         color: Color(0xFF39D2C0),
                                         textStyle: GoogleFonts.lexendDeca(
                                           color: Colors.white,

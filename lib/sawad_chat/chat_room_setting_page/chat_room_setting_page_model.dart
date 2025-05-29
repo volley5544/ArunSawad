@@ -88,8 +88,8 @@ class ChatRoomSettingPageModel
 
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_selectGroupChatImageEdit = false;
+  FFUploadedFile uploadedLocalFile_selectGroupChatImageEdit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for TextField widget.

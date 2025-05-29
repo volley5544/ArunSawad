@@ -30,9 +30,9 @@ class FormItSupportModel extends FlutterFlowModel<FormItSupportWidget> {
   FocusNode? reasonToLeaveFocusNode;
   TextEditingController? reasonToLeaveTextController;
   String? Function(BuildContext, String?)? reasonToLeaveTextControllerValidator;
-  bool isDataUploading = false;
-  List<FFUploadedFile> uploadedLocalFiles = [];
-  List<String> uploadedFileUrls = [];
+  bool isDataUploading_uploadMedia2g9 = false;
+  List<FFUploadedFile> uploadedLocalFiles_uploadMedia2g9 = [];
+  List<String> uploadedFileUrls_uploadMedia2g9 = [];
 
   // State field(s) for PageView widget.
   PageController? pageViewController;

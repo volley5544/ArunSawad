@@ -1683,7 +1683,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading =
+                                                                .isDataUploading_uploadMedia59b =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -1718,7 +1718,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           ScaffoldMessenger.of(
                                                                   context)
                                                               .hideCurrentSnackBar();
-                                                          _model.isDataUploading =
+                                                          _model.isDataUploading_uploadMedia59b =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -1726,7 +1726,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                             selectedMedia
                                                                 .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFiles =
+                                                            _model.uploadedLocalFiles_uploadMedia59b =
                                                                 selectedUploadedFiles;
                                                           });
                                                           showUploadMessage(
@@ -1746,7 +1746,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               .uploadMultipleFileFirebaseStorage(
                                                         'leave',
                                                         _model
-                                                            .uploadedLocalFiles
+                                                            .uploadedLocalFiles_uploadMedia59b
                                                             .toList(),
                                                       );
                                                       _shouldSetState = true;
@@ -1848,7 +1848,9 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                             ],
                                           ),
                                         ),
-                                        if (_model.uploadedLocalFiles.length >
+                                        if (_model
+                                                .uploadedLocalFiles_uploadMedia59b
+                                                .length >
                                             0)
                                           Padding(
                                             padding:
@@ -2091,7 +2093,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               (widget!.leaveType ==
                                                                   'ลาเพื่อรับราชการทหาร')) {
                                                             if (_model
-                                                                    .uploadedLocalFiles
+                                                                    .uploadedLocalFiles_uploadMedia59b
                                                                     .length <=
                                                                 0) {
                                                               await showDialog(
@@ -2237,7 +2239,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                       .length <=
                                                                   5)
                                                               : (_model
-                                                                      .uploadedLocalFiles
+                                                                      .uploadedLocalFiles_uploadMedia59b
                                                                       .length <=
                                                                   5))) {
                                                             await showDialog(
@@ -2523,7 +2525,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               (widget!.leaveType ==
                                                                   'ลาเพื่อรับราชการทหาร')) {
                                                             if (_model
-                                                                    .uploadedLocalFiles
+                                                                    .uploadedLocalFiles_uploadMedia59b
                                                                     .length >
                                                                 0) {
                                                               _model.leaveRequestAPIOutput2 =
@@ -2940,7 +2942,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 await LeaveRequestFirstAPICall
                                                                     .call(
                                                               leaveDocument: _model
-                                                                          .uploadedLocalFiles
+                                                                          .uploadedLocalFiles_uploadMedia59b
                                                                           .length >
                                                                       0
                                                                   ? functions.imgPathListToString(functions

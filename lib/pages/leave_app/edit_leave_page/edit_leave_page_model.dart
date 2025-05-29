@@ -48,9 +48,9 @@ class EditLeavePageModel extends FlutterFlowModel<EditLeavePageWidget> {
   FocusNode? reasonToLeaveFocusNode;
   TextEditingController? reasonToLeaveTextController;
   String? Function(BuildContext, String?)? reasonToLeaveTextControllerValidator;
-  bool isDataUploading = false;
-  List<FFUploadedFile> uploadedLocalFiles = [];
-  List<String> uploadedFileUrls = [];
+  bool isDataUploading_uploadMediaPqi = false;
+  List<FFUploadedFile> uploadedLocalFiles_uploadMediaPqi = [];
+  List<String> uploadedFileUrls_uploadMediaPqi = [];
 
   // State field(s) for PageView widget.
   PageController? pageViewController1;

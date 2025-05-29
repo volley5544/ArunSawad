@@ -690,9 +690,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile1 != null &&
-                                          (_model.uploadedLocalFile1.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded01 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded01
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -721,9 +722,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile1 != null &&
-                                      (_model.uploadedLocalFile1.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded01 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded01
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -777,8 +779,9 @@ class _CustomerCarDeailsStep1WidgetState
                     children: [
                       Builder(
                         builder: (context) {
-                          if (_model.uploadedLocalFile1 != null &&
-                              (_model.uploadedLocalFile1.bytes?.isNotEmpty ??
+                          if (_model.uploadedLocalFile_carUploaded01 != null &&
+                              (_model.uploadedLocalFile_carUploaded01.bytes
+                                      ?.isNotEmpty ??
                                   false)) {
                             return Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -801,7 +804,7 @@ class _CustomerCarDeailsStep1WidgetState
                                             type: PageTransitionType.fade,
                                             child: FlutterFlowExpandedImageView(
                                               image: Image.memory(
-                                                _model.uploadedLocalFile1
+                                                _model.uploadedLocalFile_carUploaded01
                                                         .bytes ??
                                                     Uint8List.fromList([]),
                                                 fit: BoxFit.contain,
@@ -820,7 +823,8 @@ class _CustomerCarDeailsStep1WidgetState
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                           child: Image.memory(
-                                            _model.uploadedLocalFile1.bytes ??
+                                            _model.uploadedLocalFile_carUploaded01
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             width: 200.0,
                                             height: 200.0,
@@ -848,8 +852,9 @@ class _CustomerCarDeailsStep1WidgetState
                                           ),
                                           onPressed: () async {
                                             safeSetState(() {
-                                              _model.isDataUploading1 = false;
-                                              _model.uploadedLocalFile1 =
+                                              _model.isDataUploading_carUploaded01 =
+                                                  false;
+                                              _model.uploadedLocalFile_carUploaded01 =
                                                   FFUploadedFile(
                                                       bytes: Uint8List.fromList(
                                                           []));
@@ -912,8 +917,8 @@ class _CustomerCarDeailsStep1WidgetState
                                       selectedMedia.every((m) =>
                                           validateFileFormat(
                                               m.storagePath, context))) {
-                                    safeSetState(
-                                        () => _model.isDataUploading1 = true);
+                                    safeSetState(() => _model
+                                        .isDataUploading_carUploaded01 = true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
 
@@ -930,12 +935,13 @@ class _CustomerCarDeailsStep1WidgetState
                                               ))
                                           .toList();
                                     } finally {
-                                      _model.isDataUploading1 = false;
+                                      _model.isDataUploading_carUploaded01 =
+                                          false;
                                     }
                                     if (selectedUploadedFiles.length ==
                                         selectedMedia.length) {
                                       safeSetState(() {
-                                        _model.uploadedLocalFile1 =
+                                        _model.uploadedLocalFile_carUploaded01 =
                                             selectedUploadedFiles.first;
                                       });
                                     } else {
@@ -944,9 +950,10 @@ class _CustomerCarDeailsStep1WidgetState
                                     }
                                   }
 
-                                  if (_model.uploadedLocalFile1 != null &&
-                                      (_model.uploadedLocalFile1.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded01 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded01
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
@@ -1243,9 +1250,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile2 != null &&
-                                          (_model.uploadedLocalFile2.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded02 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded02
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -1274,9 +1282,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile2 != null &&
-                                      (_model.uploadedLocalFile2.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded02 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded02
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1327,8 +1336,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile2 != null &&
-                          (_model.uploadedLocalFile2.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded02 != null &&
+                          (_model.uploadedLocalFile_carUploaded02.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -1351,7 +1361,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile2.bytes ??
+                                            _model.uploadedLocalFile_carUploaded02
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -1368,7 +1379,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile2.bytes ??
+                                        _model.uploadedLocalFile_carUploaded02
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -1395,8 +1407,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading2 = false;
-                                          _model.uploadedLocalFile2 =
+                                          _model.isDataUploading_carUploaded02 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded02 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -1458,8 +1471,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading2 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded02 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -1473,12 +1486,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading2 = false;
+                                  _model.isDataUploading_carUploaded02 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile2 =
+                                    _model.uploadedLocalFile_carUploaded02 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -1487,8 +1500,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile2 != null &&
-                                  (_model.uploadedLocalFile2.bytes
+                              if (_model.uploadedLocalFile_carUploaded02 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded02.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -1782,9 +1796,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile3 != null &&
-                                          (_model.uploadedLocalFile3.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded03 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded03
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -1813,9 +1828,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile3 != null &&
-                                      (_model.uploadedLocalFile3.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded03 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded03
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1866,8 +1882,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile3 != null &&
-                          (_model.uploadedLocalFile3.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded03 != null &&
+                          (_model.uploadedLocalFile_carUploaded03.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -1890,7 +1907,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile3.bytes ??
+                                            _model.uploadedLocalFile_carUploaded03
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -1907,7 +1925,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile3.bytes ??
+                                        _model.uploadedLocalFile_carUploaded03
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -1934,8 +1953,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading3 = false;
-                                          _model.uploadedLocalFile3 =
+                                          _model.isDataUploading_carUploaded03 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded03 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -1997,8 +2017,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading3 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded03 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -2012,12 +2032,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading3 = false;
+                                  _model.isDataUploading_carUploaded03 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile3 =
+                                    _model.uploadedLocalFile_carUploaded03 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -2026,8 +2046,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile3 != null &&
-                                  (_model.uploadedLocalFile3.bytes
+                              if (_model.uploadedLocalFile_carUploaded03 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded03.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -2321,9 +2342,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile4 != null &&
-                                          (_model.uploadedLocalFile4.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded04 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded04
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -2352,9 +2374,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile4 != null &&
-                                      (_model.uploadedLocalFile4.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded04 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded04
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -2405,8 +2428,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile4 != null &&
-                          (_model.uploadedLocalFile4.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded04 != null &&
+                          (_model.uploadedLocalFile_carUploaded04.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -2429,7 +2453,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile4.bytes ??
+                                            _model.uploadedLocalFile_carUploaded04
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -2446,7 +2471,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile4.bytes ??
+                                        _model.uploadedLocalFile_carUploaded04
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -2473,8 +2499,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading4 = false;
-                                          _model.uploadedLocalFile4 =
+                                          _model.isDataUploading_carUploaded04 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded04 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -2536,8 +2563,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading4 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded04 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -2551,12 +2578,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading4 = false;
+                                  _model.isDataUploading_carUploaded04 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile4 =
+                                    _model.uploadedLocalFile_carUploaded04 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -2565,8 +2592,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile4 != null &&
-                                  (_model.uploadedLocalFile4.bytes
+                              if (_model.uploadedLocalFile_carUploaded04 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded04.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -2860,9 +2888,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile5 != null &&
-                                          (_model.uploadedLocalFile5.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded05 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded05
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -2891,9 +2920,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile5 != null &&
-                                      (_model.uploadedLocalFile5.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded05 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded05
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -2944,8 +2974,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile5 != null &&
-                          (_model.uploadedLocalFile5.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded05 != null &&
+                          (_model.uploadedLocalFile_carUploaded05.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -2968,7 +2999,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile5.bytes ??
+                                            _model.uploadedLocalFile_carUploaded05
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -2985,7 +3017,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile5.bytes ??
+                                        _model.uploadedLocalFile_carUploaded05
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -3012,8 +3045,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading5 = false;
-                                          _model.uploadedLocalFile5 =
+                                          _model.isDataUploading_carUploaded05 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded05 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -3075,8 +3109,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading5 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded05 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -3090,12 +3124,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading5 = false;
+                                  _model.isDataUploading_carUploaded05 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile5 =
+                                    _model.uploadedLocalFile_carUploaded05 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -3104,8 +3138,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile5 != null &&
-                                  (_model.uploadedLocalFile5.bytes
+                              if (_model.uploadedLocalFile_carUploaded05 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded05.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -3399,9 +3434,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile6 != null &&
-                                          (_model.uploadedLocalFile6.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded06 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded06
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -3430,9 +3466,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile6 != null &&
-                                      (_model.uploadedLocalFile6.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded06 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded06
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -3483,8 +3520,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile6 != null &&
-                          (_model.uploadedLocalFile6.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded06 != null &&
+                          (_model.uploadedLocalFile_carUploaded06.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -3507,7 +3545,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile6.bytes ??
+                                            _model.uploadedLocalFile_carUploaded06
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -3524,7 +3563,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile6.bytes ??
+                                        _model.uploadedLocalFile_carUploaded06
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -3551,8 +3591,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading6 = false;
-                                          _model.uploadedLocalFile6 =
+                                          _model.isDataUploading_carUploaded06 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded06 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -3614,8 +3655,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading6 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded06 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -3629,12 +3670,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading6 = false;
+                                  _model.isDataUploading_carUploaded06 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile6 =
+                                    _model.uploadedLocalFile_carUploaded06 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -3643,8 +3684,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile6 != null &&
-                                  (_model.uploadedLocalFile6.bytes
+                              if (_model.uploadedLocalFile_carUploaded06 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded06.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -3947,9 +3989,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile7 != null &&
-                                          (_model.uploadedLocalFile7.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded07 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded07
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -3978,9 +4021,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile7 != null &&
-                                      (_model.uploadedLocalFile7.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded07 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded07
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -4031,8 +4075,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile7 != null &&
-                          (_model.uploadedLocalFile7.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded07 != null &&
+                          (_model.uploadedLocalFile_carUploaded07.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -4057,7 +4102,8 @@ class _CustomerCarDeailsStep1WidgetState
                                           type: PageTransitionType.fade,
                                           child: FlutterFlowExpandedImageView(
                                             image: Image.memory(
-                                              _model.uploadedLocalFile7.bytes ??
+                                              _model.uploadedLocalFile_carUploaded07
+                                                      .bytes ??
                                                   Uint8List.fromList([]),
                                               fit: BoxFit.contain,
                                             ),
@@ -4075,7 +4121,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.memory(
-                                          _model.uploadedLocalFile7.bytes ??
+                                          _model.uploadedLocalFile_carUploaded07
+                                                  .bytes ??
                                               Uint8List.fromList([]),
                                           width: 200.0,
                                           height: 200.0,
@@ -4103,8 +4150,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading7 = false;
-                                          _model.uploadedLocalFile7 =
+                                          _model.isDataUploading_carUploaded07 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded07 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -4170,8 +4218,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading7 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded07 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -4185,12 +4233,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading7 = false;
+                                  _model.isDataUploading_carUploaded07 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile7 =
+                                    _model.uploadedLocalFile_carUploaded07 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -4199,8 +4247,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile7 != null &&
-                                  (_model.uploadedLocalFile7.bytes
+                              if (_model.uploadedLocalFile_carUploaded07 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded07.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -4538,9 +4587,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile8 != null &&
-                                          (_model.uploadedLocalFile8.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded08 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded08
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -4569,9 +4619,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile8 != null &&
-                                      (_model.uploadedLocalFile8.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded08 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded08
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -4622,8 +4673,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile8 != null &&
-                          (_model.uploadedLocalFile8.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded08 != null &&
+                          (_model.uploadedLocalFile_carUploaded08.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -4646,7 +4698,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile8.bytes ??
+                                            _model.uploadedLocalFile_carUploaded08
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -4663,7 +4716,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile8.bytes ??
+                                        _model.uploadedLocalFile_carUploaded08
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -4690,8 +4744,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading8 = false;
-                                          _model.uploadedLocalFile8 =
+                                          _model.isDataUploading_carUploaded08 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded08 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -4757,8 +4812,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading8 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded08 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -4772,12 +4827,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading8 = false;
+                                  _model.isDataUploading_carUploaded08 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile8 =
+                                    _model.uploadedLocalFile_carUploaded08 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -4786,8 +4841,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile8 != null &&
-                                  (_model.uploadedLocalFile8.bytes
+                              if (_model.uploadedLocalFile_carUploaded08 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded08.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -5134,9 +5190,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile9 != null &&
-                                          (_model.uploadedLocalFile9.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded09 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded09
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -5165,9 +5222,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile9 != null &&
-                                      (_model.uploadedLocalFile9.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded09 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded09
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -5218,8 +5276,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile9 != null &&
-                          (_model.uploadedLocalFile9.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded09 != null &&
+                          (_model.uploadedLocalFile_carUploaded09.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -5242,7 +5301,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile9.bytes ??
+                                            _model.uploadedLocalFile_carUploaded09
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -5259,7 +5319,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile9.bytes ??
+                                        _model.uploadedLocalFile_carUploaded09
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -5286,8 +5347,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading9 = false;
-                                          _model.uploadedLocalFile9 =
+                                          _model.isDataUploading_carUploaded09 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded09 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -5353,8 +5415,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading9 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded09 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -5368,12 +5430,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading9 = false;
+                                  _model.isDataUploading_carUploaded09 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile9 =
+                                    _model.uploadedLocalFile_carUploaded09 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -5382,8 +5444,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile9 != null &&
-                                  (_model.uploadedLocalFile9.bytes
+                              if (_model.uploadedLocalFile_carUploaded09 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded09.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -5732,9 +5795,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile10 != null &&
-                                          (_model.uploadedLocalFile10.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded10 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded10
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -5763,9 +5827,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile10 != null &&
-                                      (_model.uploadedLocalFile10.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded10 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded10
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -5816,8 +5881,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile10 != null &&
-                          (_model.uploadedLocalFile10.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded10 != null &&
+                          (_model.uploadedLocalFile_carUploaded10.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -5840,7 +5906,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile10.bytes ??
+                                            _model.uploadedLocalFile_carUploaded10
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -5857,7 +5924,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile10.bytes ??
+                                        _model.uploadedLocalFile_carUploaded10
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -5884,8 +5952,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading10 = false;
-                                          _model.uploadedLocalFile10 =
+                                          _model.isDataUploading_carUploaded10 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded10 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -5951,8 +6020,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading10 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded10 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -5966,12 +6035,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading10 = false;
+                                  _model.isDataUploading_carUploaded10 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile10 =
+                                    _model.uploadedLocalFile_carUploaded10 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -5980,8 +6049,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile10 != null &&
-                                  (_model.uploadedLocalFile10.bytes
+                              if (_model.uploadedLocalFile_carUploaded10 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded10.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -6330,9 +6400,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   color: Color(0xFFFAFAFA),
                                 ),
                                 child: Text(
-                                  _model.uploadedLocalFile11 != null &&
-                                          (_model.uploadedLocalFile11.bytes
-                                                  ?.isNotEmpty ??
+                                  _model.uploadedLocalFile_carUploaded11 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded11
+                                                  .bytes?.isNotEmpty ??
                                               false)
                                       ? 'อัพโหลดสำเร็จ'
                                       : 'ยังไม่อัพโหลด',
@@ -6361,9 +6432,10 @@ class _CustomerCarDeailsStep1WidgetState
                               flex: 2,
                               child: Builder(
                                 builder: (context) {
-                                  if (_model.uploadedLocalFile11 != null &&
-                                      (_model.uploadedLocalFile11.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded11 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded11
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -6414,8 +6486,9 @@ class _CustomerCarDeailsStep1WidgetState
                   ),
                   Builder(
                     builder: (context) {
-                      if (_model.uploadedLocalFile11 != null &&
-                          (_model.uploadedLocalFile11.bytes?.isNotEmpty ??
+                      if (_model.uploadedLocalFile_carUploaded11 != null &&
+                          (_model.uploadedLocalFile_carUploaded11.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -6438,7 +6511,8 @@ class _CustomerCarDeailsStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.uploadedLocalFile11.bytes ??
+                                            _model.uploadedLocalFile_carUploaded11
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
@@ -6455,7 +6529,8 @@ class _CustomerCarDeailsStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.uploadedLocalFile11.bytes ??
+                                        _model.uploadedLocalFile_carUploaded11
+                                                .bytes ??
                                             Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
@@ -6482,8 +6557,9 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       onPressed: () async {
                                         safeSetState(() {
-                                          _model.isDataUploading11 = false;
-                                          _model.uploadedLocalFile11 =
+                                          _model.isDataUploading_carUploaded11 =
+                                              false;
+                                          _model.uploadedLocalFile_carUploaded11 =
                                               FFUploadedFile(
                                                   bytes:
                                                       Uint8List.fromList([]));
@@ -6549,8 +6625,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                safeSetState(
-                                    () => _model.isDataUploading11 = true);
+                                safeSetState(() => _model
+                                    .isDataUploading_carUploaded11 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -6564,12 +6640,12 @@ class _CustomerCarDeailsStep1WidgetState
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading11 = false;
+                                  _model.isDataUploading_carUploaded11 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile11 =
+                                    _model.uploadedLocalFile_carUploaded11 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -6578,8 +6654,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                               }
 
-                              if (_model.uploadedLocalFile11 != null &&
-                                  (_model.uploadedLocalFile11.bytes
+                              if (_model.uploadedLocalFile_carUploaded11 !=
+                                      null &&
+                                  (_model.uploadedLocalFile_carUploaded11.bytes
                                           ?.isNotEmpty ??
                                       false)) {
                                 ScaffoldMessenger.of(context).clearSnackBars();
@@ -6888,9 +6965,10 @@ class _CustomerCarDeailsStep1WidgetState
                                       color: Color(0xFFFAFAFA),
                                     ),
                                     child: Text(
-                                      _model.uploadedLocalFile12 != null &&
-                                              (_model.uploadedLocalFile12.bytes
-                                                      ?.isNotEmpty ??
+                                      _model.uploadedLocalFile_carUploaded12 !=
+                                                  null &&
+                                              (_model.uploadedLocalFile_carUploaded12
+                                                      .bytes?.isNotEmpty ??
                                                   false)
                                           ? 'อัพโหลดสำเร็จ'
                                           : 'ยังไม่อัพโหลด',
@@ -6920,9 +6998,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   flex: 2,
                                   child: Builder(
                                     builder: (context) {
-                                      if (_model.uploadedLocalFile12 != null &&
-                                          (_model.uploadedLocalFile12.bytes
-                                                  ?.isNotEmpty ??
+                                      if (_model.uploadedLocalFile_carUploaded12 !=
+                                              null &&
+                                          (_model.uploadedLocalFile_carUploaded12
+                                                  .bytes?.isNotEmpty ??
                                               false)) {
                                         return Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -6974,8 +7053,9 @@ class _CustomerCarDeailsStep1WidgetState
                       ),
                       Builder(
                         builder: (context) {
-                          if (_model.uploadedLocalFile12 != null &&
-                              (_model.uploadedLocalFile12.bytes?.isNotEmpty ??
+                          if (_model.uploadedLocalFile_carUploaded12 != null &&
+                              (_model.uploadedLocalFile_carUploaded12.bytes
+                                      ?.isNotEmpty ??
                                   false)) {
                             return Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -6998,7 +7078,7 @@ class _CustomerCarDeailsStep1WidgetState
                                             type: PageTransitionType.fade,
                                             child: FlutterFlowExpandedImageView(
                                               image: Image.memory(
-                                                _model.uploadedLocalFile12
+                                                _model.uploadedLocalFile_carUploaded12
                                                         .bytes ??
                                                     Uint8List.fromList([]),
                                                 fit: BoxFit.contain,
@@ -7017,7 +7097,8 @@ class _CustomerCarDeailsStep1WidgetState
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                           child: Image.memory(
-                                            _model.uploadedLocalFile12.bytes ??
+                                            _model.uploadedLocalFile_carUploaded12
+                                                    .bytes ??
                                                 Uint8List.fromList([]),
                                             width: 200.0,
                                             height: 200.0,
@@ -7045,8 +7126,9 @@ class _CustomerCarDeailsStep1WidgetState
                                           ),
                                           onPressed: () async {
                                             safeSetState(() {
-                                              _model.isDataUploading12 = false;
-                                              _model.uploadedLocalFile12 =
+                                              _model.isDataUploading_carUploaded12 =
+                                                  false;
+                                              _model.uploadedLocalFile_carUploaded12 =
                                                   FFUploadedFile(
                                                       bytes: Uint8List.fromList(
                                                           []));
@@ -7114,8 +7196,8 @@ class _CustomerCarDeailsStep1WidgetState
                                       selectedMedia.every((m) =>
                                           validateFileFormat(
                                               m.storagePath, context))) {
-                                    safeSetState(
-                                        () => _model.isDataUploading12 = true);
+                                    safeSetState(() => _model
+                                        .isDataUploading_carUploaded12 = true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
 
@@ -7132,12 +7214,13 @@ class _CustomerCarDeailsStep1WidgetState
                                               ))
                                           .toList();
                                     } finally {
-                                      _model.isDataUploading12 = false;
+                                      _model.isDataUploading_carUploaded12 =
+                                          false;
                                     }
                                     if (selectedUploadedFiles.length ==
                                         selectedMedia.length) {
                                       safeSetState(() {
-                                        _model.uploadedLocalFile12 =
+                                        _model.uploadedLocalFile_carUploaded12 =
                                             selectedUploadedFiles.first;
                                       });
                                     } else {
@@ -7146,9 +7229,10 @@ class _CustomerCarDeailsStep1WidgetState
                                     }
                                   }
 
-                                  if (_model.uploadedLocalFile12 != null &&
-                                      (_model.uploadedLocalFile12.bytes
-                                              ?.isNotEmpty ??
+                                  if (_model.uploadedLocalFile_carUploaded12 !=
+                                          null &&
+                                      (_model.uploadedLocalFile_carUploaded12
+                                              .bytes?.isNotEmpty ??
                                           false)) {
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
@@ -7413,8 +7497,9 @@ class _CustomerCarDeailsStep1WidgetState
                                         color: Color(0xFFFAFAFA),
                                       ),
                                       child: Text(
-                                        _model.uploadedLocalFile13 != null &&
-                                                (_model.uploadedLocalFile13
+                                        _model.uploadedLocalFile_carUploaded13 !=
+                                                    null &&
+                                                (_model.uploadedLocalFile_carUploaded13
                                                         .bytes?.isNotEmpty ??
                                                     false)
                                             ? 'อัพโหลดสำเร็จ'
@@ -7445,10 +7530,10 @@ class _CustomerCarDeailsStep1WidgetState
                                     flex: 2,
                                     child: Builder(
                                       builder: (context) {
-                                        if (_model.uploadedLocalFile13 !=
+                                        if (_model.uploadedLocalFile_carUploaded13 !=
                                                 null &&
-                                            (_model.uploadedLocalFile13.bytes
-                                                    ?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_carUploaded13
+                                                    .bytes?.isNotEmpty ??
                                                 false)) {
                                           return Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -7502,8 +7587,10 @@ class _CustomerCarDeailsStep1WidgetState
                         ),
                         Builder(
                           builder: (context) {
-                            if (_model.uploadedLocalFile13 != null &&
-                                (_model.uploadedLocalFile13.bytes?.isNotEmpty ??
+                            if (_model.uploadedLocalFile_carUploaded13 !=
+                                    null &&
+                                (_model.uploadedLocalFile_carUploaded13.bytes
+                                        ?.isNotEmpty ??
                                     false)) {
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -7527,7 +7614,7 @@ class _CustomerCarDeailsStep1WidgetState
                                               child:
                                                   FlutterFlowExpandedImageView(
                                                 image: Image.memory(
-                                                  _model.uploadedLocalFile13
+                                                  _model.uploadedLocalFile_carUploaded13
                                                           .bytes ??
                                                       Uint8List.fromList([]),
                                                   fit: BoxFit.contain,
@@ -7546,7 +7633,7 @@ class _CustomerCarDeailsStep1WidgetState
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                             child: Image.memory(
-                                              _model.uploadedLocalFile13
+                                              _model.uploadedLocalFile_carUploaded13
                                                       .bytes ??
                                                   Uint8List.fromList([]),
                                               width: 200.0,
@@ -7576,9 +7663,9 @@ class _CustomerCarDeailsStep1WidgetState
                                             ),
                                             onPressed: () async {
                                               safeSetState(() {
-                                                _model.isDataUploading12 =
+                                                _model.isDataUploading_carUploaded12 =
                                                     false;
-                                                _model.uploadedLocalFile12 =
+                                                _model.uploadedLocalFile_carUploaded12 =
                                                     FFUploadedFile(
                                                         bytes:
                                                             Uint8List.fromList(
@@ -7648,7 +7735,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             validateFileFormat(
                                                 m.storagePath, context))) {
                                       safeSetState(() =>
-                                          _model.isDataUploading13 = true);
+                                          _model.isDataUploading_carUploaded13 =
+                                              true);
                                       var selectedUploadedFiles =
                                           <FFUploadedFile>[];
 
@@ -7665,12 +7753,13 @@ class _CustomerCarDeailsStep1WidgetState
                                                 ))
                                             .toList();
                                       } finally {
-                                        _model.isDataUploading13 = false;
+                                        _model.isDataUploading_carUploaded13 =
+                                            false;
                                       }
                                       if (selectedUploadedFiles.length ==
                                           selectedMedia.length) {
                                         safeSetState(() {
-                                          _model.uploadedLocalFile13 =
+                                          _model.uploadedLocalFile_carUploaded13 =
                                               selectedUploadedFiles.first;
                                         });
                                       } else {
@@ -7679,9 +7768,10 @@ class _CustomerCarDeailsStep1WidgetState
                                       }
                                     }
 
-                                    if (_model.uploadedLocalFile13 != null &&
-                                        (_model.uploadedLocalFile13.bytes
-                                                ?.isNotEmpty ??
+                                    if (_model.uploadedLocalFile_carUploaded13 !=
+                                            null &&
+                                        (_model.uploadedLocalFile_carUploaded13
+                                                .bytes?.isNotEmpty ??
                                             false)) {
                                       ScaffoldMessenger.of(context)
                                           .clearSnackBars();
@@ -7970,7 +8060,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                               m.storagePath,
                                                               context))) {
                                                     safeSetState(() => _model
-                                                            .isDataUploading14 =
+                                                            .isDataUploading_car44Uploaded13 =
                                                         true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
@@ -7998,14 +8088,14 @@ class _CustomerCarDeailsStep1WidgetState
                                                                   ))
                                                               .toList();
                                                     } finally {
-                                                      _model.isDataUploading14 =
+                                                      _model.isDataUploading_car44Uploaded13 =
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
                                                       safeSetState(() {
-                                                        _model.uploadedLocalFile14 =
+                                                        _model.uploadedLocalFile_car44Uploaded13 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
@@ -8015,10 +8105,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                     }
                                                   }
 
-                                                  if (_model.uploadedLocalFile14 !=
+                                                  if (_model.uploadedLocalFile_car44Uploaded13 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile14
+                                                              .uploadedLocalFile_car44Uploaded13
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false)) {
@@ -8159,10 +8249,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                     .fromSTEB(
                                                         2.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  _model.uploadedLocalFile14 !=
+                                                  _model.uploadedLocalFile_car44Uploaded13 !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile14
+                                                                  .uploadedLocalFile_car44Uploaded13
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)
@@ -8207,9 +8297,9 @@ class _CustomerCarDeailsStep1WidgetState
                                         flex: 2,
                                         child: Builder(
                                           builder: (context) {
-                                            if (_model.uploadedLocalFile14 !=
+                                            if (_model.uploadedLocalFile_car44Uploaded13 !=
                                                     null &&
-                                                (_model.uploadedLocalFile14
+                                                (_model.uploadedLocalFile_car44Uploaded13
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               return Row(
@@ -8267,9 +8357,10 @@ class _CustomerCarDeailsStep1WidgetState
                             ),
                             Builder(
                               builder: (context) {
-                                if (_model.uploadedLocalFile14 != null &&
-                                    (_model.uploadedLocalFile14.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_car44Uploaded13 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_car44Uploaded13
+                                            .bytes?.isNotEmpty ??
                                         false)) {
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -8298,7 +8389,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                       child:
                                                           FlutterFlowExpandedImageView(
                                                         image: Image.memory(
-                                                          _model.uploadedLocalFile14
+                                                          _model.uploadedLocalFile_car44Uploaded13
                                                                   .bytes ??
                                                               Uint8List
                                                                   .fromList([]),
@@ -8320,7 +8411,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                         BorderRadius.circular(
                                                             8.0),
                                                     child: Image.memory(
-                                                      _model.uploadedLocalFile14
+                                                      _model.uploadedLocalFile_car44Uploaded13
                                                               .bytes ??
                                                           Uint8List.fromList(
                                                               []),
@@ -8351,9 +8442,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                     ),
                                                     onPressed: () async {
                                                       safeSetState(() {
-                                                        _model.isDataUploading14 =
+                                                        _model.isDataUploading_car44Uploaded13 =
                                                             false;
-                                                        _model.uploadedLocalFile14 =
+                                                        _model.uploadedLocalFile_car44Uploaded13 =
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
@@ -8613,7 +8704,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                               m.storagePath,
                                                               context))) {
                                                     safeSetState(() => _model
-                                                            .isDataUploading15 =
+                                                            .isDataUploading_car4Uploaded14 =
                                                         true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
@@ -8641,14 +8732,14 @@ class _CustomerCarDeailsStep1WidgetState
                                                                   ))
                                                               .toList();
                                                     } finally {
-                                                      _model.isDataUploading15 =
+                                                      _model.isDataUploading_car4Uploaded14 =
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
                                                       safeSetState(() {
-                                                        _model.uploadedLocalFile15 =
+                                                        _model.uploadedLocalFile_car4Uploaded14 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
@@ -8658,10 +8749,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                     }
                                                   }
 
-                                                  if (_model.uploadedLocalFile15 !=
+                                                  if (_model.uploadedLocalFile_car4Uploaded14 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile15
+                                                              .uploadedLocalFile_car4Uploaded14
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false)) {
@@ -8802,10 +8893,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                     .fromSTEB(
                                                         2.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  _model.uploadedLocalFile15 !=
+                                                  _model.uploadedLocalFile_car4Uploaded14 !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile15
+                                                                  .uploadedLocalFile_car4Uploaded14
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)
@@ -8850,9 +8941,9 @@ class _CustomerCarDeailsStep1WidgetState
                                         flex: 2,
                                         child: Builder(
                                           builder: (context) {
-                                            if (_model.uploadedLocalFile15 !=
+                                            if (_model.uploadedLocalFile_car4Uploaded14 !=
                                                     null &&
-                                                (_model.uploadedLocalFile15
+                                                (_model.uploadedLocalFile_car4Uploaded14
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               return Row(
@@ -8910,9 +9001,10 @@ class _CustomerCarDeailsStep1WidgetState
                             ),
                             Builder(
                               builder: (context) {
-                                if (_model.uploadedLocalFile15 != null &&
-                                    (_model.uploadedLocalFile15.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_car4Uploaded14 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_car4Uploaded14
+                                            .bytes?.isNotEmpty ??
                                         false)) {
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -8941,7 +9033,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                       child:
                                                           FlutterFlowExpandedImageView(
                                                         image: Image.memory(
-                                                          _model.uploadedLocalFile15
+                                                          _model.uploadedLocalFile_car4Uploaded14
                                                                   .bytes ??
                                                               Uint8List
                                                                   .fromList([]),
@@ -8963,7 +9055,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                         BorderRadius.circular(
                                                             8.0),
                                                     child: Image.memory(
-                                                      _model.uploadedLocalFile15
+                                                      _model.uploadedLocalFile_car4Uploaded14
                                                               .bytes ??
                                                           Uint8List.fromList(
                                                               []),
@@ -8994,9 +9086,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                     ),
                                                     onPressed: () async {
                                                       safeSetState(() {
-                                                        _model.isDataUploading15 =
+                                                        _model.isDataUploading_car4Uploaded14 =
                                                             false;
-                                                        _model.uploadedLocalFile15 =
+                                                        _model.uploadedLocalFile_car4Uploaded14 =
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
@@ -9256,7 +9348,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                               m.storagePath,
                                                               context))) {
                                                     safeSetState(() => _model
-                                                            .isDataUploading16 =
+                                                            .isDataUploading_car44Uploaded15 =
                                                         true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
@@ -9284,14 +9376,14 @@ class _CustomerCarDeailsStep1WidgetState
                                                                   ))
                                                               .toList();
                                                     } finally {
-                                                      _model.isDataUploading16 =
+                                                      _model.isDataUploading_car44Uploaded15 =
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
                                                       safeSetState(() {
-                                                        _model.uploadedLocalFile16 =
+                                                        _model.uploadedLocalFile_car44Uploaded15 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
@@ -9301,10 +9393,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                     }
                                                   }
 
-                                                  if (_model.uploadedLocalFile16 !=
+                                                  if (_model.uploadedLocalFile_car44Uploaded15 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile16
+                                                              .uploadedLocalFile_car44Uploaded15
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false)) {
@@ -9445,10 +9537,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                     .fromSTEB(
                                                         2.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  _model.uploadedLocalFile16 !=
+                                                  _model.uploadedLocalFile_car44Uploaded15 !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile16
+                                                                  .uploadedLocalFile_car44Uploaded15
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)
@@ -9493,9 +9585,9 @@ class _CustomerCarDeailsStep1WidgetState
                                         flex: 2,
                                         child: Builder(
                                           builder: (context) {
-                                            if (_model.uploadedLocalFile16 !=
+                                            if (_model.uploadedLocalFile_car44Uploaded15 !=
                                                     null &&
-                                                (_model.uploadedLocalFile16
+                                                (_model.uploadedLocalFile_car44Uploaded15
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               return Row(
@@ -9553,9 +9645,10 @@ class _CustomerCarDeailsStep1WidgetState
                             ),
                             Builder(
                               builder: (context) {
-                                if (_model.uploadedLocalFile16 != null &&
-                                    (_model.uploadedLocalFile16.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_car44Uploaded15 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_car44Uploaded15
+                                            .bytes?.isNotEmpty ??
                                         false)) {
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -9584,7 +9677,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                       child:
                                                           FlutterFlowExpandedImageView(
                                                         image: Image.memory(
-                                                          _model.uploadedLocalFile16
+                                                          _model.uploadedLocalFile_car44Uploaded15
                                                                   .bytes ??
                                                               Uint8List
                                                                   .fromList([]),
@@ -9606,7 +9699,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                         BorderRadius.circular(
                                                             8.0),
                                                     child: Image.memory(
-                                                      _model.uploadedLocalFile16
+                                                      _model.uploadedLocalFile_car44Uploaded15
                                                               .bytes ??
                                                           Uint8List.fromList(
                                                               []),
@@ -9637,9 +9730,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                     ),
                                                     onPressed: () async {
                                                       safeSetState(() {
-                                                        _model.isDataUploading16 =
+                                                        _model.isDataUploading_car44Uploaded15 =
                                                             false;
-                                                        _model.uploadedLocalFile16 =
+                                                        _model.uploadedLocalFile_car44Uploaded15 =
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
@@ -9899,7 +9992,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                               m.storagePath,
                                                               context))) {
                                                     safeSetState(() => _model
-                                                            .isDataUploading17 =
+                                                            .isDataUploading_car4Uploaded16 =
                                                         true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
@@ -9927,14 +10020,14 @@ class _CustomerCarDeailsStep1WidgetState
                                                                   ))
                                                               .toList();
                                                     } finally {
-                                                      _model.isDataUploading17 =
+                                                      _model.isDataUploading_car4Uploaded16 =
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
                                                       safeSetState(() {
-                                                        _model.uploadedLocalFile17 =
+                                                        _model.uploadedLocalFile_car4Uploaded16 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
@@ -9944,10 +10037,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                     }
                                                   }
 
-                                                  if (_model.uploadedLocalFile17 !=
+                                                  if (_model.uploadedLocalFile_car4Uploaded16 !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile17
+                                                              .uploadedLocalFile_car4Uploaded16
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false)) {
@@ -10088,10 +10181,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                     .fromSTEB(
                                                         2.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  _model.uploadedLocalFile17 !=
+                                                  _model.uploadedLocalFile_car4Uploaded16 !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile17
+                                                                  .uploadedLocalFile_car4Uploaded16
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)
@@ -10136,9 +10229,9 @@ class _CustomerCarDeailsStep1WidgetState
                                         flex: 2,
                                         child: Builder(
                                           builder: (context) {
-                                            if (_model.uploadedLocalFile17 !=
+                                            if (_model.uploadedLocalFile_car4Uploaded16 !=
                                                     null &&
-                                                (_model.uploadedLocalFile17
+                                                (_model.uploadedLocalFile_car4Uploaded16
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               return Row(
@@ -10196,9 +10289,10 @@ class _CustomerCarDeailsStep1WidgetState
                             ),
                             Builder(
                               builder: (context) {
-                                if (_model.uploadedLocalFile17 != null &&
-                                    (_model.uploadedLocalFile17.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_car4Uploaded16 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_car4Uploaded16
+                                            .bytes?.isNotEmpty ??
                                         false)) {
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -10227,7 +10321,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                       child:
                                                           FlutterFlowExpandedImageView(
                                                         image: Image.memory(
-                                                          _model.uploadedLocalFile17
+                                                          _model.uploadedLocalFile_car4Uploaded16
                                                                   .bytes ??
                                                               Uint8List
                                                                   .fromList([]),
@@ -10249,7 +10343,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                         BorderRadius.circular(
                                                             8.0),
                                                     child: Image.memory(
-                                                      _model.uploadedLocalFile17
+                                                      _model.uploadedLocalFile_car4Uploaded16
                                                               .bytes ??
                                                           Uint8List.fromList(
                                                               []),
@@ -10280,9 +10374,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                     ),
                                                     onPressed: () async {
                                                       safeSetState(() {
-                                                        _model.isDataUploading17 =
+                                                        _model.isDataUploading_car4Uploaded16 =
                                                             false;
-                                                        _model.uploadedLocalFile17 =
+                                                        _model.uploadedLocalFile_car4Uploaded16 =
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
@@ -10752,8 +10846,9 @@ class _CustomerCarDeailsStep1WidgetState
                           child: FFButtonWidget(
                             onPressed: () async {
                               var _shouldSetState = false;
-                              if (_model.uploadedLocalFile1 == null ||
-                                  (_model.uploadedLocalFile1.bytes?.isEmpty ??
+                              if (_model.uploadedLocalFile_carUploaded01 == null ||
+                                  (_model.uploadedLocalFile_carUploaded01.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 await showDialog(
                                   context: context,
@@ -10775,8 +10870,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 );
                                 if (_shouldSetState) safeSetState(() {});
                                 return;
-                              } else if (_model.uploadedLocalFile2 == null ||
-                                  (_model.uploadedLocalFile2.bytes?.isEmpty ??
+                              } else if (_model.uploadedLocalFile_carUploaded02 == null ||
+                                  (_model.uploadedLocalFile_carUploaded02.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 await showDialog(
                                   context: context,
@@ -10798,8 +10894,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 );
                                 if (_shouldSetState) safeSetState(() {});
                                 return;
-                              } else if (_model.uploadedLocalFile3 == null ||
-                                  (_model.uploadedLocalFile3.bytes?.isEmpty ??
+                              } else if (_model.uploadedLocalFile_carUploaded03 == null ||
+                                  (_model.uploadedLocalFile_carUploaded03.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 await showDialog(
                                   context: context,
@@ -10821,8 +10918,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 );
                                 if (_shouldSetState) safeSetState(() {});
                                 return;
-                              } else if (_model.uploadedLocalFile4 == null ||
-                                  (_model.uploadedLocalFile4.bytes?.isEmpty ??
+                              } else if (_model.uploadedLocalFile_carUploaded04 == null ||
+                                  (_model.uploadedLocalFile_carUploaded04.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 await showDialog(
                                   context: context,
@@ -10844,8 +10942,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 );
                                 if (_shouldSetState) safeSetState(() {});
                                 return;
-                              } else if (_model.uploadedLocalFile5 == null ||
-                                  (_model.uploadedLocalFile5.bytes?.isEmpty ??
+                              } else if (_model.uploadedLocalFile_carUploaded05 == null ||
+                                  (_model.uploadedLocalFile_carUploaded05.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 await showDialog(
                                   context: context,
@@ -10867,8 +10966,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 );
                                 if (_shouldSetState) safeSetState(() {});
                                 return;
-                              } else if (_model.uploadedLocalFile6 == null ||
-                                  (_model.uploadedLocalFile6.bytes?.isEmpty ??
+                              } else if (_model.uploadedLocalFile_carUploaded06 == null ||
+                                  (_model.uploadedLocalFile_carUploaded06.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 await showDialog(
                                   context: context,
@@ -10890,8 +10990,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 );
                                 if (_shouldSetState) safeSetState(() {});
                                 return;
-                              } else if (_model.uploadedLocalFile7 == null ||
-                                  (_model.uploadedLocalFile7.bytes?.isEmpty ??
+                              } else if (_model.uploadedLocalFile_carUploaded07 == null ||
+                                  (_model.uploadedLocalFile_carUploaded07.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 await showDialog(
                                   context: context,
@@ -10916,8 +11017,10 @@ class _CustomerCarDeailsStep1WidgetState
                                 );
                                 if (_shouldSetState) safeSetState(() {});
                                 return;
-                              } else if (_model.uploadedLocalFile8 == null ||
-                                  (_model.uploadedLocalFile8.bytes?.isEmpty ??
+                              } else if (_model.uploadedLocalFile_carUploaded08 ==
+                                      null ||
+                                  (_model.uploadedLocalFile_carUploaded08.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 await showDialog(
                                   context: context,
@@ -10945,8 +11048,10 @@ class _CustomerCarDeailsStep1WidgetState
                                 return;
                               }
 
-                              if (_model.uploadedLocalFile9 == null ||
-                                  (_model.uploadedLocalFile9.bytes?.isEmpty ??
+                              if (_model.uploadedLocalFile_carUploaded09 ==
+                                      null ||
+                                  (_model.uploadedLocalFile_carUploaded09.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 if (!widget!.carConfig!.contains(widget!
                                     .impoundCarParamSet?.improundCONTNOTYPE)) {
@@ -10972,8 +11077,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   return;
                                 }
                               }
-                              if (_model.uploadedLocalFile10 == null ||
-                                  (_model.uploadedLocalFile10.bytes?.isEmpty ??
+                              if (_model.uploadedLocalFile_carUploaded10 ==
+                                      null ||
+                                  (_model.uploadedLocalFile_carUploaded10.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 if (widget!.carConfig!.contains(widget!
                                     .impoundCarParamSet?.improundCONTNOTYPE)) {
@@ -10999,8 +11106,10 @@ class _CustomerCarDeailsStep1WidgetState
                                   return;
                                 }
                               }
-                              if (_model.uploadedLocalFile11 == null ||
-                                  (_model.uploadedLocalFile11.bytes?.isEmpty ??
+                              if (_model.uploadedLocalFile_carUploaded11 ==
+                                      null ||
+                                  (_model.uploadedLocalFile_carUploaded11.bytes
+                                          ?.isEmpty ??
                                       true)) {
                                 if (widget!.carConfig!.contains(widget!
                                     .impoundCarParamSet?.improundCONTNOTYPE)) {
@@ -11032,9 +11141,10 @@ class _CustomerCarDeailsStep1WidgetState
                                           widget!.saveAccessRoleData,
                                           widget!.step),
                                       'deliver_image_required'))!) {
-                                if (!(_model.uploadedLocalFile13 != null &&
-                                    (_model.uploadedLocalFile13.bytes
-                                            ?.isNotEmpty ??
+                                if (!(_model.uploadedLocalFile_carUploaded13 !=
+                                        null &&
+                                    (_model.uploadedLocalFile_carUploaded13
+                                            .bytes?.isNotEmpty ??
                                         false))) {
                                   await showDialog(
                                     context: context,
@@ -11351,18 +11461,21 @@ class _CustomerCarDeailsStep1WidgetState
                                             '')
                                     ? '${_model.remarkTextFieldTextController.text}'
                                     : ''),
-                                images1: _model.uploadedLocalFile1,
-                                images2: _model.uploadedLocalFile2,
-                                images3: _model.uploadedLocalFile3,
-                                images4: _model.uploadedLocalFile4,
-                                images5: _model.uploadedLocalFile5,
-                                images6: _model.uploadedLocalFile6,
-                                images7: _model.uploadedLocalFile7,
-                                images8: _model.uploadedLocalFile8,
-                                images9: _model.uploadedLocalFile9,
-                                images10: _model.uploadedLocalFile10,
-                                images11: _model.uploadedLocalFile11,
-                                images12: _model.uploadedLocalFile12,
+                                images1: _model.uploadedLocalFile_carUploaded01,
+                                images2: _model.uploadedLocalFile_carUploaded02,
+                                images3: _model.uploadedLocalFile_carUploaded03,
+                                images4: _model.uploadedLocalFile_carUploaded04,
+                                images5: _model.uploadedLocalFile_carUploaded05,
+                                images6: _model.uploadedLocalFile_carUploaded06,
+                                images7: _model.uploadedLocalFile_carUploaded07,
+                                images8: _model.uploadedLocalFile_carUploaded08,
+                                images9: _model.uploadedLocalFile_carUploaded09,
+                                images10:
+                                    _model.uploadedLocalFile_carUploaded10,
+                                images11:
+                                    _model.uploadedLocalFile_carUploaded11,
+                                images12:
+                                    _model.uploadedLocalFile_carUploaded12,
                                 cuscod:
                                     widget!.impoundCarParamSet?.improundCUSCOD,
                                 url: FFAppState().improundUrl,
@@ -11465,10 +11578,14 @@ class _CustomerCarDeailsStep1WidgetState
                                     widget!.impoundCarParamSet?.impoundDbCode,
                                 dbName:
                                     widget!.impoundCarParamSet?.impoundDbName,
-                                images13: _model.uploadedLocalFile14,
-                                images14: _model.uploadedLocalFile15,
-                                images15: _model.uploadedLocalFile16,
-                                images16: _model.uploadedLocalFile17,
+                                images13:
+                                    _model.uploadedLocalFile_car44Uploaded13,
+                                images14:
+                                    _model.uploadedLocalFile_car4Uploaded14,
+                                images15:
+                                    _model.uploadedLocalFile_car44Uploaded15,
+                                images16:
+                                    _model.uploadedLocalFile_car4Uploaded16,
                                 locatDelivercar: ((FFAppState().profileLevel ==
                                                 'สาขา') ||
                                             (FFAppState().profileLevel ==
@@ -11555,7 +11672,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             widget!.userRoleSave)!)
                                     ? widget!.impoundCarLocateParamSet?.receiver
                                     : '',
-                                images17: _model.uploadedLocalFile13,
+                                images17:
+                                    _model.uploadedLocalFile_carUploaded13,
                               );
 
                               _shouldSetState = true;

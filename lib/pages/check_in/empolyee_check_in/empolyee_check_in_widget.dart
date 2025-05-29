@@ -880,7 +880,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                     if (selectedMedia != null &&
                         selectedMedia.every((m) =>
                             validateFileFormat(m.storagePath, context))) {
-                      safeSetState(() => _model.isDataUploading1 = true);
+                      safeSetState(() => _model
+                          .isDataUploading_uploadCheckinImageAction = true);
                       var selectedUploadedFiles = <FFUploadedFile>[];
 
                       try {
@@ -894,12 +895,12 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                 ))
                             .toList();
                       } finally {
-                        _model.isDataUploading1 = false;
+                        _model.isDataUploading_uploadCheckinImageAction = false;
                       }
                       if (selectedUploadedFiles.length ==
                           selectedMedia.length) {
                         safeSetState(() {
-                          _model.uploadedLocalFile1 =
+                          _model.uploadedLocalFile_uploadCheckinImageAction =
                               selectedUploadedFiles.first;
                         });
                       } else {
@@ -908,8 +909,10 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                       }
                     }
 
-                    if (!(_model.uploadedLocalFile1 != null &&
-                        (_model.uploadedLocalFile1.bytes?.isNotEmpty ??
+                    if (!(_model.uploadedLocalFile_uploadCheckinImageAction !=
+                            null &&
+                        (_model.uploadedLocalFile_uploadCheckinImageAction.bytes
+                                ?.isNotEmpty ??
                             false))) {
                       Navigator.pop(context);
                       if (_shouldSetState) safeSetState(() {});
@@ -918,7 +921,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                     _model.uploadFirebaseStorageAction =
                         await actions.uploadFileFirebaseStorage(
                       'Checkin',
-                      _model.uploadedLocalFile1,
+                      _model.uploadedLocalFile_uploadCheckinImageAction,
                     );
                     _shouldSetState = true;
                     if (!(_model.uploadFirebaseStorageAction != null &&
@@ -1134,14 +1137,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               ),
                                             ),
                                           ),
-                                          if ((_model.uploadedLocalFile1 !=
+                                          if ((_model.uploadedLocalFile_uploadCheckinImageAction !=
                                                       null &&
-                                                  (_model.uploadedLocalFile1
+                                                  (_model.uploadedLocalFile_uploadCheckinImageAction
                                                           .bytes?.isNotEmpty ??
                                                       false)) ||
-                                              (_model.uploadedLocalFile2 !=
+                                              (_model.uploadedLocalFile_uploadCheckinImageCheckinBtn !=
                                                       null &&
-                                                  (_model.uploadedLocalFile2
+                                                  (_model.uploadedLocalFile_uploadCheckinImageCheckinBtn
                                                           .bytes?.isNotEmpty ??
                                                       false)))
                                             Align(
@@ -1305,14 +1308,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               ),
                                             ),
                                           ),
-                                          if ((_model.uploadedLocalFile1 !=
+                                          if ((_model.uploadedLocalFile_uploadCheckinImageAction !=
                                                       null &&
-                                                  (_model.uploadedLocalFile1
+                                                  (_model.uploadedLocalFile_uploadCheckinImageAction
                                                           .bytes?.isNotEmpty ??
                                                       false)) ||
-                                              (_model.uploadedLocalFile2 !=
+                                              (_model.uploadedLocalFile_uploadCheckinImageCheckinBtn !=
                                                       null &&
-                                                  (_model.uploadedLocalFile2
+                                                  (_model.uploadedLocalFile_uploadCheckinImageCheckinBtn
                                                           .bytes?.isNotEmpty ??
                                                       false)))
                                             Align(
@@ -2821,8 +2824,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          safeSetState(() =>
-                                              _model.isDataUploading2 = true);
+                                          safeSetState(() => _model
+                                                  .isDataUploading_uploadCheckinImageCheckinBtn =
+                                              true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -2842,12 +2846,13 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                         ))
                                                     .toList();
                                           } finally {
-                                            _model.isDataUploading2 = false;
+                                            _model.isDataUploading_uploadCheckinImageCheckinBtn =
+                                                false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile2 =
+                                              _model.uploadedLocalFile_uploadCheckinImageCheckinBtn =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
@@ -2856,10 +2861,10 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                           }
                                         }
 
-                                        if (!(_model.uploadedLocalFile2 !=
+                                        if (!(_model.uploadedLocalFile_uploadCheckinImageCheckinBtn !=
                                                 null &&
-                                            (_model.uploadedLocalFile2.bytes
-                                                    ?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadCheckinImageCheckinBtn
+                                                    .bytes?.isNotEmpty ??
                                                 false))) {
                                           await showDialog(
                                             context: context,
@@ -2888,7 +2893,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             await actions
                                                 .uploadFileFirebaseStorage(
                                           'Checkin',
-                                          _model.uploadedLocalFile2,
+                                          _model
+                                              .uploadedLocalFile_uploadCheckinImageCheckinBtn,
                                         );
                                         _shouldSetState = true;
                                         if (!(_model.uploadFirebaseStorageCheckinBtn !=

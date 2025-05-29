@@ -43,8 +43,8 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   ApiCallResponse? getLocationOutput;
   // Stores action output result for [Backend Call - Create Document] action in EmpolyeeCheckIn widget.
   UserLogRecord? createdUserLogLogout;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadCheckinImageAction = false;
+  FFUploadedFile uploadedLocalFile_uploadCheckinImageAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Icon widget.
@@ -72,8 +72,8 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   bool? connectionOutput;
   // Stores action output result for [Custom Action - locationCal] action in Button widget.
   bool? inCurrentLocation;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadCheckinImageCheckinBtn = false;
+  FFUploadedFile uploadedLocalFile_uploadCheckinImageCheckinBtn =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Button widget.

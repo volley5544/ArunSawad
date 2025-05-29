@@ -39,16 +39,16 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
   ApiCallResponse? getDateTimeAPIOutput;
   // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in Column widget.
   ApiCallResponse? getUserProfile;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadProfileImageAction = false;
+  FFUploadedFile uploadedLocalFile_uploadProfileImageAction =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in IconButton widget.
   String? uploadFirebaseStorageAction;
   // Stores action output result for [Custom Action - checkImageIsAvailable] action in IconButton widget.
   bool? checkProfileImgIsAvailable;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadProfileImageActionTablet = false;
+  FFUploadedFile uploadedLocalFile_uploadProfileImageActionTablet =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in IconButton widget.

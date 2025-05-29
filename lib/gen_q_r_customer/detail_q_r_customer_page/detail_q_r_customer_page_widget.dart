@@ -2929,13 +2929,16 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           () {});
                                                                     }
                                                                   },
-                                                                  side:
-                                                                      BorderSide(
-                                                                    width: 2,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBackground,
-                                                                  ),
+                                                                  side: (FlutterFlowTheme.of(context)
+                                                                              .primaryBackground !=
+                                                                          null)
+                                                                      ? BorderSide(
+                                                                          width:
+                                                                              2,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryBackground!,
+                                                                        )
+                                                                      : null,
                                                                   activeColor:
                                                                       Color(
                                                                           0xFFFB8447),

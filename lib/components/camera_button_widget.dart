@@ -116,7 +116,8 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                 if (selectedMedia != null &&
                     selectedMedia.every(
                         (m) => validateFileFormat(m.storagePath, context))) {
-                  safeSetState(() => _model.isDataUploading = true);
+                  safeSetState(
+                      () => _model.isDataUploading_uploadMediaThx = true);
                   var selectedUploadedFiles = <FFUploadedFile>[];
 
                   try {
@@ -136,11 +137,12 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                         .toList();
                   } finally {
                     ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                    _model.isDataUploading = false;
+                    _model.isDataUploading_uploadMediaThx = false;
                   }
                   if (selectedUploadedFiles.length == selectedMedia.length) {
                     safeSetState(() {
-                      _model.uploadedLocalFile = selectedUploadedFiles.first;
+                      _model.uploadedLocalFile_uploadMediaThx =
+                          selectedUploadedFiles.first;
                     });
                     showUploadMessage(context, 'Success!');
                   } else {
@@ -153,7 +155,7 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                 _model.uploadFirebaseStorageAction =
                     await actions.uploadFileFirebaseStorage(
                   'BranchView',
-                  _model.uploadedLocalFile,
+                  _model.uploadedLocalFile_uploadMediaThx,
                 );
                 _shouldSetState = true;
                 if (!(_model.uploadFirebaseStorageAction != null &&

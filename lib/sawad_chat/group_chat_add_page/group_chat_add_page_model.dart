@@ -52,8 +52,8 @@ class GroupChatAddPageModel extends FlutterFlowModel<GroupChatAddPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_selectGroupChatImage = false;
+  FFUploadedFile uploadedLocalFile_selectGroupChatImage =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for TextField widget.
@@ -66,10 +66,10 @@ class GroupChatAddPageModel extends FlutterFlowModel<GroupChatAddPageWidget> {
   String? Function(BuildContext, String?)? searchBoxTextControllerValidator;
   // Stores action output result for [Backend Call - API (getAllEmployeeAPI)] action in IconButton widget.
   ApiCallResponse? getEmployee;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadGroupChatImage = false;
+  FFUploadedFile uploadedLocalFile_uploadGroupChatImage =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploadGroupChatImage = '';
 
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   SawadChatRoomRecord? createNewGroupChatRoom;

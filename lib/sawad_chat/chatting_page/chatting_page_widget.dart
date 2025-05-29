@@ -1544,8 +1544,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                   validateFileFormat(
                                                       m.storagePath,
                                                       context))) {
-                                            safeSetState(() =>
-                                                _model.isDataUploading = true);
+                                            safeSetState(() => _model
+                                                    .isDataUploading_uploadDataKh5 =
+                                                true);
                                             var selectedUploadedFiles =
                                                 <FFUploadedFile>[];
 
@@ -1570,12 +1571,13 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                               ))
                                                       .toList();
                                             } finally {
-                                              _model.isDataUploading = false;
+                                              _model.isDataUploading_uploadDataKh5 =
+                                                  false;
                                             }
                                             if (selectedUploadedFiles.length ==
                                                 selectedMedia.length) {
                                               safeSetState(() {
-                                                _model.uploadedLocalFile =
+                                                _model.uploadedLocalFile_uploadDataKh5 =
                                                     selectedUploadedFiles.first;
                                               });
                                             } else {
@@ -1584,10 +1586,10 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                             }
                                           }
 
-                                          if (!(_model.uploadedLocalFile !=
+                                          if (!(_model.uploadedLocalFile_uploadDataKh5 !=
                                                   null &&
-                                              (_model.uploadedLocalFile.bytes
-                                                      ?.isNotEmpty ??
+                                              (_model.uploadedLocalFile_uploadDataKh5
+                                                      .bytes?.isNotEmpty ??
                                                   false))) {
                                             if (_shouldSetState)
                                               safeSetState(() {});
@@ -1596,8 +1598,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                           FFAppState().isSendMessageSuccess =
                                               false;
                                           safeSetState(() {});
-                                          _model.imageUploadTemp =
-                                              _model.uploadedLocalFile;
+                                          _model.imageUploadTemp = _model
+                                              .uploadedLocalFile_uploadDataKh5;
                                           safeSetState(() {});
 
                                           var chatMessagesRecordReference =
@@ -1644,8 +1646,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                   chatMessagesRecordReference);
                                           _shouldSetState = true;
                                           safeSetState(() {
-                                            _model.isDataUploading = false;
-                                            _model.uploadedLocalFile =
+                                            _model.isDataUploading_uploadDataKh5 =
+                                                false;
+                                            _model.uploadedLocalFile_uploadDataKh5 =
                                                 FFUploadedFile(
                                                     bytes:
                                                         Uint8List.fromList([]));

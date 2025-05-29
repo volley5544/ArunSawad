@@ -146,11 +146,15 @@ class _NotiSettingComponentWidgetState
                                     safeSetState(() =>
                                         _model.checkboxLeaveValue = newValue!);
                                   },
-                                  side: BorderSide(
-                                    width: 2,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
+                                  side: (FlutterFlowTheme.of(context)
+                                              .primaryText !=
+                                          null)
+                                      ? BorderSide(
+                                          width: 2,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText!,
+                                        )
+                                      : null,
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
                                   checkColor: Colors.white,
@@ -220,11 +224,15 @@ class _NotiSettingComponentWidgetState
                                     safeSetState(() =>
                                         _model.checkboxLeadValue = newValue!);
                                   },
-                                  side: BorderSide(
-                                    width: 2,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
+                                  side: (FlutterFlowTheme.of(context)
+                                              .primaryText !=
+                                          null)
+                                      ? BorderSide(
+                                          width: 2,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText!,
+                                        )
+                                      : null,
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
                                   checkColor: Colors.white,
@@ -294,11 +302,15 @@ class _NotiSettingComponentWidgetState
                                     safeSetState(() =>
                                         _model.checkboxLeadLHValue = newValue!);
                                   },
-                                  side: BorderSide(
-                                    width: 2,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
+                                  side: (FlutterFlowTheme.of(context)
+                                              .primaryText !=
+                                          null)
+                                      ? BorderSide(
+                                          width: 2,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText!,
+                                        )
+                                      : null,
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
                                   checkColor: Colors.white,
@@ -368,11 +380,15 @@ class _NotiSettingComponentWidgetState
                                     safeSetState(() => _model
                                         .checkboxImpoundCarValue = newValue!);
                                   },
-                                  side: BorderSide(
-                                    width: 2,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
+                                  side: (FlutterFlowTheme.of(context)
+                                              .primaryText !=
+                                          null)
+                                      ? BorderSide(
+                                          width: 2,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText!,
+                                        )
+                                      : null,
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
                                   checkColor: Colors.white,
@@ -442,11 +458,15 @@ class _NotiSettingComponentWidgetState
                                     safeSetState(() => _model
                                         .checkboxInsuranceValue = newValue!);
                                   },
-                                  side: BorderSide(
-                                    width: 2,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
+                                  side: (FlutterFlowTheme.of(context)
+                                              .primaryText !=
+                                          null)
+                                      ? BorderSide(
+                                          width: 2,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText!,
+                                        )
+                                      : null,
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
                                   checkColor: Colors.white,

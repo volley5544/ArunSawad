@@ -15,8 +15,8 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class CameraButtonModel extends FlutterFlowModel<CameraButtonWidget> {
   ///  State fields for stateful widgets in this component.
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadMediaThx = false;
+  FFUploadedFile uploadedLocalFile_uploadMediaThx =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Icon widget.

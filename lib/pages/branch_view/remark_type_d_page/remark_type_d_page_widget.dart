@@ -2011,7 +2011,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                     m.storagePath,
                                                                     context))) {
                                                           safeSetState(() =>
-                                                              _model.isDataUploading1 =
+                                                              _model.isDataUploading_uploadMediaThxTypeD =
                                                                   true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
@@ -2038,7 +2038,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                         ))
                                                                     .toList();
                                                           } finally {
-                                                            _model.isDataUploading1 =
+                                                            _model.isDataUploading_uploadMediaThxTypeD =
                                                                 false;
                                                           }
                                                           if (selectedUploadedFiles
@@ -2046,7 +2046,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                               selectedMedia
                                                                   .length) {
                                                             safeSetState(() {
-                                                              _model.uploadedLocalFile1 =
+                                                              _model.uploadedLocalFile_uploadMediaThxTypeD =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
@@ -2056,10 +2056,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                           }
                                                         }
 
-                                                        if (!(_model.uploadedLocalFile1 !=
+                                                        if (!(_model.uploadedLocalFile_uploadMediaThxTypeD !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile1
+                                                                    .uploadedLocalFile_uploadMediaThxTypeD
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false))) {
@@ -2089,15 +2089,15 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                         }
                                                         _model.addToUploadedimageList(
                                                             _model
-                                                                .uploadedLocalFile1);
+                                                                .uploadedLocalFile_uploadMediaThxTypeD);
                                                         _model
                                                             .addToUploadedFileTypeList(
                                                                 'image');
                                                         safeSetState(() {});
                                                         safeSetState(() {
-                                                          _model.isDataUploading1 =
+                                                          _model.isDataUploading_uploadMediaThxTypeD =
                                                               false;
-                                                          _model.uploadedLocalFile1 =
+                                                          _model.uploadedLocalFile_uploadMediaThxTypeD =
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
@@ -2241,7 +2241,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                           if (selectedFiles !=
                                                               null) {
                                                             safeSetState(() =>
-                                                                _model.isDataUploading2 =
+                                                                _model.isDataUploading_uploadData5u6PDF =
                                                                     true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
@@ -2258,7 +2258,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                           ))
                                                                       .toList();
                                                             } finally {
-                                                              _model.isDataUploading2 =
+                                                              _model.isDataUploading_uploadData5u6PDF =
                                                                   false;
                                                             }
                                                             if (selectedUploadedFiles
@@ -2266,7 +2266,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                 selectedFiles
                                                                     .length) {
                                                               safeSetState(() {
-                                                                _model.uploadedLocalFile2 =
+                                                                _model.uploadedLocalFile_uploadData5u6PDF =
                                                                     selectedUploadedFiles
                                                                         .first;
                                                               });
@@ -2277,10 +2277,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                             }
                                                           }
 
-                                                          if (!(_model.uploadedLocalFile2 !=
+                                                          if (!(_model.uploadedLocalFile_uploadData5u6PDF !=
                                                                   null &&
                                                               (_model
-                                                                      .uploadedLocalFile2
+                                                                      .uploadedLocalFile_uploadData5u6PDF
                                                                       .bytes
                                                                       ?.isNotEmpty ??
                                                                   false))) {
@@ -2310,15 +2310,15 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                           }
                                                           _model.addToUploadedimageList(
                                                               _model
-                                                                  .uploadedLocalFile2);
+                                                                  .uploadedLocalFile_uploadData5u6PDF);
                                                           _model
                                                               .addToUploadedFileTypeList(
                                                                   'pdf');
                                                           safeSetState(() {});
                                                           safeSetState(() {
-                                                            _model.isDataUploading2 =
+                                                            _model.isDataUploading_uploadData5u6PDF =
                                                                 false;
-                                                            _model.uploadedLocalFile2 =
+                                                            _model.uploadedLocalFile_uploadData5u6PDF =
                                                                 FFUploadedFile(
                                                                     bytes: Uint8List
                                                                         .fromList(
@@ -4287,60 +4287,69 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       _model.dropDownValue)),
                                           image1: _model
                                               .uploadedimageList.firstOrNull,
-                                          image2:
-                                              _model.uploadedimageList.length >=
-                                                      2
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(1)
-                                                  : _model.uploadedLocalFile1,
-                                          image3:
-                                              _model.uploadedimageList.length >=
-                                                      3
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(2)
-                                                  : _model.uploadedLocalFile1,
-                                          image4:
-                                              _model.uploadedimageList.length >=
-                                                      4
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(3)
-                                                  : _model.uploadedLocalFile1,
-                                          image5:
-                                              _model.uploadedimageList.length >=
-                                                      5
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(4)
-                                                  : _model.uploadedLocalFile1,
-                                          image6:
-                                              _model.uploadedimageList.length >=
-                                                      6
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(5)
-                                                  : _model.uploadedLocalFile1,
-                                          image7:
-                                              _model.uploadedimageList.length >=
-                                                      7
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(6)
-                                                  : _model.uploadedLocalFile1,
-                                          image8:
-                                              _model.uploadedimageList.length >=
-                                                      8
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(7)
-                                                  : _model.uploadedLocalFile1,
-                                          image9:
-                                              _model.uploadedimageList.length >=
-                                                      9
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(8)
-                                                  : _model.uploadedLocalFile1,
-                                          image10:
-                                              _model.uploadedimageList.length >=
-                                                      10
-                                                  ? _model.uploadedimageList
-                                                      .elementAtOrNull(9)
-                                                  : _model.uploadedLocalFile1,
+                                          image2: _model.uploadedimageList
+                                                      .length >=
+                                                  2
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(1)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
+                                          image3: _model.uploadedimageList
+                                                      .length >=
+                                                  3
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(2)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
+                                          image4: _model.uploadedimageList
+                                                      .length >=
+                                                  4
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(3)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
+                                          image5: _model.uploadedimageList
+                                                      .length >=
+                                                  5
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(4)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
+                                          image6: _model.uploadedimageList
+                                                      .length >=
+                                                  6
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(5)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
+                                          image7: _model.uploadedimageList
+                                                      .length >=
+                                                  7
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(6)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
+                                          image8: _model.uploadedimageList
+                                                      .length >=
+                                                  8
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(7)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
+                                          image9: _model.uploadedimageList
+                                                      .length >=
+                                                  9
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(8)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
+                                          image10: _model.uploadedimageList
+                                                      .length >=
+                                                  10
+                                              ? _model.uploadedimageList
+                                                  .elementAtOrNull(9)
+                                              : _model
+                                                  .uploadedLocalFile_uploadMediaThxTypeD,
                                         );
 
                                         _shouldSetState = true;

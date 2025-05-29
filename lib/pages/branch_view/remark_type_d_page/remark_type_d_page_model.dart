@@ -107,12 +107,12 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   FocusNode? remarkInputFocusNode;
   TextEditingController? remarkInputTextController;
   String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadMediaThxTypeD = false;
+  FFUploadedFile uploadedLocalFile_uploadMediaThxTypeD =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadData5u6PDF = false;
+  FFUploadedFile uploadedLocalFile_uploadData5u6PDF =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for TextField widget.

@@ -34,8 +34,8 @@ class RecordVideoCustomerModel
   ApiCallResponse? checkAppVloanApiOutput;
   // Stores action output result for [Backend Call - API (checkVloanContractActiveAPI)] action in Button widget.
   ApiCallResponse? checkContractActiveApiOutput;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadVideo = false;
+  FFUploadedFile uploadedLocalFile_uploadVideo =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   @override

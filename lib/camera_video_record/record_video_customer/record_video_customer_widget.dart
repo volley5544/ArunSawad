@@ -620,7 +620,8 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                           if (selectedMedia != null &&
                               selectedMedia.every((m) =>
                                   validateFileFormat(m.storagePath, context))) {
-                            safeSetState(() => _model.isDataUploading = true);
+                            safeSetState(() =>
+                                _model.isDataUploading_uploadVideo = true);
                             var selectedUploadedFiles = <FFUploadedFile>[];
 
                             try {
@@ -641,12 +642,12 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                             } finally {
                               ScaffoldMessenger.of(context)
                                   .hideCurrentSnackBar();
-                              _model.isDataUploading = false;
+                              _model.isDataUploading_uploadVideo = false;
                             }
                             if (selectedUploadedFiles.length ==
                                 selectedMedia.length) {
                               safeSetState(() {
-                                _model.uploadedLocalFile =
+                                _model.uploadedLocalFile_uploadVideo =
                                     selectedUploadedFiles.first;
                               });
                               showUploadMessage(context, 'Success!');

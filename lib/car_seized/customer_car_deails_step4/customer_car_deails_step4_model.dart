@@ -34,72 +34,72 @@ class CustomerCarDeailsStep4Model
 
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_car4Uploaded01 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded01 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_car4Uploaded02 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded02 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_car4Uploaded03 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded03 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_car4Uploaded04 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded04 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_car4Uploaded05 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded05 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading6 = false;
-  FFUploadedFile uploadedLocalFile6 =
+  bool isDataUploading_car4Uploaded06 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded06 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading7 = false;
-  FFUploadedFile uploadedLocalFile7 =
+  bool isDataUploading_car4Uploaded07 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded07 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading8 = false;
-  FFUploadedFile uploadedLocalFile8 =
+  bool isDataUploading_car4Uploaded08 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded08 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading9 = false;
-  FFUploadedFile uploadedLocalFile9 =
+  bool isDataUploading_car4Uploaded09 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded09 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading10 = false;
-  FFUploadedFile uploadedLocalFile10 =
+  bool isDataUploading_car4Uploaded10 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded10 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading11 = false;
-  FFUploadedFile uploadedLocalFile11 =
+  bool isDataUploading_car4Uploaded11 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded11 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading12 = false;
-  FFUploadedFile uploadedLocalFile12 =
+  bool isDataUploading_car4Uploaded12 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded12 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading13 = false;
-  FFUploadedFile uploadedLocalFile13 =
+  bool isDataUploading_car4Uploaded131 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded131 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading14 = false;
-  FFUploadedFile uploadedLocalFile14 =
+  bool isDataUploading_car4Uploaded13 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded13 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading15 = false;
-  FFUploadedFile uploadedLocalFile15 =
+  bool isDataUploading_car44Uploaded14 = false;
+  FFUploadedFile uploadedLocalFile_car44Uploaded14 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading16 = false;
-  FFUploadedFile uploadedLocalFile16 =
+  bool isDataUploading_car4Uploaded15 = false;
+  FFUploadedFile uploadedLocalFile_car4Uploaded15 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading17 = false;
-  FFUploadedFile uploadedLocalFile17 =
+  bool isDataUploading_car44Uploaded16 = false;
+  FFUploadedFile uploadedLocalFile_car44Uploaded16 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for PriceTextField widget.

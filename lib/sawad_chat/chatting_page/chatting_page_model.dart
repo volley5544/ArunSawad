@@ -37,8 +37,8 @@ class ChattingPageModel extends FlutterFlowModel<ChattingPageWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadDataKh5 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataKh5 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - Create Document] action in ImageIcon widget.

@@ -1351,11 +1351,15 @@ class _InsuranceRequestBasicPageWidgetState
                                         safeSetState(() {});
                                       }
                                     },
-                                    side: BorderSide(
-                                      width: 2,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                    ),
+                                    side: (FlutterFlowTheme.of(context)
+                                                .secondaryText !=
+                                            null)
+                                        ? BorderSide(
+                                            width: 2,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText!,
+                                          )
+                                        : null,
                                     activeColor:
                                         FlutterFlowTheme.of(context).primary,
                                     checkColor: Colors.white,
@@ -1435,11 +1439,15 @@ class _InsuranceRequestBasicPageWidgetState
                                       safeSetState(() =>
                                           _model.coopCheckboxValue = newValue!);
                                     },
-                                    side: BorderSide(
-                                      width: 2,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                    ),
+                                    side: (FlutterFlowTheme.of(context)
+                                                .secondaryText !=
+                                            null)
+                                        ? BorderSide(
+                                            width: 2,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText!,
+                                          )
+                                        : null,
                                     activeColor:
                                         FlutterFlowTheme.of(context).primary,
                                     checkColor: Colors.white,
@@ -3743,11 +3751,15 @@ class _InsuranceRequestBasicPageWidgetState
                                   safeSetState(() => _model
                                       .carModifyCheckboxValue = newValue!);
                                 },
-                                side: BorderSide(
-                                  width: 2,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                ),
+                                side: (FlutterFlowTheme.of(context)
+                                            .secondaryText !=
+                                        null)
+                                    ? BorderSide(
+                                        width: 2,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText!,
+                                      )
+                                    : null,
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 checkColor: Colors.white,

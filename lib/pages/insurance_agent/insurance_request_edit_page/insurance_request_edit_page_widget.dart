@@ -648,7 +648,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading1 = true);
+                                                      .isDataUploading_uploadPhoto1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -673,13 +674,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading1 = false;
+                                                _model.isDataUploading_uploadPhoto1Edit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile1 =
+                                                  _model.uploadedLocalFile_uploadPhoto1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -689,10 +691,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile1 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile1.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhoto1Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -795,7 +797,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading2 = true);
+                                                      .isDataUploading_uploadPhoto2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -820,13 +823,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading2 = false;
+                                                _model.isDataUploading_uploadPhoto2Edit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile2 =
+                                                  _model.uploadedLocalFile_uploadPhoto2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -836,10 +840,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile2 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile2.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhoto2Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -942,7 +946,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading3 = true);
+                                                      .isDataUploading_uploadPhoto3Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -967,13 +972,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading3 = false;
+                                                _model.isDataUploading_uploadPhoto3Edit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile3 =
+                                                  _model.uploadedLocalFile_uploadPhoto3Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -983,10 +989,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile3 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto3Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile3.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhoto3Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -1089,7 +1095,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading4 = true);
+                                                      .isDataUploading_uploadPhoto4Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -1114,13 +1121,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading4 = false;
+                                                _model.isDataUploading_uploadPhoto4Edit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile4 =
+                                                  _model.uploadedLocalFile_uploadPhoto4Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -1130,10 +1138,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile4 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto4Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile4.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhoto4Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -1236,7 +1244,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading5 = true);
+                                                      .isDataUploading_uploadPhoto5Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -1261,13 +1270,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading5 = false;
+                                                _model.isDataUploading_uploadPhoto5Edit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile5 =
+                                                  _model.uploadedLocalFile_uploadPhoto5Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -1277,10 +1287,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile5 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto5Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile5.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhoto5Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -1383,7 +1393,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading6 = true);
+                                                      .isDataUploading_uploadPhoto6Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -1408,13 +1419,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading6 = false;
+                                                _model.isDataUploading_uploadPhoto6Edit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile6 =
+                                                  _model.uploadedLocalFile_uploadPhoto6Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -1424,10 +1436,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile6 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto6Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile6.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhoto6Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -1530,7 +1542,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading7 = true);
+                                                      .isDataUploading_uploadPhotoShowEdit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -1555,13 +1568,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading7 = false;
+                                                _model.isDataUploading_uploadPhotoShowEdit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile7 =
+                                                  _model.uploadedLocalFile_uploadPhotoShowEdit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -1571,10 +1585,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile7 !=
+                                            if (_model.uploadedLocalFile_uploadPhotoShowEdit !=
                                                     null &&
-                                                (_model.uploadedLocalFile7.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhotoShowEdit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -1677,7 +1691,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading8 = true);
+                                                      .isDataUploading_uploadPhoto8Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -1702,13 +1717,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading8 = false;
+                                                _model.isDataUploading_uploadPhoto8Edit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile8 =
+                                                  _model.uploadedLocalFile_uploadPhoto8Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -1718,10 +1734,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile8 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto8Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile8.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhoto8Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -1824,7 +1840,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading9 = true);
+                                                      .isDataUploading_uploadPhoto9Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -1849,13 +1866,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading9 = false;
+                                                _model.isDataUploading_uploadPhoto9Edit =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile9 =
+                                                  _model.uploadedLocalFile_uploadPhoto9Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -1865,10 +1883,10 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile9 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto9Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile9.bytes
-                                                        ?.isNotEmpty ??
+                                                (_model.uploadedLocalFile_uploadPhoto9Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
@@ -1990,10 +2008,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile1 !=
+                                                    _model.uploadedLocalFile_uploadPhoto1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile1
+                                                                    .uploadedLocalFile_uploadPhoto1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -2115,9 +2133,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile1 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile1
+                                                  (_model.uploadedLocalFile_uploadPhoto1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -2133,9 +2151,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile1 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile1
+                                                  (_model.uploadedLocalFile_uploadPhoto1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -2182,10 +2200,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile2 !=
+                                                    _model.uploadedLocalFile_uploadPhoto2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile2
+                                                                    .uploadedLocalFile_uploadPhoto2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -2308,9 +2326,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile2 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile2
+                                                  (_model.uploadedLocalFile_uploadPhoto2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -2326,9 +2344,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile2 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile2
+                                                  (_model.uploadedLocalFile_uploadPhoto2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -2375,10 +2393,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile3 !=
+                                                    _model.uploadedLocalFile_uploadPhoto3Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile3
+                                                                    .uploadedLocalFile_uploadPhoto3Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -2500,9 +2518,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile3 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto3Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile3
+                                                  (_model.uploadedLocalFile_uploadPhoto3Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -2518,9 +2536,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile3 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto3Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile3
+                                                  (_model.uploadedLocalFile_uploadPhoto3Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -2567,10 +2585,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile4 !=
+                                                    _model.uploadedLocalFile_uploadPhoto4Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile4
+                                                                    .uploadedLocalFile_uploadPhoto4Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -2693,9 +2711,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile4 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto4Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile4
+                                                  (_model.uploadedLocalFile_uploadPhoto4Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -2711,9 +2729,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile4 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto4Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile4
+                                                  (_model.uploadedLocalFile_uploadPhoto4Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -2760,10 +2778,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile5 !=
+                                                    _model.uploadedLocalFile_uploadPhoto5Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile5
+                                                                    .uploadedLocalFile_uploadPhoto5Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -2885,9 +2903,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile5 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto5Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile5
+                                                  (_model.uploadedLocalFile_uploadPhoto5Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -2903,9 +2921,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile5 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto5Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile5
+                                                  (_model.uploadedLocalFile_uploadPhoto5Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -2952,10 +2970,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile6 !=
+                                                    _model.uploadedLocalFile_uploadPhoto6Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile6
+                                                                    .uploadedLocalFile_uploadPhoto6Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -3078,9 +3096,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile6 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto6Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile6
+                                                  (_model.uploadedLocalFile_uploadPhoto6Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -3096,9 +3114,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile6 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto6Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile6
+                                                  (_model.uploadedLocalFile_uploadPhoto6Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -3145,10 +3163,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile7 !=
+                                                    _model.uploadedLocalFile_uploadPhotoShowEdit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile7
+                                                                    .uploadedLocalFile_uploadPhotoShowEdit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -3270,9 +3288,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile7 !=
+                                              if (_model.uploadedLocalFile_uploadPhotoShowEdit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile7
+                                                  (_model.uploadedLocalFile_uploadPhotoShowEdit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -3288,9 +3306,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile7 ==
+                                              if (_model.uploadedLocalFile_uploadPhotoShowEdit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile7
+                                                  (_model.uploadedLocalFile_uploadPhotoShowEdit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -3337,10 +3355,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile8 !=
+                                                    _model.uploadedLocalFile_uploadPhoto8Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile8
+                                                                    .uploadedLocalFile_uploadPhoto8Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -3463,9 +3481,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile8 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto8Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile8
+                                                  (_model.uploadedLocalFile_uploadPhoto8Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -3481,9 +3499,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile8 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto8Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile8
+                                                  (_model.uploadedLocalFile_uploadPhoto8Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -3530,10 +3548,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile9 !=
+                                                    _model.uploadedLocalFile_uploadPhoto9Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile9
+                                                                    .uploadedLocalFile_uploadPhoto9Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -3655,9 +3673,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile9 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto9Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile9
+                                                  (_model.uploadedLocalFile_uploadPhoto9Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -3673,9 +3691,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile9 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto9Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile9
+                                                  (_model.uploadedLocalFile_uploadPhoto9Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -3782,7 +3800,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading10 = true);
+                                                      .isDataUploading_uploadPhoto1Truct1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -3807,14 +3826,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading10 =
+                                                _model.isDataUploading_uploadPhoto1Truct1Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile10 =
+                                                  _model.uploadedLocalFile_uploadPhoto1Truct1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -3824,9 +3843,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile10 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto1Truct1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile10
+                                                (_model.uploadedLocalFile_uploadPhoto1Truct1Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -3930,7 +3949,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading11 = true);
+                                                      .isDataUploading_uploadPhoto2Truct1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -3955,14 +3975,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading11 =
+                                                _model.isDataUploading_uploadPhoto2Truct1Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile11 =
+                                                  _model.uploadedLocalFile_uploadPhoto2Truct1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -3972,9 +3992,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile11 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto2Truct1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile11
+                                                (_model.uploadedLocalFile_uploadPhoto2Truct1Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -4078,7 +4098,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading12 = true);
+                                                      .isDataUploading_uploadPhoto3Truct1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -4103,14 +4124,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading12 =
+                                                _model.isDataUploading_uploadPhoto3Truct1Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile12 =
+                                                  _model.uploadedLocalFile_uploadPhoto3Truct1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -4120,9 +4141,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile12 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto3Truct1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile12
+                                                (_model.uploadedLocalFile_uploadPhoto3Truct1Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -4226,7 +4247,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading13 = true);
+                                                      .isDataUploading_uploadPhoto4Truct1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -4251,14 +4273,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading13 =
+                                                _model.isDataUploading_uploadPhoto4Truct1Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile13 =
+                                                  _model.uploadedLocalFile_uploadPhoto4Truct1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -4268,9 +4290,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile13 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto4Truct1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile13
+                                                (_model.uploadedLocalFile_uploadPhoto4Truct1Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -4374,7 +4396,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading14 = true);
+                                                      .isDataUploading_uploadPhoto5Truct1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -4399,14 +4422,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading14 =
+                                                _model.isDataUploading_uploadPhoto5Truct1Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile14 =
+                                                  _model.uploadedLocalFile_uploadPhoto5Truct1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -4416,9 +4439,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile14 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto5Truct1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile14
+                                                (_model.uploadedLocalFile_uploadPhoto5Truct1Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -4522,7 +4545,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading15 = true);
+                                                      .isDataUploading_uploadPhoto6Truct1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -4547,14 +4571,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading15 =
+                                                _model.isDataUploading_uploadPhoto6Truct1Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile15 =
+                                                  _model.uploadedLocalFile_uploadPhoto6Truct1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -4564,9 +4588,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile15 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto6Truct1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile15
+                                                (_model.uploadedLocalFile_uploadPhoto6Truct1Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -4670,7 +4694,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading16 = true);
+                                                      .isDataUploading_uploadPhotoShowTruct1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -4695,14 +4720,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading16 =
+                                                _model.isDataUploading_uploadPhotoShowTruct1Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile16 =
+                                                  _model.uploadedLocalFile_uploadPhotoShowTruct1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -4712,9 +4737,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile16 !=
+                                            if (_model.uploadedLocalFile_uploadPhotoShowTruct1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile16
+                                                (_model.uploadedLocalFile_uploadPhotoShowTruct1Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -4818,7 +4843,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading17 = true);
+                                                      .isDataUploading_uploadPhoto8Truct1Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -4843,14 +4869,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading17 =
+                                                _model.isDataUploading_uploadPhoto8Truct1Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile17 =
+                                                  _model.uploadedLocalFile_uploadPhoto8Truct1Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -4860,9 +4886,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile17 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto8Truct1Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile17
+                                                (_model.uploadedLocalFile_uploadPhoto8Truct1Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -4985,10 +5011,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile10 !=
+                                                    _model.uploadedLocalFile_uploadPhoto1Truct1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile10
+                                                                    .uploadedLocalFile_uploadPhoto1Truct1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -5110,9 +5136,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile10 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto1Truct1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile10
+                                                  (_model.uploadedLocalFile_uploadPhoto1Truct1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -5128,9 +5154,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile10 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto1Truct1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile10
+                                                  (_model.uploadedLocalFile_uploadPhoto1Truct1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -5177,10 +5203,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile11 !=
+                                                    _model.uploadedLocalFile_uploadPhoto2Truct1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile11
+                                                                    .uploadedLocalFile_uploadPhoto2Truct1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -5303,9 +5329,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile11 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto2Truct1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile11
+                                                  (_model.uploadedLocalFile_uploadPhoto2Truct1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -5321,9 +5347,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile11 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto2Truct1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile11
+                                                  (_model.uploadedLocalFile_uploadPhoto2Truct1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -5370,10 +5396,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile12 !=
+                                                    _model.uploadedLocalFile_uploadPhoto3Truct1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile12
+                                                                    .uploadedLocalFile_uploadPhoto3Truct1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -5495,9 +5521,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile12 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto3Truct1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile12
+                                                  (_model.uploadedLocalFile_uploadPhoto3Truct1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -5513,9 +5539,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile12 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto3Truct1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile12
+                                                  (_model.uploadedLocalFile_uploadPhoto3Truct1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -5562,10 +5588,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile13 !=
+                                                    _model.uploadedLocalFile_uploadPhoto4Truct1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile13
+                                                                    .uploadedLocalFile_uploadPhoto4Truct1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -5688,9 +5714,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile13 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto4Truct1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile13
+                                                  (_model.uploadedLocalFile_uploadPhoto4Truct1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -5706,9 +5732,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile13 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto4Truct1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile13
+                                                  (_model.uploadedLocalFile_uploadPhoto4Truct1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -5755,10 +5781,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile14 !=
+                                                    _model.uploadedLocalFile_uploadPhoto5Truct1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile14
+                                                                    .uploadedLocalFile_uploadPhoto5Truct1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -5880,9 +5906,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile14 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto5Truct1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile14
+                                                  (_model.uploadedLocalFile_uploadPhoto5Truct1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -5898,9 +5924,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile14 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto5Truct1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile14
+                                                  (_model.uploadedLocalFile_uploadPhoto5Truct1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -5947,10 +5973,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile15 !=
+                                                    _model.uploadedLocalFile_uploadPhoto6Truct1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile15
+                                                                    .uploadedLocalFile_uploadPhoto6Truct1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -6073,9 +6099,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile15 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto6Truct1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile15
+                                                  (_model.uploadedLocalFile_uploadPhoto6Truct1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -6091,9 +6117,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile15 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto6Truct1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile15
+                                                  (_model.uploadedLocalFile_uploadPhoto6Truct1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -6140,10 +6166,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile16 !=
+                                                    _model.uploadedLocalFile_uploadPhotoShowTruct1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile16
+                                                                    .uploadedLocalFile_uploadPhotoShowTruct1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -6265,9 +6291,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile16 !=
+                                              if (_model.uploadedLocalFile_uploadPhotoShowTruct1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile16
+                                                  (_model.uploadedLocalFile_uploadPhotoShowTruct1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -6283,9 +6309,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile16 ==
+                                              if (_model.uploadedLocalFile_uploadPhotoShowTruct1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile16
+                                                  (_model.uploadedLocalFile_uploadPhotoShowTruct1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -6332,10 +6358,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile17 !=
+                                                    _model.uploadedLocalFile_uploadPhoto8Truct1Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile17
+                                                                    .uploadedLocalFile_uploadPhoto8Truct1Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -6458,9 +6484,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile17 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto8Truct1Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile17
+                                                  (_model.uploadedLocalFile_uploadPhoto8Truct1Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -6476,9 +6502,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile17 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto8Truct1Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile17
+                                                  (_model.uploadedLocalFile_uploadPhoto8Truct1Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -6586,7 +6612,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading18 = true);
+                                                      .isDataUploading_uploadPhoto1Truct2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -6611,14 +6638,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading18 =
+                                                _model.isDataUploading_uploadPhoto1Truct2Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile18 =
+                                                  _model.uploadedLocalFile_uploadPhoto1Truct2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -6628,9 +6655,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile18 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto1Truct2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile18
+                                                (_model.uploadedLocalFile_uploadPhoto1Truct2Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -6734,7 +6761,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading19 = true);
+                                                      .isDataUploading_uploadPhoto2Truct2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -6759,14 +6787,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading19 =
+                                                _model.isDataUploading_uploadPhoto2Truct2Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile19 =
+                                                  _model.uploadedLocalFile_uploadPhoto2Truct2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -6776,9 +6804,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile19 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto2Truct2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile19
+                                                (_model.uploadedLocalFile_uploadPhoto2Truct2Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -6882,7 +6910,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading20 = true);
+                                                      .isDataUploading_uploadPhoto3Truct2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -6907,14 +6936,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading20 =
+                                                _model.isDataUploading_uploadPhoto3Truct2Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile20 =
+                                                  _model.uploadedLocalFile_uploadPhoto3Truct2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -6924,9 +6953,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile20 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto3Truct2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile20
+                                                (_model.uploadedLocalFile_uploadPhoto3Truct2Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -7030,7 +7059,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading21 = true);
+                                                      .isDataUploading_uploadPhoto4Truct2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -7055,14 +7085,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading21 =
+                                                _model.isDataUploading_uploadPhoto4Truct2Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile21 =
+                                                  _model.uploadedLocalFile_uploadPhoto4Truct2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -7072,9 +7102,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile21 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto4Truct2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile21
+                                                (_model.uploadedLocalFile_uploadPhoto4Truct2Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -7178,7 +7208,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading22 = true);
+                                                      .isDataUploading_uploadPhoto5Truct2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -7203,14 +7234,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading22 =
+                                                _model.isDataUploading_uploadPhoto5Truct2Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile22 =
+                                                  _model.uploadedLocalFile_uploadPhoto5Truct2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -7220,9 +7251,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile22 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto5Truct2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile22
+                                                (_model.uploadedLocalFile_uploadPhoto5Truct2Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -7326,7 +7357,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading23 = true);
+                                                      .isDataUploading_uploadPhoto6Truct2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -7351,14 +7383,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading23 =
+                                                _model.isDataUploading_uploadPhoto6Truct2Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile23 =
+                                                  _model.uploadedLocalFile_uploadPhoto6Truct2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -7368,9 +7400,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile23 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto6Truct2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile23
+                                                (_model.uploadedLocalFile_uploadPhoto6Truct2Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -7474,7 +7506,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading24 = true);
+                                                      .isDataUploading_uploadPhotoShowTruct2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -7499,14 +7532,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading24 =
+                                                _model.isDataUploading_uploadPhotoShowTruct2Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile24 =
+                                                  _model.uploadedLocalFile_uploadPhotoShowTruct2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -7516,9 +7549,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile24 !=
+                                            if (_model.uploadedLocalFile_uploadPhotoShowTruct2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile24
+                                                (_model.uploadedLocalFile_uploadPhotoShowTruct2Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -7622,7 +7655,8 @@ class _InsuranceRequestEditPageWidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading25 = true);
+                                                      .isDataUploading_uploadPhoto8Truct2Edit =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -7647,14 +7681,14 @@ class _InsuranceRequestEditPageWidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading25 =
+                                                _model.isDataUploading_uploadPhoto8Truct2Edit =
                                                     false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile25 =
+                                                  _model.uploadedLocalFile_uploadPhoto8Truct2Edit =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -7664,9 +7698,9 @@ class _InsuranceRequestEditPageWidgetState
                                               }
                                             }
 
-                                            if (_model.uploadedLocalFile25 !=
+                                            if (_model.uploadedLocalFile_uploadPhoto8Truct2Edit !=
                                                     null &&
-                                                (_model.uploadedLocalFile25
+                                                (_model.uploadedLocalFile_uploadPhoto8Truct2Edit
                                                         .bytes?.isNotEmpty ??
                                                     false)) {
                                               ScaffoldMessenger.of(context)
@@ -7790,10 +7824,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile18 !=
+                                                    _model.uploadedLocalFile_uploadPhoto1Truct2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile18
+                                                                    .uploadedLocalFile_uploadPhoto1Truct2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -7916,9 +7950,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile18 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto1Truct2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile18
+                                                  (_model.uploadedLocalFile_uploadPhoto1Truct2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -7934,9 +7968,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile18 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto1Truct2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile18
+                                                  (_model.uploadedLocalFile_uploadPhoto1Truct2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -7983,10 +8017,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile19 !=
+                                                    _model.uploadedLocalFile_uploadPhoto2Truct2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile19
+                                                                    .uploadedLocalFile_uploadPhoto2Truct2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -8109,9 +8143,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile19 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto2Truct2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile19
+                                                  (_model.uploadedLocalFile_uploadPhoto2Truct2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -8127,9 +8161,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile19 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto2Truct2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile19
+                                                  (_model.uploadedLocalFile_uploadPhoto2Truct2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -8176,10 +8210,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile20 !=
+                                                    _model.uploadedLocalFile_uploadPhoto3Truct2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile20
+                                                                    .uploadedLocalFile_uploadPhoto3Truct2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -8302,9 +8336,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile20 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto3Truct2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile20
+                                                  (_model.uploadedLocalFile_uploadPhoto3Truct2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -8320,9 +8354,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile20 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto3Truct2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile20
+                                                  (_model.uploadedLocalFile_uploadPhoto3Truct2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -8369,10 +8403,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile21 !=
+                                                    _model.uploadedLocalFile_uploadPhoto4Truct2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile21
+                                                                    .uploadedLocalFile_uploadPhoto4Truct2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -8495,9 +8529,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile21 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto4Truct2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile21
+                                                  (_model.uploadedLocalFile_uploadPhoto4Truct2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -8513,9 +8547,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile21 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto4Truct2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile21
+                                                  (_model.uploadedLocalFile_uploadPhoto4Truct2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -8562,10 +8596,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile22 !=
+                                                    _model.uploadedLocalFile_uploadPhoto5Truct2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile22
+                                                                    .uploadedLocalFile_uploadPhoto5Truct2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -8688,9 +8722,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile22 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto5Truct2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile22
+                                                  (_model.uploadedLocalFile_uploadPhoto5Truct2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -8706,9 +8740,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile22 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto5Truct2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile22
+                                                  (_model.uploadedLocalFile_uploadPhoto5Truct2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -8755,10 +8789,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile23 !=
+                                                    _model.uploadedLocalFile_uploadPhoto6Truct2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile23
+                                                                    .uploadedLocalFile_uploadPhoto6Truct2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -8881,9 +8915,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile23 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto6Truct2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile23
+                                                  (_model.uploadedLocalFile_uploadPhoto6Truct2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -8899,9 +8933,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile23 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto6Truct2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile23
+                                                  (_model.uploadedLocalFile_uploadPhoto6Truct2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -8948,10 +8982,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile24 !=
+                                                    _model.uploadedLocalFile_uploadPhotoShowTruct2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile24
+                                                                    .uploadedLocalFile_uploadPhotoShowTruct2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -9074,9 +9108,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile24 !=
+                                              if (_model.uploadedLocalFile_uploadPhotoShowTruct2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile24
+                                                  (_model.uploadedLocalFile_uploadPhotoShowTruct2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -9092,9 +9126,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile24 ==
+                                              if (_model.uploadedLocalFile_uploadPhotoShowTruct2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile24
+                                                  (_model.uploadedLocalFile_uploadPhotoShowTruct2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -9141,10 +9175,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedLocalFile25 !=
+                                                    _model.uploadedLocalFile_uploadPhoto8Truct2Edit !=
                                                                 null &&
                                                             (_model
-                                                                    .uploadedLocalFile25
+                                                                    .uploadedLocalFile_uploadPhoto8Truct2Edit
                                                                     .bytes
                                                                     ?.isNotEmpty ??
                                                                 false)
@@ -9267,9 +9301,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile25 !=
+                                              if (_model.uploadedLocalFile_uploadPhoto8Truct2Edit !=
                                                       null &&
-                                                  (_model.uploadedLocalFile25
+                                                  (_model.uploadedLocalFile_uploadPhoto8Truct2Edit
                                                           .bytes?.isNotEmpty ??
                                                       false))
                                                 Expanded(
@@ -9285,9 +9319,9 @@ class _InsuranceRequestEditPageWidgetState
                                                     ),
                                                   ),
                                                 ),
-                                              if (_model.uploadedLocalFile25 ==
+                                              if (_model.uploadedLocalFile_uploadPhoto8Truct2Edit ==
                                                       null ||
-                                                  (_model.uploadedLocalFile25
+                                                  (_model.uploadedLocalFile_uploadPhoto8Truct2Edit
                                                           .bytes?.isEmpty ??
                                                       true))
                                                 Expanded(
@@ -9446,7 +9480,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading26 =
+                                                              .isDataUploading_uploadData9Edit =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -9474,7 +9508,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading26 =
+                                                        _model.isDataUploading_uploadData9Edit =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -9482,7 +9516,7 @@ class _InsuranceRequestEditPageWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile26 =
+                                                          _model.uploadedLocalFile_uploadData9Edit =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -9492,10 +9526,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile26 !=
+                                                    if (_model.uploadedLocalFile_uploadData9Edit !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile26
+                                                                .uploadedLocalFile_uploadData9Edit
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -9680,7 +9714,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading27 =
+                                                              .isDataUploading_uploadData10Edit =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -9708,7 +9742,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading27 =
+                                                        _model.isDataUploading_uploadData10Edit =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -9716,7 +9750,7 @@ class _InsuranceRequestEditPageWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile27 =
+                                                          _model.uploadedLocalFile_uploadData10Edit =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -9726,10 +9760,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile27 !=
+                                                    if (_model.uploadedLocalFile_uploadData10Edit !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile27
+                                                                .uploadedLocalFile_uploadData10Edit
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -9911,7 +9945,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       safeSetState(() => _model
-                                                              .isDataUploading28 =
+                                                              .isDataUploading_uploadData11Edit =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -9939,7 +9973,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                     ))
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading28 =
+                                                        _model.isDataUploading_uploadData11Edit =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -9947,7 +9981,7 @@ class _InsuranceRequestEditPageWidgetState
                                                           selectedMedia
                                                               .length) {
                                                         safeSetState(() {
-                                                          _model.uploadedLocalFile28 =
+                                                          _model.uploadedLocalFile_uploadData11Edit =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
@@ -9957,10 +9991,10 @@ class _InsuranceRequestEditPageWidgetState
                                                       }
                                                     }
 
-                                                    if (_model.uploadedLocalFile28 !=
+                                                    if (_model.uploadedLocalFile_uploadData11Edit !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile28
+                                                                .uploadedLocalFile_uploadData11Edit
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)) {
@@ -10102,10 +10136,10 @@ class _InsuranceRequestEditPageWidgetState
                                               ],
                                             ),
                                           ),
-                                          if (_model.uploadedLocalFile28 !=
+                                          if (_model.uploadedLocalFile_uploadData11Edit !=
                                                   null &&
-                                              (_model.uploadedLocalFile28.bytes
-                                                      ?.isNotEmpty ??
+                                              (_model.uploadedLocalFile_uploadData11Edit
+                                                      .bytes?.isNotEmpty ??
                                                   false))
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -10133,7 +10167,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading29 =
+                                                                .isDataUploading_uploadData12Edit =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -10160,7 +10194,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                       ))
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading29 =
+                                                          _model.isDataUploading_uploadData12Edit =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -10168,7 +10202,7 @@ class _InsuranceRequestEditPageWidgetState
                                                             selectedMedia
                                                                 .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile29 =
+                                                            _model.uploadedLocalFile_uploadData12Edit =
                                                                 selectedUploadedFiles
                                                                     .first;
                                                           });
@@ -10178,10 +10212,10 @@ class _InsuranceRequestEditPageWidgetState
                                                         }
                                                       }
 
-                                                      if (_model.uploadedLocalFile29 !=
+                                                      if (_model.uploadedLocalFile_uploadData12Edit !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile29
+                                                                  .uploadedLocalFile_uploadData12Edit
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)) {
@@ -10328,10 +10362,10 @@ class _InsuranceRequestEditPageWidgetState
                                                 ],
                                               ),
                                             ),
-                                          if (_model.uploadedLocalFile29 !=
+                                          if (_model.uploadedLocalFile_uploadData12Edit !=
                                                   null &&
-                                              (_model.uploadedLocalFile29.bytes
-                                                      ?.isNotEmpty ??
+                                              (_model.uploadedLocalFile_uploadData12Edit
+                                                      .bytes?.isNotEmpty ??
                                                   false))
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -10359,7 +10393,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading30 =
+                                                                .isDataUploading_uploadData13Edit =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -10386,7 +10420,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                       ))
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading30 =
+                                                          _model.isDataUploading_uploadData13Edit =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -10394,7 +10428,7 @@ class _InsuranceRequestEditPageWidgetState
                                                             selectedMedia
                                                                 .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile30 =
+                                                            _model.uploadedLocalFile_uploadData13Edit =
                                                                 selectedUploadedFiles
                                                                     .first;
                                                           });
@@ -10404,10 +10438,10 @@ class _InsuranceRequestEditPageWidgetState
                                                         }
                                                       }
 
-                                                      if (_model.uploadedLocalFile30 !=
+                                                      if (_model.uploadedLocalFile_uploadData13Edit !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile30
+                                                                  .uploadedLocalFile_uploadData13Edit
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)) {
@@ -10554,10 +10588,10 @@ class _InsuranceRequestEditPageWidgetState
                                                 ],
                                               ),
                                             ),
-                                          if (_model.uploadedLocalFile30 !=
+                                          if (_model.uploadedLocalFile_uploadData13Edit !=
                                                   null &&
-                                              (_model.uploadedLocalFile30.bytes
-                                                      ?.isNotEmpty ??
+                                              (_model.uploadedLocalFile_uploadData13Edit
+                                                      .bytes?.isNotEmpty ??
                                                   false))
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -10585,7 +10619,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading31 =
+                                                                .isDataUploading_uploadData14Edit =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -10612,7 +10646,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                       ))
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading31 =
+                                                          _model.isDataUploading_uploadData14Edit =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -10620,7 +10654,7 @@ class _InsuranceRequestEditPageWidgetState
                                                             selectedMedia
                                                                 .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile31 =
+                                                            _model.uploadedLocalFile_uploadData14Edit =
                                                                 selectedUploadedFiles
                                                                     .first;
                                                           });
@@ -10630,10 +10664,10 @@ class _InsuranceRequestEditPageWidgetState
                                                         }
                                                       }
 
-                                                      if (_model.uploadedLocalFile31 !=
+                                                      if (_model.uploadedLocalFile_uploadData14Edit !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile31
+                                                                  .uploadedLocalFile_uploadData14Edit
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)) {
@@ -10780,10 +10814,10 @@ class _InsuranceRequestEditPageWidgetState
                                                 ],
                                               ),
                                             ),
-                                          if (_model.uploadedLocalFile31 !=
+                                          if (_model.uploadedLocalFile_uploadData14Edit !=
                                                   null &&
-                                              (_model.uploadedLocalFile31.bytes
-                                                      ?.isNotEmpty ??
+                                              (_model.uploadedLocalFile_uploadData14Edit
+                                                      .bytes?.isNotEmpty ??
                                                   false))
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -10811,7 +10845,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading32 =
+                                                                .isDataUploading_uploadData15Edit =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -10838,7 +10872,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                       ))
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading32 =
+                                                          _model.isDataUploading_uploadData15Edit =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -10846,7 +10880,7 @@ class _InsuranceRequestEditPageWidgetState
                                                             selectedMedia
                                                                 .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile32 =
+                                                            _model.uploadedLocalFile_uploadData15Edit =
                                                                 selectedUploadedFiles
                                                                     .first;
                                                           });
@@ -10856,10 +10890,10 @@ class _InsuranceRequestEditPageWidgetState
                                                         }
                                                       }
 
-                                                      if (_model.uploadedLocalFile32 !=
+                                                      if (_model.uploadedLocalFile_uploadData15Edit !=
                                                               null &&
                                                           (_model
-                                                                  .uploadedLocalFile32
+                                                                  .uploadedLocalFile_uploadData15Edit
                                                                   .bytes
                                                                   ?.isNotEmpty ??
                                                               false)) {
@@ -11045,10 +11079,10 @@ class _InsuranceRequestEditPageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              _model.uploadedLocalFile26 !=
+                                              _model.uploadedLocalFile_uploadData9Edit !=
                                                           null &&
                                                       (_model
-                                                              .uploadedLocalFile26
+                                                              .uploadedLocalFile_uploadData9Edit
                                                               .bytes
                                                               ?.isNotEmpty ??
                                                           false)
@@ -11169,10 +11203,10 @@ class _InsuranceRequestEditPageWidgetState
                                               ),
                                             ),
                                           ),
-                                        if (_model.uploadedLocalFile26 !=
+                                        if (_model.uploadedLocalFile_uploadData9Edit !=
                                                 null &&
-                                            (_model.uploadedLocalFile26.bytes
-                                                    ?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadData9Edit
+                                                    .bytes?.isNotEmpty ??
                                                 false))
                                           Expanded(
                                             flex: 1,
@@ -11186,10 +11220,10 @@ class _InsuranceRequestEditPageWidgetState
                                               ),
                                             ),
                                           ),
-                                        if (_model.uploadedLocalFile26 ==
+                                        if (_model.uploadedLocalFile_uploadData9Edit ==
                                                 null ||
-                                            (_model.uploadedLocalFile26.bytes
-                                                    ?.isEmpty ??
+                                            (_model.uploadedLocalFile_uploadData9Edit
+                                                    .bytes?.isEmpty ??
                                                 true))
                                           Expanded(
                                             flex: 1,
@@ -11232,10 +11266,10 @@ class _InsuranceRequestEditPageWidgetState
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                _model.uploadedLocalFile27 !=
+                                                _model.uploadedLocalFile_uploadData10Edit !=
                                                             null &&
                                                         (_model
-                                                                .uploadedLocalFile27
+                                                                .uploadedLocalFile_uploadData10Edit
                                                                 .bytes
                                                                 ?.isNotEmpty ??
                                                             false)
@@ -11359,10 +11393,10 @@ class _InsuranceRequestEditPageWidgetState
                                                 ),
                                               ),
                                             ),
-                                          if (_model.uploadedLocalFile27 !=
+                                          if (_model.uploadedLocalFile_uploadData10Edit !=
                                                   null &&
-                                              (_model.uploadedLocalFile27.bytes
-                                                      ?.isNotEmpty ??
+                                              (_model.uploadedLocalFile_uploadData10Edit
+                                                      .bytes?.isNotEmpty ??
                                                   false))
                                             Expanded(
                                               flex: 1,
@@ -11376,10 +11410,10 @@ class _InsuranceRequestEditPageWidgetState
                                                 ),
                                               ),
                                             ),
-                                          if (_model.uploadedLocalFile27 ==
+                                          if (_model.uploadedLocalFile_uploadData10Edit ==
                                                   null ||
-                                              (_model.uploadedLocalFile27.bytes
-                                                      ?.isEmpty ??
+                                              (_model.uploadedLocalFile_uploadData10Edit
+                                                      .bytes?.isEmpty ??
                                                   true))
                                             Expanded(
                                               flex: 1,
@@ -11556,9 +11590,10 @@ class _InsuranceRequestEditPageWidgetState
                                       ),
                                     ),
                                   ),
-                                if (_model.uploadedLocalFile28 != null &&
-                                    (_model.uploadedLocalFile28.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_uploadData11Edit !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploadData11Edit
+                                            .bytes?.isNotEmpty ??
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -11637,9 +11672,10 @@ class _InsuranceRequestEditPageWidgetState
                                       ),
                                     ),
                                   ),
-                                if (_model.uploadedLocalFile29 != null &&
-                                    (_model.uploadedLocalFile29.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_uploadData12Edit !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploadData12Edit
+                                            .bytes?.isNotEmpty ??
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -11718,9 +11754,10 @@ class _InsuranceRequestEditPageWidgetState
                                       ),
                                     ),
                                   ),
-                                if (_model.uploadedLocalFile30 != null &&
-                                    (_model.uploadedLocalFile30.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_uploadData13Edit !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploadData13Edit
+                                            .bytes?.isNotEmpty ??
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -11799,9 +11836,10 @@ class _InsuranceRequestEditPageWidgetState
                                       ),
                                     ),
                                   ),
-                                if (_model.uploadedLocalFile31 != null &&
-                                    (_model.uploadedLocalFile31.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_uploadData14Edit !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploadData14Edit
+                                            .bytes?.isNotEmpty ??
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -11880,9 +11918,10 @@ class _InsuranceRequestEditPageWidgetState
                                       ),
                                     ),
                                   ),
-                                if (_model.uploadedLocalFile32 != null &&
-                                    (_model.uploadedLocalFile32.bytes
-                                            ?.isNotEmpty ??
+                                if (_model.uploadedLocalFile_uploadData15Edit !=
+                                        null &&
+                                    (_model.uploadedLocalFile_uploadData15Edit
+                                            .bytes?.isNotEmpty ??
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -11987,65 +12026,60 @@ class _InsuranceRequestEditPageWidgetState
                                       onPressed: () async {
                                         var _shouldSetState = false;
                                         HapticFeedback.mediumImpact();
-                                        if (!((_model.uploadedLocalFile1 != null && (_model.uploadedLocalFile1.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile2 != null &&
-                                                (_model.uploadedLocalFile2.bytes?.isNotEmpty ??
+                                        if (!((_model.uploadedLocalFile_uploadPhoto1Edit != null && (_model.uploadedLocalFile_uploadPhoto1Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto2Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto2Edit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile3 != null &&
-                                                (_model.uploadedLocalFile3.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhoto3Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto3Edit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile4 != null &&
-                                                (_model.uploadedLocalFile4.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhoto4Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto4Edit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile5 != null &&
-                                                (_model.uploadedLocalFile5.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhoto5Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto5Edit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile6 != null &&
-                                                (_model.uploadedLocalFile6.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhoto6Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto6Edit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile7 != null &&
-                                                (_model.uploadedLocalFile7.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhotoShowEdit != null &&
+                                                (_model.uploadedLocalFile_uploadPhotoShowEdit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile8 != null &&
-                                                (_model.uploadedLocalFile8.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhoto8Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto8Edit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile9 != null &&
-                                                (_model.uploadedLocalFile9.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhoto9Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto9Edit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile10 != null &&
-                                                (_model.uploadedLocalFile10.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhoto1Truct1Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto1Truct1Edit.bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile11 != null &&
-                                                (_model.uploadedLocalFile11.bytes?.isNotEmpty ??
+                                            (_model.uploadedLocalFile_uploadPhoto2Truct1Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto2Truct1Edit
+                                                        .bytes?.isNotEmpty ??
                                                     false)) ||
-                                            (_model.uploadedLocalFile12 != null &&
-                                                (_model.uploadedLocalFile12.bytes?.isNotEmpty ??
-                                                    false)) ||
-                                            (_model.uploadedLocalFile13 != null &&
-                                                (_model.uploadedLocalFile13.bytes?.isNotEmpty ??
-                                                    false)) ||
-                                            (_model.uploadedLocalFile14 != null &&
-                                                (_model.uploadedLocalFile14.bytes?.isNotEmpty ??
-                                                    false)) ||
-                                            (_model.uploadedLocalFile15 != null &&
-                                                (_model.uploadedLocalFile15.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile16 != null && (_model.uploadedLocalFile16.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile17 != null && (_model.uploadedLocalFile17.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile18 != null && (_model.uploadedLocalFile18.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile19 != null && (_model.uploadedLocalFile19.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile20 != null && (_model.uploadedLocalFile20.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile21 != null && (_model.uploadedLocalFile21.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile22 != null && (_model.uploadedLocalFile22.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile23 != null && (_model.uploadedLocalFile23.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile24 != null && (_model.uploadedLocalFile24.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile25 != null && (_model.uploadedLocalFile25.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile26 != null && (_model.uploadedLocalFile26.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile27 != null && (_model.uploadedLocalFile27.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile28 != null && (_model.uploadedLocalFile28.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile29 != null && (_model.uploadedLocalFile29.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile30 != null && (_model.uploadedLocalFile30.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile31 != null && (_model.uploadedLocalFile31.bytes?.isNotEmpty ?? false)) ||
-                                            (_model.uploadedLocalFile32 != null && (_model.uploadedLocalFile32.bytes?.isNotEmpty ?? false)))) {
+                                            (_model.uploadedLocalFile_uploadPhoto3Truct1Edit != null &&
+                                                (_model.uploadedLocalFile_uploadPhoto3Truct1Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto4Truct1Edit != null && (_model.uploadedLocalFile_uploadPhoto4Truct1Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto5Truct1Edit != null && (_model.uploadedLocalFile_uploadPhoto5Truct1Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto6Truct1Edit != null && (_model.uploadedLocalFile_uploadPhoto6Truct1Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhotoShowTruct1Edit != null && (_model.uploadedLocalFile_uploadPhotoShowTruct1Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto8Truct1Edit != null && (_model.uploadedLocalFile_uploadPhoto8Truct1Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto1Truct2Edit != null && (_model.uploadedLocalFile_uploadPhoto1Truct2Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto2Truct2Edit != null && (_model.uploadedLocalFile_uploadPhoto2Truct2Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto3Truct2Edit != null && (_model.uploadedLocalFile_uploadPhoto3Truct2Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto4Truct2Edit != null && (_model.uploadedLocalFile_uploadPhoto4Truct2Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto5Truct2Edit != null && (_model.uploadedLocalFile_uploadPhoto5Truct2Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto6Truct2Edit != null && (_model.uploadedLocalFile_uploadPhoto6Truct2Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhotoShowTruct2Edit != null && (_model.uploadedLocalFile_uploadPhotoShowTruct2Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadPhoto8Truct2Edit != null && (_model.uploadedLocalFile_uploadPhoto8Truct2Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadData9Edit != null && (_model.uploadedLocalFile_uploadData9Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadData10Edit != null && (_model.uploadedLocalFile_uploadData10Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadData11Edit != null && (_model.uploadedLocalFile_uploadData11Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadData12Edit != null && (_model.uploadedLocalFile_uploadData12Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadData13Edit != null && (_model.uploadedLocalFile_uploadData13Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadData14Edit != null && (_model.uploadedLocalFile_uploadData14Edit.bytes?.isNotEmpty ?? false)) ||
+                                            (_model.uploadedLocalFile_uploadData15Edit != null && (_model.uploadedLocalFile_uploadData15Edit.bytes?.isNotEmpty ?? false)))) {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -12120,70 +12154,88 @@ class _InsuranceRequestEditPageWidgetState
                                                       _model.radioButtonValue)),
                                           imageFront: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile10
-                                              : _model.uploadedLocalFile1,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhoto1Truct1Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhoto1Edit,
                                           imageRear: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile14
-                                              : _model.uploadedLocalFile5,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhoto5Truct1Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhoto5Edit,
                                           imageLeft: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile16
-                                              : _model.uploadedLocalFile7,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhotoShowTruct1Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhotoShowEdit,
                                           imageRight: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile12
-                                              : _model.uploadedLocalFile3,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhoto3Truct1Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhoto3Edit,
                                           imageRightfront: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile11
-                                              : _model.uploadedLocalFile2,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhoto2Truct1Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhoto2Edit,
                                           imageRightrear: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile13
-                                              : _model.uploadedLocalFile4,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhoto4Truct1Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhoto4Edit,
                                           imageLeftfront: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile17
-                                              : _model.uploadedLocalFile8,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhoto8Truct1Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhoto8Edit,
                                           imageLeftrear: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile15
-                                              : _model.uploadedLocalFile6,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhoto6Truct1Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhoto6Edit,
                                           imageRoof: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
-                                              ? _model.uploadedLocalFile9
-                                              : _model.uploadedLocalFile9,
-                                          imageIdcard:
-                                              _model.uploadedLocalFile27,
-                                          imageBluebook:
-                                              _model.uploadedLocalFile26,
-                                          imageOther1:
-                                              _model.uploadedLocalFile28,
-                                          imageOther2:
-                                              _model.uploadedLocalFile29,
-                                          imageOther3:
-                                              _model.uploadedLocalFile30,
-                                          imageOther4:
-                                              _model.uploadedLocalFile31,
-                                          imageOther5:
-                                              _model.uploadedLocalFile32,
-                                          imageFrontTrailer:
-                                              _model.uploadedLocalFile18,
-                                          imageRightfrontTrailer:
-                                              _model.uploadedLocalFile19,
-                                          imageRightTrailer:
-                                              _model.uploadedLocalFile20,
-                                          imageRightrearTrailer:
-                                              _model.uploadedLocalFile21,
-                                          imageRearTrailer:
-                                              _model.uploadedLocalFile22,
-                                          imageLeftrearTrailer:
-                                              _model.uploadedLocalFile23,
-                                          imageLeftTrailer:
-                                              _model.uploadedLocalFile24,
-                                          imageLeftfrontTrailer:
-                                              _model.uploadedLocalFile25,
+                                              ? _model
+                                                  .uploadedLocalFile_uploadPhoto9Edit
+                                              : _model
+                                                  .uploadedLocalFile_uploadPhoto9Edit,
+                                          imageIdcard: _model
+                                              .uploadedLocalFile_uploadData10Edit,
+                                          imageBluebook: _model
+                                              .uploadedLocalFile_uploadData9Edit,
+                                          imageOther1: _model
+                                              .uploadedLocalFile_uploadData11Edit,
+                                          imageOther2: _model
+                                              .uploadedLocalFile_uploadData12Edit,
+                                          imageOther3: _model
+                                              .uploadedLocalFile_uploadData13Edit,
+                                          imageOther4: _model
+                                              .uploadedLocalFile_uploadData14Edit,
+                                          imageOther5: _model
+                                              .uploadedLocalFile_uploadData15Edit,
+                                          imageFrontTrailer: _model
+                                              .uploadedLocalFile_uploadPhoto1Truct2Edit,
+                                          imageRightfrontTrailer: _model
+                                              .uploadedLocalFile_uploadPhoto2Truct2Edit,
+                                          imageRightTrailer: _model
+                                              .uploadedLocalFile_uploadPhoto3Truct2Edit,
+                                          imageRightrearTrailer: _model
+                                              .uploadedLocalFile_uploadPhoto4Truct2Edit,
+                                          imageRearTrailer: _model
+                                              .uploadedLocalFile_uploadPhoto5Truct2Edit,
+                                          imageLeftrearTrailer: _model
+                                              .uploadedLocalFile_uploadPhoto6Truct2Edit,
+                                          imageLeftTrailer: _model
+                                              .uploadedLocalFile_uploadPhotoShowTruct2Edit,
+                                          imageLeftfrontTrailer: _model
+                                              .uploadedLocalFile_uploadPhoto8Truct2Edit,
                                           apiUrl: FFAppState().apiUrlInsurance,
                                           token: FFAppState().accessToken,
                                           imageOtherName: widget!.imageOtherName
@@ -13253,12 +13305,17 @@ class _InsuranceRequestEditPageWidgetState
                                                   });
                                                 }
                                               },
-                                              side: BorderSide(
-                                                width: 2,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                              ),
+                                              side:
+                                                  (FlutterFlowTheme.of(context)
+                                                              .secondaryText !=
+                                                          null)
+                                                      ? BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText!,
+                                                        )
+                                                      : null,
                                               activeColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -13383,12 +13440,17 @@ class _InsuranceRequestEditPageWidgetState
                                                   });
                                                 }
                                               },
-                                              side: BorderSide(
-                                                width: 2,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                              ),
+                                              side:
+                                                  (FlutterFlowTheme.of(context)
+                                                              .secondaryText !=
+                                                          null)
+                                                      ? BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText!,
+                                                        )
+                                                      : null,
                                               activeColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -15502,11 +15564,16 @@ class _InsuranceRequestEditPageWidgetState
                                               });
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                          ),
+                                          side: (FlutterFlowTheme.of(context)
+                                                      .secondaryText !=
+                                                  null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText!,
+                                                )
+                                              : null,
                                           activeColor:
                                               FlutterFlowTheme.of(context)
                                                   .primary,
@@ -16865,11 +16932,16 @@ class _InsuranceRequestEditPageWidgetState
                                             });
                                           }
                                         },
-                                        side: BorderSide(
-                                          width: 2,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                        side: (FlutterFlowTheme.of(context)
+                                                    .secondaryText !=
+                                                null)
+                                            ? BorderSide(
+                                                width: 2,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText!,
+                                              )
+                                            : null,
                                         activeColor:
                                             FlutterFlowTheme.of(context)
                                                 .primary,

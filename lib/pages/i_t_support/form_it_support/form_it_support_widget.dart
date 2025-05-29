@@ -914,9 +914,9 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                           validateFileFormat(
                                                               m.storagePath,
                                                               context))) {
-                                                    safeSetState(() =>
-                                                        _model.isDataUploading =
-                                                            true);
+                                                    safeSetState(() => _model
+                                                            .isDataUploading_uploadMedia2g9 =
+                                                        true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
 
@@ -967,7 +967,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .hideCurrentSnackBar();
-                                                      _model.isDataUploading =
+                                                      _model.isDataUploading_uploadMedia2g9 =
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
@@ -978,9 +978,9 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                             selectedMedia
                                                                 .length) {
                                                       safeSetState(() {
-                                                        _model.uploadedLocalFiles =
+                                                        _model.uploadedLocalFiles_uploadMedia2g9 =
                                                             selectedUploadedFiles;
-                                                        _model.uploadedFileUrls =
+                                                        _model.uploadedFileUrls_uploadMedia2g9 =
                                                             downloadUrls;
                                                       });
                                                       showUploadMessage(
@@ -1050,7 +1050,9 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                         ],
                                       ),
                                     ),
-                                    if (_model.uploadedFileUrls.length > 0)
+                                    if (_model.uploadedFileUrls_uploadMedia2g9
+                                            .length >
+                                        0)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 15.0, 20.0),
@@ -1061,7 +1063,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                               child: Builder(
                                                 builder: (context) {
                                                   final uploadListNum = _model
-                                                      .uploadedFileUrls
+                                                      .uploadedFileUrls_uploadMedia2g9
                                                       .toList();
 
                                                   return Container(

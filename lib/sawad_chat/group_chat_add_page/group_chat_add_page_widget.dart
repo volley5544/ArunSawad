@@ -169,9 +169,9 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                               AlignmentDirectional(0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
-                                              if (_model.uploadedLocalFile1 ==
+                                              if (_model.uploadedLocalFile_selectGroupChatImage ==
                                                       null ||
-                                                  (_model.uploadedLocalFile1
+                                                  (_model.uploadedLocalFile_selectGroupChatImage
                                                           .bytes?.isEmpty ??
                                                       true)) {
                                                 return Container(
@@ -294,7 +294,7 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                           child:
                                                               FlutterFlowExpandedImageView(
                                                             image: Image.memory(
-                                                              _model.uploadedLocalFile1
+                                                              _model.uploadedLocalFile_selectGroupChatImage
                                                                       .bytes ??
                                                                   Uint8List
                                                                       .fromList(
@@ -320,7 +320,7 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                             BorderRadius
                                                                 .circular(50.0),
                                                         child: Image.memory(
-                                                          _model.uploadedLocalFile1
+                                                          _model.uploadedLocalFile_selectGroupChatImage
                                                                   .bytes ??
                                                               Uint8List
                                                                   .fromList([]),
@@ -395,7 +395,8 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading1 = true);
+                                                        .isDataUploading_selectGroupChatImage =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -420,14 +421,14 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                               ))
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading1 =
+                                                  _model.isDataUploading_selectGroupChatImage =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
                                                         .length ==
                                                     selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile1 =
+                                                    _model.uploadedLocalFile_selectGroupChatImage =
                                                         selectedUploadedFiles
                                                             .first;
                                                   });
@@ -1882,22 +1883,28 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
 
                                 _model.loopCountTemp = 0;
                                 safeSetState(() {});
-                                if (!(_model.uploadedLocalFile1 == null ||
-                                    (_model.uploadedLocalFile1.bytes?.isEmpty ??
+                                if (!(_model.uploadedLocalFile_selectGroupChatImage ==
+                                        null ||
+                                    (_model.uploadedLocalFile_selectGroupChatImage
+                                            .bytes?.isEmpty ??
                                         true))) {
                                   {
-                                    safeSetState(
-                                        () => _model.isDataUploading2 = true);
+                                    safeSetState(() => _model
+                                            .isDataUploading_uploadGroupChatImage =
+                                        true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
                                     var selectedMedia = <SelectedFile>[];
                                     var downloadUrls = <String>[];
                                     try {
                                       selectedUploadedFiles = _model
-                                              .uploadedLocalFile1
+                                              .uploadedLocalFile_selectGroupChatImage
                                               .bytes!
                                               .isNotEmpty
-                                          ? [_model.uploadedLocalFile1]
+                                          ? [
+                                              _model
+                                                  .uploadedLocalFile_selectGroupChatImage
+                                            ]
                                           : <FFUploadedFile>[];
                                       selectedMedia =
                                           selectedFilesFromUploadedFiles(
@@ -1913,16 +1920,17 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                           .map((u) => u!)
                                           .toList();
                                     } finally {
-                                      _model.isDataUploading2 = false;
+                                      _model.isDataUploading_uploadGroupChatImage =
+                                          false;
                                     }
                                     if (selectedUploadedFiles.length ==
                                             selectedMedia.length &&
                                         downloadUrls.length ==
                                             selectedMedia.length) {
                                       safeSetState(() {
-                                        _model.uploadedLocalFile2 =
+                                        _model.uploadedLocalFile_uploadGroupChatImage =
                                             selectedUploadedFiles.first;
-                                        _model.uploadedFileUrl2 =
+                                        _model.uploadedFileUrl_uploadGroupChatImage =
                                             downloadUrls.first;
                                       });
                                     } else {
@@ -1931,11 +1939,12 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                     }
                                   }
 
-                                  if (('${_model.uploadedFileUrl2}' != '') &&
-                                      ('${_model.uploadedFileUrl2}' !=
+                                  if (('${_model.uploadedFileUrl_uploadGroupChatImage}' !=
+                                          '') &&
+                                      ('${_model.uploadedFileUrl_uploadGroupChatImage}' !=
                                           'null')) {
-                                    _model.defaultGroupDisplayImage =
-                                        _model.uploadedFileUrl2;
+                                    _model.defaultGroupDisplayImage = _model
+                                        .uploadedFileUrl_uploadGroupChatImage;
                                     safeSetState(() {});
                                   }
                                 }

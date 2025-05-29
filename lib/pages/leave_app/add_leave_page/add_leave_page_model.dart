@@ -63,8 +63,8 @@ class AddLeavePageModel extends FlutterFlowModel<AddLeavePageWidget> {
   FocusNode? reasonToLeaveFocusNode;
   TextEditingController? reasonToLeaveTextController;
   String? Function(BuildContext, String?)? reasonToLeaveTextControllerValidator;
-  bool isDataUploading = false;
-  List<FFUploadedFile> uploadedLocalFiles = [];
+  bool isDataUploading_uploadMedia59b = false;
+  List<FFUploadedFile> uploadedLocalFiles_uploadMedia59b = [];
 
   // Stores action output result for [Custom Action - uploadMultipleFileFirebaseStorage] action in leaveFile widget.
   List<String>? firebaseuploadoutput;

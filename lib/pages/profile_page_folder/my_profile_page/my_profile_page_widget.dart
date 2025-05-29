@@ -584,7 +584,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                             m.storagePath,
                                                             context))) {
                                                   safeSetState(() => _model
-                                                      .isDataUploading1 = true);
+                                                          .isDataUploading_uploadProfileImageAction =
+                                                      true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
@@ -611,14 +612,14 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                 ))
                                                             .toList();
                                                   } finally {
-                                                    _model.isDataUploading1 =
+                                                    _model.isDataUploading_uploadProfileImageAction =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
                                                           .length ==
                                                       selectedMedia.length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile1 =
+                                                      _model.uploadedLocalFile_uploadProfileImageAction =
                                                           selectedUploadedFiles
                                                               .first;
                                                     });
@@ -628,12 +629,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   }
                                                 }
 
-                                                if (!(_model.uploadedLocalFile1 !=
+                                                if (!(_model.uploadedLocalFile_uploadProfileImageAction !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile1
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploadProfileImageAction
+                                                            .bytes?.isNotEmpty ??
                                                         false))) {
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
@@ -644,7 +643,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     await actions
                                                         .uploadFileFirebaseStorage(
                                                   'UsersProfileImage',
-                                                  _model.uploadedLocalFile1,
+                                                  _model
+                                                      .uploadedLocalFile_uploadProfileImageAction,
                                                 );
                                                 _shouldSetState = true;
                                                 if (!(_model.uploadFirebaseStorageAction !=
@@ -707,13 +707,13 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       .stringToImgPath(_model
                                                           .uploadFirebaseStorageAction),
                                                   imgProfileBlurHash: _model
-                                                      .uploadedLocalFile1
+                                                      .uploadedLocalFile_uploadProfileImageAction
                                                       .blurHash,
                                                 ));
                                                 safeSetState(() {
-                                                  _model.isDataUploading1 =
+                                                  _model.isDataUploading_uploadProfileImageAction =
                                                       false;
-                                                  _model.uploadedLocalFile1 =
+                                                  _model.uploadedLocalFile_uploadProfileImageAction =
                                                       FFUploadedFile(
                                                           bytes: Uint8List
                                                               .fromList([]));
@@ -1184,7 +1184,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                             m.storagePath,
                                                             context))) {
                                                   safeSetState(() => _model
-                                                      .isDataUploading2 = true);
+                                                          .isDataUploading_uploadProfileImageActionTablet =
+                                                      true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
@@ -1211,14 +1212,14 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                 ))
                                                             .toList();
                                                   } finally {
-                                                    _model.isDataUploading2 =
+                                                    _model.isDataUploading_uploadProfileImageActionTablet =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
                                                           .length ==
                                                       selectedMedia.length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile2 =
+                                                      _model.uploadedLocalFile_uploadProfileImageActionTablet =
                                                           selectedUploadedFiles
                                                               .first;
                                                     });
@@ -1228,12 +1229,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   }
                                                 }
 
-                                                if (!(_model.uploadedLocalFile2 !=
+                                                if (!(_model.uploadedLocalFile_uploadProfileImageActionTablet !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile2
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_uploadProfileImageActionTablet
+                                                            .bytes?.isNotEmpty ??
                                                         false))) {
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
@@ -1244,7 +1243,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     await actions
                                                         .uploadFileFirebaseStorage(
                                                   'UsersProfileImage',
-                                                  _model.uploadedLocalFile2,
+                                                  _model
+                                                      .uploadedLocalFile_uploadProfileImageActionTablet,
                                                 );
                                                 _shouldSetState = true;
                                                 if (!(_model.uploadFirebaseStorageActionTablet !=
@@ -1307,13 +1307,13 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       .stringToImgPath(_model
                                                           .uploadFirebaseStorageActionTablet),
                                                   imgProfileBlurHash: _model
-                                                      .uploadedLocalFile2
+                                                      .uploadedLocalFile_uploadProfileImageActionTablet
                                                       .blurHash,
                                                 ));
                                                 safeSetState(() {
-                                                  _model.isDataUploading2 =
+                                                  _model.isDataUploading_uploadProfileImageActionTablet =
                                                       false;
-                                                  _model.uploadedLocalFile2 =
+                                                  _model.uploadedLocalFile_uploadProfileImageActionTablet =
                                                       FFUploadedFile(
                                                           bytes: Uint8List
                                                               .fromList([]));

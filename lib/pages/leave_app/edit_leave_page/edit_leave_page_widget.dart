@@ -1812,7 +1812,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading =
+                                                                .isDataUploading_uploadMediaPqi =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -1865,7 +1865,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           ScaffoldMessenger.of(
                                                                   context)
                                                               .hideCurrentSnackBar();
-                                                          _model.isDataUploading =
+                                                          _model.isDataUploading_uploadMediaPqi =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -1877,9 +1877,9 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 selectedMedia
                                                                     .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFiles =
+                                                            _model.uploadedLocalFiles_uploadMediaPqi =
                                                                 selectedUploadedFiles;
-                                                            _model.uploadedFileUrls =
+                                                            _model.uploadedFileUrls_uploadMediaPqi =
                                                                 downloadUrls;
                                                           });
                                                           showUploadMessage(
@@ -1959,7 +1959,10 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                             ],
                                           ),
                                         ),
-                                        if (_model.uploadedFileUrls.length > 0)
+                                        if (_model
+                                                .uploadedFileUrls_uploadMediaPqi
+                                                .length >
+                                            0)
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1970,10 +1973,9 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 Expanded(
                                                   child: Builder(
                                                     builder: (context) {
-                                                      final uploadListNum =
-                                                          _model
-                                                              .uploadedFileUrls
-                                                              .toList();
+                                                      final uploadListNum = _model
+                                                          .uploadedFileUrls_uploadMediaPqi
+                                                          .toList();
 
                                                       return Container(
                                                         width: double.infinity,
@@ -2096,7 +2098,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                           ),
                                         if ((widget!.leaveDocumentOld!.length >
                                                 0) &&
-                                            (_model.uploadedFileUrls.length <
+                                            (_model.uploadedFileUrls_uploadMediaPqi
+                                                    .length <
                                                 1))
                                           Padding(
                                             padding:
@@ -2329,7 +2332,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 if (!((widget!.leaveDocumentOld!
                                                             .length >
                                                         0) ||
-                                                    (_model.uploadedFileUrls
+                                                    (_model.uploadedFileUrls_uploadMediaPqi
                                                             .length >
                                                         0))) {
                                                   await showDialog(
@@ -2451,7 +2454,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 return;
                                               }
                                               if (_model
-                                                      .uploadedFileUrls.length >
+                                                      .uploadedFileUrls_uploadMediaPqi
+                                                      .length >
                                                   5) {
                                                 await showDialog(
                                                   context: context,
@@ -2617,7 +2621,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 if ((widget!.leaveDocumentOld!
                                                             .length >
                                                         0) ||
-                                                    (_model.uploadedFileUrls
+                                                    (_model.uploadedFileUrls_uploadMediaPqi
                                                             .length >
                                                         0)) {
                                                   _model.leaveEditAPIOutput2 =
@@ -2714,13 +2718,13 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             .reasonToLeaveTextController
                                                             .text,
                                                     leaveDocument: _model
-                                                                .uploadedFileUrls
+                                                                .uploadedFileUrls_uploadMediaPqi
                                                                 .length >
                                                             0
                                                         ? functions
                                                             .imgPathListToString(
                                                                 _model
-                                                                    .uploadedFileUrls
+                                                                    .uploadedFileUrls_uploadMediaPqi
                                                                     .toList())
                                                         : functions
                                                             .imgPathListToStringCopy(
@@ -3133,16 +3137,17 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           .reasonToLeaveTextController
                                                           .text,
                                                   leaveDocument: () {
-                                                    if (_model.uploadedFileUrls
+                                                    if (_model
+                                                            .uploadedFileUrls_uploadMediaPqi
                                                             .length >
                                                         0) {
                                                       return functions
                                                           .imgPathListToString(
                                                               _model
-                                                                  .uploadedFileUrls
+                                                                  .uploadedFileUrls_uploadMediaPqi
                                                                   .toList());
                                                     } else if ((_model
-                                                                .uploadedFileUrls
+                                                                .uploadedFileUrls_uploadMediaPqi
                                                                 .length <
                                                             1) &&
                                                         (widget!.leaveDocumentOld!

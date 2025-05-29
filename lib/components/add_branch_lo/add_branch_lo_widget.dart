@@ -1257,8 +1257,6 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                           text: 'เพิ่มสาขา',
                           icon: Icon(
                             Icons.add_location_alt,
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
                             size: 15.0,
                           ),
                           options: FFButtonOptions(
@@ -1268,6 +1266,8 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 5.0, 0.0),
+                            iconColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                             color: FlutterFlowTheme.of(context).primaryText,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall

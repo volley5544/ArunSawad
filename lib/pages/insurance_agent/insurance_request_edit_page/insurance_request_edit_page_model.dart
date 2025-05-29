@@ -35,134 +35,134 @@ class InsuranceRequestEditPageModel
   FormFieldController<String>? radioButtonValueController;
   // State field(s) for MainColumn widget.
   ScrollController? mainColumn;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadPhoto1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadPhoto2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading_uploadPhoto3Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto3Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
+  bool isDataUploading_uploadPhoto4Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto4Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
+  bool isDataUploading_uploadPhoto5Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto5Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading6 = false;
-  FFUploadedFile uploadedLocalFile6 =
+  bool isDataUploading_uploadPhoto6Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto6Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading7 = false;
-  FFUploadedFile uploadedLocalFile7 =
+  bool isDataUploading_uploadPhotoShowEdit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhotoShowEdit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading8 = false;
-  FFUploadedFile uploadedLocalFile8 =
+  bool isDataUploading_uploadPhoto8Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto8Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading9 = false;
-  FFUploadedFile uploadedLocalFile9 =
+  bool isDataUploading_uploadPhoto9Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto9Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading10 = false;
-  FFUploadedFile uploadedLocalFile10 =
+  bool isDataUploading_uploadPhoto1Truct1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto1Truct1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading11 = false;
-  FFUploadedFile uploadedLocalFile11 =
+  bool isDataUploading_uploadPhoto2Truct1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto2Truct1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading12 = false;
-  FFUploadedFile uploadedLocalFile12 =
+  bool isDataUploading_uploadPhoto3Truct1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto3Truct1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading13 = false;
-  FFUploadedFile uploadedLocalFile13 =
+  bool isDataUploading_uploadPhoto4Truct1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto4Truct1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading14 = false;
-  FFUploadedFile uploadedLocalFile14 =
+  bool isDataUploading_uploadPhoto5Truct1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto5Truct1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading15 = false;
-  FFUploadedFile uploadedLocalFile15 =
+  bool isDataUploading_uploadPhoto6Truct1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto6Truct1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading16 = false;
-  FFUploadedFile uploadedLocalFile16 =
+  bool isDataUploading_uploadPhotoShowTruct1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhotoShowTruct1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading17 = false;
-  FFUploadedFile uploadedLocalFile17 =
+  bool isDataUploading_uploadPhoto8Truct1Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto8Truct1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading18 = false;
-  FFUploadedFile uploadedLocalFile18 =
+  bool isDataUploading_uploadPhoto1Truct2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto1Truct2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading19 = false;
-  FFUploadedFile uploadedLocalFile19 =
+  bool isDataUploading_uploadPhoto2Truct2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto2Truct2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading20 = false;
-  FFUploadedFile uploadedLocalFile20 =
+  bool isDataUploading_uploadPhoto3Truct2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto3Truct2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading21 = false;
-  FFUploadedFile uploadedLocalFile21 =
+  bool isDataUploading_uploadPhoto4Truct2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto4Truct2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading22 = false;
-  FFUploadedFile uploadedLocalFile22 =
+  bool isDataUploading_uploadPhoto5Truct2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto5Truct2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading23 = false;
-  FFUploadedFile uploadedLocalFile23 =
+  bool isDataUploading_uploadPhoto6Truct2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto6Truct2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading24 = false;
-  FFUploadedFile uploadedLocalFile24 =
+  bool isDataUploading_uploadPhotoShowTruct2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhotoShowTruct2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading25 = false;
-  FFUploadedFile uploadedLocalFile25 =
+  bool isDataUploading_uploadPhoto8Truct2Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto8Truct2Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for Column widget.
   ScrollController? columnController2;
-  bool isDataUploading26 = false;
-  FFUploadedFile uploadedLocalFile26 =
+  bool isDataUploading_uploadData9Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadData9Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading27 = false;
-  FFUploadedFile uploadedLocalFile27 =
+  bool isDataUploading_uploadData10Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadData10Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading28 = false;
-  FFUploadedFile uploadedLocalFile28 =
+  bool isDataUploading_uploadData11Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadData11Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading29 = false;
-  FFUploadedFile uploadedLocalFile29 =
+  bool isDataUploading_uploadData12Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadData12Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading30 = false;
-  FFUploadedFile uploadedLocalFile30 =
+  bool isDataUploading_uploadData13Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadData13Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading31 = false;
-  FFUploadedFile uploadedLocalFile31 =
+  bool isDataUploading_uploadData14Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadData14Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  bool isDataUploading32 = false;
-  FFUploadedFile uploadedLocalFile32 =
+  bool isDataUploading_uploadData15Edit = false;
+  FFUploadedFile uploadedLocalFile_uploadData15Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - API (insuranceRequestEditAPI)] action in Button widget.

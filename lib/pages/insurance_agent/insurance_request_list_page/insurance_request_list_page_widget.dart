@@ -1278,9 +1278,6 @@ class _InsuranceRequestListPageWidgetState
                                               text: '',
                                               icon: Icon(
                                                 Icons.edit_outlined,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .grayIcon,
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(
@@ -1289,6 +1286,9 @@ class _InsuranceRequestListPageWidgetState
                                                 padding: EdgeInsets.all(0.0),
                                                 iconPadding:
                                                     EdgeInsets.all(5.0),
+                                                iconColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .grayIcon,
                                                 color: Colors.white,
                                                 textStyle: FlutterFlowTheme.of(
                                                         context)
@@ -1759,9 +1759,6 @@ class _InsuranceRequestListPageWidgetState
                                               text: '',
                                               icon: Icon(
                                                 Icons.content_copy,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .grayIcon,
                                                 size: 20.0,
                                               ),
                                               options: FFButtonOptions(
@@ -1770,6 +1767,9 @@ class _InsuranceRequestListPageWidgetState
                                                 padding: EdgeInsets.all(0.0),
                                                 iconPadding:
                                                     EdgeInsets.all(5.0),
+                                                iconColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .grayIcon,
                                                 color: Colors.white,
                                                 textStyle: FlutterFlowTheme.of(
                                                         context)

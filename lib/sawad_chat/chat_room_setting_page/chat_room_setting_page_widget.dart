@@ -316,10 +316,10 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                             AlignmentDirectional(0.0, 0.0),
                                         child: Builder(
                                           builder: (context) {
-                                            if (_model.uploadedLocalFile ==
+                                            if (_model.uploadedLocalFile_selectGroupChatImageEdit ==
                                                     null ||
-                                                (_model.uploadedLocalFile.bytes
-                                                        ?.isEmpty ??
+                                                (_model.uploadedLocalFile_selectGroupChatImageEdit
+                                                        .bytes?.isEmpty ??
                                                     true)) {
                                               return Container(
                                                 width: 90.0,
@@ -466,7 +466,7 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                         child:
                                                             FlutterFlowExpandedImageView(
                                                           image: Image.memory(
-                                                            _model.uploadedLocalFile
+                                                            _model.uploadedLocalFile_selectGroupChatImageEdit
                                                                     .bytes ??
                                                                 Uint8List
                                                                     .fromList(
@@ -490,7 +490,7 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                           BorderRadius.circular(
                                                               50.0),
                                                       child: Image.memory(
-                                                        _model.uploadedLocalFile
+                                                        _model.uploadedLocalFile_selectGroupChatImageEdit
                                                                 .bytes ??
                                                             Uint8List.fromList(
                                                                 []),
@@ -564,7 +564,8 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                           m.storagePath,
                                                           context))) {
                                                 safeSetState(() => _model
-                                                    .isDataUploading = true);
+                                                        .isDataUploading_selectGroupChatImageEdit =
+                                                    true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
 
@@ -589,14 +590,14 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                               ))
                                                           .toList();
                                                 } finally {
-                                                  _model.isDataUploading =
+                                                  _model.isDataUploading_selectGroupChatImageEdit =
                                                       false;
                                                 }
                                                 if (selectedUploadedFiles
                                                         .length ==
                                                     selectedMedia.length) {
                                                   safeSetState(() {
-                                                    _model.uploadedLocalFile =
+                                                    _model.uploadedLocalFile_selectGroupChatImageEdit =
                                                         selectedUploadedFiles
                                                             .first;
                                                   });
@@ -907,9 +908,10 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       var _shouldSetState = false;
-                                      if (!((_model.uploadedLocalFile != null &&
-                                              (_model.uploadedLocalFile.bytes
-                                                      ?.isNotEmpty ??
+                                      if (!((_model.uploadedLocalFile_selectGroupChatImageEdit !=
+                                                  null &&
+                                              (_model.uploadedLocalFile_selectGroupChatImageEdit
+                                                      .bytes?.isNotEmpty ??
                                                   false)) ||
                                           ((chatRoomSettingPageSawadChatRoomRecord
                                                       .chatRoomName !=
@@ -986,15 +988,17 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                           safeSetState(() {});
                                         return;
                                       }
-                                      if (_model.uploadedLocalFile != null &&
-                                          (_model.uploadedLocalFile.bytes
-                                                  ?.isNotEmpty ??
+                                      if (_model.uploadedLocalFile_selectGroupChatImageEdit !=
+                                              null &&
+                                          (_model.uploadedLocalFile_selectGroupChatImageEdit
+                                                  .bytes?.isNotEmpty ??
                                               false)) {
                                         _model.uploadStorageDisplayAction =
                                             await actions
                                                 .uploadFileFirebaseStorage(
                                           'ChatRoomDisplayImage',
-                                          _model.uploadedLocalFile,
+                                          _model
+                                              .uploadedLocalFile_selectGroupChatImageEdit,
                                         );
                                         _shouldSetState = true;
 
@@ -1039,27 +1043,24 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                     : chatRoomSettingPageSawadChatRoomRecord
                                                         .chatRoomName,
                                             chatRoomDisplayImageUrl: _model
-                                                            .uploadedLocalFile !=
+                                                            .uploadedLocalFile_selectGroupChatImageEdit !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_selectGroupChatImageEdit
+                                                            .bytes?.isNotEmpty ??
                                                         false)
                                                 ? functions.stringToImgPath(_model
                                                     .uploadStorageDisplayAction)
                                                 : chatRoomSettingPageSawadChatRoomRecord
                                                     .chatRoomDisplayImageUrl,
                                             chatRoomDisplayImageBlurHash: _model
-                                                            .uploadedLocalFile !=
+                                                            .uploadedLocalFile_selectGroupChatImageEdit !=
                                                         null &&
-                                                    (_model
-                                                            .uploadedLocalFile
-                                                            .bytes
-                                                            ?.isNotEmpty ??
+                                                    (_model.uploadedLocalFile_selectGroupChatImageEdit
+                                                            .bytes?.isNotEmpty ??
                                                         false)
                                                 ? _model
-                                                    .uploadedLocalFile.blurHash
+                                                    .uploadedLocalFile_selectGroupChatImageEdit
+                                                    .blurHash
                                                 : chatRoomSettingPageSawadChatRoomRecord
                                                     .chatRoomDisplayImageBlurHash,
                                             lastMessageText:
@@ -1146,8 +1147,9 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                       }
 
                                       safeSetState(() {
-                                        _model.isDataUploading = false;
-                                        _model.uploadedLocalFile =
+                                        _model.isDataUploading_selectGroupChatImageEdit =
+                                            false;
+                                        _model.uploadedLocalFile_selectGroupChatImageEdit =
                                             FFUploadedFile(
                                                 bytes: Uint8List.fromList([]));
                                       });
@@ -1255,9 +1257,11 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                       return;
                                     }
                                     safeSetState(() {
-                                      _model.isDataUploading = false;
-                                      _model.uploadedLocalFile = FFUploadedFile(
-                                          bytes: Uint8List.fromList([]));
+                                      _model.isDataUploading_selectGroupChatImageEdit =
+                                          false;
+                                      _model.uploadedLocalFile_selectGroupChatImageEdit =
+                                          FFUploadedFile(
+                                              bytes: Uint8List.fromList([]));
                                     });
 
                                     safeSetState(() {
