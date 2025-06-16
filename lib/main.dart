@@ -184,10 +184,16 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+  NavBarPage({
+    Key? key,
+    this.initialPage,
+    this.page,
+    this.disableResizeToAvoidBottomInset = false,
+  }) : super(key: key);
 
   final String? initialPage;
   final Widget? page;
+  final bool disableResizeToAvoidBottomInset;
 
   @override
   _NavBarPageState createState() => _NavBarPageState();
@@ -210,11 +216,11 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'SuperAppPage': SuperAppPageWidget(),
       'MyProfilePage': MyProfilePageWidget(),
-      'ChatHomePage': ChatHomePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
     return Scaffold(
+      resizeToAvoidBottomInset: !widget.disableResizeToAvoidBottomInset,
       body: _currentPage ?? tabs[_currentPageName],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -251,18 +257,6 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 30.0,
             ),
             label: 'Profile',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.chat_outlined,
-              size: 24.0,
-            ),
-            activeIcon: Icon(
-              Icons.chat,
-              size: 24.0,
-            ),
-            label: 'Chat',
             tooltip: '',
           )
         ],

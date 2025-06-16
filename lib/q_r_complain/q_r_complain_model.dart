@@ -1,12 +1,14 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'selfie_mask_page_widget.dart' show SelfieMaskPageWidget;
+import 'dart:ui';
+import 'q_r_complain_widget.dart' show QRComplainWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class SelfieMaskPageModel extends FlutterFlowModel<SelfieMaskPageWidget> {
+class QRComplainModel extends FlutterFlowModel<QRComplainWidget> {
   @override
   void initState(BuildContext context) {}
 

@@ -2576,6 +2576,37 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                               FFAppState().update(() {});
                                             }
 
+                                            if (!(FFAppState()
+                                                    .checkAllowLeaveDay ||
+                                                (widget!.leaveDay ==
+                                                        _model
+                                                            .leaveDaysTextController
+                                                            .text
+                                                    ? true
+                                                    : false))) {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content:
+                                                          Text('วันลาคุณไม่พอ'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
                                             var confirmDialogResponse =
                                                 await showDialog<bool>(
                                                       context: context,

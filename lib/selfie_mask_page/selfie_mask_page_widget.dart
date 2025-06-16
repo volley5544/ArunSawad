@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -77,9 +76,65 @@ class _SelfieMaskPageWidgetState extends State<SelfieMaskPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            child: Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 0.95,
+                    height: MediaQuery.sizeOf(context).height * 0.3,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 7.0,
+                      ),
+                    ),
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, -1.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 8.0, 12.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 0.15,
+                              height: MediaQuery.sizeOf(context).width * 0.15,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 5.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(1.0, 1.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 8.0, 12.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 0.25,
+                              height: MediaQuery.sizeOf(context).height * 0.13,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 5.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

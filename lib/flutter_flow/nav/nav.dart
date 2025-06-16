@@ -1100,9 +1100,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: ChatHomePageWidget.routeName,
               path: ChatHomePageWidget.routePath,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'ChatHomePage')
-                  : ChatHomePageWidget(),
+              builder: (context, params) => ChatHomePageWidget(),
             ),
             FFRoute(
               name: ChattingPageWidget.routeName,
@@ -2727,6 +2725,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: Ew9tf0uewitfWidget.routeName,
               path: Ew9tf0uewitfWidget.routePath,
               builder: (context, params) => Ew9tf0uewitfWidget(),
+            ),
+            FFRoute(
+              name: QRComplainWidget.routeName,
+              path: QRComplainWidget.routePath,
+              builder: (context, params) => QRComplainWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

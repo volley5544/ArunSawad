@@ -2239,7 +2239,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
                                   return Container(
                                     width: double.infinity,
-                                    height: 800.0,
+                                    height: 1000.0,
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
@@ -11051,6 +11051,94 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         Text(
                                                                                           'รายงานการแชร์โพสต์',
                                                                                           textAlign: TextAlign.center,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                font: GoogleFonts.poppins(
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
+                                                                                                fontSize: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 12.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return 20.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return 20.0;
+                                                                                                  } else {
+                                                                                                    return 20.0;
+                                                                                                  }
+                                                                                                }(),
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ชื่นชม - ร้องเรียน', FFAppState().profileLevel)! && functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! && functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ชื่นชม - ร้องเรียน')?.toList(), FFAppState().profilePositionName)! && false)
+                                                                                InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    HapticFeedback.mediumImpact();
+                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                      Navigator.pop(context);
+
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                      return;
+                                                                                    }
+
+                                                                                    context.goNamed(QRComplainWidget.routeName);
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    width: 100.0,
+                                                                                    height: 100.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    ),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                          child: Container(
+                                                                                            width: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            height: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            clipBehavior: Clip.antiAlias,
+                                                                                            decoration: BoxDecoration(
+                                                                                              shape: BoxShape.circle,
+                                                                                            ),
+                                                                                            child: Image.asset(
+                                                                                              'assets/images/complain.png',
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          'ชื่นชม - ร้องเรียน',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 font: GoogleFonts.poppins(
                                                                                                   fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
