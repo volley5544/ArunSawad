@@ -610,6 +610,192 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                         onTap: () async {
                                           HapticFeedback.mediumImpact();
                                           _model.currentShowingDataJson = _model
+                                              .leadTopupDataJson
+                                              .toList()
+                                              .cast<dynamic>();
+                                          _model.selectedTab = 'Topup';
+                                          safeSetState(() {});
+                                          _model.filterAssetType = 'ทั้งหมด';
+                                          _model.filterSubChennel = 'ทั้งหมด';
+                                          safeSetState(() {});
+                                          _model.filterList =
+                                              functions.returnLeadFilterList(
+                                                  _model.leadTopupDataJson
+                                                      .toList());
+                                          safeSetState(() {});
+                                          _model.subChannelFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.SubChannelFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          _model.assetTypeFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.AssetTypeFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          safeSetState(() {});
+                                          safeSetState(() {
+                                            _model.textFieldSearchTextController
+                                                ?.clear();
+                                          });
+                                          await _model.listViewController3
+                                              ?.animateTo(
+                                            0,
+                                            duration:
+                                                Duration(milliseconds: 100),
+                                            curve: Curves.ease,
+                                          );
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(0.0),
+                                            ),
+                                          ),
+                                          child: Container(
+                                            width: 95.0,
+                                            height: 69.0,
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedTab ==
+                                                      'Topup'
+                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                      ?.color
+                                                      ?.elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.leadChannel
+                                                                  ?.toList(),
+                                                              'Lead Topup')))
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: Text(
+                                                    'เติมวงเงิน',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    functions
+                                                        .showNumberWithComma(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      _model.leadTopupDataJson
+                                                          .length
+                                                          .toString(),
+                                                      '0',
+                                                    )),
+                                                    '0',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                ),
+                                              ].addToStart(
+                                                  SizedBox(height: 4.0)),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          HapticFeedback.mediumImpact();
+                                          _model.currentShowingDataJson = _model
                                               .leadTeleDataJson
                                               .toList()
                                               .cast<dynamic>();
@@ -3887,6 +4073,18 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         ?.leadChannel
                                                                         ?.toList(),
                                                                     'Lead HP')));
+                                                          } else if ('${getJsonField(
+                                                                leadListItemItem,
+                                                                r'''$.channel''',
+                                                              ).toString()}' ==
+                                                              'Lead Topup') {
+                                                            return (leadNotiNewPageLeadChannelColorRecord
+                                                                ?.color
+                                                                ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                    leadNotiNewPageLeadChannelColorRecord
+                                                                        ?.leadChannel
+                                                                        ?.toList(),
+                                                                    'Lead Topup')));
                                                           } else {
                                                             return FlutterFlowTheme
                                                                     .of(context)
@@ -5081,6 +5279,16 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           ?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead HP')));
+                                                                    } else if ('${getJsonField(
+                                                                          leadListItemItem,
+                                                                          r'''$.channel''',
+                                                                        ).toString()}' ==
+                                                                        'Lead Topup') {
+                                                                      return (leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.color
+                                                                          ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              'Lead Topup')));
                                                                     } else {
                                                                       return FlutterFlowTheme.of(
                                                                               context)
@@ -5369,6 +5577,14 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                             leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
                                                                             'Lead HP')));
+                                                                      } else if ('${getJsonField(
+                                                                            leadListItemItem,
+                                                                            r'''$.channel''',
+                                                                          ).toString()}' ==
+                                                                          'Lead Topup') {
+                                                                        return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                            leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                            'Lead Topup')));
                                                                       } else {
                                                                         return FlutterFlowTheme.of(context)
                                                                             .accent1;

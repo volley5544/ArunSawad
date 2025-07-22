@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'package:screenshot/screenshot.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'dart:typed_data';
 
 Future capSceneHoliday(
@@ -55,7 +55,7 @@ Future capSceneHoliday(
             ),
             delay: const Duration(seconds: 4))
         .then((capturedImage1) {
-      final result1 = ImageGallerySaver.saveImage(
+      final result1 = ImageGallerySaverPlus.saveImage(
           Uint8List.fromList(capturedImage1),
           quality: 100,
           name: "ArunSawad Holliday Screenshot");

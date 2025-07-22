@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
@@ -22,7 +22,7 @@ Future<String> saveVideoFile(FFUploadedFile? inputFile, String? contNo) async {
   final File savedFile = File(filePath);
   String outputText = '';
   await savedFile.writeAsBytes(inputFile!.bytes!).then((value) async {
-    await ImageGallerySaver.saveFile(
+    await ImageGallerySaverPlus.saveFile(
       value.path,
     ).then((value1) {
       print('File Saved Name : ${value1}');

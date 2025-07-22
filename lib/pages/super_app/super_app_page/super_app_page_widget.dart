@@ -2075,11 +2075,16 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                   ?.elementAtOrNull(
                                                                       bannerImgListIndex)) !=
                                                               true) {
-                                                            await launchURL(
-                                                                pageViewArunSawadImgBannerRecord!
-                                                                    .linkUrl
-                                                                    .elementAtOrNull(
-                                                                        bannerImgListIndex)!);
+                                                            await launchURL((functions
+                                                                .sortingListByOrder(
+                                                                    pageViewArunSawadImgBannerRecord
+                                                                        ?.linkUrl
+                                                                        ?.toList(),
+                                                                    pageViewArunSawadImgBannerRecord
+                                                                        ?.index
+                                                                        ?.toList())!
+                                                                .elementAtOrNull(
+                                                                    bannerImgListIndex))!);
                                                           } else {
                                                             await actions
                                                                 .openTableauBrowser(
