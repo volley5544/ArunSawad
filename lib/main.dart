@@ -171,10 +171,16 @@ class _MyAppState extends State<MyApp> {
       routerConfig: _router,
       builder: (_, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(
-          textScaler: TextScaler.linear(_textScaleFactor).clamp(
-            minScaleFactor: FlutterFlowTheme.minTextScaleFactor,
-            maxScaleFactor: FlutterFlowTheme.maxTextScaleFactor,
-          ),
+          textScaler:
+              _textScaleFactor == FlutterFlowTheme.defaultTextScaleFactor
+                  ? MediaQuery.of(context).textScaler.clamp(
+                        minScaleFactor: FlutterFlowTheme.minTextScaleFactor,
+                        maxScaleFactor: FlutterFlowTheme.maxTextScaleFactor,
+                      )
+                  : TextScaler.linear(_textScaleFactor).clamp(
+                      minScaleFactor: FlutterFlowTheme.minTextScaleFactor,
+                      maxScaleFactor: FlutterFlowTheme.maxTextScaleFactor,
+                    ),
         ),
         child: child!,
       ),

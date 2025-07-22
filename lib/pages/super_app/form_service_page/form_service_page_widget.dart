@@ -94,7 +94,11 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
             userLocation: currentUserLocationValue,
           ),
           userLogRecordReference);
-      await Future.delayed(const Duration(milliseconds: 2000));
+      await Future.delayed(
+        Duration(
+          milliseconds: 2000,
+        ),
+      );
       Navigator.pop(context);
     });
 

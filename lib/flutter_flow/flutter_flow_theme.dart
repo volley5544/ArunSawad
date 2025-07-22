@@ -29,10 +29,11 @@ abstract class FlutterFlowTheme {
 
   static const double minTextScaleFactor = 1.0;
   static const double maxTextScaleFactor = 1.0;
+  static const double defaultTextScaleFactor = 1.0;
 
   static double get textScaleFactor {
     final textScaleFactor = _prefs?.getDouble(kTextScaleFactorKey);
-    return textScaleFactor ?? 1.0;
+    return textScaleFactor ?? defaultTextScaleFactor;
   }
 
   static void saveTextScaleFactor(double scale) =>

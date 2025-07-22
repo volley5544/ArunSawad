@@ -113,7 +113,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
       if ('${getJsonField(
             (_model.getLeadDetail?.jsonBody ?? ''),
             r'''$.DataLeadInfo.status''',
-          ).toString().toString()}' !=
+          ).toString()}' !=
           '200') {
         Navigator.pop(context);
         await showDialog(
@@ -124,7 +124,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                 content: Text('${getJsonField(
                   (_model.getLeadDetail?.jsonBody ?? ''),
                   r'''$.DataLeadInfo.message''',
-                ).toString().toString()}'),
+                ).toString()}'),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(alertDialogContext),
@@ -191,27 +191,30 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
           _model.leadNotiModifyJson.toList().cast<dynamic>();
       _model.allLeadDataJson =
           _model.leadNotiModifyJson.toList().cast<dynamic>();
-      _model.subChannelFilterList = (getJsonField(
+      _model.subChannelFilterList = getJsonField(
         _model.leadDataByCategory,
         r'''$.SubChannelFilter''',
         true,
-      ) as List)
-          .map<String>((s) => s.toString())
-          .toList()!
+      )!
           .toList()
           .cast<String>();
-      _model.assetTypeFilterList = (getJsonField(
+      _model.assetTypeFilterList = getJsonField(
         _model.leadDataByCategory,
         r'''$.AssetTypeFilter''',
         true,
-      ) as List)
-          .map<String>((s) => s.toString())
-          .toList()!
+      )!
           .toList()
           .cast<String>();
       _model.leadHPDataJson = getJsonField(
         _model.leadDataByCategory,
         r'''$.LeadHP''',
+        true,
+      )!
+          .toList()
+          .cast<dynamic>();
+      _model.leadTopupDataJson = getJsonField(
+        _model.leadDataByCategory,
+        r'''$.LeadTopup''',
         true,
       )!
           .toList()
@@ -442,25 +445,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .toList());
                                           safeSetState(() {});
                                           _model.subChannelFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.SubChannelFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           _model.assetTypeFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.AssetTypeFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           safeSetState(() {});
@@ -624,25 +621,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .toList());
                                           safeSetState(() {});
                                           _model.subChannelFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.SubChannelFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           _model.assetTypeFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.AssetTypeFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           safeSetState(() {});
@@ -810,25 +801,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .toList());
                                           safeSetState(() {});
                                           _model.subChannelFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.SubChannelFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           _model.assetTypeFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.AssetTypeFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           safeSetState(() {});
@@ -996,25 +981,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .toList());
                                           safeSetState(() {});
                                           _model.subChannelFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.SubChannelFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           _model.assetTypeFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.AssetTypeFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           safeSetState(() {});
@@ -1181,25 +1160,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .toList());
                                           safeSetState(() {});
                                           _model.subChannelFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.SubChannelFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           _model.assetTypeFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.AssetTypeFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           safeSetState(() {});
@@ -1381,25 +1354,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .toList());
                                           safeSetState(() {});
                                           _model.subChannelFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.SubChannelFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           _model.assetTypeFilterList =
-                                              (getJsonField(
+                                              getJsonField(
                                             _model.filterList,
                                             r'''$.AssetTypeFilter''',
                                             true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
+                                          )!
                                                   .toList()
                                                   .cast<String>();
                                           safeSetState(() {});
@@ -1630,25 +1597,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         .toList());
                                                 safeSetState(() {});
                                                 _model.subChannelFilterList =
-                                                    (getJsonField(
+                                                    getJsonField(
                                                   _model.filterList,
                                                   r'''$.SubChannelFilter''',
                                                   true,
-                                                ) as List)
-                                                        .map<String>(
-                                                            (s) => s.toString())
-                                                        .toList()!
+                                                )!
                                                         .toList()
                                                         .cast<String>();
                                                 _model.assetTypeFilterList =
-                                                    (getJsonField(
+                                                    getJsonField(
                                                   _model.filterList,
                                                   r'''$.AssetTypeFilter''',
                                                   true,
-                                                ) as List)
-                                                        .map<String>(
-                                                            (s) => s.toString())
-                                                        .toList()!
+                                                )!
                                                         .toList()
                                                         .cast<String>();
                                                 safeSetState(() {});
@@ -1828,25 +1789,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         .toList());
                                                 safeSetState(() {});
                                                 _model.subChannelFilterList =
-                                                    (getJsonField(
+                                                    getJsonField(
                                                   _model.filterList,
                                                   r'''$.SubChannelFilter''',
                                                   true,
-                                                ) as List)
-                                                        .map<String>(
-                                                            (s) => s.toString())
-                                                        .toList()!
+                                                )!
                                                         .toList()
                                                         .cast<String>();
                                                 _model.assetTypeFilterList =
-                                                    (getJsonField(
+                                                    getJsonField(
                                                   _model.filterList,
                                                   r'''$.AssetTypeFilter''',
                                                   true,
-                                                ) as List)
-                                                        .map<String>(
-                                                            (s) => s.toString())
-                                                        .toList()!
+                                                )!
                                                         .toList()
                                                         .cast<String>();
                                                 safeSetState(() {});

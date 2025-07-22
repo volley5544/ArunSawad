@@ -117,7 +117,11 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
           .toList()
           .cast<String>();
       safeSetState(() {});
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(
+        Duration(
+          milliseconds: 500,
+        ),
+      );
       Navigator.pop(context);
     });
 

@@ -134,7 +134,11 @@ class _InsuranceRequestBasicPageWidgetState
               functions.convertDoubleTextToIntText(
                   FFAppState().insuranceBasicPickupBoxPrice)!;
         });
-        await Future.delayed(const Duration(milliseconds: 600));
+        await Future.delayed(
+          Duration(
+            milliseconds: 600,
+          ),
+        );
         await showDialog(
           context: context,
           builder: (alertDialogContext) {

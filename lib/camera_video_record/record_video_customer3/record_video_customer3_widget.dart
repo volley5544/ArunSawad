@@ -375,7 +375,10 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                 ).then((value) => safeSetState(() {}));
 
                                 await Future.delayed(
-                                    const Duration(milliseconds: 500));
+                                  Duration(
+                                    milliseconds: 500,
+                                  ),
+                                );
                                 _model.saveVideoFileOutput =
                                     await actions.saveVideoFile(
                                   _model.videoFileOutput,

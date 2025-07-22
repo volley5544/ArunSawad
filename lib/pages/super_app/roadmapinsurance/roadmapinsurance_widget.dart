@@ -82,7 +82,11 @@ class _RoadmapinsuranceWidgetState extends State<RoadmapinsuranceWidget> {
             userLocation: currentUserLocationValue,
           ),
           userLogRecordReference);
-      await Future.delayed(const Duration(milliseconds: 2000));
+      await Future.delayed(
+        Duration(
+          milliseconds: 2000,
+        ),
+      );
       _model.getroadmapinsurance = await queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
           'url_name',

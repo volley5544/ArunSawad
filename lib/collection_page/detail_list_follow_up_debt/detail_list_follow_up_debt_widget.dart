@@ -983,14 +983,12 @@ class _DetailListFollowUpDebtWidgetState
                                     0
                                 ? !functions
                                     .returnMapListFromBoolList(
-                                        (getJsonField(
+                                        getJsonField(
                                           (_model.getListDataPerson?.jsonBody ??
                                               ''),
                                           r'''$.data[:].NextWork''',
                                           true,
-                                        ) as List)
-                                            .map<String>((s) => s.toString())
-                                            .toList(),
+                                        ),
                                         FFAppState().selectCardList.toList(),
                                         true)
                                     .contains('ลงพื้นที่')

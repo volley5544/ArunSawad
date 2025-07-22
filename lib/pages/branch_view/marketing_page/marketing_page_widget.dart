@@ -1529,6 +1529,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                           .dropDownValue = val),
                                                   width: 180.0,
                                                   height: 60.0,
+                                                  menuOffset: Offset(0.0, 0.0),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .bodyMedium

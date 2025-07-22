@@ -457,7 +457,10 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                   ).then((value) => safeSetState(() {}));
 
                                   await Future.delayed(
-                                      const Duration(milliseconds: 6000));
+                                    Duration(
+                                      milliseconds: 6000,
+                                    ),
+                                  );
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {

@@ -77,7 +77,11 @@ class _WebviewNewPageCopyWidgetState extends State<WebviewNewPageCopyWidget> {
         },
       );
 
-      await Future.delayed(const Duration(milliseconds: 3000));
+      await Future.delayed(
+        Duration(
+          milliseconds: 3000,
+        ),
+      );
       Navigator.pop(context);
     });
 

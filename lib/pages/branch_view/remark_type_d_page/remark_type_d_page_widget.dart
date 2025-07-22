@@ -2105,9 +2105,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                         });
 
                                                         await Future.delayed(
-                                                            const Duration(
-                                                                milliseconds:
-                                                                    1000));
+                                                          Duration(
+                                                            milliseconds: 1000,
+                                                          ),
+                                                        );
                                                         await _model
                                                             .columnController
                                                             ?.animateTo(
@@ -2326,9 +2327,11 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                           });
 
                                                           await Future.delayed(
-                                                              const Duration(
-                                                                  milliseconds:
-                                                                      1000));
+                                                            Duration(
+                                                              milliseconds:
+                                                                  1000,
+                                                            ),
+                                                          );
                                                           await _model
                                                               .columnController
                                                               ?.animateTo(

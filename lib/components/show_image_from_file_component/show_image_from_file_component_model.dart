@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'show_image_from_file_component_widget.dart'
     show ShowImageFromFileComponentWidget;
 import 'package:flutter/material.dart';

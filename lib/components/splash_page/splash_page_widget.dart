@@ -399,7 +399,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                   ).then((value) => safeSetState(() {}));
 
                                   await Future.delayed(
-                                      const Duration(milliseconds: 6000));
+                                    Duration(
+                                      milliseconds: 6000,
+                                    ),
+                                  );
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {

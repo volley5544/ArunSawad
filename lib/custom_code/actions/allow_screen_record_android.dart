@@ -9,10 +9,10 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+import 'package:screen_protector/screen_protector.dart';
 
 Future allowScreenRecordAndroid() async {
   // Add your function code here!
 
-  await FlutterWindowManager.clearFlags(FlutterWindowManager.FLAG_SECURE);
+  await ScreenProtector.preventScreenshotOff();
 }
