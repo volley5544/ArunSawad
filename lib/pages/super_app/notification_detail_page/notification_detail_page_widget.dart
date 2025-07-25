@@ -13,7 +13,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
-import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -236,19 +235,14 @@ class _NotificationDetailPageWidgetState
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: FutureBuilder<List<NotificationRecord>>(
-                          future: (_model.firestoreRequestCompleter ??=
-                                  Completer<List<NotificationRecord>>()
-                                    ..complete(queryNotificationRecordOnce(
-                                      parent:
-                                          notificationDetailPageUserCustomRecord
-                                              ?.reference,
-                                      queryBuilder: (notificationRecord) =>
-                                          notificationRecord.orderBy(
-                                              'noti_time',
-                                              descending: true),
-                                    )))
-                              .future,
+                        child: StreamBuilder<List<NotificationRecord>>(
+                          stream: queryNotificationRecord(
+                            parent: notificationDetailPageUserCustomRecord
+                                ?.reference,
+                            queryBuilder: (notificationRecord) =>
+                                notificationRecord.orderBy('noti_time',
+                                    descending: true),
+                          ),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
@@ -267,610 +261,548 @@ class _NotificationDetailPageWidgetState
                             List<NotificationRecord>
                                 listViewNotificationRecordList = snapshot.data!;
 
-                            return RefreshIndicator(
-                              color: FlutterFlowTheme.of(context).tertiary,
-                              onRefresh: () async {
-                                safeSetState(() =>
-                                    _model.firestoreRequestCompleter = null);
-                                await _model.waitForFirestoreRequestCompleted();
-                              },
-                              child: ListView.builder(
-                                padding: EdgeInsets.fromLTRB(
-                                  0,
-                                  1.0,
-                                  0,
-                                  30.0,
-                                ),
-                                scrollDirection: Axis.vertical,
-                                itemCount:
-                                    listViewNotificationRecordList.length,
-                                itemBuilder: (context, listViewIndex) {
-                                  final listViewNotificationRecord =
-                                      listViewNotificationRecordList[
-                                          listViewIndex];
-                                  return Visibility(
-                                    visible: listViewNotificationRecord
-                                                .hasDeleted() &&
-                                            listViewNotificationRecord.deleted
-                                        ? false
-                                        : () {
+                            return ListView.builder(
+                              padding: EdgeInsets.fromLTRB(
+                                0,
+                                1.0,
+                                0,
+                                30.0,
+                              ),
+                              scrollDirection: Axis.vertical,
+                              itemCount: listViewNotificationRecordList.length,
+                              itemBuilder: (context, listViewIndex) {
+                                final listViewNotificationRecord =
+                                    listViewNotificationRecordList[
+                                        listViewIndex];
+                                return Visibility(
+                                  visible: listViewNotificationRecord
+                                              .hasDeleted() &&
+                                          listViewNotificationRecord.deleted
+                                      ? false
+                                      : () {
+                                          if (listViewNotificationRecord
+                                                  .notiType ==
+                                              'Leave_Request') {
+                                            return FFAppState().filterNotiLeave;
+                                          } else if (listViewNotificationRecord
+                                                  .notiType ==
+                                              'lead') {
+                                            return FFAppState().filterNotiLead;
+                                          } else if (listViewNotificationRecord
+                                                  .notiType ==
+                                              'insurance') {
+                                            return FFAppState()
+                                                .filterNotiInsurance;
+                                          } else if (listViewNotificationRecord
+                                                  .notiType ==
+                                              'land_and_house_assign') {
+                                            return FFAppState()
+                                                .filterNotiLeadLH;
+                                          } else if ((listViewNotificationRecord
+                                                      .notiType ==
+                                                  'impoundStep1') ||
+                                              (listViewNotificationRecord
+                                                      .notiType ==
+                                                  'impoundStep3')) {
+                                            return FFAppState()
+                                                .filterNotiImpoundCar;
+                                          } else {
+                                            return true;
+                                          }
+                                        }(),
+                                  child: Builder(
+                                    builder: (context) => Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 4.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          var _shouldSetState = false;
+                                          HapticFeedback.mediumImpact();
+
+                                          await listViewNotificationRecord
+                                              .reference
+                                              .update(
+                                                  createNotificationRecordData(
+                                            thisNotiIsRead: true,
+                                          ));
+                                          if (listViewNotificationRecord
+                                                  .notiType ==
+                                              'Leave_Request') {
+                                            showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      FocusScope.of(context)
+                                                          .unfocus();
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
+                                                    },
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          LoadingSceneWidget(),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+
+                                            _model.bossCheckOutputNotipageCopy =
+                                                await GetBossAPICall.call(
+                                              apiUrl:
+                                                  FFAppState().apiURLLocalState,
+                                              token: FFAppState().accessToken,
+                                            );
+
+                                            _shouldSetState = true;
+                                            FFAppState().bossCheckFlag =
+                                                GetBossAPICall.bossCheck(
+                                              (_model.bossCheckOutputNotipageCopy
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!;
+                                            safeSetState(() {});
+                                            Navigator.pop(context);
+
+                                            context.goNamed(
+                                                DashboardLeavePageWidget
+                                                    .routeName);
+
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          } else {
                                             if (listViewNotificationRecord
                                                     .notiType ==
-                                                'Leave_Request') {
-                                              return FFAppState()
-                                                  .filterNotiLeave;
-                                            } else if (listViewNotificationRecord
-                                                    .notiType ==
                                                 'lead') {
-                                              return FFAppState()
-                                                  .filterNotiLead;
-                                            } else if (listViewNotificationRecord
+                                              context.goNamed(
+                                                  LeadNotiNewPageWidget
+                                                      .routeName);
+
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
+                                            if (listViewNotificationRecord
                                                     .notiType ==
                                                 'insurance') {
-                                              return FFAppState()
-                                                  .filterNotiInsurance;
-                                            } else if (listViewNotificationRecord
+                                              context.goNamed(
+                                                  MyProfilePageWidget
+                                                      .routeName);
+
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
+                                            if (listViewNotificationRecord
                                                     .notiType ==
                                                 'land_and_house_assign') {
-                                              return FFAppState()
-                                                  .filterNotiLeadLH;
-                                            } else if ((listViewNotificationRecord
+                                              showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Container(
+                                                          height:
+                                                              double.infinity,
+                                                          child:
+                                                              LoadingSceneWidget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+
+                                              _model.queryLandAndHouseUrlCopy =
+                                                  await UrlLinkStorageRecord
+                                                      .getDocumentOnce(FFAppState()
+                                                          .landAndHouseUrlDocRef!);
+                                              _shouldSetState = true;
+                                              Navigator.pop(context);
+
+                                              context.goNamed(
+                                                WebviewNewPageWidget.routeName,
+                                                queryParameters: {
+                                                  'webUrl': serializeParam(
+                                                    _model
+                                                        .queryLandAndHouseUrlCopy
+                                                        ?.urlLink,
+                                                    ParamType.String,
+                                                  ),
+                                                  'branchCodeSearch':
+                                                      serializeParam(
+                                                    FFAppState().profileBranch,
+                                                    ParamType.String,
+                                                  ),
+                                                  'levelSearch': serializeParam(
+                                                    FFAppState().profileLevel,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
+                                            if ((listViewNotificationRecord
                                                         .notiType ==
                                                     'impoundStep1') ||
                                                 (listViewNotificationRecord
                                                         .notiType ==
                                                     'impoundStep3')) {
-                                              return FFAppState()
-                                                  .filterNotiImpoundCar;
-                                            } else {
-                                              return true;
-                                            }
-                                          }(),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 4.0),
-                                      child: Container(
-                                        constraints: BoxConstraints(
-                                          minHeight: 93.0,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: valueOrDefault<Color>(
-                                            functions.getNotificationCardColor(
-                                                Color(0xFFFFECEC),
-                                                listViewNotificationRecord
-                                                    .thisNotiIsRead),
-                                            Color(0xFFFFECEC),
-                                          ),
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 8.0, 24.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  Text(
-                                                    dateTimeFormat(
-                                                      "d/M/y",
-                                                      listViewNotificationRecord
-                                                          .notiTime!,
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .grayIcon,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
+                                              context.pushNamed(
+                                                CarSeizedSelectDashboardWidget
+                                                    .routeName,
+                                                queryParameters: {
+                                                  'isFromNotiPage':
+                                                      serializeParam(
+                                                    listViewNotificationRecord
+                                                        .notiType,
+                                                    ParamType.String,
                                                   ),
-                                                  Text(
-                                                    dateTimeFormat(
-                                                      "Hm",
-                                                      listViewNotificationRecord
-                                                          .notiTime!,
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .grayIcon,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ].divide(SizedBox(width: 12.0)),
-                                              ),
-                                            ),
-                                            Container(
-                                              decoration: BoxDecoration(),
-                                              child: Builder(
-                                                builder: (context) => Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          1.0, 1.0, 1.0, 1.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      var _shouldSetState =
-                                                          false;
-                                                      HapticFeedback
-                                                          .mediumImpact();
-
-                                                      await listViewNotificationRecord
-                                                          .reference
-                                                          .update(
-                                                              createNotificationRecordData(
-                                                        thisNotiIsRead: true,
-                                                      ));
-                                                      if (listViewNotificationRecord
-                                                              .notiType ==
-                                                          'Leave_Request') {
-                                                        showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          enableDrag: false,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                                onTap: () {
-                                                                  FocusScope.of(
-                                                                          context)
-                                                                      .unfocus();
-                                                                  FocusManager
-                                                                      .instance
-                                                                      .primaryFocus
-                                                                      ?.unfocus();
-                                                                },
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      LoadingSceneWidget(),
-                                                                ),
-                                                              ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-
-                                                        _model.bossCheckOutputNotipageCopy =
-                                                            await GetBossAPICall
-                                                                .call(
-                                                          apiUrl: FFAppState()
-                                                              .apiURLLocalState,
-                                                          token: FFAppState()
-                                                              .accessToken,
-                                                        );
-
-                                                        _shouldSetState = true;
-                                                        FFAppState()
-                                                                .bossCheckFlag =
-                                                            GetBossAPICall
-                                                                .bossCheck(
-                                                          (_model.bossCheckOutputNotipageCopy
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )!;
-                                                        safeSetState(() {});
-                                                        Navigator.pop(context);
-
-                                                        context.goNamed(
-                                                            DashboardLeavePageWidget
-                                                                .routeName);
-
-                                                        if (_shouldSetState)
-                                                          safeSetState(() {});
-                                                        return;
-                                                      } else {
-                                                        if (listViewNotificationRecord
-                                                                .notiType ==
-                                                            'lead') {
-                                                          context.goNamed(
-                                                              LeadNotiNewPageWidget
-                                                                  .routeName);
-
-                                                          if (_shouldSetState)
-                                                            safeSetState(() {});
-                                                          return;
-                                                        }
-                                                        if (listViewNotificationRecord
-                                                                .notiType ==
-                                                            'insurance') {
-                                                          context.goNamed(
-                                                              MyProfilePageWidget
-                                                                  .routeName);
-
-                                                          if (_shouldSetState)
-                                                            safeSetState(() {});
-                                                          return;
-                                                        }
-                                                        if (listViewNotificationRecord
-                                                                .notiType ==
-                                                            'land_and_house_assign') {
-                                                          showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (dialogContext) {
-                                                              return Dialog(
-                                                                elevation: 0,
-                                                                insetPadding:
-                                                                    EdgeInsets
-                                                                        .zero,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                alignment: AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
-                                                                child:
-                                                                    WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
-                                                                    onTap: () {
-                                                                      FocusScope.of(
-                                                                              dialogContext)
-                                                                          .unfocus();
-                                                                      FocusManager
-                                                                          .instance
-                                                                          .primaryFocus
-                                                                          ?.unfocus();
-                                                                    },
-                                                                    child:
-                                                                        Container(
-                                                                      height: double
-                                                                          .infinity,
-                                                                      child:
-                                                                          LoadingSceneWidget(),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          );
-
-                                                          _model.queryLandAndHouseUrlCopy =
-                                                              await UrlLinkStorageRecord
-                                                                  .getDocumentOnce(
-                                                                      FFAppState()
-                                                                          .landAndHouseUrlDocRef!);
-                                                          _shouldSetState =
-                                                              true;
-                                                          Navigator.pop(
-                                                              context);
-
-                                                          context.goNamed(
-                                                            WebviewNewPageWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'webUrl':
-                                                                  serializeParam(
-                                                                _model
-                                                                    .queryLandAndHouseUrlCopy
-                                                                    ?.urlLink,
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                              'branchCodeSearch':
-                                                                  serializeParam(
-                                                                FFAppState()
-                                                                    .profileBranch,
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                              'levelSearch':
-                                                                  serializeParam(
-                                                                FFAppState()
-                                                                    .profileLevel,
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
-
-                                                          if (_shouldSetState)
-                                                            safeSetState(() {});
-                                                          return;
-                                                        }
-                                                        if ((listViewNotificationRecord
-                                                                    .notiType ==
-                                                                'impoundStep1') ||
-                                                            (listViewNotificationRecord
-                                                                    .notiType ==
-                                                                'impoundStep3')) {
-                                                          context.pushNamed(
-                                                            CarSeizedSelectDashboardWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'isFromNotiPage':
-                                                                  serializeParam(
-                                                                listViewNotificationRecord
-                                                                    .notiType,
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                              'contNoNoti':
-                                                                  serializeParam(
-                                                                functions.getStringFromJsonString(
-                                                                    listViewNotificationRecord
-                                                                        .notiData,
-                                                                    'contract_no'),
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
-
-                                                          if (_shouldSetState)
-                                                            safeSetState(() {});
-                                                          return;
-                                                        }
-                                                        if (listViewNotificationRecord
-                                                                .notiType ==
-                                                            'open_app') {
-                                                          await launchURL(functions
-                                                              .getStringFromJsonString(
-                                                                  listViewNotificationRecord
-                                                                      .notiData,
-                                                                  'app_url')!);
-                                                          if (_shouldSetState)
-                                                            safeSetState(() {});
-                                                          return;
-                                                        }
-                                                      }
-
-                                                      if (_shouldSetState)
-                                                        safeSetState(() {});
-                                                    },
-                                                    child: Slidable(
-                                                      endActionPane: ActionPane(
-                                                        motion:
-                                                            const ScrollMotion(),
-                                                        extentRatio: 0.25,
-                                                        children: [
-                                                          SlidableAction(
-                                                            label: 'ลบ',
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .error,
-                                                            icon: Icons
-                                                                .delete_outline_rounded,
-                                                            onPressed:
-                                                                (_) async {
-                                                              var confirmDialogResponse =
-                                                                  await showDialog<
-                                                                          bool>(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (alertDialogContext) {
-                                                                          return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                              content: Text('คุณต้องการจะลบการแจ้งเตือนนี้หรือไม่?'),
-                                                                              actions: [
-                                                                                TextButton(
-                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                  child: Text('ยกเลิก'),
-                                                                                ),
-                                                                                TextButton(
-                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                  child: Text('ลบ'),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                      ) ??
-                                                                      false;
-                                                              if (!confirmDialogResponse) {
-                                                                return;
-                                                              }
-
-                                                              await listViewNotificationRecord
-                                                                  .reference
-                                                                  .update(
-                                                                      createNotificationRecordData(
-                                                                deleted: true,
-                                                                deletedTime:
-                                                                    getCurrentTimestamp,
-                                                              ));
-                                                              safeSetState(() =>
-                                                                  _model.firestoreRequestCompleter =
-                                                                      null);
-                                                              await _model
-                                                                  .waitForFirestoreRequestCompleted();
-                                                            },
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      child: Material(
-                                                        color:
-                                                            Colors.transparent,
-                                                        child: ListTile(
-                                                          title: Text(
+                                                  'contNoNoti': serializeParam(
+                                                    functions
+                                                        .getStringFromJsonString(
                                                             listViewNotificationRecord
-                                                                .notiTitle,
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleLarge
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleLarge
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: Color(
-                                                                      0xFFFF6500),
-                                                                  fontSize:
-                                                                      20.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                .notiData,
+                                                            'contract_no'),
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
+                                            if (listViewNotificationRecord
+                                                    .notiType ==
+                                                'open_app') {
+                                              await launchURL(functions
+                                                  .getStringFromJsonString(
+                                                      listViewNotificationRecord
+                                                          .notiData,
+                                                      'app_url')!);
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
+                                          }
+
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          constraints: BoxConstraints(
+                                            minHeight: 93.0,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: valueOrDefault<Color>(
+                                              functions
+                                                  .getNotificationCardColor(
+                                                      Color(0xFFFFECEC),
+                                                      listViewNotificationRecord
+                                                          .thisNotiIsRead),
+                                              Color(0xFFFFECEC),
+                                            ),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                child: Slidable(
+                                                  endActionPane: ActionPane(
+                                                    motion:
+                                                        const ScrollMotion(),
+                                                    extentRatio: 0.25,
+                                                    children: [
+                                                      SlidableAction(
+                                                        label: 'ลบ',
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        icon: Icons
+                                                            .delete_outline_rounded,
+                                                        onPressed: (_) async {
+                                                          var confirmDialogResponse =
+                                                              await showDialog<
+                                                                      bool>(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text('คุณต้องการจะลบการแจ้งเตือนนี้หรือไม่?'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                              child: Text('ยกเลิก'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                              child: Text('ลบ'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ) ??
+                                                                  false;
+                                                          if (!confirmDialogResponse) {
+                                                            return;
+                                                          }
+
+                                                          await listViewNotificationRecord
+                                                              .reference
+                                                              .update(
+                                                                  createNotificationRecordData(
+                                                            deleted: true,
+                                                            deletedTime:
+                                                                getCurrentTimestamp,
+                                                          ));
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  child: Material(
+                                                    color: Colors.transparent,
+                                                    child: ListTile(
+                                                      title: Text(
+                                                        listViewNotificationRecord
+                                                            .notiTitle,
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .titleLarge
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .poppins(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge
+                                                                    .fontStyle,
+                                                              ),
+                                                              color: Color(
+                                                                  0xFFFF6500),
+                                                              fontSize: 20.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleLarge
                                                                       .fontStyle,
-                                                                ),
-                                                          ),
-                                                          subtitle: Text(
-                                                            listViewNotificationRecord
-                                                                .notiBody,
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
+                                                            ),
+                                                      ),
+                                                      subtitle: Text(
+                                                        listViewNotificationRecord
+                                                            .notiBody,
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .labelMedium
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .poppins(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
                                                                           context)
                                                                       .labelMedium
                                                                       .fontStyle,
-                                                                  lineHeight:
-                                                                      2.0,
-                                                                ),
-                                                          ),
-                                                          trailing: Icon(
-                                                            Icons
-                                                                .swipe_left_rounded,
-                                                            size: 30.0,
-                                                          ),
-                                                          dense: false,
-                                                          contentPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      20.0,
-                                                                      0.0,
-                                                                      24.0,
-                                                                      30.0),
-                                                          shape:
-                                                              RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                          ),
-                                                        ),
+                                                              lineHeight: 2.0,
+                                                            ),
+                                                      ),
+                                                      trailing: Icon(
+                                                        Icons
+                                                            .swipe_left_rounded,
+                                                        size: 30.0,
+                                                      ),
+                                                      dense: false,
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  20.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 8.0, 24.0, 8.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      dateTimeFormat(
+                                                        "d/M/y",
+                                                        listViewNotificationRecord
+                                                            .notiTime!,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .grayIcon,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                    ),
+                                                    Text(
+                                                      dateTimeFormat(
+                                                        "Hm",
+                                                        listViewNotificationRecord
+                                                            .notiTime!,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .grayIcon,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(width: 12.0)),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  );
-                                },
-                              ),
+                                  ),
+                                );
+                              },
                             );
                           },
                         ),

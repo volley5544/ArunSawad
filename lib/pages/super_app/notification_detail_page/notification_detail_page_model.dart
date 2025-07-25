@@ -13,7 +13,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
-import 'dart:async';
 import 'notification_detail_page_widget.dart' show NotificationDetailPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +29,9 @@ class NotificationDetailPageModel
 
   // Stores action output result for [Custom Action - a21] action in NotificationDetailPage widget.
   String? getFirebaseUID;
-  Completer<List<NotificationRecord>>? firestoreRequestCompleter;
-  // Stores action output result for [Backend Call - API (GetBossAPI)] action in ListTile widget.
+  // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutputNotipageCopy;
-  // Stores action output result for [Backend Call - Read Document] action in ListTile widget.
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryLandAndHouseUrlCopy;
 
   @override
@@ -41,20 +39,4 @@ class NotificationDetailPageModel
 
   @override
   void dispose() {}
-
-  /// Additional helper methods.
-  Future waitForFirestoreRequestCompleted({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = firestoreRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
 }
