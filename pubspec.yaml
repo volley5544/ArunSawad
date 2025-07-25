@@ -106,6 +106,7 @@ dependencies:
   flutter_secure_storage_platform_interface: 1.1.2
   flutter_secure_storage_web: 1.2.1
   flutter_secure_storage_windows: 2.0.0
+  flutter_slidable: 4.0.0
   flutter_web_browser: ^0.17.1
   font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0

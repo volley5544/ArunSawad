@@ -66,6 +66,16 @@ class NotificationRecord extends FirestoreRecord {
   String get notiData => _notiData ?? '';
   bool hasNotiData() => _notiData != null;
 
+  // "deleted" field.
+  bool? _deleted;
+  bool get deleted => _deleted ?? false;
+  bool hasDeleted() => _deleted != null;
+
+  // "deleted_time" field.
+  DateTime? _deletedTime;
+  DateTime? get deletedTime => _deletedTime;
+  bool hasDeletedTime() => _deletedTime != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -79,6 +89,8 @@ class NotificationRecord extends FirestoreRecord {
     _notiIsSent = getDataList(snapshotData['noti_is_sent']);
     _insuExpDate = getDataList(snapshotData['insu_exp_date']);
     _notiData = snapshotData['noti_data'] as String?;
+    _deleted = snapshotData['deleted'] as bool?;
+    _deletedTime = snapshotData['deleted_time'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -128,6 +140,8 @@ Map<String, dynamic> createNotificationRecordData({
   bool? thisNotiIsRead,
   String? notiType,
   String? notiData,
+  bool? deleted,
+  DateTime? deletedTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -138,6 +152,8 @@ Map<String, dynamic> createNotificationRecordData({
       'this_noti_is_read': thisNotiIsRead,
       'noti_type': notiType,
       'noti_data': notiData,
+      'deleted': deleted,
+      'deleted_time': deletedTime,
     }.withoutNulls,
   );
 
@@ -160,7 +176,9 @@ class NotificationRecordDocumentEquality
         listEquality.equals(e1?.licenseType, e2?.licenseType) &&
         listEquality.equals(e1?.notiIsSent, e2?.notiIsSent) &&
         listEquality.equals(e1?.insuExpDate, e2?.insuExpDate) &&
-        e1?.notiData == e2?.notiData;
+        e1?.notiData == e2?.notiData &&
+        e1?.deleted == e2?.deleted &&
+        e1?.deletedTime == e2?.deletedTime;
   }
 
   @override
@@ -174,7 +192,9 @@ class NotificationRecordDocumentEquality
         e?.licenseType,
         e?.notiIsSent,
         e?.insuExpDate,
-        e?.notiData
+        e?.notiData,
+        e?.deleted,
+        e?.deletedTime
       ]);
 
   @override

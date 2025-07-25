@@ -19,6 +19,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -30,10 +31,10 @@ class NotificationDetailPageModel
   // Stores action output result for [Custom Action - a21] action in NotificationDetailPage widget.
   String? getFirebaseUID;
   Completer<List<NotificationRecord>>? firestoreRequestCompleter;
-  // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
-  ApiCallResponse? bossCheckOutputNotipage;
-  // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  UrlLinkStorageRecord? queryLandAndHouseUrl;
+  // Stores action output result for [Backend Call - API (GetBossAPI)] action in ListTile widget.
+  ApiCallResponse? bossCheckOutputNotipageCopy;
+  // Stores action output result for [Backend Call - Read Document] action in ListTile widget.
+  UrlLinkStorageRecord? queryLandAndHouseUrlCopy;
 
   @override
   void initState(BuildContext context) {}
