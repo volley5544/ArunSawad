@@ -288,161 +288,165 @@ class _NotificationDetailPageWidgetState
                                   final listViewNotificationRecord =
                                       listViewNotificationRecordList[
                                           listViewIndex];
-                                  return Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 4.0),
-                                    child: Container(
-                                      constraints: BoxConstraints(
-                                        minHeight: 93.0,
-                                      ),
-                                      decoration: BoxDecoration(),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 12.0, 24.0, 8.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  dateTimeFormat(
-                                                    "Hm",
-                                                    listViewNotificationRecord
-                                                        .notiTime!,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .grayIcon,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                                Text(
-                                                  dateTimeFormat(
-                                                    "d/M/y",
-                                                    listViewNotificationRecord
-                                                        .notiTime!,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .grayIcon,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                              ].divide(SizedBox(width: 12.0)),
-                                            ),
+                                  return Visibility(
+                                    visible: listViewNotificationRecord
+                                                .hasDeleted() &&
+                                            listViewNotificationRecord.deleted
+                                        ? false
+                                        : () {
+                                            if (listViewNotificationRecord
+                                                    .notiType ==
+                                                'Leave_Request') {
+                                              return FFAppState()
+                                                  .filterNotiLeave;
+                                            } else if (listViewNotificationRecord
+                                                    .notiType ==
+                                                'lead') {
+                                              return FFAppState()
+                                                  .filterNotiLead;
+                                            } else if (listViewNotificationRecord
+                                                    .notiType ==
+                                                'insurance') {
+                                              return FFAppState()
+                                                  .filterNotiInsurance;
+                                            } else if (listViewNotificationRecord
+                                                    .notiType ==
+                                                'land_and_house_assign') {
+                                              return FFAppState()
+                                                  .filterNotiLeadLH;
+                                            } else if ((listViewNotificationRecord
+                                                        .notiType ==
+                                                    'impoundStep1') ||
+                                                (listViewNotificationRecord
+                                                        .notiType ==
+                                                    'impoundStep3')) {
+                                              return FFAppState()
+                                                  .filterNotiImpoundCar;
+                                            } else {
+                                              return true;
+                                            }
+                                          }(),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 4.0),
+                                      child: Container(
+                                        constraints: BoxConstraints(
+                                          minHeight: 93.0,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: valueOrDefault<Color>(
+                                            functions.getNotificationCardColor(
+                                                Color(0xFFFFECEC),
+                                                listViewNotificationRecord
+                                                    .thisNotiIsRead),
+                                            Color(0xFFFFECEC),
                                           ),
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: Color(0x7F57636C),
-                                                width: 2.0,
+                                        ),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 8.0, 24.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  Text(
+                                                    dateTimeFormat(
+                                                      "d/M/y",
+                                                      listViewNotificationRecord
+                                                          .notiTime!,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .grayIcon,
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    dateTimeFormat(
+                                                      "Hm",
+                                                      listViewNotificationRecord
+                                                          .notiTime!,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .grayIcon,
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ].divide(SizedBox(width: 12.0)),
                                               ),
                                             ),
-                                            child: Visibility(
-                                              visible: listViewNotificationRecord
-                                                          .hasDeleted() &&
-                                                      listViewNotificationRecord
-                                                          .deleted
-                                                  ? false
-                                                  : () {
-                                                      if (listViewNotificationRecord
-                                                              .notiType ==
-                                                          'Leave_Request') {
-                                                        return FFAppState()
-                                                            .filterNotiLeave;
-                                                      } else if (listViewNotificationRecord
-                                                              .notiType ==
-                                                          'lead') {
-                                                        return FFAppState()
-                                                            .filterNotiLead;
-                                                      } else if (listViewNotificationRecord
-                                                              .notiType ==
-                                                          'insurance') {
-                                                        return FFAppState()
-                                                            .filterNotiInsurance;
-                                                      } else if (listViewNotificationRecord
-                                                              .notiType ==
-                                                          'land_and_house_assign') {
-                                                        return FFAppState()
-                                                            .filterNotiLeadLH;
-                                                      } else if ((listViewNotificationRecord
-                                                                  .notiType ==
-                                                              'impoundStep1') ||
-                                                          (listViewNotificationRecord
-                                                                  .notiType ==
-                                                              'impoundStep3')) {
-                                                        return FFAppState()
-                                                            .filterNotiImpoundCar;
-                                                      } else {
-                                                        return true;
-                                                      }
-                                                    }(),
+                                            Container(
+                                              decoration: BoxDecoration(),
                                               child: Builder(
                                                 builder: (context) => Padding(
                                                   padding: EdgeInsetsDirectional
@@ -838,16 +842,6 @@ class _NotificationDetailPageWidgetState
                                                                 .swipe_left_rounded,
                                                             size: 30.0,
                                                           ),
-                                                          tileColor:
-                                                              valueOrDefault<
-                                                                  Color>(
-                                                            functions.getNotificationCardColor(
-                                                                Color(
-                                                                    0xFFFFECEC),
-                                                                listViewNotificationRecord
-                                                                    .thisNotiIsRead),
-                                                            Color(0xFFFFECEC),
-                                                          ),
                                                           dense: false,
                                                           contentPadding:
                                                               EdgeInsetsDirectional
@@ -870,8 +864,8 @@ class _NotificationDetailPageWidgetState
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   );
