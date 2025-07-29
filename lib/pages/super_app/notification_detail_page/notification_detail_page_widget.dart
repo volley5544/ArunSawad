@@ -227,6 +227,32 @@ class _NotificationDetailPageWidgetState
                         ),
                       ),
                     ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 8.0),
+                      child: Text(
+                        '* ใช้นิ้วปัดข้อความแจ้งเตือนไปทางซ้าย เพื่อลบแการแจ้งเตือนนั้นๆ*',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              font: GoogleFonts.poppins(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                              color: Color(0xFFFF0000),
+                              fontSize: 16.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                      ),
+                    ),
                     Expanded(
                       child: Container(
                         width: double.infinity,
@@ -660,6 +686,9 @@ class _NotificationDetailPageWidgetState
                                                                     .labelMedium
                                                                     .fontStyle,
                                                               ),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
                                                               fontSize: 14.0,
                                                               letterSpacing:
                                                                   0.0,

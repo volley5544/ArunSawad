@@ -5311,268 +5311,269 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             24.0),
                                                               ),
                                                             ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child:
-                                                                  FFButtonWidget(
-                                                                onPressed:
-                                                                    () async {
-                                                                  var _shouldSetState =
-                                                                      false;
-                                                                  HapticFeedback
-                                                                      .mediumImpact();
-                                                                  _model.getCallHistory =
-                                                                      await GetLeadCalledHistoryAPICall
-                                                                          .call(
-                                                                    apiUrl: FFAppState()
-                                                                        .apiURLLocalState,
-                                                                    token: FFAppState()
-                                                                        .accessToken,
-                                                                    leadID:
-                                                                        '${getJsonField(
-                                                                      leadListItemItem,
-                                                                      r'''$.lead_id''',
-                                                                    ).toString()}',
-                                                                  );
+                                                            Builder(
+                                                              builder:
+                                                                  (context) =>
+                                                                      Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            12.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child:
+                                                                    FFButtonWidget(
+                                                                  onPressed:
+                                                                      () async {
+                                                                    var _shouldSetState =
+                                                                        false;
+                                                                    HapticFeedback
+                                                                        .mediumImpact();
+                                                                    _model.getCallHistory =
+                                                                        await GetLeadCalledHistoryAPICall
+                                                                            .call(
+                                                                      apiUrl: FFAppState()
+                                                                          .apiURLLocalState,
+                                                                      token: FFAppState()
+                                                                          .accessToken,
+                                                                      leadID:
+                                                                          '${getJsonField(
+                                                                        leadListItemItem,
+                                                                        r'''$.lead_id''',
+                                                                      ).toString()}',
+                                                                    );
 
-                                                                  _shouldSetState =
-                                                                      true;
-                                                                  if (!((((_model.getCallHistory?.statusCode ?? 200) ==
-                                                                              200) &&
-                                                                          (GetLeadCalledHistoryAPICall
-                                                                                  .statusLayer2(
+                                                                    _shouldSetState =
+                                                                        true;
+                                                                    if (!((((_model.getCallHistory?.statusCode ?? 200) ==
+                                                                                200) &&
+                                                                            (GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                200)) ||
+                                                                        (((_model.getCallHistory?.statusCode ?? 200) == 200) &&
+                                                                            (GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                404)))) {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              content: Text('พบข้อผิดพลาดConnection (${(_model.getCallHistory?.statusCode ?? 200).toString()}) Layer2 (${GetLeadCalledHistoryAPICall.statusLayer2(
                                                                                 (_model.getCallHistory?.jsonBody ?? ''),
-                                                                              ) ==
-                                                                              200)) ||
-                                                                      (((_model.getCallHistory?.statusCode ?? 200) ==
-                                                                              200) &&
-                                                                          (GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                                (_model.getCallHistory?.jsonBody ?? ''),
-                                                                              ) ==
-                                                                              404)))) {
+                                                                              )?.toString()})'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                      if (_shouldSetState)
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      return;
+                                                                    }
                                                                     await showDialog(
                                                                       context:
                                                                           context,
                                                                       builder:
-                                                                          (alertDialogContext) {
-                                                                        return WebViewAware(
+                                                                          (dialogContext) {
+                                                                        return Dialog(
+                                                                          elevation:
+                                                                              0,
+                                                                          insetPadding:
+                                                                              EdgeInsets.zero,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          alignment:
+                                                                              AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                           child:
-                                                                              AlertDialog(
-                                                                            content:
-                                                                                Text('พบข้อผิดพลาดConnection (${(_model.getCallHistory?.statusCode ?? 200).toString()}) Layer2 (${GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                              (_model.getCallHistory?.jsonBody ?? ''),
-                                                                            )?.toString()})'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    );
-                                                                    if (_shouldSetState)
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    return;
-                                                                  }
-                                                                  await showModalBottomSheet(
-                                                                    isScrollControlled:
-                                                                        true,
-                                                                    backgroundColor:
-                                                                        Color(
-                                                                            0xB3000000),
-                                                                    barrierColor:
-                                                                        Color(
-                                                                            0x00000000),
-                                                                    enableDrag:
-                                                                        false,
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (context) {
-                                                                      return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                          onTap:
-                                                                              () {
-                                                                            FocusScope.of(context).unfocus();
-                                                                            FocusManager.instance.primaryFocus?.unfocus();
-                                                                          },
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                MediaQuery.viewInsetsOf(context),
+                                                                              WebViewAware(
                                                                             child:
-                                                                                Container(
-                                                                              height: MediaQuery.sizeOf(context).height * 0.8,
-                                                                              child: CallHistoryWidget(
-                                                                                leadCreatedTime: functions.parseStringToDatetime('${getJsonField(
-                                                                                  leadListItemItem,
-                                                                                  r'''$.created_at''',
-                                                                                ).toString()}'),
-                                                                                callStatusList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                GestureDetector(
+                                                                              onTap: () {
+                                                                                FocusScope.of(dialogContext).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
+                                                                              child: Container(
+                                                                                height: double.infinity,
+                                                                                width: double.infinity,
+                                                                                child: CallHistoryWidget(
+                                                                                  leadCreatedTime: functions.parseStringToDatetime('${getJsonField(
+                                                                                    leadListItemItem,
+                                                                                    r'''$.created_at''',
+                                                                                  ).toString()}'),
+                                                                                  callStatusList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                            (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                          ) ==
+                                                                                          404
+                                                                                      ? FFAppState().defaultList1
+                                                                                      : functions.reverseList(GetLeadCalledHistoryAPICall.callStatus(
                                                                                           (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                        ) ==
-                                                                                        404
-                                                                                    ? FFAppState().defaultList1
-                                                                                    : functions.reverseList(GetLeadCalledHistoryAPICall.callStatus(
-                                                                                        (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                      )?.toList()),
-                                                                                historyStatusList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                        )?.toList()),
+                                                                                  historyStatusList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                            (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                          ) ==
+                                                                                          404
+                                                                                      ? FFAppState().defaultList1
+                                                                                      : functions.reverseList(GetLeadCalledHistoryAPICall.historyStatus(
                                                                                           (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                        ) ==
-                                                                                        404
-                                                                                    ? FFAppState().defaultList1
-                                                                                    : functions.reverseList(GetLeadCalledHistoryAPICall.historyStatus(
-                                                                                        (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                      )?.toList()),
-                                                                                historyTimeCallList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                        )?.toList()),
+                                                                                  historyTimeCallList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                            (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                          ) ==
+                                                                                          404
+                                                                                      ? FFAppState().defaultList1
+                                                                                      : functions.reverseList(GetLeadCalledHistoryAPICall.callTime(
                                                                                           (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                        ) ==
-                                                                                        404
-                                                                                    ? FFAppState().defaultList1
-                                                                                    : functions.reverseList(GetLeadCalledHistoryAPICall.callTime(
-                                                                                        (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                      )?.toList()),
-                                                                                employeeIdList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                        )?.toList()),
+                                                                                  employeeIdList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                            (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                          ) ==
+                                                                                          404
+                                                                                      ? FFAppState().defaultList1
+                                                                                      : functions.reverseList(GetLeadCalledHistoryAPICall.employeeId(
                                                                                           (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                        ) ==
-                                                                                        404
-                                                                                    ? FFAppState().defaultList1
-                                                                                    : functions.reverseList(GetLeadCalledHistoryAPICall.employeeId(
-                                                                                        (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                      )?.toList()),
-                                                                                reasonNameList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                        )?.toList()),
+                                                                                  reasonNameList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                            (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                          ) ==
+                                                                                          404
+                                                                                      ? FFAppState().defaultList1
+                                                                                      : functions.reverseList(GetLeadCalledHistoryAPICall.reasonName(
                                                                                           (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                        ) ==
-                                                                                        404
-                                                                                    ? FFAppState().defaultList1
-                                                                                    : functions.reverseList(GetLeadCalledHistoryAPICall.reasonName(
-                                                                                        (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                      )?.toList()),
-                                                                                note: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                        )?.toList()),
+                                                                                  note: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                            (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                          ) ==
+                                                                                          404
+                                                                                      ? FFAppState().defaultList1
+                                                                                      : functions.reverseList(GetLeadCalledHistoryAPICall.note(
                                                                                           (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                        ) ==
-                                                                                        404
-                                                                                    ? FFAppState().defaultList1
-                                                                                    : functions.reverseList(GetLeadCalledHistoryAPICall.note(
-                                                                                        (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                      )?.map((e) => e.toString()).toList()?.toList()),
-                                                                                apiStatusCode: GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                        )?.map((e) => e.toString()).toList()?.toList()),
+                                                                                  apiStatusCode: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                    (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                  ).then((value) =>
-                                                                      safeSetState(
-                                                                          () {}));
-
-                                                                  if (_shouldSetState)
-                                                                    safeSetState(
-                                                                        () {});
-                                                                },
-                                                                text:
-                                                                    'ประวัติการโทร',
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  width: 130.0,
-                                                                  height: 40.0,
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  color:
-                                                                      valueOrDefault<
-                                                                          Color>(
-                                                                    () {
-                                                                      if ('${getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$.channel''',
-                                                                          ).toString()}' ==
-                                                                          'Lead Survey') {
-                                                                        return valueOrDefault<
-                                                                            Color>(
-                                                                          leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
-                                                                              'Lead Survey')),
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondary,
                                                                         );
-                                                                      } else if ('${getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$.channel''',
-                                                                          ).toString()}' ==
-                                                                          'Lead Telesale') {
-                                                                        return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                            leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
-                                                                            'Lead Telesale')));
-                                                                      } else if ('${getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$.channel''',
-                                                                          ).toString()}' ==
-                                                                          'Lead Agent') {
-                                                                        return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                            leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
-                                                                            'Lead Agent')));
-                                                                      } else if ('${getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$.channel''',
-                                                                          ).toString()}' ==
-                                                                          'Lead Truck') {
-                                                                        return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                            leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
-                                                                            'Lead Truck')));
-                                                                      } else if ('${getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$.channel''',
-                                                                          ).toString()}' ==
-                                                                          'Lead HP') {
-                                                                        return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                            leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
-                                                                            'Lead HP')));
-                                                                      } else if ('${getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$.channel''',
-                                                                          ).toString()}' ==
-                                                                          'Lead Topup') {
-                                                                        return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                            leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
-                                                                            'Lead Topup')));
-                                                                      } else {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .accent1;
-                                                                      }
-                                                                    }(),
-                                                                    FlutterFlowTheme.of(
+                                                                      },
+                                                                    );
+
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                  },
+                                                                  text:
+                                                                      'ประวัติการโทร',
+                                                                  options:
+                                                                      FFButtonOptions(
+                                                                    width:
+                                                                        130.0,
+                                                                    height:
+                                                                        40.0,
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    iconPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      () {
+                                                                        if ('${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.channel''',
+                                                                            ).toString()}' ==
+                                                                            'Lead Survey') {
+                                                                          return valueOrDefault<
+                                                                              Color>(
+                                                                            leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                                'Lead Survey')),
+                                                                            FlutterFlowTheme.of(context).secondary,
+                                                                          );
+                                                                        } else if ('${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.channel''',
+                                                                            ).toString()}' ==
+                                                                            'Lead Telesale') {
+                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              'Lead Telesale')));
+                                                                        } else if ('${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.channel''',
+                                                                            ).toString()}' ==
+                                                                            'Lead Agent') {
+                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              'Lead Agent')));
+                                                                        } else if ('${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.channel''',
+                                                                            ).toString()}' ==
+                                                                            'Lead Truck') {
+                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              'Lead Truck')));
+                                                                        } else if ('${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.channel''',
+                                                                            ).toString()}' ==
+                                                                            'Lead HP') {
+                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              'Lead HP')));
+                                                                        } else if ('${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.channel''',
+                                                                            ).toString()}' ==
+                                                                            'Lead Topup') {
+                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              'Lead Topup')));
+                                                                        } else {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .accent1;
+                                                                        }
+                                                                      }(),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                    ),
+                                                                    textStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .secondaryBackground,
-                                                                  ),
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                          ),
+                                                                          color:
+                                                                              Colors.white,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight: FlutterFlowTheme.of(context)
                                                                               .titleSmall
                                                                               .fontWeight,
@@ -5580,29 +5581,19 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               .titleSmall
                                                                               .fontStyle,
                                                                         ),
-                                                                        color: Colors
-                                                                            .white,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .titleSmall
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .titleSmall
-                                                                            .fontStyle,
-                                                                      ),
-                                                                  elevation:
-                                                                      2.0,
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: Colors
-                                                                        .transparent,
-                                                                    width: 1.0,
+                                                                    elevation:
+                                                                        2.0,
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: Colors
+                                                                          .transparent,
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            24.0),
                                                                   ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              24.0),
                                                                 ),
                                                               ),
                                                             ),
