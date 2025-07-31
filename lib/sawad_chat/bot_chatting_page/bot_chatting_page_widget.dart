@@ -460,7 +460,7 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                                                           .sizeOf(
                                                                               context)
                                                                       .width *
-                                                                  0.65,
+                                                                  0.8,
                                                             ),
                                                             decoration:
                                                                 BoxDecoration(
@@ -754,7 +754,7 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                                             MediaQuery.sizeOf(
                                                                         context)
                                                                     .width *
-                                                                0.65,
+                                                                0.8,
                                                       ),
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
