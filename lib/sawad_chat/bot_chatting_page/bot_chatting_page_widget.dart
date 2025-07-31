@@ -1209,20 +1209,19 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                       safeSetState(() {
                                         _model.textController?.clear();
                                       });
-                                      _model.insertAtIndexInChatData(
-                                          0,
-                                          ChatBotDataModelStruct(
-                                            createdTime: getCurrentTimestamp,
-                                            messageText:
-                                                FFAppState().chatMessagesTemp,
-                                            messageType: 'text',
-                                            role: 'user',
-                                            messageImage: '',
-                                          ));
+                                      _model
+                                          .addToChatData(ChatBotDataModelStruct(
+                                        createdTime: getCurrentTimestamp,
+                                        messageText:
+                                            FFAppState().chatMessagesTemp,
+                                        messageType: 'text',
+                                        role: 'user',
+                                        messageImage: '',
+                                      ));
                                       safeSetState(() {});
                                       await callAiAgent(
                                         context: context,
-                                        prompt: _model.textController.text,
+                                        prompt: FFAppState().chatMessagesTemp,
                                         threadId: '5544',
                                         agentCloudFunctionName:
                                             'insuranceConsultantAgent',
@@ -1237,16 +1236,15 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                       });
 
                                       _shouldSetState = true;
-                                      _model.insertAtIndexInChatData(
-                                          0,
-                                          ChatBotDataModelStruct(
-                                            createdTime: getCurrentTimestamp,
-                                            messageText:
-                                                _model.chatBotMessageOutput,
-                                            messageType: 'text',
-                                            messageImage: '${''}',
-                                            role: 'bot',
-                                          ));
+                                      _model
+                                          .addToChatData(ChatBotDataModelStruct(
+                                        createdTime: getCurrentTimestamp,
+                                        messageText:
+                                            _model.chatBotMessageOutput,
+                                        messageType: 'text',
+                                        messageImage: '${''}',
+                                        role: 'bot',
+                                      ));
                                       safeSetState(() {});
                                       FFAppState().isSendMessageSuccess = true;
                                       FFAppState().chatMessagesTemp = '';
