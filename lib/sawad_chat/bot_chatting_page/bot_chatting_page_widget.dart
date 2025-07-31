@@ -990,7 +990,8 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                         if ((FFAppState()
                                                     .isSendMessageSuccess ==
                                                 false) &&
-                                            (chatDataListIndex == 0))
+                                            (chatDataListIndex ==
+                                                (_model.chatData.length - 1)))
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1011,7 +1012,8 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                                         .isSendMessageSuccess ==
                                                     true) &&
                                                 (chatDataListIndex == 0)) ||
-                                            (chatDataListIndex > 0))
+                                            (chatDataListIndex <
+                                                (_model.chatData.length - 1)))
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1047,6 +1049,7 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                             ],
                           );
                         },
+                        controller: _model.listViewController,
                       );
                     },
                   ),
@@ -1249,6 +1252,13 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                       FFAppState().isSendMessageSuccess = true;
                                       FFAppState().chatMessagesTemp = '';
                                       safeSetState(() {});
+                                      await _model.listViewController
+                                          ?.animateTo(
+                                        _model.listViewController!.position
+                                            .maxScrollExtent,
+                                        duration: Duration(milliseconds: 100),
+                                        curve: Curves.ease,
+                                      );
                                       if (_shouldSetState) safeSetState(() {});
                                     },
                                     child: Icon(

@@ -36,6 +36,8 @@ class BotChattingPageModel extends FlutterFlowModel<BotChattingPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -44,10 +46,13 @@ class BotChattingPageModel extends FlutterFlowModel<BotChattingPageWidget> {
   String? chatBotMessageOutput;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    listViewController = ScrollController();
+  }
 
   @override
   void dispose() {
+    listViewController?.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
