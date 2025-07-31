@@ -324,7 +324,6 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                 0,
                                 12.0,
                               ),
-                              reverse: true,
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
                               itemCount: chatDataList.length,
