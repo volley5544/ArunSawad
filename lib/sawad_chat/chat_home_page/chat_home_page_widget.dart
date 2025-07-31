@@ -84,10 +84,19 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
               appBar: AppBar(
                 backgroundColor: Color(0xFFFF6500),
                 automaticallyImplyLeading: false,
-                leading: Icon(
-                  Icons.wechat,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  size: 30.0,
+                leading: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(BotChattingPageWidget.routeName);
+                  },
+                  child: Icon(
+                    Icons.wechat,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    size: 30.0,
+                  ),
                 ),
                 title: Text(
                   'SAWAD Chat',

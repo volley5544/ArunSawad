@@ -2736,18 +2736,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: BotChattingPageWidget.routeName,
               path: BotChattingPageWidget.routePath,
-              builder: (context, params) => BotChattingPageWidget(
-                chatRoomDocRef: params.getParam(
-                  'chatRoomDocRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['SawadChatRoom'],
-                ),
-                myDisplayImageUrl: params.getParam(
-                  'myDisplayImageUrl',
-                  ParamType.String,
-                ),
-              ),
+              builder: (context, params) => BotChattingPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
