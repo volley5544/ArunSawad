@@ -1100,7 +1100,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: ChatHomePageWidget.routeName,
               path: ChatHomePageWidget.routePath,
-              builder: (context, params) => ChatHomePageWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'ChatHomePage')
+                  : ChatHomePageWidget(),
             ),
             FFRoute(
               name: ChattingPageWidget.routeName,
@@ -2730,6 +2732,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: QRComplainWidget.routeName,
               path: QRComplainWidget.routePath,
               builder: (context, params) => QRComplainWidget(),
+            ),
+            FFRoute(
+              name: BotChattingPageWidget.routeName,
+              path: BotChattingPageWidget.routePath,
+              builder: (context, params) => BotChattingPageWidget(
+                chatRoomDocRef: params.getParam(
+                  'chatRoomDocRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['SawadChatRoom'],
+                ),
+                myDisplayImageUrl: params.getParam(
+                  'myDisplayImageUrl',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

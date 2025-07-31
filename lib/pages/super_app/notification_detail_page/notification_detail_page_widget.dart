@@ -231,7 +231,7 @@ class _NotificationDetailPageWidgetState
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 8.0),
                       child: Text(
-                        '* ใช้นิ้วปัดข้อความแจ้งเตือนไปทางซ้าย เพื่อลบแการแจ้งเตือนนั้นๆ*',
+                        '* ใช้นิ้วปัดข้อความแจ้งเตือนไปทางซ้าย เพื่อลบการแจ้งเตือนนั้นๆ *',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               font: GoogleFonts.poppins(
                                 fontWeight: FlutterFlowTheme.of(context)

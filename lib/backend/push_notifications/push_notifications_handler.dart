@@ -836,6 +836,13 @@ final parametersBuilderMap =
       ),
   'ew9tf0uewitf': ParameterData.none(),
   'QRComplain': ParameterData.none(),
+  'BotChattingPage': (data) async => ParameterData(
+        allParams: {
+          'chatRoomDocRef':
+              getParameter<DocumentReference>(data, 'chatRoomDocRef'),
+          'myDisplayImageUrl': getParameter<String>(data, 'myDisplayImageUrl'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

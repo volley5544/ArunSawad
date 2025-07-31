@@ -283,3 +283,5 @@ export '/collection_page/r_p72_check_list_page/r_p72_check_list_page_widget.dart
     show RP72CheckListPageWidget;
 export '/ew9tf0uewitf/ew9tf0uewitf_widget.dart' show Ew9tf0uewitfWidget;
 export '/q_r_complain/q_r_complain_widget.dart' show QRComplainWidget;
+export '/sawad_chat/bot_chatting_page/bot_chatting_page_widget.dart'
+    show BotChattingPageWidget;
