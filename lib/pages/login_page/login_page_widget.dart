@@ -2441,13 +2441,32 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 }
 
                                 _shouldSetState = true;
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text(_model
+                                            .getServerDateTime!.jsonBody!
+                                            .toString()),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
                                 if (!_model.getServerDateTime!.succeeded!) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
                                         child: AlertDialog(
-                                          content: Text('f'),
+                                          content: Text('fail'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
@@ -2485,7 +2504,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
                                       child: AlertDialog(
-                                        content: Text(''),
+                                        content: Text('${dateTimeFormat(
+                                          "d/M/y",
+                                          functions.parseStringToDatetime(
+                                              _model.getServerDateTime?.data),
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        )} ${dateTimeFormat(
+                                          "Hm",
+                                          functions.parseStringToDatetime(
+                                              _model.getServerDateTime?.data),
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        )}'),
                                         actions: [
                                           TextButton(
                                             onPressed: () => Navigator.pop(
