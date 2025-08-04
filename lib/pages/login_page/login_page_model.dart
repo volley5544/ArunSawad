@@ -2,6 +2,8 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/custom_cloud_functions/custom_cloud_function_response_manager.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -16,6 +18,7 @@ import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -87,6 +90,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   FCMTokenRecord? androidCreateFMCTokenDoc;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FCMTokenRecord? iosCreateFMCTokenDoc;
+  // Stores action output result for [Cloud Function - getServerCurrentDateTime] action in Text widget.
+  GetServerCurrentDateTimeCloudFunctionCallResponse? getServerDateTime;
 
   @override
   void initState(BuildContext context) {

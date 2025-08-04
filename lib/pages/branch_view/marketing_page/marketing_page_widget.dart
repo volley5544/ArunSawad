@@ -134,9 +134,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
       );
 
-      FFAppState().materialRecordId = GetMaterialAPICall.recordID(
+      FFAppState().materialRecordId = (GetMaterialAPICall.recordID(
         (_model.getMaterialAPIOutput?.jsonBody ?? ''),
-      )!
+      ) as List?)!
+          .cast<String>()
           .toList()
           .cast<String>();
       FFAppState().materialsAmount = functions
@@ -144,14 +145,16 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
           .toList()
           .cast<int>();
       FFAppState().update(() {});
-      FFAppState().materialNameList = GetMaterialAPICall.materialName(
+      FFAppState().materialNameList = (GetMaterialAPICall.materialName(
         (_model.getMaterialAPIOutput?.jsonBody ?? ''),
-      )!
+      ) as List?)!
+          .cast<String>()
           .toList()
           .cast<String>();
-      FFAppState().materialImgList = GetMaterialAPICall.imgUrl(
+      FFAppState().materialImgList = (GetMaterialAPICall.imgUrl(
         (_model.getMaterialAPIOutput?.jsonBody ?? ''),
-      )!
+      ) as List?)!
+          .cast<String>()
           .toList()
           .cast<String>();
       FFAppState().update(() {});
