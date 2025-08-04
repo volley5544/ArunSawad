@@ -2,6 +2,8 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/custom_cloud_functions/custom_cloud_function_response_manager.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
@@ -30,6 +32,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -2483,9 +2486,128 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
+                                                                        var _shouldSetState =
+                                                                            false;
                                                                         unawaited(
                                                                           () async {}(),
                                                                         );
+                                                                        try {
+                                                                          final result = await FirebaseFunctions.instanceFor(region: 'asia-southeast1')
+                                                                              .httpsCallable('getServerCurrentDateTime')
+                                                                              .call({});
+                                                                          _model.getServerDateTime =
+                                                                              GetServerCurrentDateTimeCloudFunctionCallResponse(
+                                                                            data:
+                                                                                result.data,
+                                                                            succeeded:
+                                                                                true,
+                                                                            resultAsString:
+                                                                                result.data.toString(),
+                                                                            jsonBody:
+                                                                                result.data,
+                                                                          );
+                                                                        } on FirebaseFunctionsException catch (error) {
+                                                                          _model.getServerDateTime =
+                                                                              GetServerCurrentDateTimeCloudFunctionCallResponse(
+                                                                            errorCode:
+                                                                                error.code,
+                                                                            succeeded:
+                                                                                false,
+                                                                          );
+                                                                        }
+
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text(_model.getServerDateTime!.jsonBody!.toString()),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                        if (!_model
+                                                                            .getServerDateTime!
+                                                                            .succeeded!) {
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text('fail'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text(_model.getServerDateTime!.data!),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('${dateTimeFormat(
+                                                                                  "d/M/y",
+                                                                                  functions.parseStringToDatetime(_model.getServerDateTime?.data),
+                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                )} ${dateTimeFormat(
+                                                                                  "Hm",
+                                                                                  functions.parseStringToDatetime(_model.getServerDateTime?.data),
+                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                )}'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
                                                                       },
                                                                       child:
                                                                           Text(
