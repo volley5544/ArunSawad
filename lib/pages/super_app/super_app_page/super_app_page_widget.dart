@@ -2525,7 +2525,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               (alertDialogContext) {
                                                                             return WebViewAware(
                                                                               child: AlertDialog(
-                                                                                content: Text(_model.getServerDateTime!.jsonBody!.toString()),
+                                                                                content: Text(_model.getServerDateTime!.errorCode!),
                                                                                 actions: [
                                                                                   TextButton(
                                                                                     onPressed: () => Navigator.pop(alertDialogContext),
