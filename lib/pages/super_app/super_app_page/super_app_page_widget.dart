@@ -2536,6 +2536,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             );
                                                                           },
                                                                         );
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text(_model.getServerDateTime!.errorCode!),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
                                                                         if (!_model
                                                                             .getServerDateTime!
                                                                             .succeeded!) {
