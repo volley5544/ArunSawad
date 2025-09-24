@@ -2737,6 +2737,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: BotChattingPageWidget.routeName,
               path: BotChattingPageWidget.routePath,
               builder: (context, params) => BotChattingPageWidget(),
+            ),
+            FFRoute(
+              name: LeadNotiNewPageDupWidget.routeName,
+              path: LeadNotiNewPageDupWidget.routePath,
+              builder: (context, params) => LeadNotiNewPageDupWidget(
+                color: params.getParam<Color>(
+                  'color',
+                  ParamType.Color,
+                  isList: true,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: LeadDashboardPageWidget.routeName,
+              path: LeadDashboardPageWidget.routePath,
+              builder: (context, params) => LeadDashboardPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

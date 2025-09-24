@@ -5,58 +5,55 @@ import '/components/call_history/call_history_widget.dart';
 import '/components/filter_lead_component_new_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/saved_lead_called_status/saved_lead_called_status_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
-import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'lead_noti_new_page_model.dart';
-export 'lead_noti_new_page_model.dart';
+import 'lead_noti_new_page_dup_model.dart';
+export 'lead_noti_new_page_dup_model.dart';
 
-class LeadNotiNewPageWidget extends StatefulWidget {
-  const LeadNotiNewPageWidget({
+class LeadNotiNewPageDupWidget extends StatefulWidget {
+  const LeadNotiNewPageDupWidget({
     super.key,
     this.color,
   });
 
   final List<Color>? color;
 
-  static String routeName = 'LeadNotiNewPage';
-  static String routePath = 'leadNotiNewPage';
+  static String routeName = 'LeadNotiNewPageDup';
+  static String routePath = 'leadNotiNewPageDup';
 
   @override
-  State<LeadNotiNewPageWidget> createState() => _LeadNotiNewPageWidgetState();
+  State<LeadNotiNewPageDupWidget> createState() =>
+      _LeadNotiNewPageDupWidgetState();
 }
 
-class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
-    with TickerProviderStateMixin {
-  late LeadNotiNewPageModel _model;
+class _LeadNotiNewPageDupWidgetState extends State<LeadNotiNewPageDupWidget> {
+  late LeadNotiNewPageDupModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LeadNotiNewPageModel());
+    _model = createModel(context, () => LeadNotiNewPageDupModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'LeadNotiNewPage'});
+        parameters: {'screen_name': 'LeadNotiNewPageDup'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       showDialog(
@@ -196,6 +193,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
         r'''$.SubChannelFilter''',
         true,
       ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
           .cast<String>()
           .toList()
           .cast<String>();
@@ -204,6 +203,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
         r'''$.AssetTypeFilter''',
         true,
       ) as List?)!
+          .map<String>((e) => e.toString())
+          .toList()
           .cast<String>()
           .toList()
           .cast<String>();
@@ -227,34 +228,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
 
     _model.textFieldSearchTextController ??= TextEditingController();
     _model.textFieldSearchFocusNode ??= FocusNode();
-
-    animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 90.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-    });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -294,14 +267,14 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
             );
           }
           List<LeadChannelColorRecord>
-              leadNotiNewPageLeadChannelColorRecordList = snapshot.data!;
+              leadNotiNewPageDupLeadChannelColorRecordList = snapshot.data!;
           // Return an empty Container when the item does not exist.
           if (snapshot.data!.isEmpty) {
             return Container();
           }
-          final leadNotiNewPageLeadChannelColorRecord =
-              leadNotiNewPageLeadChannelColorRecordList.isNotEmpty
-                  ? leadNotiNewPageLeadChannelColorRecordList.first
+          final leadNotiNewPageDupLeadChannelColorRecord =
+              leadNotiNewPageDupLeadChannelColorRecordList.isNotEmpty
+                  ? leadNotiNewPageDupLeadChannelColorRecordList.first
                   : null;
 
           return GestureDetector(
@@ -309,8 +282,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
               FocusScope.of(context).unfocus();
               FocusManager.instance.primaryFocus?.unfocus();
             },
-            child: WillPopScope(
-              onWillPop: () async => false,
+            child: PopScope(
+              canPop: false,
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -452,6 +425,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.SubChannelFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -461,6 +437,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.AssetTypeFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -469,13 +448,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             _model.textFieldSearchTextController
                                                 ?.clear();
                                           });
-                                          await _model.listViewController3
-                                              ?.animateTo(
-                                            0,
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -494,11 +466,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
                                                       'Survey'
-                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                  ? (leadNotiNewPageDupLeadChannelColorRecord
                                                       ?.color
                                                       ?.elementAtOrNull(functions
                                                           .getIndexOfSomethingList(
-                                                              leadNotiNewPageLeadChannelColorRecord
+                                                              leadNotiNewPageDupLeadChannelColorRecord
                                                                   ?.leadChannel
                                                                   ?.toList(),
                                                               'Lead Survey')))
@@ -630,6 +602,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.SubChannelFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -639,6 +614,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.AssetTypeFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -647,13 +625,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             _model.textFieldSearchTextController
                                                 ?.clear();
                                           });
-                                          await _model.listViewController3
-                                              ?.animateTo(
-                                            0,
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -672,11 +643,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
                                                       'Topup'
-                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                  ? (leadNotiNewPageDupLeadChannelColorRecord
                                                       ?.color
                                                       ?.elementAtOrNull(functions
                                                           .getIndexOfSomethingList(
-                                                              leadNotiNewPageLeadChannelColorRecord
+                                                              leadNotiNewPageDupLeadChannelColorRecord
                                                                   ?.leadChannel
                                                                   ?.toList(),
                                                               'Lead Topup')))
@@ -830,6 +801,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.SubChannelFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -839,6 +813,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.AssetTypeFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -847,13 +824,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             _model.textFieldSearchTextController
                                                 ?.clear();
                                           });
-                                          await _model.listViewController3
-                                              ?.animateTo(
-                                            0,
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -872,11 +842,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
                                                       'Telesale'
-                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                  ? (leadNotiNewPageDupLeadChannelColorRecord
                                                       ?.color
                                                       ?.elementAtOrNull(functions
                                                           .getIndexOfSomethingList(
-                                                              leadNotiNewPageLeadChannelColorRecord
+                                                              leadNotiNewPageDupLeadChannelColorRecord
                                                                   ?.leadChannel
                                                                   ?.toList(),
                                                               'Lead Telesale')))
@@ -1012,6 +982,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.SubChannelFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -1021,6 +994,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.AssetTypeFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -1029,13 +1005,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             _model.textFieldSearchTextController
                                                 ?.clear();
                                           });
-                                          await _model.listViewController3
-                                              ?.animateTo(
-                                            0,
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -1053,11 +1022,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             height: 69.0,
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab == 'HP'
-                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                  ? (leadNotiNewPageDupLeadChannelColorRecord
                                                       ?.color
                                                       ?.elementAtOrNull(functions
                                                           .getIndexOfSomethingList(
-                                                              leadNotiNewPageLeadChannelColorRecord
+                                                              leadNotiNewPageDupLeadChannelColorRecord
                                                                   ?.leadChannel
                                                                   ?.toList(),
                                                               'Lead HP')))
@@ -1193,6 +1162,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.SubChannelFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -1202,6 +1174,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.AssetTypeFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -1210,13 +1185,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             _model.textFieldSearchTextController
                                                 ?.clear();
                                           });
-                                          await _model.listViewController3
-                                              ?.animateTo(
-                                            0,
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -1235,11 +1203,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
                                                       'Truck'
-                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                  ? (leadNotiNewPageDupLeadChannelColorRecord
                                                       ?.color
                                                       ?.elementAtOrNull(functions
                                                           .getIndexOfSomethingList(
-                                                              leadNotiNewPageLeadChannelColorRecord
+                                                              leadNotiNewPageDupLeadChannelColorRecord
                                                                   ?.leadChannel
                                                                   ?.toList(),
                                                               'Lead Truck')))
@@ -1389,6 +1357,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.SubChannelFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -1398,6 +1369,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             r'''$.AssetTypeFilter''',
                                             true,
                                           ) as List?)!
+                                                  .map<String>(
+                                                      (e) => e.toString())
+                                                  .toList()
                                                   .cast<String>()
                                                   .toList()
                                                   .cast<String>();
@@ -1406,13 +1380,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             _model.textFieldSearchTextController
                                                 ?.clear();
                                           });
-                                          await _model.listViewController3
-                                              ?.animateTo(
-                                            0,
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -1431,11 +1398,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
                                                       'Agent'
-                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                  ? (leadNotiNewPageDupLeadChannelColorRecord
                                                       ?.color
                                                       ?.elementAtOrNull(functions
                                                           .getIndexOfSomethingList(
-                                                              leadNotiNewPageLeadChannelColorRecord
+                                                              leadNotiNewPageDupLeadChannelColorRecord
                                                                   ?.leadChannel
                                                                   ?.toList(),
                                                               'Lead Agent')))
@@ -1545,7 +1512,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                         ),
                                       ),
                                     ].divide(SizedBox(width: 2.0)),
-                                    controller: _model.listViewController1,
                                   ),
                                 ),
                               ),
@@ -1634,6 +1600,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   r'''$.SubChannelFilter''',
                                                   true,
                                                 ) as List?)!
+                                                        .map<String>(
+                                                            (e) => e.toString())
+                                                        .toList()
                                                         .cast<String>()
                                                         .toList()
                                                         .cast<String>();
@@ -1643,17 +1612,13 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   r'''$.AssetTypeFilter''',
                                                   true,
                                                 ) as List?)!
+                                                        .map<String>(
+                                                            (e) => e.toString())
+                                                        .toList()
                                                         .cast<String>()
                                                         .toList()
                                                         .cast<String>();
                                                 safeSetState(() {});
-                                                await _model.listViewController3
-                                                    ?.animateTo(
-                                                  0,
-                                                  duration: Duration(
-                                                      milliseconds: 100),
-                                                  curve: Curves.ease,
-                                                );
                                               },
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -1828,6 +1793,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   r'''$.SubChannelFilter''',
                                                   true,
                                                 ) as List?)!
+                                                        .map<String>(
+                                                            (e) => e.toString())
+                                                        .toList()
                                                         .cast<String>()
                                                         .toList()
                                                         .cast<String>();
@@ -1837,17 +1805,13 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   r'''$.AssetTypeFilter''',
                                                   true,
                                                 ) as List?)!
+                                                        .map<String>(
+                                                            (e) => e.toString())
+                                                        .toList()
                                                         .cast<String>()
                                                         .toList()
                                                         .cast<String>();
                                                 safeSetState(() {});
-                                                await _model.listViewController3
-                                                    ?.animateTo(
-                                                  0,
-                                                  duration: Duration(
-                                                      milliseconds: 100),
-                                                  curve: Curves.ease,
-                                                );
                                               },
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2436,1178 +2400,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           ),
                                         ),
                                       ].divide(SizedBox(width: 2.0)),
-                                      controller: _model.listViewController2,
                                     ),
                                   ),
                                 ),
                               ),
-                              if (false)
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.45,
-                                          height: 140.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(24.0),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(4.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Flexible(
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          HapticFeedback
-                                                              .mediumImpact();
-                                                          _model.currentShowingDataJson =
-                                                              _model
-                                                                  .leadSurveyDataJson
-                                                                  .toList()
-                                                                  .cast<
-                                                                      dynamic>();
-                                                          _model.selectedTab =
-                                                              'Survey';
-                                                          safeSetState(() {});
-                                                          safeSetState(() {
-                                                            _model
-                                                                .textFieldSearchTextController
-                                                                ?.clear();
-                                                          });
-                                                          await _model
-                                                              .listViewController3
-                                                              ?.animateTo(
-                                                            0,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    100),
-                                                            curve: Curves.ease,
-                                                          );
-                                                        },
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 69.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: _model
-                                                                        .selectedTab ==
-                                                                    'Survey'
-                                                                ? (leadNotiNewPageLeadChannelColorRecord
-                                                                    ?.color
-                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                        leadNotiNewPageLeadChannelColorRecord
-                                                                            ?.leadChannel
-                                                                            ?.toList(),
-                                                                        'Lead Survey')))
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 4.0,
-                                                                color: Color(
-                                                                    0x33000000),
-                                                                offset: Offset(
-                                                                  0.0,
-                                                                  2.0,
-                                                                ),
-                                                              )
-                                                            ],
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      24.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                            ),
-                                                          ),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0),
-                                                                child: Text(
-                                                                  'Survey',
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showNumberWithComma(_model
-                                                                      .leadSurveyDataJson
-                                                                      .length
-                                                                      .toString()),
-                                                                  '0',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Flexible(
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          HapticFeedback
-                                                              .mediumImpact();
-                                                          _model.currentShowingDataJson =
-                                                              _model
-                                                                  .leadTeleDataJson
-                                                                  .toList()
-                                                                  .cast<
-                                                                      dynamic>();
-                                                          _model.selectedTab =
-                                                              'Telesale';
-                                                          safeSetState(() {});
-                                                          safeSetState(() {
-                                                            _model
-                                                                .textFieldSearchTextController
-                                                                ?.clear();
-                                                          });
-                                                          await _model
-                                                              .listViewController3
-                                                              ?.animateTo(
-                                                            0,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    100),
-                                                            curve: Curves.ease,
-                                                          );
-                                                        },
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 69.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: _model
-                                                                        .selectedTab ==
-                                                                    'Telesale'
-                                                                ? (leadNotiNewPageLeadChannelColorRecord
-                                                                    ?.color
-                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                        leadNotiNewPageLeadChannelColorRecord
-                                                                            ?.leadChannel
-                                                                            ?.toList(),
-                                                                        'Lead Telesale')))
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 4.0,
-                                                                color: Color(
-                                                                    0x33000000),
-                                                                offset: Offset(
-                                                                  0.0,
-                                                                  2.0,
-                                                                ),
-                                                              )
-                                                            ],
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      24.0),
-                                                            ),
-                                                          ),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0),
-                                                                child: Text(
-                                                                  'Telesale',
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showNumberWithComma(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                    _model
-                                                                        .leadTeleDataJson
-                                                                        .length
-                                                                        .toString(),
-                                                                    '0',
-                                                                  )),
-                                                                  '0',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Flexible(
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          HapticFeedback
-                                                              .mediumImpact();
-                                                          _model.currentShowingDataJson =
-                                                              _model
-                                                                  .leadAgentDataJson
-                                                                  .toList()
-                                                                  .cast<
-                                                                      dynamic>();
-                                                          _model.selectedTab =
-                                                              'Agent';
-                                                          safeSetState(() {});
-                                                          safeSetState(() {
-                                                            _model
-                                                                .textFieldSearchTextController
-                                                                ?.clear();
-                                                          });
-                                                          await _model
-                                                              .listViewController3
-                                                              ?.animateTo(
-                                                            0,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    100),
-                                                            curve: Curves.ease,
-                                                          );
-                                                        },
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 69.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: _model
-                                                                        .selectedTab ==
-                                                                    'Agent'
-                                                                ? (leadNotiNewPageLeadChannelColorRecord
-                                                                    ?.color
-                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                        leadNotiNewPageLeadChannelColorRecord
-                                                                            ?.leadChannel
-                                                                            ?.toList(),
-                                                                        'Lead Agent')))
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 4.0,
-                                                                color: Color(
-                                                                    0x33000000),
-                                                                offset: Offset(
-                                                                  0.0,
-                                                                  2.0,
-                                                                ),
-                                                              )
-                                                            ],
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      24.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                            ),
-                                                          ),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0),
-                                                                child: Text(
-                                                                  'Agent',
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showNumberWithComma(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                    _model
-                                                                        .leadAgentDataJson
-                                                                        .length
-                                                                        .toString(),
-                                                                    '0',
-                                                                  )),
-                                                                  '0',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Flexible(
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          HapticFeedback
-                                                              .mediumImpact();
-                                                          _model.currentShowingDataJson =
-                                                              _model
-                                                                  .leadTruckDataJson
-                                                                  .toList()
-                                                                  .cast<
-                                                                      dynamic>();
-                                                          _model.selectedTab =
-                                                              'Truck';
-                                                          safeSetState(() {});
-                                                          safeSetState(() {
-                                                            _model
-                                                                .textFieldSearchTextController
-                                                                ?.clear();
-                                                          });
-                                                          await _model
-                                                              .listViewController3
-                                                              ?.animateTo(
-                                                            0,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    100),
-                                                            curve: Curves.ease,
-                                                          );
-                                                        },
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 69.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: _model
-                                                                        .selectedTab ==
-                                                                    'Truck'
-                                                                ? (leadNotiNewPageLeadChannelColorRecord
-                                                                    ?.color
-                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                        leadNotiNewPageLeadChannelColorRecord
-                                                                            ?.leadChannel
-                                                                            ?.toList(),
-                                                                        'Lead Truck')))
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 4.0,
-                                                                color: Color(
-                                                                    0x33000000),
-                                                                offset: Offset(
-                                                                  0.0,
-                                                                  2.0,
-                                                                ),
-                                                              )
-                                                            ],
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          24.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                            ),
-                                                          ),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0),
-                                                                child: Text(
-                                                                  'Truck',
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        color: _model.selectedTab ==
-                                                                                'Truck'
-                                                                            ? Colors.white
-                                                                            : FlutterFlowTheme.of(context).primaryText,
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showNumberWithComma(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                    _model
-                                                                        .leadTruckDataJson
-                                                                        .length
-                                                                        .toString(),
-                                                                    '0',
-                                                                  )),
-                                                                  '0',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      color: _model.selectedTab ==
-                                                                              'Truck'
-                                                                          ? Colors
-                                                                              .white
-                                                                          : FlutterFlowTheme.of(context)
-                                                                              .primaryText,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            3.0, 0.0, 8.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            HapticFeedback.mediumImpact();
-                                            FFAppState().leadChannelSelected =
-                                                'All';
-                                            FFAppState().update(() {});
-                                          },
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.45,
-                                            height: 140.0,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(24.0),
-                                            ),
-                                            child: Container(
-                                              width: double.infinity,
-                                              height: double.infinity,
-                                              child: Stack(
-                                                children: [
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Flexible(
-                                                        flex: 1,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      4.0),
-                                                          child: Container(
-                                                            height: 69.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        24.0),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        24.0),
-                                                              ),
-                                                              border:
-                                                                  Border.all(
-                                                                color: _model
-                                                                            .selectedTab ==
-                                                                        'Owner'
-                                                                    ? Color(
-                                                                        0xFFFF6500)
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground,
-                                                                width: _model
-                                                                            .selectedTab ==
-                                                                        'Owner'
-                                                                    ? 3.0
-                                                                    : 0.0,
-                                                              ),
-                                                            ),
-                                                            child: InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                HapticFeedback
-                                                                    .mediumImpact();
-                                                                _model.currentShowingDataJson = _model
-                                                                    .leadOwnerDataJson
-                                                                    .toList()
-                                                                    .cast<
-                                                                        dynamic>();
-                                                                _model.selectedTab =
-                                                                    'Owner';
-                                                                safeSetState(
-                                                                    () {});
-                                                                await _model
-                                                                    .listViewController3
-                                                                    ?.animateTo(
-                                                                  0,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          100),
-                                                                  curve: Curves
-                                                                      .ease,
-                                                                );
-                                                              },
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .stretch,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          12.0,
-                                                                          8.0,
-                                                                          12.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          functions
-                                                                              .showNumberWithComma(valueOrDefault<String>(
-                                                                            _model.leadOwnerDataJson.length.toString(),
-                                                                            '0',
-                                                                          )),
-                                                                          '0',
-                                                                        ),
-                                                                        textAlign:
-                                                                            TextAlign.center,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .displaySmall
-                                                                            .override(
-                                                                              font: GoogleFonts.outfit(
-                                                                                fontWeight: FontWeight.w600,
-                                                                                fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
-                                                                              ),
-                                                                              color: Color(0xFF101213),
-                                                                              fontSize: 20.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w600,
-                                                                              fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          'จำนวนลีดส่วนตัว',
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                font: GoogleFonts.outfit(
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                ),
-                                                                                color: Color(0xFF57636C),
-                                                                                fontSize: 14.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Flexible(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            height: 69.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        24.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        24.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                              ),
-                                                              border:
-                                                                  Border.all(
-                                                                color: _model
-                                                                            .selectedTab ==
-                                                                        'All'
-                                                                    ? Color(
-                                                                        0xFFFF6500)
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground,
-                                                                width:
-                                                                    _model.selectedTab ==
-                                                                            'All'
-                                                                        ? 3.0
-                                                                        : 0.0,
-                                                              ),
-                                                            ),
-                                                            child: InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                HapticFeedback
-                                                                    .mediumImpact();
-                                                                _model.currentShowingDataJson = _model
-                                                                    .leadNotiModifyJson
-                                                                    .toList()
-                                                                    .cast<
-                                                                        dynamic>();
-                                                                _model.selectedTab =
-                                                                    'All';
-                                                                safeSetState(
-                                                                    () {});
-                                                                await _model
-                                                                    .listViewController3
-                                                                    ?.animateTo(
-                                                                  0,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          100),
-                                                                  curve: Curves
-                                                                      .ease,
-                                                                );
-                                                              },
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .stretch,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            4.0,
-                                                                            12.0,
-                                                                            4.0),
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        functions
-                                                                            .showNumberWithComma(valueOrDefault<String>(
-                                                                          '${valueOrDefault<String>(
-                                                                            GetLeadDetailAPICall.leadDataJson(
-                                                                              (_model.getLeadDetail?.jsonBody ?? ''),
-                                                                            )?.length?.toString(),
-                                                                            '0',
-                                                                          )}',
-                                                                          '0',
-                                                                        )),
-                                                                        '0',
-                                                                      ),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .displaySmall
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.outfit(
-                                                                              fontWeight: FontWeight.w600,
-                                                                              fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
-                                                                            ),
-                                                                            color:
-                                                                                Color(0xFF101213),
-                                                                            fontSize:
-                                                                                20.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).displaySmall.fontStyle,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            4.0),
-                                                                    child: Text(
-                                                                      'จำนวนลีดทั้งหมด',
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodySmall
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.outfit(
-                                                                              fontWeight: FontWeight.normal,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                            ),
-                                                                            color:
-                                                                                Color(0xFF57636C),
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(4.0, 0.0,
-                                                                4.0, 0.0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .stretch,
-                                                      children: [
-                                                        Divider(
-                                                          thickness: 1.0,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation']!),
-                                      ),
-                                    ),
-                                  ],
-                                ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
@@ -3814,13 +2610,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                               _model.filterAssetType =
                                                   'ทั้งหมด';
                                               safeSetState(() {});
-                                              await _model.listViewController3
-                                                  ?.animateTo(
-                                                0,
-                                                duration:
-                                                    Duration(milliseconds: 100),
-                                                curve: Curves.ease,
-                                              );
                                               await actions.hideKeyboardAction(
                                                 context,
                                               );
@@ -3875,13 +2664,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .cast<dynamic>();
                                               _model.selectedTab = 'All';
                                               safeSetState(() {});
-                                              await _model.listViewController3
-                                                  ?.animateTo(
-                                                0,
-                                                duration:
-                                                    Duration(milliseconds: 100),
-                                                curve: Curves.ease,
-                                              );
                                               safeSetState(() {
                                                 _model
                                                     .textFieldSearchTextController
@@ -3925,21 +2707,67 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                 return Visibility(
                                   visible:
                                       _model.currentShowingDataJson.length > 0,
-                                  child: Builder(
-                                    builder: (context) {
-                                      final leadListItem = _model
-                                          .currentShowingDataJson
-                                          .toList();
+                                  child: RefreshIndicator(
+                                    key: Key('RefreshIndicator_kme688yt'),
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
+                                    onRefresh: () async {
+                                      safeSetState(() => _model
+                                          .listViewPagingController3
+                                          ?.refresh());
+                                      await _model.waitForOnePageForListView3();
+                                    },
+                                    child:
+                                        PagedListView<ApiPagingParams, dynamic>(
+                                      pagingController:
+                                          _model.setListViewController3(
+                                        (nextPageMarker) =>
+                                            GetLeadDetailAPICall.call(
+                                          token: FFAppState().accessToken,
+                                        ),
+                                      ),
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      reverse: false,
+                                      scrollDirection: Axis.vertical,
+                                      builderDelegate:
+                                          PagedChildBuilderDelegate<dynamic>(
+                                        // Customize what your widget looks like when it's loading the first page.
+                                        firstPageProgressIndicatorBuilder:
+                                            (_) => Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .tertiary,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        // Customize what your widget looks like when it's loading another page.
+                                        newPageProgressIndicatorBuilder: (_) =>
+                                            Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .tertiary,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
 
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: leadListItem.length,
                                         itemBuilder:
-                                            (context, leadListItemIndex) {
-                                          final leadListItemItem =
-                                              leadListItem[leadListItemIndex];
+                                            (context, _, leadListItemIndex) {
+                                          final leadListItemItem = _model
+                                              .listViewPagingController3!
+                                              .itemList![leadListItemIndex];
                                           return Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -4005,10 +2833,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               'Lead Survey') {
                                                             return valueOrDefault<
                                                                 Color>(
-                                                              leadNotiNewPageLeadChannelColorRecord
+                                                              leadNotiNewPageDupLeadChannelColorRecord
                                                                   ?.color
                                                                   ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                      leadNotiNewPageLeadChannelColorRecord
+                                                                      leadNotiNewPageDupLeadChannelColorRecord
                                                                           ?.leadChannel
                                                                           ?.toList(),
                                                                       'Lead Survey')),
@@ -4021,10 +2849,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 r'''$.channel''',
                                                               ).toString()}' ==
                                                               'Lead Telesale') {
-                                                            return (leadNotiNewPageLeadChannelColorRecord
+                                                            return (leadNotiNewPageDupLeadChannelColorRecord
                                                                 ?.color
                                                                 ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                    leadNotiNewPageLeadChannelColorRecord
+                                                                    leadNotiNewPageDupLeadChannelColorRecord
                                                                         ?.leadChannel
                                                                         ?.toList(),
                                                                     'Lead Telesale')));
@@ -4033,10 +2861,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 r'''$.channel''',
                                                               ).toString()}' ==
                                                               'Lead Agent') {
-                                                            return (leadNotiNewPageLeadChannelColorRecord
+                                                            return (leadNotiNewPageDupLeadChannelColorRecord
                                                                 ?.color
                                                                 ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                    leadNotiNewPageLeadChannelColorRecord
+                                                                    leadNotiNewPageDupLeadChannelColorRecord
                                                                         ?.leadChannel
                                                                         ?.toList(),
                                                                     'Lead Agent')));
@@ -4045,10 +2873,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 r'''$.channel''',
                                                               ).toString()}' ==
                                                               'Lead Truck') {
-                                                            return (leadNotiNewPageLeadChannelColorRecord
+                                                            return (leadNotiNewPageDupLeadChannelColorRecord
                                                                 ?.color
                                                                 ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                    leadNotiNewPageLeadChannelColorRecord
+                                                                    leadNotiNewPageDupLeadChannelColorRecord
                                                                         ?.leadChannel
                                                                         ?.toList(),
                                                                     'Lead Truck')));
@@ -4057,10 +2885,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 r'''$.channel''',
                                                               ).toString()}' ==
                                                               'Lead HP') {
-                                                            return (leadNotiNewPageLeadChannelColorRecord
+                                                            return (leadNotiNewPageDupLeadChannelColorRecord
                                                                 ?.color
                                                                 ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                    leadNotiNewPageLeadChannelColorRecord
+                                                                    leadNotiNewPageDupLeadChannelColorRecord
                                                                         ?.leadChannel
                                                                         ?.toList(),
                                                                     'Lead HP')));
@@ -4069,10 +2897,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 r'''$.channel''',
                                                               ).toString()}' ==
                                                               'Lead Topup') {
-                                                            return (leadNotiNewPageLeadChannelColorRecord
+                                                            return (leadNotiNewPageDupLeadChannelColorRecord
                                                                 ?.color
                                                                 ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                    leadNotiNewPageLeadChannelColorRecord
+                                                                    leadNotiNewPageDupLeadChannelColorRecord
                                                                         ?.leadChannel
                                                                         ?.toList(),
                                                                     'Lead Topup')));
@@ -5224,8 +4052,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         'Lead Survey') {
                                                                       return valueOrDefault<
                                                                           Color>(
-                                                                        leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                            leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                        leadNotiNewPageDupLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                            leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                             'Lead Survey')),
                                                                         FlutterFlowTheme.of(context)
                                                                             .secondary,
@@ -5235,50 +4063,50 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           r'''$.channel''',
                                                                         ).toString()}' ==
                                                                         'Lead Telesale') {
-                                                                      return (leadNotiNewPageLeadChannelColorRecord
+                                                                      return (leadNotiNewPageDupLeadChannelColorRecord
                                                                           ?.color
                                                                           ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Telesale')));
                                                                     } else if ('${getJsonField(
                                                                           leadListItemItem,
                                                                           r'''$.channel''',
                                                                         ).toString()}' ==
                                                                         'Lead Agent') {
-                                                                      return (leadNotiNewPageLeadChannelColorRecord
+                                                                      return (leadNotiNewPageDupLeadChannelColorRecord
                                                                           ?.color
                                                                           ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Agent')));
                                                                     } else if ('${getJsonField(
                                                                           leadListItemItem,
                                                                           r'''$.channel''',
                                                                         ).toString()}' ==
                                                                         'Lead Truck') {
-                                                                      return (leadNotiNewPageLeadChannelColorRecord
+                                                                      return (leadNotiNewPageDupLeadChannelColorRecord
                                                                           ?.color
                                                                           ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Truck')));
                                                                     } else if ('${getJsonField(
                                                                           leadListItemItem,
                                                                           r'''$.channel''',
                                                                         ).toString()}' ==
                                                                         'Lead HP') {
-                                                                      return (leadNotiNewPageLeadChannelColorRecord
+                                                                      return (leadNotiNewPageDupLeadChannelColorRecord
                                                                           ?.color
                                                                           ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead HP')));
                                                                     } else if ('${getJsonField(
                                                                           leadListItemItem,
                                                                           r'''$.channel''',
                                                                         ).toString()}' ==
                                                                         'Lead Topup') {
-                                                                      return (leadNotiNewPageLeadChannelColorRecord
+                                                                      return (leadNotiNewPageDupLeadChannelColorRecord
                                                                           ?.color
                                                                           ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Topup')));
                                                                     } else {
                                                                       return FlutterFlowTheme.of(
@@ -5524,7 +4352,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             'Lead Survey') {
                                                                           return valueOrDefault<
                                                                               Color>(
-                                                                            leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                            leadNotiNewPageDupLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                                 'Lead Survey')),
                                                                             FlutterFlowTheme.of(context).secondary,
                                                                           );
@@ -5533,40 +4361,40 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               r'''$.channel''',
                                                                             ).toString()}' ==
                                                                             'Lead Telesale') {
-                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                          return (leadNotiNewPageDupLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Telesale')));
                                                                         } else if ('${getJsonField(
                                                                               leadListItemItem,
                                                                               r'''$.channel''',
                                                                             ).toString()}' ==
                                                                             'Lead Agent') {
-                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                          return (leadNotiNewPageDupLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Agent')));
                                                                         } else if ('${getJsonField(
                                                                               leadListItemItem,
                                                                               r'''$.channel''',
                                                                             ).toString()}' ==
                                                                             'Lead Truck') {
-                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                          return (leadNotiNewPageDupLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Truck')));
                                                                         } else if ('${getJsonField(
                                                                               leadListItemItem,
                                                                               r'''$.channel''',
                                                                             ).toString()}' ==
                                                                             'Lead HP') {
-                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                          return (leadNotiNewPageDupLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead HP')));
                                                                         } else if ('${getJsonField(
                                                                               leadListItemItem,
                                                                               r'''$.channel''',
                                                                             ).toString()}' ==
                                                                             'Lead Topup') {
-                                                                          return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                          return (leadNotiNewPageDupLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageDupLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Topup')));
                                                                         } else {
                                                                           return FlutterFlowTheme.of(context)
@@ -5625,9 +4453,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             ),
                                           );
                                         },
-                                        controller: _model.listViewController3,
-                                      );
-                                    },
+                                      ),
+                                    ),
                                   ),
                                 );
                               } else {

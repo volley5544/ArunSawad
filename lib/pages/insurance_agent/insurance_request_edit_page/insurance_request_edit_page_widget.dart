@@ -247,8 +247,8 @@ class _InsuranceRequestEditPageWidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: Colors.white,
@@ -411,7 +411,7 @@ class _InsuranceRequestEditPageWidgetState
                       _model.radioButtonValue != '')
                     SingleChildScrollView(
                       primary: false,
-                      controller: _model.mainColumn,
+                      controller: _model.mainColumnScrollController,
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -508,7 +508,9 @@ class _InsuranceRequestEditPageWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await _model.insuranceBasicColumn?.animateTo(
+                                await _model
+                                    .insuranceBasicColumnScrollController
+                                    ?.animateTo(
                                   0,
                                   duration: Duration(milliseconds: 200),
                                   curve: Curves.ease,
@@ -12396,7 +12398,8 @@ class _InsuranceRequestEditPageWidgetState
                           ),
                           SingleChildScrollView(
                             primary: false,
-                            controller: _model.insuranceBasicColumn,
+                            controller:
+                                _model.insuranceBasicColumnScrollController,
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,

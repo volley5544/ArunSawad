@@ -34,7 +34,7 @@ class InsuranceRequestEditPageModel
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
   // State field(s) for MainColumn widget.
-  ScrollController? mainColumn;
+  ScrollController? mainColumnScrollController;
   bool isDataUploading_uploadPhoto1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto1Edit =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -168,7 +168,7 @@ class InsuranceRequestEditPageModel
   // Stores action output result for [Backend Call - API (insuranceRequestEditAPI)] action in Button widget.
   ApiCallResponse? insuranceEditApi;
   // State field(s) for InsuranceBasicColumn widget.
-  ScrollController? insuranceBasicColumn;
+  ScrollController? insuranceBasicColumnScrollController;
   // State field(s) for OperationChoiceChips widget.
   FormFieldController<List<String>>? operationChoiceChipsValueController;
   String? get operationChoiceChipsValue =>
@@ -301,17 +301,17 @@ class InsuranceRequestEditPageModel
   @override
   void initState(BuildContext context) {
     columnController1 = ScrollController();
-    mainColumn = ScrollController();
+    mainColumnScrollController = ScrollController();
     columnController2 = ScrollController();
-    insuranceBasicColumn = ScrollController();
+    insuranceBasicColumnScrollController = ScrollController();
   }
 
   @override
   void dispose() {
     columnController1?.dispose();
-    mainColumn?.dispose();
+    mainColumnScrollController?.dispose();
     columnController2?.dispose();
-    insuranceBasicColumn?.dispose();
+    insuranceBasicColumnScrollController?.dispose();
     insuranceLicenseNoInputFocusNode?.dispose();
     insuranceLicenseNoInputTextController?.dispose();
 

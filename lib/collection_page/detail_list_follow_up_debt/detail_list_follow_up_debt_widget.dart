@@ -331,8 +331,8 @@ class _DetailListFollowUpDebtWidgetState
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
+      child: PopScope(
+        canPop: false,
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: Colors.white,
@@ -989,7 +989,9 @@ class _DetailListFollowUpDebtWidgetState
                                           r'''$.data[:].NextWork''',
                                           true,
                                         ) as List?)
-                                            ?.cast<String>(),
+                                            ?.map<String>((e) => e.toString())
+                                            .toList()
+                                            .cast<String>(),
                                         FFAppState().selectCardList.toList(),
                                         true)
                                     .contains('ลงพื้นที่')

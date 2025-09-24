@@ -1230,7 +1230,7 @@ class _BotChattingPageWidgetState extends State<BotChattingPageWidget>
                                             'insuranceConsultantAgent',
                                         provider: 'GOOGLE',
                                         agentJson:
-                                            "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"insuranceConsultantAgent\",\"key\":\"1ulld\"},\"name\":\"InsuranceConsultantAgent\",\"description\":\"บอทสำหรับให้คำปรึกษาประกันรถยนต์\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":8192},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"คุณคือAI ที่เป็นผู้เชี่ยวชาญทางด้านประกันรถยนต์ของประเทศไทย\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
+                                            '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"insuranceConsultantAgent\",\"key\":\"1ulld\"},\"name\":\"InsuranceConsultantAgent\",\"description\":\"บอทสำหรับให้คำปรึกษาประกันรถยนต์\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":8192},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"คุณคือAI ที่เป็นผู้เชี่ยวชาญทางด้านประกันรถยนต์ของประเทศไทย\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
                                         responseType: 'PLAINTEXT',
                                       ).then((generatedText) {
                                         safeSetState(() =>

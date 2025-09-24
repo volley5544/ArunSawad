@@ -15,7 +15,7 @@ export '/pages/super_app/notification_detail_page/notification_detail_page_widge
     show NotificationDetailPageWidget;
 export '/pages/profile_page_folder/my_profile_page/my_profile_page_widget.dart'
     show MyProfilePageWidget;
-export '/pages/super_app/lead_noti_page/lead_noti_page_widget.dart'
+export '/lead/lead_noti_page/lead_noti_page_widget.dart'
     show LeadNotiPageWidget;
 export '/pages/branch_view/collection_page/collection_page_widget.dart'
     show CollectionPageWidget;
@@ -259,7 +259,7 @@ export '/pages/search_employee_page2/search_employee_page2_widget.dart'
 export '/searchableemp/searchableemp_widget.dart' show SearchableempWidget;
 export '/pages/branch_view/remark_type_d_page/remark_type_d_page_widget.dart'
     show RemarkTypeDPageWidget;
-export '/pages/super_app/lead_noti_new_page/lead_noti_new_page_widget.dart'
+export '/lead/lead_noti_new_page/lead_noti_new_page_widget.dart'
     show LeadNotiNewPageWidget;
 export '/pages/super_app/webview_new_page_copy/webview_new_page_copy_widget.dart'
     show WebviewNewPageCopyWidget;
@@ -285,3 +285,7 @@ export '/ew9tf0uewitf/ew9tf0uewitf_widget.dart' show Ew9tf0uewitfWidget;
 export '/q_r_complain/q_r_complain_widget.dart' show QRComplainWidget;
 export '/sawad_chat/bot_chatting_page/bot_chatting_page_widget.dart'
     show BotChattingPageWidget;
+export '/lead/lead_noti_new_page_dup/lead_noti_new_page_dup_widget.dart'
+    show LeadNotiNewPageDupWidget;
+export '/lead/lead_dashboard_page/lead_dashboard_page_widget.dart'
+    show LeadDashboardPageWidget;
