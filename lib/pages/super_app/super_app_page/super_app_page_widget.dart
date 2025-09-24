@@ -2518,10 +2518,31 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  Divider(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .grayIcon,
+                                                                  InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      context.pushNamed(
+                                                                          LeadDashboardPageCopyCopyWidget
+                                                                              .routeName);
+                                                                    },
+                                                                    child:
+                                                                        Divider(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .grayIcon,
+                                                                    ),
                                                                   ),
                                                                   Expanded(
                                                                     child:
@@ -3123,6 +3144,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         unawaited(
                                                                           () async {}(),
                                                                         );
+
+                                                                        context.pushNamed(
+                                                                            LeadDashboardPageCopyWidget.routeName);
                                                                       },
                                                                       child:
                                                                           Text(

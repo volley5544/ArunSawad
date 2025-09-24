@@ -289,3 +289,7 @@ export '/lead/lead_noti_new_page_dup/lead_noti_new_page_dup_widget.dart'
     show LeadNotiNewPageDupWidget;
 export '/lead/lead_dashboard_page/lead_dashboard_page_widget.dart'
     show LeadDashboardPageWidget;
+export '/lead/lead_dashboard_page_copy/lead_dashboard_page_copy_widget.dart'
+    show LeadDashboardPageCopyWidget;
+export '/lead/lead_dashboard_page_copy_copy/lead_dashboard_page_copy_copy_widget.dart'
+    show LeadDashboardPageCopyCopyWidget;

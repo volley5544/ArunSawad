@@ -841,6 +841,8 @@ final parametersBuilderMap =
         allParams: <String, dynamic>{},
       ),
   'LeadDashboardPage': ParameterData.none(),
+  'LeadDashboardPageCopy': ParameterData.none(),
+  'LeadDashboardPageCopyCopy': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

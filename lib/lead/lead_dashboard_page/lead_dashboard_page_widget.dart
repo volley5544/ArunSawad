@@ -2141,7 +2141,7 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
-                                                              '159',
+                                                              '13,696',
                                                               textAlign:
                                                                   TextAlign
                                                                       .center,
@@ -2294,7 +2294,7 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
-                                                              '17,783',
+                                                              '1,111',
                                                               textAlign:
                                                                   TextAlign
                                                                       .center,
@@ -2447,7 +2447,7 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
-                                                              '102',
+                                                              '131',
                                                               textAlign:
                                                                   TextAlign
                                                                       .center,
