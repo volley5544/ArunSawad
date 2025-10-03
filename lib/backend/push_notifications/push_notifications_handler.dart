@@ -840,9 +840,10 @@ final parametersBuilderMap =
   'LeadNotiNewPageDup': (data) async => ParameterData(
         allParams: <String, dynamic>{},
       ),
-  'LeadDashboardPage': ParameterData.none(),
+  'LeadDashboardPageDraft': ParameterData.none(),
   'LeadDashboardPageCopy': ParameterData.none(),
   'LeadDashboardPageCopyCopy': ParameterData.none(),
+  'LeadDashboardPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

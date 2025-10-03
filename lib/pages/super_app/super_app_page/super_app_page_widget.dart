@@ -2487,7 +2487,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           () async {}(),
                                                                         );
 
-                                                                        context.pushNamed(
+                                                                        context.goNamed(
                                                                             LeadDashboardPageWidget.routeName);
                                                                       },
                                                                       child:

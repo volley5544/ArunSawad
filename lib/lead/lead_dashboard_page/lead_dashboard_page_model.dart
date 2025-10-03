@@ -4,11 +4,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'lead_dashboard_page_widget.dart' show LeadDashboardPageWidget;
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -84,101 +86,27 @@ class LeadDashboardPageModel extends FlutterFlowModel<LeadDashboardPageWidget> {
           int index, Function(dynamic) updateFn) =>
       currentShowingDataJson[index] = updateFn(currentShowingDataJson[index]);
 
-  dynamic leadDataByCategory;
+  List<bool> selectedLeadChannel = [true, false, false, false, false];
+  void addToSelectedLeadChannel(bool item) => selectedLeadChannel.add(item);
+  void removeFromSelectedLeadChannel(bool item) =>
+      selectedLeadChannel.remove(item);
+  void removeAtIndexFromSelectedLeadChannel(int index) =>
+      selectedLeadChannel.removeAt(index);
+  void insertAtIndexInSelectedLeadChannel(int index, bool item) =>
+      selectedLeadChannel.insert(index, item);
+  void updateSelectedLeadChannelAtIndex(int index, Function(bool) updateFn) =>
+      selectedLeadChannel[index] = updateFn(selectedLeadChannel[index]);
 
-  String selectedTab = 'All';
-
-  List<dynamic> allLeadDataJson = [];
-  void addToAllLeadDataJson(dynamic item) => allLeadDataJson.add(item);
-  void removeFromAllLeadDataJson(dynamic item) => allLeadDataJson.remove(item);
-  void removeAtIndexFromAllLeadDataJson(int index) =>
-      allLeadDataJson.removeAt(index);
-  void insertAtIndexInAllLeadDataJson(int index, dynamic item) =>
-      allLeadDataJson.insert(index, item);
-  void updateAllLeadDataJsonAtIndex(int index, Function(dynamic) updateFn) =>
-      allLeadDataJson[index] = updateFn(allLeadDataJson[index]);
-
-  List<dynamic> leadSearchDataJson = [];
-  void addToLeadSearchDataJson(dynamic item) => leadSearchDataJson.add(item);
-  void removeFromLeadSearchDataJson(dynamic item) =>
-      leadSearchDataJson.remove(item);
-  void removeAtIndexFromLeadSearchDataJson(int index) =>
-      leadSearchDataJson.removeAt(index);
-  void insertAtIndexInLeadSearchDataJson(int index, dynamic item) =>
-      leadSearchDataJson.insert(index, item);
-  void updateLeadSearchDataJsonAtIndex(int index, Function(dynamic) updateFn) =>
-      leadSearchDataJson[index] = updateFn(leadSearchDataJson[index]);
-
-  List<dynamic> leadNotiModifyJson = [];
-  void addToLeadNotiModifyJson(dynamic item) => leadNotiModifyJson.add(item);
-  void removeFromLeadNotiModifyJson(dynamic item) =>
-      leadNotiModifyJson.remove(item);
-  void removeAtIndexFromLeadNotiModifyJson(int index) =>
-      leadNotiModifyJson.removeAt(index);
-  void insertAtIndexInLeadNotiModifyJson(int index, dynamic item) =>
-      leadNotiModifyJson.insert(index, item);
-  void updateLeadNotiModifyJsonAtIndex(int index, Function(dynamic) updateFn) =>
-      leadNotiModifyJson[index] = updateFn(leadNotiModifyJson[index]);
-
-  String filterAssetType = 'ทั้งหมด';
-
-  String filterSubChennel = 'ทั้งหมด';
-
-  List<String> assetTypeFilterList = [];
-  void addToAssetTypeFilterList(String item) => assetTypeFilterList.add(item);
-  void removeFromAssetTypeFilterList(String item) =>
-      assetTypeFilterList.remove(item);
-  void removeAtIndexFromAssetTypeFilterList(int index) =>
-      assetTypeFilterList.removeAt(index);
-  void insertAtIndexInAssetTypeFilterList(int index, String item) =>
-      assetTypeFilterList.insert(index, item);
-  void updateAssetTypeFilterListAtIndex(int index, Function(String) updateFn) =>
-      assetTypeFilterList[index] = updateFn(assetTypeFilterList[index]);
-
-  List<String> subChannelFilterList = [];
-  void addToSubChannelFilterList(String item) => subChannelFilterList.add(item);
-  void removeFromSubChannelFilterList(String item) =>
-      subChannelFilterList.remove(item);
-  void removeAtIndexFromSubChannelFilterList(int index) =>
-      subChannelFilterList.removeAt(index);
-  void insertAtIndexInSubChannelFilterList(int index, String item) =>
-      subChannelFilterList.insert(index, item);
-  void updateSubChannelFilterListAtIndex(
-          int index, Function(String) updateFn) =>
-      subChannelFilterList[index] = updateFn(subChannelFilterList[index]);
-
-  dynamic filterList;
-
-  List<dynamic> leadHPDataJson = [];
-  void addToLeadHPDataJson(dynamic item) => leadHPDataJson.add(item);
-  void removeFromLeadHPDataJson(dynamic item) => leadHPDataJson.remove(item);
-  void removeAtIndexFromLeadHPDataJson(int index) =>
-      leadHPDataJson.removeAt(index);
-  void insertAtIndexInLeadHPDataJson(int index, dynamic item) =>
-      leadHPDataJson.insert(index, item);
-  void updateLeadHPDataJsonAtIndex(int index, Function(dynamic) updateFn) =>
-      leadHPDataJson[index] = updateFn(leadHPDataJson[index]);
-
-  List<dynamic> leadTopupDataJson = [];
-  void addToLeadTopupDataJson(dynamic item) => leadTopupDataJson.add(item);
-  void removeFromLeadTopupDataJson(dynamic item) =>
-      leadTopupDataJson.remove(item);
-  void removeAtIndexFromLeadTopupDataJson(int index) =>
-      leadTopupDataJson.removeAt(index);
-  void insertAtIndexInLeadTopupDataJson(int index, dynamic item) =>
-      leadTopupDataJson.insert(index, item);
-  void updateLeadTopupDataJsonAtIndex(int index, Function(dynamic) updateFn) =>
-      leadTopupDataJson[index] = updateFn(leadTopupDataJson[index]);
-
-  ///  State fields for stateful widgets in this page.
-
-  // State field(s) for Carousel widget.
-  CarouselSliderController? carouselController1;
-  int carouselCurrentIndex1 = 0;
-
-  // State field(s) for Carousel widget.
-  CarouselSliderController? carouselController2;
-  int carouselCurrentIndex2 = 0;
+  List<bool> selectedCallStatus = [true, false, false, false, false];
+  void addToSelectedCallStatus(bool item) => selectedCallStatus.add(item);
+  void removeFromSelectedCallStatus(bool item) =>
+      selectedCallStatus.remove(item);
+  void removeAtIndexFromSelectedCallStatus(int index) =>
+      selectedCallStatus.removeAt(index);
+  void insertAtIndexInSelectedCallStatus(int index, bool item) =>
+      selectedCallStatus.insert(index, item);
+  void updateSelectedCallStatusAtIndex(int index, Function(bool) updateFn) =>
+      selectedCallStatus[index] = updateFn(selectedCallStatus[index]);
 
   @override
   void initState(BuildContext context) {}

@@ -2750,9 +2750,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: LeadDashboardPageWidget.routeName,
-              path: LeadDashboardPageWidget.routePath,
-              builder: (context, params) => LeadDashboardPageWidget(),
+              name: LeadDashboardPageDraftWidget.routeName,
+              path: LeadDashboardPageDraftWidget.routePath,
+              builder: (context, params) => LeadDashboardPageDraftWidget(),
             ),
             FFRoute(
               name: LeadDashboardPageCopyWidget.routeName,
@@ -2763,6 +2763,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: LeadDashboardPageCopyCopyWidget.routeName,
               path: LeadDashboardPageCopyCopyWidget.routePath,
               builder: (context, params) => LeadDashboardPageCopyCopyWidget(),
+            ),
+            FFRoute(
+              name: LeadDashboardPageWidget.routeName,
+              path: LeadDashboardPageWidget.routePath,
+              builder: (context, params) => LeadDashboardPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

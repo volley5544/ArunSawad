@@ -4,8 +4,7 @@ const admin = require("firebase-admin");
 
 exports.getServerCurrentDateTime = functions.https.onCall((data, context) => {
   // Write your code below!
-  const now = new Date();
-  res.send(now.toISOString());
+
   // Write your code above!
-  return now.toISOString();
+  return {};
 });

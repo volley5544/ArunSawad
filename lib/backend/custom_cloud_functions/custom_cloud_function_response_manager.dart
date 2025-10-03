@@ -12,5 +12,5 @@ class GetServerCurrentDateTimeCloudFunctionCallResponse {
   bool? succeeded;
   dynamic jsonBody;
   String? resultAsString;
-  String? data;
+  dynamic data;
 }
