@@ -36,14 +36,14 @@ class DetailListFollowUpDebtWidget extends StatefulWidget {
     required this.name,
     required this.lastName,
     required this.followupDebtTab,
-    this.fromIconCall,
-  });
+    bool? fromIconCall,
+  }) : this.fromIconCall = fromIconCall ?? false;
 
   final String? cusCod;
   final String? name;
   final String? lastName;
   final int? followupDebtTab;
-  final bool? fromIconCall;
+  final bool fromIconCall;
 
   static String routeName = 'detailListFollowUpDebt';
   static String routePath = 'detailListFollowUpDebt';
@@ -160,7 +160,7 @@ class _DetailListFollowUpDebtWidgetState
         return;
       }
 
-      if (widget!.fromIconCall!) {
+      if (widget!.fromIconCall) {
         if (!functions
             .checkPhoneNumberChar(CollectionApiGetDataPersonCall.mobilenumber(
           (_model.getListDataPerson?.jsonBody ?? ''),

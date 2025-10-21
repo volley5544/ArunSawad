@@ -7,8 +7,7 @@
   "main": "index.js",
   "dependencies": {
     "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.3.1",
-    "dayjs": "^1.11.18"
+    "firebase-functions": "^4.3.1"
   },
   "private": true
 }

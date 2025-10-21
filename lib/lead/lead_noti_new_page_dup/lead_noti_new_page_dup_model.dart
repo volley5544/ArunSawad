@@ -22,10 +22,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class LeadNotiNewPageDupModel
     extends FlutterFlowModel<LeadNotiNewPageDupWidget> {
-  ///  Local state fields for this page.
-
-  dynamic iconProp;
-
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextFieldSearch widget.

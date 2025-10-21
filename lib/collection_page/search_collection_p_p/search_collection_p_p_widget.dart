@@ -960,6 +960,10 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                   ).toString(),
                                                   ParamType.String,
                                                 ),
+                                                'fromIconCall': serializeParam(
+                                                  false,
+                                                  ParamType.bool,
+                                                ),
                                               }.withoutNulls,
                                             );
                                           },
