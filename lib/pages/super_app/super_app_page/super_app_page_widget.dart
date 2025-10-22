@@ -2486,9 +2486,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         unawaited(
                                                                           () async {}(),
                                                                         );
-
-                                                                        context.goNamed(
-                                                                            LeadDashboardPageWidget.routeName);
                                                                       },
                                                                       child:
                                                                           Text(
@@ -2532,11 +2529,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         Colors
                                                                             .transparent,
                                                                     onTap:
-                                                                        () async {
-                                                                      context.pushNamed(
-                                                                          LeadDashboardPageCopyCopyWidget
-                                                                              .routeName);
-                                                                    },
+                                                                        () async {},
                                                                     child:
                                                                         Divider(
                                                                       color: FlutterFlowTheme.of(
@@ -3144,9 +3137,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         unawaited(
                                                                           () async {}(),
                                                                         );
-
-                                                                        context.pushNamed(
-                                                                            LeadDashboardPageCopyWidget.routeName);
                                                                       },
                                                                       child:
                                                                           Text(
