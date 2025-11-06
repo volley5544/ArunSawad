@@ -857,7 +857,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               _model.uploadedLocalFile_carUploaded01 =
                                                   FFUploadedFile(
                                                       bytes: Uint8List.fromList(
-                                                          []));
+                                                          []),
+                                                      originalFilename: '');
                                             });
                                           },
                                         ),
@@ -932,6 +933,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                 height: m.dimensions?.height,
                                                 width: m.dimensions?.width,
                                                 blurHash: m.blurHash,
+                                                originalFilename:
+                                                    m.originalFilename,
                                               ))
                                           .toList();
                                     } finally {
@@ -1411,8 +1414,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded02 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -1483,6 +1486,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -1957,8 +1962,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded03 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -2029,6 +2034,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -2503,8 +2510,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded04 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -2575,6 +2582,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -3049,8 +3058,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded05 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -3121,6 +3130,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -3595,8 +3606,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded06 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -3667,6 +3678,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -4154,8 +4167,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded07 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -4230,6 +4243,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -4748,8 +4763,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded08 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -4824,6 +4839,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -5351,8 +5368,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded09 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -5427,6 +5444,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -5956,8 +5975,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded10 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -6032,6 +6051,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -6561,8 +6582,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               false;
                                           _model.uploadedLocalFile_carUploaded11 =
                                               FFUploadedFile(
-                                                  bytes:
-                                                      Uint8List.fromList([]));
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
                                         });
                                       },
                                     ),
@@ -6637,6 +6658,8 @@ class _CustomerCarDeailsStep1WidgetState
                                             height: m.dimensions?.height,
                                             width: m.dimensions?.width,
                                             blurHash: m.blurHash,
+                                            originalFilename:
+                                                m.originalFilename,
                                           ))
                                       .toList();
                                 } finally {
@@ -7131,7 +7154,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               _model.uploadedLocalFile_carUploaded12 =
                                                   FFUploadedFile(
                                                       bytes: Uint8List.fromList(
-                                                          []));
+                                                          []),
+                                                      originalFilename: '');
                                             });
                                           },
                                         ),
@@ -7211,6 +7235,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                 height: m.dimensions?.height,
                                                 width: m.dimensions?.width,
                                                 blurHash: m.blurHash,
+                                                originalFilename:
+                                                    m.originalFilename,
                                               ))
                                           .toList();
                                     } finally {
@@ -7669,7 +7695,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                     FFUploadedFile(
                                                         bytes:
                                                             Uint8List.fromList(
-                                                                []));
+                                                                []),
+                                                        originalFilename: '');
                                               });
                                             },
                                           ),
@@ -7750,6 +7777,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                   height: m.dimensions?.height,
                                                   width: m.dimensions?.width,
                                                   blurHash: m.blurHash,
+                                                  originalFilename:
+                                                      m.originalFilename,
                                                 ))
                                             .toList();
                                       } finally {
@@ -8085,6 +8114,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
+                                                                    originalFilename:
+                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
                                                     } finally {
@@ -8448,7 +8479,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
-                                                                        []));
+                                                                        []),
+                                                                originalFilename:
+                                                                    '');
                                                       });
                                                     },
                                                   ),
@@ -8729,6 +8762,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
+                                                                    originalFilename:
+                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
                                                     } finally {
@@ -9092,7 +9127,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
-                                                                        []));
+                                                                        []),
+                                                                originalFilename:
+                                                                    '');
                                                       });
                                                     },
                                                   ),
@@ -9373,6 +9410,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
+                                                                    originalFilename:
+                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
                                                     } finally {
@@ -9736,7 +9775,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
-                                                                        []));
+                                                                        []),
+                                                                originalFilename:
+                                                                    '');
                                                       });
                                                     },
                                                   ),
@@ -10017,6 +10058,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
+                                                                    originalFilename:
+                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
                                                     } finally {
@@ -10380,7 +10423,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
-                                                                        []));
+                                                                        []),
+                                                                originalFilename:
+                                                                    '');
                                                       });
                                                     },
                                                   ),

@@ -295,3 +295,5 @@ export '/lead/lead_dashboard_page_copy_copy/lead_dashboard_page_copy_copy_widget
     show LeadDashboardPageCopyCopyWidget;
 export '/lead/lead_dashboard_page/lead_dashboard_page_widget.dart'
     show LeadDashboardPageWidget;
+export '/collection_page/images_m_page/images_m_page_widget.dart'
+    show ImagesMPageWidget;

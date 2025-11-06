@@ -2483,9 +2483,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        unawaited(
-                                                                          () async {}(),
-                                                                        );
+                                                                        context.pushNamed(
+                                                                            ImagesMPageWidget.routeName);
                                                                       },
                                                                       child:
                                                                           Text(

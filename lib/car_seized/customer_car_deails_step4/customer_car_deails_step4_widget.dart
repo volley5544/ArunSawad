@@ -664,6 +664,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -1045,7 +1047,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -1269,6 +1273,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -1650,7 +1656,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -1872,6 +1880,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -2253,7 +2263,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -2477,6 +2489,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -2858,7 +2872,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -3082,6 +3098,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -3463,7 +3481,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -3687,6 +3707,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -4068,7 +4090,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -4300,6 +4324,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -4681,7 +4707,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -4913,6 +4941,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -5294,7 +5324,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -5526,6 +5558,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -5907,7 +5941,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -6139,6 +6175,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -6520,7 +6558,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -6752,6 +6792,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           ?.width,
                                                                       blurHash:
                                                                           m.blurHash,
+                                                                      originalFilename:
+                                                                          m.originalFilename,
                                                                     ))
                                                                 .toList();
                                                       } finally {
@@ -7133,7 +7175,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
                                                       },
                                                     ),
@@ -7380,6 +7424,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
                                                           } finally {
@@ -7791,7 +7837,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                                   FFUploadedFile(
                                                                       bytes: Uint8List
                                                                           .fromList(
-                                                                              []));
+                                                                              []),
+                                                                      originalFilename:
+                                                                          '');
                                                             });
                                                           },
                                                         ),
@@ -7992,6 +8040,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                                 m.dimensions?.width,
                                                                             blurHash:
                                                                                 m.blurHash,
+                                                                            originalFilename:
+                                                                                m.originalFilename,
                                                                           ))
                                                                       .toList();
                                                             } finally {
@@ -8407,10 +8457,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                               safeSetState(() {
                                                                 _model.isDataUploading_car4Uploaded12 =
                                                                     false;
-                                                                _model.uploadedLocalFile_car4Uploaded12 =
-                                                                    FFUploadedFile(
-                                                                        bytes: Uint8List.fromList(
-                                                                            []));
+                                                                _model.uploadedLocalFile_car4Uploaded12 = FFUploadedFile(
+                                                                    bytes: Uint8List
+                                                                        .fromList(
+                                                                            []),
+                                                                    originalFilename:
+                                                                        '');
                                                               });
                                                             },
                                                           ),
@@ -8675,6 +8727,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                                                 height: m.dimensions?.height,
                                                                                 width: m.dimensions?.width,
                                                                                 blurHash: m.blurHash,
+                                                                                originalFilename: m.originalFilename,
                                                                               ))
                                                                           .toList();
                                                                 } finally {
@@ -9104,10 +9157,11 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       () {
                                                                     _model.isDataUploading_car4Uploaded13 =
                                                                         false;
-                                                                    _model.uploadedLocalFile_car4Uploaded13 =
-                                                                        FFUploadedFile(
-                                                                            bytes:
-                                                                                Uint8List.fromList([]));
+                                                                    _model.uploadedLocalFile_car4Uploaded13 = FFUploadedFile(
+                                                                        bytes: Uint8List.fromList(
+                                                                            []),
+                                                                        originalFilename:
+                                                                            '');
                                                                   });
                                                                 },
                                                               ),
@@ -9362,6 +9416,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                                                 height: m.dimensions?.height,
                                                                                 width: m.dimensions?.width,
                                                                                 blurHash: m.blurHash,
+                                                                                originalFilename: m.originalFilename,
                                                                               ))
                                                                           .toList();
                                                                 } finally {
@@ -9791,10 +9846,11 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       () {
                                                                     _model.isDataUploading_car4Uploaded13 =
                                                                         false;
-                                                                    _model.uploadedLocalFile_car4Uploaded13 =
-                                                                        FFUploadedFile(
-                                                                            bytes:
-                                                                                Uint8List.fromList([]));
+                                                                    _model.uploadedLocalFile_car4Uploaded13 = FFUploadedFile(
+                                                                        bytes: Uint8List.fromList(
+                                                                            []),
+                                                                        originalFilename:
+                                                                            '');
                                                                   });
                                                                 },
                                                               ),
@@ -10049,6 +10105,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                                                 height: m.dimensions?.height,
                                                                                 width: m.dimensions?.width,
                                                                                 blurHash: m.blurHash,
+                                                                                originalFilename: m.originalFilename,
                                                                               ))
                                                                           .toList();
                                                                 } finally {
@@ -10478,10 +10535,11 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       () {
                                                                     _model.isDataUploading_car4Uploaded13 =
                                                                         false;
-                                                                    _model.uploadedLocalFile_car4Uploaded13 =
-                                                                        FFUploadedFile(
-                                                                            bytes:
-                                                                                Uint8List.fromList([]));
+                                                                    _model.uploadedLocalFile_car4Uploaded13 = FFUploadedFile(
+                                                                        bytes: Uint8List.fromList(
+                                                                            []),
+                                                                        originalFilename:
+                                                                            '');
                                                                   });
                                                                 },
                                                               ),
@@ -10736,6 +10794,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                                                 height: m.dimensions?.height,
                                                                                 width: m.dimensions?.width,
                                                                                 blurHash: m.blurHash,
+                                                                                originalFilename: m.originalFilename,
                                                                               ))
                                                                           .toList();
                                                                 } finally {
@@ -11165,10 +11224,11 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       () {
                                                                     _model.isDataUploading_car4Uploaded13 =
                                                                         false;
-                                                                    _model.uploadedLocalFile_car4Uploaded13 =
-                                                                        FFUploadedFile(
-                                                                            bytes:
-                                                                                Uint8List.fromList([]));
+                                                                    _model.uploadedLocalFile_car4Uploaded13 = FFUploadedFile(
+                                                                        bytes: Uint8List.fromList(
+                                                                            []),
+                                                                        originalFilename:
+                                                                            '');
                                                                   });
                                                                 },
                                                               ),

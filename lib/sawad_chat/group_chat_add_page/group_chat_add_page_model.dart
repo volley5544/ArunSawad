@@ -54,7 +54,7 @@ class GroupChatAddPageModel extends FlutterFlowModel<GroupChatAddPageWidget> {
 
   bool isDataUploading_selectGroupChatImage = false;
   FFUploadedFile uploadedLocalFile_selectGroupChatImage =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
@@ -68,7 +68,7 @@ class GroupChatAddPageModel extends FlutterFlowModel<GroupChatAddPageWidget> {
   ApiCallResponse? getEmployee;
   bool isDataUploading_uploadGroupChatImage = false;
   FFUploadedFile uploadedLocalFile_uploadGroupChatImage =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadGroupChatImage = '';
 
   // Stores action output result for [Backend Call - Create Document] action in Button widget.

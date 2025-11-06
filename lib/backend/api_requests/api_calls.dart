@@ -11236,6 +11236,87 @@ class CollectionApiVloanDataCall {
       );
 }
 
+class CollectionApiImageMCall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? contNo = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "cont_no": "${contNo}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionApiImageM',
+      apiUrl: '${apiUrl}/collection/api/get_data_imagesM',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuscode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static List<ImageMDataModelStruct>? data(dynamic response) => (getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => ImageMDataModelStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remgcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMGCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remdesc(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDESC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remdetcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDETCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remdetdesc(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDETDESC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
 class GetDataSearchCollectionCall {
   static Future<ApiCallResponse> call({
     String? searchBy = '',

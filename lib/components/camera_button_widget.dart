@@ -134,6 +134,7 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                               height: m.dimensions?.height,
                               width: m.dimensions?.width,
                               blurHash: m.blurHash,
+                              originalFilename: m.originalFilename,
                             ))
                         .toList();
                   } finally {

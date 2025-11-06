@@ -892,6 +892,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                   height: m.dimensions?.height,
                                   width: m.dimensions?.width,
                                   blurHash: m.blurHash,
+                                  originalFilename: m.originalFilename,
                                 ))
                             .toList();
                       } finally {
@@ -2843,6 +2844,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
