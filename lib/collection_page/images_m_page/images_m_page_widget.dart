@@ -146,6 +146,7 @@ class _ImagesMPageWidgetState extends State<ImagesMPageWidget> {
 
                       return ListView.builder(
                         padding: EdgeInsets.zero,
+                        primary: false,
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: dataimage.length,
