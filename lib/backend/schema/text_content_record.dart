@@ -36,11 +36,17 @@ class TextContentRecord extends FirestoreRecord {
   String get contentName => _contentName ?? '';
   bool hasContentName() => _contentName != null;
 
+  // "ibsReport" field.
+  String? _ibsReport;
+  String get ibsReport => _ibsReport ?? '';
+  bool hasIbsReport() => _ibsReport != null;
+
   void _initializeFields() {
     _kpiText = snapshotData['kpiText'] as String?;
     _kpiTextcolor = getSchemaColor(snapshotData['kpiTextcolor']);
     _kpiHideText = snapshotData['kpiHideText'] as bool?;
     _contentName = snapshotData['contentName'] as String?;
+    _ibsReport = snapshotData['ibsReport'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -82,6 +88,7 @@ Map<String, dynamic> createTextContentRecordData({
   Color? kpiTextcolor,
   bool? kpiHideText,
   String? contentName,
+  String? ibsReport,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -89,6 +96,7 @@ Map<String, dynamic> createTextContentRecordData({
       'kpiTextcolor': kpiTextcolor,
       'kpiHideText': kpiHideText,
       'contentName': contentName,
+      'ibsReport': ibsReport,
     }.withoutNulls,
   );
 
@@ -103,12 +111,18 @@ class TextContentRecordDocumentEquality implements Equality<TextContentRecord> {
     return e1?.kpiText == e2?.kpiText &&
         e1?.kpiTextcolor == e2?.kpiTextcolor &&
         e1?.kpiHideText == e2?.kpiHideText &&
-        e1?.contentName == e2?.contentName;
+        e1?.contentName == e2?.contentName &&
+        e1?.ibsReport == e2?.ibsReport;
   }
 
   @override
-  int hash(TextContentRecord? e) => const ListEquality()
-      .hash([e?.kpiText, e?.kpiTextcolor, e?.kpiHideText, e?.contentName]);
+  int hash(TextContentRecord? e) => const ListEquality().hash([
+        e?.kpiText,
+        e?.kpiTextcolor,
+        e?.kpiHideText,
+        e?.contentName,
+        e?.ibsReport
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is TextContentRecord;

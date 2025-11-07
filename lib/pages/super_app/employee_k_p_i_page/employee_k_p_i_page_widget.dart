@@ -1207,11 +1207,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                           children: [
                                             Text(
                                               valueOrDefault<String>(
-                                                'เกรดพื้นที่ (เป้ารายบุคคล) : ${GetTargetBudgetKPIAPICall.areaGradeTM(
-                                                  (_model.getTargetBudget
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )}',
+                                                'เกรดพื้นที่ (เป้ารายบุคคล) : ${_model.tabBarCurrentIndex.toString()}',
                                                 'เกรดพื้นที่ (เป้ารายบุคคล) : ...',
                                               ),
                                               style:

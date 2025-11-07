@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
@@ -13,6 +14,8 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'i_b_s_report_widget.dart' show IBSReportWidget;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,6 +29,8 @@ class IBSReportModel extends FlutterFlowModel<IBSReportWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in IBSReport widget.
+  TextContentRecord? textOutput;
   // Stores action output result for [Backend Call - API (GetKPIAll)] action in IBSReport widget.
   ApiCallResponse? kPIAllOutput;
   // State field(s) for TabBar widget.
