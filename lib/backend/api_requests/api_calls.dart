@@ -10438,6 +10438,9 @@ class CollectionFollowupDebtCall {
     String? regionCode = '',
     String? role = '',
     String? apiUrl = '',
+    String? branchM = '',
+    String? empCode = '',
+    String? policeName = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -10450,7 +10453,10 @@ class CollectionFollowupDebtCall {
   "sortBy": "${sortBy}",
   "codeKate": "${areaCode}",
   "codeRegion": "${regionCode}",
-  "role": "${role}"
+  "role": "${role}",
+    "branchM":"${branchM}",
+    "empCode":"${empCode}",
+    "policeName":"${policeName}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'collectionFollowupDebt',
@@ -11503,6 +11509,70 @@ class CollectionApiGetDataCountCall {
   static List<String>? count(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].Count''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class CollectionApiGetDataCountExtraMCall {
+  static Future<ApiCallResponse> call({
+    String? empCode = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "empCode": "${empCode}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionApiGetDataCount ExtraM',
+      apiUrl: '${apiUrl}/collection/api/get_data_count_extra',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusCode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<CollectionTabMDataModelStruct>? data(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => CollectionTabMDataModelStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
+  static List<String>? count(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].Count''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].branchName''',
         true,
       ) as List?)
           ?.withoutNulls

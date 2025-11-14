@@ -530,6 +530,8 @@ final parametersBuilderMap =
   'listNameTabFollowUpDebt': (data) async => ParameterData(
         allParams: {
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
+          'branchM': getParameter<String>(data, 'branchM'),
+          'policeName': getParameter<String>(data, 'policeName'),
         },
       ),
   'RecordVideoWebviewPage': (data) async => ParameterData(
@@ -845,6 +847,7 @@ final parametersBuilderMap =
   'LeadDashboardPageCopyCopy': ParameterData.none(),
   'LeadDashboardPage': ParameterData.none(),
   'imagesMPage': ParameterData.none(),
+  'tabCollectionExtraM': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -297,3 +297,5 @@ export '/lead/lead_dashboard_page/lead_dashboard_page_widget.dart'
     show LeadDashboardPageWidget;
 export '/collection_page/images_m_page/images_m_page_widget.dart'
     show ImagesMPageWidget;
+export '/collection_page/tab_collection_extra_m/tab_collection_extra_m_widget.dart'
+    show TabCollectionExtraMWidget;

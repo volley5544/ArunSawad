@@ -4,6 +4,7 @@ export 'admin_role_group_struct.dart';
 export 'branch_data_type_struct.dart';
 export 'chat_bot_data_model_struct.dart';
 export 'chat_room_data_model_struct.dart';
+export 'collection_tab_m_data_model_struct.dart';
 export 'employee_search_data_model_struct.dart';
 export 'impound_car_access_role_struct.dart';
 export 'impound_car_admin_role_struct.dart';

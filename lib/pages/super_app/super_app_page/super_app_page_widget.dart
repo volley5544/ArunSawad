@@ -2484,7 +2484,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       onTap:
                                                                           () async {
                                                                         context.pushNamed(
-                                                                            ImagesMPageWidget.routeName);
+                                                                            TabCollectionExtraMWidget.routeName);
                                                                       },
                                                                       child:
                                                                           Text(

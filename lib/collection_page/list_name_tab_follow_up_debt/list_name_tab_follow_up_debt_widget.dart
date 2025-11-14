@@ -31,9 +31,13 @@ class ListNameTabFollowUpDebtWidget extends StatefulWidget {
   const ListNameTabFollowUpDebtWidget({
     super.key,
     required this.followUpDebtTab,
+    this.branchM,
+    this.policeName,
   });
 
   final int? followUpDebtTab;
+  final String? branchM;
+  final String? policeName;
 
   static String routeName = 'listNameTabFollowUpDebt';
   static String routePath = 'listNameTabFollowUpDebt';
@@ -164,6 +168,11 @@ class _ListNameTabFollowUpDebtWidgetState
                             return 'OD6 เป็นต้นไป';
                           } else if (widget!.followUpDebtTab == 23) {
                             return 'ลงพื้นที่';
+                          } else if (widget!.followUpDebtTab == 99) {
+                            return valueOrDefault<String>(
+                              widget!.policeName,
+                              'หน่วย M ',
+                            );
                           } else {
                             return '-';
                           }
@@ -797,13 +806,16 @@ class _ListNameTabFollowUpDebtWidgetState
                         child: PagedListView<ApiPagingParams, dynamic>(
                           pagingController: _model.setListViewController(
                             (nextPageMarker) => CollectionFollowupDebtCall.call(
-                              branchCode: (FFAppState().collectionBranchCode ==
-                                          'HO') ||
-                                      (FFAppState().profileRoleName == 'SME') ||
-                                      (FFAppState().collectionProfileLevel !=
-                                          'สาขา')
-                                  ? ''
-                                  : FFAppState().collectionBranchCode,
+                              branchCode:
+                                  (FFAppState().collectionBranchCode == 'HO') ||
+                                          (FFAppState().profileRoleName ==
+                                              'SME') ||
+                                          (FFAppState()
+                                                  .collectionProfileLevel !=
+                                              'สาขา') ||
+                                          (widget!.branchM == 'Extra')
+                                      ? ''
+                                      : FFAppState().collectionBranchCode,
                               dataPage: nextPageMarker.nextPageNumber + 1,
                               pageSize: 30,
                               dataFilter: widget!.followUpDebtTab?.toString(),
@@ -823,6 +835,9 @@ class _ListNameTabFollowUpDebtWidgetState
                                   : '',
                               role: FFAppState().profileRoleName,
                               apiUrl: FFAppState().apiUrlBranchViewCollection,
+                              branchM: widget!.branchM,
+                              empCode: FFAppState().employeeID,
+                              policeName: widget!.policeName,
                             ),
                           ),
                           padding: EdgeInsets.fromLTRB(

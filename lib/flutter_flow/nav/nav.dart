@@ -1548,6 +1548,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'followUpDebtTab',
                   ParamType.int,
                 ),
+                branchM: params.getParam(
+                  'branchM',
+                  ParamType.String,
+                ),
+                policeName: params.getParam(
+                  'policeName',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2771,6 +2779,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: ImagesMPageWidget.routeName,
               path: ImagesMPageWidget.routePath,
               builder: (context, params) => ImagesMPageWidget(),
+            ),
+            FFRoute(
+              name: TabCollectionExtraMWidget.routeName,
+              path: TabCollectionExtraMWidget.routePath,
+              builder: (context, params) => TabCollectionExtraMWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
