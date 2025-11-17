@@ -2784,6 +2784,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: TabCollectionExtraMWidget.routeName,
               path: TabCollectionExtraMWidget.routePath,
               builder: (context, params) => TabCollectionExtraMWidget(),
+            ),
+            FFRoute(
+              name: TabCollectionTeamMPageWidget.routeName,
+              path: TabCollectionTeamMPageWidget.routePath,
+              builder: (context, params) => TabCollectionTeamMPageWidget(
+                branchCode: params.getParam(
+                  'branchCode',
+                  ParamType.String,
+                ),
+                profileLevel: params.getParam(
+                  'profileLevel',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

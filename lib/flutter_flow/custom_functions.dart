@@ -271,9 +271,9 @@ bool returnTrueFunction() {
 bool? checkYearHoliday(DateTime? dateNow) {
   int year = dateNow!.year;
 
-  if (year == 2025) {
+  if (year == 2026) {
     return true;
-  } else if (year == 2024) {
+  } else if (year == 2025) {
     return false;
   } else {
     return false;

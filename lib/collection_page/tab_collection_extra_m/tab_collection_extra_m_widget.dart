@@ -109,40 +109,7 @@ class _TabCollectionExtraMWidgetState extends State<TabCollectionExtraMWidget>
         apiUrl: FFAppState().apiUrlBranchViewCollection,
       );
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('1'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      if ((_model.collectionApiGetdataCountM?.statusCode ?? 200) == 200) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text('2'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      } else {
+      if ((_model.collectionApiGetdataCountM?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(
           context: context,
@@ -163,28 +130,10 @@ class _TabCollectionExtraMWidgetState extends State<TabCollectionExtraMWidget>
         );
         return;
       }
-
       if (CollectionApiGetDataCountExtraMCall.statusCode(
             (_model.collectionApiGetdataCountM?.jsonBody ?? ''),
-          ) ==
+          ) !=
           200) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text('3'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      } else {
         Navigator.pop(context);
         await showDialog(
           context: context,
@@ -206,29 +155,12 @@ class _TabCollectionExtraMWidgetState extends State<TabCollectionExtraMWidget>
         );
         return;
       }
-
       _model.dataTab = CollectionApiGetDataCountExtraMCall.data(
         (_model.collectionApiGetdataCountM?.jsonBody ?? ''),
       )!
           .toList()
           .cast<CollectionTabMDataModelStruct>();
       safeSetState(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('3'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       Navigator.pop(context);
     });
 

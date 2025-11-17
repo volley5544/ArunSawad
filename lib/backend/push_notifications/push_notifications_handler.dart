@@ -848,6 +848,12 @@ final parametersBuilderMap =
   'LeadDashboardPage': ParameterData.none(),
   'imagesMPage': ParameterData.none(),
   'tabCollectionExtraM': ParameterData.none(),
+  'tabCollectionTeamMPage': (data) async => ParameterData(
+        allParams: {
+          'branchCode': getParameter<String>(data, 'branchCode'),
+          'profileLevel': getParameter<String>(data, 'profileLevel'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

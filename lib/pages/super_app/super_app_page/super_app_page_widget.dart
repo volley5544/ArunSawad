@@ -2483,8 +2483,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        context.pushNamed(
-                                                                            TabCollectionExtraMWidget.routeName);
+                                                                        context
+                                                                            .pushNamed(
+                                                                          TabCollectionTeamMPageWidget
+                                                                              .routeName,
+                                                                          queryParameters:
+                                                                              {
+                                                                            'branchCode':
+                                                                                serializeParam(
+                                                                              FFAppState().branchCode,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'profileLevel':
+                                                                                serializeParam(
+                                                                              '',
+                                                                              ParamType.String,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
                                                                       },
                                                                       child:
                                                                           Text(

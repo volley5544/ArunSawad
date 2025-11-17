@@ -11459,13 +11459,15 @@ class CollectionApiGetDataCountCall {
     String? codeRegion = '',
     String? role = '',
     String? apiUrl = '',
+    String? branchM = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "branchCode": "${branchCode}",
   "codeKate": "${codeKate}",
   "codeRegion": "${codeRegion}",
-  "role": "${role}"
+  "role": "${role}",
+  "branchM": "${branchM}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'collectionApiGetDataCount',

@@ -299,3 +299,5 @@ export '/collection_page/images_m_page/images_m_page_widget.dart'
     show ImagesMPageWidget;
 export '/collection_page/tab_collection_extra_m/tab_collection_extra_m_widget.dart'
     show TabCollectionExtraMWidget;
+export '/collection_page/tab_collection_team_m_page/tab_collection_team_m_page_widget.dart'
+    show TabCollectionTeamMPageWidget;
