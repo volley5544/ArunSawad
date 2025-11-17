@@ -2496,7 +2496,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                             'profileLevel':
                                                                                 serializeParam(
-                                                                              '',
+                                                                              FFAppState().profileLevel,
                                                                               ParamType.String,
                                                                             ),
                                                                           }.withoutNulls,

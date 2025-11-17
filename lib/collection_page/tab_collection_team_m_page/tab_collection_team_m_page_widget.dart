@@ -268,6 +268,29 @@ class _TabCollectionTeamMPageWidgetState
           .toList()
           .cast<CollectionTabMDataModelStruct>();
       safeSetState(() {});
+      _model.choicechipsData = _model.dataTabM.isNotEmpty
+          ? (['รายชื่อลูกค้า', 'สถานีตำรวจ'])
+          : (['รายชื่อลูกค้า']).toList().cast<String>();
+      safeSetState(() {});
+      safeSetState(() {
+        _model.choiceChipsValueController?.value = [
+          (_model.dataTabM.isNotEmpty ? 'สถานีตำรวจ' : 'รายชื่อลูกค้า')
+        ];
+      });
+      if (_model.dataTabM.isNotEmpty) {
+        await _model.pageViewController?.animateToPage(
+          1,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
+      } else {
+        await _model.pageViewController?.animateToPage(
+          0,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
+      }
+
       Navigator.pop(context);
     });
 
@@ -775,9 +798,7 @@ class _TabCollectionTeamMPageWidgetState
                     children: [
                       Expanded(
                         child: FlutterFlowChoiceChips(
-                          options: (_model.dataTabM.isNotEmpty
-                                  ? (['รายชื่อลูกค้า', 'สถานีตำรวจ'])
-                                  : (['รายชื่อลูกค้า']))
+                          options: _model.choicechipsData
                               .map((label) => ChipData(label))
                               .toList(),
                           onChanged: (val) async {
@@ -926,6 +947,10 @@ class _TabCollectionTeamMPageWidgetState
                                                       serializeParam(
                                                     1,
                                                     ParamType.int,
+                                                  ),
+                                                  'branchM': serializeParam(
+                                                    'Y',
+                                                    ParamType.String,
                                                   ),
                                                 }.withoutNulls,
                                               );
@@ -1173,6 +1198,11 @@ class _TabCollectionTeamMPageWidgetState
                                                           11,
                                                           ParamType.int,
                                                         ),
+                                                        'branchM':
+                                                            serializeParam(
+                                                          'Y',
+                                                          ParamType.String,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },
@@ -1401,6 +1431,11 @@ class _TabCollectionTeamMPageWidgetState
                                                             serializeParam(
                                                           12,
                                                           ParamType.int,
+                                                        ),
+                                                        'branchM':
+                                                            serializeParam(
+                                                          'Y',
+                                                          ParamType.String,
                                                         ),
                                                       }.withoutNulls,
                                                     );
@@ -1631,6 +1666,11 @@ class _TabCollectionTeamMPageWidgetState
                                                           13,
                                                           ParamType.int,
                                                         ),
+                                                        'branchM':
+                                                            serializeParam(
+                                                          'Y',
+                                                          ParamType.String,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },
@@ -1859,6 +1899,11 @@ class _TabCollectionTeamMPageWidgetState
                                                             serializeParam(
                                                           14,
                                                           ParamType.int,
+                                                        ),
+                                                        'branchM':
+                                                            serializeParam(
+                                                          'Y',
+                                                          ParamType.String,
                                                         ),
                                                       }.withoutNulls,
                                                     );
@@ -2123,6 +2168,11 @@ class _TabCollectionTeamMPageWidgetState
                                                             serializeParam(
                                                           15,
                                                           ParamType.int,
+                                                        ),
+                                                        'branchM':
+                                                            serializeParam(
+                                                          'Y',
+                                                          ParamType.String,
                                                         ),
                                                       }.withoutNulls,
                                                     );
@@ -3076,6 +3126,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     5,
                                                     ParamType.int,
                                                   ),
+                                                  'branchM': serializeParam(
+                                                    'Y',
+                                                    ParamType.String,
+                                                  ),
                                                 }.withoutNulls,
                                               );
                                             },
@@ -3357,6 +3411,10 @@ class _TabCollectionTeamMPageWidgetState
                                                       serializeParam(
                                                     6,
                                                     ParamType.int,
+                                                  ),
+                                                  'branchM': serializeParam(
+                                                    'Y',
+                                                    ParamType.String,
                                                   ),
                                                 }.withoutNulls,
                                               );
