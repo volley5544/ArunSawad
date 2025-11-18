@@ -26,9 +26,11 @@ class SearchCollectionPPWidget extends StatefulWidget {
   const SearchCollectionPPWidget({
     super.key,
     required this.followUpDebtTab,
+    this.fromPage,
   });
 
   final int? followUpDebtTab;
+  final String? fromPage;
 
   static String routeName = 'SearchCollectionPP';
   static String routePath = 'SearchCollectionPP';
@@ -963,6 +965,10 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                 'fromIconCall': serializeParam(
                                                   false,
                                                   ParamType.bool,
+                                                ),
+                                                'fromPage': serializeParam(
+                                                  widget!.fromPage,
+                                                  ParamType.String,
                                                 ),
                                               }.withoutNulls,
                                             );

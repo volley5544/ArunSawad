@@ -404,7 +404,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: SuccessPageWidget.routeName,
               path: SuccessPageWidget.routePath,
-              builder: (context, params) => SuccessPageWidget(),
+              builder: (context, params) => SuccessPageWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: FormServicePageWidget.routeName,
@@ -1556,6 +1561,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'policeName',
                   ParamType.String,
                 ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -1591,6 +1600,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 fromIconCall: params.getParam(
                   'fromIconCall',
                   ParamType.bool,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
                 ),
               ),
             ),
@@ -1660,6 +1673,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 historyCount: params.getParam(
                   'historyCount',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
                   ParamType.String,
                 ),
               ),
@@ -1789,6 +1806,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'followUpDebtTab',
                   ParamType.int,
                 ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -1798,6 +1819,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 followUpDebtTab: params.getParam(
                   'followUpDebtTab',
                   ParamType.int,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
                 ),
               ),
             ),

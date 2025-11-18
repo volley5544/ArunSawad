@@ -214,7 +214,11 @@ final parametersBuilderMap =
       ),
   'TimeSheetPage': ParameterData.none(),
   'ForgotPasswordPage': ParameterData.none(),
-  'SuccessPage': ParameterData.none(),
+  'SuccessPage': (data) async => ParameterData(
+        allParams: {
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
   'FormServicePage': (data) async => ParameterData(
         allParams: {
           'formServiceName': getParameter<String>(data, 'formServiceName'),
@@ -532,6 +536,7 @@ final parametersBuilderMap =
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
           'branchM': getParameter<String>(data, 'branchM'),
           'policeName': getParameter<String>(data, 'policeName'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
   'RecordVideoWebviewPage': (data) async => ParameterData(
@@ -546,6 +551,7 @@ final parametersBuilderMap =
           'lastName': getParameter<String>(data, 'lastName'),
           'followupDebtTab': getParameter<int>(data, 'followupDebtTab'),
           'fromIconCall': getParameter<bool>(data, 'fromIconCall'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
   'saveOnSiteFollowUpDebt': (data) async => ParameterData(
@@ -566,6 +572,7 @@ final parametersBuilderMap =
           'sumCurrentDueAmt': getParameter<String>(data, 'sumCurrentDueAmt'),
           'lastPayDate': getParameter<String>(data, 'lastPayDate'),
           'historyCount': getParameter<String>(data, 'historyCount'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
   'saveCallFollowUpDebt': (data) async => ParameterData(
@@ -590,11 +597,13 @@ final parametersBuilderMap =
   'SearchCollectionPage': (data) async => ParameterData(
         allParams: {
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
   'SearchCollectionPP': (data) async => ParameterData(
         allParams: {
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
   'register': ParameterData.none(),

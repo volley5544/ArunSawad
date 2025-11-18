@@ -50,6 +50,7 @@ class SaveOnSiteFollowUpDebtWidget extends StatefulWidget {
     required this.sumCurrentDueAmt,
     required this.lastPayDate,
     this.historyCount,
+    this.fromPage,
   });
 
   final String? firstname;
@@ -68,6 +69,7 @@ class SaveOnSiteFollowUpDebtWidget extends StatefulWidget {
   final String? sumCurrentDueAmt;
   final String? lastPayDate;
   final String? historyCount;
+  final String? fromPage;
 
   static String routeName = 'saveOnSiteFollowUpDebt';
   static String routePath = 'saveOnSiteFollowUpDebt';
@@ -3251,6 +3253,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
+                                    if (!FFAppState().isProductionNew) {
+                                      FFAppState().isGetVloanContract = false;
+                                      FFAppState().vloanCustomerNameListTemp =
+                                          [];
+                                      FFAppState().update(() {});
+                                      FFAppState().vloanContNoListTemp = [];
+                                      FFAppState().update(() {});
+                                      FFAppState().rp72DataList = [];
+                                      safeSetState(() {});
+
+                                      context.goNamed(
+                                        SuccessPageWidget.routeName,
+                                        queryParameters: {
+                                          'fromPage': serializeParam(
+                                            widget!.fromPage,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
                                     _model.remarkVLoneOutput =
                                         await RemarkVLoneAPICall.call(
                                       func: (String dropdownValue) {
@@ -3395,7 +3420,15 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     return;
                                   }
 
-                                  context.goNamed(SuccessPageWidget.routeName);
+                                  context.goNamed(
+                                    SuccessPageWidget.routeName,
+                                    queryParameters: {
+                                      'fromPage': serializeParam(
+                                        '',
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
 
                                   if (_shouldSetState) safeSetState(() {});
                                 },

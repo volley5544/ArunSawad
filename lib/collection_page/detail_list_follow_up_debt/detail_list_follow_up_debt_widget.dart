@@ -37,6 +37,7 @@ class DetailListFollowUpDebtWidget extends StatefulWidget {
     required this.lastName,
     required this.followupDebtTab,
     bool? fromIconCall,
+    this.fromPage,
   }) : this.fromIconCall = fromIconCall ?? false;
 
   final String? cusCod;
@@ -44,6 +45,7 @@ class DetailListFollowUpDebtWidget extends StatefulWidget {
   final String? lastName;
   final int? followupDebtTab;
   final bool fromIconCall;
+  final String? fromPage;
 
   static String routeName = 'detailListFollowUpDebt';
   static String routePath = 'detailListFollowUpDebt';
@@ -932,6 +934,10 @@ class _DetailListFollowUpDebtWidgetState
                                           FFAppState().selectCardList.toList(),
                                           true)
                                       ?.firstOrNull,
+                                  ParamType.String,
+                                ),
+                                'fromPage': serializeParam(
+                                  widget!.fromPage,
                                   ParamType.String,
                                 ),
                               }.withoutNulls,

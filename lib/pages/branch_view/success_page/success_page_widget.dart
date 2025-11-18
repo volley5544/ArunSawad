@@ -11,7 +11,12 @@ import 'success_page_model.dart';
 export 'success_page_model.dart';
 
 class SuccessPageWidget extends StatefulWidget {
-  const SuccessPageWidget({super.key});
+  const SuccessPageWidget({
+    super.key,
+    this.fromPage,
+  });
+
+  final String? fromPage;
 
   static String routeName = 'SuccessPage';
   static String routePath = 'successPage';
@@ -126,6 +131,13 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
+                            if (widget!.fromPage == 'TeamM') {
+                              context.pushNamed(
+                                  TabCollectionTeamMPageWidget.routeName);
+
+                              return;
+                            }
+
                             context.goNamed(DashboardWidget.routeName);
                           },
                           text: 'เมนู',

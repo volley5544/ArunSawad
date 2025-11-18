@@ -31,9 +31,11 @@ class SearchCollectionPageWidget extends StatefulWidget {
   const SearchCollectionPageWidget({
     super.key,
     required this.followUpDebtTab,
+    this.fromPage,
   });
 
   final int? followUpDebtTab;
+  final String? fromPage;
 
   static String routeName = 'SearchCollectionPage';
   static String routePath = 'SearchCollectionPage';
@@ -968,6 +970,10 @@ class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
                                               false,
                                               ParamType.bool,
                                             ),
+                                            'fromPage': serializeParam(
+                                              widget!.fromPage,
+                                              ParamType.String,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -1426,6 +1432,13 @@ class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
                                                                           true,
                                                                           ParamType
                                                                               .bool,
+                                                                        ),
+                                                                        'fromPage':
+                                                                            serializeParam(
+                                                                          widget!
+                                                                              .fromPage,
+                                                                          ParamType
+                                                                              .String,
                                                                         ),
                                                                       }.withoutNulls,
                                                                     );

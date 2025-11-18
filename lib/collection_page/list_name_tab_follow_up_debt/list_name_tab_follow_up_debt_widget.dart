@@ -33,11 +33,13 @@ class ListNameTabFollowUpDebtWidget extends StatefulWidget {
     required this.followUpDebtTab,
     this.branchM,
     this.policeName,
+    this.fromPage,
   });
 
   final int? followUpDebtTab;
   final String? branchM;
   final String? policeName;
+  final String? fromPage;
 
   static String routeName = 'listNameTabFollowUpDebt';
   static String routePath = 'listNameTabFollowUpDebt';
@@ -955,6 +957,10 @@ class _ListNameTabFollowUpDebtWidgetState
                                             false,
                                             ParamType.bool,
                                           ),
+                                          'fromPage': serializeParam(
+                                            widget!.fromPage,
+                                            ParamType.String,
+                                          ),
                                         }.withoutNulls,
                                       );
                                     },
@@ -1436,6 +1442,13 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                         true,
                                                                         ParamType
                                                                             .bool,
+                                                                      ),
+                                                                      'fromPage':
+                                                                          serializeParam(
+                                                                        widget!
+                                                                            .fromPage,
+                                                                        ParamType
+                                                                            .String,
                                                                       ),
                                                                     }.withoutNulls,
                                                                   );

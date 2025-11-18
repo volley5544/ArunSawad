@@ -786,6 +786,10 @@ class _TabCollectionTeamMPageWidgetState
                                   7,
                                   ParamType.int,
                                 ),
+                                'fromPage': serializeParam(
+                                  'TeamM',
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           },
@@ -961,6 +965,10 @@ class _TabCollectionTeamMPageWidgetState
                                                   ),
                                                   'branchM': serializeParam(
                                                     'Y',
+                                                    ParamType.String,
+                                                  ),
+                                                  'fromPage': serializeParam(
+                                                    'TeamM',
                                                     ParamType.String,
                                                   ),
                                                 }.withoutNulls,
@@ -1214,6 +1222,11 @@ class _TabCollectionTeamMPageWidgetState
                                                           'Y',
                                                           ParamType.String,
                                                         ),
+                                                        'fromPage':
+                                                            serializeParam(
+                                                          'TeamM',
+                                                          ParamType.String,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },
@@ -1446,6 +1459,11 @@ class _TabCollectionTeamMPageWidgetState
                                                         'branchM':
                                                             serializeParam(
                                                           'Y',
+                                                          ParamType.String,
+                                                        ),
+                                                        'fromPage':
+                                                            serializeParam(
+                                                          'TeamM',
                                                           ParamType.String,
                                                         ),
                                                       }.withoutNulls,
@@ -1682,6 +1700,11 @@ class _TabCollectionTeamMPageWidgetState
                                                           'Y',
                                                           ParamType.String,
                                                         ),
+                                                        'fromPage':
+                                                            serializeParam(
+                                                          'TeamM',
+                                                          ParamType.String,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },
@@ -1914,6 +1937,11 @@ class _TabCollectionTeamMPageWidgetState
                                                         'branchM':
                                                             serializeParam(
                                                           'Y',
+                                                          ParamType.String,
+                                                        ),
+                                                        'fromPage':
+                                                            serializeParam(
+                                                          'TeamM',
                                                           ParamType.String,
                                                         ),
                                                       }.withoutNulls,
@@ -2183,6 +2211,11 @@ class _TabCollectionTeamMPageWidgetState
                                                         'branchM':
                                                             serializeParam(
                                                           'Y',
+                                                          ParamType.String,
+                                                        ),
+                                                        'fromPage':
+                                                            serializeParam(
+                                                          'TeamM',
                                                           ParamType.String,
                                                         ),
                                                       }.withoutNulls,
@@ -3141,6 +3174,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     'Y',
                                                     ParamType.String,
                                                   ),
+                                                  'fromPage': serializeParam(
+                                                    'TeamM',
+                                                    ParamType.String,
+                                                  ),
                                                 }.withoutNulls,
                                               );
                                             },
@@ -3427,6 +3464,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     'Y',
                                                     ParamType.String,
                                                   ),
+                                                  'fromPage': serializeParam(
+                                                    'TeamM',
+                                                    ParamType.String,
+                                                  ),
                                                 }.withoutNulls,
                                               );
                                             },
@@ -3660,6 +3701,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     7,
                                                     ParamType.int,
                                                   ),
+                                                  'fromPage': serializeParam(
+                                                    'TeamM',
+                                                    ParamType.String,
+                                                  ),
                                                 }.withoutNulls,
                                               );
                                             },
@@ -3886,6 +3931,10 @@ class _TabCollectionTeamMPageWidgetState
                                                       serializeParam(
                                                     23,
                                                     ParamType.int,
+                                                  ),
+                                                  'fromPage': serializeParam(
+                                                    'TeamM',
+                                                    ParamType.String,
                                                   ),
                                                 }.withoutNulls,
                                               );
@@ -4183,6 +4232,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     'policeName':
                                                         serializeParam(
                                                       listExtraMItem.branchName,
+                                                      ParamType.String,
+                                                    ),
+                                                    'fromPage': serializeParam(
+                                                      'TeamM',
                                                       ParamType.String,
                                                     ),
                                                   }.withoutNulls,
