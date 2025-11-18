@@ -94,6 +94,28 @@ class _TabCollectionTeamMPageWidgetState
         },
       ).then((value) => safeSetState(() {}));
 
+      _model.choicechipsData = ['รายชื่อลูกค้า'].toList().cast<String>();
+      safeSetState(() {});
+      safeSetState(() {
+        _model.choiceChipsValueController?.value = [
+          (_model.dataTabM.isNotEmpty ? 'สถานีตำรวจ' : 'รายชื่อลูกค้า')
+        ];
+      });
+      if (_model.dataTabM.isNotEmpty) {
+        await _model.pageViewController?.animateToPage(
+          1,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
+      } else {
+        await _model.pageViewController?.animateToPage(
+          0,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
+      }
+
+      Navigator.pop(context);
       if (!FFAppState().isProductionNew) {
         _model.queryBranchViewApiUrlUat =
             await UrlLinkStorageRecord.getDocumentOnce(
@@ -123,6 +145,7 @@ class _TabCollectionTeamMPageWidgetState
         role: FFAppState().profileRoleName,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
         branchM: 'Y',
+        empCode: FFAppState().employeeID,
       );
 
       if ((_model.collectionApiGetdataCount?.statusCode ?? 200) != 200) {
