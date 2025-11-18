@@ -3424,7 +3424,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     SuccessPageWidget.routeName,
                                     queryParameters: {
                                       'fromPage': serializeParam(
-                                        '',
+                                        'TeamM',
                                         ParamType.String,
                                       ),
                                     }.withoutNulls,

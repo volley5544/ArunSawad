@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -85,6 +86,11 @@ class _AppbarFollowUpDebtWidgetState extends State<AppbarFollowUpDebtWidget> {
                   FFAppState().imgURLTemp =
                       'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389';
                   FFAppState().update(() {});
+                  if ('${widget!.fromPage}' == 'TeamM') {
+                    context.goNamed(SuperAppPageWidget.routeName);
+
+                    return;
+                  }
                   context.safePop();
                 },
               ),

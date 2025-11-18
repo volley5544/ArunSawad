@@ -733,7 +733,9 @@ class _TabCollectionTeamMPageWidgetState
                     wrapWithModel(
                       model: _model.appbarFollowUpDebtModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: AppbarFollowUpDebtWidget(),
+                      child: AppbarFollowUpDebtWidget(
+                        fromPage: 'TeamM',
+                      ),
                     ),
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
