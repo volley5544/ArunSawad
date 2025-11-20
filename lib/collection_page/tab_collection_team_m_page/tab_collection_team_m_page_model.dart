@@ -7,8 +7,8 @@ import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart
 import '/components/data_not_found_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -82,9 +82,12 @@ class TabCollectionTeamMPageModel
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for TextField widget.
+  final textFieldKey = GlobalKey();
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? textFieldSelectedOption;
+  String? Function(BuildContext, String?)? textControllerValidator;
 
   @override
   void initState(BuildContext context) {
@@ -95,5 +98,6 @@ class TabCollectionTeamMPageModel
   @override
   void dispose() {
     appbarFollowUpDebtModel.dispose();
+    textFieldFocusNode?.dispose();
   }
 }
