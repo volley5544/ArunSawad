@@ -838,7 +838,15 @@ class _ListNameTabFollowUpDebtWidgetState
                               role: FFAppState().profileRoleName,
                               apiUrl: FFAppState().apiUrlBranchViewCollection,
                               branchM: widget!.branchM,
-                              empCode: FFAppState().employeeID,
+                              empCode: functions.containStringInListString(
+                                      functions
+                                          .getListDataFromJson(
+                                              FFAppState().roleMenuJson,
+                                              'HeadTeamM')
+                                          ?.toList(),
+                                      FFAppState().employeeID)!
+                                  ? ''
+                                  : FFAppState().employeeID,
                               policeName: widget!.policeName,
                             ),
                           ),

@@ -118,6 +118,11 @@ class RoleMenuRecord extends FirestoreRecord {
       _impoundCarSaveAccessRole ?? ImpoundCarAccessRoleStruct();
   bool hasImpoundCarSaveAccessRole() => _impoundCarSaveAccessRole != null;
 
+  // "HeadTeamM" field.
+  List<String>? _headTeamM;
+  List<String> get headTeamM => _headTeamM ?? const [];
+  bool hasHeadTeamM() => _headTeamM != null;
+
   void _initializeFields() {
     _roleName = snapshotData['roleName'] as String?;
     _menuName = getDataList(snapshotData['menuName']);
@@ -150,6 +155,7 @@ class RoleMenuRecord extends FirestoreRecord {
             ? snapshotData['impoundCarSaveAccessRole']
             : ImpoundCarAccessRoleStruct.maybeFromMap(
                 snapshotData['impoundCarSaveAccessRole']);
+    _headTeamM = getDataList(snapshotData['HeadTeamM']);
   }
 
   static CollectionReference get collection =>
@@ -235,7 +241,8 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         listEquality.equals(e1?.reportmenuOrder, e2?.reportmenuOrder) &&
         listEquality.equals(e1?.othermenuOrder, e2?.othermenuOrder) &&
         e1?.impoundCarReadAccessRole == e2?.impoundCarReadAccessRole &&
-        e1?.impoundCarSaveAccessRole == e2?.impoundCarSaveAccessRole;
+        e1?.impoundCarSaveAccessRole == e2?.impoundCarSaveAccessRole &&
+        listEquality.equals(e1?.headTeamM, e2?.headTeamM);
   }
 
   @override
@@ -259,7 +266,8 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         e?.reportmenuOrder,
         e?.othermenuOrder,
         e?.impoundCarReadAccessRole,
-        e?.impoundCarSaveAccessRole
+        e?.impoundCarSaveAccessRole,
+        e?.headTeamM
       ]);
 
   @override

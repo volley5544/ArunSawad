@@ -133,7 +133,13 @@ class _TabCollectionTeamMPageWidgetState
         role: FFAppState().profileRoleName,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
         branchM: 'Y',
-        empCode: FFAppState().employeeID,
+        empCode: functions.containStringInListString(
+                functions
+                    .getListDataFromJson(FFAppState().roleMenuJson, 'HeadTeamM')
+                    ?.toList(),
+                FFAppState().employeeID)!
+            ? ''
+            : FFAppState().employeeID,
       );
 
       if ((_model.collectionApiGetdataCount?.statusCode ?? 200) != 200) {
@@ -198,6 +204,13 @@ class _TabCollectionTeamMPageWidgetState
             : '',
         role: FFAppState().profileRoleName,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
+        empCode: functions.containStringInListString(
+                functions
+                    .getListDataFromJson(FFAppState().roleMenuJson, 'HeadTeamM')
+                    ?.toList(),
+                FFAppState().employeeID)!
+            ? ''
+            : FFAppState().employeeID,
       );
 
       if ((_model.apiOutputCountPP?.statusCode ?? 200) != 200) {
@@ -248,7 +261,13 @@ class _TabCollectionTeamMPageWidgetState
       }
       _model.collectionApiGetdataCountM =
           await CollectionApiGetDataCountExtraMCall.call(
-        empCode: FFAppState().employeeID,
+        empCode: functions.containStringInListString(
+                functions
+                    .getListDataFromJson(FFAppState().roleMenuJson, 'HeadTeamM')
+                    ?.toList(),
+                FFAppState().employeeID)!
+            ? ''
+            : FFAppState().employeeID,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
       );
 
