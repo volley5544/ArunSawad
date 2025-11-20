@@ -55,6 +55,19 @@ class TabCollectionTeamMPageModel
   void updateChoicechipsDataAtIndex(int index, Function(String) updateFn) =>
       choicechipsData[index] = updateFn(choicechipsData[index]);
 
+  List<CollectionTabMDataModelStruct> showingData = [];
+  void addToShowingData(CollectionTabMDataModelStruct item) =>
+      showingData.add(item);
+  void removeFromShowingData(CollectionTabMDataModelStruct item) =>
+      showingData.remove(item);
+  void removeAtIndexFromShowingData(int index) => showingData.removeAt(index);
+  void insertAtIndexInShowingData(
+          int index, CollectionTabMDataModelStruct item) =>
+      showingData.insert(index, item);
+  void updateShowingDataAtIndex(
+          int index, Function(CollectionTabMDataModelStruct) updateFn) =>
+      showingData[index] = updateFn(showingData[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in tabCollectionTeamMPage widget.

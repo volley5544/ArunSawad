@@ -300,6 +300,8 @@ class _TabCollectionTeamMPageWidgetState
       _model.choicechipsData = _model.dataTabM.isNotEmpty
           ? (['รายชื่อลูกค้า', 'สถานีตำรวจ'])
           : (['รายชื่อลูกค้า']).toList().cast<String>();
+      _model.showingData =
+          _model.dataTabM.toList().cast<CollectionTabMDataModelStruct>();
       safeSetState(() {});
       safeSetState(() {
         _model.choiceChipsValueController?.value = [
@@ -4306,32 +4308,24 @@ class _TabCollectionTeamMPageWidgetState
                                   ),
                                 ),
                               ),
-                              Builder(
-                                builder: (context) {
-                                  final listExtraM = _model.dataTabM.toList();
-                                  if (listExtraM.isEmpty) {
-                                    return DataNotFoundComponentWidget();
-                                  }
+                              Expanded(
+                                child: Builder(
+                                  builder: (context) {
+                                    final listExtraM =
+                                        _model.showingData.toList();
+                                    if (listExtraM.isEmpty) {
+                                      return DataNotFoundComponentWidget();
+                                    }
 
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: listExtraM.length,
-                                    itemBuilder: (context, listExtraMIndex) {
-                                      final listExtraMItem =
-                                          listExtraM[listExtraMIndex];
-                                      return Visibility(
-                                        visible: functions
-                                                .containWordinStringUrl(
-                                                    _model.textController.text,
-                                                    listExtraMItem
-                                                        .branchName)! ||
-                                            (_model.textController.text ==
-                                                    null ||
-                                                _model.textController.text ==
-                                                    ''),
-                                        child: Padding(
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: listExtraM.length,
+                                      itemBuilder: (context, listExtraMIndex) {
+                                        final listExtraMItem =
+                                            listExtraM[listExtraMIndex];
+                                        return Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 12.0, 12.0, 0.0),
@@ -4547,11 +4541,11 @@ class _TabCollectionTeamMPageWidgetState
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
                             ],
                           ),
