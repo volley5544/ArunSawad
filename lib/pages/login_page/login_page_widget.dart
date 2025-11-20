@@ -548,6 +548,43 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 ).animateOnPageLoad(
                                     animationsMap['imageOnPageLoadAnimation']!),
                               ),
+                              if (!FFAppState().isProductionNew)
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 1.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 30.0),
+                                    child: Text(
+                                      'UAT',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.poppins(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            fontSize: 30.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ),
+                                ),
                             ],
                           ),
                         ),

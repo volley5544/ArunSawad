@@ -70,6 +70,9 @@ class IbsPageComponentWidget extends StatefulWidget {
     this.countPolicyNoHouse,
     this.totalPremiumHouse,
     this.borderColor10,
+    this.countPolicyCIPATHI,
+    this.totalPremiumCIPATHI,
+    this.borderColor11,
   });
 
   final Color? textColor1;
@@ -130,6 +133,9 @@ class IbsPageComponentWidget extends StatefulWidget {
   final String? countPolicyNoHouse;
   final String? totalPremiumHouse;
   final Color? borderColor10;
+  final String? countPolicyCIPATHI;
+  final String? totalPremiumCIPATHI;
+  final Color? borderColor11;
 
   @override
   State<IbsPageComponentWidget> createState() => _IbsPageComponentWidgetState();
@@ -3381,7 +3387,10 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                 ],
                 borderRadius: BorderRadius.circular(8.0),
                 border: Border.all(
-                  color: widget!.borderColor10!,
+                  color: valueOrDefault<Color>(
+                    widget!.borderColor11,
+                    FlutterFlowTheme.of(context).secondaryText,
+                  ),
                   width: widget!.borderWidth!,
                 ),
               ),

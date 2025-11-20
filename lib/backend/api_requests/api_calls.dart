@@ -8749,6 +8749,24 @@ class GetKPIAllCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? countpolicyCIPATHI(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..count_policy_CIPA_THI''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? totalPremiumCIPATHI(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..TotalPremium_CIPA_THI''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLeadCalledStatusDropdownAPICall {

@@ -18,6 +18,25 @@ String getUserLocation(LatLng? userLocation) {
   return userLatLng;
 }
 
+List<CollectionTabMDataModelStruct>? generateTeamMData(
+  List<CollectionTabMDataModelStruct>? teamMDataOriginal,
+  String? keyword,
+) {
+  if (keyword! == '') {
+    return teamMDataOriginal!;
+  }
+
+  List<CollectionTabMDataModelStruct> dataOutput = [];
+
+  for (int i = 0; i < teamMDataOriginal!.length; i++) {
+    if (teamMDataOriginal![i].branchName.contains('${keyword!}')) {
+      dataOutput.add(teamMDataOriginal![i]);
+    }
+  }
+
+  return dataOutput;
+}
+
 List<DocumentReference>? generateUserRefList(DocumentReference? myUserDocRef) {
   List<DocumentReference> userDocRefListOutput = [myUserDocRef!];
 

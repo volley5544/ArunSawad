@@ -957,6 +957,35 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                         50.0,
                                                                     decoration:
                                                                         BoxDecoration(),
+                                                                    child:
+                                                                        Visibility(
+                                                                      visible:
+                                                                          !FFAppState()
+                                                                              .isProductionNew,
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          'UAT',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                                color: FlutterFlowTheme.of(context).error,
+                                                                                fontSize: 30.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                   Image.asset(
                                                                     'assets/images/ArunSawadQR.png',

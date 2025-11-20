@@ -4210,101 +4210,273 @@ class _TabCollectionTeamMPageWidgetState
                                         .secondaryBackground,
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
-                                  child: Container(
-                                    width: double.infinity,
-                                    child: TextFormField(
-                                      controller: _model.textController,
-                                      focusNode: _model.textFieldFocusNode,
-                                      autofocus: false,
-                                      enabled: true,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        isDense: false,
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              font: GoogleFonts.poppins(
-                                                fontWeight:
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 8.0, 0.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              controller: _model.textController,
+                                              focusNode:
+                                                  _model.textFieldFocusNode,
+                                              autofocus: false,
+                                              enabled: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                isDense: false,
+                                                labelStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
+                                                hintText: 'ค้นหาสถานีตำรวจ ...',
+                                                hintStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
+                                                enabledBorder: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                                errorBorder: InputBorder.none,
+                                                focusedErrorBorder:
+                                                    InputBorder.none,
+                                                filled: true,
+                                                fillColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontStyle,
+                                                        .secondaryBackground,
                                               ),
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
-                                        hintText: 'ค้นหาสถานีตำรวจ ...',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              font: GoogleFonts.poppins(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
-                                        enabledBorder: InputBorder.none,
-                                        focusedBorder: InputBorder.none,
-                                        errorBorder: InputBorder.none,
-                                        focusedErrorBorder: InputBorder.none,
-                                        filled: true,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.poppins(
-                                              fontWeight:
+                                              style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                              cursorColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
+                                                      .primaryText,
+                                              enableInteractiveSelection: true,
+                                              validator: _model
+                                                  .textControllerValidator
+                                                  .asValidator(context),
                                             ),
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
                                           ),
-                                      cursorColor: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      enableInteractiveSelection: true,
-                                      validator: _model.textControllerValidator
-                                          .asValidator(context),
-                                    ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 8.0, 0.0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            if (!functions
+                                                .checkIsStringLengthInLength(
+                                                    _model.textController.text,
+                                                    3)!) {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'กรุณาใส่อย่างน้อย 3 ตัวอักษร'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                              return;
+                                            }
+                                            _model.showingData = functions
+                                                .generateTeamMData(
+                                                    _model.dataTabM.toList(),
+                                                    _model.textController.text)!
+                                                .toList()
+                                                .cast<
+                                                    CollectionTabMDataModelStruct>();
+                                            safeSetState(() {});
+                                          },
+                                          text: 'ค้นหา',
+                                          options: FFButtonOptions(
+                                            height: 40.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 16.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                                      color: Colors.white,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontStyle,
+                                                    ),
+                                            elevation: 0.0,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                      ),
+                                      FFButtonWidget(
+                                        onPressed: () async {
+                                          safeSetState(() {
+                                            _model.textController?.clear();
+                                          });
+                                          _model.showingData = _model.dataTabM
+                                              .toList()
+                                              .cast<
+                                                  CollectionTabMDataModelStruct>();
+                                          safeSetState(() {});
+                                        },
+                                        text: 'รีเซ็ต',
+                                        options: FFButtonOptions(
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
+                                          elevation: 0.0,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -4398,17 +4570,18 @@ class _TabCollectionTeamMPageWidgetState
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.start,
                                                     children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Icon(
-                                                          Icons.circle_sharp,
-                                                          color: random_data
-                                                              .randomColor(),
-                                                          size: 24.0,
+                                                      if (false)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Icon(
+                                                            Icons.circle_sharp,
+                                                            color: random_data
+                                                                .randomColor(),
+                                                            size: 24.0,
+                                                          ),
                                                         ),
-                                                      ),
                                                       Expanded(
                                                         child: Padding(
                                                           padding:

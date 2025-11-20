@@ -836,6 +836,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               FlutterFlowTheme.of(context)
                                                   .success,
                                             ),
+                                            countPolicyCIPATHI: GetKPIAllCall
+                                                .countpolicyCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(0),
+                                            totalPremiumCIPATHI: GetKPIAllCall
+                                                .totalPremiumCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(0),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -1177,6 +1187,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               FlutterFlowTheme.of(context)
                                                   .success,
                                             ),
+                                            countPolicyCIPATHI: GetKPIAllCall
+                                                .countpolicyCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(1),
+                                            totalPremiumCIPATHI: GetKPIAllCall
+                                                .totalPremiumCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(1),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -1518,6 +1538,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               FlutterFlowTheme.of(context)
                                                   .success,
                                             ),
+                                            countPolicyCIPATHI: GetKPIAllCall
+                                                .countpolicyCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(2),
+                                            totalPremiumCIPATHI: GetKPIAllCall
+                                                .totalPremiumCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(2),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -1859,6 +1889,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               FlutterFlowTheme.of(context)
                                                   .success,
                                             ),
+                                            countPolicyCIPATHI: GetKPIAllCall
+                                                .countpolicyCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(3),
+                                            totalPremiumCIPATHI: GetKPIAllCall
+                                                .totalPremiumCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(3),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -2200,6 +2240,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               FlutterFlowTheme.of(context)
                                                   .success,
                                             ),
+                                            countPolicyCIPATHI: GetKPIAllCall
+                                                .countpolicyCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(4),
+                                            totalPremiumCIPATHI: GetKPIAllCall
+                                                .totalPremiumCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(4),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -2541,6 +2591,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               FlutterFlowTheme.of(context)
                                                   .success,
                                             ),
+                                            countPolicyCIPATHI: GetKPIAllCall
+                                                .countpolicyCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(5),
+                                            totalPremiumCIPATHI: GetKPIAllCall
+                                                .totalPremiumCIPATHI(
+                                              (_model.kPIAllOutput?.jsonBody ??
+                                                  ''),
+                                            )?.elementAtOrNull(5),
                                           ),
                                         ),
                                       ],
