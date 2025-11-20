@@ -144,61 +144,77 @@ class _ListNameTabFollowUpDebtWidgetState
                         updateCallback: () => safeSetState(() {}),
                         child: AppbarFollowUpDebtWidget(),
                       ),
-                      Text(
-                        () {
-                          if (widget!.followUpDebtTab == 1) {
-                            return 'เตือนก่อนดิว';
-                          } else if (widget!.followUpDebtTab == 2) {
-                            return 'ค้าง 1-3 งวด';
-                          } else if (widget!.followUpDebtTab == 3) {
-                            return 'ค้าง 4-5 งวด';
-                          } else if (widget!.followUpDebtTab == 4) {
-                            return 'ค้าง 6 งวดเป็นต้นไป';
-                          } else if (widget!.followUpDebtTab == 5) {
-                            return 'ค้างด้วยยอดน้อยกว่า 250 บาท';
-                          } else if (widget!.followUpDebtTab == 6) {
-                            return 'โทรชวนปิดปรับ';
-                          } else if (widget!.followUpDebtTab == 11) {
-                            return 'OD1';
-                          } else if (widget!.followUpDebtTab == 12) {
-                            return 'OD2';
-                          } else if (widget!.followUpDebtTab == 13) {
-                            return 'OD3';
-                          } else if (widget!.followUpDebtTab == 14) {
-                            return 'OD4 - OD5';
-                          } else if (widget!.followUpDebtTab == 15) {
-                            return 'OD6 เป็นต้นไป';
-                          } else if (widget!.followUpDebtTab == 23) {
-                            return 'ลงพื้นที่';
-                          } else if (widget!.followUpDebtTab == 99) {
-                            return valueOrDefault<String>(
-                              widget!.policeName,
-                              'หน่วย M ',
-                            );
-                          } else {
-                            return '-';
-                          }
-                        }(),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                              color: Colors.white,
-                              fontSize: 18.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            valueOrDefault<double>(
+                              MediaQuery.sizeOf(context).width * 0.175,
+                              0.0,
                             ),
+                            0.0,
+                            0.0,
+                            0.0),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(),
+                          child: Text(
+                            () {
+                              if (widget!.followUpDebtTab == 1) {
+                                return 'เตือนก่อนดิว';
+                              } else if (widget!.followUpDebtTab == 2) {
+                                return 'ค้าง 1-3 งวด';
+                              } else if (widget!.followUpDebtTab == 3) {
+                                return 'ค้าง 4-5 งวด';
+                              } else if (widget!.followUpDebtTab == 4) {
+                                return 'ค้าง 6 งวดเป็นต้นไป';
+                              } else if (widget!.followUpDebtTab == 5) {
+                                return 'ค้างด้วยยอดน้อยกว่า 250 บาท';
+                              } else if (widget!.followUpDebtTab == 6) {
+                                return 'โทรชวนปิดปรับ';
+                              } else if (widget!.followUpDebtTab == 11) {
+                                return 'OD1';
+                              } else if (widget!.followUpDebtTab == 12) {
+                                return 'OD2';
+                              } else if (widget!.followUpDebtTab == 13) {
+                                return 'OD3';
+                              } else if (widget!.followUpDebtTab == 14) {
+                                return 'OD4 - OD5';
+                              } else if (widget!.followUpDebtTab == 15) {
+                                return 'OD6 เป็นต้นไป';
+                              } else if (widget!.followUpDebtTab == 23) {
+                                return 'ลงพื้นที่';
+                              } else if (widget!.followUpDebtTab == 99) {
+                                return valueOrDefault<String>(
+                                  widget!.policeName,
+                                  'หน่วย M ',
+                                );
+                              } else {
+                                return '-';
+                              }
+                            }(),
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                          ),
+                        ),
                       ),
                     ],
                   ),

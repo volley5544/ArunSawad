@@ -4342,7 +4342,7 @@ class _TabCollectionTeamMPageWidgetState
                                             0.0, 0.0, 8.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            if (!functions
+                                            if (functions
                                                 .checkIsStringLengthInLength(
                                                     _model.textController.text,
                                                     3)!) {
