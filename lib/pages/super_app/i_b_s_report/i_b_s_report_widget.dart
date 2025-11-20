@@ -846,6 +846,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               (_model.kPIAllOutput?.jsonBody ??
                                                   ''),
                                             )?.elementAtOrNull(0),
+                                            borderColor11:
+                                                valueOrDefault<Color>(
+                                              rowKPIAllChangeRecord?.borderColor
+                                                  ?.elementAtOrNull(10),
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                            ),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -1197,6 +1204,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               (_model.kPIAllOutput?.jsonBody ??
                                                   ''),
                                             )?.elementAtOrNull(1),
+                                            borderColor11:
+                                                valueOrDefault<Color>(
+                                              rowKPIAllChangeRecord?.borderColor
+                                                  ?.elementAtOrNull(10),
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                            ),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -1548,6 +1562,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               (_model.kPIAllOutput?.jsonBody ??
                                                   ''),
                                             )?.elementAtOrNull(2),
+                                            borderColor11:
+                                                valueOrDefault<Color>(
+                                              rowKPIAllChangeRecord?.borderColor
+                                                  ?.elementAtOrNull(10),
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                            ),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -1899,6 +1920,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               (_model.kPIAllOutput?.jsonBody ??
                                                   ''),
                                             )?.elementAtOrNull(3),
+                                            borderColor11:
+                                                valueOrDefault<Color>(
+                                              rowKPIAllChangeRecord?.borderColor
+                                                  ?.elementAtOrNull(10),
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                            ),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -2250,6 +2278,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               (_model.kPIAllOutput?.jsonBody ??
                                                   ''),
                                             )?.elementAtOrNull(4),
+                                            borderColor11:
+                                                valueOrDefault<Color>(
+                                              rowKPIAllChangeRecord?.borderColor
+                                                  ?.elementAtOrNull(10),
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                            ),
                                           ),
                                         ),
                                         wrapWithModel(
@@ -2601,6 +2636,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                               (_model.kPIAllOutput?.jsonBody ??
                                                   ''),
                                             )?.elementAtOrNull(5),
+                                            borderColor11:
+                                                valueOrDefault<Color>(
+                                              rowKPIAllChangeRecord?.borderColor
+                                                  ?.elementAtOrNull(10),
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                            ),
                                           ),
                                         ),
                                       ],
