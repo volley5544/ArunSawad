@@ -151,7 +151,10 @@ class _ListNameTabFollowUpDebtWidgetState
                               0.0,
                             ),
                             0.0,
-                            0.0,
+                            valueOrDefault<double>(
+                              MediaQuery.sizeOf(context).width * 0.175,
+                              0.0,
+                            ),
                             0.0),
                         child: Container(
                           width: double.infinity,
