@@ -20,6 +20,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -103,7 +104,18 @@ class _TabCollectionTeamMPageWidgetState
         duration: Duration(milliseconds: 500),
         curve: Curves.ease,
       );
-      if (!FFAppState().isProductionNew) {
+      if (FFAppState().isProductionNew) {
+        _model.getCollectionApiUrl = await queryUrlLinkStorageRecordOnce(
+          queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
+            'url_name',
+            isEqualTo: 'branch_view_collection',
+          ),
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        FFAppState().apiUrlBranchViewCollection =
+            _model.getCollectionApiUrl!.urlLink;
+        safeSetState(() {});
+      } else {
         _model.queryBranchViewApiUrlUat =
             await UrlLinkStorageRecord.getDocumentOnce(
                 FFAppState().branchViewCollectionApiUrlUatDocRef!);
@@ -111,6 +123,7 @@ class _TabCollectionTeamMPageWidgetState
             _model.queryBranchViewApiUrlUat!.urlLink;
         safeSetState(() {});
       }
+
       FFAppState().collectionBranchCode = widget!.branchCode!;
       FFAppState().collectionProfileLevel = widget!.profileLevel!;
       safeSetState(() {});

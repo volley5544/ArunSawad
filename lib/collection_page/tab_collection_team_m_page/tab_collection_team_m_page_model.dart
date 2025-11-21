@@ -22,6 +22,7 @@ import 'tab_collection_team_m_page_widget.dart'
     show TabCollectionTeamMPageWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -70,6 +71,8 @@ class TabCollectionTeamMPageModel
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in tabCollectionTeamMPage widget.
+  UrlLinkStorageRecord? getCollectionApiUrl;
   // Stores action output result for [Backend Call - Read Document] action in tabCollectionTeamMPage widget.
   UrlLinkStorageRecord? queryBranchViewApiUrlUat;
   // Stores action output result for [Backend Call - API (collectionApiGetDataCount)] action in tabCollectionTeamMPage widget.

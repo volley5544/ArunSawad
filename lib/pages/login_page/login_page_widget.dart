@@ -288,8 +288,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<List<KeyStorage2Record>>(
-      future: queryKeyStorage2RecordOnce(
+    return FutureBuilder<List<KeyStorageRecord>>(
+      future: queryKeyStorageRecordOnce(
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -310,14 +310,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
             ),
           );
         }
-        List<KeyStorage2Record> loginPageKeyStorage2RecordList = snapshot.data!;
+        List<KeyStorageRecord> loginPageKeyStorageRecordList = snapshot.data!;
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
         }
-        final loginPageKeyStorage2Record =
-            loginPageKeyStorage2RecordList.isNotEmpty
-                ? loginPageKeyStorage2RecordList.first
+        final loginPageKeyStorageRecord =
+            loginPageKeyStorageRecordList.isNotEmpty
+                ? loginPageKeyStorageRecordList.first
                 : null;
 
         return GestureDetector(
@@ -1361,7 +1361,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       if (FFAppState()
                                                                           .isProductionNew) {
                                                                         FFAppState().apiURLLocalState =
-                                                                            loginPageKeyStorage2Record!.uatApiUrl;
+                                                                            loginPageKeyStorageRecord!.apiURL;
                                                                         FFAppState()
                                                                             .update(() {});
                                                                       } else {
