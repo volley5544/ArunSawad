@@ -10190,6 +10190,20 @@ class FFAppState extends ChangeNotifier {
       int index, RP72CheckListDataModelStruct value) {
     rp72DataList.insert(index, value);
   }
+
+  DocumentReference? _tableauBaseUrlDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/3WxCM5bS5ebjS9yYqRIm');
+  DocumentReference? get tableauBaseUrlDocRef => _tableauBaseUrlDocRef;
+  set tableauBaseUrlDocRef(DocumentReference? value) {
+    _tableauBaseUrlDocRef = value;
+  }
+
+  DocumentReference? _ibsUrlDocRef =
+      FirebaseFirestore.instance.doc('/ReportStorage/PSzHG08pVDbL1flTHMi2');
+  DocumentReference? get ibsUrlDocRef => _ibsUrlDocRef;
+  set ibsUrlDocRef(DocumentReference? value) {
+    _ibsUrlDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

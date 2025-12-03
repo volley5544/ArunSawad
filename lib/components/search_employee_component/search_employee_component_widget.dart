@@ -1,5 +1,7 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -12,6 +14,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -671,6 +674,7 @@ class _SearchEmployeeComponentWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          var _shouldSetState = false;
                           if (!(_model.dropDownValue != null &&
                               _model.dropDownValue != '')) {
                             await showDialog(
@@ -691,9 +695,28 @@ class _SearchEmployeeComponentWidgetState
                                 );
                               },
                             );
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           if (widget!.fromPage == 'เป้า/ผลงาน') {
+                            if (true) {
+                              _model.getTableauBaseUrl =
+                                  await UrlLinkStorageRecord.getDocumentOnce(
+                                      FFAppState().tableauBaseUrlDocRef!);
+                              _shouldSetState = true;
+                              _model.getIbsUrl =
+                                  await ReportStorageRecord.getDocumentOnce(
+                                      FFAppState().ibsUrlDocRef!);
+                              _shouldSetState = true;
+                              await actions.openTableauBrowser(
+                                FFAppState().accessToken,
+                                '${_model.getTableauBaseUrl?.urlLink}${_model.getIbsUrl?.reportUrl?.firstOrNull}',
+                                false,
+                              );
+                              if (_shouldSetState) safeSetState(() {});
+                              return;
+                            }
+
                             context.goNamed(
                               IBSReportWidget.routeName,
                               queryParameters: {
@@ -704,6 +727,7 @@ class _SearchEmployeeComponentWidgetState
                               }.withoutNulls,
                             );
 
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           await actions.openTableauBrowser(
@@ -711,6 +735,7 @@ class _SearchEmployeeComponentWidgetState
                             '${widget!.tableauUrlLink}${_model.dropDownValue}/EmployeeInsurancePerformance/Emp_Sales',
                             FFAppState().isOpenAndroidTableauBrowser,
                           );
+                          if (_shouldSetState) safeSetState(() {});
                         },
                         text: widget!.fromPage == 'เป้า/ผลงาน'
                             ? 'ดูเป้า/ผลงาน'

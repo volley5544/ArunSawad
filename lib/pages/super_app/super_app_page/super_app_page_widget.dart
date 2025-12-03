@@ -8122,12 +8122,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   hoverColor: Colors.transparent,
                                                                                   highlightColor: Colors.transparent,
                                                                                   onTap: () async {
+                                                                                    var _shouldSetState = false;
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
                                                                                       context.goNamed(PinCodePageWidget.routeName);
 
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
                                                                                     if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
@@ -8160,6 +8162,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         },
                                                                                       ).then((value) => safeSetState(() {}));
 
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    if (true) {
+                                                                                      _model.getTableauBaseUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().tableauBaseUrlDocRef!);
+                                                                                      _shouldSetState = true;
+                                                                                      _model.getIbsUrl = await ReportStorageRecord.getDocumentOnce(FFAppState().ibsUrlDocRef!);
+                                                                                      _shouldSetState = true;
+                                                                                      await actions.openTableauBrowser(
+                                                                                        FFAppState().accessToken,
+                                                                                        '${_model.getTableauBaseUrl?.urlLink}${_model.getIbsUrl?.reportUrl?.firstOrNull}',
+                                                                                        false,
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
 
@@ -8172,6 +8188,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         ),
                                                                                       }.withoutNulls,
                                                                                     );
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                   },
                                                                                   child: Container(
                                                                                     width: 100.0,

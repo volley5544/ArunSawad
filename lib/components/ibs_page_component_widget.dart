@@ -3474,7 +3474,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
-                                          '${widget!.countPolicyNoHouse}',
+                                          '${widget!.countPolicyCIPATHI}',
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -3591,7 +3591,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
                                           functions.showNumberWithCommaWithDot(
-                                              widget!.totalPremiumHouse),
+                                              widget!.totalPremiumCIPATHI),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(

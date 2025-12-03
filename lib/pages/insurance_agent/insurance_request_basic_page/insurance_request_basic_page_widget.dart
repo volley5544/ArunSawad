@@ -96,6 +96,7 @@ class _InsuranceRequestBasicPageWidgetState
         safeSetState(() {
           _model.vehicleTypeDropDownValueController?.value =
               FFAppState().vehicleTypeDropdown;
+          _model.vehicleTypeDropDownValue = FFAppState().vehicleTypeDropdown;
         });
         safeSetState(() {
           _model.customerMemberchipChoiceChipsValueController?.value = [
@@ -184,13 +185,18 @@ class _InsuranceRequestBasicPageWidgetState
         safeSetState(() {
           _model.yearDropDownValueController?.value =
               FFAppState().insuranceBasicYear;
+          _model.yearDropDownValue = FFAppState().insuranceBasicYear;
         });
         safeSetState(() {
           _model.provinceDropDownValueController?.value =
               FFAppState().insuranceBasicProvinceName;
+          _model.provinceDropDownValue =
+              FFAppState().insuranceBasicProvinceName;
         });
         safeSetState(() {
           _model.useTypeDropDownValueController?.value =
+              FFAppState().insuranceBasicVehicleUsedTypeCode;
+          _model.useTypeDropDownValue =
               FFAppState().insuranceBasicVehicleUsedTypeCode;
         });
         safeSetState(() {
@@ -313,6 +319,7 @@ class _InsuranceRequestBasicPageWidgetState
                 onTap: () async {
                   safeSetState(() {
                     _model.vehicleTypeDropDownValueController?.reset();
+                    _model.vehicleTypeDropDownValue = null;
                   });
                   if (FFAppState().fromPage == 'ListPage') {
                     context.goNamed(InsuranceRequestListPageWidget.routeName);

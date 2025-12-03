@@ -110,6 +110,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
         safeSetState(() {});
         safeSetState(() {
           _model.dropDownValueController?.reset();
+          _model.dropDownValue = null;
         });
         safeSetState(() {
           _model.coordinateInputTextController?.clear();
@@ -1157,6 +1158,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               safeSetState(() {
                                                 _model.dropDownValueController
                                                     ?.reset();
+                                                _model.dropDownValue = null;
                                               });
                                               FFAppState().vloanContNoListTemp =
                                                   [];

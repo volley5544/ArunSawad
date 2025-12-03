@@ -793,8 +793,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                             ),
                             Align(
                               alignment: AlignmentDirectional(-0.35, -0.09),
-                              child: SelectionArea(
-                                  child: Text(
+                              child: Text(
                                 functions.checkYearHoliday(getCurrentTimestamp)!
                                     ? 'ประกาศวันหยุดตามประเพณี ประจำปี  2569'
                                     : 'ประกาศวันหยุดตามประเพณี ประจำปี  2568',
@@ -817,7 +816,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                              )),
+                              ),
                             ),
                           ],
                         ),
@@ -874,8 +873,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                               ),
                               Align(
                                 alignment: AlignmentDirectional(-0.35, -0.09),
-                                child: SelectionArea(
-                                    child: Text(
+                                child: Text(
                                   'ประกาศวันหยุดตามประเพณี ประจำปี  2569',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -898,7 +896,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                             .bodyMedium
                                             .fontStyle,
                                       ),
-                                )),
+                                ),
                               ),
                             ],
                           ),
