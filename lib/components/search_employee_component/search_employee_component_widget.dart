@@ -708,8 +708,17 @@ class _SearchEmployeeComponentWidgetState
                                   await ReportStorageRecord.getDocumentOnce(
                                       FFAppState().ibsUrlDocRef!);
                               _shouldSetState = true;
+                              _model.tokenOutput =
+                                  await GetTokenEmployeeCall.call(
+                                username: _model.dropDownValue,
+                                apiUrl: FFAppState().apiURLLocalState,
+                              );
+
+                              _shouldSetState = true;
                               await actions.openTableauBrowser(
-                                FFAppState().accessToken,
+                                GetTokenEmployeeCall.accessToken(
+                                  (_model.tokenOutput?.jsonBody ?? ''),
+                                ),
                                 '${_model.getTableauBaseUrl?.urlLink}${_model.getIbsUrl?.reportUrl?.firstOrNull}',
                                 false,
                               );

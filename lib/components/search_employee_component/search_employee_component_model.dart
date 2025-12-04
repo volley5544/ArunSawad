@@ -41,6 +41,8 @@ class SearchEmployeeComponentModel
   UrlLinkStorageRecord? getTableauBaseUrl;
   // Stores action output result for [Backend Call - Read Document] action in Button widget.
   ReportStorageRecord? getIbsUrl;
+  // Stores action output result for [Backend Call - API (getTokenEmployee)] action in Button widget.
+  ApiCallResponse? tokenOutput;
 
   @override
   void initState(BuildContext context) {}
