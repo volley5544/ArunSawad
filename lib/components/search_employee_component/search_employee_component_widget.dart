@@ -708,19 +708,10 @@ class _SearchEmployeeComponentWidgetState
                                   await ReportStorageRecord.getDocumentOnce(
                                       FFAppState().ibsUrlDocRef!);
                               _shouldSetState = true;
-                              _model.tokenOutput =
-                                  await GetTokenEmployeeCall.call(
-                                username: _model.dropDownValue,
-                                apiUrl: FFAppState().apiURLLocalState,
-                              );
-
-                              _shouldSetState = true;
                               await actions.openTableauBrowser(
-                                GetTokenEmployeeCall.accessToken(
-                                  (_model.tokenOutput?.jsonBody ?? ''),
-                                ),
+                                '${FFAppState().accessToken}/${_model.dropDownValue}',
                                 '${_model.getTableauBaseUrl?.urlLink}${_model.getIbsUrl?.reportUrl?.firstOrNull}',
-                                false,
+                                true,
                               );
                               if (_shouldSetState) safeSetState(() {});
                               return;
