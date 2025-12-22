@@ -99,8 +99,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
           'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7';
       FFAppState().update(() {});
       if (true) {
-        _model.getLocationOnPageLoad = await actions.getLocation();
-        FFAppState().branchLo = _model.getLocationOnPageLoad;
+        FFAppState().branchLo = functions.getDefaultLocation();
         FFAppState().update(() {});
         if (true) {
           if (!FFAppState().firstLogin) {
@@ -262,12 +261,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                         (_model.getLocationOutput1?.jsonBody ?? ''),
                       ) ==
                       'Token Signature could not be verified.')) {
+                _model.getLocationOnPageLoad1 = await actions.getLocation();
+
                 var userLogRecordReference1 = UserLogRecord.collection.doc();
                 await userLogRecordReference1.set(createUserLogRecordData(
                   employeeId: FFAppState().employeeID,
                   action: 'Logout',
                   actionTime: getCurrentTimestamp,
-                  userLocation: _model.getLocationOnPageLoad,
+                  userLocation: _model.getLocationOnPageLoad1,
                 ));
                 _model.createdUserLogLogout2 =
                     UserLogRecord.getDocumentFromData(
@@ -275,7 +276,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                           employeeId: FFAppState().employeeID,
                           action: 'Logout',
                           actionTime: getCurrentTimestamp,
-                          userLocation: _model.getLocationOnPageLoad,
+                          userLocation: _model.getLocationOnPageLoad1,
                         ),
                         userLogRecordReference1);
                 FFAppState().loginStateFirebase = '[loginStateFirebase]';
@@ -418,19 +419,21 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                     (_model.getLocationOutput?.jsonBody ?? ''),
                   ) ==
                   'Token Signature could not be verified.')) {
+            _model.getLocationOnPageLoad2 = await actions.getLocation();
+
             var userLogRecordReference2 = UserLogRecord.collection.doc();
             await userLogRecordReference2.set(createUserLogRecordData(
               employeeId: FFAppState().employeeID,
               action: 'Logout',
               actionTime: getCurrentTimestamp,
-              userLocation: _model.getLocationOnPageLoad,
+              userLocation: _model.getLocationOnPageLoad2,
             ));
             _model.createdUserLogLogout = UserLogRecord.getDocumentFromData(
                 createUserLogRecordData(
                   employeeId: FFAppState().employeeID,
                   action: 'Logout',
                   actionTime: getCurrentTimestamp,
-                  userLocation: _model.getLocationOnPageLoad,
+                  userLocation: _model.getLocationOnPageLoad2,
                 ),
                 userLogRecordReference2);
             FFAppState().loginStateFirebase = '[loginStateFirebase]';

@@ -5121,3 +5121,7 @@ bool? checkContainsChatRoom(
     return false;
   }
 }
+
+LatLng? getDefaultLocation() {
+  return LatLng(0.0, 0.0);
+}

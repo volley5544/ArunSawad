@@ -35,14 +35,16 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Custom Action - getLocation] action in EmpolyeeCheckIn widget.
-  LatLng? getLocationOnPageLoad;
   // Stores action output result for [Backend Call - API (GetlocationAPI)] action in EmpolyeeCheckIn widget.
   ApiCallResponse? getLocationOutput1;
+  // Stores action output result for [Custom Action - getLocation] action in EmpolyeeCheckIn widget.
+  LatLng? getLocationOnPageLoad1;
   // Stores action output result for [Backend Call - Create Document] action in EmpolyeeCheckIn widget.
   UserLogRecord? createdUserLogLogout2;
   // Stores action output result for [Backend Call - API (GetlocationAPI)] action in EmpolyeeCheckIn widget.
   ApiCallResponse? getLocationOutput;
+  // Stores action output result for [Custom Action - getLocation] action in EmpolyeeCheckIn widget.
+  LatLng? getLocationOnPageLoad2;
   // Stores action output result for [Backend Call - Create Document] action in EmpolyeeCheckIn widget.
   UserLogRecord? createdUserLogLogout;
   bool isDataUploading_uploadCheckinImageAction = false;
