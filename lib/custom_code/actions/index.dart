@@ -75,3 +75,4 @@ export 'scan_qr_code.dart' show scanQrCode;
 export 'check_total_file_size.dart' show checkTotalFileSize;
 export 'url_launcher.dart' show urlLauncher;
 export 'download_file_from_file_path.dart' show downloadFileFromFilePath;
+export 'get_location.dart' show getLocation;

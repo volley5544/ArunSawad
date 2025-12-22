@@ -8136,7 +8136,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       await showModalBottomSheet(
                                                                                         isScrollControlled: true,
                                                                                         backgroundColor: Colors.transparent,
-                                                                                        barrierColor: Color(0x00000000),
+                                                                                        barrierColor: Color(0xB3000000),
                                                                                         isDismissible: false,
                                                                                         enableDrag: false,
                                                                                         context: context,

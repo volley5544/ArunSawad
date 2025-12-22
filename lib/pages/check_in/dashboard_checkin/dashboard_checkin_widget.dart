@@ -39,7 +39,6 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
   late DashboardCheckinModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -52,8 +51,6 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
         parameters: {'screen_name': 'DashboardCheckin'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -385,10 +382,6 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      currentUserLocationValue =
-                                          await getCurrentUserLocation(
-                                              defaultLocation:
-                                                  LatLng(0.0, 0.0));
                                       HapticFeedback.mediumImpact();
 
                                       context.pushNamed(

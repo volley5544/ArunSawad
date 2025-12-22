@@ -72,8 +72,6 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
         parameters: {'screen_name': 'EmpolyeeCheckIn'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -101,7 +99,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
           'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7';
       FFAppState().update(() {});
       if (true) {
-        FFAppState().branchLo = currentUserLocationValue;
+        _model.getLocationOnPageLoad = await actions.getLocation();
+        FFAppState().branchLo = _model.getLocationOnPageLoad;
         FFAppState().update(() {});
         if (true) {
           if (!FFAppState().firstLogin) {
@@ -268,7 +267,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                   employeeId: FFAppState().employeeID,
                   action: 'Logout',
                   actionTime: getCurrentTimestamp,
-                  userLocation: currentUserLocationValue,
+                  userLocation: _model.getLocationOnPageLoad,
                 ));
                 _model.createdUserLogLogout2 =
                     UserLogRecord.getDocumentFromData(
@@ -276,7 +275,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                           employeeId: FFAppState().employeeID,
                           action: 'Logout',
                           actionTime: getCurrentTimestamp,
-                          userLocation: currentUserLocationValue,
+                          userLocation: _model.getLocationOnPageLoad,
                         ),
                         userLogRecordReference1);
                 FFAppState().loginStateFirebase = '[loginStateFirebase]';
@@ -424,14 +423,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
               employeeId: FFAppState().employeeID,
               action: 'Logout',
               actionTime: getCurrentTimestamp,
-              userLocation: currentUserLocationValue,
+              userLocation: _model.getLocationOnPageLoad,
             ));
             _model.createdUserLogLogout = UserLogRecord.getDocumentFromData(
                 createUserLogRecordData(
                   employeeId: FFAppState().employeeID,
                   action: 'Logout',
                   actionTime: getCurrentTimestamp,
-                  userLocation: currentUserLocationValue,
+                  userLocation: _model.getLocationOnPageLoad,
                 ),
                 userLogRecordReference2);
             FFAppState().loginStateFirebase = '[loginStateFirebase]';
