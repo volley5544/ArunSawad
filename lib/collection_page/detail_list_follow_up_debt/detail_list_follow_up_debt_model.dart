@@ -37,6 +37,8 @@ class DetailListFollowUpDebtModel
   ApiCallResponse? getListDataPerson;
   // Stores action output result for [Custom Action - sha256Encoder] action in detailListFollowUpDebt widget.
   String? getHashThaiId1;
+  // Stores action output result for [Custom Action - getLocation] action in detailListFollowUpDebt widget.
+  LatLng? getLocationOnPageLoad1;
   // Stores action output result for [Custom Action - open3CXAction] action in detailListFollowUpDebt widget.
   bool? open3CXActionOutput1;
   // Model for appbarFollowUpDebt component.

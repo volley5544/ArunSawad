@@ -14,12 +14,10 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
-import 'dart:ui' as ui;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -401,35 +399,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               ),
                               Align(
                                 alignment: AlignmentDirectional(2.43, -2.73),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    // Announce text to screen readers for accessibility.
-                                    await SemanticsService.announce(
-                                      'บันทึกสำเร็จ!',
-                                      ui.TextDirection.ltr,
-                                    );
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.7,
-                                    height:
-                                        MediaQuery.sizeOf(context).width * 0.7,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color(0xFF0006B4),
-                                          Color(0xFF7479FF)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                        begin: AlignmentDirectional(0.0, -1.0),
-                                        end: AlignmentDirectional(0, 1.0),
-                                      ),
-                                      shape: BoxShape.circle,
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.7,
+                                  height:
+                                      MediaQuery.sizeOf(context).width * 0.7,
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xFF0006B4),
+                                        Color(0xFF7479FF)
+                                      ],
+                                      stops: [0.0, 1.0],
+                                      begin: AlignmentDirectional(0.0, -1.0),
+                                      end: AlignmentDirectional(0, 1.0),
                                     ),
+                                    shape: BoxShape.circle,
                                   ),
                                 ).animateOnPageLoad(animationsMap[
                                     'containerOnPageLoadAnimation2']!),

@@ -30,10 +30,14 @@ class CheckInStatusPageModel extends FlutterFlowModel<CheckInStatusPageWidget> {
 
   // Stores action output result for [Backend Call - API (checkinoutThisMonthAPI)] action in CheckInStatusPage widget.
   ApiCallResponse? checkinThisMonthOutput;
+  // Stores action output result for [Custom Action - getLocation] action in CheckInStatusPage widget.
+  LatLng? getLocationOnPageLoad3;
   // Stores action output result for [Backend Call - Create Document] action in CheckInStatusPage widget.
   UserLogRecord? createdUserLogLogout3;
   // Stores action output result for [Backend Call - API (checkinoutLastMonthAPI)] action in CheckInStatusPage widget.
   ApiCallResponse? checkinLastMonthOutput;
+  // Stores action output result for [Custom Action - getLocation] action in CheckInStatusPage widget.
+  LatLng? getLocationOnPageLoad4;
   // Stores action output result for [Backend Call - Create Document] action in CheckInStatusPage widget.
   UserLogRecord? createdUserLogLogout4;
   // Stores action output result for [Backend Call - API (GetLeaveDateCheckinAPI)] action in CheckInStatusPage widget.

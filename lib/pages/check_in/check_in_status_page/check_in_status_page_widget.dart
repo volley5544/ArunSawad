@@ -63,7 +63,6 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
   late CheckInStatusPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -74,8 +73,6 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
         parameters: {'screen_name': 'CheckInStatusPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -137,19 +134,21 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                     (_model.checkinThisMonthOutput?.jsonBody ?? ''),
                   ) ==
                   'Token Signature could not be verified.')) {
+            _model.getLocationOnPageLoad3 = await actions.getLocation();
+
             var userLogRecordReference1 = UserLogRecord.collection.doc();
             await userLogRecordReference1.set(createUserLogRecordData(
               employeeId: FFAppState().employeeID,
               action: 'Logout',
               actionTime: getCurrentTimestamp,
-              userLocation: currentUserLocationValue,
+              userLocation: _model.getLocationOnPageLoad3,
             ));
             _model.createdUserLogLogout3 = UserLogRecord.getDocumentFromData(
                 createUserLogRecordData(
                   employeeId: FFAppState().employeeID,
                   action: 'Logout',
                   actionTime: getCurrentTimestamp,
-                  userLocation: currentUserLocationValue,
+                  userLocation: _model.getLocationOnPageLoad3,
                 ),
                 userLogRecordReference1);
             FFAppState().loginStateFirebase = '[loginStateFirebase]';
@@ -299,19 +298,21 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                     (_model.checkinLastMonthOutput?.jsonBody ?? ''),
                   ) ==
                   'Token Signature could not be verified.')) {
+            _model.getLocationOnPageLoad4 = await actions.getLocation();
+
             var userLogRecordReference2 = UserLogRecord.collection.doc();
             await userLogRecordReference2.set(createUserLogRecordData(
               employeeId: FFAppState().employeeID,
               action: 'Logout',
               actionTime: getCurrentTimestamp,
-              userLocation: currentUserLocationValue,
+              userLocation: _model.getLocationOnPageLoad4,
             ));
             _model.createdUserLogLogout4 = UserLogRecord.getDocumentFromData(
                 createUserLogRecordData(
                   employeeId: FFAppState().employeeID,
                   action: 'Logout',
                   actionTime: getCurrentTimestamp,
-                  userLocation: currentUserLocationValue,
+                  userLocation: _model.getLocationOnPageLoad4,
                 ),
                 userLogRecordReference2);
             FFAppState().loginStateFirebase = '[loginStateFirebase]';

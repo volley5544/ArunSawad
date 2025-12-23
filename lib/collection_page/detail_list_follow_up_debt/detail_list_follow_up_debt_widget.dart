@@ -188,10 +188,11 @@ class _DetailListFollowUpDebtWidgetState
         _model.getHashThaiId1 = await actions.sha256Encoder(
           widget!.cusCod,
         );
+        _model.getLocationOnPageLoad1 = await actions.getLocation();
         await actions.addUserLogDocument(
           'BranchView_Collection_Call',
           FFAppState().employeeID,
-          currentUserLocationValue,
+          _model.getLocationOnPageLoad1,
           _model.getHashThaiId1,
         );
         Navigator.pop(context);
