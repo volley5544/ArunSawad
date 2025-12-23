@@ -73,8 +73,6 @@ class _DetailListFollowUpDebtWidgetState
         parameters: {'screen_name': 'detailListFollowUpDebt'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
