@@ -14,10 +14,12 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
+import 'dart:ui' as ui;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -405,35 +407,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    currentUserLocationValue =
-                                        await getCurrentUserLocation(
-                                            defaultLocation: LatLng(0.0, 0.0));
-
-                                    var materialRecordReference =
-                                        MaterialRecord.collection.doc();
-                                    await materialRecordReference
-                                        .set(createMaterialRecordData(
-                                      latLng: currentUserLocationValue,
-                                      latitude: functions.userLatitude(
-                                          currentUserLocationValue),
-                                      longitude: functions.userLongitude(
-                                          currentUserLocationValue),
-                                      dateTime: getCurrentTimestamp,
-                                    ));
-                                    _model.createLocationLog =
-                                        MaterialRecord.getDocumentFromData(
-                                            createMaterialRecordData(
-                                              latLng: currentUserLocationValue,
-                                              latitude: functions.userLatitude(
-                                                  currentUserLocationValue),
-                                              longitude:
-                                                  functions.userLongitude(
-                                                      currentUserLocationValue),
-                                              dateTime: getCurrentTimestamp,
-                                            ),
-                                            materialRecordReference);
-
-                                    safeSetState(() {});
+                                    // Announce text to screen readers for accessibility.
+                                    await SemanticsService.announce(
+                                      'บันทึกสำเร็จ!',
+                                      ui.TextDirection.ltr,
+                                    );
                                   },
                                   child: Container(
                                     width:

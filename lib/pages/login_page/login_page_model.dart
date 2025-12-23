@@ -14,11 +14,13 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
+import 'dart:ui' as ui;
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,8 +44,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? androidIMEI;
   // Stores action output result for [Custom Action - a4] action in LoginPage widget.
   String? iOSidentifierForVendor;
-  // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  MaterialRecord? createLocationLog;
   // State field(s) for usernameInput widget.
   FocusNode? usernameInputFocusNode;
   TextEditingController? usernameInputTextController;
