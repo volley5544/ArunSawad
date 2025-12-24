@@ -64,12 +64,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   ApiCallResponse? getUserProfilePin;
   // Stores action output result for [Backend Call - API (getUserInsuranceLicense)] action in PinCode widget.
   ApiCallResponse? getUserInsuranceLicense;
-  // Stores action output result for [Custom Action - a8] action in PinCode widget.
-  bool? checkLatLngBeforeEnterApp;
   // Stores action output result for [Custom Action - getLocation] action in PinCode widget.
   LatLng? getLocationPin1;
-  // Stores action output result for [Backend Call - Create Document] action in PinCode widget.
-  UserLogRecord? createdUserLogLoginPin;
   // Stores action output result for [Backend Call - Create Document] action in PinCode widget.
   InsuranceNotiDataRecord? createInsuNotidadta;
   // Stores action output result for [Backend Call - Create Document] action in PinCode widget.

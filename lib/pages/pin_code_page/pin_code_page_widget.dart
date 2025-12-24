@@ -692,13 +692,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                         size: 35.0,
                                                                                       ),
                                                                                       onPressed: () async {
-                                                                                        currentUserLocationValue = await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
                                                                                         var _shouldSetState = false;
                                                                                         HapticFeedback.mediumImpact();
                                                                                         showModalBottomSheet(
                                                                                           isScrollControlled: true,
                                                                                           backgroundColor: Colors.transparent,
                                                                                           barrierColor: Color(0x00000000),
+                                                                                          enableDrag: false,
                                                                                           context: context,
                                                                                           builder: (context) {
                                                                                             return WebViewAware(
@@ -1718,47 +1718,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   }
                                                                                                                 }
 
-                                                                                                                _model.checkLatLngBeforeEnterApp = await actions.a8();
-                                                                                                                _shouldSetState = true;
-                                                                                                                if (!_model.checkLatLngBeforeEnterApp!) {
-                                                                                                                  Navigator.pop(context);
-                                                                                                                  await showDialog(
-                                                                                                                    context: context,
-                                                                                                                    builder: (alertDialogContext) {
-                                                                                                                      return WebViewAware(
-                                                                                                                        child: AlertDialog(
-                                                                                                                          content: Text('กรุณาเปิดGPS เพื่อเข้าใช้งานอรุณสวัสดิ์'),
-                                                                                                                          actions: [
-                                                                                                                            TextButton(
-                                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                              child: Text('Ok'),
-                                                                                                                            ),
-                                                                                                                          ],
-                                                                                                                        ),
-                                                                                                                      );
-                                                                                                                    },
-                                                                                                                  );
-                                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                                  return;
-                                                                                                                }
                                                                                                                 _model.getLocationPin1 = await actions.getLocation();
-                                                                                                                _shouldSetState = true;
-
-                                                                                                                var userLogRecordReference = UserLogRecord.collection.doc();
-                                                                                                                await userLogRecordReference.set(createUserLogRecordData(
-                                                                                                                  employeeId: FFAppState().employeeID,
-                                                                                                                  action: 'Login_With_Pin',
-                                                                                                                  actionTime: getCurrentTimestamp,
-                                                                                                                  userLocation: _model.getLocationPin1,
-                                                                                                                ));
-                                                                                                                _model.createdUserLogLoginPin = UserLogRecord.getDocumentFromData(
-                                                                                                                    createUserLogRecordData(
-                                                                                                                      employeeId: FFAppState().employeeID,
-                                                                                                                      action: 'Login_With_Pin',
-                                                                                                                      actionTime: getCurrentTimestamp,
-                                                                                                                      userLocation: _model.getLocationPin1,
-                                                                                                                    ),
-                                                                                                                    userLogRecordReference);
                                                                                                                 _shouldSetState = true;
                                                                                                                 FFAppState().isFromAuthenPage = true;
                                                                                                                 FFAppState().dailyText = functions.helloDailyRandomText(pinCodePageSplashPageImgRecord?.text?.toList());
@@ -1874,8 +1834,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     },
                                                                                                                   ),
                                                                                                                 });
-                                                                                                                FFAppState().firstLoginLocation = _model.getLocationPin1;
-                                                                                                                safeSetState(() {});
                                                                                                                 Navigator.pop(context);
 
                                                                                                                 context.goNamed(SuperAppPageWidget.routeName);
@@ -1924,7 +1882,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               size: 60.0,
                                                                                                             ),
                                                                                                             onPressed: () async {
-                                                                                                              currentUserLocationValue = await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
                                                                                                               var _shouldSetState = false;
                                                                                                               HapticFeedback.mediumImpact();
                                                                                                               showDialog(
