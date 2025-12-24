@@ -587,8 +587,6 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                                     ?.width,
                                                                 blurHash:
                                                                     m.blurHash,
-                                                                originalFilename:
-                                                                    m.originalFilename,
                                                               ))
                                                           .toList();
                                                 } finally {
@@ -1153,8 +1151,7 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                             false;
                                         _model.uploadedLocalFile_selectGroupChatImageEdit =
                                             FFUploadedFile(
-                                                bytes: Uint8List.fromList([]),
-                                                originalFilename: '');
+                                                bytes: Uint8List.fromList([]));
                                       });
 
                                       safeSetState(() {
@@ -1264,8 +1261,7 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                           false;
                                       _model.uploadedLocalFile_selectGroupChatImageEdit =
                                           FFUploadedFile(
-                                              bytes: Uint8List.fromList([]),
-                                              originalFilename: '');
+                                              bytes: Uint8List.fromList([]));
                                     });
 
                                     safeSetState(() {

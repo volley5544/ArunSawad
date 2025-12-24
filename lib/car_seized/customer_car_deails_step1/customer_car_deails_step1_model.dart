@@ -39,95 +39,95 @@ class CustomerCarDeailsStep1Model
   late CaptureCameraWidgetModel captureCameraWidgetModel1;
   bool isDataUploading_carUploaded01 = false;
   FFUploadedFile uploadedLocalFile_carUploaded01 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel2;
   bool isDataUploading_carUploaded02 = false;
   FFUploadedFile uploadedLocalFile_carUploaded02 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel3;
   bool isDataUploading_carUploaded03 = false;
   FFUploadedFile uploadedLocalFile_carUploaded03 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel4;
   bool isDataUploading_carUploaded04 = false;
   FFUploadedFile uploadedLocalFile_carUploaded04 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel5;
   bool isDataUploading_carUploaded05 = false;
   FFUploadedFile uploadedLocalFile_carUploaded05 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel6;
   bool isDataUploading_carUploaded06 = false;
   FFUploadedFile uploadedLocalFile_carUploaded06 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel7;
   bool isDataUploading_carUploaded07 = false;
   FFUploadedFile uploadedLocalFile_carUploaded07 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel8;
   bool isDataUploading_carUploaded08 = false;
   FFUploadedFile uploadedLocalFile_carUploaded08 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel9;
   bool isDataUploading_carUploaded09 = false;
   FFUploadedFile uploadedLocalFile_carUploaded09 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel10;
   bool isDataUploading_carUploaded10 = false;
   FFUploadedFile uploadedLocalFile_carUploaded10 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel11;
   bool isDataUploading_carUploaded11 = false;
   FFUploadedFile uploadedLocalFile_carUploaded11 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel12;
   bool isDataUploading_carUploaded12 = false;
   FFUploadedFile uploadedLocalFile_carUploaded12 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel13;
   bool isDataUploading_carUploaded13 = false;
   FFUploadedFile uploadedLocalFile_carUploaded13 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   bool isDataUploading_car44Uploaded13 = false;
   FFUploadedFile uploadedLocalFile_car44Uploaded13 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   bool isDataUploading_car4Uploaded14 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded14 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   bool isDataUploading_car44Uploaded15 = false;
   FFUploadedFile uploadedLocalFile_car44Uploaded15 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   bool isDataUploading_car4Uploaded16 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded16 =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for PriceTextField widget.
   FocusNode? priceTextFieldFocusNode;

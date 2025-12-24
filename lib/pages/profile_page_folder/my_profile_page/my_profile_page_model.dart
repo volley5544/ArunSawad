@@ -41,7 +41,7 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
   ApiCallResponse? getUserProfile;
   bool isDataUploading_uploadProfileImageAction = false;
   FFUploadedFile uploadedLocalFile_uploadProfileImageAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in IconButton widget.
   String? uploadFirebaseStorageAction;
@@ -49,7 +49,7 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
   bool? checkProfileImgIsAvailable;
   bool isDataUploading_uploadProfileImageActionTablet = false;
   FFUploadedFile uploadedLocalFile_uploadProfileImageActionTablet =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in IconButton widget.
   String? uploadFirebaseStorageActionTablet;

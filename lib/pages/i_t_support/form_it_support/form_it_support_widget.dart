@@ -947,8 +947,6 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
-                                                                    originalFilename:
-                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
 

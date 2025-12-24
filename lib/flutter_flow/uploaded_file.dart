@@ -8,7 +8,6 @@ class FFUploadedFile {
     this.height,
     this.width,
     this.blurHash,
-    this.originalFilename = '',
   });
 
   final String? name;
@@ -16,11 +15,10 @@ class FFUploadedFile {
   final double? height;
   final double? width;
   final String? blurHash;
-  final String originalFilename;
 
   @override
   String toString() =>
-      'FFUploadedFile(name: $name, bytes: ${bytes?.length ?? 0}, height: $height, width: $width, blurHash: $blurHash, originalFilename: $originalFilename,)';
+      'FFUploadedFile(name: $name, bytes: ${bytes?.length ?? 0}, height: $height, width: $width, blurHash: $blurHash,)';
 
   String serialize() => jsonEncode(
         {
@@ -29,7 +27,6 @@ class FFUploadedFile {
           'height': height,
           'width': width,
           'blurHash': blurHash,
-          'originalFilename': originalFilename,
         },
       );
 
@@ -41,7 +38,6 @@ class FFUploadedFile {
       'height': serializedData['height'],
       'width': serializedData['width'],
       'blurHash': serializedData['blurHash'],
-      'originalFilename': serializedData['originalFilename'] ?? '',
     };
     return FFUploadedFile(
       name: data['name'] as String,
@@ -49,7 +45,6 @@ class FFUploadedFile {
       height: data['height'] as double?,
       width: data['width'] as double?,
       blurHash: data['blurHash'] as String?,
-      originalFilename: data['originalFilename'] as String,
     );
   }
 
@@ -60,7 +55,6 @@ class FFUploadedFile {
         height,
         width,
         blurHash,
-        originalFilename,
       );
 
   @override
@@ -70,6 +64,5 @@ class FFUploadedFile {
       bytes == other.bytes &&
       height == other.height &&
       width == other.width &&
-      blurHash == other.blurHash &&
-      originalFilename == other.originalFilename;
+      blurHash == other.blurHash;
 }

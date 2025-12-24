@@ -609,8 +609,6 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
-                                                                  originalFilename:
-                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
                                                   } finally {
@@ -718,8 +716,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   _model.uploadedLocalFile_uploadProfileImageAction =
                                                       FFUploadedFile(
                                                           bytes: Uint8List
-                                                              .fromList([]),
-                                                          originalFilename: '');
+                                                              .fromList([]));
                                                 });
 
                                                 Navigator.pop(context);
@@ -1212,8 +1209,6 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
-                                                                  originalFilename:
-                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
                                                   } finally {
@@ -1321,8 +1316,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   _model.uploadedLocalFile_uploadProfileImageActionTablet =
                                                       FFUploadedFile(
                                                           bytes: Uint8List
-                                                              .fromList([]),
-                                                          originalFilename: '');
+                                                              .fromList([]));
                                                 });
 
                                                 Navigator.pop(context);

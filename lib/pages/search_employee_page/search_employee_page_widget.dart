@@ -655,7 +655,6 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                       }
                                       safeSetState(() {
                                         _model.dropDownValueController?.reset();
-                                        _model.dropDownValue = null;
                                       });
                                       Navigator.pop(context);
                                       if (_shouldSetState) safeSetState(() {});

@@ -1568,8 +1568,6 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                     ?.width,
                                                                 blurHash:
                                                                     m.blurHash,
-                                                                originalFilename:
-                                                                    m.originalFilename,
                                                               ))
                                                       .toList();
                                             } finally {
@@ -1653,8 +1651,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                             _model.uploadedLocalFile_uploadDataKh5 =
                                                 FFUploadedFile(
                                                     bytes:
-                                                        Uint8List.fromList([]),
-                                                    originalFilename: '');
+                                                        Uint8List.fromList([]));
                                           });
 
                                           _model.uploadImageToStorage =

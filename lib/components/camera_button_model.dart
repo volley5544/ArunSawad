@@ -18,7 +18,7 @@ class CameraButtonModel extends FlutterFlowModel<CameraButtonWidget> {
 
   bool isDataUploading_uploadMediaThx = false;
   FFUploadedFile uploadedLocalFile_uploadMediaThx =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Icon widget.
   String? uploadFirebaseStorageAction;
