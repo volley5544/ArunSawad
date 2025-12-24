@@ -68,9 +68,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      _model.checkLatLngBVSurvey = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVSurvey = await actions.a8();
       if (!_model.checkLatLngBVSurvey!) {
         await showDialog(
           context: context,

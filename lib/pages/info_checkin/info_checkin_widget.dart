@@ -68,9 +68,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      _model.checkLatLngBVCheckIn = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVCheckIn = await actions.a8();
       if (!_model.checkLatLngBVCheckIn!) {
         await showDialog(
           context: context,

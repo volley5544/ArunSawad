@@ -125,9 +125,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           await actions.allowScreenRecordIOS();
         }
 
-        _model.checkLatLngBVCheckIn = await actions.a8(
-          currentUserLocationValue,
-        );
+        _model.checkLatLngBVCheckIn = await actions.a8();
         if (_model.checkLatLngBVCheckIn!) {
           _model.remarkIDList = functions
               .getDataFromMapJsonToList(
@@ -4196,9 +4194,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           return;
                                         }
                                         _model.checkGPSBeforeSave =
-                                            await actions.a8(
-                                          currentUserLocationValue,
-                                        );
+                                            await actions.a8();
                                         _shouldSetState = true;
                                         if (!_model.checkGPSBeforeSave!) {
                                           await showDialog(

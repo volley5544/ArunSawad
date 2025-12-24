@@ -85,9 +85,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVChecker = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVChecker = await actions.a8();
       if (!_model.checkLatLngBVChecker!) {
         await showDialog(
           context: context,
@@ -3486,9 +3484,8 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
-                                  _model.checkGPSBeforeSave = await actions.a8(
-                                    currentUserLocationValue,
-                                  );
+                                  _model.checkGPSBeforeSave =
+                                      await actions.a8();
                                   _shouldSetState = true;
                                   if (!_model.checkGPSBeforeSave!) {
                                     await showDialog(

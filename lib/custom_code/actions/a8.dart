@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 
 import 'package:geolocator/geolocator.dart';
 
-Future<bool> a8(LatLng? currentLocation) async {
+Future<bool> a8() async {
   // Add your function code here!
   bool areLocationServicesEnabled;
   areLocationServicesEnabled = await Geolocator.isLocationServiceEnabled();

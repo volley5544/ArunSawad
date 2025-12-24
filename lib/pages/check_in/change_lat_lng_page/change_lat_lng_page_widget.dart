@@ -63,9 +63,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVCheckIn = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVCheckIn = await actions.a8();
       if (!_model.checkLatLngBVCheckIn!) {
         await showDialog(
           context: context,

@@ -1065,9 +1065,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
-                                    _model.checkLatLngLogout = await actions.a8(
-                                      currentUserLocationValue,
-                                    );
+                                    _model.checkLatLngLogout =
+                                        await actions.a8();
                                     _shouldSetState = true;
                                     if (!_model.checkLatLngLogout!) {
                                       await showDialog(

@@ -74,6 +74,8 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
       reasoncheckin1TextControllerValidator;
   // Stores action output result for [Custom Action - checkInternetConnectionWifi] action in Button widget.
   bool? connectionOutput;
+  // Stores action output result for [Custom Action - getLocation] action in Button widget.
+  LatLng? getLocationSubmitButton1;
   // Stores action output result for [Custom Action - locationCal] action in Button widget.
   bool? inCurrentLocation;
   bool isDataUploading_uploadCheckinImageCheckinBtn = false;
@@ -82,10 +84,14 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Button widget.
   String? uploadFirebaseStorageCheckinBtn;
+  // Stores action output result for [Custom Action - getLocation] action in Button widget.
+  LatLng? getLocationSubmitButton2;
   // Stores action output result for [Custom Action - locationCal] action in Button widget.
   bool? inCurrentLocation2;
   // Stores action output result for [Custom Action - a8] action in Button widget.
   bool? checkGPSBeforeSave;
+  // Stores action output result for [Custom Action - getLocation] action in Button widget.
+  LatLng? getLocationSubmitButton3;
   // Stores action output result for [Backend Call - API (CheckinAPI)] action in Button widget.
   ApiCallResponse? checkinAPIOutput;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.

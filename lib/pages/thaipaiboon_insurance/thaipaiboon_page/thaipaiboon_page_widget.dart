@@ -72,9 +72,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
-      _model.checkLatLngThaiPaiboon = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngThaiPaiboon = await actions.a8();
       if (!_model.checkLatLngThaiPaiboon!) {
         Navigator.pop(context);
         await showDialog(

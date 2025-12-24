@@ -86,9 +86,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVCollection = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVCollection = await actions.a8();
       if (!_model.checkLatLngBVCollection!) {
         await showDialog(
           context: context,
@@ -3732,9 +3730,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
-                                  _model.checkGPSBeforeSave = await actions.a8(
-                                    currentUserLocationValue,
-                                  );
+                                  _model.checkGPSBeforeSave =
+                                      await actions.a8();
                                   _shouldSetState = true;
                                   if (!_model.checkGPSBeforeSave!) {
                                     await showDialog(

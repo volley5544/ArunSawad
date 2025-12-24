@@ -2720,10 +2720,13 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                 FFAppState().imgURLTemp !=
                                                     '') &&
                                             (FFAppState().imgURLTemp != '')) {
+                                          _model.getLocationSubmitButton1 =
+                                              await actions.getLocation();
+                                          _shouldSetState = true;
                                           _model.inCurrentLocation =
                                               await actions.locationCal(
                                             FFAppState().branchLo,
-                                            currentUserLocationValue,
+                                            _model.getLocationSubmitButton1,
                                             FFAppState().currentRadius,
                                           );
                                           _shouldSetState = true;
@@ -2963,10 +2966,13 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             safeSetState(() {});
                                           return;
                                         }
+                                        _model.getLocationSubmitButton2 =
+                                            await actions.getLocation();
+                                        _shouldSetState = true;
                                         _model.inCurrentLocation2 =
                                             await actions.locationCal(
                                           FFAppState().branchLo,
-                                          currentUserLocationValue,
+                                          _model.getLocationSubmitButton2,
                                           FFAppState().currentRadius,
                                         );
                                         _shouldSetState = true;
@@ -3039,11 +3045,12 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                       }
 
                                       _model.checkGPSBeforeSave =
-                                          await actions.a8(
-                                        currentUserLocationValue,
-                                      );
+                                          await actions.a8();
                                       _shouldSetState = true;
                                       if (_model.checkGPSBeforeSave!) {
+                                        _model.getLocationSubmitButton3 =
+                                            await actions.getLocation();
+                                        _shouldSetState = true;
                                         _model.checkinAPIOutput =
                                             await CheckinAPICall.call(
                                           apiUrl: FFAppState().apiURLLocalState,
@@ -3053,8 +3060,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                       FFAppState().employeeID)
                                               ? (FFAppState().branchLoString ==
                                                       'บ้าน'
-                                                  ? functions.userLatitude(
-                                                      currentUserLocationValue)
+                                                  ? functions.userLatitude(_model
+                                                      .getLocationSubmitButton3)
                                                   : functions.userLatitude(
                                                       functions.randomLatLng(
                                                           13.886102345654345,
@@ -3062,16 +3069,16 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                           isAndroid
                                                               ? 'Android'
                                                               : 'ios')))
-                                              : functions.userLatitude(
-                                                  currentUserLocationValue),
+                                              : functions.userLatitude(_model
+                                                  .getLocationSubmitButton3),
                                           longitude: columnAuthorizationRecord!
                                                   .employeeIdList
                                                   .contains(
                                                       FFAppState().employeeID)
                                               ? (FFAppState().branchLoString ==
                                                       'บ้าน'
-                                                  ? functions.userLongitude(
-                                                      currentUserLocationValue)
+                                                  ? functions.userLongitude(_model
+                                                      .getLocationSubmitButton3)
                                                   : functions.userLongitude(
                                                       functions.randomLatLng(
                                                           13.886102345654345,
@@ -3079,8 +3086,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                           isAndroid
                                                               ? 'Android'
                                                               : 'ios')))
-                                              : functions.userLongitude(
-                                                  currentUserLocationValue),
+                                              : functions.userLongitude(_model
+                                                  .getLocationSubmitButton3),
                                           branch: FFAppState().branchLoString,
                                           token: FFAppState().accessToken,
                                           urlImg: functions.imgPathtoString(
@@ -3115,8 +3122,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   FFAppState().employeeID,
                                               action: 'Logout',
                                               actionTime: getCurrentTimestamp,
-                                              userLocation:
-                                                  currentUserLocationValue,
+                                              userLocation: _model
+                                                  .getLocationSubmitButton3,
                                             ));
                                             _model.createdUserLogLogout1 =
                                                 UserLogRecord
@@ -3128,8 +3135,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                           action: 'Logout',
                                                           actionTime:
                                                               getCurrentTimestamp,
-                                                          userLocation:
-                                                              currentUserLocationValue,
+                                                          userLocation: _model
+                                                              .getLocationSubmitButton3,
                                                         ),
                                                         userLogRecordReference);
                                             _shouldSetState = true;

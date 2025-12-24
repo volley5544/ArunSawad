@@ -101,9 +101,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       FFAppState().rp72DataList = [];
       safeSetState(() {});
-      _model.checkLatLngBVCollection = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVCollection = await actions.a8();
       if (!_model.checkLatLngBVCollection!) {
         await showDialog(
           context: context,
@@ -3020,9 +3018,8 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
-                                  _model.checkGPSBeforeSave = await actions.a8(
-                                    currentUserLocationValue,
-                                  );
+                                  _model.checkGPSBeforeSave =
+                                      await actions.a8();
                                   _shouldSetState = true;
                                   if (!_model.checkGPSBeforeSave!) {
                                     await showDialog(

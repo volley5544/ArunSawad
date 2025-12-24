@@ -87,9 +87,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVMarketing = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVMarketing = await actions.a8();
       if (!_model.checkLatLngBVMarketing!) {
         await showDialog(
           context: context,
@@ -4267,9 +4265,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     }
                                   }
 
-                                  _model.checkGPSBeforeSave = await actions.a8(
-                                    currentUserLocationValue,
-                                  );
+                                  _model.checkGPSBeforeSave =
+                                      await actions.a8();
                                   _shouldSetState = true;
                                   if (!_model.checkGPSBeforeSave!) {
                                     await showDialog(

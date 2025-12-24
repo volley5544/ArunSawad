@@ -79,9 +79,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVSurveyNPA = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVSurveyNPA = await actions.a8();
       if (!_model.checkLatLngBVSurveyNPA!) {
         await showDialog(
           context: context,
@@ -2473,9 +2471,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                       return;
                                     }
                                     _model.checkGPSBeforeSave =
-                                        await actions.a8(
-                                      currentUserLocationValue,
-                                    );
+                                        await actions.a8();
                                     _shouldSetState = true;
                                     if (!_model.checkGPSBeforeSave!) {
                                       await showDialog(

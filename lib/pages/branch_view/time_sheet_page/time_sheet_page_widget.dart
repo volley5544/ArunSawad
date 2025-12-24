@@ -57,9 +57,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVTimeSheet = await actions.a8(
-        currentUserLocationValue,
-      );
+      _model.checkLatLngBVTimeSheet = await actions.a8();
       if (!_model.checkLatLngBVTimeSheet!) {
         await showDialog(
           context: context,

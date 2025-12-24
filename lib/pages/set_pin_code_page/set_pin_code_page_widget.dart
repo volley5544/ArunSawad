@@ -430,9 +430,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                   return;
                                 }
                                 _model.checkLatLngBeforeSetPin =
-                                    await actions.a8(
-                                  currentUserLocationValue,
-                                );
+                                    await actions.a8();
                                 _shouldSetState = true;
                                 if (!_model.checkLatLngBeforeSetPin!) {
                                   await showDialog(
