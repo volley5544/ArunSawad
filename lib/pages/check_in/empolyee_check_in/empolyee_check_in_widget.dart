@@ -2636,10 +2636,6 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                       0.0, 0.0, 10.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      currentUserLocationValue =
-                                          await getCurrentUserLocation(
-                                              defaultLocation:
-                                                  LatLng(0.0, 0.0));
                                       var _shouldSetState = false;
                                       HapticFeedback.mediumImpact();
                                       if (!(isAndroid ||
