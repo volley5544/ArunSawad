@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'introdution_page_model.dart';
 export 'introdution_page_model.dart';
 
@@ -39,6 +40,22 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().introPageIndex = 1;
       FFAppState().update(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().firstUseApp.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
