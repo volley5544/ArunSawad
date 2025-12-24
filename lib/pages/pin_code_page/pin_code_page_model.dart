@@ -50,6 +50,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   bool? checkDeviceLocPerLogout;
   // Stores action output result for [Custom Action - a8] action in IconButton widget.
   bool? checkLatLngLogout;
+  // Stores action output result for [Custom Action - getLocation] action in IconButton widget.
+  LatLng? getLocationLogoutButton;
   // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
   UserLogRecord? createdUserLogLogout;
   // State field(s) for PinCode widget.
@@ -64,6 +66,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   ApiCallResponse? getUserInsuranceLicense;
   // Stores action output result for [Custom Action - a8] action in PinCode widget.
   bool? checkLatLngBeforeEnterApp;
+  // Stores action output result for [Custom Action - getLocation] action in PinCode widget.
+  LatLng? getLocationPin1;
   // Stores action output result for [Backend Call - Create Document] action in PinCode widget.
   UserLogRecord? createdUserLogLoginPin;
   // Stores action output result for [Backend Call - Create Document] action in PinCode widget.
@@ -79,6 +83,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   ApiCallResponse? getUserInsuranceLicenseBio;
   // Stores action output result for [Custom Action - a8] action in IconButton widget.
   bool? checkLatLngBeforeEnterAppBio;
+  // Stores action output result for [Custom Action - getLocation] action in IconButton widget.
+  LatLng? getLocationBioAuthen1;
   // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
   UserLogRecord? createdUserLogLoginPinCopy;
   // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
