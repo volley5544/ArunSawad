@@ -110,6 +110,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
         safeSetState(() {});
         safeSetState(() {
           _model.dropDownValueController?.reset();
+          _model.dropDownValue = null;
         });
         safeSetState(() {
           _model.coordinateInputTextController?.clear();
@@ -1155,6 +1156,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               safeSetState(() {
                                                 _model.dropDownValueController
                                                     ?.reset();
+                                                _model.dropDownValue = null;
                                               });
                                               FFAppState().vloanContNoListTemp =
                                                   [];
@@ -2033,6 +2035,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                               ?.width,
                                                                           blurHash:
                                                                               m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
                                                                         ))
                                                                     .toList();
                                                           } finally {
@@ -2099,7 +2103,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
-                                                                          []));
+                                                                          []),
+                                                                  originalFilename:
+                                                                      '');
                                                         });
 
                                                         await Future.delayed(
@@ -2254,6 +2260,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                                 m.storagePath.split('/').last,
                                                                             bytes:
                                                                                 m.bytes,
+                                                                            originalFilename:
+                                                                                m.originalFilename,
                                                                           ))
                                                                       .toList();
                                                             } finally {
@@ -2321,7 +2329,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                 FFUploadedFile(
                                                                     bytes: Uint8List
                                                                         .fromList(
-                                                                            []));
+                                                                            []),
+                                                                    originalFilename:
+                                                                        '');
                                                           });
 
                                                           await Future.delayed(

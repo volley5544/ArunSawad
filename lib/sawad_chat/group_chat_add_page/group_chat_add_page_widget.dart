@@ -418,6 +418,8 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                                     ?.width,
                                                                 blurHash:
                                                                     m.blurHash,
+                                                                originalFilename:
+                                                                    m.originalFilename,
                                                               ))
                                                           .toList();
                                                 } finally {

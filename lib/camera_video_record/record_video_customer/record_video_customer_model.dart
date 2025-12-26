@@ -36,7 +36,7 @@ class RecordVideoCustomerModel
   ApiCallResponse? checkContractActiveApiOutput;
   bool isDataUploading_uploadVideo = false;
   FFUploadedFile uploadedLocalFile_uploadVideo =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   @override
   void initState(BuildContext context) {}

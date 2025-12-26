@@ -150,6 +150,11 @@ class FFAppState extends ChangeNotifier {
           await secureStorage.getBool('ff_filterNotiInsurance') ??
               _filterNotiInsurance;
     });
+    await _safeInitAsync(() async {
+      _isSetBioAuthenFirstTime =
+          await secureStorage.getBool('ff_isSetBioAuthenFirstTime') ??
+              _isSetBioAuthenFirstTime;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -10203,6 +10208,39 @@ class FFAppState extends ChangeNotifier {
   DocumentReference? get ibsUrlDocRef => _ibsUrlDocRef;
   set ibsUrlDocRef(DocumentReference? value) {
     _ibsUrlDocRef = value;
+  }
+
+  bool _isSetBioAuthenFirstTime = false;
+  bool get isSetBioAuthenFirstTime => _isSetBioAuthenFirstTime;
+  set isSetBioAuthenFirstTime(bool value) {
+    _isSetBioAuthenFirstTime = value;
+    secureStorage.setBool('ff_isSetBioAuthenFirstTime', value);
+  }
+
+  void deleteIsSetBioAuthenFirstTime() {
+    secureStorage.delete(key: 'ff_isSetBioAuthenFirstTime');
+  }
+
+  DocumentReference? _keyStorage1DocRef =
+      FirebaseFirestore.instance.doc('/Key_Storage/BVCMx9NfORSoqSiBFkWU');
+  DocumentReference? get keyStorage1DocRef => _keyStorage1DocRef;
+  set keyStorage1DocRef(DocumentReference? value) {
+    _keyStorage1DocRef = value;
+  }
+
+  DocumentReference? _leadUrlLinkDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/H7Zzont50qHnhqvwNe8h');
+  DocumentReference? get leadUrlLinkDocRef => _leadUrlLinkDocRef;
+  set leadUrlLinkDocRef(DocumentReference? value) {
+    _leadUrlLinkDocRef = value;
+  }
+
+  DocumentReference? _authorizeationKpiMenuDocRef =
+      FirebaseFirestore.instance.doc('/Authorization/oejV9rmqTscRwlrKyRva');
+  DocumentReference? get authorizeationKpiMenuDocRef =>
+      _authorizeationKpiMenuDocRef;
+  set authorizeationKpiMenuDocRef(DocumentReference? value) {
+    _authorizeationKpiMenuDocRef = value;
   }
 }
 

@@ -36,71 +36,71 @@ class CustomerCarDeailsStep4Model
 
   bool isDataUploading_car4Uploaded01 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded01 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded02 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded02 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded03 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded03 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded04 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded04 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded05 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded05 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded06 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded06 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded07 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded07 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded08 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded08 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded09 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded09 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded10 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded10 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded11 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded11 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded12 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded12 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded131 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded131 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded13 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded13 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car44Uploaded14 = false;
   FFUploadedFile uploadedLocalFile_car44Uploaded14 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car4Uploaded15 = false;
   FFUploadedFile uploadedLocalFile_car4Uploaded15 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_car44Uploaded16 = false;
   FFUploadedFile uploadedLocalFile_car44Uploaded16 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // State field(s) for PriceTextField widget.
   FocusNode? priceTextFieldFocusNode;

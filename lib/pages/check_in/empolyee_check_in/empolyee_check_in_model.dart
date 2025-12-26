@@ -49,7 +49,7 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   UserLogRecord? createdUserLogLogout;
   bool isDataUploading_uploadCheckinImageAction = false;
   FFUploadedFile uploadedLocalFile_uploadCheckinImageAction =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Icon widget.
   String? uploadFirebaseStorageAction;
@@ -80,7 +80,7 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   bool? inCurrentLocation;
   bool isDataUploading_uploadCheckinImageCheckinBtn = false;
   FFUploadedFile uploadedLocalFile_uploadCheckinImageCheckinBtn =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Button widget.
   String? uploadFirebaseStorageCheckinBtn;

@@ -637,6 +637,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                         height: m.dimensions?.height,
                                         width: m.dimensions?.width,
                                         blurHash: m.blurHash,
+                                        originalFilename: m.originalFilename,
                                       ))
                                   .toList();
                             } finally {

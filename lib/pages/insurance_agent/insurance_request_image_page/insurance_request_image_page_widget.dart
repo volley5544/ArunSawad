@@ -517,6 +517,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -654,6 +656,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -791,6 +795,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -928,6 +934,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -1065,6 +1073,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -1202,6 +1212,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -1339,6 +1351,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -1477,6 +1491,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -1614,6 +1630,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -3396,6 +3414,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -3533,6 +3553,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -3670,6 +3692,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -3807,6 +3831,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -3944,6 +3970,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -4081,6 +4109,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -4218,6 +4248,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -4355,6 +4387,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -5844,6 +5878,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -5981,6 +6017,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -6118,6 +6156,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -6255,6 +6295,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -6392,6 +6434,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -6529,6 +6573,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -6666,6 +6712,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -6803,6 +6851,8 @@ class _InsuranceRequestImagePageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
@@ -8362,6 +8412,8 @@ class _InsuranceRequestImagePageWidgetState
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
+                                                                  originalFilename:
+                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
                                                   } finally {
@@ -8614,6 +8666,8 @@ class _InsuranceRequestImagePageWidgetState
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
+                                                                  originalFilename:
+                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
                                                   } finally {
@@ -8828,6 +8882,8 @@ class _InsuranceRequestImagePageWidgetState
                                                                       ?.width,
                                                                   blurHash: m
                                                                       .blurHash,
+                                                                  originalFilename:
+                                                                      m.originalFilename,
                                                                 ))
                                                             .toList();
                                                   } finally {
@@ -9035,6 +9091,8 @@ class _InsuranceRequestImagePageWidgetState
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
+                                                                    originalFilename:
+                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
                                                     } finally {
@@ -9250,6 +9308,8 @@ class _InsuranceRequestImagePageWidgetState
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
+                                                                    originalFilename:
+                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
                                                     } finally {
@@ -9465,6 +9525,8 @@ class _InsuranceRequestImagePageWidgetState
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
+                                                                    originalFilename:
+                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
                                                     } finally {
@@ -9680,6 +9742,8 @@ class _InsuranceRequestImagePageWidgetState
                                                                         ?.width,
                                                                     blurHash: m
                                                                         .blurHash,
+                                                                    originalFilename:
+                                                                        m.originalFilename,
                                                                   ))
                                                               .toList();
                                                     } finally {

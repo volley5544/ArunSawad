@@ -90,7 +90,7 @@ class ChatRoomSettingPageModel
 
   bool isDataUploading_selectGroupChatImageEdit = false;
   FFUploadedFile uploadedLocalFile_selectGroupChatImageEdit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;

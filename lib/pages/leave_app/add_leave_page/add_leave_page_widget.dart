@@ -1712,6 +1712,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                             ?.width,
                                                                         blurHash:
                                                                             m.blurHash,
+                                                                        originalFilename:
+                                                                            m.originalFilename,
                                                                       ))
                                                                   .toList();
                                                         } finally {

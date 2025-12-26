@@ -37,133 +37,133 @@ class InsuranceRequestEditPageModel
   ScrollController? mainColumnScrollController;
   bool isDataUploading_uploadPhoto1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto3Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto3Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto4Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto4Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto5Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto5Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto6Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto6Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhotoShowEdit = false;
   FFUploadedFile uploadedLocalFile_uploadPhotoShowEdit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto8Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto8Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto9Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto9Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto1Truct1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto1Truct1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto2Truct1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto2Truct1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto3Truct1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto3Truct1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto4Truct1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto4Truct1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto5Truct1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto5Truct1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto6Truct1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto6Truct1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhotoShowTruct1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhotoShowTruct1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto8Truct1Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto8Truct1Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto1Truct2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto1Truct2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto2Truct2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto2Truct2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto3Truct2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto3Truct2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto4Truct2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto4Truct2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto5Truct2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto5Truct2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto6Truct2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto6Truct2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhotoShowTruct2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhotoShowTruct2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadPhoto8Truct2Edit = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto8Truct2Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // State field(s) for Column widget.
   ScrollController? columnController2;
   bool isDataUploading_uploadData9Edit = false;
   FFUploadedFile uploadedLocalFile_uploadData9Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadData10Edit = false;
   FFUploadedFile uploadedLocalFile_uploadData10Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadData11Edit = false;
   FFUploadedFile uploadedLocalFile_uploadData11Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadData12Edit = false;
   FFUploadedFile uploadedLocalFile_uploadData12Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadData13Edit = false;
   FFUploadedFile uploadedLocalFile_uploadData13Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadData14Edit = false;
   FFUploadedFile uploadedLocalFile_uploadData14Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   bool isDataUploading_uploadData15Edit = false;
   FFUploadedFile uploadedLocalFile_uploadData15Edit =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // Stores action output result for [Backend Call - API (insuranceRequestEditAPI)] action in Button widget.
   ApiCallResponse? insuranceEditApi;
