@@ -106,6 +106,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
 
   /// Action blocks.
   Future getUserProfilePinPage(BuildContext context) async {
+    SplashPageImgRecord? querySplashPageImage;
     SplashPageHolidayImgRecord? querySplashPageHoliday;
     UserCustomRecord? queryProfile;
     AuthorizationRecord? queryKpiMenuAuthorize;
@@ -148,6 +149,13 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
       },
     );
 
+    querySplashPageImage = await querySplashPageImgRecordOnce(
+      queryBuilder: (splashPageImgRecord) => splashPageImgRecord.where(
+        'day',
+        isEqualTo: functions.checkDateWeekDay(getCurrentTimestamp),
+      ),
+      singleRecord: true,
+    ).then((s) => s.firstOrNull);
     querySplashPageHoliday = await querySplashPageHolidayImgRecordOnce(
       singleRecord: true,
     ).then((s) => s.firstOrNull);
@@ -162,14 +170,14 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
         FFAppState().authorizeationKpiMenuDocRef!);
     if (functions.checkIntFromString(FFAppState().employeeID)!) {
       if (valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000) {
-        Navigator.pop(context);
         FFAppState().isFromAuthenPage = true;
-        FFAppState().dailyText = functions.helloDailyRandomText(
-            pinCodePageSplashPageImgRecord?.text?.toList());
+        FFAppState().dailyText = functions
+            .helloDailyRandomText(querySplashPageImage?.text?.toList());
         FFAppState().update(() {});
         FFAppState().DateHoliday = querySplashPageHoliday?.date;
         FFAppState().DateExpHoliday = querySplashPageHoliday?.dateExp;
         FFAppState().update(() {});
+        Navigator.pop(context);
 
         context.goNamed(SuperAppPageWidget.routeName);
 
@@ -525,8 +533,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
         ),
         userLogRecordReference);
     FFAppState().isFromAuthenPage = true;
-    FFAppState().dailyText = functions
-        .helloDailyRandomText(pinCodePageSplashPageImgRecord?.text?.toList());
+    FFAppState().dailyText =
+        functions.helloDailyRandomText(querySplashPageImage?.text?.toList());
     FFAppState().update(() {});
     FFAppState().DateHoliday = querySplashPageHoliday?.date;
     FFAppState().DateExpHoliday = querySplashPageHoliday?.dateExp;
