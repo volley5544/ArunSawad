@@ -947,9 +947,8 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                               ),
                               tileColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              activeColor:
+                              activeTrackColor:
                                   FlutterFlowTheme.of(context).secondary,
-                              activeTrackColor: Color(0x3439D2C0),
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
                               contentPadding: EdgeInsetsDirectional.fromSTEB(
@@ -964,7 +963,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                     animationsMap['containerOnPageLoadAnimation3']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     GoRouter.of(context).prepareAuthEvent();
@@ -981,26 +980,25 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                           font: GoogleFonts.poppins(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyLarge
-                                .fontWeight,
+                            fontWeight: FontWeight.w600,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyLarge
                                 .fontStyle,
                           ),
+                          color: FlutterFlowTheme.of(context).secondary,
+                          fontSize: 16.0,
                           letterSpacing: 0.0,
-                          fontWeight:
-                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontWeight: FontWeight.w600,
                           fontStyle:
                               FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
-                    elevation: 0.0,
+                    elevation: 3.0,
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.of(context).alternate,
-                      width: 1.0,
+                      color: FlutterFlowTheme.of(context).secondary,
+                      width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(38.0),
                   ),
