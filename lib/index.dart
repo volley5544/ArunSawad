@@ -301,3 +301,5 @@ export '/collection_page/tab_collection_extra_m/tab_collection_extra_m_widget.da
     show TabCollectionExtraMWidget;
 export '/collection_page/tab_collection_team_m_page/tab_collection_team_m_page_widget.dart'
     show TabCollectionTeamMPageWidget;
+export '/pages/profile_page_folder/setting_app_page/setting_app_page_widget.dart'
+    show SettingAppPageWidget;

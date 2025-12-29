@@ -2015,6 +2015,26 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     var _shouldSetState = false;
                                                                                                                     HapticFeedback.mediumImpact();
                                                                                                                     if (true) {
+                                                                                                                      if (true) {
+                                                                                                                        context.goNamed(
+                                                                                                                          SettingAppPageWidget.routeName,
+                                                                                                                          queryParameters: {
+                                                                                                                            'fromPage': serializeParam(
+                                                                                                                              'PinPage',
+                                                                                                                              ParamType.String,
+                                                                                                                            ),
+                                                                                                                          }.withoutNulls,
+                                                                                                                          extra: <String, dynamic>{
+                                                                                                                            kTransitionInfoKey: TransitionInfo(
+                                                                                                                              hasTransition: true,
+                                                                                                                              transitionType: PageTransitionType.bottomToTop,
+                                                                                                                            ),
+                                                                                                                          },
+                                                                                                                        );
+
+                                                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                                                        return;
+                                                                                                                      }
                                                                                                                       var confirmDialogResponse = await showDialog<bool>(
                                                                                                                             context: context,
                                                                                                                             builder: (alertDialogContext) {

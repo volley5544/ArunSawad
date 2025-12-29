@@ -2823,6 +2823,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: SettingAppPageWidget.routeName,
+              path: SettingAppPageWidget.routePath,
+              builder: (context, params) => SettingAppPageWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
