@@ -2019,7 +2019,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                           HapticFeedback.mediumImpact();
                                                                                                                           if (true) {
                                                                                                                             if (true) {
-                                                                                                                              context.goNamed(
+                                                                                                                              context.pushNamed(
                                                                                                                                 SettingAppPageWidget.routeName,
                                                                                                                                 queryParameters: {
                                                                                                                                   'fromPage': serializeParam(
