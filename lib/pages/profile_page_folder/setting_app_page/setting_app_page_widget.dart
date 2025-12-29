@@ -731,7 +731,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 0.0, 0.0),
+                                8.0, 0.0, 12.0, 0.0),
                             child: Icon(
                               Icons.password_outlined,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -807,7 +807,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 0.0, 0.0),
+                                8.0, 0.0, 12.0, 0.0),
                             child: Icon(
                               Icons.fiber_pin,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -864,26 +864,67 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Icon(
-                            Icons.power_settings_new_rounded,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
-                          ),
+                        Builder(
+                          builder: (context) {
+                            if (isAndroid) {
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.fingerprint,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 24.0,
+                                ),
+                              );
+                            } else {
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Container(
+                                  width: 36.0,
+                                  height: 36.0,
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Icon(
+                                          Icons.crop_free,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 36.0,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Icon(
+                                          Icons.face,
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          size: 22.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }
+                          },
                         ),
                         Expanded(
                           child: Material(
                             color: Colors.transparent,
                             child: SwitchListTile.adaptive(
-                              value: _model.switchListTileValue ??= true,
+                              value: _model.switchListTileValue ??=
+                                  FFAppState().BioAuthCheck,
                               onChanged: (newValue) async {
                                 safeSetState(() =>
                                     _model.switchListTileValue = newValue!);
                               },
                               title: Text(
-                                'Active',
+                                isAndroid ? 'สแกนลายนิ้วมือ' : 'Face ID',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
