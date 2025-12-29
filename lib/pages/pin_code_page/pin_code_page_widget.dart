@@ -205,7 +205,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                 return WebViewAware(
                   child: AlertDialog(
                     content: Text(
-                        'คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย Face id หรือ สแกนลายนิ้วมือหรือไม่?'),
+                        'คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย ${isAndroid ? 'สแกนลายนิ้วมือ' : 'Face id'}หรือไม่?'),
                     actions: [
                       TextButton(
                         onPressed: () =>
@@ -1978,724 +1978,772 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                         children: [
                                                                                                           Builder(
-                                                                                                            builder: (context) => FutureBuilder<List<InsuranceLicenseDataRecord>>(
-                                                                                                              future: queryInsuranceLicenseDataRecordOnce(
-                                                                                                                singleRecord: true,
-                                                                                                              ),
-                                                                                                              builder: (context, snapshot) {
-                                                                                                                // Customize what your widget looks like when it's loading.
-                                                                                                                if (!snapshot.hasData) {
-                                                                                                                  return Center(
-                                                                                                                    child: SizedBox(
-                                                                                                                      width: 50.0,
-                                                                                                                      height: 50.0,
-                                                                                                                      child: CircularProgressIndicator(
-                                                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                                                          FlutterFlowTheme.of(context).tertiary,
-                                                                                                                        ),
-                                                                                                                      ),
+                                                                                                            builder: (context) {
+                                                                                                              if (isAndroid) {
+                                                                                                                return Builder(
+                                                                                                                  builder: (context) => FutureBuilder<List<InsuranceLicenseDataRecord>>(
+                                                                                                                    future: queryInsuranceLicenseDataRecordOnce(
+                                                                                                                      singleRecord: true,
                                                                                                                     ),
-                                                                                                                  );
-                                                                                                                }
-                                                                                                                List<InsuranceLicenseDataRecord> iconButtonInsuranceLicenseDataRecordList = snapshot.data!;
-                                                                                                                final iconButtonInsuranceLicenseDataRecord = iconButtonInsuranceLicenseDataRecordList.isNotEmpty ? iconButtonInsuranceLicenseDataRecordList.first : null;
-
-                                                                                                                return FlutterFlowIconButton(
-                                                                                                                  borderColor: Color(0x004B39EF),
-                                                                                                                  borderRadius: 20.0,
-                                                                                                                  borderWidth: 1.0,
-                                                                                                                  buttonSize: 75.0,
-                                                                                                                  fillColor: Color(0x004B39EF),
-                                                                                                                  icon: Icon(
-                                                                                                                    Icons.fingerprint_sharp,
-                                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                                    size: 60.0,
-                                                                                                                  ),
-                                                                                                                  onPressed: () async {
-                                                                                                                    var _shouldSetState = false;
-                                                                                                                    HapticFeedback.mediumImpact();
-                                                                                                                    if (true) {
-                                                                                                                      if (true) {
-                                                                                                                        context.goNamed(
-                                                                                                                          SettingAppPageWidget.routeName,
-                                                                                                                          queryParameters: {
-                                                                                                                            'fromPage': serializeParam(
-                                                                                                                              'PinPage',
-                                                                                                                              ParamType.String,
-                                                                                                                            ),
-                                                                                                                          }.withoutNulls,
-                                                                                                                          extra: <String, dynamic>{
-                                                                                                                            kTransitionInfoKey: TransitionInfo(
-                                                                                                                              hasTransition: true,
-                                                                                                                              transitionType: PageTransitionType.bottomToTop,
-                                                                                                                            ),
-                                                                                                                          },
-                                                                                                                        );
-
-                                                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                                                        return;
-                                                                                                                      }
-                                                                                                                      var confirmDialogResponse = await showDialog<bool>(
-                                                                                                                            context: context,
-                                                                                                                            builder: (alertDialogContext) {
-                                                                                                                              return WebViewAware(
-                                                                                                                                child: AlertDialog(
-                                                                                                                                  content: Text('คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย Face id หรือ สแกนลายนิ้วมือหรือไม่?'),
-                                                                                                                                  actions: [
-                                                                                                                                    TextButton(
-                                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                                      child: Text('ไม่เปิด'),
-                                                                                                                                    ),
-                                                                                                                                    TextButton(
-                                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                                      child: Text('เปิด'),
-                                                                                                                                    ),
-                                                                                                                                  ],
-                                                                                                                                ),
-                                                                                                                              );
-                                                                                                                            },
-                                                                                                                          ) ??
-                                                                                                                          false;
-                                                                                                                      if (confirmDialogResponse) {
-                                                                                                                        FFAppState().BioAuthCheck = true;
-                                                                                                                        FFAppState().isSetBioAuthenFirstTime = true;
-                                                                                                                        safeSetState(() {});
-                                                                                                                        await showDialog(
-                                                                                                                          context: context,
-                                                                                                                          builder: (alertDialogContext) {
-                                                                                                                            return WebViewAware(
-                                                                                                                              child: AlertDialog(
-                                                                                                                                content: Text('คุณได้เปิดการใช้งาน Face id หรือ สแกนนิ้วเรียบร้อย'),
-                                                                                                                                actions: [
-                                                                                                                                  TextButton(
-                                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                    child: Text('Ok'),
-                                                                                                                                  ),
-                                                                                                                                ],
-                                                                                                                              ),
-                                                                                                                            );
-                                                                                                                          },
-                                                                                                                        );
-
-                                                                                                                        context.goNamed(PinCodePageWidget.routeName);
-
-                                                                                                                        safeSetState(() {});
-                                                                                                                      }
-                                                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                                                      return;
-                                                                                                                    }
-                                                                                                                    showDialog(
-                                                                                                                      context: context,
-                                                                                                                      builder: (dialogContext) {
-                                                                                                                        return Dialog(
-                                                                                                                          elevation: 0,
-                                                                                                                          insetPadding: EdgeInsets.zero,
-                                                                                                                          backgroundColor: Colors.transparent,
-                                                                                                                          alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                                                          child: WebViewAware(
-                                                                                                                            child: GestureDetector(
-                                                                                                                              onTap: () {
-                                                                                                                                FocusScope.of(dialogContext).unfocus();
-                                                                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                                              },
-                                                                                                                              child: Container(
-                                                                                                                                height: double.infinity,
-                                                                                                                                width: double.infinity,
-                                                                                                                                child: LoadingSceneWidget(),
+                                                                                                                    builder: (context, snapshot) {
+                                                                                                                      // Customize what your widget looks like when it's loading.
+                                                                                                                      if (!snapshot.hasData) {
+                                                                                                                        return Center(
+                                                                                                                          child: SizedBox(
+                                                                                                                            width: 50.0,
+                                                                                                                            height: 50.0,
+                                                                                                                            child: CircularProgressIndicator(
+                                                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                FlutterFlowTheme.of(context).tertiary,
                                                                                                                               ),
                                                                                                                             ),
                                                                                                                           ),
                                                                                                                         );
-                                                                                                                      },
-                                                                                                                    );
+                                                                                                                      }
+                                                                                                                      List<InsuranceLicenseDataRecord> iconButtonInsuranceLicenseDataRecordList = snapshot.data!;
+                                                                                                                      final iconButtonInsuranceLicenseDataRecord = iconButtonInsuranceLicenseDataRecordList.isNotEmpty ? iconButtonInsuranceLicenseDataRecordList.first : null;
 
-                                                                                                                    if (FFAppState().isProduction) {
-                                                                                                                      if (!functions.checkIsHaveThisValueInList(columnfifthAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
-                                                                                                                        if (isiOS) {
-                                                                                                                          if (columnsecBuildVersionRecord!.buildNumberIos > _model.getDeviceBuildNumber!) {
-                                                                                                                            Navigator.pop(context);
-                                                                                                                            await showDialog(
-                                                                                                                              context: context,
-                                                                                                                              builder: (alertDialogContext) {
-                                                                                                                                return WebViewAware(
-                                                                                                                                  child: AlertDialog(
-                                                                                                                                    content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในTestFlight: ${columnsecBuildVersionRecord?.appVersionIos}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
-                                                                                                                                    actions: [
-                                                                                                                                      TextButton(
-                                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                        child: Text('Ok'),
-                                                                                                                                      ),
-                                                                                                                                    ],
+                                                                                                                      return FlutterFlowIconButton(
+                                                                                                                        borderColor: Color(0x004B39EF),
+                                                                                                                        borderRadius: 20.0,
+                                                                                                                        borderWidth: 1.0,
+                                                                                                                        buttonSize: 75.0,
+                                                                                                                        fillColor: Color(0x004B39EF),
+                                                                                                                        icon: Icon(
+                                                                                                                          Icons.fingerprint_sharp,
+                                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                          size: 60.0,
+                                                                                                                        ),
+                                                                                                                        onPressed: () async {
+                                                                                                                          var _shouldSetState = false;
+                                                                                                                          HapticFeedback.mediumImpact();
+                                                                                                                          if (true) {
+                                                                                                                            if (true) {
+                                                                                                                              context.goNamed(
+                                                                                                                                SettingAppPageWidget.routeName,
+                                                                                                                                queryParameters: {
+                                                                                                                                  'fromPage': serializeParam(
+                                                                                                                                    'PinPage',
+                                                                                                                                    ParamType.String,
                                                                                                                                   ),
-                                                                                                                                );
-                                                                                                                              },
-                                                                                                                            );
-                                                                                                                            await launchURL('https://testflight.apple.com/join/8sA3XObM');
-                                                                                                                            await actions.terminateAppAction();
+                                                                                                                                }.withoutNulls,
+                                                                                                                                extra: <String, dynamic>{
+                                                                                                                                  kTransitionInfoKey: TransitionInfo(
+                                                                                                                                    hasTransition: true,
+                                                                                                                                    transitionType: PageTransitionType.bottomToTop,
+                                                                                                                                  ),
+                                                                                                                                },
+                                                                                                                              );
+
+                                                                                                                              if (_shouldSetState) safeSetState(() {});
+                                                                                                                              return;
+                                                                                                                            }
+                                                                                                                            var confirmDialogResponse = await showDialog<bool>(
+                                                                                                                                  context: context,
+                                                                                                                                  builder: (alertDialogContext) {
+                                                                                                                                    return WebViewAware(
+                                                                                                                                      child: AlertDialog(
+                                                                                                                                        content: Text('คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย Face id หรือ สแกนลายนิ้วมือหรือไม่?'),
+                                                                                                                                        actions: [
+                                                                                                                                          TextButton(
+                                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                                                            child: Text('ไม่เปิด'),
+                                                                                                                                          ),
+                                                                                                                                          TextButton(
+                                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                                                            child: Text('เปิด'),
+                                                                                                                                          ),
+                                                                                                                                        ],
+                                                                                                                                      ),
+                                                                                                                                    );
+                                                                                                                                  },
+                                                                                                                                ) ??
+                                                                                                                                false;
+                                                                                                                            if (confirmDialogResponse) {
+                                                                                                                              FFAppState().BioAuthCheck = true;
+                                                                                                                              FFAppState().isSetBioAuthenFirstTime = true;
+                                                                                                                              safeSetState(() {});
+                                                                                                                              await showDialog(
+                                                                                                                                context: context,
+                                                                                                                                builder: (alertDialogContext) {
+                                                                                                                                  return WebViewAware(
+                                                                                                                                    child: AlertDialog(
+                                                                                                                                      content: Text('คุณได้เปิดการใช้งาน Face id หรือ สแกนนิ้วเรียบร้อย'),
+                                                                                                                                      actions: [
+                                                                                                                                        TextButton(
+                                                                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                                          child: Text('Ok'),
+                                                                                                                                        ),
+                                                                                                                                      ],
+                                                                                                                                    ),
+                                                                                                                                  );
+                                                                                                                                },
+                                                                                                                              );
+
+                                                                                                                              context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                                                              safeSetState(() {});
+                                                                                                                            }
                                                                                                                             if (_shouldSetState) safeSetState(() {});
                                                                                                                             return;
                                                                                                                           }
-                                                                                                                        } else {
-                                                                                                                          if (columnsecBuildVersionRecord!.buildNumberAndroid > _model.getDeviceBuildNumber!) {
-                                                                                                                            Navigator.pop(context);
-                                                                                                                            await showDialog(
-                                                                                                                              context: context,
-                                                                                                                              builder: (alertDialogContext) {
-                                                                                                                                return WebViewAware(
-                                                                                                                                  child: AlertDialog(
-                                                                                                                                    content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในสโตร์: ${columnsecBuildVersionRecord?.appVersion}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
-                                                                                                                                    actions: [
-                                                                                                                                      TextButton(
-                                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                        child: Text('Ok'),
-                                                                                                                                      ),
-                                                                                                                                    ],
+                                                                                                                          showDialog(
+                                                                                                                            context: context,
+                                                                                                                            builder: (dialogContext) {
+                                                                                                                              return Dialog(
+                                                                                                                                elevation: 0,
+                                                                                                                                insetPadding: EdgeInsets.zero,
+                                                                                                                                backgroundColor: Colors.transparent,
+                                                                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                                                child: WebViewAware(
+                                                                                                                                  child: GestureDetector(
+                                                                                                                                    onTap: () {
+                                                                                                                                      FocusScope.of(dialogContext).unfocus();
+                                                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                                                    },
+                                                                                                                                    child: Container(
+                                                                                                                                      height: double.infinity,
+                                                                                                                                      width: double.infinity,
+                                                                                                                                      child: LoadingSceneWidget(),
+                                                                                                                                    ),
                                                                                                                                   ),
-                                                                                                                                );
-                                                                                                                              },
-                                                                                                                            );
-                                                                                                                            await launchURL('https://play.google.com/store/apps/details?id=com.mycompany.publicarunsawad');
-                                                                                                                            await actions.terminateAppAction();
-                                                                                                                            if (_shouldSetState) safeSetState(() {});
-                                                                                                                            return;
+                                                                                                                                ),
+                                                                                                                              );
+                                                                                                                            },
+                                                                                                                          );
+
+                                                                                                                          if (FFAppState().isProduction) {
+                                                                                                                            if (!functions.checkIsHaveThisValueInList(columnfifthAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
+                                                                                                                              if (isiOS) {
+                                                                                                                                if (columnsecBuildVersionRecord!.buildNumberIos > _model.getDeviceBuildNumber!) {
+                                                                                                                                  Navigator.pop(context);
+                                                                                                                                  await showDialog(
+                                                                                                                                    context: context,
+                                                                                                                                    builder: (alertDialogContext) {
+                                                                                                                                      return WebViewAware(
+                                                                                                                                        child: AlertDialog(
+                                                                                                                                          content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในTestFlight: ${columnsecBuildVersionRecord?.appVersionIos}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
+                                                                                                                                          actions: [
+                                                                                                                                            TextButton(
+                                                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                                              child: Text('Ok'),
+                                                                                                                                            ),
+                                                                                                                                          ],
+                                                                                                                                        ),
+                                                                                                                                      );
+                                                                                                                                    },
+                                                                                                                                  );
+                                                                                                                                  await launchURL('https://testflight.apple.com/join/8sA3XObM');
+                                                                                                                                  await actions.terminateAppAction();
+                                                                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                                                                  return;
+                                                                                                                                }
+                                                                                                                              } else {
+                                                                                                                                if (columnsecBuildVersionRecord!.buildNumberAndroid > _model.getDeviceBuildNumber!) {
+                                                                                                                                  Navigator.pop(context);
+                                                                                                                                  await showDialog(
+                                                                                                                                    context: context,
+                                                                                                                                    builder: (alertDialogContext) {
+                                                                                                                                      return WebViewAware(
+                                                                                                                                        child: AlertDialog(
+                                                                                                                                          content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในสโตร์: ${columnsecBuildVersionRecord?.appVersion}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
+                                                                                                                                          actions: [
+                                                                                                                                            TextButton(
+                                                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                                              child: Text('Ok'),
+                                                                                                                                            ),
+                                                                                                                                          ],
+                                                                                                                                        ),
+                                                                                                                                      );
+                                                                                                                                    },
+                                                                                                                                  );
+                                                                                                                                  await launchURL('https://play.google.com/store/apps/details?id=com.mycompany.publicarunsawad');
+                                                                                                                                  await actions.terminateAppAction();
+                                                                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                                                                  return;
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            }
                                                                                                                           }
-                                                                                                                        }
-                                                                                                                      }
-                                                                                                                    }
-                                                                                                                    if (!FFAppState().BioAuthCheck) {
-                                                                                                                      var confirmDialogResponse = await showDialog<bool>(
-                                                                                                                            context: context,
-                                                                                                                            builder: (alertDialogContext) {
-                                                                                                                              return WebViewAware(
-                                                                                                                                child: AlertDialog(
-                                                                                                                                  content: Text('คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย Face id หรือ สแกนลายนิ้วมือหรือไม่?'),
-                                                                                                                                  actions: [
-                                                                                                                                    TextButton(
-                                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                                                      child: Text('ไม่เปิด'),
+                                                                                                                          if (!FFAppState().BioAuthCheck) {
+                                                                                                                            var confirmDialogResponse = await showDialog<bool>(
+                                                                                                                                  context: context,
+                                                                                                                                  builder: (alertDialogContext) {
+                                                                                                                                    return WebViewAware(
+                                                                                                                                      child: AlertDialog(
+                                                                                                                                        content: Text('คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย Face id หรือ สแกนลายนิ้วมือหรือไม่?'),
+                                                                                                                                        actions: [
+                                                                                                                                          TextButton(
+                                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                                                            child: Text('ไม่เปิด'),
+                                                                                                                                          ),
+                                                                                                                                          TextButton(
+                                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                                                            child: Text('เปิด'),
+                                                                                                                                          ),
+                                                                                                                                        ],
+                                                                                                                                      ),
+                                                                                                                                    );
+                                                                                                                                  },
+                                                                                                                                ) ??
+                                                                                                                                false;
+                                                                                                                            if (confirmDialogResponse) {
+                                                                                                                              FFAppState().BioAuthCheck = true;
+                                                                                                                              safeSetState(() {});
+                                                                                                                              await showDialog(
+                                                                                                                                context: context,
+                                                                                                                                builder: (alertDialogContext) {
+                                                                                                                                  return WebViewAware(
+                                                                                                                                    child: AlertDialog(
+                                                                                                                                      content: Text('คุณได้เปิดการใช้งาน Face id หรือ สแกนนิ้วเรียบร้อย'),
+                                                                                                                                      actions: [
+                                                                                                                                        TextButton(
+                                                                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                                          child: Text('Ok'),
+                                                                                                                                        ),
+                                                                                                                                      ],
                                                                                                                                     ),
-                                                                                                                                    TextButton(
-                                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                                                      child: Text('เปิด'),
-                                                                                                                                    ),
-                                                                                                                                  ],
-                                                                                                                                ),
+                                                                                                                                  );
+                                                                                                                                },
                                                                                                                               );
-                                                                                                                            },
-                                                                                                                          ) ??
-                                                                                                                          false;
-                                                                                                                      if (confirmDialogResponse) {
-                                                                                                                        FFAppState().BioAuthCheck = true;
-                                                                                                                        safeSetState(() {});
-                                                                                                                        await showDialog(
-                                                                                                                          context: context,
-                                                                                                                          builder: (alertDialogContext) {
-                                                                                                                            return WebViewAware(
-                                                                                                                              child: AlertDialog(
-                                                                                                                                content: Text('คุณได้เปิดการใช้งาน Face id หรือ สแกนนิ้วเรียบร้อย'),
-                                                                                                                                actions: [
-                                                                                                                                  TextButton(
-                                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                    child: Text('Ok'),
-                                                                                                                                  ),
-                                                                                                                                ],
-                                                                                                                              ),
-                                                                                                                            );
-                                                                                                                          },
-                                                                                                                        );
-                                                                                                                      } else {
-                                                                                                                        Navigator.pop(context);
-                                                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                                                        return;
-                                                                                                                      }
-                                                                                                                    }
-                                                                                                                    FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                                                    FFAppState().profileImage = columnfourUserCustomRecord!.imgProfile;
-                                                                                                                    safeSetState(() {});
-                                                                                                                    FFAppState().adminEMP = columnAuthorizationRecord!.employeeIdList.toList().cast<String>();
-                                                                                                                    safeSetState(() {});
-                                                                                                                    if (FFAppState().isProductionNew) {
-                                                                                                                      FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
-                                                                                                                      FFAppState().update(() {});
-                                                                                                                    } else {
-                                                                                                                      _model.keyStorage2ApiUrlBio = await KeyStorage2Record.getDocumentOnce(FFAppState().keyStorage2DocRef!);
-                                                                                                                      _shouldSetState = true;
-                                                                                                                      FFAppState().apiURLLocalState = _model.keyStorage2ApiUrlBio!.uatApiUrl;
-                                                                                                                      FFAppState().update(() {});
-                                                                                                                    }
-
-                                                                                                                    if (FFAppState().isGetDataViaFirebase) {
-                                                                                                                      FFAppState().userNickname = columnUserProfileRecord!.nickname;
-                                                                                                                      FFAppState().profileFullName = columnUserProfileRecord!.fullname;
-                                                                                                                      FFAppState().profileBirthDate = columnUserProfileRecord!.birthDate;
-                                                                                                                      FFAppState().profileUnitCodeName = columnUserProfileRecord!.unitCodeName;
-                                                                                                                      FFAppState().profileParentUnit = columnUserProfileRecord!.parentUnit;
-                                                                                                                      FFAppState().profileRegion = columnUserProfileRecord!.region;
-                                                                                                                      FFAppState().profileHiredDate = columnUserProfileRecord!.hiredDate;
-                                                                                                                      FFAppState().profileServiceDuration = functions.profileServiceDuration(columnUserProfileRecord?.serviceDurationYear, columnUserProfileRecord?.serviceDurationMonth, columnUserProfileRecord?.serviceDurationDay);
-                                                                                                                      FFAppState().profilePositionAge = functions.positionAgeText(columnUserProfileRecord?.positionAgeYear, columnUserProfileRecord?.positionAgeMonth, columnUserProfileRecord?.positionAgeDay);
-                                                                                                                      FFAppState().profilePositionAgeCheck = columnUserProfileRecord!.positionAgeCheck;
-                                                                                                                      FFAppState().profilePositionName = columnUserProfileRecord!.positionName;
-                                                                                                                      FFAppState().ProfilePhoneNumber = columnUserProfileRecord!.phoneNumber;
-                                                                                                                      FFAppState().profileFirstBossEmpID = columnUserProfileRecord!.firstBossEmpId;
-                                                                                                                      FFAppState().profileSecondBossEmpID = columnUserProfileRecord!.secondBossEmpId;
-                                                                                                                      FFAppState().insurancePlanNumber = columnUserProfileRecord!.insurancePlanNumber;
-                                                                                                                      FFAppState().profileLevel = columnUserProfileRecord!.level;
-                                                                                                                      FFAppState().profileBranch = columnUserProfileRecord!.branchName;
-                                                                                                                      FFAppState().branchCode = columnUserProfileRecord!.branchCode;
-                                                                                                                      FFAppState().QRCodeLink = '${containerUrlLinkStorageRecord?.urlLink}${FFAppState().employeeID}';
-                                                                                                                      safeSetState(() {});
-                                                                                                                      FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                                                      safeSetState(() {});
-                                                                                                                      FFAppState().profileFirstName = functions.getFirstLastNameFromFullName(columnUserProfileRecord?.fullname, 'first_name')!;
-                                                                                                                      FFAppState().profileLastName = functions.getFirstLastNameFromFullName(columnUserProfileRecord?.fullname, 'last_name')!;
-                                                                                                                      safeSetState(() {});
-                                                                                                                      FFAppState().insuranceLicenseStatusCode = columnUserProfileRecord!.insuranceLicenseStatusCode.toList().cast<int>();
-                                                                                                                      safeSetState(() {});
-                                                                                                                      FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseIdCard?.toList())! : FFAppState().profileInsuLicenseIdCard.toList().cast<String>();
-                                                                                                                      FFAppState().profileInsuLicenseNumLicense = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseLicenseNumber?.toList())! : FFAppState().profileInsuLicenseNumLicense.toList().cast<String>();
-                                                                                                                      FFAppState().profileInsuLicenseStartDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseStartDate?.toList())! : FFAppState().profileInsuLicenseStartDate.toList().cast<String>();
-                                                                                                                      FFAppState().profileInsuLicenseExpireDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseExpireDate?.toList())! : FFAppState().profileInsuLicenseExpireDate.toList().cast<String>();
-                                                                                                                      FFAppState().profileInsuLicenseFullName = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseFullname?.toList())! : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
-                                                                                                                      safeSetState(() {});
-                                                                                                                    } else {
-                                                                                                                      _model.getUserProfileBio = await GetUserProfileAPICall.call(
-                                                                                                                        token: FFAppState().accessToken,
-                                                                                                                        apiUrl: FFAppState().apiURLLocalState,
-                                                                                                                        projectName: 'SSW_ARUNSAWAD_API',
-                                                                                                                      );
-
-                                                                                                                      _shouldSetState = true;
-                                                                                                                      if ((_model.getUserProfileBio?.statusCode ?? 200) == 200) {
-                                                                                                                        if (GetUserProfileAPICall.statuslayer1(
-                                                                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                            ) !=
-                                                                                                                            200) {
-                                                                                                                          Navigator.pop(context);
-                                                                                                                          await showDialog(
-                                                                                                                            context: context,
-                                                                                                                            builder: (alertDialogContext) {
-                                                                                                                              return WebViewAware(
-                                                                                                                                child: AlertDialog(
-                                                                                                                                  content: Text('${GetUserProfileAPICall.message(
-                                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                                  )}'),
-                                                                                                                                  actions: [
-                                                                                                                                    TextButton(
-                                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                      child: Text('Ok'),
-                                                                                                                                    ),
-                                                                                                                                  ],
-                                                                                                                                ),
-                                                                                                                              );
-                                                                                                                            },
-                                                                                                                          );
-                                                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                                                          return;
-                                                                                                                        }
-                                                                                                                        FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileFullName = '${GetUserProfileAPICall.profileFullName(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().profileBirthDate = '${GetUserProfileAPICall.profileBirthDate(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileUnitCodeName = '${GetUserProfileAPICall.profileBranchName(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().profileParentUnit = '${GetUserProfileAPICall.profileArea(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileRegion = '${GetUserProfileAPICall.profileRegion(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().profileHiredDate = '${GetUserProfileAPICall.profileHiredDate(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
-                                                                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                            )}', '${GetUserProfileAPICall.profileServiceDurationMM(
-                                                                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                            )}', '${GetUserProfileAPICall.profileServiceDurationDD(
-                                                                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                            )}')}';
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
-                                                                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                            )}', '${GetUserProfileAPICall.profilePositionAgeMM(
-                                                                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                            )}', '${GetUserProfileAPICall.profilePositionAgeDD(
-                                                                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                            )}')}';
-                                                                                                                        FFAppState().profilePositionAgeCheck = '${GetUserProfileAPICall.profilePositionAgeCheck(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().profilePositionName = '${GetUserProfileAPICall.profliePositionName(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().QRCodeLink = '${containerUrlLinkStorageRecord?.urlLink}${FFAppState().employeeID}';
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().ProfilePhoneNumber = '${GetUserProfileAPICall.profilePhoneNumber(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileFirstBossEmpID = '${GetUserProfileAPICall.profileFirstBossEmpID(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileSecondBossEmpID = '${GetUserProfileAPICall.profileSecondBossEmpID(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().insurancePlanNumber = '${GetUserProfileAPICall.insurancePlan(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileLevel = '${GetUserProfileAPICall.profileLevel(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileBranch = '${GetUserProfileAPICall.profileBranch(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().branchCode = '${GetUserProfileAPICall.branchCode(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                                                        safeSetState(() {});
-                                                                                                                        FFAppState().profileFirstName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
-                                                                                                                        FFAppState().profileLastName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
-                                                                                                                        safeSetState(() {});
-                                                                                                                        FFAppState().departmentProfile = '${GetUserProfileAPICall.department(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        FFAppState().profileRoleName = '${GetUserProfileAPICall.profileRoleName(
-                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                        )}';
-                                                                                                                        safeSetState(() {});
-                                                                                                                        _model.getUserInsuranceLicenseBio = await GetUserInsuranceLicenseCall.call(
-                                                                                                                          token: FFAppState().accessToken,
-                                                                                                                          apiUrl: FFAppState().apiURLLocalState,
-                                                                                                                        );
-
-                                                                                                                        _shouldSetState = true;
-                                                                                                                        if ((_model.getUserInsuranceLicenseBio?.statusCode ?? 200) == 200) {
-                                                                                                                          FFAppState().insuranceLicenseStatusCode = functions
-                                                                                                                              .convertDynamicListToIntList(getJsonField(
-                                                                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                                                                r'''$.dataInfo[*].status''',
-                                                                                                                                true,
-                                                                                                                              ))!
-                                                                                                                              .toList()
-                                                                                                                              .cast<int>();
+                                                                                                                            } else {
+                                                                                                                              Navigator.pop(context);
+                                                                                                                              if (_shouldSetState) safeSetState(() {});
+                                                                                                                              return;
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                          FFAppState().userRef = columnfourUserCustomRecord?.reference;
+                                                                                                                          FFAppState().profileImage = columnfourUserCustomRecord!.imgProfile;
                                                                                                                           safeSetState(() {});
-                                                                                                                          FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
-                                                                                                                              ? functions.createSomethingListWithNullValue(
-                                                                                                                                  FFAppState().insuranceLicenseStatusCode.toList(),
-                                                                                                                                  GetUserInsuranceLicenseCall.idCard(
-                                                                                                                                    (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                                                                  )?.toList())!
-                                                                                                                              : FFAppState().profileInsuLicenseIdCard.toList().cast<String>();
-                                                                                                                          FFAppState().profileInsuLicenseNumLicense = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
-                                                                                                                              ? functions.createSomethingListWithNullValue(
-                                                                                                                                  FFAppState().insuranceLicenseStatusCode.toList(),
-                                                                                                                                  GetUserInsuranceLicenseCall.licenseNumber(
-                                                                                                                                    (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                                                                  )?.toList())!
-                                                                                                                              : FFAppState().profileInsuLicenseNumLicense.toList().cast<String>();
-                                                                                                                          FFAppState().profileInsuLicenseStartDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
-                                                                                                                              ? functions.createSomethingListWithNullValue(
-                                                                                                                                  FFAppState().insuranceLicenseStatusCode.toList(),
-                                                                                                                                  GetUserInsuranceLicenseCall.startDate(
-                                                                                                                                    (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                                                                  )?.toList())!
-                                                                                                                              : FFAppState().profileInsuLicenseStartDate.toList().cast<String>();
-                                                                                                                          FFAppState().profileInsuLicenseExpireDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
-                                                                                                                              ? functions.createSomethingListWithNullValue(
-                                                                                                                                  FFAppState().insuranceLicenseStatusCode.toList(),
-                                                                                                                                  GetUserInsuranceLicenseCall.expireDate(
-                                                                                                                                    (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                                                                  )?.toList())!
-                                                                                                                              : FFAppState().profileInsuLicenseExpireDate.toList().cast<String>();
-                                                                                                                          FFAppState().profileInsuLicenseFullName = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
-                                                                                                                              ? functions.createSomethingListWithNullValue(
-                                                                                                                                  FFAppState().insuranceLicenseStatusCode.toList(),
-                                                                                                                                  GetUserInsuranceLicenseCall.fullName(
-                                                                                                                                    (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                                                                  )?.toList())!
-                                                                                                                              : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
+                                                                                                                          FFAppState().adminEMP = columnAuthorizationRecord!.employeeIdList.toList().cast<String>();
                                                                                                                           safeSetState(() {});
-                                                                                                                        }
-                                                                                                                      } else {
-                                                                                                                        if (!((GetUserProfileAPICall.message(
-                                                                                                                                  (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                                ) ==
-                                                                                                                                'The token has been blacklisted') ||
-                                                                                                                            (GetUserProfileAPICall.message(
-                                                                                                                                  (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                                                                                ) ==
-                                                                                                                                'Token Signature could not be verified.'))) {
-                                                                                                                          Navigator.pop(context);
-                                                                                                                          await showDialog(
-                                                                                                                            context: context,
-                                                                                                                            builder: (alertDialogContext) {
-                                                                                                                              return WebViewAware(
-                                                                                                                                child: AlertDialog(
-                                                                                                                                  content: Text('พบข้อผิดพลาด (${(_model.getUserProfileBio?.statusCode ?? 200).toString()})'),
-                                                                                                                                  actions: [
-                                                                                                                                    TextButton(
-                                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                      child: Text('Ok'),
-                                                                                                                                    ),
-                                                                                                                                  ],
-                                                                                                                                ),
-                                                                                                                              );
-                                                                                                                            },
-                                                                                                                          );
-                                                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                                                          return;
-                                                                                                                        }
-                                                                                                                        await showDialog(
-                                                                                                                          context: context,
-                                                                                                                          builder: (alertDialogContext) {
-                                                                                                                            return WebViewAware(
-                                                                                                                              child: AlertDialog(
-                                                                                                                                content: Text('Session Loginหมดอายุ'),
-                                                                                                                                actions: [
-                                                                                                                                  TextButton(
-                                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                    child: Text('Ok'),
-                                                                                                                                  ),
-                                                                                                                                ],
-                                                                                                                              ),
-                                                                                                                            );
-                                                                                                                          },
-                                                                                                                        );
-                                                                                                                        FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                                                        FFAppState().deleteAccessToken();
-                                                                                                                        FFAppState().accessToken = 'access_token';
-
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().deleteEmployeeID();
-                                                                                                                        FFAppState().employeeID = 'employee_id';
-
-                                                                                                                        FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().deleteApiURLLocalState();
-                                                                                                                        FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                                                        FFAppState().deleteBranchCode();
-                                                                                                                        FFAppState().branchCode = 'branch_code';
-
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().isFromSetPinPage = false;
-                                                                                                                        FFAppState().leadChannelColor = [];
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().leadChannelList = [];
-                                                                                                                        FFAppState().isFromLoginPage = false;
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().deletePinCodeAuthen();
-                                                                                                                        FFAppState().pinCodeAuthen = '013972';
-
-                                                                                                                        FFAppState().isFromAuthenPage = false;
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().deleteDateDoNotShowAgain();
-                                                                                                                        FFAppState().dateDoNotShowAgain = null;
-
-                                                                                                                        FFAppState().deleteDoNotShowAgain();
-                                                                                                                        FFAppState().doNotShowAgain = false;
-
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().inAppViaNotification = true;
-                                                                                                                        FFAppState().isInApp = false;
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        FFAppState().fcmToken = 'fcm_token';
-                                                                                                                        FFAppState().isPassLoginSection = false;
-                                                                                                                        FFAppState().update(() {});
-                                                                                                                        Navigator.pop(context);
-                                                                                                                        await actions.a22();
-
-                                                                                                                        context.goNamed(LoginPageWidget.routeName);
-
-                                                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                                                        return;
-                                                                                                                      }
-                                                                                                                    }
-
-                                                                                                                    _model.checkLatLngBeforeEnterAppBio = await actions.a8();
-                                                                                                                    _shouldSetState = true;
-                                                                                                                    if (!_model.checkLatLngBeforeEnterAppBio!) {
-                                                                                                                      Navigator.pop(context);
-                                                                                                                      await showDialog(
-                                                                                                                        context: context,
-                                                                                                                        builder: (alertDialogContext) {
-                                                                                                                          return WebViewAware(
-                                                                                                                            child: AlertDialog(
-                                                                                                                              content: Text('กรุณาเปิดGPS เพื่อเข้าใช้งานอรุณสวัสดิ์'),
-                                                                                                                              actions: [
-                                                                                                                                TextButton(
-                                                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                  child: Text('Ok'),
-                                                                                                                                ),
-                                                                                                                              ],
-                                                                                                                            ),
-                                                                                                                          );
-                                                                                                                        },
-                                                                                                                      );
-                                                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                                                      return;
-                                                                                                                    }
-                                                                                                                    _model.getLocationBioAuthen1 = await actions.getLocation();
-                                                                                                                    _shouldSetState = true;
-
-                                                                                                                    var userLogRecordReference = UserLogRecord.collection.doc();
-                                                                                                                    await userLogRecordReference.set(createUserLogRecordData(
-                                                                                                                      employeeId: FFAppState().employeeID,
-                                                                                                                      action: 'Login_With_Bio',
-                                                                                                                      actionTime: getCurrentTimestamp,
-                                                                                                                      userLocation: _model.getLocationBioAuthen1,
-                                                                                                                    ));
-                                                                                                                    _model.createdUserLogLoginPinCopy = UserLogRecord.getDocumentFromData(
-                                                                                                                        createUserLogRecordData(
-                                                                                                                          employeeId: FFAppState().employeeID,
-                                                                                                                          action: 'Login_With_Bio',
-                                                                                                                          actionTime: getCurrentTimestamp,
-                                                                                                                          userLocation: _model.getLocationBioAuthen1,
-                                                                                                                        ),
-                                                                                                                        userLogRecordReference);
-                                                                                                                    _shouldSetState = true;
-                                                                                                                    FFAppState().isFromAuthenPage = true;
-                                                                                                                    FFAppState().dailyText = functions.helloDailyRandomText(pinCodePageSplashPageImgRecord?.text?.toList());
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().DateHoliday = columnfirstSplashPageHolidayImgRecord?.date;
-                                                                                                                    FFAppState().DateExpHoliday = columnfirstSplashPageHolidayImgRecord?.dateExp;
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().profileInsuExpdateAD = functions.stringlistToDateAD(FFAppState().profileInsuLicenseExpireDate.toList())!.toList().cast<DateTime>();
-                                                                                                                    safeSetState(() {});
-                                                                                                                    FFAppState().expInsuLessthen30 = functions.compareDate30(FFAppState().profileInsuExpdateAD.toList(), getCurrentTimestamp.toString())!.toList().cast<bool>();
-                                                                                                                    safeSetState(() {});
-                                                                                                                    if (notidatacolumnInsuranceNotiDataRecord != null) {
-                                                                                                                      if (!functions.compareListof2Date(notidatacolumnInsuranceNotiDataRecord?.expInsuDate?.toList(), FFAppState().profileInsuExpdateAD.toList())!) {
-                                                                                                                        await notidatacolumnInsuranceNotiDataRecord!.reference.update({
-                                                                                                                          ...mapToFirestore(
-                                                                                                                            {
-                                                                                                                              'exp_insu_date': FFAppState().profileInsuExpdateAD,
-                                                                                                                            },
-                                                                                                                          ),
-                                                                                                                        });
-                                                                                                                      }
-                                                                                                                      if (iconButtonInsuranceLicenseDataRecord?.licenseName?.length != notidatacolumnInsuranceNotiDataRecord?.licenseType?.length) {
-                                                                                                                        await notidatacolumnInsuranceNotiDataRecord!.reference.update({
-                                                                                                                          ...mapToFirestore(
-                                                                                                                            {
-                                                                                                                              'license_type': iconButtonInsuranceLicenseDataRecord?.licenseName,
-                                                                                                                            },
-                                                                                                                          ),
-                                                                                                                        });
-                                                                                                                      }
-                                                                                                                      if (notidatacolumnInsuranceNotiDataRecord?.expInsuDate?.length != FFAppState().profileInsuExpdateAD.length) {
-                                                                                                                        await notidatacolumnInsuranceNotiDataRecord!.reference.update({
-                                                                                                                          ...mapToFirestore(
-                                                                                                                            {
-                                                                                                                              'exp_insu_date': FFAppState().profileInsuExpdateAD,
-                                                                                                                            },
-                                                                                                                          ),
-                                                                                                                        });
-                                                                                                                      }
-                                                                                                                    } else {
-                                                                                                                      var insuranceNotiDataRecordReference = InsuranceNotiDataRecord.collection.doc();
-                                                                                                                      await insuranceNotiDataRecordReference.set({
-                                                                                                                        ...createInsuranceNotiDataRecordData(
-                                                                                                                          empId: FFAppState().employeeID,
-                                                                                                                        ),
-                                                                                                                        ...mapToFirestore(
-                                                                                                                          {
-                                                                                                                            'license_type': iconButtonInsuranceLicenseDataRecord?.licenseName,
-                                                                                                                            'noti_is_sent': FFAppState().defaultlistFalse,
-                                                                                                                            'exp_insu_date': FFAppState().profileInsuExpdateAD,
-                                                                                                                          },
-                                                                                                                        ),
-                                                                                                                      });
-                                                                                                                      _model.createInsuNotidadta2 = InsuranceNotiDataRecord.getDocumentFromData({
-                                                                                                                        ...createInsuranceNotiDataRecordData(
-                                                                                                                          empId: FFAppState().employeeID,
-                                                                                                                        ),
-                                                                                                                        ...mapToFirestore(
-                                                                                                                          {
-                                                                                                                            'license_type': iconButtonInsuranceLicenseDataRecord?.licenseName,
-                                                                                                                            'noti_is_sent': FFAppState().defaultlistFalse,
-                                                                                                                            'exp_insu_date': FFAppState().profileInsuExpdateAD,
-                                                                                                                          },
-                                                                                                                        ),
-                                                                                                                      }, insuranceNotiDataRecordReference);
-                                                                                                                      _shouldSetState = true;
-                                                                                                                      Navigator.pop(context);
-
-                                                                                                                      context.goNamed(SuperAppPageWidget.routeName);
-
-                                                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                                                      return;
-                                                                                                                    }
-
-                                                                                                                    while (FFAppState().superAppi <= functions.lengthMinus1(FFAppState().insuranceLicenseStatusCode.toList())!) {
-                                                                                                                      if (FFAppState().insuranceLicenseStatusCode.elementAtOrNull(FFAppState().superAppi) == 200) {
-                                                                                                                        if (FFAppState().expInsuLessthen30.elementAtOrNull(FFAppState().superAppi)!) {
-                                                                                                                          if ((notidatacolumnInsuranceNotiDataRecord?.notiIsSent?.elementAtOrNull(FFAppState().superAppi)) == false) {
-                                                                                                                            FFAppState().falselistPersistd = functions.changelistFalseToTrue(FFAppState().falselistPersistd.toList(), FFAppState().superAppi)!.toList().cast<bool>();
-                                                                                                                            safeSetState(() {});
-
-                                                                                                                            var notificationRecordReference = NotificationRecord.createDoc(columnfourUserCustomRecord!.reference);
-                                                                                                                            await notificationRecordReference.set(createNotificationRecordData(
-                                                                                                                              notiTime: getCurrentTimestamp,
-                                                                                                                              notiTitle: 'แจ้งเตือนใบอนุญาตประกัน',
-                                                                                                                              notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?.elementAtOrNull(FFAppState().superAppi)}จะหมดอายุใน 30 วัน',
-                                                                                                                              notiIsRead: false,
-                                                                                                                              thisNotiIsRead: false,
-                                                                                                                              notiType: 'insurance',
-                                                                                                                            ));
-                                                                                                                            _model.createInsuPageNotificationBio = NotificationRecord.getDocumentFromData(
-                                                                                                                                createNotificationRecordData(
-                                                                                                                                  notiTime: getCurrentTimestamp,
-                                                                                                                                  notiTitle: 'แจ้งเตือนใบอนุญาตประกัน',
-                                                                                                                                  notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?.elementAtOrNull(FFAppState().superAppi)}จะหมดอายุใน 30 วัน',
-                                                                                                                                  notiIsRead: false,
-                                                                                                                                  thisNotiIsRead: false,
-                                                                                                                                  notiType: 'insurance',
-                                                                                                                                ),
-                                                                                                                                notificationRecordReference);
+                                                                                                                          if (FFAppState().isProductionNew) {
+                                                                                                                            FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
+                                                                                                                            FFAppState().update(() {});
+                                                                                                                          } else {
+                                                                                                                            _model.keyStorage2ApiUrlBio = await KeyStorage2Record.getDocumentOnce(FFAppState().keyStorage2DocRef!);
                                                                                                                             _shouldSetState = true;
+                                                                                                                            FFAppState().apiURLLocalState = _model.keyStorage2ApiUrlBio!.uatApiUrl;
+                                                                                                                            FFAppState().update(() {});
                                                                                                                           }
-                                                                                                                        }
-                                                                                                                      }
-                                                                                                                      FFAppState().superAppi = FFAppState().superAppi + 1;
-                                                                                                                      safeSetState(() {});
-                                                                                                                    }
 
-                                                                                                                    await notidatacolumnInsuranceNotiDataRecord!.reference.update({
-                                                                                                                      ...mapToFirestore(
-                                                                                                                        {
-                                                                                                                          'noti_is_sent': FFAppState().falselistPersistd,
+                                                                                                                          if (FFAppState().isGetDataViaFirebase) {
+                                                                                                                            FFAppState().userNickname = columnUserProfileRecord!.nickname;
+                                                                                                                            FFAppState().profileFullName = columnUserProfileRecord!.fullname;
+                                                                                                                            FFAppState().profileBirthDate = columnUserProfileRecord!.birthDate;
+                                                                                                                            FFAppState().profileUnitCodeName = columnUserProfileRecord!.unitCodeName;
+                                                                                                                            FFAppState().profileParentUnit = columnUserProfileRecord!.parentUnit;
+                                                                                                                            FFAppState().profileRegion = columnUserProfileRecord!.region;
+                                                                                                                            FFAppState().profileHiredDate = columnUserProfileRecord!.hiredDate;
+                                                                                                                            FFAppState().profileServiceDuration = functions.profileServiceDuration(columnUserProfileRecord?.serviceDurationYear, columnUserProfileRecord?.serviceDurationMonth, columnUserProfileRecord?.serviceDurationDay);
+                                                                                                                            FFAppState().profilePositionAge = functions.positionAgeText(columnUserProfileRecord?.positionAgeYear, columnUserProfileRecord?.positionAgeMonth, columnUserProfileRecord?.positionAgeDay);
+                                                                                                                            FFAppState().profilePositionAgeCheck = columnUserProfileRecord!.positionAgeCheck;
+                                                                                                                            FFAppState().profilePositionName = columnUserProfileRecord!.positionName;
+                                                                                                                            FFAppState().ProfilePhoneNumber = columnUserProfileRecord!.phoneNumber;
+                                                                                                                            FFAppState().profileFirstBossEmpID = columnUserProfileRecord!.firstBossEmpId;
+                                                                                                                            FFAppState().profileSecondBossEmpID = columnUserProfileRecord!.secondBossEmpId;
+                                                                                                                            FFAppState().insurancePlanNumber = columnUserProfileRecord!.insurancePlanNumber;
+                                                                                                                            FFAppState().profileLevel = columnUserProfileRecord!.level;
+                                                                                                                            FFAppState().profileBranch = columnUserProfileRecord!.branchName;
+                                                                                                                            FFAppState().branchCode = columnUserProfileRecord!.branchCode;
+                                                                                                                            FFAppState().QRCodeLink = '${containerUrlLinkStorageRecord?.urlLink}${FFAppState().employeeID}';
+                                                                                                                            safeSetState(() {});
+                                                                                                                            FFAppState().userRef = columnfourUserCustomRecord?.reference;
+                                                                                                                            safeSetState(() {});
+                                                                                                                            FFAppState().profileFirstName = functions.getFirstLastNameFromFullName(columnUserProfileRecord?.fullname, 'first_name')!;
+                                                                                                                            FFAppState().profileLastName = functions.getFirstLastNameFromFullName(columnUserProfileRecord?.fullname, 'last_name')!;
+                                                                                                                            safeSetState(() {});
+                                                                                                                            FFAppState().insuranceLicenseStatusCode = columnUserProfileRecord!.insuranceLicenseStatusCode.toList().cast<int>();
+                                                                                                                            safeSetState(() {});
+                                                                                                                            FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseIdCard?.toList())! : FFAppState().profileInsuLicenseIdCard.toList().cast<String>();
+                                                                                                                            FFAppState().profileInsuLicenseNumLicense = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseLicenseNumber?.toList())! : FFAppState().profileInsuLicenseNumLicense.toList().cast<String>();
+                                                                                                                            FFAppState().profileInsuLicenseStartDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseStartDate?.toList())! : FFAppState().profileInsuLicenseStartDate.toList().cast<String>();
+                                                                                                                            FFAppState().profileInsuLicenseExpireDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseExpireDate?.toList())! : FFAppState().profileInsuLicenseExpireDate.toList().cast<String>();
+                                                                                                                            FFAppState().profileInsuLicenseFullName = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseFullname?.toList())! : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
+                                                                                                                            safeSetState(() {});
+                                                                                                                          } else {
+                                                                                                                            _model.getUserProfileBio = await GetUserProfileAPICall.call(
+                                                                                                                              token: FFAppState().accessToken,
+                                                                                                                              apiUrl: FFAppState().apiURLLocalState,
+                                                                                                                              projectName: 'SSW_ARUNSAWAD_API',
+                                                                                                                            );
+
+                                                                                                                            _shouldSetState = true;
+                                                                                                                            if ((_model.getUserProfileBio?.statusCode ?? 200) == 200) {
+                                                                                                                              if (GetUserProfileAPICall.statuslayer1(
+                                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                  ) !=
+                                                                                                                                  200) {
+                                                                                                                                Navigator.pop(context);
+                                                                                                                                await showDialog(
+                                                                                                                                  context: context,
+                                                                                                                                  builder: (alertDialogContext) {
+                                                                                                                                    return WebViewAware(
+                                                                                                                                      child: AlertDialog(
+                                                                                                                                        content: Text('${GetUserProfileAPICall.message(
+                                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                        )}'),
+                                                                                                                                        actions: [
+                                                                                                                                          TextButton(
+                                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                                            child: Text('Ok'),
+                                                                                                                                          ),
+                                                                                                                                        ],
+                                                                                                                                      ),
+                                                                                                                                    );
+                                                                                                                                  },
+                                                                                                                                );
+                                                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                                                return;
+                                                                                                                              }
+                                                                                                                              FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileFullName = '${GetUserProfileAPICall.profileFullName(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().profileBirthDate = '${GetUserProfileAPICall.profileBirthDate(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileUnitCodeName = '${GetUserProfileAPICall.profileBranchName(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().profileParentUnit = '${GetUserProfileAPICall.profileArea(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileRegion = '${GetUserProfileAPICall.profileRegion(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().profileHiredDate = '${GetUserProfileAPICall.profileHiredDate(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
+                                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                  )}', '${GetUserProfileAPICall.profileServiceDurationMM(
+                                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                  )}', '${GetUserProfileAPICall.profileServiceDurationDD(
+                                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                  )}')}';
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
+                                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                  )}', '${GetUserProfileAPICall.profilePositionAgeMM(
+                                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                  )}', '${GetUserProfileAPICall.profilePositionAgeDD(
+                                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                  )}')}';
+                                                                                                                              FFAppState().profilePositionAgeCheck = '${GetUserProfileAPICall.profilePositionAgeCheck(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().profilePositionName = '${GetUserProfileAPICall.profliePositionName(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().QRCodeLink = '${containerUrlLinkStorageRecord?.urlLink}${FFAppState().employeeID}';
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().ProfilePhoneNumber = '${GetUserProfileAPICall.profilePhoneNumber(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileFirstBossEmpID = '${GetUserProfileAPICall.profileFirstBossEmpID(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileSecondBossEmpID = '${GetUserProfileAPICall.profileSecondBossEmpID(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().insurancePlanNumber = '${GetUserProfileAPICall.insurancePlan(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileLevel = '${GetUserProfileAPICall.profileLevel(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileBranch = '${GetUserProfileAPICall.profileBranch(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().branchCode = '${GetUserProfileAPICall.branchCode(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().userRef = columnfourUserCustomRecord?.reference;
+                                                                                                                              safeSetState(() {});
+                                                                                                                              FFAppState().profileFirstName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
+                                                                                                                              FFAppState().profileLastName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
+                                                                                                                              safeSetState(() {});
+                                                                                                                              FFAppState().departmentProfile = '${GetUserProfileAPICall.department(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              FFAppState().profileRoleName = '${GetUserProfileAPICall.profileRoleName(
+                                                                                                                                (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                              )}';
+                                                                                                                              safeSetState(() {});
+                                                                                                                              _model.getUserInsuranceLicenseBio = await GetUserInsuranceLicenseCall.call(
+                                                                                                                                token: FFAppState().accessToken,
+                                                                                                                                apiUrl: FFAppState().apiURLLocalState,
+                                                                                                                              );
+
+                                                                                                                              _shouldSetState = true;
+                                                                                                                              if ((_model.getUserInsuranceLicenseBio?.statusCode ?? 200) == 200) {
+                                                                                                                                FFAppState().insuranceLicenseStatusCode = functions
+                                                                                                                                    .convertDynamicListToIntList(getJsonField(
+                                                                                                                                      (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                                                                      r'''$.dataInfo[*].status''',
+                                                                                                                                      true,
+                                                                                                                                    ))!
+                                                                                                                                    .toList()
+                                                                                                                                    .cast<int>();
+                                                                                                                                safeSetState(() {});
+                                                                                                                                FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
+                                                                                                                                    ? functions.createSomethingListWithNullValue(
+                                                                                                                                        FFAppState().insuranceLicenseStatusCode.toList(),
+                                                                                                                                        GetUserInsuranceLicenseCall.idCard(
+                                                                                                                                          (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                                                                        )?.toList())!
+                                                                                                                                    : FFAppState().profileInsuLicenseIdCard.toList().cast<String>();
+                                                                                                                                FFAppState().profileInsuLicenseNumLicense = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
+                                                                                                                                    ? functions.createSomethingListWithNullValue(
+                                                                                                                                        FFAppState().insuranceLicenseStatusCode.toList(),
+                                                                                                                                        GetUserInsuranceLicenseCall.licenseNumber(
+                                                                                                                                          (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                                                                        )?.toList())!
+                                                                                                                                    : FFAppState().profileInsuLicenseNumLicense.toList().cast<String>();
+                                                                                                                                FFAppState().profileInsuLicenseStartDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
+                                                                                                                                    ? functions.createSomethingListWithNullValue(
+                                                                                                                                        FFAppState().insuranceLicenseStatusCode.toList(),
+                                                                                                                                        GetUserInsuranceLicenseCall.startDate(
+                                                                                                                                          (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                                                                        )?.toList())!
+                                                                                                                                    : FFAppState().profileInsuLicenseStartDate.toList().cast<String>();
+                                                                                                                                FFAppState().profileInsuLicenseExpireDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
+                                                                                                                                    ? functions.createSomethingListWithNullValue(
+                                                                                                                                        FFAppState().insuranceLicenseStatusCode.toList(),
+                                                                                                                                        GetUserInsuranceLicenseCall.expireDate(
+                                                                                                                                          (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                                                                        )?.toList())!
+                                                                                                                                    : FFAppState().profileInsuLicenseExpireDate.toList().cast<String>();
+                                                                                                                                FFAppState().profileInsuLicenseFullName = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
+                                                                                                                                    ? functions.createSomethingListWithNullValue(
+                                                                                                                                        FFAppState().insuranceLicenseStatusCode.toList(),
+                                                                                                                                        GetUserInsuranceLicenseCall.fullName(
+                                                                                                                                          (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                                                                        )?.toList())!
+                                                                                                                                    : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
+                                                                                                                                safeSetState(() {});
+                                                                                                                              }
+                                                                                                                            } else {
+                                                                                                                              if (!((GetUserProfileAPICall.message(
+                                                                                                                                        (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                      ) ==
+                                                                                                                                      'The token has been blacklisted') ||
+                                                                                                                                  (GetUserProfileAPICall.message(
+                                                                                                                                        (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                                      ) ==
+                                                                                                                                      'Token Signature could not be verified.'))) {
+                                                                                                                                Navigator.pop(context);
+                                                                                                                                await showDialog(
+                                                                                                                                  context: context,
+                                                                                                                                  builder: (alertDialogContext) {
+                                                                                                                                    return WebViewAware(
+                                                                                                                                      child: AlertDialog(
+                                                                                                                                        content: Text('พบข้อผิดพลาด (${(_model.getUserProfileBio?.statusCode ?? 200).toString()})'),
+                                                                                                                                        actions: [
+                                                                                                                                          TextButton(
+                                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                                            child: Text('Ok'),
+                                                                                                                                          ),
+                                                                                                                                        ],
+                                                                                                                                      ),
+                                                                                                                                    );
+                                                                                                                                  },
+                                                                                                                                );
+                                                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                                                return;
+                                                                                                                              }
+                                                                                                                              await showDialog(
+                                                                                                                                context: context,
+                                                                                                                                builder: (alertDialogContext) {
+                                                                                                                                  return WebViewAware(
+                                                                                                                                    child: AlertDialog(
+                                                                                                                                      content: Text('Session Loginหมดอายุ'),
+                                                                                                                                      actions: [
+                                                                                                                                        TextButton(
+                                                                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                                          child: Text('Ok'),
+                                                                                                                                        ),
+                                                                                                                                      ],
+                                                                                                                                    ),
+                                                                                                                                  );
+                                                                                                                                },
+                                                                                                                              );
+                                                                                                                              FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                                                              FFAppState().deleteAccessToken();
+                                                                                                                              FFAppState().accessToken = 'access_token';
+
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().deleteEmployeeID();
+                                                                                                                              FFAppState().employeeID = 'employee_id';
+
+                                                                                                                              FFAppState().QRCodeLink = 'qrcode_link';
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().deleteApiURLLocalState();
+                                                                                                                              FFAppState().apiURLLocalState = 'api_url_local_state';
+
+                                                                                                                              FFAppState().deleteBranchCode();
+                                                                                                                              FFAppState().branchCode = 'branch_code';
+
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().isFromSetPinPage = false;
+                                                                                                                              FFAppState().leadChannelColor = [];
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().leadChannelList = [];
+                                                                                                                              FFAppState().isFromLoginPage = false;
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().deletePinCodeAuthen();
+                                                                                                                              FFAppState().pinCodeAuthen = '013972';
+
+                                                                                                                              FFAppState().isFromAuthenPage = false;
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().deleteDateDoNotShowAgain();
+                                                                                                                              FFAppState().dateDoNotShowAgain = null;
+
+                                                                                                                              FFAppState().deleteDoNotShowAgain();
+                                                                                                                              FFAppState().doNotShowAgain = false;
+
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().inAppViaNotification = true;
+                                                                                                                              FFAppState().isInApp = false;
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              FFAppState().fcmToken = 'fcm_token';
+                                                                                                                              FFAppState().isPassLoginSection = false;
+                                                                                                                              FFAppState().update(() {});
+                                                                                                                              Navigator.pop(context);
+                                                                                                                              await actions.a22();
+
+                                                                                                                              context.goNamed(LoginPageWidget.routeName);
+
+                                                                                                                              if (_shouldSetState) safeSetState(() {});
+                                                                                                                              return;
+                                                                                                                            }
+                                                                                                                          }
+
+                                                                                                                          _model.checkLatLngBeforeEnterAppBio = await actions.a8();
+                                                                                                                          _shouldSetState = true;
+                                                                                                                          if (!_model.checkLatLngBeforeEnterAppBio!) {
+                                                                                                                            Navigator.pop(context);
+                                                                                                                            await showDialog(
+                                                                                                                              context: context,
+                                                                                                                              builder: (alertDialogContext) {
+                                                                                                                                return WebViewAware(
+                                                                                                                                  child: AlertDialog(
+                                                                                                                                    content: Text('กรุณาเปิดGPS เพื่อเข้าใช้งานอรุณสวัสดิ์'),
+                                                                                                                                    actions: [
+                                                                                                                                      TextButton(
+                                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                                        child: Text('Ok'),
+                                                                                                                                      ),
+                                                                                                                                    ],
+                                                                                                                                  ),
+                                                                                                                                );
+                                                                                                                              },
+                                                                                                                            );
+                                                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                                                            return;
+                                                                                                                          }
+                                                                                                                          _model.getLocationBioAuthen1 = await actions.getLocation();
+                                                                                                                          _shouldSetState = true;
+
+                                                                                                                          var userLogRecordReference = UserLogRecord.collection.doc();
+                                                                                                                          await userLogRecordReference.set(createUserLogRecordData(
+                                                                                                                            employeeId: FFAppState().employeeID,
+                                                                                                                            action: 'Login_With_Bio',
+                                                                                                                            actionTime: getCurrentTimestamp,
+                                                                                                                            userLocation: _model.getLocationBioAuthen1,
+                                                                                                                          ));
+                                                                                                                          _model.createdUserLogLoginPinCopy = UserLogRecord.getDocumentFromData(
+                                                                                                                              createUserLogRecordData(
+                                                                                                                                employeeId: FFAppState().employeeID,
+                                                                                                                                action: 'Login_With_Bio',
+                                                                                                                                actionTime: getCurrentTimestamp,
+                                                                                                                                userLocation: _model.getLocationBioAuthen1,
+                                                                                                                              ),
+                                                                                                                              userLogRecordReference);
+                                                                                                                          _shouldSetState = true;
+                                                                                                                          FFAppState().isFromAuthenPage = true;
+                                                                                                                          FFAppState().dailyText = functions.helloDailyRandomText(pinCodePageSplashPageImgRecord?.text?.toList());
+                                                                                                                          FFAppState().update(() {});
+                                                                                                                          FFAppState().DateHoliday = columnfirstSplashPageHolidayImgRecord?.date;
+                                                                                                                          FFAppState().DateExpHoliday = columnfirstSplashPageHolidayImgRecord?.dateExp;
+                                                                                                                          FFAppState().update(() {});
+                                                                                                                          FFAppState().profileInsuExpdateAD = functions.stringlistToDateAD(FFAppState().profileInsuLicenseExpireDate.toList())!.toList().cast<DateTime>();
+                                                                                                                          safeSetState(() {});
+                                                                                                                          FFAppState().expInsuLessthen30 = functions.compareDate30(FFAppState().profileInsuExpdateAD.toList(), getCurrentTimestamp.toString())!.toList().cast<bool>();
+                                                                                                                          safeSetState(() {});
+                                                                                                                          if (notidatacolumnInsuranceNotiDataRecord != null) {
+                                                                                                                            if (!functions.compareListof2Date(notidatacolumnInsuranceNotiDataRecord?.expInsuDate?.toList(), FFAppState().profileInsuExpdateAD.toList())!) {
+                                                                                                                              await notidatacolumnInsuranceNotiDataRecord!.reference.update({
+                                                                                                                                ...mapToFirestore(
+                                                                                                                                  {
+                                                                                                                                    'exp_insu_date': FFAppState().profileInsuExpdateAD,
+                                                                                                                                  },
+                                                                                                                                ),
+                                                                                                                              });
+                                                                                                                            }
+                                                                                                                            if (iconButtonInsuranceLicenseDataRecord?.licenseName?.length != notidatacolumnInsuranceNotiDataRecord?.licenseType?.length) {
+                                                                                                                              await notidatacolumnInsuranceNotiDataRecord!.reference.update({
+                                                                                                                                ...mapToFirestore(
+                                                                                                                                  {
+                                                                                                                                    'license_type': iconButtonInsuranceLicenseDataRecord?.licenseName,
+                                                                                                                                  },
+                                                                                                                                ),
+                                                                                                                              });
+                                                                                                                            }
+                                                                                                                            if (notidatacolumnInsuranceNotiDataRecord?.expInsuDate?.length != FFAppState().profileInsuExpdateAD.length) {
+                                                                                                                              await notidatacolumnInsuranceNotiDataRecord!.reference.update({
+                                                                                                                                ...mapToFirestore(
+                                                                                                                                  {
+                                                                                                                                    'exp_insu_date': FFAppState().profileInsuExpdateAD,
+                                                                                                                                  },
+                                                                                                                                ),
+                                                                                                                              });
+                                                                                                                            }
+                                                                                                                          } else {
+                                                                                                                            var insuranceNotiDataRecordReference = InsuranceNotiDataRecord.collection.doc();
+                                                                                                                            await insuranceNotiDataRecordReference.set({
+                                                                                                                              ...createInsuranceNotiDataRecordData(
+                                                                                                                                empId: FFAppState().employeeID,
+                                                                                                                              ),
+                                                                                                                              ...mapToFirestore(
+                                                                                                                                {
+                                                                                                                                  'license_type': iconButtonInsuranceLicenseDataRecord?.licenseName,
+                                                                                                                                  'noti_is_sent': FFAppState().defaultlistFalse,
+                                                                                                                                  'exp_insu_date': FFAppState().profileInsuExpdateAD,
+                                                                                                                                },
+                                                                                                                              ),
+                                                                                                                            });
+                                                                                                                            _model.createInsuNotidadta2 = InsuranceNotiDataRecord.getDocumentFromData({
+                                                                                                                              ...createInsuranceNotiDataRecordData(
+                                                                                                                                empId: FFAppState().employeeID,
+                                                                                                                              ),
+                                                                                                                              ...mapToFirestore(
+                                                                                                                                {
+                                                                                                                                  'license_type': iconButtonInsuranceLicenseDataRecord?.licenseName,
+                                                                                                                                  'noti_is_sent': FFAppState().defaultlistFalse,
+                                                                                                                                  'exp_insu_date': FFAppState().profileInsuExpdateAD,
+                                                                                                                                },
+                                                                                                                              ),
+                                                                                                                            }, insuranceNotiDataRecordReference);
+                                                                                                                            _shouldSetState = true;
+                                                                                                                            Navigator.pop(context);
+
+                                                                                                                            context.goNamed(SuperAppPageWidget.routeName);
+
+                                                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                                                            return;
+                                                                                                                          }
+
+                                                                                                                          while (FFAppState().superAppi <= functions.lengthMinus1(FFAppState().insuranceLicenseStatusCode.toList())!) {
+                                                                                                                            if (FFAppState().insuranceLicenseStatusCode.elementAtOrNull(FFAppState().superAppi) == 200) {
+                                                                                                                              if (FFAppState().expInsuLessthen30.elementAtOrNull(FFAppState().superAppi)!) {
+                                                                                                                                if ((notidatacolumnInsuranceNotiDataRecord?.notiIsSent?.elementAtOrNull(FFAppState().superAppi)) == false) {
+                                                                                                                                  FFAppState().falselistPersistd = functions.changelistFalseToTrue(FFAppState().falselistPersistd.toList(), FFAppState().superAppi)!.toList().cast<bool>();
+                                                                                                                                  safeSetState(() {});
+
+                                                                                                                                  var notificationRecordReference = NotificationRecord.createDoc(columnfourUserCustomRecord!.reference);
+                                                                                                                                  await notificationRecordReference.set(createNotificationRecordData(
+                                                                                                                                    notiTime: getCurrentTimestamp,
+                                                                                                                                    notiTitle: 'แจ้งเตือนใบอนุญาตประกัน',
+                                                                                                                                    notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?.elementAtOrNull(FFAppState().superAppi)}จะหมดอายุใน 30 วัน',
+                                                                                                                                    notiIsRead: false,
+                                                                                                                                    thisNotiIsRead: false,
+                                                                                                                                    notiType: 'insurance',
+                                                                                                                                  ));
+                                                                                                                                  _model.createInsuPageNotificationBio = NotificationRecord.getDocumentFromData(
+                                                                                                                                      createNotificationRecordData(
+                                                                                                                                        notiTime: getCurrentTimestamp,
+                                                                                                                                        notiTitle: 'แจ้งเตือนใบอนุญาตประกัน',
+                                                                                                                                        notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?.elementAtOrNull(FFAppState().superAppi)}จะหมดอายุใน 30 วัน',
+                                                                                                                                        notiIsRead: false,
+                                                                                                                                        thisNotiIsRead: false,
+                                                                                                                                        notiType: 'insurance',
+                                                                                                                                      ),
+                                                                                                                                      notificationRecordReference);
+                                                                                                                                  _shouldSetState = true;
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                            FFAppState().superAppi = FFAppState().superAppi + 1;
+                                                                                                                            safeSetState(() {});
+                                                                                                                          }
+
+                                                                                                                          await notidatacolumnInsuranceNotiDataRecord!.reference.update({
+                                                                                                                            ...mapToFirestore(
+                                                                                                                              {
+                                                                                                                                'noti_is_sent': FFAppState().falselistPersistd,
+                                                                                                                              },
+                                                                                                                            ),
+                                                                                                                          });
+                                                                                                                          FFAppState().firstLoginLocation = _model.getLocationBioAuthen1;
+                                                                                                                          safeSetState(() {});
+                                                                                                                          Navigator.pop(context);
+
+                                                                                                                          context.goNamed(SuperAppPageWidget.routeName);
+
+                                                                                                                          if (_shouldSetState) safeSetState(() {});
                                                                                                                         },
-                                                                                                                      ),
-                                                                                                                    });
-                                                                                                                    FFAppState().firstLoginLocation = _model.getLocationBioAuthen1;
-                                                                                                                    safeSetState(() {});
-                                                                                                                    Navigator.pop(context);
-
-                                                                                                                    context.goNamed(SuperAppPageWidget.routeName);
-
-                                                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                                                  },
+                                                                                                                      );
+                                                                                                                    },
+                                                                                                                  ),
                                                                                                                 );
-                                                                                                              },
-                                                                                                            ),
+                                                                                                              } else {
+                                                                                                                return InkWell(
+                                                                                                                  splashColor: Colors.transparent,
+                                                                                                                  focusColor: Colors.transparent,
+                                                                                                                  hoverColor: Colors.transparent,
+                                                                                                                  highlightColor: Colors.transparent,
+                                                                                                                  onTap: () async {
+                                                                                                                    context.pushNamed(
+                                                                                                                      SettingAppPageWidget.routeName,
+                                                                                                                      queryParameters: {
+                                                                                                                        'fromPage': serializeParam(
+                                                                                                                          'PinPage',
+                                                                                                                          ParamType.String,
+                                                                                                                        ),
+                                                                                                                      }.withoutNulls,
+                                                                                                                    );
+                                                                                                                  },
+                                                                                                                  child: Container(
+                                                                                                                    width: 85.0,
+                                                                                                                    height: 85.0,
+                                                                                                                    child: Stack(
+                                                                                                                      children: [
+                                                                                                                        Align(
+                                                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                                                          child: Icon(
+                                                                                                                            Icons.crop_free,
+                                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                            size: 85.0,
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                        Align(
+                                                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                                                          child: Icon(
+                                                                                                                            Icons.face,
+                                                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                                            size: 45.0,
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                      ],
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                );
+                                                                                                              }
+                                                                                                            },
                                                                                                           ),
                                                                                                           Padding(
                                                                                                             padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                                                             child: Text(
-                                                                                                              'กดเพื่อตั้งค่าใช้งาน Face id หรือ สแกนนิ้ว',
+                                                                                                              'กดเพื่อตั้งค่าใช้งาน ${isAndroid ? 'สแกนลายนิ้วมือ' : 'Face id'}',
                                                                                                               style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                                                     font: GoogleFonts.poppins(
                                                                                                                       fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,

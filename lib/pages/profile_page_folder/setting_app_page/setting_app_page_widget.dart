@@ -66,7 +66,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                 return WebViewAware(
                   child: AlertDialog(
                     content: Text(
-                        'คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย Face id หรือ สแกนลายนิ้วมือหรือไม่?'),
+                        'คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย ${isAndroid ? 'สแกนลายนิ้วมือ' : 'Face id'}หรือไม่?'),
                     actions: [
                       TextButton(
                         onPressed: () =>
@@ -922,6 +922,47 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                               onChanged: (newValue) async {
                                 safeSetState(() =>
                                     _model.switchListTileValue = newValue!);
+                                if (newValue!) {
+                                  var confirmDialogResponse =
+                                      await showDialog<bool>(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย ${isAndroid ? 'สแกนลายนิ้วมือ' : 'Face id'}หรือไม่?'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              false),
+                                                      child: Text('Cancel'),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              true),
+                                                      child: Text('Confirm'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          ) ??
+                                          false;
+                                  if (!confirmDialogResponse) {
+                                    return;
+                                  }
+                                  FFAppState().isSetBioAuthenFirstTime = true;
+                                  FFAppState().BioAuthCheck = true;
+                                  safeSetState(() {});
+                                } else {
+                                  FFAppState().isSetBioAuthenFirstTime = true;
+                                  FFAppState().BioAuthCheck = false;
+                                  safeSetState(() {});
+                                }
                               },
                               title: Text(
                                 isAndroid ? 'สแกนลายนิ้วมือ' : 'Face ID',

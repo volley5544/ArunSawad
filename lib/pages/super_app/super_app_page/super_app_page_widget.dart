@@ -982,6 +982,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                           ParamType.String,
                                         ),
                                       }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.bottomToTop,
+                                        ),
+                                      },
                                     );
                                   },
                                   child: Material(
