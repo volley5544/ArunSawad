@@ -2023,10 +2023,16 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                                 SettingAppPageWidget.routeName,
                                                                                                                                 queryParameters: {
                                                                                                                                   'fromPage': serializeParam(
-                                                                                                                                    '',
+                                                                                                                                    'PinPage',
                                                                                                                                     ParamType.String,
                                                                                                                                   ),
                                                                                                                                 }.withoutNulls,
+                                                                                                                                extra: <String, dynamic>{
+                                                                                                                                  kTransitionInfoKey: TransitionInfo(
+                                                                                                                                    hasTransition: true,
+                                                                                                                                    transitionType: PageTransitionType.bottomToTop,
+                                                                                                                                  ),
+                                                                                                                                },
                                                                                                                               );
 
                                                                                                                               if (_shouldSetState) safeSetState(() {});
@@ -2696,14 +2702,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   hoverColor: Colors.transparent,
                                                                                                                   highlightColor: Colors.transparent,
                                                                                                                   onTap: () async {
-                                                                                                                    context.pushNamed(
-                                                                                                                      SettingAppPageOldWidget.routeName,
+                                                                                                                    context.goNamed(
+                                                                                                                      SettingAppPageWidget.routeName,
                                                                                                                       queryParameters: {
                                                                                                                         'fromPage': serializeParam(
                                                                                                                           'PinPage',
                                                                                                                           ParamType.String,
                                                                                                                         ),
                                                                                                                       }.withoutNulls,
+                                                                                                                      extra: <String, dynamic>{
+                                                                                                                        kTransitionInfoKey: TransitionInfo(
+                                                                                                                          hasTransition: true,
+                                                                                                                          transitionType: PageTransitionType.bottomToTop,
+                                                                                                                        ),
+                                                                                                                      },
                                                                                                                     );
                                                                                                                   },
                                                                                                                   child: Container(

@@ -72,6 +72,10 @@ class FFAppState extends ChangeNotifier {
               _leadIdCalledInApp;
     });
     await _safeInitAsync(() async {
+      _profileFullName = await secureStorage.getString('ff_profileFullName') ??
+          _profileFullName;
+    });
+    await _safeInitAsync(() async {
       _firstUseApp =
           await secureStorage.getBool('ff_firstUseApp') ?? _firstUseApp;
     });
@@ -1058,6 +1062,11 @@ class FFAppState extends ChangeNotifier {
   String get profileFullName => _profileFullName;
   set profileFullName(String value) {
     _profileFullName = value;
+    secureStorage.setString('ff_profileFullName', value);
+  }
+
+  void deleteProfileFullName() {
+    secureStorage.delete(key: 'ff_profileFullName');
   }
 
   String _profileBirthDate = '[birth_date]';

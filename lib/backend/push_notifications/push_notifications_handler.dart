@@ -863,11 +863,6 @@ final parametersBuilderMap =
           'profileLevel': getParameter<String>(data, 'profileLevel'),
         },
       ),
-  'SettingAppPageOld': (data) async => ParameterData(
-        allParams: {
-          'fromPage': getParameter<String>(data, 'fromPage'),
-        },
-      ),
   'ChangePinCodePage': ParameterData.none(),
   'SettingAppPage': (data) async => ParameterData(
         allParams: {

@@ -2825,16 +2825,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: SettingAppPageOldWidget.routeName,
-              path: SettingAppPageOldWidget.routePath,
-              builder: (context, params) => SettingAppPageOldWidget(
-                fromPage: params.getParam(
-                  'fromPage',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
               name: ChangePinCodePageWidget.routeName,
               path: ChangePinCodePageWidget.routePath,
               builder: (context, params) => ChangePinCodePageWidget(),
