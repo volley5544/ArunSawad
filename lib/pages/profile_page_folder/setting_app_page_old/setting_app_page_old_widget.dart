@@ -24,27 +24,28 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'setting_app_page_model.dart';
-export 'setting_app_page_model.dart';
+import 'setting_app_page_old_model.dart';
+export 'setting_app_page_old_model.dart';
 
-class SettingAppPageWidget extends StatefulWidget {
-  const SettingAppPageWidget({
+class SettingAppPageOldWidget extends StatefulWidget {
+  const SettingAppPageOldWidget({
     super.key,
-    this.fromPage,
+    required this.fromPage,
   });
 
   final String? fromPage;
 
-  static String routeName = 'SettingAppPage';
-  static String routePath = 'settingAppPage';
+  static String routeName = 'SettingAppPageOld';
+  static String routePath = 'settingAppPageOld';
 
   @override
-  State<SettingAppPageWidget> createState() => _SettingAppPageWidgetState();
+  State<SettingAppPageOldWidget> createState() =>
+      _SettingAppPageOldWidgetState();
 }
 
-class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
+class _SettingAppPageOldWidgetState extends State<SettingAppPageOldWidget>
     with TickerProviderStateMixin {
-  late SettingAppPageModel _model;
+  late SettingAppPageOldModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -53,10 +54,10 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SettingAppPageModel());
+    _model = createModel(context, () => SettingAppPageOldModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'SettingAppPage'});
+        parameters: {'screen_name': 'SettingAppPageOld'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (widget!.fromPage == 'PinPage') {
@@ -317,7 +318,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
         },
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           appBar: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             automaticallyImplyLeading: false,
@@ -546,7 +547,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                                               validateFileFormat(
                                                   m.storagePath, context))) {
                                         safeSetState(() => _model
-                                                .isDataUploading_uploadProfileImageSettingPage =
+                                                .isDataUploading_uploadProfileImageSettingPage1 =
                                             true);
                                         var selectedUploadedFiles =
                                             <FFUploadedFile>[];
@@ -567,13 +568,13 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                                                   ))
                                               .toList();
                                         } finally {
-                                          _model.isDataUploading_uploadProfileImageSettingPage =
+                                          _model.isDataUploading_uploadProfileImageSettingPage1 =
                                               false;
                                         }
                                         if (selectedUploadedFiles.length ==
                                             selectedMedia.length) {
                                           safeSetState(() {
-                                            _model.uploadedLocalFile_uploadProfileImageSettingPage =
+                                            _model.uploadedLocalFile_uploadProfileImageSettingPage1 =
                                                 selectedUploadedFiles.first;
                                           });
                                         } else {
@@ -582,9 +583,9 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                                         }
                                       }
 
-                                      if (!(_model.uploadedLocalFile_uploadProfileImageSettingPage !=
+                                      if (!(_model.uploadedLocalFile_uploadProfileImageSettingPage1 !=
                                               null &&
-                                          (_model.uploadedLocalFile_uploadProfileImageSettingPage
+                                          (_model.uploadedLocalFile_uploadProfileImageSettingPage1
                                                   .bytes?.isNotEmpty ??
                                               false))) {
                                         Navigator.pop(context);
@@ -597,7 +598,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                                               .uploadFileFirebaseStorage(
                                         'UsersProfileImage',
                                         _model
-                                            .uploadedLocalFile_uploadProfileImageSettingPage,
+                                            .uploadedLocalFile_uploadProfileImageSettingPage1,
                                       );
                                       _shouldSetState = true;
                                       if (!(_model.uploadFirebaseStorageAction !=
@@ -652,13 +653,13 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                                         imgProfile: functions.stringToImgPath(
                                             _model.uploadFirebaseStorageAction),
                                         imgProfileBlurHash: _model
-                                            .uploadedLocalFile_uploadProfileImageSettingPage
+                                            .uploadedLocalFile_uploadProfileImageSettingPage1
                                             .blurHash,
                                       ));
                                       safeSetState(() {
-                                        _model.isDataUploading_uploadProfileImageSettingPage =
+                                        _model.isDataUploading_uploadProfileImageSettingPage1 =
                                             false;
-                                        _model.uploadedLocalFile_uploadProfileImageSettingPage =
+                                        _model.uploadedLocalFile_uploadProfileImageSettingPage1 =
                                             FFUploadedFile(
                                                 bytes: Uint8List.fromList([]),
                                                 originalFilename: '');

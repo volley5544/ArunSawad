@@ -975,7 +975,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                     HapticFeedback.mediumImpact();
 
                                     context.pushNamed(
-                                      SettingAppPageWidget.routeName,
+                                      SettingAppPageOldWidget.routeName,
                                       queryParameters: {
                                         'fromPage': serializeParam(
                                           'SuperAppPage',

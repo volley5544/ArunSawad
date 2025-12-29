@@ -2019,7 +2019,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                           HapticFeedback.mediumImpact();
                                                                                                                           if (true) {
                                                                                                                             if (true) {
-                                                                                                                              context.pushNamed(TabCollectionWidget.routeName);
+                                                                                                                              context.goNamed(
+                                                                                                                                SettingAppPageWidget.routeName,
+                                                                                                                                queryParameters: {
+                                                                                                                                  'fromPage': serializeParam(
+                                                                                                                                    '',
+                                                                                                                                    ParamType.String,
+                                                                                                                                  ),
+                                                                                                                                }.withoutNulls,
+                                                                                                                              );
 
                                                                                                                               if (_shouldSetState) safeSetState(() {});
                                                                                                                               return;
@@ -2689,7 +2697,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   highlightColor: Colors.transparent,
                                                                                                                   onTap: () async {
                                                                                                                     context.pushNamed(
-                                                                                                                      SettingAppPageWidget.routeName,
+                                                                                                                      SettingAppPageOldWidget.routeName,
                                                                                                                       queryParameters: {
                                                                                                                         'fromPage': serializeParam(
                                                                                                                           'PinPage',

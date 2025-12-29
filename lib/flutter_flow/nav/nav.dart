@@ -2825,9 +2825,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: SettingAppPageWidget.routeName,
-              path: SettingAppPageWidget.routePath,
-              builder: (context, params) => SettingAppPageWidget(
+              name: SettingAppPageOldWidget.routeName,
+              path: SettingAppPageOldWidget.routePath,
+              builder: (context, params) => SettingAppPageOldWidget(
                 fromPage: params.getParam(
                   'fromPage',
                   ParamType.String,
@@ -2840,9 +2840,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ChangePinCodePageWidget(),
             ),
             FFRoute(
-              name: BlankkkWidget.routeName,
-              path: BlankkkWidget.routePath,
-              builder: (context, params) => BlankkkWidget(),
+              name: SettingAppPageWidget.routeName,
+              path: SettingAppPageWidget.routePath,
+              builder: (context, params) => SettingAppPageWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
