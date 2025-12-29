@@ -1973,7 +1973,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                         ),
                                                                                                       ),
                                                                                                     ),
-                                                                                                    if (FFAppState().isSetBioAuthenFirstTime)
+                                                                                                    if (FFAppState().isSetBioAuthenFirstTime && !FFAppState().BioAuthCheck)
                                                                                                       Column(
                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                         children: [

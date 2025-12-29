@@ -71,12 +71,12 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                       TextButton(
                         onPressed: () =>
                             Navigator.pop(alertDialogContext, false),
-                        child: Text('ไม่เปิด'),
+                        child: Text('Cancel'),
                       ),
                       TextButton(
                         onPressed: () =>
                             Navigator.pop(alertDialogContext, true),
-                        child: Text('เปิด'),
+                        child: Text('Confirm'),
                       ),
                     ],
                   ),
