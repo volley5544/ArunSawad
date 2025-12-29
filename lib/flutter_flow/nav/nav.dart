@@ -2833,6 +2833,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: ChangePinCodePageWidget.routeName,
+              path: ChangePinCodePageWidget.routePath,
+              builder: (context, params) => ChangePinCodePageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

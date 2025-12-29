@@ -303,3 +303,5 @@ export '/collection_page/tab_collection_team_m_page/tab_collection_team_m_page_w
     show TabCollectionTeamMPageWidget;
 export '/pages/profile_page_folder/setting_app_page/setting_app_page_widget.dart'
     show SettingAppPageWidget;
+export '/pages/profile_page_folder/change_pin_code_page/change_pin_code_page_widget.dart'
+    show ChangePinCodePageWidget;
