@@ -2017,6 +2017,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                         onPressed: () async {
                                                                                                                           var _shouldSetState = false;
                                                                                                                           HapticFeedback.mediumImpact();
+
+                                                                                                                          safeSetState(() {});
                                                                                                                           if (true) {
                                                                                                                             if (true) {
                                                                                                                               context.goNamed(
