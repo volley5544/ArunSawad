@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'setting_app_page_model.dart';
@@ -37,9 +36,6 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SettingAppPage'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {});
-
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
