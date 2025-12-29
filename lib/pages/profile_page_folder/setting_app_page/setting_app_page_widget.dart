@@ -648,7 +648,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                   width: double.infinity,
                   decoration: BoxDecoration(),
                   child: Text(
-                    FFAppState().profileFullName,
+                    '${FFAppState().profileFullName}',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
                           font: GoogleFonts.poppins(
@@ -674,7 +674,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
-                  FFAppState().employeeID,
+                  '${FFAppState().employeeID}',
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         font: GoogleFonts.poppins(
                           fontWeight: FlutterFlowTheme.of(context)
@@ -983,11 +983,19 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyLargeFamily,
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
-                          useGoogleFonts:
-                              !FlutterFlowTheme.of(context).bodyLargeIsCustom,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
                     elevation: 0.0,
                     borderSide: BorderSide(
