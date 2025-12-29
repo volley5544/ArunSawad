@@ -305,3 +305,5 @@ export '/pages/profile_page_folder/setting_app_page/setting_app_page_widget.dart
     show SettingAppPageWidget;
 export '/pages/profile_page_folder/change_pin_code_page/change_pin_code_page_widget.dart'
     show ChangePinCodePageWidget;
+export '/pages/profile_page_folder/blankkk/blankkk_widget.dart'
+    show BlankkkWidget;

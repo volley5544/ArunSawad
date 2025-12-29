@@ -869,6 +869,7 @@ final parametersBuilderMap =
         },
       ),
   'ChangePinCodePage': ParameterData.none(),
+  'blankkk': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

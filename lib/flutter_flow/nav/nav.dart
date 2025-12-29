@@ -2838,6 +2838,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: ChangePinCodePageWidget.routeName,
               path: ChangePinCodePageWidget.routePath,
               builder: (context, params) => ChangePinCodePageWidget(),
+            ),
+            FFRoute(
+              name: BlankkkWidget.routeName,
+              path: BlankkkWidget.routePath,
+              builder: (context, params) => BlankkkWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
