@@ -32,6 +32,8 @@ class ApproveShowPageModel extends FlutterFlowModel<ApproveShowPageWidget> {
   ApiCallResponse? getDisapprove;
   // Stores action output result for [Backend Call - API (getApprovedAPI)] action in ApproveShowPage widget.
   ApiCallResponse? getCancelApprove;
+  // Stores action output result for [Custom Action - getLocation] action in ApproveShowPage widget.
+  LatLng? getLocationOnPageLoad;
   // Stores action output result for [Backend Call - Create Document] action in ApproveShowPage widget.
   UserLogRecord? createdUserLogLogout55;
   // Stores action output result for [Backend Call - API (getApprovedAPI)] action in ApproveShowPage widget.

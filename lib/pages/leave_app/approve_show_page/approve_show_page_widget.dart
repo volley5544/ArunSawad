@@ -39,7 +39,6 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
   late ApproveShowPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -50,29 +49,31 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
         parameters: {'screen_name': 'ApproveShowPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        barrierColor: Color(0x00000000),
-        enableDrag: false,
+      showDialog(
         context: context,
-        builder: (context) {
-          return WebViewAware(
-            child: GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: LoadingSceneWidget(),
+        builder: (dialogContext) {
+          return Dialog(
+            elevation: 0,
+            insetPadding: EdgeInsets.zero,
+            backgroundColor: Colors.transparent,
+            alignment: AlignmentDirectional(0.0, 0.0)
+                .resolve(Directionality.of(context)),
+            child: WebViewAware(
+              child: GestureDetector(
+                onTap: () {
+                  FocusScope.of(dialogContext).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
           );
         },
-      ).then((value) => safeSetState(() {}));
+      );
 
       _model.dateTimeAPIOutput = await GetDateTimeAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
@@ -149,19 +150,21 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                   (_model.getCancelApprove?.jsonBody ?? ''),
                 ) ==
                 'Token Signature could not be verified.')) {
+          _model.getLocationOnPageLoad = await actions.getLocation();
+
           var userLogRecordReference = UserLogRecord.collection.doc();
           await userLogRecordReference.set(createUserLogRecordData(
             employeeId: FFAppState().employeeID,
             action: 'Logout',
             actionTime: getCurrentTimestamp,
-            userLocation: currentUserLocationValue,
+            userLocation: _model.getLocationOnPageLoad,
           ));
           _model.createdUserLogLogout55 = UserLogRecord.getDocumentFromData(
               createUserLogRecordData(
                 employeeId: FFAppState().employeeID,
                 action: 'Logout',
                 actionTime: getCurrentTimestamp,
-                userLocation: currentUserLocationValue,
+                userLocation: _model.getLocationOnPageLoad,
               ),
               userLogRecordReference);
           FFAppState().loginStateFirebase = '[loginStateFirebase]';
@@ -234,6 +237,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
 
           return;
         } else {
+          Navigator.pop(context);
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
@@ -361,140 +365,137 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: PopScope(
-        canPop: false,
-        child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          appBar: AppBar(
-            backgroundColor: Color(0xFFFF6500),
-            automaticallyImplyLeading: false,
-            leading: InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
-                context.goNamed(DashboardLeavePageWidget.routeName);
-              },
-              child: Icon(
-                Icons.arrow_back,
-                color: Color(0xFBFFFFFF),
-                size: 30.0,
+    return Builder(
+      builder: (context) => GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+        child: PopScope(
+          canPop: false,
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: AppBar(
+              backgroundColor: Color(0xFFFF6500),
+              automaticallyImplyLeading: false,
+              leading: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.goNamed(DashboardLeavePageWidget.routeName);
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Color(0xFBFFFFFF),
+                  size: 30.0,
+                ),
               ),
-            ),
-            title: Text(
-              'รายการ',
-              style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    font: GoogleFonts.poppins(
+              title: Text(
+                'รายการ',
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      font: GoogleFonts.poppins(
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
+                      ),
+                      color: Colors.white,
+                      fontSize: 18.0,
+                      letterSpacing: 0.0,
                       fontWeight: FlutterFlowTheme.of(context)
                           .headlineMedium
                           .fontWeight,
                       fontStyle:
                           FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    letterSpacing: 0.0,
-                    fontWeight:
-                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                  ),
+              ),
+              actions: [],
+              centerTitle: true,
+              elevation: 10.0,
             ),
-            actions: [],
-            centerTitle: true,
-            elevation: 10.0,
-          ),
-          body: SafeArea(
-            top: true,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                if (true)
-                  FlutterFlowDropDown<String>(
-                    controller: _model.monthSelectValueController ??=
-                        FormFieldController<String>(
-                      _model.monthSelectValue ??= true
-                          ? ''
-                          : functions
-                              .currentTimeToMonthThai(getCurrentTimestamp),
+            body: SafeArea(
+              top: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  if (true)
+                    FlutterFlowDropDown<String>(
+                      controller: _model.monthSelectValueController ??=
+                          FormFieldController<String>(
+                        _model.monthSelectValue ??= true
+                            ? ''
+                            : functions
+                                .currentTimeToMonthThai(getCurrentTimestamp),
+                      ),
+                      options: [
+                        'มกราคม',
+                        'กุมภาพันธ์',
+                        'มีนาคม',
+                        'เมษายน',
+                        'พฤษภาคม',
+                        'มิถุนายน',
+                        'กรกฎาคม',
+                        'สิงหาคม',
+                        'กันยายน',
+                        'ตุลาคม',
+                        'พฤศจิกายน',
+                        'ธันวาคม'
+                      ],
+                      onChanged: (val) =>
+                          safeSetState(() => _model.monthSelectValue = val),
+                      width: double.infinity,
+                      height: 50.0,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                                color: Colors.black,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                      hintText: 'กรุณาเลือกเดือนที่ต้องการหา',
+                      icon: FaIcon(
+                        FontAwesomeIcons.solidCalendarAlt,
+                        size: 15.0,
+                      ),
+                      fillColor: Colors.white,
+                      elevation: 2.0,
+                      borderColor: Colors.transparent,
+                      borderWidth: 0.0,
+                      borderRadius: 0.0,
+                      margin:
+                          EdgeInsetsDirectional.fromSTEB(160.0, 4.0, 12.0, 4.0),
+                      hidesUnderline: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
                     ),
-                    options: [
-                      'มกราคม',
-                      'กุมภาพันธ์',
-                      'มีนาคม',
-                      'เมษายน',
-                      'พฤษภาคม',
-                      'มิถุนายน',
-                      'กรกฎาคม',
-                      'สิงหาคม',
-                      'กันยายน',
-                      'ตุลาคม',
-                      'พฤศจิกายน',
-                      'ธันวาคม'
-                    ],
-                    onChanged: (val) =>
-                        safeSetState(() => _model.monthSelectValue = val),
-                    width: double.infinity,
-                    height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.poppins(
-                            fontWeight: FlutterFlowTheme.of(context)
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment(0.0, 0),
+                          child: TabBar(
+                            labelColor: FlutterFlowTheme.of(context).black600,
+                            labelStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
-                          color: Colors.black,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
-                    hintText: 'กรุณาเลือกเดือนที่ต้องการหา',
-                    icon: FaIcon(
-                      FontAwesomeIcons.solidCalendarAlt,
-                      size: 15.0,
-                    ),
-                    fillColor: Colors.white,
-                    elevation: 2.0,
-                    borderColor: Colors.transparent,
-                    borderWidth: 0.0,
-                    borderRadius: 0.0,
-                    margin:
-                        EdgeInsetsDirectional.fromSTEB(160.0, 4.0, 12.0, 4.0),
-                    hidesUnderline: true,
-                    isSearchable: false,
-                    isMultiSelect: false,
-                  ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment(0.0, 0),
-                        child: TabBar(
-                          labelColor: FlutterFlowTheme.of(context).black600,
-                          labelStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.poppins(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.0,
+                                .override(
+                                  font: GoogleFonts.poppins(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
@@ -502,170 +503,195 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                          unselectedLabelStyle: TextStyle(),
-                          indicatorColor:
-                              FlutterFlowTheme.of(context).secondary,
-                          tabs: [
-                            Tab(
-                              text: 'อนุมัติ',
-                            ),
-                            Tab(
-                              text: 'ไม่อนุมัติ',
-                            ),
-                            Tab(
-                              text: 'ยกเลิก',
-                            ),
-                          ],
-                          controller: _model.tabBarController,
-                          onTap: (i) async {
-                            [() async {}, () async {}, () async {}][i]();
-                          },
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                            unselectedLabelStyle: TextStyle(),
+                            indicatorColor:
+                                FlutterFlowTheme.of(context).secondary,
+                            tabs: [
+                              Tab(
+                                text: 'อนุมัติ',
+                              ),
+                              Tab(
+                                text: 'ไม่อนุมัติ',
+                              ),
+                              Tab(
+                                text: 'ยกเลิก',
+                              ),
+                            ],
+                            controller: _model.tabBarController,
+                            onTap: (i) async {
+                              [() async {}, () async {}, () async {}][i]();
+                            },
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: TabBarView(
-                          controller: _model.tabBarController,
-                          children: [
-                            Builder(
-                              builder: (context) {
-                                final approvedList =
-                                    GetApprovedAPICall.approvedEmpName(
-                                          (_model.getApproved?.jsonBody ?? ''),
-                                        )?.toList() ??
-                                        [];
+                        Expanded(
+                          child: TabBarView(
+                            controller: _model.tabBarController,
+                            children: [
+                              Builder(
+                                builder: (context) {
+                                  final approvedList =
+                                      GetApprovedAPICall.approvedEmpName(
+                                            (_model.getApproved?.jsonBody ??
+                                                ''),
+                                          )?.toList() ??
+                                          [];
 
-                                return ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: approvedList.length,
-                                  itemBuilder: (context, approvedListIndex) {
-                                    final approvedListItem =
-                                        approvedList[approvedListIndex];
-                                    return Visibility(
-                                      visible: (_model.monthSelectValue ==
-                                                  null ||
-                                              _model.monthSelectValue == '') ||
-                                          (functions.checkMonthLeave(
-                                                  _model.monthSelectValue,
-                                                  functions
-                                                      .splitDateintoStartDate(
-                                                          valueOrDefault<
-                                                              String>(
-                                                    functions.showMatNameInList(
-                                                        functions
-                                                            .reverseList(
-                                                                GetApprovedAPICall
-                                                                    .approvedLeaveDate(
-                                                              (_model.getApproved
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.toList())
-                                                            .toList(),
-                                                        approvedListIndex),
-                                                    '[leave_name]',
-                                                  )))! ||
-                                              functions.checkMonthLeave(
-                                                  _model.monthSelectValue,
-                                                  functions
-                                                      .splitDateintoEndDate(
-                                                          valueOrDefault<
-                                                              String>(
-                                                    functions.showMatNameInList(
-                                                        functions
-                                                            .reverseList(
-                                                                GetApprovedAPICall
-                                                                    .approvedLeaveDate(
-                                                              (_model.getApproved
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.toList())
-                                                            .toList(),
-                                                        approvedListIndex),
-                                                    '[leave_name]',
-                                                  )))!),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 16.0, 8.0, 8.0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height:
-                                              functions.contrainerChange(290.0),
-                                          decoration: BoxDecoration(
-                                            color: valueOrDefault<Color>(
-                                              functions.getResignCardColor(
-                                                  functions.showMatNameInList(
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: approvedList.length,
+                                    itemBuilder: (context, approvedListIndex) {
+                                      final approvedListItem =
+                                          approvedList[approvedListIndex];
+                                      return Visibility(
+                                        visible: (_model.monthSelectValue ==
+                                                    null ||
+                                                _model.monthSelectValue ==
+                                                    '') ||
+                                            (functions.checkMonthLeave(
+                                                    _model.monthSelectValue,
+                                                    functions
+                                                        .splitDateintoStartDate(
+                                                            valueOrDefault<
+                                                                String>(
                                                       functions
-                                                          .reverseList(
-                                                              GetApprovedAPICall
-                                                                  .approvedLeaveName(
-                                                            (_model.getApproved
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )?.toList())
-                                                          .toList(),
-                                                      approvedListIndex),
-                                                  Color(0x80C29999)),
-                                              Color(0x80C29999),
+                                                          .showMatNameInList(
+                                                              functions
+                                                                  .reverseList(
+                                                                      GetApprovedAPICall
+                                                                          .approvedLeaveDate(
+                                                                    (_model.getApproved
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?.toList())
+                                                                  .toList(),
+                                                              approvedListIndex),
+                                                      '[leave_name]',
+                                                    )))! ||
+                                                functions.checkMonthLeave(
+                                                    _model.monthSelectValue,
+                                                    functions
+                                                        .splitDateintoEndDate(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      functions
+                                                          .showMatNameInList(
+                                                              functions
+                                                                  .reverseList(
+                                                                      GetApprovedAPICall
+                                                                          .approvedLeaveDate(
+                                                                    (_model.getApproved
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?.toList())
+                                                                  .toList(),
+                                                              approvedListIndex),
+                                                      '[leave_name]',
+                                                    )))!),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 16.0, 8.0, 8.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: functions
+                                                .contrainerChange(290.0),
+                                            decoration: BoxDecoration(
+                                              color: valueOrDefault<Color>(
+                                                functions.getResignCardColor(
+                                                    functions.showMatNameInList(
+                                                        functions
+                                                            .reverseList(
+                                                                GetApprovedAPICall
+                                                                    .approvedLeaveName(
+                                                              (_model.getApproved
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )?.toList())
+                                                            .toList(),
+                                                        approvedListIndex),
+                                                    Color(0x80C29999)),
+                                                Color(0x80C29999),
+                                              ),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 4.0,
-                                                color: Color(0x33000000),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                              )
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 8.0, 10.0),
-                                            child: SingleChildScrollView(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child: SelectionArea(
-                                                          child: Text(
-                                                        valueOrDefault<String>(
-                                                          functions
-                                                              .showMatNameInList(
-                                                                  functions
-                                                                      .reverseList(
-                                                                          GetApprovedAPICall
-                                                                              .approvedEmpName(
-                                                                        (_model.getApproved?.jsonBody ??
-                                                                            ''),
-                                                                      )?.toList())
-                                                                      .toList(),
-                                                                  approvedListIndex),
-                                                          '[full_name]',
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      8.0, 0.0, 8.0, 10.0),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0,
+                                                                    5.0),
+                                                        child: SelectionArea(
+                                                            child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            functions.showMatNameInList(
+                                                                functions
+                                                                    .reverseList(GetApprovedAPICall.approvedEmpName(
+                                                                      (_model.getApproved
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )?.toList())
+                                                                    .toList(),
+                                                                approvedListIndex),
+                                                            '[full_name]',
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -674,506 +700,74 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                               ),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
+                                                        )),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
                                                                   0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      )),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 15.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'ประเภทการลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveName(
-                                                                            (_model.getApproved?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      approvedListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
+                                                                  15.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'วันที่ทำรายการ:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveCreateDate(
-                                                                            (_model.getApproved?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      approvedListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'วันที่ลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveDate(
-                                                                            (_model.getApproved?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      approvedListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'จำนวนวันที่ลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveCountDay(
-                                                                            (_model.getApproved?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      approvedListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
                                                                         .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'ประเภทการลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                          Expanded(
+                                                            flex: 4,
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1184,7 +778,17 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               children: [
                                                                 SelectionArea(
                                                                     child: Text(
-                                                                  'ช่วงเวลา:',
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveName(
+                                                                              (_model.getApproved?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        approvedListIndex),
+                                                                    '[full_name]',
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -1211,87 +815,552 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               ],
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeavePeriod(
-                                                                            (_model.getApproved?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      approvedListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
                                                                         .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'วันที่ทำรายการ:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveCreateDate(
+                                                                              (_model.getApproved?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        approvedListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         fontStyle: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .fontStyle,
                                                                       ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
+                                                                )),
+                                                              ],
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'วันที่ลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveDate(
+                                                                              (_model.getApproved?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        approvedListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'จำนวนวันที่ลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveCountDay(
+                                                                              (_model.getApproved?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        approvedListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'ช่วงเวลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeavePeriod(
+                                                                              (_model.getApproved?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        approvedListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    valueOrDefault<String>(
+                                                                              functions.showMatNameInList(
+                                                                                  functions
+                                                                                      .reverseList(GetApprovedAPICall.approvedLeaveName(
+                                                                                        (_model.getApproved?.jsonBody ?? ''),
+                                                                                      )?.toList())
+                                                                                      .toList(),
+                                                                                  approvedListIndex),
+                                                                              '[full_name]',
+                                                                            ) !=
+                                                                            'ลาออก'
+                                                                        ? 'เหตุผลการลา:'
+                                                                        : 'เหตุผลการลาออก:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1314,8 +1383,31 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             '[full_name]',
                                                                           ) !=
                                                                           'ลาออก'
-                                                                      ? 'เหตุผลการลา:'
-                                                                      : 'เหตุผลการลาออก:',
+                                                                      ? valueOrDefault<
+                                                                          String>(
+                                                                          functions.showMatNameInList(
+                                                                              functions
+                                                                                  .reverseList(GetApprovedAPICall.approvedLeaveReason(
+                                                                                    (_model.getApproved?.jsonBody ?? ''),
+                                                                                  )?.toList())
+                                                                                  .toList(),
+                                                                              approvedListIndex),
+                                                                          '[full_name]',
+                                                                        )
+                                                                      : valueOrDefault<
+                                                                          String>(
+                                                                          functions.showMatNameInList(
+                                                                              functions
+                                                                                  .reverseList(GetApprovedAPICall.reasonResign(
+                                                                                    (_model.getApproved?.jsonBody ?? ''),
+                                                                                  )?.toList())
+                                                                                  .toList(),
+                                                                              approvedListIndex),
+                                                                          '[full_name]',
+                                                                        ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -1342,423 +1434,352 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               ],
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                            String>(
-                                                                          functions.showMatNameInList(
-                                                                              functions
-                                                                                  .reverseList(GetApprovedAPICall.approvedLeaveName(
-                                                                                    (_model.getApproved?.jsonBody ?? ''),
-                                                                                  )?.toList())
-                                                                                  .toList(),
-                                                                              approvedListIndex),
-                                                                          '[full_name]',
-                                                                        ) !=
-                                                                        'ลาออก'
-                                                                    ? valueOrDefault<
-                                                                        String>(
-                                                                        functions.showMatNameInList(
-                                                                            functions
-                                                                                .reverseList(GetApprovedAPICall.approvedLeaveReason(
-                                                                                  (_model.getApproved?.jsonBody ?? ''),
-                                                                                )?.toList())
-                                                                                .toList(),
-                                                                            approvedListIndex),
-                                                                        '[full_name]',
-                                                                      )
-                                                                    : valueOrDefault<
-                                                                        String>(
-                                                                        functions.showMatNameInList(
-                                                                            functions
-                                                                                .reverseList(GetApprovedAPICall.reasonResign(
-                                                                                  (_model.getApproved?.jsonBody ?? ''),
-                                                                                )?.toList())
-                                                                                .toList(),
-                                                                            approvedListIndex),
-                                                                        '[full_name]',
-                                                                      ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                  if (functions
-                                                          .checkCurrentDateAfterStartDate(
-                                                              functions.getDateFormatAPIFromThaiFormat(
-                                                                  functions.leaveDateToStartLeaveDate(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                functions.showMatNameInList(
-                                                                    functions
-                                                                        .reverseList(GetApprovedAPICall.approvedLeaveDate(
-                                                                          (_model.getApproved?.jsonBody ??
-                                                                              ''),
-                                                                        )?.toList())
-                                                                        .toList(),
-                                                                    approvedListIndex),
-                                                                '[full_name]',
-                                                              ))),
-                                                              getCurrentTimestamp)! ||
-                                                      (valueOrDefault<String>(
-                                                            functions.showMatNameInList(
-                                                                functions
-                                                                    .reverseList(GetApprovedAPICall.approvedLeaveName(
-                                                                      (_model.getApproved
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )?.toList())
-                                                                    .toList(),
-                                                                approvedListIndex),
-                                                            '[full_name]',
-                                                          ) ==
-                                                          'ลาป่วย'))
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  16.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Expanded(
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                // กรณียกเลิก ดักให้กรอกเหตุผลการยกเลิกด้วยก่อนบันทึกข้อมูล
-                                                                FFButtonWidget(
-                                                                  onPressed:
-                                                                      () async {
-                                                                    await showModalBottomSheet(
-                                                                      isScrollControlled:
-                                                                          true,
-                                                                      backgroundColor:
-                                                                          Color(
-                                                                              0xFFFFE700),
-                                                                      barrierColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      enableDrag:
-                                                                          false,
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (context) {
-                                                                        return WebViewAware(
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap:
-                                                                                () {
-                                                                              FocusScope.of(context).unfocus();
-                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                            },
+                                                    if (functions
+                                                            .checkCurrentDateAfterStartDate(
+                                                                functions.getDateFormatAPIFromThaiFormat(
+                                                                    functions.leaveDateToStartLeaveDate(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                  functions.showMatNameInList(
+                                                                      functions
+                                                                          .reverseList(GetApprovedAPICall.approvedLeaveDate(
+                                                                            (_model.getApproved?.jsonBody ??
+                                                                                ''),
+                                                                          )?.toList())
+                                                                          .toList(),
+                                                                      approvedListIndex),
+                                                                  '[full_name]',
+                                                                ))),
+                                                                getCurrentTimestamp)! ||
+                                                        (valueOrDefault<String>(
+                                                              functions.showMatNameInList(
+                                                                  functions
+                                                                      .reverseList(GetApprovedAPICall.approvedLeaveName(
+                                                                        (_model.getApproved?.jsonBody ??
+                                                                            ''),
+                                                                      )?.toList())
+                                                                      .toList(),
+                                                                  approvedListIndex),
+                                                              '[full_name]',
+                                                            ) ==
+                                                            'ลาป่วย'))
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  // กรณียกเลิก ดักให้กรอกเหตุผลการยกเลิกด้วยก่อนบันทึกข้อมูล
+                                                                  FFButtonWidget(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      await showModalBottomSheet(
+                                                                        isScrollControlled:
+                                                                            true,
+                                                                        backgroundColor:
+                                                                            Color(0xFFFFE700),
+                                                                        barrierColor:
+                                                                            Colors.transparent,
+                                                                        enableDrag:
+                                                                            false,
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (context) {
+                                                                          return WebViewAware(
                                                                             child:
-                                                                                Padding(
-                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                              child: Container(
-                                                                                height: MediaQuery.sizeOf(context).height * 0.5,
-                                                                                child: InputCopy2Widget(
-                                                                                  leaveID: functions.showMatNameInList(
-                                                                                      functions
-                                                                                          .reverseList(GetApprovedAPICall.approvedID(
-                                                                                            (_model.getApproved?.jsonBody ?? ''),
-                                                                                          )?.toList())
-                                                                                          .toList(),
-                                                                                      approvedListIndex),
-                                                                                  employeeID: functions.showMatNameInList(
-                                                                                      functions
-                                                                                          .reverseList(GetApprovedAPICall.approvedEmpID(
-                                                                                            (_model.getApproved?.jsonBody ?? ''),
-                                                                                          )?.toList())
-                                                                                          .toList(),
-                                                                                      approvedListIndex),
-                                                                                  leaveName: functions.showMatNameInList(
-                                                                                      functions
-                                                                                          .reverseList(GetApprovedAPICall.approvedLeaveName(
-                                                                                            (_model.getApproved?.jsonBody ?? ''),
-                                                                                          )?.toList())
-                                                                                          .toList(),
-                                                                                      approvedListIndex),
-                                                                                  isFromApprovePage: true,
+                                                                                GestureDetector(
+                                                                              onTap: () {
+                                                                                FocusScope.of(context).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                child: Container(
+                                                                                  height: MediaQuery.sizeOf(context).height * 0.5,
+                                                                                  child: InputCopy2Widget(
+                                                                                    leaveID: functions.showMatNameInList(
+                                                                                        functions
+                                                                                            .reverseList(GetApprovedAPICall.approvedID(
+                                                                                              (_model.getApproved?.jsonBody ?? ''),
+                                                                                            )?.toList())
+                                                                                            .toList(),
+                                                                                        approvedListIndex),
+                                                                                    employeeID: functions.showMatNameInList(
+                                                                                        functions
+                                                                                            .reverseList(GetApprovedAPICall.approvedEmpID(
+                                                                                              (_model.getApproved?.jsonBody ?? ''),
+                                                                                            )?.toList())
+                                                                                            .toList(),
+                                                                                        approvedListIndex),
+                                                                                    leaveName: functions.showMatNameInList(
+                                                                                        functions
+                                                                                            .reverseList(GetApprovedAPICall.approvedLeaveName(
+                                                                                              (_model.getApproved?.jsonBody ?? ''),
+                                                                                            )?.toList())
+                                                                                            .toList(),
+                                                                                        approvedListIndex),
+                                                                                    isFromApprovePage: true,
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        safeSetState(
-                                                                            () {}));
+                                                                          );
+                                                                        },
+                                                                      ).then((value) =>
+                                                                          safeSetState(
+                                                                              () {}));
 
-                                                                    context
-                                                                        .pop();
+                                                                      context
+                                                                          .pop();
 
-                                                                    context.pushNamed(
-                                                                        ApproveShowPageWidget
-                                                                            .routeName);
-                                                                  },
-                                                                  text:
-                                                                      'ยกเลิก',
-                                                                  icon: Icon(
-                                                                    Icons
-                                                                        .cancel,
-                                                                    size: 22.0,
-                                                                  ),
-                                                                  options:
-                                                                      FFButtonOptions(
-                                                                    width:
-                                                                        130.0,
-                                                                    height:
-                                                                        40.0,
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    iconPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    color: Color(
-                                                                        0xFFB32A33),
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall
-                                                                        .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(
+                                                                      context.pushNamed(
+                                                                          ApproveShowPageWidget
+                                                                              .routeName);
+                                                                    },
+                                                                    text:
+                                                                        'ยกเลิก',
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .cancel,
+                                                                      size:
+                                                                          22.0,
+                                                                    ),
+                                                                    options:
+                                                                        FFButtonOptions(
+                                                                      width:
+                                                                          130.0,
+                                                                      height:
+                                                                          40.0,
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      color: Color(
+                                                                          0xFFB32A33),
+                                                                      textStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .override(
+                                                                            font:
+                                                                                GoogleFonts.poppins(
+                                                                              fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                            ),
+                                                                            color:
+                                                                                Colors.white,
+                                                                            fontSize:
+                                                                                14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             fontStyle:
                                                                                 FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                           ),
-                                                                          color:
-                                                                              Colors.white,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .titleSmall
-                                                                              .fontStyle,
-                                                                        ),
-                                                                    elevation:
-                                                                        2.0,
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Colors
-                                                                          .transparent,
-                                                                      width:
+                                                                      elevation:
                                                                           2.0,
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Colors
+                                                                            .transparent,
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
                                                                     ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
                                                                   ),
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
-                                                          ),
-                                                        ],
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                            Builder(
-                              builder: (context) {
-                                final disapproveList =
-                                    GetApprovedAPICall.approvedEmpName(
-                                          (_model.getDisapprove?.jsonBody ??
-                                              ''),
-                                        )?.toList() ??
-                                        [];
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                              Builder(
+                                builder: (context) {
+                                  final disapproveList =
+                                      GetApprovedAPICall.approvedEmpName(
+                                            (_model.getDisapprove?.jsonBody ??
+                                                ''),
+                                          )?.toList() ??
+                                          [];
 
-                                return ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: disapproveList.length,
-                                  itemBuilder: (context, disapproveListIndex) {
-                                    final disapproveListItem =
-                                        disapproveList[disapproveListIndex];
-                                    return Visibility(
-                                      visible: (_model.monthSelectValue ==
-                                                  null ||
-                                              _model.monthSelectValue == '') ||
-                                          (functions.checkMonthLeave(
-                                                  _model.monthSelectValue,
-                                                  functions
-                                                      .splitDateintoStartDate(
-                                                          valueOrDefault<
-                                                              String>(
-                                                    functions.showMatNameInList(
-                                                        GetApprovedAPICall
-                                                            .approvedLeaveDate(
-                                                          (_model.getDisapprove
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )?.toList(),
-                                                        disapproveListIndex),
-                                                    '[leave_name]',
-                                                  )))! ||
-                                              functions.checkMonthLeave(
-                                                  _model.monthSelectValue,
-                                                  functions
-                                                      .splitDateintoEndDate(
-                                                          valueOrDefault<
-                                                              String>(
-                                                    functions.showMatNameInList(
-                                                        GetApprovedAPICall
-                                                            .approvedLeaveDate(
-                                                          (_model.getDisapprove
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )?.toList(),
-                                                        disapproveListIndex),
-                                                    '[leave_name]',
-                                                  )))!),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 16.0, 8.0, 8.0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height:
-                                              functions.contrainerChange(260.0),
-                                          decoration: BoxDecoration(
-                                            color: valueOrDefault<Color>(
-                                              functions.getResignCardColor(
-                                                  functions.showMatNameInList(
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: disapproveList.length,
+                                    itemBuilder:
+                                        (context, disapproveListIndex) {
+                                      final disapproveListItem =
+                                          disapproveList[disapproveListIndex];
+                                      return Visibility(
+                                        visible: (_model.monthSelectValue ==
+                                                    null ||
+                                                _model.monthSelectValue ==
+                                                    '') ||
+                                            (functions.checkMonthLeave(
+                                                    _model.monthSelectValue,
+                                                    functions
+                                                        .splitDateintoStartDate(
+                                                            valueOrDefault<
+                                                                String>(
                                                       functions
-                                                          .reverseList(
+                                                          .showMatNameInList(
                                                               GetApprovedAPICall
-                                                                  .approvedLeaveName(
-                                                            (_model.getDisapprove
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )?.toList())
-                                                          .toList(),
-                                                      disapproveListIndex),
-                                                  Color(0x80C29999)),
-                                              Color(0x80C29999),
+                                                                  .approvedLeaveDate(
+                                                                (_model.getDisapprove
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              disapproveListIndex),
+                                                      '[leave_name]',
+                                                    )))! ||
+                                                functions.checkMonthLeave(
+                                                    _model.monthSelectValue,
+                                                    functions
+                                                        .splitDateintoEndDate(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      functions
+                                                          .showMatNameInList(
+                                                              GetApprovedAPICall
+                                                                  .approvedLeaveDate(
+                                                                (_model.getDisapprove
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              disapproveListIndex),
+                                                      '[leave_name]',
+                                                    )))!),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 16.0, 8.0, 8.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: functions
+                                                .contrainerChange(260.0),
+                                            decoration: BoxDecoration(
+                                              color: valueOrDefault<Color>(
+                                                functions.getResignCardColor(
+                                                    functions.showMatNameInList(
+                                                        functions
+                                                            .reverseList(
+                                                                GetApprovedAPICall
+                                                                    .approvedLeaveName(
+                                                              (_model.getDisapprove
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )?.toList())
+                                                            .toList(),
+                                                        disapproveListIndex),
+                                                    Color(0x80C29999)),
+                                                Color(0x80C29999),
+                                              ),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 4.0,
-                                                color: Color(0x33000000),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                              )
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 10.0),
-                                            child: SingleChildScrollView(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child: SelectionArea(
-                                                          child: Text(
-                                                        valueOrDefault<String>(
-                                                          functions
-                                                              .showMatNameInList(
-                                                                  functions
-                                                                      .reverseList(
-                                                                          GetApprovedAPICall
-                                                                              .approvedEmpName(
-                                                                        (_model.getDisapprove?.jsonBody ??
-                                                                            ''),
-                                                                      )?.toList())
-                                                                      .toList(),
-                                                                  disapproveListIndex),
-                                                          '[full_name]',
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 10.0),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0,
+                                                                    5.0),
+                                                        child: SelectionArea(
+                                                            child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            functions.showMatNameInList(
+                                                                functions
+                                                                    .reverseList(GetApprovedAPICall.approvedEmpName(
+                                                                      (_model.getDisapprove
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )?.toList())
+                                                                    .toList(),
+                                                                disapproveListIndex),
+                                                            '[full_name]',
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1767,506 +1788,74 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                               ),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
+                                                        )),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
                                                                   0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      )),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 15.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'ประเภทการลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveName(
-                                                                            (_model.getDisapprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      disapproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
+                                                                  15.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'วันที่ทำรายการ:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveCreateDate(
-                                                                            (_model.getDisapprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      disapproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'วันที่ลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveDate(
-                                                                            (_model.getDisapprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      disapproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'จำนวนวันที่ลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveCountDay(
-                                                                            (_model.getDisapprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      disapproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
                                                                         .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'ประเภทการลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                          Expanded(
+                                                            flex: 4,
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -2277,7 +1866,17 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               children: [
                                                                 SelectionArea(
                                                                     child: Text(
-                                                                  'ช่วงเวลา:',
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveName(
+                                                                              (_model.getDisapprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        disapproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -2304,87 +1903,552 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               ],
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeavePeriod(
-                                                                            (_model.getDisapprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      disapproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
                                                                         .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'วันที่ทำรายการ:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveCreateDate(
+                                                                              (_model.getDisapprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        disapproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         fontStyle: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .fontStyle,
                                                                       ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
+                                                                )),
+                                                              ],
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'วันที่ลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveDate(
+                                                                              (_model.getDisapprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        disapproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'จำนวนวันที่ลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveCountDay(
+                                                                              (_model.getDisapprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        disapproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'ช่วงเวลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeavePeriod(
+                                                                              (_model.getDisapprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        disapproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    valueOrDefault<String>(
+                                                                              functions.showMatNameInList(
+                                                                                  functions
+                                                                                      .reverseList(GetApprovedAPICall.approvedLeaveName(
+                                                                                        (_model.getDisapprove?.jsonBody ?? ''),
+                                                                                      )?.toList())
+                                                                                      .toList(),
+                                                                                  disapproveListIndex),
+                                                                              '[full_name]',
+                                                                            ) !=
+                                                                            'ลาออก'
+                                                                        ? 'เหตุผลการลา:'
+                                                                        : 'เหตุผลการลาออก:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -2407,8 +2471,31 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             '[full_name]',
                                                                           ) !=
                                                                           'ลาออก'
-                                                                      ? 'เหตุผลการลา:'
-                                                                      : 'เหตุผลการลาออก:',
+                                                                      ? valueOrDefault<
+                                                                          String>(
+                                                                          functions.showMatNameInList(
+                                                                              functions
+                                                                                  .reverseList(GetApprovedAPICall.approvedLeaveReason(
+                                                                                    (_model.getDisapprove?.jsonBody ?? ''),
+                                                                                  )?.toList())
+                                                                                  .toList(),
+                                                                              disapproveListIndex),
+                                                                          '[full_name]',
+                                                                        )
+                                                                      : valueOrDefault<
+                                                                          String>(
+                                                                          functions.showMatNameInList(
+                                                                              functions
+                                                                                  .reverseList(GetApprovedAPICall.reasonResign(
+                                                                                    (_model.getDisapprove?.jsonBody ?? ''),
+                                                                                  )?.toList())
+                                                                                  .toList(),
+                                                                              disapproveListIndex),
+                                                                          '[full_name]',
+                                                                        ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -2435,235 +2522,173 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               ],
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                            String>(
-                                                                          functions.showMatNameInList(
-                                                                              functions
-                                                                                  .reverseList(GetApprovedAPICall.approvedLeaveName(
-                                                                                    (_model.getDisapprove?.jsonBody ?? ''),
-                                                                                  )?.toList())
-                                                                                  .toList(),
-                                                                              disapproveListIndex),
-                                                                          '[full_name]',
-                                                                        ) !=
-                                                                        'ลาออก'
-                                                                    ? valueOrDefault<
-                                                                        String>(
-                                                                        functions.showMatNameInList(
-                                                                            functions
-                                                                                .reverseList(GetApprovedAPICall.approvedLeaveReason(
-                                                                                  (_model.getDisapprove?.jsonBody ?? ''),
-                                                                                )?.toList())
-                                                                                .toList(),
-                                                                            disapproveListIndex),
-                                                                        '[full_name]',
-                                                                      )
-                                                                    : valueOrDefault<
-                                                                        String>(
-                                                                        functions.showMatNameInList(
-                                                                            functions
-                                                                                .reverseList(GetApprovedAPICall.reasonResign(
-                                                                                  (_model.getDisapprove?.jsonBody ?? ''),
-                                                                                )?.toList())
-                                                                                .toList(),
-                                                                            disapproveListIndex),
-                                                                        '[full_name]',
-                                                                      ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                            Builder(
-                              builder: (context) {
-                                final cancelApproveList =
-                                    GetApprovedAPICall.approvedEmpName(
-                                          (_model.getCancelApprove?.jsonBody ??
-                                              ''),
-                                        )?.toList() ??
-                                        [];
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                              Builder(
+                                builder: (context) {
+                                  final cancelApproveList =
+                                      GetApprovedAPICall.approvedEmpName(
+                                            (_model.getCancelApprove
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )?.toList() ??
+                                          [];
 
-                                return ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: cancelApproveList.length,
-                                  itemBuilder:
-                                      (context, cancelApproveListIndex) {
-                                    final cancelApproveListItem =
-                                        cancelApproveList[
-                                            cancelApproveListIndex];
-                                    return Visibility(
-                                      visible: (_model.monthSelectValue ==
-                                                  null ||
-                                              _model.monthSelectValue == '') ||
-                                          (functions.checkMonthLeave(
-                                                  _model.monthSelectValue,
-                                                  functions
-                                                      .splitDateintoStartDate(
-                                                          valueOrDefault<
-                                                              String>(
-                                                    functions.showMatNameInList(
-                                                        GetApprovedAPICall
-                                                            .approvedLeaveDate(
-                                                          (_model.getCancelApprove
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )?.toList(),
-                                                        cancelApproveListIndex),
-                                                    '[leave_name]',
-                                                  )))! ||
-                                              functions.checkMonthLeave(
-                                                  _model.monthSelectValue,
-                                                  functions
-                                                      .splitDateintoEndDate(
-                                                          valueOrDefault<
-                                                              String>(
-                                                    functions.showMatNameInList(
-                                                        GetApprovedAPICall
-                                                            .approvedLeaveDate(
-                                                          (_model.getCancelApprove
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )?.toList(),
-                                                        cancelApproveListIndex),
-                                                    '[leave_name]',
-                                                  )))!),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 16.0, 8.0, 8.0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height:
-                                              functions.contrainerChange(260.0),
-                                          decoration: BoxDecoration(
-                                            color: valueOrDefault<Color>(
-                                              functions.getResignCardColor(
-                                                  functions.showMatNameInList(
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: cancelApproveList.length,
+                                    itemBuilder:
+                                        (context, cancelApproveListIndex) {
+                                      final cancelApproveListItem =
+                                          cancelApproveList[
+                                              cancelApproveListIndex];
+                                      return Visibility(
+                                        visible: (_model.monthSelectValue ==
+                                                    null ||
+                                                _model.monthSelectValue ==
+                                                    '') ||
+                                            (functions.checkMonthLeave(
+                                                    _model.monthSelectValue,
+                                                    functions
+                                                        .splitDateintoStartDate(
+                                                            valueOrDefault<
+                                                                String>(
                                                       functions
-                                                          .reverseList(
+                                                          .showMatNameInList(
                                                               GetApprovedAPICall
-                                                                  .approvedLeaveName(
-                                                            (_model.getCancelApprove
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )?.toList())
-                                                          .toList(),
-                                                      cancelApproveListIndex),
-                                                  Color(0x80C29999)),
-                                              Color(0x80C29999),
+                                                                  .approvedLeaveDate(
+                                                                (_model.getCancelApprove
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              cancelApproveListIndex),
+                                                      '[leave_name]',
+                                                    )))! ||
+                                                functions.checkMonthLeave(
+                                                    _model.monthSelectValue,
+                                                    functions
+                                                        .splitDateintoEndDate(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      functions
+                                                          .showMatNameInList(
+                                                              GetApprovedAPICall
+                                                                  .approvedLeaveDate(
+                                                                (_model.getCancelApprove
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              cancelApproveListIndex),
+                                                      '[leave_name]',
+                                                    )))!),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 16.0, 8.0, 8.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: functions
+                                                .contrainerChange(260.0),
+                                            decoration: BoxDecoration(
+                                              color: valueOrDefault<Color>(
+                                                functions.getResignCardColor(
+                                                    functions.showMatNameInList(
+                                                        functions
+                                                            .reverseList(
+                                                                GetApprovedAPICall
+                                                                    .approvedLeaveName(
+                                                              (_model.getCancelApprove
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )?.toList())
+                                                            .toList(),
+                                                        cancelApproveListIndex),
+                                                    Color(0x80C29999)),
+                                                Color(0x80C29999),
+                                              ),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 4.0,
-                                                color: Color(0x33000000),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                              )
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 10.0),
-                                            child: SingleChildScrollView(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child: SelectionArea(
-                                                          child: Text(
-                                                        valueOrDefault<String>(
-                                                          functions
-                                                              .showMatNameInList(
-                                                                  functions
-                                                                      .reverseList(
-                                                                          GetApprovedAPICall
-                                                                              .approvedEmpName(
-                                                                        (_model.getCancelApprove?.jsonBody ??
-                                                                            ''),
-                                                                      )?.toList())
-                                                                      .toList(),
-                                                                  cancelApproveListIndex),
-                                                          '[full_name]',
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 10.0),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0,
+                                                                    5.0),
+                                                        child: SelectionArea(
+                                                            child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            functions.showMatNameInList(
+                                                                functions
+                                                                    .reverseList(GetApprovedAPICall.approvedEmpName(
+                                                                      (_model.getCancelApprove
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )?.toList())
+                                                                    .toList(),
+                                                                cancelApproveListIndex),
+                                                            '[full_name]',
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -2672,506 +2697,74 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                               ),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
+                                                        )),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
                                                                   0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      )),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 15.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'ประเภทการลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveName(
-                                                                            (_model.getCancelApprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      cancelApproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
+                                                                  15.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'วันที่ทำรายการ:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveCreateDate(
-                                                                            (_model.getCancelApprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      cancelApproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'วันที่ลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveDate(
-                                                                            (_model.getCancelApprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      cancelApproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                SelectionArea(
-                                                                    child: Text(
-                                                                  'จำนวนวันที่ลา:',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeaveCountDay(
-                                                                            (_model.getCancelApprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      cancelApproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
                                                                         .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'ประเภทการลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                          Expanded(
+                                                            flex: 4,
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -3182,7 +2775,17 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               children: [
                                                                 SelectionArea(
                                                                     child: Text(
-                                                                  'ช่วงเวลา:',
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveName(
+                                                                              (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        cancelApproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -3209,87 +2812,552 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               ],
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.approvedLeavePeriod(
-                                                                            (_model.getCancelApprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.toList())
-                                                                          .toList(),
-                                                                      cancelApproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
                                                                         .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'วันที่ทำรายการ:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveCreateDate(
+                                                                              (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        cancelApproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                         fontStyle: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .fontStyle,
                                                                       ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
+                                                                )),
+                                                              ],
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'วันที่ลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveDate(
+                                                                              (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        cancelApproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'จำนวนวันที่ลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeaveCountDay(
+                                                                              (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        cancelApproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'ช่วงเวลา:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.approvedLeavePeriod(
+                                                                              (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                            )?.toList())
+                                                                            .toList(),
+                                                                        cancelApproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    valueOrDefault<String>(
+                                                                              functions.showMatNameInList(
+                                                                                  functions
+                                                                                      .reverseList(GetApprovedAPICall.approvedLeaveName(
+                                                                                        (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                                      )?.toList())
+                                                                                      .toList(),
+                                                                                  cancelApproveListIndex),
+                                                                              '[full_name]',
+                                                                            ) !=
+                                                                            'ลาออก'
+                                                                        ? 'เหตุผลการลา:'
+                                                                        : 'เหตุผลการลาออก:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -3312,8 +3380,31 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             '[full_name]',
                                                                           ) !=
                                                                           'ลาออก'
-                                                                      ? 'เหตุผลการลา:'
-                                                                      : 'เหตุผลการลาออก:',
+                                                                      ? valueOrDefault<
+                                                                          String>(
+                                                                          functions.showMatNameInList(
+                                                                              functions
+                                                                                  .reverseList(GetApprovedAPICall.approvedLeaveReason(
+                                                                                    (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                                  )?.toList())
+                                                                                  .toList(),
+                                                                              cancelApproveListIndex),
+                                                                          '[full_name]',
+                                                                        )
+                                                                      : valueOrDefault<
+                                                                          String>(
+                                                                          functions.showMatNameInList(
+                                                                              functions
+                                                                                  .reverseList(GetApprovedAPICall.reasonResign(
+                                                                                    (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                                  )?.toList())
+                                                                                  .toList(),
+                                                                              cancelApproveListIndex),
+                                                                          '[full_name]',
+                                                                        ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -3340,109 +3431,74 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               ],
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                            String>(
-                                                                          functions.showMatNameInList(
-                                                                              functions
-                                                                                  .reverseList(GetApprovedAPICall.approvedLeaveName(
-                                                                                    (_model.getCancelApprove?.jsonBody ?? ''),
-                                                                                  )?.toList())
-                                                                                  .toList(),
-                                                                              cancelApproveListIndex),
-                                                                          '[full_name]',
-                                                                        ) !=
-                                                                        'ลาออก'
-                                                                    ? valueOrDefault<
-                                                                        String>(
-                                                                        functions.showMatNameInList(
-                                                                            functions
-                                                                                .reverseList(GetApprovedAPICall.approvedLeaveReason(
-                                                                                  (_model.getCancelApprove?.jsonBody ?? ''),
-                                                                                )?.toList())
-                                                                                .toList(),
-                                                                            cancelApproveListIndex),
-                                                                        '[full_name]',
-                                                                      )
-                                                                    : valueOrDefault<
-                                                                        String>(
-                                                                        functions.showMatNameInList(
-                                                                            functions
-                                                                                .reverseList(GetApprovedAPICall.reasonResign(
-                                                                                  (_model.getCancelApprove?.jsonBody ?? ''),
-                                                                                )?.toList())
-                                                                                .toList(),
-                                                                            cancelApproveListIndex),
-                                                                        '[full_name]',
-                                                                      ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 3.0,
-                                                                0.0, 3.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 2,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  3.0,
+                                                                  0.0,
+                                                                  3.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SelectionArea(
+                                                                      child:
+                                                                          Text(
+                                                                    'ถูกยกเลิกโดย:',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                  )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 4,
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -3453,7 +3509,20 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               children: [
                                                                 SelectionArea(
                                                                     child: Text(
-                                                                  'ถูกยกเลิกโดย:',
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    functions.showMatNameInList(
+                                                                        functions
+                                                                            .reverseList(GetApprovedAPICall.cancelBy(
+                                                                              (_model.getCancelApprove?.jsonBody ?? ''),
+                                                                            )?.map((e) => e.toString()).toList()?.toList())
+                                                                            .toList(),
+                                                                        cancelApproveListIndex),
+                                                                    '[full_name]',
+                                                                  ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -3480,83 +3549,28 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               ],
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 4,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              SelectionArea(
-                                                                  child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showMatNameInList(
-                                                                      functions
-                                                                          .reverseList(GetApprovedAPICall.cancelBy(
-                                                                            (_model.getCancelApprove?.jsonBody ??
-                                                                                ''),
-                                                                          )?.map((e) => e.toString()).toList()?.toList())
-                                                                          .toList(),
-                                                                      cancelApproveListIndex),
-                                                                  '[full_name]',
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                          ],
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

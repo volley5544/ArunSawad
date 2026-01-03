@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -72,6 +73,32 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
         parameters: {'screen_name': 'EditLeavePage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showDialog(
+        context: context,
+        builder: (dialogContext) {
+          return Dialog(
+            elevation: 0,
+            insetPadding: EdgeInsets.zero,
+            backgroundColor: Colors.transparent,
+            alignment: AlignmentDirectional(0.0, 0.0)
+                .resolve(Directionality.of(context)),
+            child: WebViewAware(
+              child: GestureDetector(
+                onTap: () {
+                  FocusScope.of(dialogContext).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
+              ),
+            ),
+          );
+        },
+      );
+
       FFAppState().leaveTypeEdit = functions
           .leaveTypeToList1(widget!.leaveType)!
           .toList()
@@ -83,6 +110,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
       );
 
       if ((_model.getHolidayAPIOutput?.statusCode ?? 200) != 200) {
+        Navigator.pop(context);
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -102,6 +130,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
         );
         return;
       }
+      Navigator.pop(context);
     });
 
     _model.leaveDaysTextController ??=
@@ -130,777 +159,190 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: Color(0xFFFF6500),
-          automaticallyImplyLeading: false,
-          leading: Visibility(
-            visible: !FFAppState().isFromTimesheetPage,
-            child: InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
-                context.goNamed(LeaveShowPageWidget.routeName);
-              },
-              child: Icon(
-                Icons.arrow_back,
-                color: Color(0xFBFFFFFF),
-                size: 30.0,
+    return Builder(
+      builder: (context) => GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          appBar: AppBar(
+            backgroundColor: Color(0xFFFF6500),
+            automaticallyImplyLeading: false,
+            leading: Visibility(
+              visible: !FFAppState().isFromTimesheetPage,
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.goNamed(LeaveShowPageWidget.routeName);
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Color(0xFBFFFFFF),
+                  size: 30.0,
+                ),
               ),
             ),
-          ),
-          title: Text(
-            'ยื่นเรื่องขออนุมัติลา',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(
+            title: Text(
+              'ยื่นเรื่องขออนุมัติลา',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    font: GoogleFonts.poppins(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight:
                         FlutterFlowTheme.of(context).headlineMedium.fontWeight,
                     fontStyle:
                         FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
-                  color: Colors.white,
-                  fontSize: 18.0,
-                  letterSpacing: 0.0,
-                  fontWeight:
-                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
-                  fontStyle:
-                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                ),
-          ),
-          actions: [],
-          centerTitle: true,
-          elevation: 10.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: FutureBuilder<List<UserCustomRecord>>(
-            future: queryUserCustomRecordOnce(
-              queryBuilder: (userCustomRecord) => userCustomRecord.where(
-                'employee_id',
-                isEqualTo: '31622',
-              ),
-              singleRecord: true,
             ),
-            builder: (context, snapshot) {
-              // Customize what your widget looks like when it's loading.
-              if (!snapshot.hasData) {
-                return Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).tertiary,
+            actions: [],
+            centerTitle: true,
+            elevation: 10.0,
+          ),
+          body: SafeArea(
+            top: true,
+            child: FutureBuilder<List<UserCustomRecord>>(
+              future: queryUserCustomRecordOnce(
+                queryBuilder: (userCustomRecord) => userCustomRecord.where(
+                  'employee_id',
+                  isEqualTo: '31622',
+                ),
+                singleRecord: true,
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          FlutterFlowTheme.of(context).tertiary,
+                        ),
                       ),
                     ),
-                  ),
-                );
-              }
-              List<UserCustomRecord> columnUserCustomRecordList =
-                  snapshot.data!;
-              // Return an empty Container when the item does not exist.
-              if (snapshot.data!.isEmpty) {
-                return Container();
-              }
-              final columnUserCustomRecord =
-                  columnUserCustomRecordList.isNotEmpty
-                      ? columnUserCustomRecordList.first
-                      : null;
+                  );
+                }
+                List<UserCustomRecord> columnUserCustomRecordList =
+                    snapshot.data!;
+                // Return an empty Container when the item does not exist.
+                if (snapshot.data!.isEmpty) {
+                  return Container();
+                }
+                final columnUserCustomRecord =
+                    columnUserCustomRecordList.isNotEmpty
+                        ? columnUserCustomRecordList.first
+                        : null;
 
-              return Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  FutureBuilder<List<FCMTokenRecord>>(
-                    future: queryFCMTokenRecordOnce(
-                      queryBuilder: (fCMTokenRecord) => fCMTokenRecord
-                          .where(
-                            'employee_id',
-                            isEqualTo: '31622',
-                          )
-                          .orderBy('created_at', descending: true),
-                      singleRecord: true,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).tertiary,
+                return Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    FutureBuilder<List<FCMTokenRecord>>(
+                      future: queryFCMTokenRecordOnce(
+                        queryBuilder: (fCMTokenRecord) => fCMTokenRecord
+                            .where(
+                              'employee_id',
+                              isEqualTo: '31622',
+                            )
+                            .orderBy('created_at', descending: true),
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).tertiary,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }
-                      List<FCMTokenRecord> columnFCMTokenRecordList =
-                          snapshot.data!;
-                      // Return an empty Container when the item does not exist.
-                      if (snapshot.data!.isEmpty) {
-                        return Container();
-                      }
-                      final columnFCMTokenRecord =
-                          columnFCMTokenRecordList.isNotEmpty
-                              ? columnFCMTokenRecordList.first
-                              : null;
+                          );
+                        }
+                        List<FCMTokenRecord> columnFCMTokenRecordList =
+                            snapshot.data!;
+                        // Return an empty Container when the item does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final columnFCMTokenRecord =
+                            columnFCMTokenRecordList.isNotEmpty
+                                ? columnFCMTokenRecordList.first
+                                : null;
 
-                      return SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            FutureBuilder<List<LeaveDaysAfterRecord>>(
-                              future: queryLeaveDaysAfterRecordOnce(
-                                singleRecord: true,
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).tertiary,
+                        return SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FutureBuilder<List<LeaveDaysAfterRecord>>(
+                                future: queryLeaveDaysAfterRecordOnce(
+                                  singleRecord: true,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .tertiary,
+                                          ),
                                         ),
                                       ),
+                                    );
+                                  }
+                                  List<LeaveDaysAfterRecord>
+                                      containerLeaveDaysAfterRecordList =
+                                      snapshot.data!;
+                                  // Return an empty Container when the item does not exist.
+                                  if (snapshot.data!.isEmpty) {
+                                    return Container();
+                                  }
+                                  final containerLeaveDaysAfterRecord =
+                                      containerLeaveDaysAfterRecordList
+                                              .isNotEmpty
+                                          ? containerLeaveDaysAfterRecordList
+                                              .first
+                                          : null;
+
+                                  return Container(
+                                    width: double.infinity,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.75,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
                                     ),
-                                  );
-                                }
-                                List<LeaveDaysAfterRecord>
-                                    containerLeaveDaysAfterRecordList =
-                                    snapshot.data!;
-                                // Return an empty Container when the item does not exist.
-                                if (snapshot.data!.isEmpty) {
-                                  return Container();
-                                }
-                                final containerLeaveDaysAfterRecord =
-                                    containerLeaveDaysAfterRecordList.isNotEmpty
-                                        ? containerLeaveDaysAfterRecordList
-                                            .first
-                                        : null;
-
-                                return Container(
-                                  width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.75,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                  ),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 10.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.35, -0.09),
-                                                child: SelectionArea(
-                                                    child: Text(
-                                                  'ประเภทการลา :',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                )),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 15.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  widget!.leaveType!,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.35, -0.09),
-                                                child: SelectionArea(
-                                                    child: Text(
-                                                  'วันที่ลาเริ่มต้น  :',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                )),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 15.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      if (!(widget!.leaveType !=
-                                                              null &&
-                                                          widget!.leaveType !=
-                                                              '')) {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'กรุณาเลือกประเภทการลาก่อน',
-                                                              style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    3000),
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0xB2000000),
-                                                          ),
-                                                        );
-                                                        return;
-                                                      }
-                                                      final _datePickedDate =
-                                                          await showDatePicker(
-                                                        context: context,
-                                                        initialDate: functions.startLeaveCalendar(
-                                                            getCurrentTimestamp,
-                                                            functions.leaveTypeToCanLeaveSince(
-                                                                widget!
-                                                                    .leaveType,
-                                                                containerLeaveDaysAfterRecord
-                                                                    ?.leaveListAllowDay
-                                                                    ?.toList(),
-                                                                containerLeaveDaysAfterRecord
-                                                                    ?.leaveListAllowInt
-                                                                    ?.toList())),
-                                                        firstDate: functions.startLeaveCalendar(
-                                                            getCurrentTimestamp,
-                                                            functions.leaveTypeToCanLeaveSince(
-                                                                widget!
-                                                                    .leaveType,
-                                                                containerLeaveDaysAfterRecord
-                                                                    ?.leaveListAllowDay
-                                                                    ?.toList(),
-                                                                containerLeaveDaysAfterRecord
-                                                                    ?.leaveListAllowInt
-                                                                    ?.toList())),
-                                                        lastDate:
-                                                            DateTime(2050),
-                                                      );
-
-                                                      if (_datePickedDate !=
-                                                          null) {
-                                                        safeSetState(() {
-                                                          _model.datePicked =
-                                                              DateTime(
-                                                            _datePickedDate
-                                                                .year,
-                                                            _datePickedDate
-                                                                .month,
-                                                            _datePickedDate.day,
-                                                          );
-                                                        });
-                                                      } else if (_model
-                                                              .datePicked !=
-                                                          null) {
-                                                        safeSetState(() {
-                                                          _model.datePicked = functions.startLeaveCalendar(
-                                                              getCurrentTimestamp,
-                                                              functions.leaveTypeToCanLeaveSince(
-                                                                  widget!
-                                                                      .leaveType,
-                                                                  containerLeaveDaysAfterRecord
-                                                                      ?.leaveListAllowDay
-                                                                      ?.toList(),
-                                                                  containerLeaveDaysAfterRecord
-                                                                      ?.leaveListAllowInt
-                                                                      ?.toList()));
-                                                        });
-                                                      }
-                                                      if (functions
-                                                          .checkSundayDate(_model
-                                                              .datePicked)!) {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                                content: Text(
-                                                                    'ไม่สามารถลาวันอาทิตได้ กรุณาเลือกวันใหม่'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                        return;
-                                                      }
-                                                      if (functions
-                                                          .checkHolidayDate(
-                                                              _model.datePicked,
-                                                              GetHolidayAPICall
-                                                                      .holidayDate(
-                                                                (_model.getHolidayAPIOutput
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )
-                                                                  ?.map((e) => e
-                                                                      .toString())
-                                                                  .toList()
-                                                                  ?.toList())!) {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                                content: Text(
-                                                                    'ไม่สามารถลาวันหยุดได้ กรุณาเลือกวันใหม่'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                        return;
-                                                      }
-                                                      if (!functions
-                                                          .checkYearLeave(_model
-                                                              .datePicked)!) {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                                content: Text(
-                                                                    'ไม่สามารถล่วงหน้าปีหน้าได้ กรุณาเลือกวันใหม่'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                        return;
-                                                      }
-                                                      if (widget!.leaveType ==
-                                                          'ลาป่วย') {
-                                                        if (!functions
-                                                            .checkSickLeaveIsBeforeCurrentDate(
-                                                                getCurrentTimestamp,
-                                                                _model
-                                                                    .datePicked)!) {
-                                                          await showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (alertDialogContext) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    AlertDialog(
-                                                                  content: Text(
-                                                                      'ไม่สามารถลาป่วยล่วงหน้าได้ กรุณาเลือกวันลาใหม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              );
-                                                            },
-                                                          );
-                                                          return;
-                                                        }
-                                                      }
-                                                    },
-                                                    text:
-                                                        valueOrDefault<String>(
-                                                      dateTimeFormat(
-                                                        "d/M/y",
-                                                        _model.datePicked,
-                                                        locale:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
-                                                      ),
-                                                      'ระบุวันที่',
-                                                    ),
-                                                    icon: FaIcon(
-                                                      FontAwesomeIcons
-                                                          .solidCalendarAlt,
-                                                      size: 15.0,
-                                                    ),
-                                                    options: FFButtonOptions(
-                                                      width: 90.0,
-                                                      height: 60.0,
-                                                      padding:
-                                                          EdgeInsets.all(0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryBtnText,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: Color(
-                                                                    0xFF0A0A0A),
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                              ),
-                                                      elevation: 2.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0xFFBDBDBD),
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.35, -0.09),
-                                                child: SelectionArea(
-                                                    child: Text(
-                                                  'ช่วงเวลา  :',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                )),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 15.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              // 5. ประเภทการลาไหนบ้างที่ลาเต็มวัน ครึ่งวันเช้า ครึ่งวันบ่าย ระบุเวลา ได้
-                                              // 	- ลาพักร้อน ลาเต็มวัน
-                                              // 	- ลากิจครึ่งวันเช้า/บ่าย
-                                              // 	- ลาป่วยครึ่งวันเช้า/บ่าย
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: FlutterFlowDropDown<
-                                                      String>(
-                                                    controller: _model
-                                                            .leaveTimeValueController ??=
-                                                        FormFieldController<
-                                                            String>(
-                                                      _model.leaveTimeValue ??=
-                                                          widget!.leavePeriod,
-                                                    ),
-                                                    options: [
-                                                      'ลาเต็มวัน',
-                                                      'ลาครึ่งวันเช้า',
-                                                      'ลาครึ่งวันบ่าย'
-                                                    ],
-                                                    onChanged: (val) =>
-                                                        safeSetState(() => _model
-                                                                .leaveTimeValue =
-                                                            val),
-                                                    width: 90.0,
-                                                    height: 60.0,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                    hintText: 'กรุณาเลือก...',
-                                                    fillColor: Colors.white,
-                                                    elevation: 2.0,
-                                                    borderColor:
-                                                        Color(0xFFBDBDBD),
-                                                    borderWidth: 2.0,
-                                                    borderRadius: 8.0,
-                                                    margin:
-                                                        EdgeInsets.all(10.0),
-                                                    hidesUnderline: true,
-                                                    isSearchable: false,
-                                                    isMultiSelect: false,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        if (_model.leaveTimeValue ==
-                                            'ลาเต็มวัน')
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 0.0, 10.0, 10.0),
+                                                    20.0, 10.0, 10.0, 10.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -914,7 +356,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           -0.35, -0.09),
                                                   child: SelectionArea(
                                                       child: Text(
-                                                    'จำนวนวันที่ลา  :',
+                                                    'ประเภทการลา :',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -950,34 +392,721 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                               ],
                                             ),
                                           ),
-                                        if (_model.leaveTimeValue ==
-                                            'ลาเต็มวัน')
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 15.0, 0.0),
+                                                    20.0, 0.0, 15.0, 10.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
-                                                // คำนวณ
-                                                // วันลาเริ่มต้น-วันลาสิ้นสุด=จำนวนวันที่ลา
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    widget!.leaveType!,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 10.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -0.35, -0.09),
+                                                  child: SelectionArea(
+                                                      child: Text(
+                                                    'วันที่ลาเริ่มต้น  :',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  )),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 15.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 5.0),
-                                                    child: TextFormField(
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        if (!(widget!
+                                                                    .leaveType !=
+                                                                null &&
+                                                            widget!.leaveType !=
+                                                                '')) {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'กรุณาเลือกประเภทการลาก่อน',
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                              ),
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      3000),
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0xB2000000),
+                                                            ),
+                                                          );
+                                                          return;
+                                                        }
+                                                        final _datePickedDate =
+                                                            await showDatePicker(
+                                                          context: context,
+                                                          initialDate: functions.startLeaveCalendar(
+                                                              getCurrentTimestamp,
+                                                              functions.leaveTypeToCanLeaveSince(
+                                                                  widget!
+                                                                      .leaveType,
+                                                                  containerLeaveDaysAfterRecord
+                                                                      ?.leaveListAllowDay
+                                                                      ?.toList(),
+                                                                  containerLeaveDaysAfterRecord
+                                                                      ?.leaveListAllowInt
+                                                                      ?.toList())),
+                                                          firstDate: functions.startLeaveCalendar(
+                                                              getCurrentTimestamp,
+                                                              functions.leaveTypeToCanLeaveSince(
+                                                                  widget!
+                                                                      .leaveType,
+                                                                  containerLeaveDaysAfterRecord
+                                                                      ?.leaveListAllowDay
+                                                                      ?.toList(),
+                                                                  containerLeaveDaysAfterRecord
+                                                                      ?.leaveListAllowInt
+                                                                      ?.toList())),
+                                                          lastDate:
+                                                              DateTime(2050),
+                                                        );
+
+                                                        if (_datePickedDate !=
+                                                            null) {
+                                                          safeSetState(() {
+                                                            _model.datePicked =
+                                                                DateTime(
+                                                              _datePickedDate
+                                                                  .year,
+                                                              _datePickedDate
+                                                                  .month,
+                                                              _datePickedDate
+                                                                  .day,
+                                                            );
+                                                          });
+                                                        } else if (_model
+                                                                .datePicked !=
+                                                            null) {
+                                                          safeSetState(() {
+                                                            _model.datePicked = functions.startLeaveCalendar(
+                                                                getCurrentTimestamp,
+                                                                functions.leaveTypeToCanLeaveSince(
+                                                                    widget!
+                                                                        .leaveType,
+                                                                    containerLeaveDaysAfterRecord
+                                                                        ?.leaveListAllowDay
+                                                                        ?.toList(),
+                                                                    containerLeaveDaysAfterRecord
+                                                                        ?.leaveListAllowInt
+                                                                        ?.toList()));
+                                                          });
+                                                        }
+                                                        if (functions
+                                                            .checkSundayDate(_model
+                                                                .datePicked)!) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'ไม่สามารถลาวันอาทิตได้ กรุณาเลือกวันใหม่'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          return;
+                                                        }
+                                                        if (functions
+                                                            .checkHolidayDate(
+                                                                _model
+                                                                    .datePicked,
+                                                                GetHolidayAPICall
+                                                                        .holidayDate(
+                                                                  (_model.getHolidayAPIOutput
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )
+                                                                    ?.map((e) =>
+                                                                        e.toString())
+                                                                    .toList()
+                                                                    ?.toList())!) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'ไม่สามารถลาวันหยุดได้ กรุณาเลือกวันใหม่'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          return;
+                                                        }
+                                                        if (!functions
+                                                            .checkYearLeave(_model
+                                                                .datePicked)!) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'ไม่สามารถล่วงหน้าปีหน้าได้ กรุณาเลือกวันใหม่'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          return;
+                                                        }
+                                                        if (widget!.leaveType ==
+                                                            'ลาป่วย') {
+                                                          if (!functions
+                                                              .checkSickLeaveIsBeforeCurrentDate(
+                                                                  getCurrentTimestamp,
+                                                                  _model
+                                                                      .datePicked)!) {
+                                                            await showDialog(
+                                                              context: context,
+                                                              builder:
+                                                                  (alertDialogContext) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'ไม่สามารถลาป่วยล่วงหน้าได้ กรุณาเลือกวันลาใหม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
+                                                            return;
+                                                          }
+                                                        }
+                                                      },
+                                                      text: valueOrDefault<
+                                                          String>(
+                                                        dateTimeFormat(
+                                                          "d/M/y",
+                                                          _model.datePicked,
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ),
+                                                        'ระบุวันที่',
+                                                      ),
+                                                      icon: FaIcon(
+                                                        FontAwesomeIcons
+                                                            .solidCalendarAlt,
+                                                        size: 15.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 90.0,
+                                                        height: 60.0,
+                                                        padding:
+                                                            EdgeInsets.all(0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBtnText,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF0A0A0A),
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                                ),
+                                                        elevation: 2.0,
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFBDBDBD),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 10.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -0.35, -0.09),
+                                                  child: SelectionArea(
+                                                      child: Text(
+                                                    'ช่วงเวลา  :',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  )),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 15.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                // 5. ประเภทการลาไหนบ้างที่ลาเต็มวัน ครึ่งวันเช้า ครึ่งวันบ่าย ระบุเวลา ได้
+                                                // 	- ลาพักร้อน ลาเต็มวัน
+                                                // 	- ลากิจครึ่งวันเช้า/บ่าย
+                                                // 	- ลาป่วยครึ่งวันเช้า/บ่าย
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 5.0),
+                                                    child: FlutterFlowDropDown<
+                                                        String>(
                                                       controller: _model
-                                                          .leaveDaysTextController,
-                                                      focusNode: _model
-                                                          .leaveDaysFocusNode,
-                                                      onChanged: (_) =>
-                                                          EasyDebounce.debounce(
-                                                        '_model.leaveDaysTextController',
-                                                        Duration(
-                                                            milliseconds: 2000),
-                                                        () async {
+                                                              .leaveTimeValueController ??=
+                                                          FormFieldController<
+                                                              String>(
+                                                        _model.leaveTimeValue ??=
+                                                            widget!.leavePeriod,
+                                                      ),
+                                                      options: [
+                                                        'ลาเต็มวัน',
+                                                        'ลาครึ่งวันเช้า',
+                                                        'ลาครึ่งวันบ่าย'
+                                                      ],
+                                                      onChanged: (val) =>
+                                                          safeSetState(() =>
+                                                              _model.leaveTimeValue =
+                                                                  val),
+                                                      width: 90.0,
+                                                      height: 60.0,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Colors
+                                                                    .black,
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                      hintText: 'กรุณาเลือก...',
+                                                      fillColor: Colors.white,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          Color(0xFFBDBDBD),
+                                                      borderWidth: 2.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          EdgeInsets.all(10.0),
+                                                      hidesUnderline: true,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          if (_model.leaveTimeValue ==
+                                              'ลาเต็มวัน')
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 0.0, 10.0, 10.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -0.35, -0.09),
+                                                    child: SelectionArea(
+                                                        child: Text(
+                                                      'จำนวนวันที่ลา  :',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                    )),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          if (_model.leaveTimeValue ==
+                                              'ลาเต็มวัน')
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  // คำนวณ
+                                                  // วันลาเริ่มต้น-วันลาสิ้นสุด=จำนวนวันที่ลา
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  5.0),
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .leaveDaysTextController,
+                                                        focusNode: _model
+                                                            .leaveDaysFocusNode,
+                                                        onChanged: (_) =>
+                                                            EasyDebounce
+                                                                .debounce(
+                                                          '_model.leaveDaysTextController',
+                                                          Duration(
+                                                              milliseconds:
+                                                                  2000),
+                                                          () async {
+                                                            if (functions
+                                                                .checkLeaveDayNumber(_model
+                                                                    .leaveDaysTextController
+                                                                    .text)!) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'กรุณากรอกจำนวนเต็ม'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              safeSetState(() {
+                                                                _model
+                                                                    .leaveDaysTextController
+                                                                    ?.clear();
+                                                              });
+                                                              return;
+                                                            } else {
+                                                              FFAppState()
+                                                                      .leaveDaysDouble =
+                                                                  double.parse(_model
+                                                                      .leaveDaysTextController
+                                                                      .text);
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                            }
+
+                                                            if ((widget!.leaveType ==
+                                                                    'ลาพักร้อน') &&
+                                                                (FFAppState()
+                                                                        .leaveDaysDouble >
+                                                                    5.0)) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'ลาพักร้อนติดกันได้ไม่เกิน 5 วัน'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              safeSetState(() {
+                                                                _model
+                                                                    .leaveDaysTextController
+                                                                    ?.clear();
+                                                              });
+                                                              return;
+                                                            }
+                                                          },
+                                                        ),
+                                                        onFieldSubmitted:
+                                                            (_) async {
                                                           if (functions
                                                               .checkLeaveDayNumber(
                                                                   _model
@@ -1056,13 +1185,223 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             return;
                                                           }
                                                         },
+                                                        autofocus: false,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          hintText:
+                                                              'ใส่จำนวนวันที่ต้องการลา',
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                          enabledBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryBtnText,
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          errorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          filled: true,
+                                                          fillColor:
+                                                              Color(0xFFF5F5F5),
+                                                          contentPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      20.0,
+                                                                      24.0,
+                                                                      24.0,
+                                                                      24.0),
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .poppins(
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                              lineHeight: 1.0,
+                                                            ),
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .number,
+                                                        validator: _model
+                                                            .leaveDaysTextControllerValidator
+                                                            .asValidator(
+                                                                context),
                                                       ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 10.0, 10.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -0.35, -0.09),
+                                                  child: SelectionArea(
+                                                      child: Text(
+                                                    'เบอร์โทรติดต่อ  :',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  )),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 15.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 5.0),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .phoneNumberTextController,
+                                                      focusNode: _model
+                                                          .phoneNumberFocusNode,
                                                       onFieldSubmitted:
                                                           (_) async {
-                                                        if (functions
-                                                            .checkLeaveDayNumber(
+                                                        if (!functions
+                                                            .checkPhoneNumber10(
                                                                 _model
-                                                                    .leaveDaysTextController
+                                                                    .phoneNumberTextController
                                                                     .text)!) {
                                                           await showDialog(
                                                             context: context,
@@ -1072,7 +1411,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 child:
                                                                     AlertDialog(
                                                                   content: Text(
-                                                                      'กรุณากรอกจำนวนเต็ม'),
+                                                                      'เบอร์โทรศัพท์ไม่ถูกต้องกรุณากรอกใหม่'),
                                                                   actions: [
                                                                     TextButton(
                                                                       onPressed:
@@ -1088,50 +1427,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           );
                                                           safeSetState(() {
                                                             _model
-                                                                .leaveDaysTextController
-                                                                ?.clear();
-                                                          });
-                                                          return;
-                                                        } else {
-                                                          FFAppState()
-                                                                  .leaveDaysDouble =
-                                                              double.parse(_model
-                                                                  .leaveDaysTextController
-                                                                  .text);
-                                                          FFAppState()
-                                                              .update(() {});
-                                                        }
-
-                                                        if ((widget!.leaveType ==
-                                                                'ลาพักร้อน') &&
-                                                            (FFAppState()
-                                                                    .leaveDaysDouble >
-                                                                5.0)) {
-                                                          await showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (alertDialogContext) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    AlertDialog(
-                                                                  content: Text(
-                                                                      'ลาพักร้อนติดกันได้ไม่เกิน 5 วัน'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              );
-                                                            },
-                                                          );
-                                                          safeSetState(() {
-                                                            _model
-                                                                .leaveDaysTextController
+                                                                .phoneNumberTextController
                                                                 ?.clear();
                                                           });
                                                           return;
@@ -1142,7 +1438,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       decoration:
                                                           InputDecoration(
                                                         hintText:
-                                                            'ใส่จำนวนวันที่ต้องการลา',
+                                                            'กรุณากรอกเบอร์โทรศัพท์',
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1233,6 +1529,11 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                     24.0,
                                                                     24.0,
                                                                     24.0),
+                                                        prefixIcon: Icon(
+                                                          Icons.phone_android,
+                                                          color:
+                                                              Color(0xFF0A0A0A),
+                                                        ),
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1241,32 +1542,31 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                               .override(
                                                                 font: GoogleFonts
                                                                     .poppins(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
                                                                   fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
+                                                                color: Color(
+                                                                    0xFF0A0A0A),
                                                                 fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
                                                                 fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
-                                                                lineHeight: 1.0,
                                                               ),
                                                       keyboardType:
-                                                          TextInputType.number,
+                                                          TextInputType.phone,
                                                       validator: _model
-                                                          .leaveDaysTextControllerValidator
+                                                          .phoneNumberTextControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -1274,29 +1574,43 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                               ],
                                             ),
                                           ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 10.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.35, -0.09),
-                                                child: SelectionArea(
-                                                    child: Text(
-                                                  'เบอร์โทรติดต่อ  :',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 10.0, 10.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -0.35, -0.09),
+                                                  child: SelectionArea(
+                                                      child: Text(
+                                                    'เหตุผลการลา  :',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -1308,47 +1622,1257 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   .bodyMedium
                                                                   .fontStyle,
                                                         ),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                )),
-                                              ),
-                                            ],
+                                                  )),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 15.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                0.0, 5.0),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .reasonToLeaveTextController,
+                                                      focusNode: _model
+                                                          .reasonToLeaveFocusNode,
+                                                      autofocus: false,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                        hintText:
+                                                            'กรุณากรอก...',
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF0A0A0A),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
+                                                                ),
+                                                        enabledBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        focusedBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        errorBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        filled: true,
+                                                        fillColor:
+                                                            Color(0xFFF5F5F5),
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    20.0,
+                                                                    40.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: 4,
+                                                      validator: _model
+                                                          .reasonToLeaveTextControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 10.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -0.35, -0.09),
+                                                  child: SelectionArea(
+                                                      child: Text(
+                                                    'เเนบไฟล์การลา  :',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  )),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 15.0, 20.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                // 4. ประเภทการลาไหนบ้าง ต้องเเนบไฟล์
+                                                // 	- ลาป่่วย3 วันต่อเนื่องต้องเเนบใบรับรองเเพทย์
+                                                // 	- ลาทำหมันต้องเเนบใบรับรองเเพทย์
+                                                // 	- ลาเพื่อรับราชการทหารเเนบใบรับรองเเพทย์
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 5.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        final selectedMedia =
+                                                            await selectMedia(
+                                                          imageQuality: 70,
+                                                          mediaSource:
+                                                              MediaSource
+                                                                  .photoGallery,
+                                                          multiImage: true,
+                                                        );
+                                                        if (selectedMedia !=
+                                                                null &&
+                                                            selectedMedia.every((m) =>
+                                                                validateFileFormat(
+                                                                    m.storagePath,
+                                                                    context))) {
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading_uploadMediaPqi =
+                                                                  true);
+                                                          var selectedUploadedFiles =
+                                                              <FFUploadedFile>[];
+
+                                                          var downloadUrls =
+                                                              <String>[];
+                                                          try {
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Uploading file...',
+                                                              showLoading: true,
+                                                            );
+                                                            selectedUploadedFiles =
+                                                                selectedMedia
+                                                                    .map((m) =>
+                                                                        FFUploadedFile(
+                                                                          name: m
+                                                                              .storagePath
+                                                                              .split('/')
+                                                                              .last,
+                                                                          bytes:
+                                                                              m.bytes,
+                                                                          height: m
+                                                                              .dimensions
+                                                                              ?.height,
+                                                                          width: m
+                                                                              .dimensions
+                                                                              ?.width,
+                                                                          blurHash:
+                                                                              m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
+                                                                        ))
+                                                                    .toList();
+
+                                                            downloadUrls =
+                                                                (await Future
+                                                                        .wait(
+                                                              selectedMedia.map(
+                                                                (m) async =>
+                                                                    await uploadData(
+                                                                        m.storagePath,
+                                                                        m.bytes),
+                                                              ),
+                                                            ))
+                                                                    .where((u) =>
+                                                                        u !=
+                                                                        null)
+                                                                    .map((u) =>
+                                                                        u!)
+                                                                    .toList();
+                                                          } finally {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .hideCurrentSnackBar();
+                                                            _model.isDataUploading_uploadMediaPqi =
+                                                                false;
+                                                          }
+                                                          if (selectedUploadedFiles
+                                                                      .length ==
+                                                                  selectedMedia
+                                                                      .length &&
+                                                              downloadUrls
+                                                                      .length ==
+                                                                  selectedMedia
+                                                                      .length) {
+                                                            safeSetState(() {
+                                                              _model.uploadedLocalFiles_uploadMediaPqi =
+                                                                  selectedUploadedFiles;
+                                                              _model.uploadedFileUrls_uploadMediaPqi =
+                                                                  downloadUrls;
+                                                            });
+                                                            showUploadMessage(
+                                                                context,
+                                                                'Success!');
+                                                          } else {
+                                                            safeSetState(() {});
+                                                            showUploadMessage(
+                                                                context,
+                                                                'Failed to upload data');
+                                                            return;
+                                                          }
+                                                        }
+                                                      },
+                                                      text: '[เเนบไฟล์ภาพ]',
+                                                      icon: Icon(
+                                                        Icons.attach_file,
+                                                        size: 15.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 90.0,
+                                                        height: 60.0,
+                                                        padding:
+                                                            EdgeInsets.all(0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBtnText,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF0A0A0A),
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                                ),
+                                                        elevation: 2.0,
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFBDBDBD),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          if (_model
+                                                  .uploadedFileUrls_uploadMediaPqi
+                                                  .length >
+                                              0)
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 0.0, 15.0, 20.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        final uploadListNum = _model
+                                                            .uploadedFileUrls_uploadMediaPqi
+                                                            .toList();
+
+                                                        return Container(
+                                                          width:
+                                                              double.infinity,
+                                                          height: 500.0,
+                                                          child: Stack(
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            50.0),
+                                                                child: PageView
+                                                                    .builder(
+                                                                  controller: _model
+                                                                          .pageViewController1 ??=
+                                                                      PageController(
+                                                                          initialPage: max(
+                                                                              0,
+                                                                              min(0, uploadListNum.length - 1))),
+                                                                  scrollDirection:
+                                                                      Axis.horizontal,
+                                                                  itemCount:
+                                                                      uploadListNum
+                                                                          .length,
+                                                                  itemBuilder:
+                                                                      (context,
+                                                                          uploadListNumIndex) {
+                                                                    final uploadListNumItem =
+                                                                        uploadListNum[
+                                                                            uploadListNumIndex];
+                                                                    return Image
+                                                                        .network(
+                                                                      uploadListNumItem,
+                                                                      width:
+                                                                          100.0,
+                                                                      height:
+                                                                          100.0,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        1.0),
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0),
+                                                                  child: smooth_page_indicator
+                                                                      .SmoothPageIndicator(
+                                                                    controller: _model
+                                                                            .pageViewController1 ??=
+                                                                        PageController(
+                                                                            initialPage:
+                                                                                max(0, min(0, uploadListNum.length - 1))),
+                                                                    count: uploadListNum
+                                                                        .length,
+                                                                    axisDirection:
+                                                                        Axis.horizontal,
+                                                                    onDotClicked:
+                                                                        (i) async {
+                                                                      await _model
+                                                                          .pageViewController1!
+                                                                          .animateToPage(
+                                                                        i,
+                                                                        duration:
+                                                                            Duration(milliseconds: 500),
+                                                                        curve: Curves
+                                                                            .ease,
+                                                                      );
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
+                                                                    effect: smooth_page_indicator
+                                                                        .ExpandingDotsEffect(
+                                                                      expansionFactor:
+                                                                          2.0,
+                                                                      spacing:
+                                                                          8.0,
+                                                                      radius:
+                                                                          16.0,
+                                                                      dotWidth:
+                                                                          16.0,
+                                                                      dotHeight:
+                                                                          16.0,
+                                                                      dotColor:
+                                                                          Color(
+                                                                              0xFF9E9E9E),
+                                                                      activeDotColor:
+                                                                          Color(
+                                                                              0xFF3F51B5),
+                                                                      paintStyle:
+                                                                          PaintingStyle
+                                                                              .fill,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          if ((widget!.leaveDocumentOld!
+                                                      .length >
+                                                  0) &&
+                                              (_model.uploadedFileUrls_uploadMediaPqi
+                                                      .length <
+                                                  1))
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 0.0, 15.0, 20.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        final uploadListNumOld =
+                                                            widget!.leaveDocumentOld
+                                                                    ?.toList() ??
+                                                                [];
+
+                                                        return Container(
+                                                          width:
+                                                              double.infinity,
+                                                          height: 500.0,
+                                                          child: Stack(
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            50.0),
+                                                                child: PageView
+                                                                    .builder(
+                                                                  controller: _model
+                                                                          .pageViewController2 ??=
+                                                                      PageController(
+                                                                          initialPage: max(
+                                                                              0,
+                                                                              min(0, uploadListNumOld.length - 1))),
+                                                                  scrollDirection:
+                                                                      Axis.horizontal,
+                                                                  itemCount:
+                                                                      uploadListNumOld
+                                                                          .length,
+                                                                  itemBuilder:
+                                                                      (context,
+                                                                          uploadListNumOldIndex) {
+                                                                    final uploadListNumOldItem =
+                                                                        uploadListNumOld[
+                                                                            uploadListNumOldIndex];
+                                                                    return Image
+                                                                        .network(
+                                                                      uploadListNumOldItem,
+                                                                      width:
+                                                                          100.0,
+                                                                      height:
+                                                                          100.0,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        1.0),
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0),
+                                                                  child: smooth_page_indicator
+                                                                      .SmoothPageIndicator(
+                                                                    controller: _model
+                                                                            .pageViewController2 ??=
+                                                                        PageController(
+                                                                            initialPage:
+                                                                                max(0, min(0, uploadListNumOld.length - 1))),
+                                                                    count: uploadListNumOld
+                                                                        .length,
+                                                                    axisDirection:
+                                                                        Axis.horizontal,
+                                                                    onDotClicked:
+                                                                        (i) async {
+                                                                      await _model
+                                                                          .pageViewController2!
+                                                                          .animateToPage(
+                                                                        i,
+                                                                        duration:
+                                                                            Duration(milliseconds: 500),
+                                                                        curve: Curves
+                                                                            .ease,
+                                                                      );
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
+                                                                    effect: smooth_page_indicator
+                                                                        .ExpandingDotsEffect(
+                                                                      expansionFactor:
+                                                                          2.0,
+                                                                      spacing:
+                                                                          8.0,
+                                                                      radius:
+                                                                          16.0,
+                                                                      dotWidth:
+                                                                          16.0,
+                                                                      dotHeight:
+                                                                          16.0,
+                                                                      dotColor:
+                                                                          Color(
+                                                                              0xFF9E9E9E),
+                                                                      activeDotColor:
+                                                                          Color(
+                                                                              0xFF3F51B5),
+                                                                      paintStyle:
+                                                                          PaintingStyle
+                                                                              .fill,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                              Container(
+                                width: double.infinity,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      25.0, 0.0, 25.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 15.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: TextFormField(
-                                                    controller: _model
-                                                        .phoneNumberTextController,
-                                                    focusNode: _model
-                                                        .phoneNumberFocusNode,
-                                                    onFieldSubmitted:
-                                                        (_) async {
-                                                      if (!functions
-                                                          .checkPhoneNumber10(_model
+                                                  0.0, 0.0, 0.0, 10.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              currentUserLocationValue =
+                                                  await getCurrentUserLocation(
+                                                      defaultLocation:
+                                                          LatLng(0.0, 0.0));
+                                              var _shouldSetState = false;
+                                              if (_model.datePicked != null) {
+                                                if (!functions.checkYearLeave(
+                                                    _model.datePicked)!) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ไม่สามารถลาล่วงหน้าปีหน้าได้ กรุณาเลือกวันใหม่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.leaveTimeValue !=
+                                                        null &&
+                                                    _model.leaveTimeValue !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกช่วงเวลาที่จะลา'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if (((widget!.leaveType ==
+                                                            'ลาป่วย') &&
+                                                        (FFAppState()
+                                                                .leaveDaysDouble >=
+                                                            3.0)) ||
+                                                    (widget!.leaveType ==
+                                                        'ลาทำหมัน') ||
+                                                    (widget!.leaveType ==
+                                                        'ลารับราชการ')) {
+                                                  if (!((widget!
+                                                              .leaveDocumentOld!
+                                                              .length >
+                                                          0) ||
+                                                      (_model.uploadedFileUrls_uploadMediaPqi
+                                                              .length >
+                                                          0))) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'กรุณาอัปโหลดไฟล์รูปภาพ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      safeSetState(() {});
+                                                    return;
+                                                  }
+                                                }
+                                                if (functions.checkSundayDate(
+                                                    _model.datePicked)!) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ไม่สามารถลาวันอาทิตได้ กรุณาเลือกวันใหม่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if (functions.checkHolidayDate(
+                                                    _model.datePicked,
+                                                    GetHolidayAPICall
+                                                            .holidayDate(
+                                                      (_model.getHolidayAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )
+                                                        ?.map(
+                                                            (e) => e.toString())
+                                                        .toList()
+                                                        ?.toList())!) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ไม่สามารถลาวันหยุดได้ กรุณาเลือกวันใหม่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if (!functions
+                                                    .checkPhoneNumber10(_model
+                                                        .phoneNumberTextController
+                                                        .text)!) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'เบอร์โทรศัพท์ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  safeSetState(() {
+                                                    _model
+                                                        .phoneNumberTextController
+                                                        ?.clear();
+                                                  });
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if (_model
+                                                        .uploadedFileUrls_uploadMediaPqi
+                                                        .length >
+                                                    5) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ใส่รูปภาพได้ไม่เกิน 5 รูปกรุณาใส่ใหม่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if (widget!.leaveType ==
+                                                    'ลาป่วย') {
+                                                  if (!functions
+                                                      .checkSickLeaveIsBeforeCurrentDate(
+                                                          getCurrentTimestamp,
+                                                          _model.datePicked)!) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'ไม่สามารถลาป่วยล่วงหน้าได้ กรุณาเลือกวันลาใหม่'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      safeSetState(() {});
+                                                    return;
+                                                  }
+                                                }
+                                              } else {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'กรุณาเลือกวันเริ่มลา'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
+
+                                              if (_model.leaveTimeValue ==
+                                                  'ลาเต็มวัน') {
+                                                FFAppState().leaveDaysLocal =
+                                                    _model
+                                                        .leaveDaysTextController
+                                                        .text;
+                                                FFAppState().leaveDaysDouble =
+                                                    double.parse(_model
+                                                        .leaveDaysTextController
+                                                        .text);
+                                                FFAppState()
+                                                        .checkAllowLeaveDay =
+                                                    functions.allowLeaveDay(
+                                                        widget!.leaveType,
+                                                        FFAppState()
+                                                            .totalLeave
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .leaveDaysDouble)!;
+                                                FFAppState().leaveDayInt =
+                                                    int.parse(_model
+                                                        .leaveDaysTextController
+                                                        .text);
+                                                FFAppState().update(() {});
+                                              } else {
+                                                FFAppState().leaveDaysLocal =
+                                                    '0.5';
+                                                FFAppState().leaveDaysDouble =
+                                                    0.5;
+                                                FFAppState()
+                                                        .checkAllowLeaveDay =
+                                                    functions.allowLeaveDay(
+                                                        widget!.leaveType,
+                                                        FFAppState()
+                                                            .totalLeave
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .leaveDaysDouble)!;
+                                                FFAppState().leaveDayInt = 0;
+                                                FFAppState().update(() {});
+                                              }
+
+                                              if (!(FFAppState()
+                                                      .checkAllowLeaveDay ||
+                                                  (widget!.leaveDay ==
+                                                          _model
+                                                              .leaveDaysTextController
+                                                              .text
+                                                      ? true
+                                                      : false))) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'วันลาคุณไม่พอ'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return WebViewAware(
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'ยืนยันการบันทึกข้อมูล'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ยกเลิก'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ตกลง'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
+                                              if (confirmDialogResponse) {
+                                                if (((widget!.leaveType ==
+                                                            'ลาป่วย') &&
+                                                        (FFAppState()
+                                                                .leaveDaysDouble >=
+                                                            3.0)) ||
+                                                    (widget!.leaveType ==
+                                                        'ลาทำหมัน') ||
+                                                    (widget!.leaveType ==
+                                                        'ลารับราชการ')) {
+                                                  if ((widget!.leaveDocumentOld!
+                                                              .length >
+                                                          0) ||
+                                                      (_model.uploadedFileUrls_uploadMediaPqi
+                                                              .length >
+                                                          0)) {
+                                                    _model.leaveEditAPIOutput2 =
+                                                        await LeaveEditAPICall
+                                                            .call(
+                                                      apiUrl: FFAppState()
+                                                          .apiURLLocalState,
+                                                      token: FFAppState()
+                                                          .accessToken,
+                                                      leaveId: functions
+                                                          .leaveTypeToLeaveId(
+                                                              widget!
+                                                                  .leaveType),
+                                                      leaveCountDay: ((functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt))! >
+                                                                      0) ||
+                                                                  (functions
+                                                                          .checkHoliDayBetween2Day(
+                                                                              _model
+                                                                                  .datePicked,
+                                                                              functions.endLeaveCalendarDate(
+                                                                                  _model
+                                                                                      .datePicked,
+                                                                                  FFAppState()
+                                                                                      .leaveDayInt),
+                                                                              GetHolidayAPICall
+                                                                                      .holidayDate(
+                                                                                (_model.getHolidayAPIOutput?.jsonBody ?? ''),
+                                                                              )
+                                                                                  ?.map((e) => e
+                                                                                      .toString())
+                                                                                  .toList()
+                                                                                  ?.toList())! >
+                                                                      0)) &&
+                                                              ((widget!
+                                                                          .leaveType !=
+                                                                      'ลาอุปสมบท') &&
+                                                                  (widget!.leaveType !=
+                                                                      'ลาเพื่อรับราชการทหาร') &&
+                                                                  (widget!.leaveType !=
+                                                                      'ลาคลอด'))
+                                                          ? functions
+                                                              .leaveCountMinusSunday(
+                                                                  _model
+                                                                      .leaveDaysTextController
+                                                                      .text,
+                                                                  functions.checkSundayBetween2Day(
+                                                                      _model
+                                                                          .datePicked,
+                                                                      functions.endLeaveCalendarDate(
+                                                                          _model
+                                                                              .datePicked,
+                                                                          FFAppState()
+                                                                              .leaveDayInt)),
+                                                                  functions.checkHoliDayBetween2Day(
+                                                                      _model.datePicked,
+                                                                      functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt),
+                                                                      GetHolidayAPICall.holidayDate(
+                                                                        (_model.getHolidayAPIOutput?.jsonBody ??
+                                                                            ''),
+                                                                      )?.map((e) => e.toString()).toList()?.toList()))
+                                                          : functions.leaveTimeToNumber(_model.leaveTimeValue, FFAppState().leaveDaysLocal),
+                                                      leaveStartDate: functions
+                                                          .startLeaveDayString(
+                                                              _model
+                                                                  .datePicked),
+                                                      leaveEndDate: functions
+                                                          .endLeaveDayCalString(
+                                                              _model.datePicked,
+                                                              int.tryParse(_model
+                                                                  .leaveDaysTextController
+                                                                  .text),
+                                                              _model
+                                                                  .leaveTimeValue),
+                                                      leavePeriod:
+                                                          _model.leaveTimeValue,
+                                                      empTel: _model.phoneNumberTextController
+                                                                      .text ==
+                                                                  null ||
+                                                              _model.phoneNumberTextController
+                                                                      .text ==
+                                                                  ''
+                                                          ? '-'
+                                                          : _model
                                                               .phoneNumberTextController
-                                                              .text)!) {
+                                                              .text,
+                                                      leaveReason: _model
+                                                                      .reasonToLeaveTextController
+                                                                      .text ==
+                                                                  null ||
+                                                              _model.reasonToLeaveTextController
+                                                                      .text ==
+                                                                  ''
+                                                          ? '-'
+                                                          : _model
+                                                              .reasonToLeaveTextController
+                                                              .text,
+                                                      leaveDocument: _model
+                                                                  .uploadedFileUrls_uploadMediaPqi
+                                                                  .length >
+                                                              0
+                                                          ? functions
+                                                              .imgPathListToString(
+                                                                  _model
+                                                                      .uploadedFileUrls_uploadMediaPqi
+                                                                      .toList())
+                                                          : functions
+                                                              .imgPathListToStringCopy(
+                                                                  widget!
+                                                                      .leaveDocumentOld
+                                                                      ?.toList()),
+                                                      leaveListId:
+                                                          widget!.leaveListID,
+                                                    );
+
+                                                    _shouldSetState = true;
+                                                    if ((_model.leaveEditAPIOutput2
+                                                                ?.statusCode ??
+                                                            200) ==
+                                                        200) {
+                                                      if (LeaveEditAPICall
+                                                              .infoStatus(
+                                                            (_model.leaveEditAPIOutput2
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ) !=
+                                                          201) {
                                                         await showDialog(
                                                           context: context,
                                                           builder:
@@ -1357,7 +2881,11 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                               child:
                                                                   AlertDialog(
                                                                 content: Text(
-                                                                    'เบอร์โทรศัพท์ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                                    'info (${LeaveEditAPICall.infoInfo(
+                                                                  (_model.leaveEditAPIOutput2
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )})'),
                                                                 actions: [
                                                                   TextButton(
                                                                     onPressed: () =>
@@ -1371,1293 +2899,288 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             );
                                                           },
                                                         );
-                                                        safeSetState(() {
-                                                          _model
-                                                              .phoneNumberTextController
-                                                              ?.clear();
-                                                        });
+                                                        if (_shouldSetState)
+                                                          safeSetState(() {});
                                                         return;
                                                       }
-                                                    },
-                                                    autofocus: false,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      hintText:
-                                                          'กรุณากรอกเบอร์โทรศัพท์',
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .fontStyle,
-                                                                ),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .fontStyle,
-                                                              ),
-                                                      enabledBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBtnText,
-                                                          width: 2.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      focusedBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 2.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      errorBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 2.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 2.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      filled: true,
-                                                      fillColor:
-                                                          Color(0xFFF5F5F5),
-                                                      contentPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  20.0,
-                                                                  24.0,
-                                                                  24.0,
-                                                                  24.0),
-                                                      prefixIcon: Icon(
-                                                        Icons.phone_android,
-                                                        color:
-                                                            Color(0xFF0A0A0A),
-                                                      ),
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color:
-                                                              Color(0xFF0A0A0A),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                    keyboardType:
-                                                        TextInputType.phone,
-                                                    validator: _model
-                                                        .phoneNumberTextControllerValidator
-                                                        .asValidator(context),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 10.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.35, -0.09),
-                                                child: SelectionArea(
-                                                    child: Text(
-                                                  'เหตุผลการลา  :',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                )),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 15.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 10.0, 0.0, 5.0),
-                                                  child: TextFormField(
-                                                    controller: _model
-                                                        .reasonToLeaveTextController,
-                                                    focusNode: _model
-                                                        .reasonToLeaveFocusNode,
-                                                    autofocus: false,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      labelStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                      hintText: 'กรุณากรอก...',
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: Color(
-                                                                    0xFF0A0A0A),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .fontStyle,
-                                                              ),
-                                                      enabledBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 2.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      focusedBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 2.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      errorBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 2.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 2.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      filled: true,
-                                                      fillColor:
-                                                          Color(0xFFF5F5F5),
-                                                      contentPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  20.0,
-                                                                  40.0,
-                                                                  24.0,
-                                                                  0.0),
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                    textAlign: TextAlign.start,
-                                                    maxLines: 4,
-                                                    validator: _model
-                                                        .reasonToLeaveTextControllerValidator
-                                                        .asValidator(context),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.35, -0.09),
-                                                child: SelectionArea(
-                                                    child: Text(
-                                                  'เเนบไฟล์การลา  :',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                )),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 15.0, 20.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              // 4. ประเภทการลาไหนบ้าง ต้องเเนบไฟล์
-                                              // 	- ลาป่่วย3 วันต่อเนื่องต้องเเนบใบรับรองเเพทย์
-                                              // 	- ลาทำหมันต้องเเนบใบรับรองเเพทย์
-                                              // 	- ลาเพื่อรับราชการทหารเเนบใบรับรองเเพทย์
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      final selectedMedia =
-                                                          await selectMedia(
-                                                        imageQuality: 70,
-                                                        mediaSource: MediaSource
-                                                            .photoGallery,
-                                                        multiImage: true,
-                                                      );
-                                                      if (selectedMedia !=
-                                                              null &&
-                                                          selectedMedia.every((m) =>
-                                                              validateFileFormat(
-                                                                  m.storagePath,
-                                                                  context))) {
-                                                        safeSetState(() => _model
-                                                                .isDataUploading_uploadMediaPqi =
-                                                            true);
-                                                        var selectedUploadedFiles =
-                                                            <FFUploadedFile>[];
+                                                    } else {
+                                                      if ((LeaveEditAPICall
+                                                                  .messageLayer1(
+                                                                (_model.leaveEditAPIOutput2
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) ==
+                                                              'The token has been blacklisted') ||
+                                                          (LeaveEditAPICall
+                                                                  .messageLayer1(
+                                                                (_model.leaveEditAPIOutput2
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) ==
+                                                              'Token Signature could not be verified.')) {
+                                                        var userLogRecordReference1 =
+                                                            UserLogRecord
+                                                                .collection
+                                                                .doc();
+                                                        await userLogRecordReference1
+                                                            .set(
+                                                                createUserLogRecordData(
+                                                          employeeId:
+                                                              FFAppState()
+                                                                  .employeeID,
+                                                          action: 'Logout',
+                                                          actionTime:
+                                                              getCurrentTimestamp,
+                                                          userLocation:
+                                                              currentUserLocationValue,
+                                                        ));
+                                                        _model.createdUserLogLogout57 =
+                                                            UserLogRecord
+                                                                .getDocumentFromData(
+                                                                    createUserLogRecordData(
+                                                                      employeeId:
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                      action:
+                                                                          'Logout',
+                                                                      actionTime:
+                                                                          getCurrentTimestamp,
+                                                                      userLocation:
+                                                                          currentUserLocationValue,
+                                                                    ),
+                                                                    userLogRecordReference1);
+                                                        _shouldSetState = true;
+                                                        FFAppState()
+                                                                .loginStateFirebase =
+                                                            '[loginStateFirebase]';
+                                                        FFAppState()
+                                                            .deleteAccessToken();
+                                                        FFAppState()
+                                                                .accessToken =
+                                                            'access_token';
 
-                                                        var downloadUrls =
-                                                            <String>[];
-                                                        try {
-                                                          showUploadMessage(
-                                                            context,
-                                                            'Uploading file...',
-                                                            showLoading: true,
-                                                          );
-                                                          selectedUploadedFiles =
-                                                              selectedMedia
-                                                                  .map((m) =>
-                                                                      FFUploadedFile(
-                                                                        name: m
-                                                                            .storagePath
-                                                                            .split('/')
-                                                                            .last,
-                                                                        bytes: m
-                                                                            .bytes,
-                                                                        height: m
-                                                                            .dimensions
-                                                                            ?.height,
-                                                                        width: m
-                                                                            .dimensions
-                                                                            ?.width,
-                                                                        blurHash:
-                                                                            m.blurHash,
-                                                                        originalFilename:
-                                                                            m.originalFilename,
-                                                                      ))
-                                                                  .toList();
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .deleteEmployeeID();
+                                                        FFAppState()
+                                                                .employeeID =
+                                                            'employee_id';
 
-                                                          downloadUrls =
-                                                              (await Future
-                                                                      .wait(
-                                                            selectedMedia.map(
-                                                              (m) async =>
-                                                                  await uploadData(
-                                                                      m.storagePath,
-                                                                      m.bytes),
-                                                            ),
-                                                          ))
-                                                                  .where((u) =>
-                                                                      u != null)
-                                                                  .map(
-                                                                      (u) => u!)
-                                                                  .toList();
-                                                        } finally {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .hideCurrentSnackBar();
-                                                          _model.isDataUploading_uploadMediaPqi =
-                                                              false;
-                                                        }
-                                                        if (selectedUploadedFiles
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length &&
-                                                            downloadUrls
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length) {
-                                                          safeSetState(() {
-                                                            _model.uploadedLocalFiles_uploadMediaPqi =
-                                                                selectedUploadedFiles;
-                                                            _model.uploadedFileUrls_uploadMediaPqi =
-                                                                downloadUrls;
-                                                          });
-                                                          showUploadMessage(
-                                                              context,
-                                                              'Success!');
-                                                        } else {
+                                                        FFAppState()
+                                                                .QRCodeLink =
+                                                            'qrcode_link';
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .deleteApiURLLocalState();
+                                                        FFAppState()
+                                                                .apiURLLocalState =
+                                                            'api_url_local_state';
+
+                                                        FFAppState()
+                                                            .deleteBranchCode();
+                                                        FFAppState()
+                                                                .branchCode =
+                                                            'branch_code';
+
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                                .isFromSetPinPage =
+                                                            false;
+                                                        FFAppState()
+                                                            .leadChannelColor = [];
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .leadChannelList = [];
+                                                        FFAppState()
+                                                                .isFromLoginPage =
+                                                            false;
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .deletePinCodeAuthen();
+                                                        FFAppState()
+                                                                .pinCodeAuthen =
+                                                            '013972';
+
+                                                        FFAppState()
+                                                                .isFromAuthenPage =
+                                                            false;
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .deleteDateDoNotShowAgain();
+                                                        FFAppState()
+                                                                .dateDoNotShowAgain =
+                                                            null;
+
+                                                        FFAppState()
+                                                            .deleteDoNotShowAgain();
+                                                        FFAppState()
+                                                                .doNotShowAgain =
+                                                            false;
+
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                                .inAppViaNotification =
+                                                            true;
+                                                        FFAppState().isInApp =
+                                                            false;
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState().fcmToken =
+                                                            'fcm_token';
+                                                        FFAppState()
+                                                                .isPassLoginSection =
+                                                            false;
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState().leadID =
+                                                            [];
+                                                        FFAppState()
+                                                            .leadCreatedTimeList = [];
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .leadCustomerNameList = [];
+                                                        FFAppState()
+                                                            .leadChannelList = [];
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .leadChannelColor = [];
+                                                        FFAppState()
+                                                            .leadCallStatus = [];
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .leadPhoneNumberList = [];
+                                                        FFAppState()
+                                                            .leadEmployeeID = [];
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .leadChannelLabelColor = [];
+                                                        FFAppState()
+                                                            .deleteLeadIdCalledInApp();
+                                                        FFAppState()
+                                                            .leadIdCalledInApp = [];
+
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .leadBranchCode = [];
+                                                        FFAppState()
+                                                                .leadUserLevel =
+                                                            'lead_user_level';
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        FFAppState()
+                                                            .leadChannelAmountList = [];
+                                                        FFAppState()
+                                                            .update(() {});
+                                                        Navigator.pop(context);
+                                                        await actions.a22();
+
+                                                        context.goNamed(
+                                                            LoginPageWidget
+                                                                .routeName);
+
+                                                        if (_shouldSetState)
                                                           safeSetState(() {});
-                                                          showUploadMessage(
-                                                              context,
-                                                              'Failed to upload data');
-                                                          return;
-                                                        }
+                                                        return;
+                                                      } else {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    LeaveEditAPICall
+                                                                        .messageLayer1(
+                                                                  (_model.leaveEditAPIOutput2
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                        if (_shouldSetState)
+                                                          safeSetState(() {});
+                                                        return;
                                                       }
-                                                    },
-                                                    text: '[เเนบไฟล์ภาพ]',
-                                                    icon: Icon(
-                                                      Icons.attach_file,
-                                                      size: 15.0,
-                                                    ),
-                                                    options: FFButtonOptions(
-                                                      width: 90.0,
-                                                      height: 60.0,
-                                                      padding:
-                                                          EdgeInsets.all(0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryBtnText,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: Color(
-                                                                    0xFF0A0A0A),
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                              ),
-                                                      elevation: 2.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0xFFBDBDBD),
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        if (_model
-                                                .uploadedFileUrls_uploadMediaPqi
-                                                .length >
-                                            0)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 0.0, 15.0, 20.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Builder(
-                                                    builder: (context) {
-                                                      final uploadListNum = _model
-                                                          .uploadedFileUrls_uploadMediaPqi
-                                                          .toList();
+                                                    }
 
-                                                      return Container(
-                                                        width: double.infinity,
-                                                        height: 500.0,
-                                                        child: Stack(
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          50.0),
-                                                              child: PageView
-                                                                  .builder(
-                                                                controller: _model
-                                                                        .pageViewController1 ??=
-                                                                    PageController(
-                                                                        initialPage: max(
-                                                                            0,
-                                                                            min(0,
-                                                                                uploadListNum.length - 1))),
-                                                                scrollDirection:
-                                                                    Axis.horizontal,
-                                                                itemCount:
-                                                                    uploadListNum
-                                                                        .length,
-                                                                itemBuilder:
-                                                                    (context,
-                                                                        uploadListNumIndex) {
-                                                                  final uploadListNumItem =
-                                                                      uploadListNum[
-                                                                          uploadListNumIndex];
-                                                                  return Image
-                                                                      .network(
-                                                                    uploadListNumItem,
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        100.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                  );
-                                                                },
-                                                              ),
-                                                            ),
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 1.0),
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0),
-                                                                child: smooth_page_indicator
-                                                                    .SmoothPageIndicator(
-                                                                  controller: _model
-                                                                          .pageViewController1 ??=
-                                                                      PageController(
-                                                                          initialPage: max(
-                                                                              0,
-                                                                              min(0, uploadListNum.length - 1))),
-                                                                  count:
-                                                                      uploadListNum
-                                                                          .length,
-                                                                  axisDirection:
-                                                                      Axis.horizontal,
-                                                                  onDotClicked:
-                                                                      (i) async {
-                                                                    await _model
-                                                                        .pageViewController1!
-                                                                        .animateToPage(
-                                                                      i,
-                                                                      duration: Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                      curve: Curves
-                                                                          .ease,
-                                                                    );
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  },
-                                                                  effect: smooth_page_indicator
-                                                                      .ExpandingDotsEffect(
-                                                                    expansionFactor:
-                                                                        2.0,
-                                                                    spacing:
-                                                                        8.0,
-                                                                    radius:
-                                                                        16.0,
-                                                                    dotWidth:
-                                                                        16.0,
-                                                                    dotHeight:
-                                                                        16.0,
-                                                                    dotColor: Color(
-                                                                        0xFF9E9E9E),
-                                                                    activeDotColor:
-                                                                        Color(
-                                                                            0xFF3F51B5),
-                                                                    paintStyle:
-                                                                        PaintingStyle
-                                                                            .fill,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        if ((widget!.leaveDocumentOld!.length >
-                                                0) &&
-                                            (_model.uploadedFileUrls_uploadMediaPqi
-                                                    .length <
-                                                1))
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 0.0, 15.0, 20.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Builder(
-                                                    builder: (context) {
-                                                      final uploadListNumOld =
-                                                          widget!.leaveDocumentOld
-                                                                  ?.toList() ??
-                                                              [];
-
-                                                      return Container(
-                                                        width: double.infinity,
-                                                        height: 500.0,
-                                                        child: Stack(
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          50.0),
-                                                              child: PageView
-                                                                  .builder(
-                                                                controller: _model
-                                                                        .pageViewController2 ??=
-                                                                    PageController(
-                                                                        initialPage: max(
-                                                                            0,
-                                                                            min(0,
-                                                                                uploadListNumOld.length - 1))),
-                                                                scrollDirection:
-                                                                    Axis.horizontal,
-                                                                itemCount:
-                                                                    uploadListNumOld
-                                                                        .length,
-                                                                itemBuilder:
-                                                                    (context,
-                                                                        uploadListNumOldIndex) {
-                                                                  final uploadListNumOldItem =
-                                                                      uploadListNumOld[
-                                                                          uploadListNumOldIndex];
-                                                                  return Image
-                                                                      .network(
-                                                                    uploadListNumOldItem,
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        100.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                  );
-                                                                },
-                                                              ),
-                                                            ),
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 1.0),
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0),
-                                                                child: smooth_page_indicator
-                                                                    .SmoothPageIndicator(
-                                                                  controller: _model
-                                                                          .pageViewController2 ??=
-                                                                      PageController(
-                                                                          initialPage: max(
-                                                                              0,
-                                                                              min(0, uploadListNumOld.length - 1))),
-                                                                  count:
-                                                                      uploadListNumOld
-                                                                          .length,
-                                                                  axisDirection:
-                                                                      Axis.horizontal,
-                                                                  onDotClicked:
-                                                                      (i) async {
-                                                                    await _model
-                                                                        .pageViewController2!
-                                                                        .animateToPage(
-                                                                      i,
-                                                                      duration: Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                      curve: Curves
-                                                                          .ease,
-                                                                    );
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  },
-                                                                  effect: smooth_page_indicator
-                                                                      .ExpandingDotsEffect(
-                                                                    expansionFactor:
-                                                                        2.0,
-                                                                    spacing:
-                                                                        8.0,
-                                                                    radius:
-                                                                        16.0,
-                                                                    dotWidth:
-                                                                        16.0,
-                                                                    dotHeight:
-                                                                        16.0,
-                                                                    dotColor: Color(
-                                                                        0xFF9E9E9E),
-                                                                    activeDotColor:
-                                                                        Color(
-                                                                            0xFF3F51B5),
-                                                                    paintStyle:
-                                                                        PaintingStyle
-                                                                            .fill,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                            Container(
-                              width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.15,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    25.0, 0.0, 25.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 10.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            currentUserLocationValue =
-                                                await getCurrentUserLocation(
-                                                    defaultLocation:
-                                                        LatLng(0.0, 0.0));
-                                            var _shouldSetState = false;
-                                            if (_model.datePicked != null) {
-                                              if (!functions.checkYearLeave(
-                                                  _model.datePicked)!) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'ไม่สามารถลาล่วงหน้าปีหน้าได้ กรุณาเลือกวันใหม่'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-                                              if (!(_model.leaveTimeValue !=
-                                                      null &&
-                                                  _model.leaveTimeValue !=
-                                                      '')) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'กรุณาเลือกช่วงเวลาที่จะลา'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-                                              if (((widget!.leaveType ==
-                                                          'ลาป่วย') &&
-                                                      (FFAppState()
-                                                              .leaveDaysDouble >=
-                                                          3.0)) ||
-                                                  (widget!.leaveType ==
-                                                      'ลาทำหมัน') ||
-                                                  (widget!.leaveType ==
-                                                      'ลารับราชการ')) {
-                                                if (!((widget!.leaveDocumentOld!
-                                                            .length >
-                                                        0) ||
-                                                    (_model.uploadedFileUrls_uploadMediaPqi
-                                                            .length >
-                                                        0))) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'กรุณาอัปโหลดไฟล์รูปภาพ'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                              }
-                                              if (functions.checkSundayDate(
-                                                  _model.datePicked)!) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'ไม่สามารถลาวันอาทิตได้ กรุณาเลือกวันใหม่'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-                                              if (functions.checkHolidayDate(
-                                                  _model.datePicked,
-                                                  GetHolidayAPICall.holidayDate(
-                                                    (_model.getHolidayAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )
-                                                      ?.map((e) => e.toString())
-                                                      .toList()
-                                                      ?.toList())!) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'ไม่สามารถลาวันหยุดได้ กรุณาเลือกวันใหม่'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-                                              if (!functions.checkPhoneNumber10(
-                                                  _model
-                                                      .phoneNumberTextController
-                                                      .text)!) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'เบอร์โทรศัพท์ไม่ถูกต้องกรุณากรอกใหม่'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                safeSetState(() {
-                                                  _model
-                                                      .phoneNumberTextController
-                                                      ?.clear();
-                                                });
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-                                              if (_model
-                                                      .uploadedFileUrls_uploadMediaPqi
-                                                      .length >
-                                                  5) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'ใส่รูปภาพได้ไม่เกิน 5 รูปกรุณาใส่ใหม่'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-                                              if (widget!.leaveType ==
-                                                  'ลาป่วย') {
-                                                if (!functions
-                                                    .checkSickLeaveIsBeforeCurrentDate(
-                                                        getCurrentTimestamp,
-                                                        _model.datePicked)!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'ไม่สามารถลาป่วยล่วงหน้าได้ กรุณาเลือกวันลาใหม่'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                              }
-                                            } else {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content: Text(
-                                                          'กรุณาเลือกวันเริ่มลา'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
-                                              return;
-                                            }
-
-                                            if (_model.leaveTimeValue ==
-                                                'ลาเต็มวัน') {
-                                              FFAppState().leaveDaysLocal =
-                                                  _model.leaveDaysTextController
-                                                      .text;
-                                              FFAppState().leaveDaysDouble =
-                                                  double.parse(_model
-                                                      .leaveDaysTextController
-                                                      .text);
-                                              FFAppState().checkAllowLeaveDay =
-                                                  functions.allowLeaveDay(
-                                                      widget!.leaveType,
-                                                      FFAppState()
-                                                          .totalLeave
-                                                          .toList(),
-                                                      FFAppState()
-                                                          .leaveDaysDouble)!;
-                                              FFAppState().leaveDayInt =
-                                                  int.parse(_model
-                                                      .leaveDaysTextController
-                                                      .text);
-                                              FFAppState().update(() {});
-                                            } else {
-                                              FFAppState().leaveDaysLocal =
-                                                  '0.5';
-                                              FFAppState().leaveDaysDouble =
-                                                  0.5;
-                                              FFAppState().checkAllowLeaveDay =
-                                                  functions.allowLeaveDay(
-                                                      widget!.leaveType,
-                                                      FFAppState()
-                                                          .totalLeave
-                                                          .toList(),
-                                                      FFAppState()
-                                                          .leaveDaysDouble)!;
-                                              FFAppState().leaveDayInt = 0;
-                                              FFAppState().update(() {});
-                                            }
-
-                                            if (!(FFAppState()
-                                                    .checkAllowLeaveDay ||
-                                                (widget!.leaveDay ==
-                                                        _model
-                                                            .leaveDaysTextController
-                                                            .text
-                                                    ? true
-                                                    : false))) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content:
-                                                          Text('วันลาคุณไม่พอ'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
-                                              return;
-                                            }
-                                            var confirmDialogResponse =
-                                                await showDialog<bool>(
+                                                    await showDialog(
                                                       context: context,
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
                                                           child: AlertDialog(
                                                             content: Text(
-                                                                'ยืนยันการบันทึกข้อมูล'),
+                                                                LeaveEditAPICall
+                                                                    .infoInfo(
+                                                              (_model.leaveEditAPIOutput2
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!),
                                                             actions: [
                                                               TextButton(
                                                                 onPressed: () =>
                                                                     Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child: Text(
-                                                                    'ยกเลิก'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child: Text(
-                                                                    'ตกลง'),
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
                                                               ),
                                                             ],
                                                           ),
                                                         );
                                                       },
-                                                    ) ??
-                                                    false;
-                                            if (confirmDialogResponse) {
-                                              if (((widget!.leaveType ==
-                                                          'ลาป่วย') &&
-                                                      (FFAppState()
-                                                              .leaveDaysDouble >=
-                                                          3.0)) ||
-                                                  (widget!.leaveType ==
-                                                      'ลาทำหมัน') ||
-                                                  (widget!.leaveType ==
-                                                      'ลารับราชการ')) {
-                                                if ((widget!.leaveDocumentOld!
-                                                            .length >
-                                                        0) ||
-                                                    (_model.uploadedFileUrls_uploadMediaPqi
-                                                            .length >
-                                                        0)) {
-                                                  _model.leaveEditAPIOutput2 =
+                                                    );
+                                                  } else {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'กรุณาอัปโหลดไฟล์รูปภาพ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      safeSetState(() {});
+                                                    return;
+                                                  }
+                                                } else {
+                                                  _model.leaveEditAPIOutput =
                                                       await LeaveEditAPICall
                                                           .call(
                                                     apiUrl: FFAppState()
@@ -2750,32 +3273,46 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         : _model
                                                             .reasonToLeaveTextController
                                                             .text,
-                                                    leaveDocument: _model
-                                                                .uploadedFileUrls_uploadMediaPqi
-                                                                .length >
-                                                            0
-                                                        ? functions
+                                                    leaveDocument: () {
+                                                      if (_model
+                                                              .uploadedFileUrls_uploadMediaPqi
+                                                              .length >
+                                                          0) {
+                                                        return functions
                                                             .imgPathListToString(
                                                                 _model
                                                                     .uploadedFileUrls_uploadMediaPqi
-                                                                    .toList())
-                                                        : functions
+                                                                    .toList());
+                                                      } else if ((_model
+                                                                  .uploadedFileUrls_uploadMediaPqi
+                                                                  .length <
+                                                              1) &&
+                                                          (widget!.leaveDocumentOld!
+                                                                  .length >
+                                                              0)) {
+                                                        return functions
                                                             .imgPathListToStringCopy(
                                                                 widget!
                                                                     .leaveDocumentOld
-                                                                    ?.toList()),
+                                                                    ?.toList());
+                                                      } else {
+                                                        return functions
+                                                            .imgPathtoString(
+                                                                '-');
+                                                      }
+                                                    }(),
                                                     leaveListId:
                                                         widget!.leaveListID,
                                                   );
 
                                                   _shouldSetState = true;
-                                                  if ((_model.leaveEditAPIOutput2
+                                                  if ((_model.leaveEditAPIOutput
                                                               ?.statusCode ??
                                                           200) ==
                                                       200) {
                                                     if (LeaveEditAPICall
                                                             .infoStatus(
-                                                          (_model.leaveEditAPIOutput2
+                                                          (_model.leaveEditAPIOutput
                                                                   ?.jsonBody ??
                                                               ''),
                                                         ) !=
@@ -2788,7 +3325,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             child: AlertDialog(
                                                               content: Text(
                                                                   'info (${LeaveEditAPICall.infoInfo(
-                                                                (_model.leaveEditAPIOutput2
+                                                                (_model.leaveEditAPIOutput
                                                                         ?.jsonBody ??
                                                                     ''),
                                                               )})'),
@@ -2812,23 +3349,23 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                   } else {
                                                     if ((LeaveEditAPICall
                                                                 .messageLayer1(
-                                                              (_model.leaveEditAPIOutput2
+                                                              (_model.leaveEditAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
                                                             ) ==
                                                             'The token has been blacklisted') ||
                                                         (LeaveEditAPICall
                                                                 .messageLayer1(
-                                                              (_model.leaveEditAPIOutput2
+                                                              (_model.leaveEditAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
                                                             ) ==
                                                             'Token Signature could not be verified.')) {
-                                                      var userLogRecordReference1 =
+                                                      var userLogRecordReference2 =
                                                           UserLogRecord
                                                               .collection
                                                               .doc();
-                                                      await userLogRecordReference1
+                                                      await userLogRecordReference2
                                                           .set(
                                                               createUserLogRecordData(
                                                         employeeId: FFAppState()
@@ -2839,7 +3376,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         userLocation:
                                                             currentUserLocationValue,
                                                       ));
-                                                      _model.createdUserLogLogout57 =
+                                                      _model.createdUserLogLogout55 =
                                                           UserLogRecord
                                                               .getDocumentFromData(
                                                                   createUserLogRecordData(
@@ -2853,7 +3390,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                     userLocation:
                                                                         currentUserLocationValue,
                                                                   ),
-                                                                  userLogRecordReference1);
+                                                                  userLogRecordReference2);
                                                       _shouldSetState = true;
                                                       FFAppState()
                                                               .loginStateFirebase =
@@ -3003,7 +3540,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                               content: Text(
                                                                   LeaveEditAPICall
                                                                       .messageLayer1(
-                                                                (_model.leaveEditAPIOutput2
+                                                                (_model.leaveEditAPIOutput
                                                                         ?.jsonBody ??
                                                                     ''),
                                                               )!),
@@ -3035,7 +3572,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           content: Text(
                                                               LeaveEditAPICall
                                                                   .infoInfo(
-                                                            (_model.leaveEditAPIOutput2
+                                                            (_model.leaveEditAPIOutput
                                                                     ?.jsonBody ??
                                                                 ''),
                                                           )!),
@@ -3051,451 +3588,50 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       );
                                                     },
                                                   );
-                                                } else {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'กรุณาอัปโหลดไฟล์รูปภาพ'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
                                                 }
+
+                                                FFAppState().leaveDaysDouble =
+                                                    0.5;
+                                                FFAppState().update(() {});
                                               } else {
-                                                _model.leaveEditAPIOutput =
-                                                    await LeaveEditAPICall.call(
-                                                  apiUrl: FFAppState()
-                                                      .apiURLLocalState,
-                                                  token:
-                                                      FFAppState().accessToken,
-                                                  leaveId: functions
-                                                      .leaveTypeToLeaveId(
-                                                          widget!.leaveType),
-                                                  leaveCountDay: ((functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt))! >
-                                                                  0) ||
-                                                              (functions
-                                                                      .checkHoliDayBetween2Day(
-                                                                          _model
-                                                                              .datePicked,
-                                                                          functions.endLeaveCalendarDate(
-                                                                              _model
-                                                                                  .datePicked,
-                                                                              FFAppState()
-                                                                                  .leaveDayInt),
-                                                                          GetHolidayAPICall
-                                                                                  .holidayDate(
-                                                                            (_model.getHolidayAPIOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )
-                                                                              ?.map((e) => e
-                                                                                  .toString())
-                                                                              .toList()
-                                                                              ?.toList())! >
-                                                                  0)) &&
-                                                          ((widget!
-                                                                      .leaveType !=
-                                                                  'ลาอุปสมบท') &&
-                                                              (widget!.leaveType !=
-                                                                  'ลาเพื่อรับราชการทหาร') &&
-                                                              (widget!.leaveType !=
-                                                                  'ลาคลอด'))
-                                                      ? functions
-                                                          .leaveCountMinusSunday(
-                                                              _model
-                                                                  .leaveDaysTextController
-                                                                  .text,
-                                                              functions.checkSundayBetween2Day(
-                                                                  _model
-                                                                      .datePicked,
-                                                                  functions.endLeaveCalendarDate(
-                                                                      _model
-                                                                          .datePicked,
-                                                                      FFAppState().leaveDayInt)),
-                                                              functions.checkHoliDayBetween2Day(
-                                                                  _model.datePicked,
-                                                                  functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt),
-                                                                  GetHolidayAPICall.holidayDate(
-                                                                    (_model.getHolidayAPIOutput
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )?.map((e) => e.toString()).toList()?.toList()))
-                                                      : functions.leaveTimeToNumber(_model.leaveTimeValue, FFAppState().leaveDaysLocal),
-                                                  leaveStartDate: functions
-                                                      .startLeaveDayString(
-                                                          _model.datePicked),
-                                                  leaveEndDate: functions
-                                                      .endLeaveDayCalString(
-                                                          _model.datePicked,
-                                                          int.tryParse(_model
-                                                              .leaveDaysTextController
-                                                              .text),
-                                                          _model
-                                                              .leaveTimeValue),
-                                                  leavePeriod:
-                                                      _model.leaveTimeValue,
-                                                  empTel: _model.phoneNumberTextController
-                                                                  .text ==
-                                                              null ||
-                                                          _model.phoneNumberTextController
-                                                                  .text ==
-                                                              ''
-                                                      ? '-'
-                                                      : _model
-                                                          .phoneNumberTextController
-                                                          .text,
-                                                  leaveReason: _model
-                                                                  .reasonToLeaveTextController
-                                                                  .text ==
-                                                              null ||
-                                                          _model.reasonToLeaveTextController
-                                                                  .text ==
-                                                              ''
-                                                      ? '-'
-                                                      : _model
-                                                          .reasonToLeaveTextController
-                                                          .text,
-                                                  leaveDocument: () {
-                                                    if (_model
-                                                            .uploadedFileUrls_uploadMediaPqi
-                                                            .length >
-                                                        0) {
-                                                      return functions
-                                                          .imgPathListToString(
-                                                              _model
-                                                                  .uploadedFileUrls_uploadMediaPqi
-                                                                  .toList());
-                                                    } else if ((_model
-                                                                .uploadedFileUrls_uploadMediaPqi
-                                                                .length <
-                                                            1) &&
-                                                        (widget!.leaveDocumentOld!
-                                                                .length >
-                                                            0)) {
-                                                      return functions
-                                                          .imgPathListToStringCopy(
-                                                              widget!
-                                                                  .leaveDocumentOld
-                                                                  ?.toList());
-                                                    } else {
-                                                      return functions
-                                                          .imgPathtoString('-');
-                                                    }
-                                                  }(),
-                                                  leaveListId:
-                                                      widget!.leaveListID,
-                                                );
-
-                                                _shouldSetState = true;
-                                                if ((_model.leaveEditAPIOutput
-                                                            ?.statusCode ??
-                                                        200) ==
-                                                    200) {
-                                                  if (LeaveEditAPICall
-                                                          .infoStatus(
-                                                        (_model.leaveEditAPIOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      201) {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                'info (${LeaveEditAPICall.infoInfo(
-                                                              (_model.leaveEditAPIOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )})'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                    if (_shouldSetState)
-                                                      safeSetState(() {});
-                                                    return;
-                                                  }
-                                                } else {
-                                                  if ((LeaveEditAPICall
-                                                              .messageLayer1(
-                                                            (_model.leaveEditAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) ==
-                                                          'The token has been blacklisted') ||
-                                                      (LeaveEditAPICall
-                                                              .messageLayer1(
-                                                            (_model.leaveEditAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) ==
-                                                          'Token Signature could not be verified.')) {
-                                                    var userLogRecordReference2 =
-                                                        UserLogRecord.collection
-                                                            .doc();
-                                                    await userLogRecordReference2
-                                                        .set(
-                                                            createUserLogRecordData(
-                                                      employeeId: FFAppState()
-                                                          .employeeID,
-                                                      action: 'Logout',
-                                                      actionTime:
-                                                          getCurrentTimestamp,
-                                                      userLocation:
-                                                          currentUserLocationValue,
-                                                    ));
-                                                    _model.createdUserLogLogout55 =
-                                                        UserLogRecord
-                                                            .getDocumentFromData(
-                                                                createUserLogRecordData(
-                                                                  employeeId:
-                                                                      FFAppState()
-                                                                          .employeeID,
-                                                                  action:
-                                                                      'Logout',
-                                                                  actionTime:
-                                                                      getCurrentTimestamp,
-                                                                  userLocation:
-                                                                      currentUserLocationValue,
-                                                                ),
-                                                                userLogRecordReference2);
-                                                    _shouldSetState = true;
-                                                    FFAppState()
-                                                            .loginStateFirebase =
-                                                        '[loginStateFirebase]';
-                                                    FFAppState()
-                                                        .deleteAccessToken();
-                                                    FFAppState().accessToken =
-                                                        'access_token';
-
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .deleteEmployeeID();
-                                                    FFAppState().employeeID =
-                                                        'employee_id';
-
-                                                    FFAppState().QRCodeLink =
-                                                        'qrcode_link';
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .deleteApiURLLocalState();
-                                                    FFAppState()
-                                                            .apiURLLocalState =
-                                                        'api_url_local_state';
-
-                                                    FFAppState()
-                                                        .deleteBranchCode();
-                                                    FFAppState().branchCode =
-                                                        'branch_code';
-
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                            .isFromSetPinPage =
-                                                        false;
-                                                    FFAppState()
-                                                        .leadChannelColor = [];
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .leadChannelList = [];
-                                                    FFAppState()
-                                                            .isFromLoginPage =
-                                                        false;
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .deletePinCodeAuthen();
-                                                    FFAppState().pinCodeAuthen =
-                                                        '013972';
-
-                                                    FFAppState()
-                                                            .isFromAuthenPage =
-                                                        false;
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .deleteDateDoNotShowAgain();
-                                                    FFAppState()
-                                                            .dateDoNotShowAgain =
-                                                        null;
-
-                                                    FFAppState()
-                                                        .deleteDoNotShowAgain();
-                                                    FFAppState()
-                                                        .doNotShowAgain = false;
-
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                            .inAppViaNotification =
-                                                        true;
-                                                    FFAppState().isInApp =
-                                                        false;
-                                                    FFAppState().update(() {});
-                                                    FFAppState().fcmToken =
-                                                        'fcm_token';
-                                                    FFAppState()
-                                                            .isPassLoginSection =
-                                                        false;
-                                                    FFAppState().update(() {});
-                                                    FFAppState().leadID = [];
-                                                    FFAppState()
-                                                        .leadCreatedTimeList = [];
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .leadCustomerNameList = [];
-                                                    FFAppState()
-                                                        .leadChannelList = [];
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .leadChannelColor = [];
-                                                    FFAppState()
-                                                        .leadCallStatus = [];
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .leadPhoneNumberList = [];
-                                                    FFAppState()
-                                                        .leadEmployeeID = [];
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .leadChannelLabelColor = [];
-                                                    FFAppState()
-                                                        .deleteLeadIdCalledInApp();
-                                                    FFAppState()
-                                                        .leadIdCalledInApp = [];
-
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .leadBranchCode = [];
-                                                    FFAppState().leadUserLevel =
-                                                        'lead_user_level';
-                                                    FFAppState().update(() {});
-                                                    FFAppState()
-                                                        .leadChannelAmountList = [];
-                                                    FFAppState().update(() {});
-                                                    Navigator.pop(context);
-                                                    await actions.a22();
-
-                                                    context.goNamed(
-                                                        LoginPageWidget
-                                                            .routeName);
-
-                                                    if (_shouldSetState)
-                                                      safeSetState(() {});
-                                                    return;
-                                                  } else {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                LeaveEditAPICall
-                                                                    .messageLayer1(
-                                                              (_model.leaveEditAPIOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                    if (_shouldSetState)
-                                                      safeSetState(() {});
-                                                    return;
-                                                  }
-                                                }
-
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            LeaveEditAPICall
-                                                                .infoInfo(
-                                                          (_model.leaveEditAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )!),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
                                               }
 
-                                              FFAppState().leaveDaysDouble =
-                                                  0.5;
-                                              FFAppState().update(() {});
-                                            } else {
+                                              context.goNamed(
+                                                  LeaveShowPageWidget
+                                                      .routeName);
+
                                               if (_shouldSetState)
                                                 safeSetState(() {});
-                                              return;
-                                            }
-
-                                            context.goNamed(
-                                                LeaveShowPageWidget.routeName);
-
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                          },
-                                          text: 'บันทึก',
-                                          options: FFButtonOptions(
-                                            width: 90.0,
-                                            height: 60.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 24.0, 24.0, 24.0),
-                                            color: Color(0xFF00968A),
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.poppins(
+                                            },
+                                            text: 'บันทึก',
+                                            options: FFButtonOptions(
+                                              width: 90.0,
+                                              height: 60.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 24.0, 24.0, 24.0),
+                                              color: Color(0xFF00968A),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Colors.white,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
@@ -3503,39 +3639,30 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             .titleSmall
                                                             .fontStyle,
                                                   ),
-                                                  color: Colors.white,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 2.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 2.0,
+                                              elevation: 2.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              );
-            },
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),

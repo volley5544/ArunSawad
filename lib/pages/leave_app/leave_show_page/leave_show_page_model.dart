@@ -32,6 +32,8 @@ class LeaveShowPageModel extends FlutterFlowModel<LeaveShowPageWidget> {
 
   // Stores action output result for [Backend Call - API (leaveListAPI)] action in LeaveShowPage widget.
   ApiCallResponse? leaveListAPIOutput;
+  // Stores action output result for [Custom Action - getLocation] action in LeaveShowPage widget.
+  LatLng? getLocationOnPageLoad;
   // Stores action output result for [Backend Call - Create Document] action in LeaveShowPage widget.
   UserLogRecord? createdUserLogLogout125;
   // Stores action output result for [Backend Call - API (resignListAPI)] action in LeaveShowPage widget.

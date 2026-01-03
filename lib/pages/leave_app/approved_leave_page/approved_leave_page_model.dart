@@ -28,6 +28,8 @@ class ApprovedLeavePageModel extends FlutterFlowModel<ApprovedLeavePageWidget> {
 
   // Stores action output result for [Backend Call - API (leaveListAprroveAPI)] action in ApprovedLeavePage widget.
   ApiCallResponse? leaveListAprroveAPIOutput;
+  // Stores action output result for [Custom Action - getLocation] action in ApprovedLeavePage widget.
+  LatLng? getLocationOnPageLoad;
   // Stores action output result for [Backend Call - Create Document] action in ApprovedLeavePage widget.
   UserLogRecord? createdUserLogLogout125;
   // State field(s) for Checkbox widget.
