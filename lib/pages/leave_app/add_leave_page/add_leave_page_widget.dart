@@ -97,6 +97,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
       );
 
       if ((_model.getHolidayAPIOutput?.statusCode ?? 200) != 200) {
+        Navigator.pop(context);
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -116,6 +117,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
         );
         return;
       }
+      Navigator.pop(context);
     });
 
     _model.leaveDaysTextController ??= TextEditingController();
@@ -605,9 +607,10 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           );
                                                           return;
                                                         }
-                                                        if (!functions
-                                                            .checkYearLeave(_model
-                                                                .datePicked)!) {
+                                                        if (!functions.checkYearLeave(
+                                                            _model.datePicked,
+                                                            containerLeaveDaysAfterRecord
+                                                                ?.leaveYearAllow)!) {
                                                           await showDialog(
                                                             context: context,
                                                             builder:
@@ -2095,10 +2098,11 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           if (_model
                                                                   .datePicked !=
                                                               null) {
-                                                            if (!functions
-                                                                .checkYearLeave(
-                                                                    _model
-                                                                        .datePicked)!) {
+                                                            if (!functions.checkYearLeave(
+                                                                _model
+                                                                    .datePicked,
+                                                                containerLeaveDaysAfterRecord
+                                                                    ?.leaveYearAllow)!) {
                                                               await showDialog(
                                                                 context:
                                                                     context,

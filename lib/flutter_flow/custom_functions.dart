@@ -2607,10 +2607,13 @@ int? checkHoliDayBetween2Day(
   return numHoliday;
 }
 
-bool? checkYearLeave(DateTime? startDate) {
+bool? checkYearLeave(
+  DateTime? startDate,
+  int? yearAllow,
+) {
   int year = startDate!.year;
 
-  if (year == 2025 || year == 2024) {
+  if (year == yearAllow || year == (yearAllow! - 1)) {
     return true;
   } else {
     return false;

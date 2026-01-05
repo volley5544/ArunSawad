@@ -28,6 +28,8 @@ class TimeSheetPageModel extends FlutterFlowModel<TimeSheetPageWidget> {
 
   // Stores action output result for [Custom Action - a8] action in TimeSheetPage widget.
   bool? checkLatLngBVTimeSheet;
+  // Stores action output result for [Custom Action - getLocation] action in TimeSheetPage widget.
+  LatLng? getLocationOnPageLoad;
   // Stores action output result for [Backend Call - Create Document] action in TimeSheetPage widget.
   UserLogRecord? createdUserLogBVSurvey;
   Completer<ApiCallResponse>? apiRequestCompleter;

@@ -664,9 +664,10 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           );
                                                           return;
                                                         }
-                                                        if (!functions
-                                                            .checkYearLeave(_model
-                                                                .datePicked)!) {
+                                                        if (!functions.checkYearLeave(
+                                                            _model.datePicked,
+                                                            containerLeaveDaysAfterRecord
+                                                                ?.leaveYearAllow)!) {
                                                           await showDialog(
                                                             context: context,
                                                             builder:
@@ -2317,627 +2318,624 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 ],
                                               ),
                                             ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                              Container(
-                                width: double.infinity,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      25.0, 0.0, 25.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 10.0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              currentUserLocationValue =
-                                                  await getCurrentUserLocation(
-                                                      defaultLocation:
-                                                          LatLng(0.0, 0.0));
-                                              var _shouldSetState = false;
-                                              if (_model.datePicked != null) {
-                                                if (!functions.checkYearLeave(
-                                                    _model.datePicked)!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'ไม่สามารถลาล่วงหน้าปีหน้าได้ กรุณาเลือกวันใหม่'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                                if (!(_model.leaveTimeValue !=
-                                                        null &&
-                                                    _model.leaveTimeValue !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'กรุณาเลือกช่วงเวลาที่จะลา'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                                if (((widget!.leaveType ==
-                                                            'ลาป่วย') &&
-                                                        (FFAppState()
-                                                                .leaveDaysDouble >=
-                                                            3.0)) ||
-                                                    (widget!.leaveType ==
-                                                        'ลาทำหมัน') ||
-                                                    (widget!.leaveType ==
-                                                        'ลารับราชการ')) {
-                                                  if (!((widget!
-                                                              .leaveDocumentOld!
-                                                              .length >
-                                                          0) ||
-                                                      (_model.uploadedFileUrls_uploadMediaPqi
-                                                              .length >
-                                                          0))) {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                'กรุณาอัปโหลดไฟล์รูปภาพ'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                    if (_shouldSetState)
-                                                      safeSetState(() {});
-                                                    return;
-                                                  }
-                                                }
-                                                if (functions.checkSundayDate(
-                                                    _model.datePicked)!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'ไม่สามารถลาวันอาทิตได้ กรุณาเลือกวันใหม่'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                                if (functions.checkHolidayDate(
-                                                    _model.datePicked,
-                                                    GetHolidayAPICall
-                                                            .holidayDate(
-                                                      (_model.getHolidayAPIOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )
-                                                        ?.map(
-                                                            (e) => e.toString())
-                                                        .toList()
-                                                        ?.toList())!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'ไม่สามารถลาวันหยุดได้ กรุณาเลือกวันใหม่'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                                if (!functions
-                                                    .checkPhoneNumber10(_model
-                                                        .phoneNumberTextController
-                                                        .text)!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'เบอร์โทรศัพท์ไม่ถูกต้องกรุณากรอกใหม่'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  safeSetState(() {
-                                                    _model
-                                                        .phoneNumberTextController
-                                                        ?.clear();
-                                                  });
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                                if (_model
-                                                        .uploadedFileUrls_uploadMediaPqi
-                                                        .length >
-                                                    5) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'ใส่รูปภาพได้ไม่เกิน 5 รูปกรุณาใส่ใหม่'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                                if (widget!.leaveType ==
-                                                    'ลาป่วย') {
-                                                  if (!functions
-                                                      .checkSickLeaveIsBeforeCurrentDate(
-                                                          getCurrentTimestamp,
-                                                          _model.datePicked)!) {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                'ไม่สามารถลาป่วยล่วงหน้าได้ กรุณาเลือกวันลาใหม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                    if (_shouldSetState)
-                                                      safeSetState(() {});
-                                                    return;
-                                                  }
-                                                }
-                                              } else {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'กรุณาเลือกวันเริ่มลา'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-
-                                              if (_model.leaveTimeValue ==
-                                                  'ลาเต็มวัน') {
-                                                FFAppState().leaveDaysLocal =
-                                                    _model
-                                                        .leaveDaysTextController
-                                                        .text;
-                                                FFAppState().leaveDaysDouble =
-                                                    double.parse(_model
-                                                        .leaveDaysTextController
-                                                        .text);
-                                                FFAppState()
-                                                        .checkAllowLeaveDay =
-                                                    functions.allowLeaveDay(
-                                                        widget!.leaveType,
-                                                        FFAppState()
-                                                            .totalLeave
-                                                            .toList(),
-                                                        FFAppState()
-                                                            .leaveDaysDouble)!;
-                                                FFAppState().leaveDayInt =
-                                                    int.parse(_model
-                                                        .leaveDaysTextController
-                                                        .text);
-                                                FFAppState().update(() {});
-                                              } else {
-                                                FFAppState().leaveDaysLocal =
-                                                    '0.5';
-                                                FFAppState().leaveDaysDouble =
-                                                    0.5;
-                                                FFAppState()
-                                                        .checkAllowLeaveDay =
-                                                    functions.allowLeaveDay(
-                                                        widget!.leaveType,
-                                                        FFAppState()
-                                                            .totalLeave
-                                                            .toList(),
-                                                        FFAppState()
-                                                            .leaveDaysDouble)!;
-                                                FFAppState().leaveDayInt = 0;
-                                                FFAppState().update(() {});
-                                              }
-
-                                              if (!(FFAppState()
-                                                      .checkAllowLeaveDay ||
-                                                  (widget!.leaveDay ==
-                                                          _model
-                                                              .leaveDaysTextController
-                                                              .text
-                                                      ? true
-                                                      : false))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'วันลาคุณไม่พอ'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-                                              var confirmDialogResponse =
-                                                  await showDialog<bool>(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                            child: AlertDialog(
-                                                              content: Text(
-                                                                  'ยืนยันการบันทึกข้อมูล'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                  child: Text(
-                                                                      'ยกเลิก'),
-                                                                ),
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                  child: Text(
-                                                                      'ตกลง'),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      ) ??
-                                                      false;
-                                              if (confirmDialogResponse) {
-                                                if (((widget!.leaveType ==
-                                                            'ลาป่วย') &&
-                                                        (FFAppState()
-                                                                .leaveDaysDouble >=
-                                                            3.0)) ||
-                                                    (widget!.leaveType ==
-                                                        'ลาทำหมัน') ||
-                                                    (widget!.leaveType ==
-                                                        'ลารับราชการ')) {
-                                                  if ((widget!.leaveDocumentOld!
-                                                              .length >
-                                                          0) ||
-                                                      (_model.uploadedFileUrls_uploadMediaPqi
-                                                              .length >
-                                                          0)) {
-                                                    _model.leaveEditAPIOutput2 =
-                                                        await LeaveEditAPICall
-                                                            .call(
-                                                      apiUrl: FFAppState()
-                                                          .apiURLLocalState,
-                                                      token: FFAppState()
-                                                          .accessToken,
-                                                      leaveId: functions
-                                                          .leaveTypeToLeaveId(
-                                                              widget!
-                                                                  .leaveType),
-                                                      leaveCountDay: ((functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt))! >
+                                          Container(
+                                            width: double.infinity,
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.15,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      25.0, 0.0, 25.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  10.0),
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          currentUserLocationValue =
+                                                              await getCurrentUserLocation(
+                                                                  defaultLocation:
+                                                                      LatLng(
+                                                                          0.0,
+                                                                          0.0));
+                                                          var _shouldSetState =
+                                                              false;
+                                                          if (_model
+                                                                  .datePicked !=
+                                                              null) {
+                                                            if (!functions.checkYearLeave(
+                                                                _model
+                                                                    .datePicked,
+                                                                containerLeaveDaysAfterRecord
+                                                                    ?.leaveYearAllow)!) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'ไม่สามารถลาล่วงหน้าปีหน้าได้ กรุณาเลือกวันใหม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                              return;
+                                                            }
+                                                            if (!(_model.leaveTimeValue !=
+                                                                    null &&
+                                                                _model.leaveTimeValue !=
+                                                                    '')) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'กรุณาเลือกช่วงเวลาที่จะลา'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                              return;
+                                                            }
+                                                            if (((widget!
+                                                                            .leaveType ==
+                                                                        'ลาป่วย') &&
+                                                                    (FFAppState()
+                                                                            .leaveDaysDouble >=
+                                                                        3.0)) ||
+                                                                (widget!.leaveType ==
+                                                                    'ลาทำหมัน') ||
+                                                                (widget!.leaveType ==
+                                                                    'ลารับราชการ')) {
+                                                              if (!((widget!
+                                                                          .leaveDocumentOld!
+                                                                          .length >
                                                                       0) ||
-                                                                  (functions
-                                                                          .checkHoliDayBetween2Day(
-                                                                              _model
-                                                                                  .datePicked,
-                                                                              functions.endLeaveCalendarDate(
-                                                                                  _model
-                                                                                      .datePicked,
-                                                                                  FFAppState()
-                                                                                      .leaveDayInt),
-                                                                              GetHolidayAPICall
-                                                                                      .holidayDate(
+                                                                  (_model.uploadedFileUrls_uploadMediaPqi
+                                                                          .length >
+                                                                      0))) {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('กรุณาอัปโหลดไฟล์รูปภาพ'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                );
+                                                                if (_shouldSetState)
+                                                                  safeSetState(
+                                                                      () {});
+                                                                return;
+                                                              }
+                                                            }
+                                                            if (functions
+                                                                .checkSundayDate(
+                                                                    _model
+                                                                        .datePicked)!) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'ไม่สามารถลาวันอาทิตได้ กรุณาเลือกวันใหม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                              return;
+                                                            }
+                                                            if (functions
+                                                                .checkHolidayDate(
+                                                                    _model
+                                                                        .datePicked,
+                                                                    GetHolidayAPICall
+                                                                            .holidayDate(
+                                                                      (_model.getHolidayAPIOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                        ?.map((e) =>
+                                                                            e.toString())
+                                                                        .toList()
+                                                                        ?.toList())!) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'ไม่สามารถลาวันหยุดได้ กรุณาเลือกวันใหม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                              return;
+                                                            }
+                                                            if (!functions
+                                                                .checkPhoneNumber10(_model
+                                                                    .phoneNumberTextController
+                                                                    .text)!) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'เบอร์โทรศัพท์ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              safeSetState(() {
+                                                                _model
+                                                                    .phoneNumberTextController
+                                                                    ?.clear();
+                                                              });
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                              return;
+                                                            }
+                                                            if (_model
+                                                                    .uploadedFileUrls_uploadMediaPqi
+                                                                    .length >
+                                                                5) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'ใส่รูปภาพได้ไม่เกิน 5 รูปกรุณาใส่ใหม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                              return;
+                                                            }
+                                                            if (widget!
+                                                                    .leaveType ==
+                                                                'ลาป่วย') {
+                                                              if (!functions
+                                                                  .checkSickLeaveIsBeforeCurrentDate(
+                                                                      getCurrentTimestamp,
+                                                                      _model
+                                                                          .datePicked)!) {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('ไม่สามารถลาป่วยล่วงหน้าได้ กรุณาเลือกวันลาใหม่'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                );
+                                                                if (_shouldSetState)
+                                                                  safeSetState(
+                                                                      () {});
+                                                                return;
+                                                              }
+                                                            }
+                                                          } else {
+                                                            await showDialog(
+                                                              context: context,
+                                                              builder:
+                                                                  (alertDialogContext) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'กรุณาเลือกวันเริ่มลา'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
+                                                            if (_shouldSetState)
+                                                              safeSetState(
+                                                                  () {});
+                                                            return;
+                                                          }
+
+                                                          if (_model
+                                                                  .leaveTimeValue ==
+                                                              'ลาเต็มวัน') {
+                                                            FFAppState()
+                                                                    .leaveDaysLocal =
+                                                                _model
+                                                                    .leaveDaysTextController
+                                                                    .text;
+                                                            FFAppState()
+                                                                    .leaveDaysDouble =
+                                                                double.parse(_model
+                                                                    .leaveDaysTextController
+                                                                    .text);
+                                                            FFAppState()
+                                                                    .checkAllowLeaveDay =
+                                                                functions.allowLeaveDay(
+                                                                    widget!
+                                                                        .leaveType,
+                                                                    FFAppState()
+                                                                        .totalLeave
+                                                                        .toList(),
+                                                                    FFAppState()
+                                                                        .leaveDaysDouble)!;
+                                                            FFAppState()
+                                                                    .leaveDayInt =
+                                                                int.parse(_model
+                                                                    .leaveDaysTextController
+                                                                    .text);
+                                                            FFAppState()
+                                                                .update(() {});
+                                                          } else {
+                                                            FFAppState()
+                                                                    .leaveDaysLocal =
+                                                                '0.5';
+                                                            FFAppState()
+                                                                    .leaveDaysDouble =
+                                                                0.5;
+                                                            FFAppState()
+                                                                    .checkAllowLeaveDay =
+                                                                functions.allowLeaveDay(
+                                                                    widget!
+                                                                        .leaveType,
+                                                                    FFAppState()
+                                                                        .totalLeave
+                                                                        .toList(),
+                                                                    FFAppState()
+                                                                        .leaveDaysDouble)!;
+                                                            FFAppState()
+                                                                .leaveDayInt = 0;
+                                                            FFAppState()
+                                                                .update(() {});
+                                                          }
+
+                                                          if (!(FFAppState()
+                                                                  .checkAllowLeaveDay ||
+                                                              (widget!.leaveDay ==
+                                                                      _model
+                                                                          .leaveDaysTextController
+                                                                          .text
+                                                                  ? true
+                                                                  : false))) {
+                                                            await showDialog(
+                                                              context: context,
+                                                              builder:
+                                                                  (alertDialogContext) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'วันลาคุณไม่พอ'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
+                                                            if (_shouldSetState)
+                                                              safeSetState(
+                                                                  () {});
+                                                            return;
+                                                          }
+                                                          var confirmDialogResponse =
+                                                              await showDialog<
+                                                                      bool>(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text('ยืนยันการบันทึกข้อมูล'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                              child: Text('ยกเลิก'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                              child: Text('ตกลง'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ) ??
+                                                                  false;
+                                                          if (confirmDialogResponse) {
+                                                            if (((widget!
+                                                                            .leaveType ==
+                                                                        'ลาป่วย') &&
+                                                                    (FFAppState()
+                                                                            .leaveDaysDouble >=
+                                                                        3.0)) ||
+                                                                (widget!.leaveType ==
+                                                                    'ลาทำหมัน') ||
+                                                                (widget!.leaveType ==
+                                                                    'ลารับราชการ')) {
+                                                              if ((widget!.leaveDocumentOld!
+                                                                          .length >
+                                                                      0) ||
+                                                                  (_model.uploadedFileUrls_uploadMediaPqi
+                                                                          .length >
+                                                                      0)) {
+                                                                _model.leaveEditAPIOutput2 =
+                                                                    await LeaveEditAPICall
+                                                                        .call(
+                                                                  apiUrl: FFAppState()
+                                                                      .apiURLLocalState,
+                                                                  token: FFAppState()
+                                                                      .accessToken,
+                                                                  leaveId: functions
+                                                                      .leaveTypeToLeaveId(
+                                                                          widget!
+                                                                              .leaveType),
+                                                                  leaveCountDay: ((functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt))! > 0) ||
+                                                                              (functions.checkHoliDayBetween2Day(
+                                                                                      _model.datePicked,
+                                                                                      functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt),
+                                                                                      GetHolidayAPICall.holidayDate(
+                                                                                        (_model.getHolidayAPIOutput?.jsonBody ?? ''),
+                                                                                      )?.map((e) => e.toString()).toList()?.toList())! >
+                                                                                  0)) &&
+                                                                          ((widget!.leaveType != 'ลาอุปสมบท') && (widget!.leaveType != 'ลาเพื่อรับราชการทหาร') && (widget!.leaveType != 'ลาคลอด'))
+                                                                      ? functions.leaveCountMinusSunday(
+                                                                          _model.leaveDaysTextController.text,
+                                                                          functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt)),
+                                                                          functions.checkHoliDayBetween2Day(
+                                                                              _model.datePicked,
+                                                                              functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt),
+                                                                              GetHolidayAPICall.holidayDate(
                                                                                 (_model.getHolidayAPIOutput?.jsonBody ?? ''),
-                                                                              )
-                                                                                  ?.map((e) => e
-                                                                                      .toString())
-                                                                                  .toList()
-                                                                                  ?.toList())! >
-                                                                      0)) &&
-                                                              ((widget!
-                                                                          .leaveType !=
-                                                                      'ลาอุปสมบท') &&
-                                                                  (widget!.leaveType !=
-                                                                      'ลาเพื่อรับราชการทหาร') &&
-                                                                  (widget!.leaveType !=
-                                                                      'ลาคลอด'))
-                                                          ? functions
-                                                              .leaveCountMinusSunday(
-                                                                  _model
-                                                                      .leaveDaysTextController
-                                                                      .text,
-                                                                  functions.checkSundayBetween2Day(
+                                                                              )?.map((e) => e.toString()).toList()?.toList()))
+                                                                      : functions.leaveTimeToNumber(_model.leaveTimeValue, FFAppState().leaveDaysLocal),
+                                                                  leaveStartDate:
+                                                                      functions.startLeaveDayString(
+                                                                          _model
+                                                                              .datePicked),
+                                                                  leaveEndDate: functions.endLeaveDayCalString(
                                                                       _model
                                                                           .datePicked,
-                                                                      functions.endLeaveCalendarDate(
-                                                                          _model
-                                                                              .datePicked,
-                                                                          FFAppState()
-                                                                              .leaveDayInt)),
-                                                                  functions.checkHoliDayBetween2Day(
-                                                                      _model.datePicked,
-                                                                      functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt),
-                                                                      GetHolidayAPICall.holidayDate(
-                                                                        (_model.getHolidayAPIOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )?.map((e) => e.toString()).toList()?.toList()))
-                                                          : functions.leaveTimeToNumber(_model.leaveTimeValue, FFAppState().leaveDaysLocal),
-                                                      leaveStartDate: functions
-                                                          .startLeaveDayString(
-                                                              _model
-                                                                  .datePicked),
-                                                      leaveEndDate: functions
-                                                          .endLeaveDayCalString(
-                                                              _model.datePicked,
-                                                              int.tryParse(_model
-                                                                  .leaveDaysTextController
-                                                                  .text),
-                                                              _model
-                                                                  .leaveTimeValue),
-                                                      leavePeriod:
-                                                          _model.leaveTimeValue,
-                                                      empTel: _model.phoneNumberTextController
-                                                                      .text ==
-                                                                  null ||
-                                                              _model.phoneNumberTextController
-                                                                      .text ==
-                                                                  ''
-                                                          ? '-'
-                                                          : _model
-                                                              .phoneNumberTextController
-                                                              .text,
-                                                      leaveReason: _model
-                                                                      .reasonToLeaveTextController
-                                                                      .text ==
-                                                                  null ||
-                                                              _model.reasonToLeaveTextController
-                                                                      .text ==
-                                                                  ''
-                                                          ? '-'
-                                                          : _model
-                                                              .reasonToLeaveTextController
-                                                              .text,
-                                                      leaveDocument: _model
-                                                                  .uploadedFileUrls_uploadMediaPqi
-                                                                  .length >
-                                                              0
-                                                          ? functions
-                                                              .imgPathListToString(
-                                                                  _model
-                                                                      .uploadedFileUrls_uploadMediaPqi
-                                                                      .toList())
-                                                          : functions
-                                                              .imgPathListToStringCopy(
-                                                                  widget!
-                                                                      .leaveDocumentOld
-                                                                      ?.toList()),
-                                                      leaveListId:
-                                                          widget!.leaveListID,
-                                                    );
+                                                                      int.tryParse(_model
+                                                                          .leaveDaysTextController
+                                                                          .text),
+                                                                      _model
+                                                                          .leaveTimeValue),
+                                                                  leavePeriod:
+                                                                      _model
+                                                                          .leaveTimeValue,
+                                                                  empTel: _model.phoneNumberTextController.text ==
+                                                                              null ||
+                                                                          _model.phoneNumberTextController.text ==
+                                                                              ''
+                                                                      ? '-'
+                                                                      : _model
+                                                                          .phoneNumberTextController
+                                                                          .text,
+                                                                  leaveReason: _model.reasonToLeaveTextController.text ==
+                                                                              null ||
+                                                                          _model.reasonToLeaveTextController.text ==
+                                                                              ''
+                                                                      ? '-'
+                                                                      : _model
+                                                                          .reasonToLeaveTextController
+                                                                          .text,
+                                                                  leaveDocument: _model
+                                                                              .uploadedFileUrls_uploadMediaPqi
+                                                                              .length >
+                                                                          0
+                                                                      ? functions.imgPathListToString(_model
+                                                                          .uploadedFileUrls_uploadMediaPqi
+                                                                          .toList())
+                                                                      : functions.imgPathListToStringCopy(widget!
+                                                                          .leaveDocumentOld
+                                                                          ?.toList()),
+                                                                  leaveListId:
+                                                                      widget!
+                                                                          .leaveListID,
+                                                                );
 
-                                                    _shouldSetState = true;
-                                                    if ((_model.leaveEditAPIOutput2
-                                                                ?.statusCode ??
-                                                            200) ==
-                                                        200) {
-                                                      if (LeaveEditAPICall
-                                                              .infoStatus(
-                                                            (_model.leaveEditAPIOutput2
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) !=
-                                                          201) {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                                content: Text(
-                                                                    'info (${LeaveEditAPICall.infoInfo(
-                                                                  (_model.leaveEditAPIOutput2
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )})'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                        if (_shouldSetState)
-                                                          safeSetState(() {});
-                                                        return;
-                                                      }
-                                                    } else {
-                                                      if ((LeaveEditAPICall
-                                                                  .messageLayer1(
-                                                                (_model.leaveEditAPIOutput2
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              ) ==
-                                                              'The token has been blacklisted') ||
-                                                          (LeaveEditAPICall
-                                                                  .messageLayer1(
-                                                                (_model.leaveEditAPIOutput2
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              ) ==
-                                                              'Token Signature could not be verified.')) {
-                                                        var userLogRecordReference1 =
-                                                            UserLogRecord
-                                                                .collection
-                                                                .doc();
-                                                        await userLogRecordReference1
-                                                            .set(
-                                                                createUserLogRecordData(
-                                                          employeeId:
-                                                              FFAppState()
-                                                                  .employeeID,
-                                                          action: 'Logout',
-                                                          actionTime:
-                                                              getCurrentTimestamp,
-                                                          userLocation:
-                                                              currentUserLocationValue,
-                                                        ));
-                                                        _model.createdUserLogLogout57 =
-                                                            UserLogRecord
-                                                                .getDocumentFromData(
-                                                                    createUserLogRecordData(
+                                                                _shouldSetState =
+                                                                    true;
+                                                                if ((_model.leaveEditAPIOutput2
+                                                                            ?.statusCode ??
+                                                                        200) ==
+                                                                    200) {
+                                                                  if (LeaveEditAPICall
+                                                                          .infoStatus(
+                                                                        (_model.leaveEditAPIOutput2?.jsonBody ??
+                                                                            ''),
+                                                                      ) !=
+                                                                      201) {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('info (${LeaveEditAPICall.infoInfo(
+                                                                              (_model.leaveEditAPIOutput2?.jsonBody ?? ''),
+                                                                            )})'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+                                                                } else {
+                                                                  if ((LeaveEditAPICall
+                                                                              .messageLayer1(
+                                                                            (_model.leaveEditAPIOutput2?.jsonBody ??
+                                                                                ''),
+                                                                          ) ==
+                                                                          'The token has been blacklisted') ||
+                                                                      (LeaveEditAPICall
+                                                                              .messageLayer1(
+                                                                            (_model.leaveEditAPIOutput2?.jsonBody ??
+                                                                                ''),
+                                                                          ) ==
+                                                                          'Token Signature could not be verified.')) {
+                                                                    var userLogRecordReference1 =
+                                                                        UserLogRecord
+                                                                            .collection
+                                                                            .doc();
+                                                                    await userLogRecordReference1
+                                                                        .set(
+                                                                            createUserLogRecordData(
                                                                       employeeId:
                                                                           FFAppState()
                                                                               .employeeID,
@@ -2947,439 +2945,417 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                           getCurrentTimestamp,
                                                                       userLocation:
                                                                           currentUserLocationValue,
-                                                                    ),
-                                                                    userLogRecordReference1);
-                                                        _shouldSetState = true;
-                                                        FFAppState()
-                                                                .loginStateFirebase =
-                                                            '[loginStateFirebase]';
-                                                        FFAppState()
-                                                            .deleteAccessToken();
-                                                        FFAppState()
-                                                                .accessToken =
-                                                            'access_token';
+                                                                    ));
+                                                                    _model.createdUserLogLogout57 =
+                                                                        UserLogRecord.getDocumentFromData(
+                                                                            createUserLogRecordData(
+                                                                              employeeId: FFAppState().employeeID,
+                                                                              action: 'Logout',
+                                                                              actionTime: getCurrentTimestamp,
+                                                                              userLocation: currentUserLocationValue,
+                                                                            ),
+                                                                            userLogRecordReference1);
+                                                                    _shouldSetState =
+                                                                        true;
+                                                                    FFAppState()
+                                                                            .loginStateFirebase =
+                                                                        '[loginStateFirebase]';
+                                                                    FFAppState()
+                                                                        .deleteAccessToken();
+                                                                    FFAppState()
+                                                                            .accessToken =
+                                                                        'access_token';
 
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .deleteEmployeeID();
-                                                        FFAppState()
-                                                                .employeeID =
-                                                            'employee_id';
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .deleteEmployeeID();
+                                                                    FFAppState()
+                                                                            .employeeID =
+                                                                        'employee_id';
 
-                                                        FFAppState()
-                                                                .QRCodeLink =
-                                                            'qrcode_link';
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .deleteApiURLLocalState();
-                                                        FFAppState()
-                                                                .apiURLLocalState =
-                                                            'api_url_local_state';
+                                                                    FFAppState()
+                                                                            .QRCodeLink =
+                                                                        'qrcode_link';
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .deleteApiURLLocalState();
+                                                                    FFAppState()
+                                                                            .apiURLLocalState =
+                                                                        'api_url_local_state';
 
-                                                        FFAppState()
-                                                            .deleteBranchCode();
-                                                        FFAppState()
-                                                                .branchCode =
-                                                            'branch_code';
+                                                                    FFAppState()
+                                                                        .deleteBranchCode();
+                                                                    FFAppState()
+                                                                            .branchCode =
+                                                                        'branch_code';
 
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                                .isFromSetPinPage =
-                                                            false;
-                                                        FFAppState()
-                                                            .leadChannelColor = [];
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .leadChannelList = [];
-                                                        FFAppState()
-                                                                .isFromLoginPage =
-                                                            false;
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .deletePinCodeAuthen();
-                                                        FFAppState()
-                                                                .pinCodeAuthen =
-                                                            '013972';
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .isFromSetPinPage =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .leadChannelColor = [];
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadChannelList = [];
+                                                                    FFAppState()
+                                                                            .isFromLoginPage =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .deletePinCodeAuthen();
+                                                                    FFAppState()
+                                                                            .pinCodeAuthen =
+                                                                        '013972';
 
-                                                        FFAppState()
-                                                                .isFromAuthenPage =
-                                                            false;
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .deleteDateDoNotShowAgain();
-                                                        FFAppState()
-                                                                .dateDoNotShowAgain =
-                                                            null;
+                                                                    FFAppState()
+                                                                            .isFromAuthenPage =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .deleteDateDoNotShowAgain();
+                                                                    FFAppState()
+                                                                            .dateDoNotShowAgain =
+                                                                        null;
 
-                                                        FFAppState()
-                                                            .deleteDoNotShowAgain();
-                                                        FFAppState()
-                                                                .doNotShowAgain =
-                                                            false;
+                                                                    FFAppState()
+                                                                        .deleteDoNotShowAgain();
+                                                                    FFAppState()
+                                                                            .doNotShowAgain =
+                                                                        false;
 
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                                .inAppViaNotification =
-                                                            true;
-                                                        FFAppState().isInApp =
-                                                            false;
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState().fcmToken =
-                                                            'fcm_token';
-                                                        FFAppState()
-                                                                .isPassLoginSection =
-                                                            false;
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState().leadID =
-                                                            [];
-                                                        FFAppState()
-                                                            .leadCreatedTimeList = [];
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .leadCustomerNameList = [];
-                                                        FFAppState()
-                                                            .leadChannelList = [];
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .leadChannelColor = [];
-                                                        FFAppState()
-                                                            .leadCallStatus = [];
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .leadPhoneNumberList = [];
-                                                        FFAppState()
-                                                            .leadEmployeeID = [];
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .leadChannelLabelColor = [];
-                                                        FFAppState()
-                                                            .deleteLeadIdCalledInApp();
-                                                        FFAppState()
-                                                            .leadIdCalledInApp = [];
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .inAppViaNotification =
+                                                                        true;
+                                                                    FFAppState()
+                                                                            .isInApp =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .fcmToken =
+                                                                        'fcm_token';
+                                                                    FFAppState()
+                                                                            .isPassLoginSection =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadID = [];
+                                                                    FFAppState()
+                                                                        .leadCreatedTimeList = [];
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadCustomerNameList = [];
+                                                                    FFAppState()
+                                                                        .leadChannelList = [];
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadChannelColor = [];
+                                                                    FFAppState()
+                                                                        .leadCallStatus = [];
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadPhoneNumberList = [];
+                                                                    FFAppState()
+                                                                        .leadEmployeeID = [];
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadChannelLabelColor = [];
+                                                                    FFAppState()
+                                                                        .deleteLeadIdCalledInApp();
+                                                                    FFAppState()
+                                                                        .leadIdCalledInApp = [];
 
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .leadBranchCode = [];
-                                                        FFAppState()
-                                                                .leadUserLevel =
-                                                            'lead_user_level';
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        FFAppState()
-                                                            .leadChannelAmountList = [];
-                                                        FFAppState()
-                                                            .update(() {});
-                                                        Navigator.pop(context);
-                                                        await actions.a22();
-
-                                                        context.goNamed(
-                                                            LoginPageWidget
-                                                                .routeName);
-
-                                                        if (_shouldSetState)
-                                                          safeSetState(() {});
-                                                        return;
-                                                      } else {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                                content: Text(
-                                                                    LeaveEditAPICall
-                                                                        .messageLayer1(
-                                                                  (_model.leaveEditAPIOutput2
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )!),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                        if (_shouldSetState)
-                                                          safeSetState(() {});
-                                                        return;
-                                                      }
-                                                    }
-
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                LeaveEditAPICall
-                                                                    .infoInfo(
-                                                              (_model.leaveEditAPIOutput2
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadBranchCode = [];
+                                                                    FFAppState()
+                                                                            .leadUserLevel =
+                                                                        'lead_user_level';
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadChannelAmountList = [];
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
                                                                     Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                  } else {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                'กรุณาอัปโหลดไฟล์รูปภาพ'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                    if (_shouldSetState)
-                                                      safeSetState(() {});
-                                                    return;
-                                                  }
-                                                } else {
-                                                  _model.leaveEditAPIOutput =
-                                                      await LeaveEditAPICall
-                                                          .call(
-                                                    apiUrl: FFAppState()
-                                                        .apiURLLocalState,
-                                                    token: FFAppState()
-                                                        .accessToken,
-                                                    leaveId: functions
-                                                        .leaveTypeToLeaveId(
-                                                            widget!.leaveType),
-                                                    leaveCountDay: ((functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt))! >
-                                                                    0) ||
-                                                                (functions
-                                                                        .checkHoliDayBetween2Day(
-                                                                            _model
-                                                                                .datePicked,
-                                                                            functions.endLeaveCalendarDate(
-                                                                                _model
-                                                                                    .datePicked,
-                                                                                FFAppState()
-                                                                                    .leaveDayInt),
-                                                                            GetHolidayAPICall
-                                                                                    .holidayDate(
+                                                                        context);
+                                                                    await actions
+                                                                        .a22();
+
+                                                                    context.goNamed(
+                                                                        LoginPageWidget
+                                                                            .routeName);
+
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  } else {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text(LeaveEditAPICall.messageLayer1(
+                                                                              (_model.leaveEditAPIOutput2?.jsonBody ?? ''),
+                                                                            )!),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+                                                                }
+
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text(LeaveEditAPICall.infoInfo(
+                                                                          (_model.leaveEditAPIOutput2?.jsonBody ??
+                                                                              ''),
+                                                                        )!),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                );
+                                                              } else {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('กรุณาอัปโหลดไฟล์รูปภาพ'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                );
+                                                                if (_shouldSetState)
+                                                                  safeSetState(
+                                                                      () {});
+                                                                return;
+                                                              }
+                                                            } else {
+                                                              _model.leaveEditAPIOutput =
+                                                                  await LeaveEditAPICall
+                                                                      .call(
+                                                                apiUrl: FFAppState()
+                                                                    .apiURLLocalState,
+                                                                token: FFAppState()
+                                                                    .accessToken,
+                                                                leaveId: functions
+                                                                    .leaveTypeToLeaveId(
+                                                                        widget!
+                                                                            .leaveType),
+                                                                leaveCountDay: ((functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt))! >
+                                                                                0) ||
+                                                                            (functions.checkHoliDayBetween2Day(
+                                                                                    _model.datePicked,
+                                                                                    functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt),
+                                                                                    GetHolidayAPICall.holidayDate(
+                                                                                      (_model.getHolidayAPIOutput?.jsonBody ?? ''),
+                                                                                    )?.map((e) => e.toString()).toList()?.toList())! >
+                                                                                0)) &&
+                                                                        ((widget!.leaveType != 'ลาอุปสมบท') && (widget!.leaveType != 'ลาเพื่อรับราชการทหาร') && (widget!.leaveType != 'ลาคลอด'))
+                                                                    ? functions.leaveCountMinusSunday(
+                                                                        _model.leaveDaysTextController.text,
+                                                                        functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt)),
+                                                                        functions.checkHoliDayBetween2Day(
+                                                                            _model.datePicked,
+                                                                            functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt),
+                                                                            GetHolidayAPICall.holidayDate(
                                                                               (_model.getHolidayAPIOutput?.jsonBody ?? ''),
-                                                                            )
-                                                                                ?.map((e) => e
-                                                                                    .toString())
-                                                                                .toList()
-                                                                                ?.toList())! >
-                                                                    0)) &&
-                                                            ((widget!
-                                                                        .leaveType !=
-                                                                    'ลาอุปสมบท') &&
-                                                                (widget!.leaveType !=
-                                                                    'ลาเพื่อรับราชการทหาร') &&
-                                                                (widget!.leaveType !=
-                                                                    'ลาคลอด'))
-                                                        ? functions
-                                                            .leaveCountMinusSunday(
-                                                                _model
-                                                                    .leaveDaysTextController
-                                                                    .text,
-                                                                functions.checkSundayBetween2Day(
+                                                                            )?.map((e) => e.toString()).toList()?.toList()))
+                                                                    : functions.leaveTimeToNumber(_model.leaveTimeValue, FFAppState().leaveDaysLocal),
+                                                                leaveStartDate:
+                                                                    functions.startLeaveDayString(
+                                                                        _model
+                                                                            .datePicked),
+                                                                leaveEndDate: functions.endLeaveDayCalString(
                                                                     _model
                                                                         .datePicked,
-                                                                    functions.endLeaveCalendarDate(
-                                                                        _model
-                                                                            .datePicked,
-                                                                        FFAppState()
-                                                                            .leaveDayInt)),
-                                                                functions.checkHoliDayBetween2Day(
-                                                                    _model.datePicked,
-                                                                    functions.endLeaveCalendarDate(_model.datePicked, FFAppState().leaveDayInt),
-                                                                    GetHolidayAPICall.holidayDate(
-                                                                      (_model.getHolidayAPIOutput
+                                                                    int.tryParse(_model
+                                                                        .leaveDaysTextController
+                                                                        .text),
+                                                                    _model
+                                                                        .leaveTimeValue),
+                                                                leavePeriod: _model
+                                                                    .leaveTimeValue,
+                                                                empTel: _model.phoneNumberTextController.text ==
+                                                                            null ||
+                                                                        _model.phoneNumberTextController.text ==
+                                                                            ''
+                                                                    ? '-'
+                                                                    : _model
+                                                                        .phoneNumberTextController
+                                                                        .text,
+                                                                leaveReason: _model.reasonToLeaveTextController.text ==
+                                                                            null ||
+                                                                        _model.reasonToLeaveTextController.text ==
+                                                                            ''
+                                                                    ? '-'
+                                                                    : _model
+                                                                        .reasonToLeaveTextController
+                                                                        .text,
+                                                                leaveDocument:
+                                                                    () {
+                                                                  if (_model
+                                                                          .uploadedFileUrls_uploadMediaPqi
+                                                                          .length >
+                                                                      0) {
+                                                                    return functions.imgPathListToString(_model
+                                                                        .uploadedFileUrls_uploadMediaPqi
+                                                                        .toList());
+                                                                  } else if ((_model
+                                                                              .uploadedFileUrls_uploadMediaPqi
+                                                                              .length <
+                                                                          1) &&
+                                                                      (widget!.leaveDocumentOld!
+                                                                              .length >
+                                                                          0)) {
+                                                                    return functions.imgPathListToStringCopy(widget!
+                                                                        .leaveDocumentOld
+                                                                        ?.toList());
+                                                                  } else {
+                                                                    return functions
+                                                                        .imgPathtoString(
+                                                                            '-');
+                                                                  }
+                                                                }(),
+                                                                leaveListId: widget!
+                                                                    .leaveListID,
+                                                              );
+
+                                                              _shouldSetState =
+                                                                  true;
+                                                              if ((_model.leaveEditAPIOutput
+                                                                          ?.statusCode ??
+                                                                      200) ==
+                                                                  200) {
+                                                                if (LeaveEditAPICall
+                                                                        .infoStatus(
+                                                                      (_model.leaveEditAPIOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?.map((e) => e.toString()).toList()?.toList()))
-                                                        : functions.leaveTimeToNumber(_model.leaveTimeValue, FFAppState().leaveDaysLocal),
-                                                    leaveStartDate: functions
-                                                        .startLeaveDayString(
-                                                            _model.datePicked),
-                                                    leaveEndDate: functions
-                                                        .endLeaveDayCalString(
-                                                            _model.datePicked,
-                                                            int.tryParse(_model
-                                                                .leaveDaysTextController
-                                                                .text),
-                                                            _model
-                                                                .leaveTimeValue),
-                                                    leavePeriod:
-                                                        _model.leaveTimeValue,
-                                                    empTel: _model.phoneNumberTextController
-                                                                    .text ==
-                                                                null ||
-                                                            _model.phoneNumberTextController
-                                                                    .text ==
-                                                                ''
-                                                        ? '-'
-                                                        : _model
-                                                            .phoneNumberTextController
-                                                            .text,
-                                                    leaveReason: _model
-                                                                    .reasonToLeaveTextController
-                                                                    .text ==
-                                                                null ||
-                                                            _model.reasonToLeaveTextController
-                                                                    .text ==
-                                                                ''
-                                                        ? '-'
-                                                        : _model
-                                                            .reasonToLeaveTextController
-                                                            .text,
-                                                    leaveDocument: () {
-                                                      if (_model
-                                                              .uploadedFileUrls_uploadMediaPqi
-                                                              .length >
-                                                          0) {
-                                                        return functions
-                                                            .imgPathListToString(
-                                                                _model
-                                                                    .uploadedFileUrls_uploadMediaPqi
-                                                                    .toList());
-                                                      } else if ((_model
-                                                                  .uploadedFileUrls_uploadMediaPqi
-                                                                  .length <
-                                                              1) &&
-                                                          (widget!.leaveDocumentOld!
-                                                                  .length >
-                                                              0)) {
-                                                        return functions
-                                                            .imgPathListToStringCopy(
-                                                                widget!
-                                                                    .leaveDocumentOld
-                                                                    ?.toList());
-                                                      } else {
-                                                        return functions
-                                                            .imgPathtoString(
-                                                                '-');
-                                                      }
-                                                    }(),
-                                                    leaveListId:
-                                                        widget!.leaveListID,
-                                                  );
-
-                                                  _shouldSetState = true;
-                                                  if ((_model.leaveEditAPIOutput
-                                                              ?.statusCode ??
-                                                          200) ==
-                                                      200) {
-                                                    if (LeaveEditAPICall
-                                                            .infoStatus(
-                                                          (_model.leaveEditAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        201) {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                            child: AlertDialog(
-                                                              content: Text(
-                                                                  'info (${LeaveEditAPICall.infoInfo(
-                                                                (_model.leaveEditAPIOutput
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )})'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
-                                                      if (_shouldSetState)
-                                                        safeSetState(() {});
-                                                      return;
-                                                    }
-                                                  } else {
-                                                    if ((LeaveEditAPICall
-                                                                .messageLayer1(
-                                                              (_model.leaveEditAPIOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ) ==
-                                                            'The token has been blacklisted') ||
-                                                        (LeaveEditAPICall
-                                                                .messageLayer1(
-                                                              (_model.leaveEditAPIOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ) ==
-                                                            'Token Signature could not be verified.')) {
-                                                      var userLogRecordReference2 =
-                                                          UserLogRecord
-                                                              .collection
-                                                              .doc();
-                                                      await userLogRecordReference2
-                                                          .set(
-                                                              createUserLogRecordData(
-                                                        employeeId: FFAppState()
-                                                            .employeeID,
-                                                        action: 'Logout',
-                                                        actionTime:
-                                                            getCurrentTimestamp,
-                                                        userLocation:
-                                                            currentUserLocationValue,
-                                                      ));
-                                                      _model.createdUserLogLogout55 =
-                                                          UserLogRecord
-                                                              .getDocumentFromData(
-                                                                  createUserLogRecordData(
+                                                                    ) !=
+                                                                    201) {
+                                                                  await showDialog(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text('info (${LeaveEditAPICall.infoInfo(
+                                                                            (_model.leaveEditAPIOutput?.jsonBody ??
+                                                                                ''),
+                                                                          )})'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                              child: Text('Ok'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  );
+                                                                  if (_shouldSetState)
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  return;
+                                                                }
+                                                              } else {
+                                                                if ((LeaveEditAPICall
+                                                                            .messageLayer1(
+                                                                          (_model.leaveEditAPIOutput?.jsonBody ??
+                                                                              ''),
+                                                                        ) ==
+                                                                        'The token has been blacklisted') ||
+                                                                    (LeaveEditAPICall
+                                                                            .messageLayer1(
+                                                                          (_model.leaveEditAPIOutput?.jsonBody ??
+                                                                              ''),
+                                                                        ) ==
+                                                                        'Token Signature could not be verified.')) {
+                                                                  var userLogRecordReference2 =
+                                                                      UserLogRecord
+                                                                          .collection
+                                                                          .doc();
+                                                                  await userLogRecordReference2
+                                                                      .set(
+                                                                          createUserLogRecordData(
                                                                     employeeId:
                                                                         FFAppState()
                                                                             .employeeID,
@@ -3389,270 +3365,338 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                         getCurrentTimestamp,
                                                                     userLocation:
                                                                         currentUserLocationValue,
-                                                                  ),
-                                                                  userLogRecordReference2);
-                                                      _shouldSetState = true;
-                                                      FFAppState()
-                                                              .loginStateFirebase =
-                                                          '[loginStateFirebase]';
-                                                      FFAppState()
-                                                          .deleteAccessToken();
-                                                      FFAppState().accessToken =
-                                                          'access_token';
+                                                                  ));
+                                                                  _model.createdUserLogLogout55 =
+                                                                      UserLogRecord.getDocumentFromData(
+                                                                          createUserLogRecordData(
+                                                                            employeeId:
+                                                                                FFAppState().employeeID,
+                                                                            action:
+                                                                                'Logout',
+                                                                            actionTime:
+                                                                                getCurrentTimestamp,
+                                                                            userLocation:
+                                                                                currentUserLocationValue,
+                                                                          ),
+                                                                          userLogRecordReference2);
+                                                                  _shouldSetState =
+                                                                      true;
+                                                                  FFAppState()
+                                                                          .loginStateFirebase =
+                                                                      '[loginStateFirebase]';
+                                                                  FFAppState()
+                                                                      .deleteAccessToken();
+                                                                  FFAppState()
+                                                                          .accessToken =
+                                                                      'access_token';
 
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .deleteEmployeeID();
-                                                      FFAppState().employeeID =
-                                                          'employee_id';
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .deleteEmployeeID();
+                                                                  FFAppState()
+                                                                          .employeeID =
+                                                                      'employee_id';
 
-                                                      FFAppState().QRCodeLink =
-                                                          'qrcode_link';
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .deleteApiURLLocalState();
-                                                      FFAppState()
-                                                              .apiURLLocalState =
-                                                          'api_url_local_state';
+                                                                  FFAppState()
+                                                                          .QRCodeLink =
+                                                                      'qrcode_link';
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .deleteApiURLLocalState();
+                                                                  FFAppState()
+                                                                          .apiURLLocalState =
+                                                                      'api_url_local_state';
 
-                                                      FFAppState()
-                                                          .deleteBranchCode();
-                                                      FFAppState().branchCode =
-                                                          'branch_code';
+                                                                  FFAppState()
+                                                                      .deleteBranchCode();
+                                                                  FFAppState()
+                                                                          .branchCode =
+                                                                      'branch_code';
 
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                              .isFromSetPinPage =
-                                                          false;
-                                                      FFAppState()
-                                                          .leadChannelColor = [];
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .leadChannelList = [];
-                                                      FFAppState()
-                                                              .isFromLoginPage =
-                                                          false;
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .deletePinCodeAuthen();
-                                                      FFAppState()
-                                                              .pinCodeAuthen =
-                                                          '013972';
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                          .isFromSetPinPage =
+                                                                      false;
+                                                                  FFAppState()
+                                                                      .leadChannelColor = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadChannelList = [];
+                                                                  FFAppState()
+                                                                          .isFromLoginPage =
+                                                                      false;
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .deletePinCodeAuthen();
+                                                                  FFAppState()
+                                                                          .pinCodeAuthen =
+                                                                      '013972';
 
-                                                      FFAppState()
-                                                              .isFromAuthenPage =
-                                                          false;
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .deleteDateDoNotShowAgain();
-                                                      FFAppState()
-                                                              .dateDoNotShowAgain =
-                                                          null;
+                                                                  FFAppState()
+                                                                          .isFromAuthenPage =
+                                                                      false;
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .deleteDateDoNotShowAgain();
+                                                                  FFAppState()
+                                                                          .dateDoNotShowAgain =
+                                                                      null;
 
-                                                      FFAppState()
-                                                          .deleteDoNotShowAgain();
-                                                      FFAppState()
-                                                              .doNotShowAgain =
-                                                          false;
+                                                                  FFAppState()
+                                                                      .deleteDoNotShowAgain();
+                                                                  FFAppState()
+                                                                          .doNotShowAgain =
+                                                                      false;
 
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                              .inAppViaNotification =
-                                                          true;
-                                                      FFAppState().isInApp =
-                                                          false;
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState().fcmToken =
-                                                          'fcm_token';
-                                                      FFAppState()
-                                                              .isPassLoginSection =
-                                                          false;
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState().leadID = [];
-                                                      FFAppState()
-                                                          .leadCreatedTimeList = [];
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .leadCustomerNameList = [];
-                                                      FFAppState()
-                                                          .leadChannelList = [];
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .leadChannelColor = [];
-                                                      FFAppState()
-                                                          .leadCallStatus = [];
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .leadPhoneNumberList = [];
-                                                      FFAppState()
-                                                          .leadEmployeeID = [];
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .leadChannelLabelColor = [];
-                                                      FFAppState()
-                                                          .deleteLeadIdCalledInApp();
-                                                      FFAppState()
-                                                          .leadIdCalledInApp = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                          .inAppViaNotification =
+                                                                      true;
+                                                                  FFAppState()
+                                                                          .isInApp =
+                                                                      false;
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                          .fcmToken =
+                                                                      'fcm_token';
+                                                                  FFAppState()
+                                                                          .isPassLoginSection =
+                                                                      false;
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadID = [];
+                                                                  FFAppState()
+                                                                      .leadCreatedTimeList = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadCustomerNameList = [];
+                                                                  FFAppState()
+                                                                      .leadChannelList = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadChannelColor = [];
+                                                                  FFAppState()
+                                                                      .leadCallStatus = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadPhoneNumberList = [];
+                                                                  FFAppState()
+                                                                      .leadEmployeeID = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadChannelLabelColor = [];
+                                                                  FFAppState()
+                                                                      .deleteLeadIdCalledInApp();
+                                                                  FFAppState()
+                                                                      .leadIdCalledInApp = [];
 
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .leadBranchCode = [];
-                                                      FFAppState()
-                                                              .leadUserLevel =
-                                                          'lead_user_level';
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      FFAppState()
-                                                          .leadChannelAmountList = [];
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      Navigator.pop(context);
-                                                      await actions.a22();
-
-                                                      context.goNamed(
-                                                          LoginPageWidget
-                                                              .routeName);
-
-                                                      if (_shouldSetState)
-                                                        safeSetState(() {});
-                                                      return;
-                                                    } else {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                            child: AlertDialog(
-                                                              content: Text(
-                                                                  LeaveEditAPICall
-                                                                      .messageLayer1(
-                                                                (_model.leaveEditAPIOutput
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )!),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
-                                                      if (_shouldSetState)
-                                                        safeSetState(() {});
-                                                      return;
-                                                    }
-                                                  }
-
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              LeaveEditAPICall
-                                                                  .infoInfo(
-                                                            (_model.leaveEditAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadBranchCode = [];
+                                                                  FFAppState()
+                                                                          .leadUserLevel =
+                                                                      'lead_user_level';
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadChannelAmountList = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
                                                                   Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
+                                                                      context);
+                                                                  await actions
+                                                                      .a22();
+
+                                                                  context.goNamed(
+                                                                      LoginPageWidget
+                                                                          .routeName);
+
+                                                                  if (_shouldSetState)
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  return;
+                                                                } else {
+                                                                  await showDialog(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text(LeaveEditAPICall.messageLayer1(
+                                                                            (_model.leaveEditAPIOutput?.jsonBody ??
+                                                                                ''),
+                                                                          )!),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                              child: Text('Ok'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  );
+                                                                  if (_shouldSetState)
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  return;
+                                                                }
+                                                              }
+
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          LeaveEditAPICall
+                                                                              .infoInfo(
+                                                                        (_model.leaveEditAPIOutput?.jsonBody ??
+                                                                            ''),
+                                                                      )!),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                            }
+
+                                                            FFAppState()
+                                                                    .leaveDaysDouble =
+                                                                0.5;
+                                                            FFAppState()
+                                                                .update(() {});
+                                                          } else {
+                                                            if (_shouldSetState)
+                                                              safeSetState(
+                                                                  () {});
+                                                            return;
+                                                          }
+
+                                                          context.goNamed(
+                                                              LeaveShowPageWidget
+                                                                  .routeName);
+
+                                                          if (_shouldSetState)
+                                                            safeSetState(() {});
+                                                        },
+                                                        text: 'บันทึก',
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width: 90.0,
+                                                          height: 60.0,
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      20.0,
+                                                                      24.0,
+                                                                      24.0,
+                                                                      24.0),
+                                                          color:
+                                                              Color(0xFF00968A),
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                          elevation: 2.0,
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Colors
+                                                                .transparent,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
-                                                      );
-                                                    },
-                                                  );
-                                                }
-
-                                                FFAppState().leaveDaysDouble =
-                                                    0.5;
-                                                FFAppState().update(() {});
-                                              } else {
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-
-                                              context.goNamed(
-                                                  LeaveShowPageWidget
-                                                      .routeName);
-
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
-                                            },
-                                            text: 'บันทึก',
-                                            options: FFButtonOptions(
-                                              width: 90.0,
-                                              height: 60.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      20.0, 24.0, 24.0, 24.0),
-                                              color: Color(0xFF00968A),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font: GoogleFonts.poppins(
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
+                                                      ),
                                                     ),
-                                                    color: Colors.white,
-                                                    fontSize: 15.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
                                                   ),
-                                              elevation: 2.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 2.0,
+                                                ],
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
                                             ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                ),
+                                    ),
+                                  );
+                                },
                               ),
                             ],
                           ),

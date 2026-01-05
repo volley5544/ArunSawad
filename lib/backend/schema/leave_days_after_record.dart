@@ -26,9 +26,15 @@ class LeaveDaysAfterRecord extends FirestoreRecord {
   List<int> get leaveListAllowInt => _leaveListAllowInt ?? const [];
   bool hasLeaveListAllowInt() => _leaveListAllowInt != null;
 
+  // "leaveYearAllow" field.
+  int? _leaveYearAllow;
+  int get leaveYearAllow => _leaveYearAllow ?? 0;
+  bool hasLeaveYearAllow() => _leaveYearAllow != null;
+
   void _initializeFields() {
     _leaveListAllowDay = getDataList(snapshotData['leaveListAllowDay']);
     _leaveListAllowInt = getDataList(snapshotData['leaveListAllowInt']);
+    _leaveYearAllow = castToType<int>(snapshotData['leaveYearAllow']);
   }
 
   static CollectionReference get collection =>
@@ -65,9 +71,13 @@ class LeaveDaysAfterRecord extends FirestoreRecord {
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createLeaveDaysAfterRecordData() {
+Map<String, dynamic> createLeaveDaysAfterRecordData({
+  int? leaveYearAllow,
+}) {
   final firestoreData = mapToFirestore(
-    <String, dynamic>{}.withoutNulls,
+    <String, dynamic>{
+      'leaveYearAllow': leaveYearAllow,
+    }.withoutNulls,
   );
 
   return firestoreData;
@@ -81,12 +91,13 @@ class LeaveDaysAfterRecordDocumentEquality
   bool equals(LeaveDaysAfterRecord? e1, LeaveDaysAfterRecord? e2) {
     const listEquality = ListEquality();
     return listEquality.equals(e1?.leaveListAllowDay, e2?.leaveListAllowDay) &&
-        listEquality.equals(e1?.leaveListAllowInt, e2?.leaveListAllowInt);
+        listEquality.equals(e1?.leaveListAllowInt, e2?.leaveListAllowInt) &&
+        e1?.leaveYearAllow == e2?.leaveYearAllow;
   }
 
   @override
-  int hash(LeaveDaysAfterRecord? e) =>
-      const ListEquality().hash([e?.leaveListAllowDay, e?.leaveListAllowInt]);
+  int hash(LeaveDaysAfterRecord? e) => const ListEquality()
+      .hash([e?.leaveListAllowDay, e?.leaveListAllowInt, e?.leaveYearAllow]);
 
   @override
   bool isValidKey(Object? o) => o is LeaveDaysAfterRecord;

@@ -503,627 +503,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               verticalDirection: VerticalDirection.down,
                               clipBehavior: Clip.none,
                               children: [
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-
-                                    _model.checkLoginCheckInPage =
-                                        await ActionUserAPICall.call(
-                                      token: FFAppState().accessToken,
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                    );
-
-                                    _shouldSetState = true;
-                                    if ((_model.checkLoginCheckInPage
-                                                ?.statusCode ??
-                                            200) !=
-                                        200) {
-                                      if (!((ActionUserAPICall.message(
-                                                (_model.checkLoginCheckInPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'The token has been blacklisted') ||
-                                          (ActionUserAPICall.message(
-                                                (_model.checkLoginCheckInPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'Token Signature could not be verified.'))) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'พบข้อผิดพลาด (${(_model.checkLoginCheckInPage?.statusCode ?? 200).toString()})'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('Session Loginหมดอายุ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      FFAppState().loginStateFirebase =
-                                          '[loginStateFirebase]';
-                                      FFAppState().deleteAccessToken();
-                                      FFAppState().accessToken = 'access_token';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteEmployeeID();
-                                      FFAppState().employeeID = 'employee_id';
-
-                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteApiURLLocalState();
-                                      FFAppState().apiURLLocalState =
-                                          'api_url_local_state';
-
-                                      FFAppState().deleteBranchCode();
-                                      FFAppState().branchCode = 'branch_code';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().isFromSetPinPage = false;
-                                      FFAppState().leadChannelColor = [];
-                                      FFAppState().update(() {});
-                                      FFAppState().leadChannelList = [];
-                                      FFAppState().isFromLoginPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deletePinCodeAuthen();
-                                      FFAppState().pinCodeAuthen = '013972';
-
-                                      FFAppState().isFromAuthenPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteDateDoNotShowAgain();
-                                      FFAppState().dateDoNotShowAgain = null;
-
-                                      FFAppState().deleteDoNotShowAgain();
-                                      FFAppState().doNotShowAgain = false;
-
-                                      FFAppState().update(() {});
-                                      FFAppState().inAppViaNotification = true;
-                                      FFAppState().isInApp = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().fcmToken = 'fcm_token';
-                                      FFAppState().isPassLoginSection = false;
-                                      FFAppState().update(() {});
-                                      Navigator.pop(context);
-                                      await actions.a22();
-
-                                      context
-                                          .goNamed(LoginPageWidget.routeName);
-
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    _model.checkInLocationService =
-                                        await actions.a1();
-                                    _shouldSetState = true;
-                                    if (_model.checkInLocationService!) {
-                                      _model.checkInLocationPermission =
-                                          await actions.a2();
-                                      _shouldSetState = true;
-                                      if (!_model.checkInLocationPermission!) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      FFAppState().isFromTimesheetPage = false;
-                                      FFAppState().update(() {});
-                                    } else {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-
-                                    context
-                                        .goNamed(CheckInPageWidget.routeName);
-
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.45,
-                                    height: 190.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(4.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.asset(
-                                              'assets/images/google-maps-new-interface1.jpg',
-                                              width: double.infinity,
-                                              height: 115.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      8.0, 12.0, 0.0, 0.0),
-                                              child: Text(
-                                                'เช็คอิน',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation2']!),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-
-                                    _model.checkLoginSurveyPage =
-                                        await ActionUserAPICall.call(
-                                      token: FFAppState().accessToken,
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                    );
-
-                                    _shouldSetState = true;
-                                    if ((_model.checkLoginSurveyPage
-                                                ?.statusCode ??
-                                            200) !=
-                                        200) {
-                                      if (!((ActionUserAPICall.message(
-                                                (_model.checkLoginSurveyPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'The token has been blacklisted') ||
-                                          (ActionUserAPICall.message(
-                                                (_model.checkLoginSurveyPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'Token Signature could not be verified.'))) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'พบข้อผิดพลาด (${(_model.checkLoginSurveyPage?.statusCode ?? 200).toString()})'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('Session Loginหมดอายุ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      FFAppState().loginStateFirebase =
-                                          '[loginStateFirebase]';
-                                      FFAppState().deleteAccessToken();
-                                      FFAppState().accessToken = 'access_token';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteEmployeeID();
-                                      FFAppState().employeeID = 'employee_id';
-
-                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteApiURLLocalState();
-                                      FFAppState().apiURLLocalState =
-                                          'api_url_local_state';
-
-                                      FFAppState().deleteBranchCode();
-                                      FFAppState().branchCode = 'branch_code';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().isFromSetPinPage = false;
-                                      FFAppState().leadChannelColor = [];
-                                      FFAppState().update(() {});
-                                      FFAppState().leadChannelList = [];
-                                      FFAppState().isFromLoginPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deletePinCodeAuthen();
-                                      FFAppState().pinCodeAuthen = '013972';
-
-                                      FFAppState().isFromAuthenPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteDateDoNotShowAgain();
-                                      FFAppState().dateDoNotShowAgain = null;
-
-                                      FFAppState().deleteDoNotShowAgain();
-                                      FFAppState().doNotShowAgain = false;
-
-                                      FFAppState().update(() {});
-                                      FFAppState().inAppViaNotification = true;
-                                      FFAppState().isInApp = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().fcmToken = 'fcm_token';
-                                      FFAppState().isPassLoginSection = false;
-                                      FFAppState().update(() {});
-                                      Navigator.pop(context);
-                                      await actions.a22();
-
-                                      context
-                                          .goNamed(LoginPageWidget.routeName);
-
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    _model.surveyLocationService =
-                                        await actions.a1();
-                                    _shouldSetState = true;
-                                    if (_model.surveyLocationService!) {
-                                      _model.surveyLocationPermission =
-                                          await actions.a2();
-                                      _shouldSetState = true;
-                                      if (!_model.surveyLocationPermission!) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      FFAppState().isFromTimesheetPage = false;
-                                      FFAppState().update(() {});
-                                    } else {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-
-                                    context.goNamed(SurveyPageWidget.routeName);
-
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.45,
-                                    height: 190.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x230E151B),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(4.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.asset(
-                                              'assets/images/istock_blossomstar_survey.jpg',
-                                              width: double.infinity,
-                                              height: 115.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      8.0, 12.0, 0.0, 0.0),
-                                              child: Text(
-                                                'ตรวจสอบลูกค้า',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation3']!),
-                                if (functions.containsValueInDataTypeList(
-                                        functions
-                                            .getDataTypeFromJson(
-                                                FFAppState().roleMenuJson,
-                                                'adminRoleGroup')
-                                            ?.toList(),
-                                        FFAppState().employeeID,
-                                        'ติดตามหนี้')! ||
-                                    functions.getSpecificIndexFromJson(
-                                        FFAppState().roleMenuJson,
-                                        'ติดตามหนี้',
-                                        FFAppState().profileLevel)! ||
-                                    functions.containListInString(
-                                        functions
-                                            .getListDataFromJsonList(
-                                                FFAppState().roleMenuJson,
-                                                'positionName',
-                                                'ติดตามหนี้')
-                                            ?.toList(),
-                                        FFAppState().profilePositionName)! ||
-                                    functions.containStringInListString(
-                                        functions
-                                            .getListDataFromJson(
-                                                FFAppState().roleMenuJson,
-                                                'empAdmin')
-                                            ?.toList(),
-                                        FFAppState().employeeID)!)
-                                  InkWell(
+                                Builder(
+                                  builder: (context) => InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
                                     hoverColor: Colors.transparent,
@@ -1131,65 +512,68 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     onTap: () async {
                                       var _shouldSetState = false;
                                       HapticFeedback.mediumImpact();
-                                      showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        barrierColor: Color(0x00000000),
+                                      showDialog(
                                         context: context,
-                                        builder: (context) {
-                                          return WebViewAware(
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                FocusScope.of(context)
-                                                    .unfocus();
-                                                FocusManager
-                                                    .instance.primaryFocus
-                                                    ?.unfocus();
-                                              },
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
                                                 child: Container(
                                                   height: double.infinity,
+                                                  width: double.infinity,
                                                   child: LoadingSceneWidget(),
                                                 ),
                                               ),
                                             ),
                                           );
                                         },
-                                      ).then((value) => safeSetState(() {}));
+                                      );
 
-                                      _model.checkLoginCollectionPage =
+                                      _model.checkLoginCheckInPage =
                                           await ActionUserAPICall.call(
                                         token: FFAppState().accessToken,
                                         apiUrl: FFAppState().apiURLLocalState,
                                       );
 
                                       _shouldSetState = true;
-                                      if ((_model.checkLoginCollectionPage
+                                      if ((_model.checkLoginCheckInPage
                                                   ?.statusCode ??
                                               200) !=
                                           200) {
                                         if (!((ActionUserAPICall.message(
-                                                  (_model.checkLoginCollectionPage
+                                                  (_model.checkLoginCheckInPage
                                                           ?.jsonBody ??
                                                       ''),
                                                 ) ==
                                                 'The token has been blacklisted') ||
                                             (ActionUserAPICall.message(
-                                                  (_model.checkLoginCollectionPage
+                                                  (_model.checkLoginCheckInPage
                                                           ?.jsonBody ??
                                                       ''),
                                                 ) ==
                                                 'Token Signature could not be verified.'))) {
+                                          Navigator.pop(context);
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
                                                 child: AlertDialog(
                                                   content: Text(
-                                                      'พบข้อผิดพลาด (${(_model.checkLoginCollectionPage?.statusCode ?? 200).toString()})'),
+                                                      'พบข้อผิดพลาด (${(_model.checkLoginCheckInPage?.statusCode ?? 200).toString()})'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>
@@ -1280,16 +664,16 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           safeSetState(() {});
                                         return;
                                       }
-                                      Navigator.pop(context);
-                                      _model.collectionLocationService =
+                                      _model.checkInLocationService =
                                           await actions.a1();
                                       _shouldSetState = true;
-                                      if (_model.collectionLocationService!) {
-                                        _model.collectionLocationPermission =
+                                      if (_model.checkInLocationService!) {
+                                        _model.checkInLocationPermission =
                                             await actions.a2();
                                         _shouldSetState = true;
                                         if (!_model
-                                            .collectionLocationPermission!) {
+                                            .checkInLocationPermission!) {
+                                          Navigator.pop(context);
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -1313,34 +697,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             safeSetState(() {});
                                           return;
                                         }
-                                        _model.getCollectionApiUrl =
-                                            await queryUrlLinkStorageRecordOnce(
-                                          queryBuilder:
-                                              (urlLinkStorageRecord) =>
-                                                  urlLinkStorageRecord.where(
-                                            'url_name',
-                                            isEqualTo: 'branch_view_collection',
-                                          ),
-                                          singleRecord: true,
-                                        ).then((s) => s.firstOrNull);
-                                        _shouldSetState = true;
                                         FFAppState().isFromTimesheetPage =
                                             false;
                                         FFAppState().update(() {});
-                                        FFAppState().collectionSortBy = '';
-                                        FFAppState().collectionSearch = '';
-                                        FFAppState().collectionSearchBy = '';
-                                        FFAppState().selectCardList = [];
-                                        FFAppState().collectionListBoolean = [];
-                                        FFAppState().saveCalled = SaveCallStruct
-                                            .fromSerializableMap(jsonDecode(
-                                                '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                        safeSetState(() {});
-                                        FFAppState()
-                                                .apiUrlBranchViewCollection =
-                                            _model.getCollectionApiUrl!.urlLink;
-                                        safeSetState(() {});
+                                        Navigator.pop(context);
                                       } else {
+                                        Navigator.pop(context);
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
@@ -1365,19 +727,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         return;
                                       }
 
-                                      context.pushNamed(
-                                        TabCollectionWidget.routeName,
-                                        queryParameters: {
-                                          'branchCode': serializeParam(
-                                            FFAppState().branchCode,
-                                            ParamType.String,
-                                          ),
-                                          'profileLevel': serializeParam(
-                                            FFAppState().profileLevel,
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
+                                      context
+                                          .goNamed(CheckInPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                     },
@@ -1391,7 +742,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         boxShadow: [
                                           BoxShadow(
                                             blurRadius: 4.0,
-                                            color: Color(0x230E151B),
+                                            color: Color(0x33000000),
                                             offset: Offset(
                                               0.0,
                                               2.0,
@@ -1414,7 +765,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                               child: Image.asset(
-                                                'assets/images/handing-over-money-image-dp-300x250.jpg',
+                                                'assets/images/google-maps-new-interface1.jpg',
                                                 width: double.infinity,
                                                 height: 115.0,
                                                 fit: BoxFit.cover,
@@ -1428,7 +779,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                     .fromSTEB(
                                                         8.0, 12.0, 0.0, 0.0),
                                                 child: Text(
-                                                  'ติดตามหนี้',
+                                                  'เช็คอิน',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleMedium
@@ -1466,71 +817,214 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation4']!),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
+                                      'containerOnPageLoadAnimation2']!),
+                                ),
+                                Builder(
+                                  builder: (context) => InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      var _shouldSetState = false;
+                                      HapticFeedback.mediumImpact();
+                                      showDialog(
+                                        context: context,
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  width: double.infinity,
+                                                  child: LoadingSceneWidget(),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
+                                          );
+                                        },
+                                      );
 
-                                    _model.checkLoginMarketingPage =
-                                        await ActionUserAPICall.call(
-                                      token: FFAppState().accessToken,
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                    );
+                                      _model.checkLoginSurveyPage =
+                                          await ActionUserAPICall.call(
+                                        token: FFAppState().accessToken,
+                                        apiUrl: FFAppState().apiURLLocalState,
+                                      );
 
-                                    _shouldSetState = true;
-                                    if ((_model.checkLoginMarketingPage
-                                                ?.statusCode ??
-                                            200) !=
-                                        200) {
-                                      if (!((ActionUserAPICall.message(
-                                                (_model.checkLoginMarketingPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'The token has been blacklisted') ||
-                                          (ActionUserAPICall.message(
-                                                (_model.checkLoginMarketingPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'Token Signature could not be verified.'))) {
+                                      _shouldSetState = true;
+                                      if ((_model.checkLoginSurveyPage
+                                                  ?.statusCode ??
+                                              200) !=
+                                          200) {
+                                        if (!((ActionUserAPICall.message(
+                                                  (_model.checkLoginSurveyPage
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'The token has been blacklisted') ||
+                                            (ActionUserAPICall.message(
+                                                  (_model.checkLoginSurveyPage
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'Token Signature could not be verified.'))) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${(_model.checkLoginSurveyPage?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          Navigator.pop(context);
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
                                                 content: Text(
-                                                    'พบข้อผิดพลาด (${(_model.checkLoginMarketingPage?.statusCode ?? 200).toString()})'),
+                                                    'Session Loginหมดอายุ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        FFAppState().loginStateFirebase =
+                                            '[loginStateFirebase]';
+                                        FFAppState().deleteAccessToken();
+                                        FFAppState().accessToken =
+                                            'access_token';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteEmployeeID();
+                                        FFAppState().employeeID = 'employee_id';
+
+                                        FFAppState().QRCodeLink = 'qrcode_link';
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteApiURLLocalState();
+                                        FFAppState().apiURLLocalState =
+                                            'api_url_local_state';
+
+                                        FFAppState().deleteBranchCode();
+                                        FFAppState().branchCode = 'branch_code';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().isFromSetPinPage = false;
+                                        FFAppState().leadChannelColor = [];
+                                        FFAppState().update(() {});
+                                        FFAppState().leadChannelList = [];
+                                        FFAppState().isFromLoginPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deletePinCodeAuthen();
+                                        FFAppState().pinCodeAuthen = '013972';
+
+                                        FFAppState().isFromAuthenPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteDateDoNotShowAgain();
+                                        FFAppState().dateDoNotShowAgain = null;
+
+                                        FFAppState().deleteDoNotShowAgain();
+                                        FFAppState().doNotShowAgain = false;
+
+                                        FFAppState().update(() {});
+                                        FFAppState().inAppViaNotification =
+                                            true;
+                                        FFAppState().isInApp = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().fcmToken = 'fcm_token';
+                                        FFAppState().isPassLoginSection = false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+                                        await actions.a22();
+
+                                        context
+                                            .goNamed(LoginPageWidget.routeName);
+
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      _model.surveyLocationService =
+                                          await actions.a1();
+                                      _shouldSetState = true;
+                                      if (_model.surveyLocationService!) {
+                                        _model.surveyLocationPermission =
+                                            await actions.a2();
+                                        _shouldSetState = true;
+                                        if (!_model.surveyLocationPermission!) {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        FFAppState().isFromTimesheetPage =
+                                            false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+                                      } else {
+                                        Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
                                                 actions: [
                                                   TextButton(
                                                     onPressed: () =>
@@ -1547,192 +1041,78 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           safeSetState(() {});
                                         return;
                                       }
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('Session Loginหมดอายุ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      FFAppState().loginStateFirebase =
-                                          '[loginStateFirebase]';
-                                      FFAppState().deleteAccessToken();
-                                      FFAppState().accessToken = 'access_token';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteEmployeeID();
-                                      FFAppState().employeeID = 'employee_id';
-
-                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteApiURLLocalState();
-                                      FFAppState().apiURLLocalState =
-                                          'api_url_local_state';
-
-                                      FFAppState().deleteBranchCode();
-                                      FFAppState().branchCode = 'branch_code';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().isFromSetPinPage = false;
-                                      FFAppState().leadChannelColor = [];
-                                      FFAppState().update(() {});
-                                      FFAppState().leadChannelList = [];
-                                      FFAppState().isFromLoginPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deletePinCodeAuthen();
-                                      FFAppState().pinCodeAuthen = '013972';
-
-                                      FFAppState().isFromAuthenPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteDateDoNotShowAgain();
-                                      FFAppState().dateDoNotShowAgain = null;
-
-                                      FFAppState().deleteDoNotShowAgain();
-                                      FFAppState().doNotShowAgain = false;
-
-                                      FFAppState().update(() {});
-                                      FFAppState().inAppViaNotification = true;
-                                      FFAppState().isInApp = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().fcmToken = 'fcm_token';
-                                      FFAppState().isPassLoginSection = false;
-                                      FFAppState().update(() {});
-                                      Navigator.pop(context);
-                                      await actions.a22();
 
                                       context
-                                          .goNamed(LoginPageWidget.routeName);
+                                          .goNamed(SurveyPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    _model.marketingLocationService =
-                                        await actions.a1();
-                                    _shouldSetState = true;
-                                    if (_model.marketingLocationService!) {
-                                      _model.marketingLocationPermission =
-                                          await actions.a2();
-                                      _shouldSetState = true;
-                                      if (!_model
-                                          .marketingLocationPermission!) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.45,
+                                      height: 190.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x230E151B),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(4.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: Image.asset(
+                                                'assets/images/istock_blossomstar_survey.jpg',
+                                                width: double.infinity,
+                                                height: 115.0,
+                                                fit: BoxFit.cover,
                                               ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      FFAppState().isFromTimesheetPage = false;
-                                      FFAppState().update(() {});
-                                    } else {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
                                             ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-
-                                    context
-                                        .goNamed(MarketingPageWidget.routeName);
-
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.45,
-                                    height: 190.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x230E151B),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(4.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.asset(
-                                              'assets/images/noisy_big_megaphone_74855_7630_fed38ffd42.jpg',
-                                              width: double.infinity,
-                                              height: 115.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      8.0, 12.0, 0.0, 0.0),
-                                              child: Text(
-                                                'ทำการตลาด',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 12.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'ตรวจสอบลูกค้า',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1744,192 +1124,614 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 .titleMedium
                                                                 .fontStyle,
                                                       ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation5']!),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation3']!),
+                                ),
+                                if (functions.containsValueInDataTypeList(
+                                        functions
+                                            .getDataTypeFromJson(
+                                                FFAppState().roleMenuJson,
+                                                'adminRoleGroup')
+                                            ?.toList(),
+                                        FFAppState().employeeID,
+                                        'ติดตามหนี้')! ||
+                                    functions.getSpecificIndexFromJson(
+                                        FFAppState().roleMenuJson,
+                                        'ติดตามหนี้',
+                                        FFAppState().profileLevel)! ||
+                                    functions.containListInString(
+                                        functions
+                                            .getListDataFromJsonList(
+                                                FFAppState().roleMenuJson,
+                                                'positionName',
+                                                'ติดตามหนี้')
+                                            ?.toList(),
+                                        FFAppState().profilePositionName)! ||
+                                    functions.containStringInListString(
+                                        functions
+                                            .getListDataFromJson(
+                                                FFAppState().roleMenuJson,
+                                                'empAdmin')
+                                            ?.toList(),
+                                        FFAppState().employeeID)!)
+                                  Builder(
+                                    builder: (context) => InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        var _shouldSetState = false;
+                                        HapticFeedback.mediumImpact();
+                                        showDialog(
+                                          context: context,
+                                          builder: (dialogContext) {
+                                            return Dialog(
+                                              elevation: 0,
+                                              insetPadding: EdgeInsets.zero,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              alignment:
+                                                  AlignmentDirectional(0.0, 0.0)
+                                                      .resolve(
+                                                          Directionality.of(
+                                                              context)),
+                                              child: WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(dialogContext)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child: Container(
+                                                    height: double.infinity,
+                                                    width: double.infinity,
+                                                    child: LoadingSceneWidget(),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        );
+
+                                        _model.checkLoginCollectionPage =
+                                            await ActionUserAPICall.call(
+                                          token: FFAppState().accessToken,
+                                          apiUrl: FFAppState().apiURLLocalState,
+                                        );
+
+                                        _shouldSetState = true;
+                                        if ((_model.checkLoginCollectionPage
+                                                    ?.statusCode ??
+                                                200) !=
+                                            200) {
+                                          if (!((ActionUserAPICall.message(
+                                                    (_model.checkLoginCollectionPage
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) ==
+                                                  'The token has been blacklisted') ||
+                                              (ActionUserAPICall.message(
+                                                    (_model.checkLoginCollectionPage
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) ==
+                                                  'Token Signature could not be verified.'))) {
+                                            Navigator.pop(context);
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'พบข้อผิดพลาด (${(_model.checkLoginCollectionPage?.statusCode ?? 200).toString()})'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'Session Loginหมดอายุ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
-                                              ),
+                                          );
+                                          FFAppState().loginStateFirebase =
+                                              '[loginStateFirebase]';
+                                          FFAppState().deleteAccessToken();
+                                          FFAppState().accessToken =
+                                              'access_token';
+
+                                          FFAppState().update(() {});
+                                          FFAppState().deleteEmployeeID();
+                                          FFAppState().employeeID =
+                                              'employee_id';
+
+                                          FFAppState().QRCodeLink =
+                                              'qrcode_link';
+                                          FFAppState().update(() {});
+                                          FFAppState().deleteApiURLLocalState();
+                                          FFAppState().apiURLLocalState =
+                                              'api_url_local_state';
+
+                                          FFAppState().deleteBranchCode();
+                                          FFAppState().branchCode =
+                                              'branch_code';
+
+                                          FFAppState().update(() {});
+                                          FFAppState().isFromSetPinPage = false;
+                                          FFAppState().leadChannelColor = [];
+                                          FFAppState().update(() {});
+                                          FFAppState().leadChannelList = [];
+                                          FFAppState().isFromLoginPage = false;
+                                          FFAppState().update(() {});
+                                          FFAppState().deletePinCodeAuthen();
+                                          FFAppState().pinCodeAuthen = '013972';
+
+                                          FFAppState().isFromAuthenPage = false;
+                                          FFAppState().update(() {});
+                                          FFAppState()
+                                              .deleteDateDoNotShowAgain();
+                                          FFAppState().dateDoNotShowAgain =
+                                              null;
+
+                                          FFAppState().deleteDoNotShowAgain();
+                                          FFAppState().doNotShowAgain = false;
+
+                                          FFAppState().update(() {});
+                                          FFAppState().inAppViaNotification =
+                                              true;
+                                          FFAppState().isInApp = false;
+                                          FFAppState().update(() {});
+                                          FFAppState().fcmToken = 'fcm_token';
+                                          FFAppState().isPassLoginSection =
+                                              false;
+                                          FFAppState().update(() {});
+                                          Navigator.pop(context);
+                                          await actions.a22();
+
+                                          context.goNamed(
+                                              LoginPageWidget.routeName);
+
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        _model.collectionLocationService =
+                                            await actions.a1();
+                                        _shouldSetState = true;
+                                        if (_model.collectionLocationService!) {
+                                          _model.collectionLocationPermission =
+                                              await actions.a2();
+                                          _shouldSetState = true;
+                                          if (!_model
+                                              .collectionLocationPermission!) {
+                                            Navigator.pop(context);
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          _model.getCollectionApiUrl =
+                                              await queryUrlLinkStorageRecordOnce(
+                                            queryBuilder:
+                                                (urlLinkStorageRecord) =>
+                                                    urlLinkStorageRecord.where(
+                                              'url_name',
+                                              isEqualTo:
+                                                  'branch_view_collection',
                                             ),
-                                          ),
+                                            singleRecord: true,
+                                          ).then((s) => s.firstOrNull);
+                                          _shouldSetState = true;
+                                          FFAppState().isFromTimesheetPage =
+                                              false;
+                                          FFAppState().update(() {});
+                                          FFAppState().collectionSortBy = '';
+                                          FFAppState().collectionSearch = '';
+                                          FFAppState().collectionSearchBy = '';
+                                          FFAppState().selectCardList = [];
+                                          FFAppState().collectionListBoolean =
+                                              [];
+                                          FFAppState().saveCalled = SaveCallStruct
+                                              .fromSerializableMap(jsonDecode(
+                                                  '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                          safeSetState(() {});
+                                          FFAppState()
+                                                  .apiUrlBranchViewCollection =
+                                              _model
+                                                  .getCollectionApiUrl!.urlLink;
+                                          safeSetState(() {});
+                                          Navigator.pop(context);
+                                        } else {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+
+                                        context.pushNamed(
+                                          TabCollectionWidget.routeName,
+                                          queryParameters: {
+                                            'branchCode': serializeParam(
+                                              FFAppState().branchCode,
+                                              ParamType.String,
+                                            ),
+                                            'profileLevel': serializeParam(
+                                              FFAppState().profileLevel,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
                                         );
+
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                       },
-                                    ).then((value) => safeSetState(() {}));
-
-                                    _model.checkLoginNPAPage =
-                                        await ActionUserAPICall.call(
-                                      token: FFAppState().accessToken,
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                    );
-
-                                    _shouldSetState = true;
-                                    if ((_model.checkLoginNPAPage?.statusCode ??
-                                            200) !=
-                                        200) {
-                                      if (!((ActionUserAPICall.message(
-                                                (_model.checkLoginNPAPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'The token has been blacklisted') ||
-                                          (ActionUserAPICall.message(
-                                                (_model.checkLoginNPAPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'Token Signature could not be verified.'))) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'พบข้อผิดพลาด (${(_model.checkLoginNPAPage?.statusCode ?? 200).toString()})'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.45,
+                                        height: 190.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 4.0,
+                                              color: Color(0x230E151B),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
                                               ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('Session Loginหมดอายุ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                                child: Image.asset(
+                                                  'assets/images/handing-over-money-image-dp-300x250.jpg',
+                                                  width: double.infinity,
+                                                  height: 115.0,
+                                                  fit: BoxFit.cover,
                                                 ),
-                                              ],
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 12.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'ติดตามหนี้',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation4']!),
+                                  ),
+                                Builder(
+                                  builder: (context) => InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      var _shouldSetState = false;
+                                      HapticFeedback.mediumImpact();
+                                      showDialog(
+                                        context: context,
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  width: double.infinity,
+                                                  child: LoadingSceneWidget(),
+                                                ),
+                                              ),
                                             ),
                                           );
                                         },
                                       );
-                                      FFAppState().loginStateFirebase =
-                                          '[loginStateFirebase]';
-                                      FFAppState().deleteAccessToken();
-                                      FFAppState().accessToken = 'access_token';
 
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteEmployeeID();
-                                      FFAppState().employeeID = 'employee_id';
+                                      _model.checkLoginMarketingPage =
+                                          await ActionUserAPICall.call(
+                                        token: FFAppState().accessToken,
+                                        apiUrl: FFAppState().apiURLLocalState,
+                                      );
 
-                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteApiURLLocalState();
-                                      FFAppState().apiURLLocalState =
-                                          'api_url_local_state';
-
-                                      FFAppState().deleteBranchCode();
-                                      FFAppState().branchCode = 'branch_code';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().isFromSetPinPage = false;
-                                      FFAppState().leadChannelColor = [];
-                                      FFAppState().update(() {});
-                                      FFAppState().leadChannelList = [];
-                                      FFAppState().isFromLoginPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deletePinCodeAuthen();
-                                      FFAppState().pinCodeAuthen = '013972';
-
-                                      FFAppState().isFromAuthenPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteDateDoNotShowAgain();
-                                      FFAppState().dateDoNotShowAgain = null;
-
-                                      FFAppState().deleteDoNotShowAgain();
-                                      FFAppState().doNotShowAgain = false;
-
-                                      FFAppState().update(() {});
-                                      FFAppState().inAppViaNotification = true;
-                                      FFAppState().isInApp = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().fcmToken = 'fcm_token';
-                                      FFAppState().isPassLoginSection = false;
-                                      FFAppState().update(() {});
-                                      Navigator.pop(context);
-                                      await actions.a22();
-
-                                      context
-                                          .goNamed(LoginPageWidget.routeName);
-
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    _model.nPALocationService =
-                                        await actions.a1();
-                                    _shouldSetState = true;
-                                    if (_model.nPALocationService!) {
-                                      _model.nPALocationPermission =
-                                          await actions.a2();
                                       _shouldSetState = true;
-                                      if (!_model.nPALocationPermission!) {
+                                      if ((_model.checkLoginMarketingPage
+                                                  ?.statusCode ??
+                                              200) !=
+                                          200) {
+                                        if (!((ActionUserAPICall.message(
+                                                  (_model.checkLoginMarketingPage
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'The token has been blacklisted') ||
+                                            (ActionUserAPICall.message(
+                                                  (_model.checkLoginMarketingPage
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'Token Signature could not be verified.'))) {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${(_model.checkLoginMarketingPage?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
                                                 content: Text(
-                                                    'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                                    'Session Loginหมดอายุ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        FFAppState().loginStateFirebase =
+                                            '[loginStateFirebase]';
+                                        FFAppState().deleteAccessToken();
+                                        FFAppState().accessToken =
+                                            'access_token';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteEmployeeID();
+                                        FFAppState().employeeID = 'employee_id';
+
+                                        FFAppState().QRCodeLink = 'qrcode_link';
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteApiURLLocalState();
+                                        FFAppState().apiURLLocalState =
+                                            'api_url_local_state';
+
+                                        FFAppState().deleteBranchCode();
+                                        FFAppState().branchCode = 'branch_code';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().isFromSetPinPage = false;
+                                        FFAppState().leadChannelColor = [];
+                                        FFAppState().update(() {});
+                                        FFAppState().leadChannelList = [];
+                                        FFAppState().isFromLoginPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deletePinCodeAuthen();
+                                        FFAppState().pinCodeAuthen = '013972';
+
+                                        FFAppState().isFromAuthenPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteDateDoNotShowAgain();
+                                        FFAppState().dateDoNotShowAgain = null;
+
+                                        FFAppState().deleteDoNotShowAgain();
+                                        FFAppState().doNotShowAgain = false;
+
+                                        FFAppState().update(() {});
+                                        FFAppState().inAppViaNotification =
+                                            true;
+                                        FFAppState().isInApp = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().fcmToken = 'fcm_token';
+                                        FFAppState().isPassLoginSection = false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+                                        await actions.a22();
+
+                                        context
+                                            .goNamed(LoginPageWidget.routeName);
+
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      _model.marketingLocationService =
+                                          await actions.a1();
+                                      _shouldSetState = true;
+                                      if (_model.marketingLocationService!) {
+                                        _model.marketingLocationPermission =
+                                            await actions.a2();
+                                        _shouldSetState = true;
+                                        if (!_model
+                                            .marketingLocationPermission!) {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        FFAppState().isFromTimesheetPage =
+                                            false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+                                      } else {
+                                        Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
                                                 actions: [
                                                   TextButton(
                                                     onPressed: () =>
@@ -1946,88 +1748,78 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           safeSetState(() {});
                                         return;
                                       }
-                                      FFAppState().isFromTimesheetPage = false;
-                                      FFAppState().update(() {});
-                                    } else {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
+
+                                      context.goNamed(
+                                          MarketingPageWidget.routeName);
+
                                       if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-
-                                    context.goNamed(NPApageWidget.routeName);
-
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.45,
-                                    height: 190.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x230E151B),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(4.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.asset(
-                                              'assets/images/74a40a4b-2704-4e25-9c48-05e2be5741b5.jpg',
-                                              width: double.infinity,
-                                              height: 115.0,
-                                              fit: BoxFit.cover,
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.45,
+                                      height: 190.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x230E151B),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
                                             ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      8.0, 12.0, 0.0, 0.0),
-                                              child: Text(
-                                                'สำรวจ NPA',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(4.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: Image.asset(
+                                                'assets/images/noisy_big_megaphone_74855_7630_fed38ffd42.jpg',
+                                                width: double.infinity,
+                                                height: 115.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 12.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'ทำการตลาด',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2039,27 +1831,330 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 .titleMedium
                                                                 .fontStyle,
                                                       ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation6']!),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation5']!),
+                                ),
+                                Builder(
+                                  builder: (context) => InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      var _shouldSetState = false;
+                                      HapticFeedback.mediumImpact();
+                                      showDialog(
+                                        context: context,
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  width: double.infinity,
+                                                  child: LoadingSceneWidget(),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      );
+
+                                      _model.checkLoginNPAPage =
+                                          await ActionUserAPICall.call(
+                                        token: FFAppState().accessToken,
+                                        apiUrl: FFAppState().apiURLLocalState,
+                                      );
+
+                                      _shouldSetState = true;
+                                      if ((_model.checkLoginNPAPage
+                                                  ?.statusCode ??
+                                              200) !=
+                                          200) {
+                                        if (!((ActionUserAPICall.message(
+                                                  (_model.checkLoginNPAPage
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'The token has been blacklisted') ||
+                                            (ActionUserAPICall.message(
+                                                  (_model.checkLoginNPAPage
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'Token Signature could not be verified.'))) {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${(_model.checkLoginNPAPage?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'Session Loginหมดอายุ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        FFAppState().loginStateFirebase =
+                                            '[loginStateFirebase]';
+                                        FFAppState().deleteAccessToken();
+                                        FFAppState().accessToken =
+                                            'access_token';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteEmployeeID();
+                                        FFAppState().employeeID = 'employee_id';
+
+                                        FFAppState().QRCodeLink = 'qrcode_link';
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteApiURLLocalState();
+                                        FFAppState().apiURLLocalState =
+                                            'api_url_local_state';
+
+                                        FFAppState().deleteBranchCode();
+                                        FFAppState().branchCode = 'branch_code';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().isFromSetPinPage = false;
+                                        FFAppState().leadChannelColor = [];
+                                        FFAppState().update(() {});
+                                        FFAppState().leadChannelList = [];
+                                        FFAppState().isFromLoginPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deletePinCodeAuthen();
+                                        FFAppState().pinCodeAuthen = '013972';
+
+                                        FFAppState().isFromAuthenPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteDateDoNotShowAgain();
+                                        FFAppState().dateDoNotShowAgain = null;
+
+                                        FFAppState().deleteDoNotShowAgain();
+                                        FFAppState().doNotShowAgain = false;
+
+                                        FFAppState().update(() {});
+                                        FFAppState().inAppViaNotification =
+                                            true;
+                                        FFAppState().isInApp = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().fcmToken = 'fcm_token';
+                                        FFAppState().isPassLoginSection = false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+                                        await actions.a22();
+
+                                        context
+                                            .goNamed(LoginPageWidget.routeName);
+
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      _model.nPALocationService =
+                                          await actions.a1();
+                                      _shouldSetState = true;
+                                      if (_model.nPALocationService!) {
+                                        _model.nPALocationPermission =
+                                            await actions.a2();
+                                        _shouldSetState = true;
+                                        if (!_model.nPALocationPermission!) {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        FFAppState().isFromTimesheetPage =
+                                            false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+                                      } else {
+                                        Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+
+                                      context.goNamed(NPApageWidget.routeName);
+
+                                      if (_shouldSetState) safeSetState(() {});
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.45,
+                                      height: 190.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x230E151B),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(4.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: Image.asset(
+                                                'assets/images/74a40a4b-2704-4e25-9c48-05e2be5741b5.jpg',
+                                                width: double.infinity,
+                                                height: 115.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 12.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'สำรวจ NPA',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .fontStyle,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation6']!),
+                                ),
                                 if (FFAppState().opsMenuVisible)
                                   InkWell(
                                     splashColor: Colors.transparent,
@@ -2319,321 +2414,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation7']!),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-
-                                    _model.checkLoginCheckerPage =
-                                        await ActionUserAPICall.call(
-                                      token: FFAppState().accessToken,
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                    );
-
-                                    _shouldSetState = true;
-                                    if ((_model.checkLoginCheckerPage
-                                                ?.statusCode ??
-                                            200) !=
-                                        200) {
-                                      if (!((ActionUserAPICall.message(
-                                                (_model.checkLoginCheckerPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'The token has been blacklisted') ||
-                                          (ActionUserAPICall.message(
-                                                (_model.checkLoginCheckerPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'Token Signature could not be verified.'))) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'พบข้อผิดพลาด (${(_model.checkLoginCheckerPage?.statusCode ?? 200).toString()})'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('Session Loginหมดอายุ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      FFAppState().loginStateFirebase =
-                                          '[loginStateFirebase]';
-                                      FFAppState().deleteAccessToken();
-                                      FFAppState().accessToken = 'access_token';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteEmployeeID();
-                                      FFAppState().employeeID = 'employee_id';
-
-                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteApiURLLocalState();
-                                      FFAppState().apiURLLocalState =
-                                          'api_url_local_state';
-
-                                      FFAppState().deleteBranchCode();
-                                      FFAppState().branchCode = 'branch_code';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().isFromSetPinPage = false;
-                                      FFAppState().leadChannelColor = [];
-                                      FFAppState().update(() {});
-                                      FFAppState().leadChannelList = [];
-                                      FFAppState().isFromLoginPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deletePinCodeAuthen();
-                                      FFAppState().pinCodeAuthen = '013972';
-
-                                      FFAppState().isFromAuthenPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteDateDoNotShowAgain();
-                                      FFAppState().dateDoNotShowAgain = null;
-
-                                      FFAppState().deleteDoNotShowAgain();
-                                      FFAppState().doNotShowAgain = false;
-
-                                      FFAppState().update(() {});
-                                      FFAppState().inAppViaNotification = true;
-                                      FFAppState().isInApp = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().fcmToken = 'fcm_token';
-                                      FFAppState().isPassLoginSection = false;
-                                      FFAppState().update(() {});
-                                      Navigator.pop(context);
-                                      await actions.a22();
-
-                                      context
-                                          .goNamed(LoginPageWidget.routeName);
-
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    _model.checkerLocationService =
-                                        await actions.a1();
-                                    _shouldSetState = true;
-                                    if (_model.checkerLocationService!) {
-                                      _model.checkerLocationPermission =
-                                          await actions.a2();
-                                      _shouldSetState = true;
-                                      if (!_model.checkerLocationPermission!) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      FFAppState().isFromTimesheetPage = false;
-                                      FFAppState().update(() {});
-                                      _model.getVloanRemarkApiUrl =
-                                          await queryUrlLinkStorageRecordOnce(
-                                        queryBuilder: (urlLinkStorageRecord) =>
-                                            urlLinkStorageRecord.where(
-                                          'url_name',
-                                          isEqualTo: 'vloan_remark',
-                                        ),
-                                        singleRecord: true,
-                                      ).then((s) => s.firstOrNull);
-                                      _shouldSetState = true;
-                                      FFAppState().apiUrlVloanRemark =
-                                          _model.getVloanRemarkApiUrl!.urlLink;
-                                      FFAppState().tokenVloanRemark =
-                                          _model.getVloanRemarkApiUrl!.urlToken;
-                                      safeSetState(() {});
-                                    } else {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-
-                                    context
-                                        .goNamed(CheckerPageWidget.routeName);
-
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.45,
-                                    height: 190.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x230E151B),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(4.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.asset(
-                                              'assets/images/webpc-passthru.webp',
-                                              width: double.infinity,
-                                              height: 115.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      8.0, 12.0, 0.0, 0.0),
-                                              child: Text(
-                                                'ฝ่ายตรวจสอบ',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation8']!),
-                                if (_model.showRemarkOutput?.isShowContent ??
-                                    true)
-                                  InkWell(
+                                Builder(
+                                  builder: (context) => InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
                                     hoverColor: Colors.transparent,
@@ -2641,65 +2423,68 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     onTap: () async {
                                       var _shouldSetState = false;
                                       HapticFeedback.mediumImpact();
-                                      showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        barrierColor: Color(0x00000000),
+                                      showDialog(
                                         context: context,
-                                        builder: (context) {
-                                          return WebViewAware(
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                FocusScope.of(context)
-                                                    .unfocus();
-                                                FocusManager
-                                                    .instance.primaryFocus
-                                                    ?.unfocus();
-                                              },
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
                                                 child: Container(
                                                   height: double.infinity,
+                                                  width: double.infinity,
                                                   child: LoadingSceneWidget(),
                                                 ),
                                               ),
                                             ),
                                           );
                                         },
-                                      ).then((value) => safeSetState(() {}));
+                                      );
 
-                                      _model.checkLoginTimesheetPageremark =
+                                      _model.checkLoginCheckerPage =
                                           await ActionUserAPICall.call(
                                         token: FFAppState().accessToken,
                                         apiUrl: FFAppState().apiURLLocalState,
                                       );
 
                                       _shouldSetState = true;
-                                      if ((_model.checkLoginTimesheetPageremark
+                                      if ((_model.checkLoginCheckerPage
                                                   ?.statusCode ??
                                               200) !=
                                           200) {
                                         if (!((ActionUserAPICall.message(
-                                                  (_model.checkLoginTimesheetPageremark
+                                                  (_model.checkLoginCheckerPage
                                                           ?.jsonBody ??
                                                       ''),
                                                 ) ==
                                                 'The token has been blacklisted') ||
                                             (ActionUserAPICall.message(
-                                                  (_model.checkLoginTimesheetPageremark
+                                                  (_model.checkLoginCheckerPage
                                                           ?.jsonBody ??
                                                       ''),
                                                 ) ==
                                                 'Token Signature could not be verified.'))) {
+                                          Navigator.pop(context);
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
                                                 child: AlertDialog(
                                                   content: Text(
-                                                      'พบข้อผิดพลาด (${(_model.checkLoginTimesheetPageremark?.statusCode ?? 200).toString()})'),
+                                                      'พบข้อผิดพลาด (${(_model.checkLoginCheckerPage?.statusCode ?? 200).toString()})'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>
@@ -2790,11 +2575,87 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           safeSetState(() {});
                                         return;
                                       }
-                                      FFAppState().isFromTimesheetPage = false;
-                                      FFAppState().update(() {});
+                                      _model.checkerLocationService =
+                                          await actions.a1();
+                                      _shouldSetState = true;
+                                      if (_model.checkerLocationService!) {
+                                        _model.checkerLocationPermission =
+                                            await actions.a2();
+                                        _shouldSetState = true;
+                                        if (!_model
+                                            .checkerLocationPermission!) {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        FFAppState().isFromTimesheetPage =
+                                            false;
+                                        FFAppState().update(() {});
+                                        _model.getVloanRemarkApiUrl =
+                                            await queryUrlLinkStorageRecordOnce(
+                                          queryBuilder:
+                                              (urlLinkStorageRecord) =>
+                                                  urlLinkStorageRecord.where(
+                                            'url_name',
+                                            isEqualTo: 'vloan_remark',
+                                          ),
+                                          singleRecord: true,
+                                        ).then((s) => s.firstOrNull);
+                                        _shouldSetState = true;
+                                        FFAppState().apiUrlVloanRemark = _model
+                                            .getVloanRemarkApiUrl!.urlLink;
+                                        FFAppState().tokenVloanRemark = _model
+                                            .getVloanRemarkApiUrl!.urlToken;
+                                        safeSetState(() {});
+                                        Navigator.pop(context);
+                                      } else {
+                                        Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
 
-                                      context.goNamed(
-                                          RemarkTypeDPageWidget.routeName);
+                                      context
+                                          .goNamed(CheckerPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                     },
@@ -2831,7 +2692,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                               child: Image.asset(
-                                                'assets/images/imageslawsuit.png',
+                                                'assets/images/webpc-passthru.webp',
                                                 width: double.infinity,
                                                 height: 115.0,
                                                 fit: BoxFit.cover,
@@ -2845,7 +2706,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                     .fromSTEB(
                                                         8.0, 12.0, 0.0, 0.0),
                                                 child: Text(
-                                                  'สถานะคดี',
+                                                  'ฝ่ายตรวจสอบ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleMedium
@@ -2883,71 +2744,372 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation9']!),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
+                                      'containerOnPageLoadAnimation8']!),
+                                ),
+                                if (_model.showRemarkOutput?.isShowContent ??
+                                    true)
+                                  Builder(
+                                    builder: (context) => InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        var _shouldSetState = false;
+                                        HapticFeedback.mediumImpact();
+                                        showDialog(
+                                          context: context,
+                                          builder: (dialogContext) {
+                                            return Dialog(
+                                              elevation: 0,
+                                              insetPadding: EdgeInsets.zero,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              alignment:
+                                                  AlignmentDirectional(0.0, 0.0)
+                                                      .resolve(
+                                                          Directionality.of(
+                                                              context)),
+                                              child: WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(dialogContext)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child: Container(
+                                                    height: double.infinity,
+                                                    width: double.infinity,
+                                                    child: LoadingSceneWidget(),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        );
+
+                                        _model.checkLoginTimesheetPageremark =
+                                            await ActionUserAPICall.call(
+                                          token: FFAppState().accessToken,
+                                          apiUrl: FFAppState().apiURLLocalState,
+                                        );
+
+                                        _shouldSetState = true;
+                                        if ((_model.checkLoginTimesheetPageremark
+                                                    ?.statusCode ??
+                                                200) !=
+                                            200) {
+                                          if (!((ActionUserAPICall.message(
+                                                    (_model.checkLoginTimesheetPageremark
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) ==
+                                                  'The token has been blacklisted') ||
+                                              (ActionUserAPICall.message(
+                                                    (_model.checkLoginTimesheetPageremark
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) ==
+                                                  'Token Signature could not be verified.'))) {
+                                            Navigator.pop(context);
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'พบข้อผิดพลาด (${(_model.checkLoginTimesheetPageremark?.statusCode ?? 200).toString()})'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'Session Loginหมดอายุ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
+                                          );
+                                          FFAppState().loginStateFirebase =
+                                              '[loginStateFirebase]';
+                                          FFAppState().deleteAccessToken();
+                                          FFAppState().accessToken =
+                                              'access_token';
+
+                                          FFAppState().update(() {});
+                                          FFAppState().deleteEmployeeID();
+                                          FFAppState().employeeID =
+                                              'employee_id';
+
+                                          FFAppState().QRCodeLink =
+                                              'qrcode_link';
+                                          FFAppState().update(() {});
+                                          FFAppState().deleteApiURLLocalState();
+                                          FFAppState().apiURLLocalState =
+                                              'api_url_local_state';
+
+                                          FFAppState().deleteBranchCode();
+                                          FFAppState().branchCode =
+                                              'branch_code';
+
+                                          FFAppState().update(() {});
+                                          FFAppState().isFromSetPinPage = false;
+                                          FFAppState().leadChannelColor = [];
+                                          FFAppState().update(() {});
+                                          FFAppState().leadChannelList = [];
+                                          FFAppState().isFromLoginPage = false;
+                                          FFAppState().update(() {});
+                                          FFAppState().deletePinCodeAuthen();
+                                          FFAppState().pinCodeAuthen = '013972';
+
+                                          FFAppState().isFromAuthenPage = false;
+                                          FFAppState().update(() {});
+                                          FFAppState()
+                                              .deleteDateDoNotShowAgain();
+                                          FFAppState().dateDoNotShowAgain =
+                                              null;
+
+                                          FFAppState().deleteDoNotShowAgain();
+                                          FFAppState().doNotShowAgain = false;
+
+                                          FFAppState().update(() {});
+                                          FFAppState().inAppViaNotification =
+                                              true;
+                                          FFAppState().isInApp = false;
+                                          FFAppState().update(() {});
+                                          FFAppState().fcmToken = 'fcm_token';
+                                          FFAppState().isPassLoginSection =
+                                              false;
+                                          FFAppState().update(() {});
+                                          Navigator.pop(context);
+                                          await actions.a22();
+
+                                          context.goNamed(
+                                              LoginPageWidget.routeName);
+
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        FFAppState().isFromTimesheetPage =
+                                            false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+
+                                        context.goNamed(
+                                            RemarkTypeDPageWidget.routeName);
+
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                      },
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.45,
+                                        height: 190.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 4.0,
+                                              color: Color(0x230E151B),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                                child: Image.asset(
+                                                  'assets/images/imageslawsuit.png',
+                                                  width: double.infinity,
+                                                  height: 115.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 12.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'สถานะคดี',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation9']!),
+                                  ),
+                                Builder(
+                                  builder: (context) => InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      var _shouldSetState = false;
+                                      HapticFeedback.mediumImpact();
+                                      showDialog(
+                                        context: context,
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  width: double.infinity,
+                                                  child: LoadingSceneWidget(),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
+                                          );
+                                        },
+                                      );
 
-                                    _model.checkLoginTimesheetPage =
-                                        await ActionUserAPICall.call(
-                                      token: FFAppState().accessToken,
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                    );
+                                      _model.checkLoginTimesheetPage =
+                                          await ActionUserAPICall.call(
+                                        token: FFAppState().accessToken,
+                                        apiUrl: FFAppState().apiURLLocalState,
+                                      );
 
-                                    _shouldSetState = true;
-                                    if ((_model.checkLoginTimesheetPage
-                                                ?.statusCode ??
-                                            200) !=
-                                        200) {
-                                      if (!((ActionUserAPICall.message(
-                                                (_model.checkLoginTimesheetPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'The token has been blacklisted') ||
-                                          (ActionUserAPICall.message(
-                                                (_model.checkLoginTimesheetPage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'Token Signature could not be verified.'))) {
+                                      _shouldSetState = true;
+                                      if ((_model.checkLoginTimesheetPage
+                                                  ?.statusCode ??
+                                              200) !=
+                                          200) {
+                                        if (!((ActionUserAPICall.message(
+                                                  (_model.checkLoginTimesheetPage
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'The token has been blacklisted') ||
+                                            (ActionUserAPICall.message(
+                                                  (_model.checkLoginTimesheetPage
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'Token Signature could not be verified.'))) {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${(_model.checkLoginTimesheetPage?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
                                                 content: Text(
-                                                    'พบข้อผิดพลาด (${(_model.checkLoginTimesheetPage?.statusCode ?? 200).toString()})'),
+                                                    'Session Loginหมดอายุ'),
                                                 actions: [
                                                   TextButton(
                                                     onPressed: () =>
@@ -2960,141 +3122,136 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
+                                        FFAppState().loginStateFirebase =
+                                            '[loginStateFirebase]';
+                                        FFAppState().deleteAccessToken();
+                                        FFAppState().accessToken =
+                                            'access_token';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteEmployeeID();
+                                        FFAppState().employeeID = 'employee_id';
+
+                                        FFAppState().QRCodeLink = 'qrcode_link';
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteApiURLLocalState();
+                                        FFAppState().apiURLLocalState =
+                                            'api_url_local_state';
+
+                                        FFAppState().deleteBranchCode();
+                                        FFAppState().branchCode = 'branch_code';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().isFromSetPinPage = false;
+                                        FFAppState().leadChannelColor = [];
+                                        FFAppState().update(() {});
+                                        FFAppState().leadChannelList = [];
+                                        FFAppState().isFromLoginPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deletePinCodeAuthen();
+                                        FFAppState().pinCodeAuthen = '013972';
+
+                                        FFAppState().isFromAuthenPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteDateDoNotShowAgain();
+                                        FFAppState().dateDoNotShowAgain = null;
+
+                                        FFAppState().deleteDoNotShowAgain();
+                                        FFAppState().doNotShowAgain = false;
+
+                                        FFAppState().update(() {});
+                                        FFAppState().inAppViaNotification =
+                                            true;
+                                        FFAppState().isInApp = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().fcmToken = 'fcm_token';
+                                        FFAppState().isPassLoginSection = false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+                                        await actions.a22();
+
+                                        context
+                                            .goNamed(LoginPageWidget.routeName);
+
                                         if (_shouldSetState)
                                           safeSetState(() {});
                                         return;
                                       }
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('Session Loginหมดอายุ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      FFAppState().loginStateFirebase =
-                                          '[loginStateFirebase]';
-                                      FFAppState().deleteAccessToken();
-                                      FFAppState().accessToken = 'access_token';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteEmployeeID();
-                                      FFAppState().employeeID = 'employee_id';
-
-                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteApiURLLocalState();
-                                      FFAppState().apiURLLocalState =
-                                          'api_url_local_state';
-
-                                      FFAppState().deleteBranchCode();
-                                      FFAppState().branchCode = 'branch_code';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().isFromSetPinPage = false;
-                                      FFAppState().leadChannelColor = [];
-                                      FFAppState().update(() {});
-                                      FFAppState().leadChannelList = [];
-                                      FFAppState().isFromLoginPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deletePinCodeAuthen();
-                                      FFAppState().pinCodeAuthen = '013972';
-
-                                      FFAppState().isFromAuthenPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteDateDoNotShowAgain();
-                                      FFAppState().dateDoNotShowAgain = null;
-
-                                      FFAppState().deleteDoNotShowAgain();
-                                      FFAppState().doNotShowAgain = false;
-
-                                      FFAppState().update(() {});
-                                      FFAppState().inAppViaNotification = true;
-                                      FFAppState().isInApp = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().fcmToken = 'fcm_token';
-                                      FFAppState().isPassLoginSection = false;
+                                      FFAppState().isFromTimesheetPage = true;
                                       FFAppState().update(() {});
                                       Navigator.pop(context);
-                                      await actions.a22();
 
-                                      context
-                                          .goNamed(LoginPageWidget.routeName);
+                                      context.goNamed(
+                                          TimeSheetPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    FFAppState().isFromTimesheetPage = true;
-                                    FFAppState().update(() {});
-
-                                    context
-                                        .goNamed(TimeSheetPageWidget.routeName);
-
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.45,
-                                    height: 190.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x230E151B),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(4.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.asset(
-                                              'assets/images/Time-tracking-system.jpg',
-                                              width: double.infinity,
-                                              height: 115.0,
-                                              fit: BoxFit.cover,
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.45,
+                                      height: 190.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x230E151B),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
                                             ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      8.0, 12.0, 0.0, 0.0),
-                                              child: Text(
-                                                'ไทม์ชีท',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(4.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: Image.asset(
+                                                'assets/images/Time-tracking-system.jpg',
+                                                width: double.infinity,
+                                                height: 115.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 12.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'ไทม์ชีท',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -3106,27 +3263,16 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                                 .titleMedium
                                                                 .fontStyle,
                                                       ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation10']!),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation10']!),
+                                ),
                               ],
                             ),
                           ),
