@@ -8306,9 +8306,16 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             return;
                                                                                           }
 
-                                                                                          await containerUserCustomRecord!.reference.update(createUserCustomRecordData(
-                                                                                            goldCupConsent: true,
-                                                                                          ));
+                                                                                          await containerUserCustomRecord!.reference.update({
+                                                                                            ...createUserCustomRecordData(
+                                                                                              goldCupConsent: true,
+                                                                                            ),
+                                                                                            ...mapToFirestore(
+                                                                                              {
+                                                                                                'consent_date': FieldValue.serverTimestamp(),
+                                                                                              },
+                                                                                            ),
+                                                                                          });
                                                                                         }
                                                                                         _model.getTableauBaseUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().tableauBaseUrlDocRef!);
                                                                                         _shouldSetState = true;

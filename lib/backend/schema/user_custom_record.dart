@@ -61,6 +61,11 @@ class UserCustomRecord extends FirestoreRecord {
   bool get goldCupConsent => _goldCupConsent ?? false;
   bool hasGoldCupConsent() => _goldCupConsent != null;
 
+  // "consent_date" field.
+  DateTime? _consentDate;
+  DateTime? get consentDate => _consentDate;
+  bool hasConsentDate() => _consentDate != null;
+
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _email = snapshotData['email'] as String?;
@@ -71,6 +76,7 @@ class UserCustomRecord extends FirestoreRecord {
     _sawadChatRoomRef = getDataList(snapshotData['sawad_chat_room_ref']);
     _imgProfileBlurHash = snapshotData['img_profile_blur_hash'] as String?;
     _goldCupConsent = snapshotData['gold_cup_consent'] as bool?;
+    _consentDate = snapshotData['consent_date'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -116,6 +122,7 @@ Map<String, dynamic> createUserCustomRecordData({
   String? fcmToken,
   String? imgProfileBlurHash,
   bool? goldCupConsent,
+  DateTime? consentDate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -127,6 +134,7 @@ Map<String, dynamic> createUserCustomRecordData({
       'fcm_token': fcmToken,
       'img_profile_blur_hash': imgProfileBlurHash,
       'gold_cup_consent': goldCupConsent,
+      'consent_date': consentDate,
     }.withoutNulls,
   );
 
@@ -147,7 +155,8 @@ class UserCustomRecordDocumentEquality implements Equality<UserCustomRecord> {
         e1?.fcmToken == e2?.fcmToken &&
         listEquality.equals(e1?.sawadChatRoomRef, e2?.sawadChatRoomRef) &&
         e1?.imgProfileBlurHash == e2?.imgProfileBlurHash &&
-        e1?.goldCupConsent == e2?.goldCupConsent;
+        e1?.goldCupConsent == e2?.goldCupConsent &&
+        e1?.consentDate == e2?.consentDate;
   }
 
   @override
@@ -160,7 +169,8 @@ class UserCustomRecordDocumentEquality implements Equality<UserCustomRecord> {
         e?.fcmToken,
         e?.sawadChatRoomRef,
         e?.imgProfileBlurHash,
-        e?.goldCupConsent
+        e?.goldCupConsent,
+        e?.consentDate
       ]);
 
   @override
