@@ -84,7 +84,14 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
         token: FFAppState().accessToken,
       );
 
-      if ((_model.leaveListAPIOutput?.statusCode ?? 200) != 200) {
+      if ((_model.leaveListAPIOutput?.statusCode ?? 200) == 200) {
+        safeSetState(() {
+          _model.monthSelectValueController?.value =
+              functions.currentTimeToMonthThai(getCurrentTimestamp)!;
+          _model.monthSelectValue =
+              functions.currentTimeToMonthThai(getCurrentTimestamp)!;
+        });
+      } else {
         if ((LeaveListAPICall.messageLayer1(
                   (_model.leaveListAPIOutput?.jsonBody ?? ''),
                 ) ==
@@ -202,6 +209,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
           return;
         }
       }
+
       _model.resignListAPIOutput = await ResignListAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
