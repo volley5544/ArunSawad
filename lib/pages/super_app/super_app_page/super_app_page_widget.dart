@@ -8251,7 +8251,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       return;
                                                                                     }
                                                                                     if (true) {
-                                                                                      if ((containerUserCustomRecord?.goldCupConsent == false) || containerUserCustomRecord!.hasGoldCupConsent()) {
+                                                                                      if (!((containerUserCustomRecord?.goldCupConsent != false) && containerUserCustomRecord!.hasGoldCupConsent())) {
                                                                                         _model.textGoldCupConsent = await queryTextContentRecordOnce(
                                                                                           singleRecord: true,
                                                                                         ).then((s) => s.firstOrNull);
