@@ -567,6 +567,13 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               );
                                                             },
                                                           );
+                                                          safeSetState(() {
+                                                            _model
+                                                                .leaveTimeValueController
+                                                                ?.reset();
+                                                            _model.leaveTimeValue =
+                                                                null;
+                                                          });
                                                           return;
                                                         }
                                                         if (functions
@@ -605,6 +612,13 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               );
                                                             },
                                                           );
+                                                          safeSetState(() {
+                                                            _model
+                                                                .leaveTimeValueController
+                                                                ?.reset();
+                                                            _model.leaveTimeValue =
+                                                                null;
+                                                          });
                                                           return;
                                                         }
                                                         if (!functions.checkYearLeave(
@@ -633,6 +647,13 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               );
                                                             },
                                                           );
+                                                          safeSetState(() {
+                                                            _model
+                                                                .leaveTimeValueController
+                                                                ?.reset();
+                                                            _model.leaveTimeValue =
+                                                                null;
+                                                          });
                                                           return;
                                                         }
                                                         if (widget!.leaveType ==
@@ -664,6 +685,13 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 );
                                                               },
                                                             );
+                                                            safeSetState(() {
+                                                              _model
+                                                                  .leaveTimeValueController
+                                                                  ?.reset();
+                                                              _model.leaveTimeValue =
+                                                                  null;
+                                                            });
                                                             return;
                                                           }
                                                         }
