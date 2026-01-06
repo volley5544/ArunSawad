@@ -8201,187 +8201,211 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   ),
                                                                                 ),
                                                                               if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'เป้า/ผลงาน', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'เป้า/ผลงาน')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'เป้า/ผลงาน')?.toList(), FFAppState().profilePositionName)!)
-                                                                                InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    var _shouldSetState = false;
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
+                                                                                Builder(
+                                                                                  builder: (context) => InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      var _shouldSetState = false;
+                                                                                      HapticFeedback.mediumImpact();
+                                                                                      if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                        Navigator.pop(context);
 
-                                                                                      context.goNamed(PinCodePageWidget.routeName);
+                                                                                        context.goNamed(PinCodePageWidget.routeName);
 
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
-                                                                                      await showModalBottomSheet(
-                                                                                        isScrollControlled: true,
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        barrierColor: Color(0xB3000000),
-                                                                                        isDismissible: false,
-                                                                                        enableDrag: false,
-                                                                                        context: context,
-                                                                                        builder: (context) {
-                                                                                          return WebViewAware(
-                                                                                            child: GestureDetector(
-                                                                                              onTap: () {
-                                                                                                FocusScope.of(context).unfocus();
-                                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                                              },
-                                                                                              child: Padding(
-                                                                                                padding: MediaQuery.viewInsetsOf(context),
-                                                                                                child: Container(
-                                                                                                  height: MediaQuery.sizeOf(context).height * 0.6,
-                                                                                                  child: SearchEmployeeComponentWidget(
-                                                                                                    tableauUrlLink: 'www.google.co.th',
-                                                                                                    fromPage: 'เป้า/ผลงาน',
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
+                                                                                        await showModalBottomSheet(
+                                                                                          isScrollControlled: true,
+                                                                                          backgroundColor: Colors.transparent,
+                                                                                          barrierColor: Color(0xB3000000),
+                                                                                          isDismissible: false,
+                                                                                          enableDrag: false,
+                                                                                          context: context,
+                                                                                          builder: (context) {
+                                                                                            return WebViewAware(
+                                                                                              child: GestureDetector(
+                                                                                                onTap: () {
+                                                                                                  FocusScope.of(context).unfocus();
+                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                },
+                                                                                                child: Padding(
+                                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                                  child: Container(
+                                                                                                    height: MediaQuery.sizeOf(context).height * 0.6,
+                                                                                                    child: SearchEmployeeComponentWidget(
+                                                                                                      tableauUrlLink: 'www.google.co.th',
+                                                                                                      fromPage: 'เป้า/ผลงาน',
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ),
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      ).then((value) => safeSetState(() {}));
+                                                                                            );
+                                                                                          },
+                                                                                        ).then((value) => safeSetState(() {}));
 
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (true) {
-                                                                                      if (!((containerUserCustomRecord?.goldCupConsent != false) && containerUserCustomRecord!.hasGoldCupConsent())) {
-                                                                                        _model.textGoldCupConsent = await queryTextContentRecordOnce(
-                                                                                          singleRecord: true,
-                                                                                        ).then((s) => s.firstOrNull);
-                                                                                        _shouldSetState = true;
-                                                                                        var confirmDialogResponse = await showDialog<bool>(
-                                                                                              context: context,
-                                                                                              builder: (alertDialogContext) {
-                                                                                                return WebViewAware(
-                                                                                                  child: AlertDialog(
-                                                                                                    title: Text(_model.textGoldCupConsent!.goldCupConsentTitle),
-                                                                                                    content: Text(_model.textGoldCupConsent!.goldCupConsentMassage),
-                                                                                                    actions: [
-                                                                                                      TextButton(
-                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                        child: Text('ยกเลิก'),
-                                                                                                      ),
-                                                                                                      TextButton(
-                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                        child: Text('ยินยอม'),
-                                                                                                      ),
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                );
-                                                                                              },
-                                                                                            ) ??
-                                                                                            false;
-                                                                                        if (!confirmDialogResponse) {
-                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                          return;
-                                                                                        }
-
-                                                                                        await containerUserCustomRecord!.reference.update(createUserCustomRecordData(
-                                                                                          goldCupConsent: true,
-                                                                                        ));
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
                                                                                       }
-                                                                                      _model.getTableauBaseUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().tableauBaseUrlDocRef!);
-                                                                                      _shouldSetState = true;
-                                                                                      _model.getIbsUrl = await ReportStorageRecord.getDocumentOnce(FFAppState().ibsUrlDocRef!);
-                                                                                      _shouldSetState = true;
-                                                                                      await actions.openTableauBrowser(
-                                                                                        FFAppState().accessToken,
-                                                                                        '${_model.getTableauBaseUrl?.urlLink}${_model.getIbsUrl?.reportUrl?.firstOrNull}',
-                                                                                        false,
+                                                                                      if (true) {
+                                                                                        showDialog(
+                                                                                          context: context,
+                                                                                          builder: (dialogContext) {
+                                                                                            return Dialog(
+                                                                                              elevation: 0,
+                                                                                              insetPadding: EdgeInsets.zero,
+                                                                                              backgroundColor: Colors.transparent,
+                                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                              child: WebViewAware(
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(dialogContext).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                  },
+                                                                                                  child: LoadingSceneWidget(),
+                                                                                                ),
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+
+                                                                                        if (!((containerUserCustomRecord?.goldCupConsent != false) && containerUserCustomRecord!.hasGoldCupConsent())) {
+                                                                                          _model.textGoldCupConsent = await queryTextContentRecordOnce(
+                                                                                            singleRecord: true,
+                                                                                          ).then((s) => s.firstOrNull);
+                                                                                          _shouldSetState = true;
+                                                                                          var confirmDialogResponse = await showDialog<bool>(
+                                                                                                context: context,
+                                                                                                builder: (alertDialogContext) {
+                                                                                                  return WebViewAware(
+                                                                                                    child: AlertDialog(
+                                                                                                      title: Text(_model.textGoldCupConsent!.goldCupConsentTitle),
+                                                                                                      content: Text(_model.textGoldCupConsent!.goldCupConsentMassage),
+                                                                                                      actions: [
+                                                                                                        TextButton(
+                                                                                                          onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                          child: Text('ยกเลิก'),
+                                                                                                        ),
+                                                                                                        TextButton(
+                                                                                                          onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                          child: Text('ยินยอม'),
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  );
+                                                                                                },
+                                                                                              ) ??
+                                                                                              false;
+                                                                                          if (!confirmDialogResponse) {
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
+                                                                                          }
+
+                                                                                          await containerUserCustomRecord!.reference.update(createUserCustomRecordData(
+                                                                                            goldCupConsent: true,
+                                                                                          ));
+                                                                                        }
+                                                                                        _model.getTableauBaseUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().tableauBaseUrlDocRef!);
+                                                                                        _shouldSetState = true;
+                                                                                        _model.getIbsUrl = await ReportStorageRecord.getDocumentOnce(FFAppState().ibsUrlDocRef!);
+                                                                                        _shouldSetState = true;
+                                                                                        Navigator.pop(context);
+                                                                                        await actions.openTableauBrowser(
+                                                                                          FFAppState().accessToken,
+                                                                                          '${_model.getTableauBaseUrl?.urlLink}${_model.getIbsUrl?.reportUrl?.firstOrNull}',
+                                                                                          false,
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+
+                                                                                      context.goNamed(
+                                                                                        IBSReportWidget.routeName,
+                                                                                        queryParameters: {
+                                                                                          'employeeId': serializeParam(
+                                                                                            FFAppState().employeeID,
+                                                                                            ParamType.String,
+                                                                                          ),
+                                                                                        }.withoutNulls,
                                                                                       );
+
                                                                                       if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-
-                                                                                    context.goNamed(
-                                                                                      IBSReportWidget.routeName,
-                                                                                      queryParameters: {
-                                                                                        'employeeId': serializeParam(
-                                                                                          FFAppState().employeeID,
-                                                                                          ParamType.String,
-                                                                                        ),
-                                                                                      }.withoutNulls,
-                                                                                    );
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                  },
-                                                                                  child: Container(
-                                                                                    width: 100.0,
-                                                                                    height: 100.0,
-                                                                                    decoration: BoxDecoration(
-                                                                                      color: Colors.white,
-                                                                                      shape: BoxShape.circle,
-                                                                                    ),
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                                          child: Container(
-                                                                                            width: () {
-                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                return 50.0;
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              }
-                                                                                            }(),
-                                                                                            height: () {
-                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                return 50.0;
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              }
-                                                                                            }(),
-                                                                                            clipBehavior: Clip.antiAlias,
-                                                                                            decoration: BoxDecoration(
-                                                                                              shape: BoxShape.circle,
-                                                                                            ),
-                                                                                            child: Image.asset(
-                                                                                              'assets/images/Pngtreegolden_trophy_cup_icon_cartoon_5207510.png',
-                                                                                              fit: BoxFit.contain,
+                                                                                    },
+                                                                                    child: Container(
+                                                                                      width: 100.0,
+                                                                                      height: 100.0,
+                                                                                      decoration: BoxDecoration(
+                                                                                        color: Colors.white,
+                                                                                        shape: BoxShape.circle,
+                                                                                      ),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                            child: Container(
+                                                                                              width: () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 50.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                }
+                                                                                              }(),
+                                                                                              height: () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 50.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                }
+                                                                                              }(),
+                                                                                              clipBehavior: Clip.antiAlias,
+                                                                                              decoration: BoxDecoration(
+                                                                                                shape: BoxShape.circle,
+                                                                                              ),
+                                                                                              child: Image.asset(
+                                                                                                'assets/images/Pngtreegolden_trophy_cup_icon_cartoon_5207510.png',
+                                                                                                fit: BoxFit.contain,
+                                                                                              ),
                                                                                             ),
                                                                                           ),
-                                                                                        ),
-                                                                                        Text(
-                                                                                          'เป้า/ผลงาน\n(ของแต่ละคน)',
-                                                                                          textAlign: TextAlign.center,
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                font: GoogleFonts.poppins(
+                                                                                          Text(
+                                                                                            'เป้า/ผลงาน\n(ของแต่ละคน)',
+                                                                                            textAlign: TextAlign.center,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  font: GoogleFonts.poppins(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
+                                                                                                  fontSize: () {
+                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                      return 12.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                      return 20.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                      return 20.0;
+                                                                                                    } else {
+                                                                                                      return 20.0;
+                                                                                                    }
+                                                                                                  }(),
+                                                                                                  letterSpacing: 0.0,
                                                                                                   fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
-                                                                                                fontSize: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 12.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return 20.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return 20.0;
-                                                                                                  } else {
-                                                                                                    return 20.0;
-                                                                                                  }
-                                                                                                }(),
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ],
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
