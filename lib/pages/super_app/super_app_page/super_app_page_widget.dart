@@ -8301,6 +8301,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                               ) ??
                                                                                               false;
                                                                                           if (!confirmDialogResponse) {
+                                                                                            Navigator.pop(context);
                                                                                             if (_shouldSetState) safeSetState(() {});
                                                                                             return;
                                                                                           }
