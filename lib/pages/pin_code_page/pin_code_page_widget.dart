@@ -978,86 +978,136 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   )),
                                                                                 ],
                                                                               ),
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                    child: FlutterFlowIconButton(
-                                                                                      borderColor: Colors.transparent,
-                                                                                      borderRadius: 30.0,
-                                                                                      borderWidth: 1.0,
-                                                                                      buttonSize: 55.0,
-                                                                                      icon: Icon(
-                                                                                        Icons.app_blocking_rounded,
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        size: 33.0,
+                                                                              InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  HapticFeedback.mediumImpact();
+                                                                                  var confirmDialogResponse = await showDialog<bool>(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('คุณต้องการจะล้างข้อมูลแอพหรือไม่?'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                  child: Text('ยกเลิก'),
+                                                                                                ),
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                  child: Text('ตกลง'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      ) ??
+                                                                                      false;
+                                                                                  if (!confirmDialogResponse) {
+                                                                                    return;
+                                                                                  }
+                                                                                  await actions.a22();
+                                                                                  await actions.clearAllAppDataCopy();
+                                                                                  await showDialog(
+                                                                                    context: context,
+                                                                                    builder: (alertDialogContext) {
+                                                                                      return WebViewAware(
+                                                                                        child: AlertDialog(
+                                                                                          content: Text('เคลียร์แคชเรียบร้อยกรุณาปิดแอปเปิดใหม่'),
+                                                                                          actions: [
+                                                                                            TextButton(
+                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                              child: Text('Ok'),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  );
+                                                                                },
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                      child: FlutterFlowIconButton(
+                                                                                        borderColor: Colors.transparent,
+                                                                                        borderRadius: 30.0,
+                                                                                        borderWidth: 1.0,
+                                                                                        buttonSize: 55.0,
+                                                                                        icon: Icon(
+                                                                                          Icons.app_blocking_rounded,
+                                                                                          color: FlutterFlowTheme.of(context).primaryText,
+                                                                                          size: 33.0,
+                                                                                        ),
+                                                                                        onPressed: () async {
+                                                                                          HapticFeedback.mediumImpact();
+                                                                                          var confirmDialogResponse = await showDialog<bool>(
+                                                                                                context: context,
+                                                                                                builder: (alertDialogContext) {
+                                                                                                  return WebViewAware(
+                                                                                                    child: AlertDialog(
+                                                                                                      content: Text('คุณต้องการจะล้างข้อมูลแอพหรือไม่?'),
+                                                                                                      actions: [
+                                                                                                        TextButton(
+                                                                                                          onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                          child: Text('ยกเลิก'),
+                                                                                                        ),
+                                                                                                        TextButton(
+                                                                                                          onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                          child: Text('ตกลง'),
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  );
+                                                                                                },
+                                                                                              ) ??
+                                                                                              false;
+                                                                                          if (!confirmDialogResponse) {
+                                                                                            return;
+                                                                                          }
+                                                                                          await actions.a22();
+                                                                                          await actions.clearAllAppDataCopy();
+                                                                                          await showDialog(
+                                                                                            context: context,
+                                                                                            builder: (alertDialogContext) {
+                                                                                              return WebViewAware(
+                                                                                                child: AlertDialog(
+                                                                                                  content: Text('เคลียร์แคชเรียบร้อยกรุณาปิดแอปเปิดใหม่'),
+                                                                                                  actions: [
+                                                                                                    TextButton(
+                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                      child: Text('Ok'),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          );
+                                                                                        },
                                                                                       ),
-                                                                                      onPressed: () async {
-                                                                                        HapticFeedback.mediumImpact();
-                                                                                        var confirmDialogResponse = await showDialog<bool>(
-                                                                                              context: context,
-                                                                                              builder: (alertDialogContext) {
-                                                                                                return WebViewAware(
-                                                                                                  child: AlertDialog(
-                                                                                                    content: Text('คุณต้องการจะล้างข้อมูลแอพหรือไม่?'),
-                                                                                                    actions: [
-                                                                                                      TextButton(
-                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                        child: Text('ยกเลิก'),
-                                                                                                      ),
-                                                                                                      TextButton(
-                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                        child: Text('ตกลง'),
-                                                                                                      ),
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                );
-                                                                                              },
-                                                                                            ) ??
-                                                                                            false;
-                                                                                        if (!confirmDialogResponse) {
-                                                                                          return;
-                                                                                        }
-                                                                                        await actions.a22();
-                                                                                        await actions.clearAllAppDataCopy();
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('เคลียร์แคชเรียบร้อยกรุณาปิดแอปเปิดใหม่'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                      },
                                                                                     ),
-                                                                                  ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                                                                                    child: SelectionArea(
-                                                                                        child: Text(
-                                                                                      'ล้างข้อมูลแอพ',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            font: GoogleFonts.poppins(
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                      child: Text(
+                                                                                        'ล้างข้อมูลแอพ',
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              font: GoogleFonts.poppins(
+                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                              ),
+                                                                                              fontSize: 14.0,
+                                                                                              letterSpacing: 0.0,
                                                                                               fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                             ),
-                                                                                            fontSize: 14.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                          ),
-                                                                                    )),
-                                                                                  ),
-                                                                                ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
                                                                               ),
                                                                             ],
                                                                           ),

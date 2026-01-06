@@ -46,7 +46,6 @@ class _DashboardWidgetState extends State<DashboardWidget>
   late DashboardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -58,8 +57,6 @@ class _DashboardWidgetState extends State<DashboardWidget>
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Dashboard'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       if (!((FFAppState().employeeID == '31622') ||
           (FFAppState().employeeID == '33511') ||
           (FFAppState().employeeID == '32758') ||
