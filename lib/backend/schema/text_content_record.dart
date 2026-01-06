@@ -41,12 +41,25 @@ class TextContentRecord extends FirestoreRecord {
   String get ibsReport => _ibsReport ?? '';
   bool hasIbsReport() => _ibsReport != null;
 
+  // "gold_cup_consent_massage" field.
+  String? _goldCupConsentMassage;
+  String get goldCupConsentMassage => _goldCupConsentMassage ?? '';
+  bool hasGoldCupConsentMassage() => _goldCupConsentMassage != null;
+
+  // "gold_cup_consent_title" field.
+  String? _goldCupConsentTitle;
+  String get goldCupConsentTitle => _goldCupConsentTitle ?? '';
+  bool hasGoldCupConsentTitle() => _goldCupConsentTitle != null;
+
   void _initializeFields() {
     _kpiText = snapshotData['kpiText'] as String?;
     _kpiTextcolor = getSchemaColor(snapshotData['kpiTextcolor']);
     _kpiHideText = snapshotData['kpiHideText'] as bool?;
     _contentName = snapshotData['contentName'] as String?;
     _ibsReport = snapshotData['ibsReport'] as String?;
+    _goldCupConsentMassage =
+        snapshotData['gold_cup_consent_massage'] as String?;
+    _goldCupConsentTitle = snapshotData['gold_cup_consent_title'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -89,6 +102,8 @@ Map<String, dynamic> createTextContentRecordData({
   bool? kpiHideText,
   String? contentName,
   String? ibsReport,
+  String? goldCupConsentMassage,
+  String? goldCupConsentTitle,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -97,6 +112,8 @@ Map<String, dynamic> createTextContentRecordData({
       'kpiHideText': kpiHideText,
       'contentName': contentName,
       'ibsReport': ibsReport,
+      'gold_cup_consent_massage': goldCupConsentMassage,
+      'gold_cup_consent_title': goldCupConsentTitle,
     }.withoutNulls,
   );
 
@@ -112,7 +129,9 @@ class TextContentRecordDocumentEquality implements Equality<TextContentRecord> {
         e1?.kpiTextcolor == e2?.kpiTextcolor &&
         e1?.kpiHideText == e2?.kpiHideText &&
         e1?.contentName == e2?.contentName &&
-        e1?.ibsReport == e2?.ibsReport;
+        e1?.ibsReport == e2?.ibsReport &&
+        e1?.goldCupConsentMassage == e2?.goldCupConsentMassage &&
+        e1?.goldCupConsentTitle == e2?.goldCupConsentTitle;
   }
 
   @override
@@ -121,7 +140,9 @@ class TextContentRecordDocumentEquality implements Equality<TextContentRecord> {
         e?.kpiTextcolor,
         e?.kpiHideText,
         e?.contentName,
-        e?.ibsReport
+        e?.ibsReport,
+        e?.goldCupConsentMassage,
+        e?.goldCupConsentTitle
       ]);
 
   @override

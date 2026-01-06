@@ -8251,6 +8251,42 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       return;
                                                                                     }
                                                                                     if (true) {
+                                                                                      if ((containerUserCustomRecord?.goldCupConsent == false) || containerUserCustomRecord!.hasGoldCupConsent()) {
+                                                                                        _model.textGoldCupConsent = await queryTextContentRecordOnce(
+                                                                                          singleRecord: true,
+                                                                                        ).then((s) => s.firstOrNull);
+                                                                                        _shouldSetState = true;
+                                                                                        var confirmDialogResponse = await showDialog<bool>(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    title: Text(_model.textGoldCupConsent!.goldCupConsentTitle),
+                                                                                                    content: Text(_model.textGoldCupConsent!.goldCupConsentMassage),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                        child: Text('ยกเลิก'),
+                                                                                                      ),
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                        child: Text('ยินยอม'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            ) ??
+                                                                                            false;
+                                                                                        if (!confirmDialogResponse) {
+                                                                                          if (_shouldSetState) safeSetState(() {});
+                                                                                          return;
+                                                                                        }
+
+                                                                                        await containerUserCustomRecord!.reference.update(createUserCustomRecordData(
+                                                                                          goldCupConsent: true,
+                                                                                        ));
+                                                                                      }
                                                                                       _model.getTableauBaseUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().tableauBaseUrlDocRef!);
                                                                                       _shouldSetState = true;
                                                                                       _model.getIbsUrl = await ReportStorageRecord.getDocumentOnce(FFAppState().ibsUrlDocRef!);

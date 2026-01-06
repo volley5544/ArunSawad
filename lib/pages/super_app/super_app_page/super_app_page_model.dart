@@ -231,6 +231,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? getInsurer;
   // Stores action output result for [Backend Call - API (teleGetCoverTypeAPI)] action in Container widget.
   ApiCallResponse? getCoverType;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  TextContentRecord? textGoldCupConsent;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? getTableauBaseUrl;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
