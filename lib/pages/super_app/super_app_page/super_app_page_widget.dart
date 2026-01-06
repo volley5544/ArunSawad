@@ -8324,7 +8324,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         await actions.openTableauBrowser(
                                                                                           FFAppState().accessToken,
                                                                                           '${_model.getTableauBaseUrl?.urlLink}${_model.getIbsUrl?.reportUrl?.firstOrNull}',
-                                                                                          false,
+                                                                                          FFAppState().isOpenAndroidTableauBrowser,
                                                                                         );
                                                                                         if (_shouldSetState) safeSetState(() {});
                                                                                         return;
