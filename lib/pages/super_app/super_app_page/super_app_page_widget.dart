@@ -8283,7 +8283,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                 builder: (alertDialogContext) {
                                                                                                   return WebViewAware(
                                                                                                     child: AlertDialog(
-                                                                                                      title: Text(_model.textGoldCupConsent!.goldCupConsentTitle),
                                                                                                       content: Text(_model.textGoldCupConsent!.goldCupConsentMassage),
                                                                                                       actions: [
                                                                                                         TextButton(
@@ -8292,7 +8291,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                         ),
                                                                                                         TextButton(
                                                                                                           onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                          child: Text('ยินยอม'),
+                                                                                                          child: Text('ยืนยัน'),
                                                                                                         ),
                                                                                                       ],
                                                                                                     ),
