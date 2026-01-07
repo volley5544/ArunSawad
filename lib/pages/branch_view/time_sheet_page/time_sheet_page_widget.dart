@@ -1358,27 +1358,22 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        functions
-                                                            .showLocationTimesheet(
-                                                                (String
-                                                                    latitude) {
-                                                                  return double
-                                                                      .parse(
-                                                                          '${latitude}');
-                                                                }(getJsonField(
-                                                                  timesheetDataListItem,
-                                                                  r'''$.Latitude''',
-                                                                ).toString()),
-                                                                (String
-                                                                    longitude) {
-                                                                  return double
-                                                                      .parse(
-                                                                          '${longitude}');
-                                                                }(getJsonField(
-                                                                  timesheetDataListItem,
-                                                                  r'''$.Longitude''',
-                                                                ).toString()),
-                                                                false),
+                                                        functions.showLocationTimesheet(
+                                                            (String latitude) {
+                                                              return double.parse(
+                                                                  '${latitude}');
+                                                            }('${getJsonField(
+                                                              timesheetDataListItem,
+                                                              r'''$.Latitude''',
+                                                            ).toString()}'),
+                                                            (String longitude) {
+                                                              return double.parse(
+                                                                  '${longitude}');
+                                                            }('${getJsonField(
+                                                              timesheetDataListItem,
+                                                              r'''$.Longitude''',
+                                                            ).toString()}'),
+                                                            false),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
