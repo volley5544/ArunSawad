@@ -15,8 +15,11 @@ Future<bool> a8() async {
   // Add your function code here!
   bool areLocationServicesEnabled;
   areLocationServicesEnabled = await Geolocator.isLocationServiceEnabled();
+  LatLng currentLocation = await getLocation();
 
-  if (areLocationServicesEnabled) {
+  if (areLocationServicesEnabled &&
+      currentLocation != LatLng(0, 0) &&
+      currentLocation != LatLng(0.0, 0.0)) {
     // Location services are enabled
     return true;
   } else {

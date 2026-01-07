@@ -762,221 +762,229 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                             mainAxisAlignment:
                                                                                 MainAxisAlignment.spaceBetween,
                                                                             children: [
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                    child: FlutterFlowIconButton(
-                                                                                      borderColor: Colors.transparent,
-                                                                                      borderRadius: 30.0,
-                                                                                      borderWidth: 1.0,
-                                                                                      buttonSize: 55.0,
-                                                                                      icon: Icon(
-                                                                                        Icons.logout,
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        size: 35.0,
-                                                                                      ),
-                                                                                      onPressed: () async {
-                                                                                        var _shouldSetState = false;
-                                                                                        HapticFeedback.mediumImpact();
-                                                                                        showModalBottomSheet(
-                                                                                          isScrollControlled: true,
-                                                                                          backgroundColor: Colors.transparent,
-                                                                                          barrierColor: Color(0x00000000),
-                                                                                          enableDrag: false,
-                                                                                          context: context,
-                                                                                          builder: (context) {
-                                                                                            return WebViewAware(
-                                                                                              child: GestureDetector(
-                                                                                                onTap: () {
-                                                                                                  FocusScope.of(context).unfocus();
-                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                },
-                                                                                                child: Padding(
-                                                                                                  padding: MediaQuery.viewInsetsOf(context),
-                                                                                                  child: Container(
-                                                                                                    height: double.infinity,
-                                                                                                    child: LoadingSceneWidget(),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            );
+                                                                              InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  var _shouldSetState = false;
+                                                                                  HapticFeedback.mediumImpact();
+                                                                                  showModalBottomSheet(
+                                                                                    isScrollControlled: true,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    barrierColor: Color(0x00000000),
+                                                                                    enableDrag: false,
+                                                                                    context: context,
+                                                                                    builder: (context) {
+                                                                                      return WebViewAware(
+                                                                                        child: GestureDetector(
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
                                                                                           },
-                                                                                        ).then((value) => safeSetState(() {}));
-
-                                                                                        _model.checkDeviceLocSerLogout = await actions.a1();
-                                                                                        _shouldSetState = true;
-                                                                                        if (!_model.checkDeviceLocSerLogout!) {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                child: AlertDialog(
-                                                                                                  content: Text('กรุณาเปิดGPSเพื่อทำรายการ'),
-                                                                                                  actions: [
-                                                                                                    TextButton(
-                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                      child: Text('Ok'),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          );
-                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                          return;
-                                                                                        }
-                                                                                        _model.checkDeviceLocPerLogout = await actions.a2();
-                                                                                        _shouldSetState = true;
-                                                                                        if (!_model.checkDeviceLocPerLogout!) {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                child: AlertDialog(
-                                                                                                  content: Text('กรุณาให้อรุณสวัสดิ์เข้าถึงGPSของคุณ'),
-                                                                                                  actions: [
-                                                                                                    TextButton(
-                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                      child: Text('Ok'),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          );
-                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                          return;
-                                                                                        }
-                                                                                        _model.checkLatLngLogout = await actions.a8();
-                                                                                        _shouldSetState = true;
-                                                                                        if (!_model.checkLatLngLogout!) {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                child: AlertDialog(
-                                                                                                  content: Text('กรุณาเปิดGPSเพื่อทำรายการ'),
-                                                                                                  actions: [
-                                                                                                    TextButton(
-                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                      child: Text('Ok'),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          );
-                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                          return;
-                                                                                        }
-                                                                                        _model.getLocationLogoutButton = await actions.getLocation();
-                                                                                        _shouldSetState = true;
-
-                                                                                        var userLogRecordReference = UserLogRecord.collection.doc();
-                                                                                        await userLogRecordReference.set(createUserLogRecordData(
-                                                                                          employeeId: FFAppState().employeeID,
-                                                                                          action: 'Logout',
-                                                                                          actionTime: getCurrentTimestamp,
-                                                                                          userLocation: _model.getLocationLogoutButton,
-                                                                                        ));
-                                                                                        _model.createdUserLogLogout = UserLogRecord.getDocumentFromData(
-                                                                                            createUserLogRecordData(
-                                                                                              employeeId: FFAppState().employeeID,
-                                                                                              action: 'Logout',
-                                                                                              actionTime: getCurrentTimestamp,
-                                                                                              userLocation: _model.getLocationLogoutButton,
+                                                                                          child: Padding(
+                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                            child: Container(
+                                                                                              height: double.infinity,
+                                                                                              child: LoadingSceneWidget(),
                                                                                             ),
-                                                                                            userLogRecordReference);
-                                                                                        _shouldSetState = true;
-                                                                                        FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                        FFAppState().deleteAccessToken();
-                                                                                        FFAppState().accessToken = 'access_token';
+                                                                                          ),
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  ).then((value) => safeSetState(() {}));
 
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().deleteEmployeeID();
-                                                                                        FFAppState().employeeID = 'employee_id';
-
-                                                                                        FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().deleteApiURLLocalState();
-                                                                                        FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                        FFAppState().deleteBranchCode();
-                                                                                        FFAppState().branchCode = 'branch_code';
-
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().isFromSetPinPage = false;
-                                                                                        FFAppState().leadChannelColor = [];
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadChannelList = [];
-                                                                                        FFAppState().isFromLoginPage = false;
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().deletePinCodeAuthen();
-                                                                                        FFAppState().pinCodeAuthen = '013972';
-
-                                                                                        FFAppState().isFromAuthenPage = false;
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().deleteDateDoNotShowAgain();
-                                                                                        FFAppState().dateDoNotShowAgain = null;
-
-                                                                                        FFAppState().deleteDoNotShowAgain();
-                                                                                        FFAppState().doNotShowAgain = false;
-
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().inAppViaNotification = true;
-                                                                                        FFAppState().isInApp = false;
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().fcmToken = 'fcm_token';
-                                                                                        FFAppState().isPassLoginSection = false;
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadID = [];
-                                                                                        FFAppState().leadCreatedTimeList = [];
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadCustomerNameList = [];
-                                                                                        FFAppState().leadChannelList = [];
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadChannelColor = [];
-                                                                                        FFAppState().leadCallStatus = [];
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadPhoneNumberList = [];
-                                                                                        FFAppState().leadEmployeeID = [];
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadChannelLabelColor = [];
-                                                                                        FFAppState().deleteLeadIdCalledInApp();
-                                                                                        FFAppState().leadIdCalledInApp = [];
-
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadBranchCode = [];
-                                                                                        FFAppState().leadUserLevel = 'lead_user_level';
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadChannelAmountList = [];
-                                                                                        FFAppState().update(() {});
-                                                                                        Navigator.pop(context);
-                                                                                        await actions.a22();
-
-                                                                                        context.goNamed(LoginPageWidget.routeName);
-
-                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                  _model.checkDeviceLocSerLogout = await actions.a1();
+                                                                                  _shouldSetState = true;
+                                                                                  if (!_model.checkDeviceLocSerLogout!) {
+                                                                                    await showDialog(
+                                                                                      context: context,
+                                                                                      builder: (alertDialogContext) {
+                                                                                        return WebViewAware(
+                                                                                          child: AlertDialog(
+                                                                                            content: Text('กรุณาเปิดGPSเพื่อทำรายการ'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
                                                                                       },
+                                                                                    );
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  _model.checkDeviceLocPerLogout = await actions.a2();
+                                                                                  _shouldSetState = true;
+                                                                                  if (!_model.checkDeviceLocPerLogout!) {
+                                                                                    await showDialog(
+                                                                                      context: context,
+                                                                                      builder: (alertDialogContext) {
+                                                                                        return WebViewAware(
+                                                                                          child: AlertDialog(
+                                                                                            content: Text('กรุณาให้อรุณสวัสดิ์เข้าถึงGPSของคุณ'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    );
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  _model.checkLatLngLogout = await actions.a8();
+                                                                                  _shouldSetState = true;
+                                                                                  if (!_model.checkLatLngLogout!) {
+                                                                                    await showDialog(
+                                                                                      context: context,
+                                                                                      builder: (alertDialogContext) {
+                                                                                        return WebViewAware(
+                                                                                          child: AlertDialog(
+                                                                                            content: Text('กรุณาเปิดGPSเพื่อทำรายการ'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    );
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  _model.getLocationLogoutButton = await actions.getLocation();
+                                                                                  _shouldSetState = true;
+
+                                                                                  var userLogRecordReference = UserLogRecord.collection.doc();
+                                                                                  await userLogRecordReference.set(createUserLogRecordData(
+                                                                                    employeeId: FFAppState().employeeID,
+                                                                                    action: 'Logout',
+                                                                                    actionTime: getCurrentTimestamp,
+                                                                                    userLocation: _model.getLocationLogoutButton,
+                                                                                  ));
+                                                                                  _model.createdUserLogLogout = UserLogRecord.getDocumentFromData(
+                                                                                      createUserLogRecordData(
+                                                                                        employeeId: FFAppState().employeeID,
+                                                                                        action: 'Logout',
+                                                                                        actionTime: getCurrentTimestamp,
+                                                                                        userLocation: _model.getLocationLogoutButton,
+                                                                                      ),
+                                                                                      userLogRecordReference);
+                                                                                  _shouldSetState = true;
+                                                                                  FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                  FFAppState().deleteAccessToken();
+                                                                                  FFAppState().accessToken = 'access_token';
+
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().deleteEmployeeID();
+                                                                                  FFAppState().employeeID = 'employee_id';
+
+                                                                                  FFAppState().QRCodeLink = 'qrcode_link';
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().deleteApiURLLocalState();
+                                                                                  FFAppState().apiURLLocalState = 'api_url_local_state';
+
+                                                                                  FFAppState().deleteBranchCode();
+                                                                                  FFAppState().branchCode = 'branch_code';
+
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().isFromSetPinPage = false;
+                                                                                  FFAppState().leadChannelColor = [];
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().leadChannelList = [];
+                                                                                  FFAppState().isFromLoginPage = false;
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().deletePinCodeAuthen();
+                                                                                  FFAppState().pinCodeAuthen = '013972';
+
+                                                                                  FFAppState().isFromAuthenPage = false;
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().deleteDateDoNotShowAgain();
+                                                                                  FFAppState().dateDoNotShowAgain = null;
+
+                                                                                  FFAppState().deleteDoNotShowAgain();
+                                                                                  FFAppState().doNotShowAgain = false;
+
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().inAppViaNotification = true;
+                                                                                  FFAppState().isInApp = false;
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().fcmToken = 'fcm_token';
+                                                                                  FFAppState().isPassLoginSection = false;
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().leadID = [];
+                                                                                  FFAppState().leadCreatedTimeList = [];
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().leadCustomerNameList = [];
+                                                                                  FFAppState().leadChannelList = [];
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().leadChannelColor = [];
+                                                                                  FFAppState().leadCallStatus = [];
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().leadPhoneNumberList = [];
+                                                                                  FFAppState().leadEmployeeID = [];
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().leadChannelLabelColor = [];
+                                                                                  FFAppState().deleteLeadIdCalledInApp();
+                                                                                  FFAppState().leadIdCalledInApp = [];
+
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().leadBranchCode = [];
+                                                                                  FFAppState().leadUserLevel = 'lead_user_level';
+                                                                                  FFAppState().update(() {});
+                                                                                  FFAppState().leadChannelAmountList = [];
+                                                                                  FFAppState().update(() {});
+                                                                                  Navigator.pop(context);
+                                                                                  await actions.a22();
+
+                                                                                  context.goNamed(LoginPageWidget.routeName);
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                },
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                      child: FlutterFlowIconButton(
+                                                                                        borderColor: Colors.transparent,
+                                                                                        borderRadius: 30.0,
+                                                                                        borderWidth: 1.0,
+                                                                                        buttonSize: 55.0,
+                                                                                        icon: Icon(
+                                                                                          Icons.logout,
+                                                                                          color: FlutterFlowTheme.of(context).primaryText,
+                                                                                          size: 35.0,
+                                                                                        ),
+                                                                                        onPressed: () {
+                                                                                          print('IconButton pressed ...');
+                                                                                        },
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                  SelectionArea(
-                                                                                      child: Text(
-                                                                                    'ออกจากระบบ',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.poppins(
+                                                                                    Text(
+                                                                                      'ออกจากระบบ',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            font: GoogleFonts.poppins(
+                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                            ),
+                                                                                            fontSize: 14.0,
+                                                                                            letterSpacing: 0.0,
                                                                                             fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                             fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                           ),
-                                                                                          fontSize: 14.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                        ),
-                                                                                  )),
-                                                                                ],
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
                                                                               ),
                                                                               InkWell(
                                                                                 splashColor: Colors.transparent,
@@ -1043,50 +1051,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           color: FlutterFlowTheme.of(context).primaryText,
                                                                                           size: 33.0,
                                                                                         ),
-                                                                                        onPressed: () async {
-                                                                                          HapticFeedback.mediumImpact();
-                                                                                          var confirmDialogResponse = await showDialog<bool>(
-                                                                                                context: context,
-                                                                                                builder: (alertDialogContext) {
-                                                                                                  return WebViewAware(
-                                                                                                    child: AlertDialog(
-                                                                                                      content: Text('คุณต้องการจะล้างข้อมูลแอพหรือไม่?'),
-                                                                                                      actions: [
-                                                                                                        TextButton(
-                                                                                                          onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                          child: Text('ยกเลิก'),
-                                                                                                        ),
-                                                                                                        TextButton(
-                                                                                                          onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                          child: Text('ตกลง'),
-                                                                                                        ),
-                                                                                                      ],
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ) ??
-                                                                                              false;
-                                                                                          if (!confirmDialogResponse) {
-                                                                                            return;
-                                                                                          }
-                                                                                          await actions.a22();
-                                                                                          await actions.clearAllAppDataCopy();
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                child: AlertDialog(
-                                                                                                  content: Text('เคลียร์แคชเรียบร้อยกรุณาปิดแอปเปิดใหม่'),
-                                                                                                  actions: [
-                                                                                                    TextButton(
-                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                      child: Text('Ok'),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          );
+                                                                                        onPressed: () {
+                                                                                          print('IconButton pressed ...');
                                                                                         },
                                                                                       ),
                                                                                     ),

@@ -46,15 +46,15 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   // Stores action output result for [Custom Action - checkStatusFirebase] action in PinCodePage widget.
   bool? checkFirebaseOutput;
   bool bioAuthCheckOnPageLoad = false;
-  // Stores action output result for [Custom Action - a1] action in IconButton widget.
+  // Stores action output result for [Custom Action - a1] action in Row widget.
   bool? checkDeviceLocSerLogout;
-  // Stores action output result for [Custom Action - a2] action in IconButton widget.
+  // Stores action output result for [Custom Action - a2] action in Row widget.
   bool? checkDeviceLocPerLogout;
-  // Stores action output result for [Custom Action - a8] action in IconButton widget.
+  // Stores action output result for [Custom Action - a8] action in Row widget.
   bool? checkLatLngLogout;
-  // Stores action output result for [Custom Action - getLocation] action in IconButton widget.
+  // Stores action output result for [Custom Action - getLocation] action in Row widget.
   LatLng? getLocationLogoutButton;
-  // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
+  // Stores action output result for [Backend Call - Create Document] action in Row widget.
   UserLogRecord? createdUserLogLogout;
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;

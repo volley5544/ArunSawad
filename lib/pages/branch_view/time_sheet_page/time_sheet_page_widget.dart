@@ -1360,14 +1360,24 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                       child: Text(
                                                         functions
                                                             .showLocationTimesheet(
-                                                                getJsonField(
+                                                                (String
+                                                                    latitude) {
+                                                                  return double
+                                                                      .parse(
+                                                                          '${latitude}');
+                                                                }(getJsonField(
                                                                   timesheetDataListItem,
                                                                   r'''$.Latitude''',
-                                                                ),
-                                                                getJsonField(
+                                                                ).toString()),
+                                                                (String
+                                                                    longitude) {
+                                                                  return double
+                                                                      .parse(
+                                                                          '${longitude}');
+                                                                }(getJsonField(
                                                                   timesheetDataListItem,
                                                                   r'''$.Longitude''',
-                                                                ),
+                                                                ).toString()),
                                                                 false),
                                                         style:
                                                             FlutterFlowTheme.of(
