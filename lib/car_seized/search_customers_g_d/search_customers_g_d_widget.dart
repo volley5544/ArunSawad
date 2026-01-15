@@ -2785,12 +2785,21 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                           children: [
                                                             if (widget!.fromPage ==
                                                                     'price'
-                                                                ? (FFAppState()
-                                                                        .impoundCarRegionCodeList
-                                                                        .contains(FFAppState()
-                                                                            .profileRegion) ||
-                                                                    (widget!.userRolePrice !=
-                                                                        'no_role'))
+                                                                ? ((FFAppState()
+                                                                            .impoundCarRegionCodeList
+                                                                            .contains(FFAppState()
+                                                                                .profileRegion) ||
+                                                                        (widget!.userRolePrice !=
+                                                                            'no_role')) &&
+                                                                    ((FFAppState().profileLevel == 'สาขา') ||
+                                                                            (FFAppState().profileLevel ==
+                                                                                'เขต') ||
+                                                                            (FFAppState().profileLevel ==
+                                                                                'ภาค')
+                                                                        ? (functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'profile_level'), FFAppState().profileLevel)! &&
+                                                                            functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'position_name'),
+                                                                                FFAppState().profilePositionName)!)
+                                                                        : (widget!.userRolePrice != 'no_role')))
                                                                 : true)
                                                               Padding(
                                                                 padding:
@@ -2813,6 +2822,34 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     if (widget!
                                                                             .fromPage ==
                                                                         'price') {
+                                                                      if (!((FFAppState().profileLevel == 'สาขา') ||
+                                                                              (FFAppState().profileLevel ==
+                                                                                  'เขต') ||
+                                                                              (FFAppState().profileLevel ==
+                                                                                  'ภาค')
+                                                                          ? (functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'profile_level'), FFAppState().profileLevel)! &&
+                                                                              functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'position_name'), FFAppState().profilePositionName)!)
+                                                                          : (widget!.userRolePrice != 'no_role'))) {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('คุณไม่มีสิทธิ์ตั้งราคา'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                        return;
+                                                                      }
                                                                       await showModalBottomSheet(
                                                                         isScrollControlled:
                                                                             true,
