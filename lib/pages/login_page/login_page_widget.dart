@@ -2117,9 +2117,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       _model.customFirebaseAuthen =
                                                                           await actions
                                                                               .a13(
-                                                                        functions.generateStuffFirebaseEmail(_model
-                                                                            .usernameInputTextController
-                                                                            .text),
+                                                                        functions
+                                                                            .generateStuffFirebaseEmail(FFAppState().employeeID),
                                                                       );
                                                                       _shouldSetState =
                                                                           true;
