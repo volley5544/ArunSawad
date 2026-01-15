@@ -1349,38 +1349,51 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if (false)
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          functions.showLocationTimesheet(
-                                                              (String latitude) {
-                                                                return double.parse(
-                                                                    '${latitude}');
-                                                              }('${getJsonField(
-                                                                timesheetDataListItem,
-                                                                r'''$.Latitude''',
-                                                              ).toString()}'),
-                                                              (String longitude) {
-                                                                return double.parse(
-                                                                    '${longitude}');
-                                                              }('${getJsonField(
-                                                                timesheetDataListItem,
-                                                                r'''$.Longitude''',
-                                                              ).toString()}'),
-                                                              false),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  20.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        functions.showLocationTimesheet(
+                                                            (String latitude) {
+                                                              return double.parse(
+                                                                  '${latitude}');
+                                                            }('${getJsonField(
+                                                              timesheetDataListItem,
+                                                              r'''$.Latitude''',
+                                                            ).toString()}'),
+                                                            (String longitude) {
+                                                              return double.parse(
+                                                                  '${longitude}');
+                                                            }('${getJsonField(
+                                                              timesheetDataListItem,
+                                                              r'''$.Longitude''',
+                                                            ).toString()}'),
+                                                            false),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -1390,20 +1403,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
                                                       ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),

@@ -799,15 +799,18 @@ class _CarSeizedSelectDashboardWidgetState
                         ),
                       ),
                     ),
-                  if (((FFAppState().profileLevel == 'สาขา') ||
-                              (FFAppState().profileLevel == 'เขต') ||
-                              (FFAppState().profileLevel == 'ภาค')
-                          ? functions.containsValueInJsonList(
+                  if ((FFAppState().profileLevel == 'สาขา') ||
+                          (FFAppState().profileLevel == 'เขต') ||
+                          (FFAppState().profileLevel == 'ภาค')
+                      ? (functions.containsValueInJsonList(
                               functions.getDataFromMapJson(
                                   _model.priceAccessRoleData, 'profile_level'),
-                              FFAppState().profileLevel)
-                          : (_model.userRolePrice != 'no_role')) ??
-                      true)
+                              FFAppState().profileLevel)! &&
+                          functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  _model.priceAccessRoleData, 'position_name'),
+                              FFAppState().profilePositionName)!)
+                      : (_model.userRolePrice != 'no_role'))
                     InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
