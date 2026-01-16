@@ -10466,18 +10466,30 @@ class _CustomerCarDeailsStep1WidgetState
                       if (((FFAppState().profileLevel == 'สาขา') ||
                                   (FFAppState().profileLevel == 'เขต') ||
                                   (FFAppState().profileLevel == 'ภาค')
-                              ? functions.containsValueInJsonList(
-                                  functions.getDataFromMapJson(
+                              ? (functions.containsValueInJsonList(
                                       functions.getDataFromMapJson(
-                                          widget!.saveAccessRoleData,
-                                          widget!.step),
-                                      'price_edit_level'),
-                                  FFAppState().profileLevel)
+                                          functions.getDataFromMapJson(
+                                              widget!.saveAccessRoleData,
+                                              widget!.step),
+                                          'price_edit_level'),
+                                      FFAppState().profileLevel)! &&
+                                  (functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  widget!.step),
+                                              'position_name') !=
+                                          null
+                                      ? functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  widget!.step),
+                                              'position_name'),
+                                          FFAppState().profilePositionName)!
+                                      : true))
                               : functions.containsValueInJsonList(
                                   functions.getDataFromMapJson(
-                                      functions.getDataFromMapJson(
-                                          widget!.saveAccessRoleData,
-                                          widget!.step),
+                                      functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step),
                                       'price_edit_role'),
                                   widget!.userRoleSave)) ??
                           true)
@@ -11222,18 +11234,27 @@ class _CustomerCarDeailsStep1WidgetState
                                 if ((FFAppState().profileLevel == 'สาขา') ||
                                         (FFAppState().profileLevel == 'เขต') ||
                                         (FFAppState().profileLevel == 'ภาค')
-                                    ? functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
+                                    ? (functions.containsValueInJsonList(
                                             functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                widget!.step),
-                                            'price_edit_level'),
-                                        FFAppState().profileLevel)!
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_level'),
+                                            FFAppState().profileLevel)! &&
+                                        (functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name') != null
+                                            ? functions.containsValueInJsonList(
+                                                functions.getDataFromMapJson(
+                                                    functions.getDataFromMapJson(
+                                                        widget!
+                                                            .saveAccessRoleData,
+                                                        widget!.step),
+                                                    'position_name'),
+                                                FFAppState()
+                                                    .profilePositionName)!
+                                            : true))
                                     : functions.containsValueInJsonList(
                                         functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                widget!.step),
+                                            functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step),
                                             'price_edit_role'),
                                         widget!.userRoleSave)!) {
                                   if (!((_model.priceTextFieldTextController
