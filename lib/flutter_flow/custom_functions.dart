@@ -4471,6 +4471,12 @@ bool? containsValueInJsonList(
   return inputList.contains(value!);
 }
 
+List<String>? getListStringFromJson(dynamic listFromJson) {
+  dynamic inputList = jsonDecode(listFromJson!);
+
+  return inputList;
+}
+
 String? extractUrlFromHtml(String? text) {
   if (text == null || text.isEmpty) {
     return "";
