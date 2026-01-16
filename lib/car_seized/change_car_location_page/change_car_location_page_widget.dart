@@ -1906,148 +1906,137 @@ class _ChangeCarLocationPageWidgetState
                                               ''),
                                         ) ==
                                         '200')))
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 12.0, 0.0),
-                                  child: Container(
-                                    constraints: BoxConstraints(
-                                      minHeight: 200.0,
-                                      maxHeight: ((FFAppState().profileLevel == 'สาขา') || (FFAppState().profileLevel == 'เขต') || (FFAppState().profileLevel == 'ภาค')
-                                                  ? (widget!.fromPage != 'takeImages'
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .editAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!)
-                                                  : (widget!.fromPage != 'takeImages'
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'include_deliver_data_role'), widget!.userRoleEdit)!
-                                                      : functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'include_deliver_data_role'), widget!.userRoleSave)!)) ||
-                                              (widget!.fromPage != 'takeImages')
-                                          ? 300.0
-                                          : 400.0,
-                                    ),
-                                    child: Builder(
-                                      builder: (context) {
-                                        final branchListItem = FFAppState()
-                                            .branchDataOutput
-                                            .take(100)
-                                            .toList();
-                                        if (branchListItem.isEmpty) {
-                                          return Center(
-                                            child: Container(
-                                              height: 50.0,
-                                              child:
-                                                  DataNotFoundComponentWidget(),
-                                            ),
-                                          );
-                                        }
-
-                                        return ListView.builder(
-                                          padding: EdgeInsets.fromLTRB(
-                                            0,
-                                            12.0,
-                                            0,
-                                            50.0,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 12.0, 0.0),
+                                child: Container(
+                                  constraints: BoxConstraints(
+                                    minHeight: 200.0,
+                                    maxHeight: ((FFAppState().profileLevel == 'สาขา') || (FFAppState().profileLevel == 'เขต') || (FFAppState().profileLevel == 'ภาค')
+                                                ? (widget!.fromPage != 'takeImages'
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .editAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!)
+                                                : (widget!.fromPage != 'takeImages'
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'include_deliver_data_role'),
+                                                        widget!.userRoleEdit)!
+                                                    : functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'include_deliver_data_role'), widget!.userRoleSave)!)) ||
+                                            (widget!.fromPage != 'takeImages')
+                                        ? 300.0
+                                        : 400.0,
+                                  ),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final branchListItem = FFAppState()
+                                          .branchDataOutput
+                                          .take(100)
+                                          .toList();
+                                      if (branchListItem.isEmpty) {
+                                        return Center(
+                                          child: Container(
+                                            height: 50.0,
+                                            child:
+                                                DataNotFoundComponentWidget(),
                                           ),
-                                          shrinkWrap: true,
-                                          scrollDirection: Axis.vertical,
-                                          itemCount: branchListItem.length,
-                                          itemBuilder:
-                                              (context, branchListItemIndex) {
-                                            final branchListItemItem =
-                                                branchListItem[
-                                                    branchListItemIndex];
-                                            return Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 10.0, 8.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState().selectedDropdownList = functions
-                                                      .setBoolValueListAtIndex(
-                                                          functions
-                                                              .createFalseListByItemNumber(
-                                                                  false,
-                                                                  FFAppState()
-                                                                      .selectedDropdownList
-                                                                      .length)
-                                                              ?.toList(),
-                                                          branchListItemIndex)!
-                                                      .toList()
-                                                      .cast<bool>();
-                                                  safeSetState(() {});
-                                                },
-                                                child: Container(
-                                                  height: 40.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 4.0,
-                                                        color:
-                                                            Color(0x33000000),
-                                                        offset: Offset(
-                                                          0.0,
-                                                          2.0,
-                                                        ),
-                                                      )
-                                                    ],
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                12.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Expanded(
-                                                          flex: 10,
-                                                          child: Text(
-                                                            '${branchListItemItem.branchName} (${branchListItemItem.branchCode})',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  letterSpacing:
-                                                                      0.0,
+                                        );
+                                      }
+
+                                      return ListView.builder(
+                                        padding: EdgeInsets.fromLTRB(
+                                          0,
+                                          12.0,
+                                          0,
+                                          50.0,
+                                        ),
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount: branchListItem.length,
+                                        itemBuilder:
+                                            (context, branchListItemIndex) {
+                                          final branchListItemItem =
+                                              branchListItem[
+                                                  branchListItemIndex];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 10.0, 8.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                FFAppState()
+                                                        .selectedDropdownList =
+                                                    functions
+                                                        .setBoolValueListAtIndex(
+                                                            functions
+                                                                .createFalseListByItemNumber(
+                                                                    false,
+                                                                    FFAppState()
+                                                                        .selectedDropdownList
+                                                                        .length)
+                                                                ?.toList(),
+                                                            branchListItemIndex)!
+                                                        .toList()
+                                                        .cast<bool>();
+                                                safeSetState(() {});
+                                              },
+                                              child: Container(
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 4.0,
+                                                      color: Color(0x33000000),
+                                                      offset: Offset(
+                                                        0.0,
+                                                        2.0,
+                                                      ),
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 12.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Expanded(
+                                                        flex: 10,
+                                                        child: Text(
+                                                          '${branchListItemItem.branchName} (${branchListItemItem.branchCode})',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
                                                                   fontWeight: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -2057,50 +2046,60 @@ class _ChangeCarLocationPageWidgetState
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                          ),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                         ),
-                                                        Expanded(
-                                                          flex: 1,
-                                                          child: Builder(
-                                                            builder: (context) {
-                                                              if ((List<bool>
-                                                                          selectedDropdownList,
-                                                                      int index) {
-                                                                return selectedDropdownList[
-                                                                    index];
-                                                              }(
-                                                                  FFAppState()
-                                                                      .selectedDropdownList
-                                                                      .toList(),
-                                                                  branchListItemIndex)) {
-                                                                return Icon(
-                                                                  Icons
-                                                                      .check_sharp,
-                                                                  color: Color(
-                                                                      0xFF14B401),
-                                                                  size: 24.0,
-                                                                );
-                                                              } else {
-                                                                return Container(
-                                                                  width: 100.0,
-                                                                  height: 100.0,
-                                                                  decoration:
-                                                                      BoxDecoration(),
-                                                                );
-                                                              }
-                                                            },
-                                                          ),
+                                                      ),
+                                                      Expanded(
+                                                        flex: 1,
+                                                        child: Builder(
+                                                          builder: (context) {
+                                                            if ((List<bool>
+                                                                        selectedDropdownList,
+                                                                    int index) {
+                                                              return selectedDropdownList[
+                                                                  index];
+                                                            }(
+                                                                FFAppState()
+                                                                    .selectedDropdownList
+                                                                    .toList(),
+                                                                branchListItemIndex)) {
+                                                              return Icon(
+                                                                Icons
+                                                                    .check_sharp,
+                                                                color: Color(
+                                                                    0xFF14B401),
+                                                                size: 24.0,
+                                                              );
+                                                            } else {
+                                                              return Container(
+                                                                width: 100.0,
+                                                                height: 100.0,
+                                                                decoration:
+                                                                    BoxDecoration(),
+                                                              );
+                                                            }
+                                                          },
                                                         ),
-                                                      ],
-                                                    ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
-                                            );
-                                          },
-                                        );
-                                      },
-                                    ),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
                                   ),
                                 ),
                               ),
@@ -3173,18 +3172,88 @@ class _ChangeCarLocationPageWidgetState
                             ),
                         ].addToEnd(SizedBox(height: 50.0)),
                       ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 20.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    var _shouldSetState = false;
-                                    if (_model.allowChangeLocation) {
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 0.0, 12.0, 20.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  var _shouldSetState = false;
+                                  if (_model.allowChangeLocation) {
+                                    if (!(_model.dropDownValue != null &&
+                                        _model.dropDownValue != '')) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาเลือกสถานที่จอดรถ'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    if (functions.countTrueInBoolList(
+                                            FFAppState()
+                                                .selectedDropdownList
+                                                .toList())! <=
+                                        0) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาเลือกสาขาที่จอดรถ'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                  } else {
+                                    if (!((FFAppState().profileLevel ==
+                                                'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_role'),
+                                            widget!.userRoleEdit)!)) {
                                       if (!(_model.dropDownValue != null &&
                                           _model.dropDownValue != '')) {
                                         await showDialog(
@@ -3238,8 +3307,1200 @@ class _ChangeCarLocationPageWidgetState
                                           safeSetState(() {});
                                         return;
                                       }
-                                    } else {
-                                      if (!((FFAppState().profileLevel ==
+                                    }
+                                  }
+
+                                  if (widget!.fromPage == 'takeImages') {
+                                    if ((FFAppState().profileLevel == 'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? (functions.containsValueInJsonList(
+                                                functions.getDataFromMapJson(
+                                                    functions.getDataFromMapJson(
+                                                        widget!
+                                                            .editAccessRoleData,
+                                                        widget!.step),
+                                                    'price_edit_level'),
+                                                FFAppState().profileLevel)! &&
+                                            functions.containsValueInJsonList(
+                                                functions.getDataFromMapJson(
+                                                    functions.getDataFromMapJson(
+                                                        widget!
+                                                            .editAccessRoleData,
+                                                        widget!.step),
+                                                    'position_name'),
+                                                FFAppState()
+                                                    .profilePositionName)!)
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
+                                            widget!.userRoleSave)!) {
+                                      if (!((FFAppState()
+                                                  .impoundDeliverLocateName !=
+                                              '') &&
+                                          (FFAppState()
+                                                  .impoundDeliverLocateCode !=
+                                              ''))) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาเลือกสถานที่ส่งมอบรถ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      if (_model.companyTextFieldTextController
+                                              .text ==
+                                          '') {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณากรอกบริษัทรับรถ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      if (_model.deliverTextFieldTextController
+                                              .text ==
+                                          '') {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content:
+                                                    Text('กรุณากรอกผู้มารับรถ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                    }
+                                  } else {
+                                    if ((FFAppState().profileLevel == 'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
+                                            widget!.userRoleEdit)!) {
+                                      if (_model.companyTextFieldTextController
+                                              .text ==
+                                          '') {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณากรอกบริษัทรับรถ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      if (_model.deliverTextFieldTextController
+                                              .text ==
+                                          '') {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content:
+                                                    Text('กรุณากรอกผู้มารับรถ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                    }
+                                    if ((FFAppState().profileLevel == 'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? (functions.containsValueInJsonList(
+                                                functions.getDataFromMapJson(
+                                                    functions.getDataFromMapJson(
+                                                        widget!
+                                                            .editAccessRoleData,
+                                                        widget!.step),
+                                                    'price_edit_level'),
+                                                FFAppState().profileLevel)! &&
+                                            functions.containsValueInJsonList(
+                                                functions.getDataFromMapJson(
+                                                    functions.getDataFromMapJson(
+                                                        widget!
+                                                            .editAccessRoleData,
+                                                        widget!.step),
+                                                    'position_name'),
+                                                FFAppState()
+                                                    .profilePositionName)!)
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_role'),
+                                            widget!.userRoleEdit)!) {
+                                      if ((_model.priceTextFieldTextController
+                                                  .text !=
+                                              '') &&
+                                          true) {
+                                        if (!(double.parse(functions
+                                                .removeCommaFromNumText(_model
+                                                    .priceTextFieldTextController
+                                                    .text)) >
+                                            0.0)) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'กรุณากรอกราคามากกว่า 0 บาท'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        if (!functions.validatePriceImpound(
+                                            functions.removeCommaFromNumText(
+                                                _model
+                                                    .priceTextFieldTextController
+                                                    .text))!) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'กรุณากรอกราคาไม่เกิน 8 หลัก'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                      }
+                                    }
+                                    if (_model.remarkTextFieldTextController
+                                            .text ==
+                                        '') {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณากรอกเหตุผลที่เปลี่ยนสถานที่จอดรถ / ราคา'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    _model.updateCarLocationOutput =
+                                        await UploadImagesGoogleDriveGroup
+                                            .updateImproundCarCall
+                                            .call(
+                                      contNo: widget!
+                                          .impoundCarParamSet?.improundCONTNO,
+                                      improundcarLocatId: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel == 'สาขา') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? containerImpoundCarMasterRecord
+                                              .impoundCarLocateId
+                                              .elementAtOrNull(functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
+                                          : widget!.impoundCarLocateParamSet?.improundcarLocatId,
+                                      locatName: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? containerImpoundCarMasterRecord
+                                              .locateName
+                                              .elementAtOrNull(functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
+                                          : widget!.impoundCarLocateParamSet?.locatName,
+                                      improundcarSubLocatId: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.subLocatId(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.subLocatId(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.improundcarSubLocatId
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.improundcarSubLocatId,
+                                      branchCodeLocat: _model
+                                                  .allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.branchcode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.branchcode(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchCode
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.branchCodeLocat,
+                                      branchName:
+                                          FFAppState().profileUnitCodeName,
+                                      userid: FFAppState().employeeID,
+                                      branchNameLocat: _model
+                                                  .allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.branchname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.branchname(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchName
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.branchNameLocat,
+                                      branchCode: FFAppState().profileBranch,
+                                      nameTh: FFAppState().profileFullName,
+                                      address: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.address(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.address(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.address
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.address,
+                                      subDistrict: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.subdistrict(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.subdistrict(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.subDistrict
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.subDistrict,
+                                      district: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.district(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.district(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.district
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.district,
+                                      province: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.province(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.province(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.province
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.province,
+                                      postcode: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.postcode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.postcode(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.postcode
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.postcode,
+                                      phoneNumber: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.phoneNumber(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.phoneNumber(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.phoneNumber
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.phoneNumber,
+                                      latitude: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.latitude(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.latitude(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.latitude
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.latitude,
+                                      longitude: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.longitude(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.longitude(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.longitude
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.longitude,
+                                      areaCode: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.areacode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.areacode(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaCode
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.areaCode,
+                                      areaName: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.areaname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.areaname(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaName
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.areaName,
+                                      regionCode: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.regioncode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.regioncode(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionCode
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.regionCode,
+                                      regionName: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? (ImproundCarGetBranchCall.regionname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall.regionname(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionName
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet?.regionName,
+                                      url: FFAppState().improundUrl,
+                                      locatCode: _model.allowChangeLocation ||
+                                              !((FFAppState().profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState().profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_level'),
+                                                      FFAppState()
+                                                          .profileLevel)!
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .editAccessRoleData,
+                                                              widget!.step),
+                                                          'price_edit_role'),
+                                                      widget!.userRoleEdit)!)
+                                          ? _model.dropDownValue
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.locatCode,
+                                      impoundcarPrice: _model
+                                                  .priceTextFieldTextController
+                                                  .text !=
+                                              ''
+                                          ? functions.removeCommaFromNumText(
+                                              _model
+                                                  .priceTextFieldTextController
+                                                  .text)
+                                          : '0.00',
+                                      remarkPrice: functions
+                                          .replaceEnterInStringText(_model
+                                              .remarkTextFieldTextController
+                                              .text),
+                                      step: widget!.step,
+                                      locatDelivercar: ((FFAppState()
+                                                          .profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_level'),
+                                                  FFAppState().profileLevel)!
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_role'),
+                                                  widget!.userRoleEdit)!)
+                                          ? FFAppState()
+                                              .impoundDeliverLocateCode
+                                          : '',
+                                      locatNameDelivercar: ((FFAppState().profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_level'),
+                                                  FFAppState().profileLevel)!
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_role'),
+                                                  widget!.userRoleEdit)!)
+                                          ? FFAppState()
+                                              .impoundDeliverLocateName
+                                          : '',
+                                      logisticsComany: ((FFAppState()
+                                                          .profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_level'),
+                                                  FFAppState().profileLevel)!
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_role'),
+                                                  widget!.userRoleEdit)!)
+                                          ? _model
+                                              .companyTextFieldTextController
+                                              .text
+                                          : '',
+                                      receiver: ((FFAppState().profileLevel == 'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_level'),
+                                                  FFAppState().profileLevel)!
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_role'),
+                                                  widget!.userRoleEdit)!)
+                                          ? _model
+                                              .deliverTextFieldTextController
+                                              .text
+                                          : '',
+                                      dbCode: widget!
+                                          .impoundCarParamSet?.impoundDbCode,
+                                      db: widget!
+                                          .impoundCarParamSet?.impoundDbName,
+                                    );
+
+                                    _shouldSetState = true;
+                                    if ((_model.updateCarLocationOutput
+                                                ?.statusCode ??
+                                            200) !=
+                                        200) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'พบข้อผิดพลาด Connection(${(_model.updateCarLocationOutput?.statusCode ?? 200).toString()})'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    if ('200' ==
+                                        UploadImagesGoogleDriveGroup
+                                            .updateImproundCarCall
+                                            .statusLayer1(
+                                              (_model.updateCarLocationOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            .toString()) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  '${UploadImagesGoogleDriveGroup.updateImproundCarCall.messageLayer1(
+                                                        (_model.updateCarLocationOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ).toString()}'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      _model.tempImpoundCarParamSet =
+                                          widget!.impoundCarParamSet;
+                                      safeSetState(() {});
+                                      if ((FFAppState().profileLevel ==
                                                   'สาขา') ||
                                               (FFAppState().profileLevel ==
                                                   'เขต') ||
@@ -3260,2904 +4521,1589 @@ class _ChangeCarLocationPageWidgetState
                                                           .editAccessRoleData,
                                                       widget!.step),
                                                   'price_edit_role'),
-                                              widget!.userRoleEdit)!)) {
-                                        if (!(_model.dropDownValue != null &&
-                                            _model.dropDownValue != '')) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณาเลือกสถานที่จอดรถ'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                        if (functions.countTrueInBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList())! <=
-                                            0) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณาเลือกสาขาที่จอดรถ'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                      }
-                                    }
-
-                                    if (widget!.fromPage == 'takeImages') {
-                                      if ((FFAppState().profileLevel == 'สาขา') ||
-                                              (FFAppState().profileLevel ==
-                                                  'เขต') ||
-                                              (FFAppState().profileLevel ==
-                                                  'ภาค')
-                                          ? (functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .editAccessRoleData,
-                                                          widget!.step),
-                                                      'price_edit_level'),
-                                                  FFAppState().profileLevel)! &&
-                                              functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .editAccessRoleData,
-                                                          widget!.step),
-                                                      'position_name'),
-                                                  FFAppState()
-                                                      .profilePositionName)!)
-                                          : functions.containsValueInJsonList(
-                                              functions.getDataFromMapJson(
-                                                  functions.getDataFromMapJson(
-                                                      widget!.saveAccessRoleData, widget!.step),
-                                                  'include_deliver_data_role'),
-                                              widget!.userRoleSave)!) {
-                                        if (!((FFAppState()
-                                                    .impoundDeliverLocateName !=
-                                                '') &&
-                                            (FFAppState()
-                                                    .impoundDeliverLocateCode !=
-                                                ''))) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณาเลือกสถานที่ส่งมอบรถ'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                        if (_model
-                                                .companyTextFieldTextController
-                                                .text ==
-                                            '') {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณากรอกบริษัทรับรถ'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                        if (_model
-                                                .deliverTextFieldTextController
-                                                .text ==
-                                            '') {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณากรอกผู้มารับรถ'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                      }
-                                    } else {
-                                      if ((FFAppState().profileLevel ==
-                                                  'สาขา') ||
-                                              (FFAppState().profileLevel ==
-                                                  'เขต') ||
-                                              (FFAppState().profileLevel ==
-                                                  'ภาค')
-                                          ? functions.containsValueInJsonList(
-                                              functions.getDataFromMapJson(
-                                                  functions.getDataFromMapJson(
-                                                      widget!
-                                                          .editAccessRoleData,
-                                                      widget!.step),
-                                                  'include_deliver_data_level'),
-                                              FFAppState().profileLevel)!
-                                          : functions.containsValueInJsonList(
-                                              functions.getDataFromMapJson(
-                                                  functions.getDataFromMapJson(
-                                                      widget!
-                                                          .editAccessRoleData,
-                                                      widget!.step),
-                                                  'include_deliver_data_role'),
                                               widget!.userRoleEdit)!) {
-                                        if (_model
-                                                .companyTextFieldTextController
-                                                .text ==
-                                            '') {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณากรอกบริษัทรับรถ'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                        if (_model
-                                                .deliverTextFieldTextController
-                                                .text ==
-                                            '') {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณากรอกผู้มารับรถ'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                      }
-                                      if ((FFAppState().profileLevel == 'สาขา') ||
-                                              (FFAppState().profileLevel ==
-                                                  'เขต') ||
-                                              (FFAppState().profileLevel ==
-                                                  'ภาค')
-                                          ? (functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .editAccessRoleData,
-                                                          widget!.step),
-                                                      'price_edit_level'),
-                                                  FFAppState().profileLevel)! &&
-                                              functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .editAccessRoleData,
-                                                          widget!.step),
-                                                      'position_name'),
-                                                  FFAppState()
-                                                      .profilePositionName)!)
-                                          : functions.containsValueInJsonList(
-                                              functions.getDataFromMapJson(
-                                                  functions.getDataFromMapJson(
-                                                      widget!.editAccessRoleData, widget!.step),
-                                                  'price_edit_role'),
-                                              widget!.userRoleEdit)!) {
-                                        if ((_model.priceTextFieldTextController
-                                                    .text !=
-                                                '') &&
-                                            true) {
-                                          if (!(double.parse(functions
-                                                  .removeCommaFromNumText(_model
-                                                      .priceTextFieldTextController
-                                                      .text)) >
-                                              0.0)) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                  child: AlertDialog(
-                                                    content: Text(
-                                                        'กรุณากรอกราคามากกว่า 0 บาท'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            );
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
-                                          if (!functions.validatePriceImpound(
-                                              functions.removeCommaFromNumText(
-                                                  _model
-                                                      .priceTextFieldTextController
-                                                      .text))!) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                  child: AlertDialog(
-                                                    content: Text(
-                                                        'กรุณากรอกราคาไม่เกิน 8 หลัก'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            );
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
-                                        }
-                                      }
-                                      if (_model.remarkTextFieldTextController
-                                              .text ==
-                                          '') {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'กรุณากรอกเหตุผลที่เปลี่ยนสถานที่จอดรถ / ราคา'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
+                                        _model
+                                            .updateTempImpoundCarParamSetStruct(
+                                          (e) => e
+                                            ..impoundPrice = _model
+                                                        .priceTextFieldTextController
+                                                        .text !=
+                                                    ''
+                                                ? functions
+                                                    .removeCommaFromNumText(_model
+                                                        .priceTextFieldTextController
+                                                        .text)
+                                                : '0.00',
                                         );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
+                                        safeSetState(() {});
                                       }
-                                      _model.updateCarLocationOutput =
-                                          await UploadImagesGoogleDriveGroup
-                                              .updateImproundCarCall
-                                              .call(
-                                        contNo: widget!
-                                            .impoundCarParamSet?.improundCONTNO,
-                                        improundcarLocatId: _model.allowChangeLocation ||
-                                                !((FFAppState().profileLevel == 'สาขา') ||
-                                                        (FFAppState().profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState().profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? containerImpoundCarMasterRecord
-                                                .impoundCarLocateId
-                                                .elementAtOrNull(
-                                                    functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
-                                            : widget!.impoundCarLocateParamSet?.improundcarLocatId,
-                                        locatName: _model.allowChangeLocation ||
-                                                !((FFAppState().profileLevel == 'สาขา') ||
-                                                        (FFAppState().profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState().profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? containerImpoundCarMasterRecord
-                                                .locateName
-                                                .elementAtOrNull(
-                                                    functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
-                                            : widget!.impoundCarLocateParamSet?.locatName,
-                                        improundcarSubLocatId: _model
-                                                    .allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState().profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!.editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.subLocatId(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.subLocatId(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.improundcarSubLocatId
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.improundcarSubLocatId,
-                                        branchCodeLocat: _model
-                                                    .allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState().profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!.editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.branchcode(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.branchcode(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchCode
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.branchCodeLocat,
-                                        branchName:
-                                            FFAppState().profileUnitCodeName,
-                                        userid: FFAppState().employeeID,
-                                        branchNameLocat: _model
-                                                    .allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState().profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!.editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.branchname(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.branchname(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchName
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.branchNameLocat,
-                                        branchCode: FFAppState().profileBranch,
-                                        nameTh: FFAppState().profileFullName,
-                                        address: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.address(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.address(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.address
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.address,
-                                        subDistrict: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!.editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.subdistrict(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.subdistrict(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.subDistrict
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.subDistrict,
-                                        district: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.district(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.district(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.district
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.district,
-                                        province: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.province(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.province(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.province
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.province,
-                                        postcode: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.postcode(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.postcode(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.postcode
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.postcode,
-                                        phoneNumber: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!.editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.phoneNumber(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.phoneNumber(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.phoneNumber
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.phoneNumber,
-                                        latitude: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.latitude(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.latitude(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.latitude
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.latitude,
-                                        longitude: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.longitude(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.longitude(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.longitude
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.longitude,
-                                        areaCode: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.areacode(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.areacode(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaCode
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.areaCode,
-                                        areaName: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.areaname(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.areaname(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaName
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.areaName,
-                                        regionCode: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!.editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.regioncode(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.regioncode(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionCode
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.regionCode,
-                                        regionName: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!.editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? (ImproundCarGetBranchCall.regionname(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        null &&
-                                                    (ImproundCarGetBranchCall.regionname(
-                                                      (_model.getBranchOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ))!
-                                                        .isNotEmpty
-                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionName
-                                                : '')
-                                            : widget!.impoundCarLocateParamSet?.regionName,
-                                        url: FFAppState().improundUrl,
-                                        locatCode: _model.allowChangeLocation ||
-                                                !((FFAppState()
-                                                                .profileLevel ==
-                                                            'สาขา') ||
-                                                        (FFAppState().profileLevel ==
-                                                            'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
-                                                            'ภาค')
-                                                    ? functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_level'),
-                                                        FFAppState()
-                                                            .profileLevel)!
-                                                    : functions.containsValueInJsonList(
-                                                        functions.getDataFromMapJson(
-                                                            functions.getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                            'price_edit_role'),
-                                                        widget!.userRoleEdit)!)
-                                            ? _model.dropDownValue
-                                            : widget!.impoundCarLocateParamSet
-                                                ?.locatCode,
-                                        impoundcarPrice: _model
-                                                    .priceTextFieldTextController
-                                                    .text !=
-                                                ''
-                                            ? functions.removeCommaFromNumText(
-                                                _model
-                                                    .priceTextFieldTextController
-                                                    .text)
-                                            : '0.00',
-                                        remarkPrice: functions
-                                            .replaceEnterInStringText(_model
-                                                .remarkTextFieldTextController
-                                                .text),
-                                        step: widget!.step,
-                                        locatDelivercar: ((FFAppState()
-                                                            .profileLevel ==
-                                                        'สาขา') ||
-                                                    (FFAppState()
-                                                            .profileLevel ==
-                                                        'เขต') ||
-                                                    (FFAppState()
-                                                            .profileLevel ==
-                                                        'ภาค')
-                                                ? functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions
-                                                            .getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                        'include_deliver_data_level'),
-                                                    FFAppState().profileLevel)!
-                                                : functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions
-                                                            .getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                        'include_deliver_data_role'),
-                                                    widget!.userRoleEdit)!)
-                                            ? FFAppState()
-                                                .impoundDeliverLocateCode
-                                            : '',
-                                        locatNameDelivercar: ((FFAppState()
-                                                            .profileLevel ==
-                                                        'สาขา') ||
-                                                    (FFAppState()
-                                                            .profileLevel ==
-                                                        'เขต') ||
-                                                    (FFAppState()
-                                                            .profileLevel ==
-                                                        'ภาค')
-                                                ? functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions
-                                                            .getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                        'include_deliver_data_level'),
-                                                    FFAppState().profileLevel)!
-                                                : functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions
-                                                            .getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                        'include_deliver_data_role'),
-                                                    widget!.userRoleEdit)!)
-                                            ? FFAppState()
-                                                .impoundDeliverLocateName
-                                            : '',
-                                        logisticsComany: ((FFAppState()
-                                                            .profileLevel ==
-                                                        'สาขา') ||
-                                                    (FFAppState()
-                                                            .profileLevel ==
-                                                        'เขต') ||
-                                                    (FFAppState()
-                                                            .profileLevel ==
-                                                        'ภาค')
-                                                ? functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions
-                                                            .getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                        'include_deliver_data_level'),
-                                                    FFAppState().profileLevel)!
-                                                : functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions
-                                                            .getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                        'include_deliver_data_role'),
-                                                    widget!.userRoleEdit)!)
-                                            ? _model
-                                                .companyTextFieldTextController
-                                                .text
-                                            : '',
-                                        receiver: ((FFAppState().profileLevel ==
-                                                        'สาขา') ||
-                                                    (FFAppState()
-                                                            .profileLevel ==
-                                                        'เขต') ||
-                                                    (FFAppState()
-                                                            .profileLevel ==
-                                                        'ภาค')
-                                                ? functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions
-                                                            .getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                        'include_deliver_data_level'),
-                                                    FFAppState().profileLevel)!
-                                                : functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions
-                                                            .getDataFromMapJson(
-                                                                widget!
-                                                                    .editAccessRoleData,
-                                                                widget!.step),
-                                                        'include_deliver_data_role'),
-                                                    widget!.userRoleEdit)!)
-                                            ? _model
-                                                .deliverTextFieldTextController
-                                                .text
-                                            : '',
-                                        dbCode: widget!
-                                            .impoundCarParamSet?.impoundDbCode,
-                                        db: widget!
-                                            .impoundCarParamSet?.impoundDbName,
+
+                                      context.goNamed(
+                                        CustomerCarDeailsPictureStep1Widget
+                                            .routeName,
+                                        queryParameters: {
+                                          'step': serializeParam(
+                                            widget!.step,
+                                            ParamType.String,
+                                          ),
+                                          'readAccessRoleData': serializeParam(
+                                            widget!.readAccessRoleData,
+                                            ParamType.JSON,
+                                          ),
+                                          'saveAccessRoleData': serializeParam(
+                                            widget!.saveAccessRoleData,
+                                            ParamType.JSON,
+                                          ),
+                                          'userRoleRead': serializeParam(
+                                            widget!.userRoleRead,
+                                            ParamType.String,
+                                          ),
+                                          'userRoleSave': serializeParam(
+                                            widget!.userRoleSave,
+                                            ParamType.String,
+                                          ),
+                                          'impoundCarParamSet': serializeParam(
+                                            _model.tempImpoundCarParamSet,
+                                            ParamType.DataStruct,
+                                          ),
+                                          'fromPage': serializeParam(
+                                            widget!.fromPage,
+                                            ParamType.String,
+                                          ),
+                                          'impoundCarLocateParamSet':
+                                              serializeParam(
+                                            ImpoundCarLocateParamSetStruct(
+                                              improundcarLocatId: _model
+                                                          .allowChangeLocation ||
+                                                      !((FFAppState().profileLevel == 'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? containerImpoundCarMasterRecord.impoundCarLocateId.elementAtOrNull(functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
+                                                  : widget!.impoundCarLocateParamSet?.improundcarLocatId,
+                                              locatName: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? containerImpoundCarMasterRecord.locateName.elementAtOrNull(functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
+                                                  : widget!.impoundCarLocateParamSet?.locatName,
+                                              improundcarSubLocatId: _model
+                                                          .allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.subLocatId(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.subLocatId(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.improundcarSubLocatId
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.improundcarSubLocatId,
+                                              branchNameLocat: _model
+                                                          .allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.branchname(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.branchname(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchName
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.branchNameLocat,
+                                              address: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.address(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.address(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.address
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.address,
+                                              subDistrict: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.subdistrict(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.subdistrict(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.subDistrict
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.subDistrict,
+                                              district: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.district(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.district(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.district
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.district,
+                                              province: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.province(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.province(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.province
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.province,
+                                              postcode: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.postcode(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.postcode(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.postcode
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.postcode,
+                                              phoneNumber: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.phoneNumber(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.phoneNumber(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.phoneNumber
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.phoneNumber,
+                                              latitude: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.latitude(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.latitude(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.latitude
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.latitude,
+                                              longitude: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.longitude(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.longitude(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.longitude
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.longitude,
+                                              branchCodeLocat: _model
+                                                          .allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.branchcode(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.branchcode(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchCode
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.branchCodeLocat,
+                                              areaCode: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.areacode(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.areacode(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaCode
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.areaCode,
+                                              areaName: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.areaname(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.areaname(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaName
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.areaName,
+                                              regionCode: _model
+                                                          .allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.regioncode(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.regioncode(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionCode
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.regionCode,
+                                              regionName: _model
+                                                          .allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? (ImproundCarGetBranchCall.regionname(
+                                                                (_model.getBranchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) !=
+                                                              null &&
+                                                          (ImproundCarGetBranchCall.regionname(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))!
+                                                              .isNotEmpty
+                                                      ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionName
+                                                      : '')
+                                                  : widget!.impoundCarLocateParamSet?.regionName,
+                                              locatCode: _model.allowChangeLocation ||
+                                                      !((FFAppState().profileLevel ==
+                                                                  'สาขา') ||
+                                                              (FFAppState().profileLevel ==
+                                                                  'เขต') ||
+                                                              (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค')
+                                                          ? functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      widget!
+                                                                          .step),
+                                                                  'price_edit_level'),
+                                                              FFAppState()
+                                                                  .profileLevel)!
+                                                          : functions.containsValueInJsonList(
+                                                              functions.getDataFromMapJson(
+                                                                  functions.getDataFromMapJson(
+                                                                      widget!.editAccessRoleData,
+                                                                      widget!.step),
+                                                                  'price_edit_role'),
+                                                              widget!.userRoleEdit)!)
+                                                  ? _model.dropDownValue
+                                                  : widget!.impoundCarLocateParamSet?.locatCode,
+                                            ),
+                                            ParamType.DataStruct,
+                                          ),
+                                          'impoundCarStatusName':
+                                              serializeParam(
+                                            widget!.impoundCarStatusName,
+                                            ParamType.String,
+                                          ),
+                                          'carConfig': serializeParam(
+                                            widget!.carConfig,
+                                            ParamType.String,
+                                            isList: true,
+                                          ),
+                                          'motocycleConfig': serializeParam(
+                                            widget!.motocycleConfig,
+                                            ParamType.String,
+                                            isList: true,
+                                          ),
+                                          'editAccessRoleData': serializeParam(
+                                            widget!.editAccessRoleData,
+                                            ParamType.JSON,
+                                          ),
+                                          'userRoleEdit': serializeParam(
+                                            widget!.userRoleEdit,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
                                       );
 
-                                      _shouldSetState = true;
-                                      if ((_model.updateCarLocationOutput
-                                                  ?.statusCode ??
-                                              200) !=
-                                          200) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'พบข้อผิดพลาด Connection(${(_model.updateCarLocationOutput?.statusCode ?? 200).toString()})'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      if ('200' ==
-                                          UploadImagesGoogleDriveGroup
-                                              .updateImproundCarCall
-                                              .statusLayer1(
-                                                (_model.updateCarLocationOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )
-                                              .toString()) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    '${UploadImagesGoogleDriveGroup.updateImproundCarCall.messageLayer1(
-                                                          (_model.updateCarLocationOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ).toString()}'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        _model.tempImpoundCarParamSet =
-                                            widget!.impoundCarParamSet;
-                                        safeSetState(() {});
-                                        if ((FFAppState().profileLevel ==
-                                                    'สาขา') ||
-                                                (FFAppState().profileLevel ==
-                                                    'เขต') ||
-                                                (FFAppState().profileLevel ==
-                                                    'ภาค')
-                                            ? functions.containsValueInJsonList(
-                                                functions.getDataFromMapJson(
-                                                    functions.getDataFromMapJson(
-                                                        widget!
-                                                            .editAccessRoleData,
-                                                        widget!.step),
-                                                    'price_edit_level'),
-                                                FFAppState().profileLevel)!
-                                            : functions.containsValueInJsonList(
-                                                functions.getDataFromMapJson(
-                                                    functions.getDataFromMapJson(
-                                                        widget!
-                                                            .editAccessRoleData,
-                                                        widget!.step),
-                                                    'price_edit_role'),
-                                                widget!.userRoleEdit)!) {
-                                          _model
-                                              .updateTempImpoundCarParamSetStruct(
-                                            (e) => e
-                                              ..impoundPrice = _model
-                                                          .priceTextFieldTextController
-                                                          .text !=
-                                                      ''
-                                                  ? functions
-                                                      .removeCommaFromNumText(_model
-                                                          .priceTextFieldTextController
-                                                          .text)
-                                                  : '0.00',
+                                      _model.tempImpoundCarParamSet = null;
+                                      safeSetState(() {});
+                                    } else {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  '${UploadImagesGoogleDriveGroup.updateImproundCarCall.messageLayer1(
+                                                        (_model.updateCarLocationOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ).toString()}'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
                                           );
-                                          safeSetState(() {});
-                                        }
-
-                                        context.goNamed(
-                                          CustomerCarDeailsPictureStep1Widget
-                                              .routeName,
-                                          queryParameters: {
-                                            'step': serializeParam(
-                                              widget!.step,
-                                              ParamType.String,
-                                            ),
-                                            'readAccessRoleData':
-                                                serializeParam(
-                                              widget!.readAccessRoleData,
-                                              ParamType.JSON,
-                                            ),
-                                            'saveAccessRoleData':
-                                                serializeParam(
-                                              widget!.saveAccessRoleData,
-                                              ParamType.JSON,
-                                            ),
-                                            'userRoleRead': serializeParam(
-                                              widget!.userRoleRead,
-                                              ParamType.String,
-                                            ),
-                                            'userRoleSave': serializeParam(
-                                              widget!.userRoleSave,
-                                              ParamType.String,
-                                            ),
-                                            'impoundCarParamSet':
-                                                serializeParam(
-                                              _model.tempImpoundCarParamSet,
-                                              ParamType.DataStruct,
-                                            ),
-                                            'fromPage': serializeParam(
-                                              widget!.fromPage,
-                                              ParamType.String,
-                                            ),
-                                            'impoundCarLocateParamSet':
-                                                serializeParam(
-                                              ImpoundCarLocateParamSetStruct(
-                                                improundcarLocatId: _model
-                                                            .allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? containerImpoundCarMasterRecord.impoundCarLocateId.elementAtOrNull(functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
-                                                    : widget!.impoundCarLocateParamSet?.improundcarLocatId,
-                                                locatName: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? containerImpoundCarMasterRecord.locateName.elementAtOrNull(functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
-                                                    : widget!.impoundCarLocateParamSet?.locatName,
-                                                improundcarSubLocatId: _model
-                                                            .allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.subLocatId(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.subLocatId(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.improundcarSubLocatId
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.improundcarSubLocatId,
-                                                branchNameLocat: _model
-                                                            .allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.branchname(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.branchname(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchName
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.branchNameLocat,
-                                                address: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.address(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.address(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.address
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.address,
-                                                subDistrict: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.subdistrict(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.subdistrict(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.subDistrict
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.subDistrict,
-                                                district: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.district(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.district(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.district
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.district,
-                                                province: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.province(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.province(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.province
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.province,
-                                                postcode: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.postcode(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.postcode(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.postcode
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.postcode,
-                                                phoneNumber: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.phoneNumber(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.phoneNumber(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.phoneNumber
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.phoneNumber,
-                                                latitude: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.latitude(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.latitude(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.latitude
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.latitude,
-                                                longitude: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.longitude(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.longitude(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.longitude
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.longitude,
-                                                branchCodeLocat: _model
-                                                            .allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.branchcode(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.branchcode(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchCode
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.branchCodeLocat,
-                                                areaCode: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.areacode(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.areacode(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaCode
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.areaCode,
-                                                areaName: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.areaname(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.areaname(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaName
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.areaName,
-                                                regionCode: _model
-                                                            .allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.regioncode(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.regioncode(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionCode
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.regionCode,
-                                                regionName: _model
-                                                            .allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState().profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? (ImproundCarGetBranchCall.regionname(
-                                                                  (_model.getBranchOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ) !=
-                                                                null &&
-                                                            (ImproundCarGetBranchCall.regionname(
-                                                              (_model.getBranchOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))!
-                                                                .isNotEmpty
-                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionName
-                                                        : '')
-                                                    : widget!.impoundCarLocateParamSet?.regionName,
-                                                locatCode: _model.allowChangeLocation ||
-                                                        !((FFAppState().profileLevel ==
-                                                                    'สาขา') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'เขต') ||
-                                                                (FFAppState()
-                                                                        .profileLevel ==
-                                                                    'ภาค')
-                                                            ? functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!
-                                                                            .editAccessRoleData,
-                                                                        widget!
-                                                                            .step),
-                                                                    'price_edit_level'),
-                                                                FFAppState()
-                                                                    .profileLevel)!
-                                                            : functions.containsValueInJsonList(
-                                                                functions.getDataFromMapJson(
-                                                                    functions.getDataFromMapJson(
-                                                                        widget!.editAccessRoleData,
-                                                                        widget!.step),
-                                                                    'price_edit_role'),
-                                                                widget!.userRoleEdit)!)
-                                                    ? _model.dropDownValue
-                                                    : widget!.impoundCarLocateParamSet?.locatCode,
-                                              ),
-                                              ParamType.DataStruct,
-                                            ),
-                                            'impoundCarStatusName':
-                                                serializeParam(
-                                              widget!.impoundCarStatusName,
-                                              ParamType.String,
-                                            ),
-                                            'carConfig': serializeParam(
-                                              widget!.carConfig,
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'motocycleConfig': serializeParam(
-                                              widget!.motocycleConfig,
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'editAccessRoleData':
-                                                serializeParam(
-                                              widget!.editAccessRoleData,
-                                              ParamType.JSON,
-                                            ),
-                                            'userRoleEdit': serializeParam(
-                                              widget!.userRoleEdit,
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-
-                                        _model.tempImpoundCarParamSet = null;
-                                        safeSetState(() {});
-                                      } else {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    '${UploadImagesGoogleDriveGroup.updateImproundCarCall.messageLayer1(
-                                                          (_model.updateCarLocationOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ).toString()}'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-
+                                        },
+                                      );
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
-                                    if (widget!.step == 'step4') {
-                                      context.pushNamed(
-                                        CustomerCarDeailsStep4Widget.routeName,
-                                        queryParameters: {
-                                          'step': serializeParam(
-                                            widget!.step,
-                                            ParamType.String,
-                                          ),
-                                          'readAccessRoleData': serializeParam(
-                                            widget!.readAccessRoleData,
-                                            ParamType.JSON,
-                                          ),
-                                          'saveAccessRoleData': serializeParam(
-                                            widget!.saveAccessRoleData,
-                                            ParamType.JSON,
-                                          ),
-                                          'userRoleRead': serializeParam(
-                                            widget!.userRoleRead,
-                                            ParamType.String,
-                                          ),
-                                          'userRoleSave': serializeParam(
-                                            widget!.userRoleSave,
-                                            ParamType.String,
-                                          ),
-                                          'impoundCarParamSet': serializeParam(
-                                            widget!.impoundCarParamSet,
-                                            ParamType.DataStruct,
-                                          ),
-                                          'impoundCarLocateParamSet':
-                                              serializeParam(
-                                            ImpoundCarLocateParamSetStruct(
-                                              improundcarLocatId: containerImpoundCarMasterRecord
-                                                  .impoundCarLocateId
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfSomethingList(
-                                                          containerImpoundCarMasterRecord
-                                                              .locateCode
-                                                              .toList(),
-                                                          _model
-                                                              .dropDownValue)),
-                                              locatName: containerImpoundCarMasterRecord
-                                                  .locateName
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfSomethingList(
-                                                          containerImpoundCarMasterRecord
-                                                              .locateCode
-                                                              .toList(),
-                                                          _model
-                                                              .dropDownValue)),
-                                              improundcarSubLocatId: ImproundCarGetBranchCall
-                                                              .subLocatId(
-                                                            (_model.getBranchOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) !=
-                                                          null &&
-                                                      (ImproundCarGetBranchCall
-                                                              .subLocatId(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ))!
-                                                          .isNotEmpty
-                                                  ? FFAppState()
-                                                      .branchDataOutput
-                                                      .elementAtOrNull(functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .selectedDropdownList
-                                                                  .toList(),
-                                                              true))
-                                                      ?.improundcarSubLocatId
-                                                  : '',
-                                              branchNameLocat: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.branchName,
-                                              address: ImproundCarGetBranchCall
-                                                              .address(
-                                                            (_model.getBranchOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) !=
-                                                          null &&
-                                                      (ImproundCarGetBranchCall
-                                                              .address(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ))!
-                                                          .isNotEmpty
-                                                  ? FFAppState()
-                                                      .branchDataOutput
-                                                      .elementAtOrNull(functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .selectedDropdownList
-                                                                  .toList(),
-                                                              true))
-                                                      ?.address
-                                                  : '',
-                                              subDistrict: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.subDistrict,
-                                              district: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.district,
-                                              province: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.province,
-                                              postcode: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.postcode,
-                                              phoneNumber: ImproundCarGetBranchCall
-                                                              .phoneNumber(
-                                                            (_model.getBranchOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) !=
-                                                          null &&
-                                                      (ImproundCarGetBranchCall
-                                                              .phoneNumber(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ))!
-                                                          .isNotEmpty
-                                                  ? FFAppState()
-                                                      .branchDataOutput
-                                                      .elementAtOrNull(functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .selectedDropdownList
-                                                                  .toList(),
-                                                              true))
-                                                      ?.phoneNumber
-                                                  : '',
-                                              latitude: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.latitude,
-                                              longitude: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.longitude,
-                                              branchCodeLocat: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.branchCode,
-                                              areaCode: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.areaCode,
-                                              areaName: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.areaName,
-                                              regionCode: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.regionCode,
-                                              regionName: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.regionName,
-                                              locatCode: _model.dropDownValue,
-                                              receiver: ((FFAppState().profileLevel ==
-                                                              'สาขา') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
-                                                              'เขต') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
-                                                              'ภาค')
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_role'),
-                                                          widget!
-                                                              .userRoleSave)!)
-                                                  ? _model
-                                                      .deliverTextFieldTextController
-                                                      .text
-                                                  : '',
-                                              deliverLocateName: ((FFAppState()
-                                                                  .profileLevel ==
-                                                              'สาขา') ||
-                                                          (FFAppState().profileLevel ==
-                                                              'เขต') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
-                                                              'ภาค')
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_role'),
-                                                          widget!
-                                                              .userRoleSave)!)
-                                                  ? FFAppState()
-                                                      .impoundDeliverLocateName
-                                                  : '',
-                                              deliverLocateCode: ((FFAppState()
-                                                                  .profileLevel ==
-                                                              'สาขา') ||
-                                                          (FFAppState().profileLevel ==
-                                                              'เขต') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
-                                                              'ภาค')
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_role'),
-                                                          widget!
-                                                              .userRoleSave)!)
-                                                  ? FFAppState()
-                                                      .impoundDeliverLocateCode
-                                                  : '',
-                                              logisticsCompany: ((FFAppState()
-                                                                  .profileLevel ==
-                                                              'สาขา') ||
-                                                          (FFAppState().profileLevel ==
-                                                              'เขต') ||
-                                                          (FFAppState().profileLevel ==
-                                                              'ภาค')
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_role'),
-                                                          widget!
-                                                              .userRoleSave)!)
-                                                  ? _model
-                                                      .companyTextFieldTextController
-                                                      .text
-                                                  : '',
-                                            ),
-                                            ParamType.DataStruct,
-                                          ),
-                                          'carConfig': serializeParam(
-                                            widget!.carConfig,
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                          'motocycleConfig': serializeParam(
-                                            widget!.motocycleConfig,
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                          'editAccessRoleData': serializeParam(
-                                            widget!.editAccessRoleData,
-                                            ParamType.JSON,
-                                          ),
-                                          'userRoleEdit': serializeParam(
-                                            widget!.userRoleEdit,
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    } else {
-                                      context.pushNamed(
-                                        CustomerCarDeailsStep1Widget.routeName,
-                                        queryParameters: {
-                                          'step': serializeParam(
-                                            widget!.step,
-                                            ParamType.String,
-                                          ),
-                                          'readAccessRoleData': serializeParam(
-                                            widget!.readAccessRoleData,
-                                            ParamType.JSON,
-                                          ),
-                                          'saveAccessRoleData': serializeParam(
-                                            widget!.saveAccessRoleData,
-                                            ParamType.JSON,
-                                          ),
-                                          'userRoleRead': serializeParam(
-                                            widget!.userRoleRead,
-                                            ParamType.String,
-                                          ),
-                                          'userRoleSave': serializeParam(
-                                            widget!.userRoleSave,
-                                            ParamType.String,
-                                          ),
-                                          'impoundCarParamSet': serializeParam(
-                                            widget!.impoundCarParamSet,
-                                            ParamType.DataStruct,
-                                          ),
-                                          'impoundCarLocateParamSet':
-                                              serializeParam(
-                                            ImpoundCarLocateParamSetStruct(
-                                              improundcarLocatId: containerImpoundCarMasterRecord
-                                                  .impoundCarLocateId
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfSomethingList(
-                                                          containerImpoundCarMasterRecord
-                                                              .locateCode
-                                                              .toList(),
-                                                          _model
-                                                              .dropDownValue)),
-                                              locatName: containerImpoundCarMasterRecord
-                                                  .locateName
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfSomethingList(
-                                                          containerImpoundCarMasterRecord
-                                                              .locateCode
-                                                              .toList(),
-                                                          _model
-                                                              .dropDownValue)),
-                                              improundcarSubLocatId: ImproundCarGetBranchCall
-                                                              .subLocatId(
-                                                            (_model.getBranchOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) !=
-                                                          null &&
-                                                      (ImproundCarGetBranchCall
-                                                              .subLocatId(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ))!
-                                                          .isNotEmpty
-                                                  ? FFAppState()
-                                                      .branchDataOutput
-                                                      .elementAtOrNull(functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .selectedDropdownList
-                                                                  .toList(),
-                                                              true))
-                                                      ?.improundcarSubLocatId
-                                                  : '',
-                                              branchNameLocat: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.branchName,
-                                              address: ImproundCarGetBranchCall
-                                                              .address(
-                                                            (_model.getBranchOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) !=
-                                                          null &&
-                                                      (ImproundCarGetBranchCall
-                                                              .address(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ))!
-                                                          .isNotEmpty
-                                                  ? FFAppState()
-                                                      .branchDataOutput
-                                                      .elementAtOrNull(functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .selectedDropdownList
-                                                                  .toList(),
-                                                              true))
-                                                      ?.address
-                                                  : '',
-                                              subDistrict: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.subDistrict,
-                                              district: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.district,
-                                              province: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.province,
-                                              postcode: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.postcode,
-                                              phoneNumber: ImproundCarGetBranchCall
-                                                              .phoneNumber(
-                                                            (_model.getBranchOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) !=
-                                                          null &&
-                                                      (ImproundCarGetBranchCall
-                                                              .phoneNumber(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ))!
-                                                          .isNotEmpty
-                                                  ? FFAppState()
-                                                      .branchDataOutput
-                                                      .elementAtOrNull(functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .selectedDropdownList
-                                                                  .toList(),
-                                                              true))
-                                                      ?.phoneNumber
-                                                  : '',
-                                              latitude: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.latitude,
-                                              longitude: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.longitude,
-                                              branchCodeLocat: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.branchCode,
-                                              areaCode: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.areaCode,
-                                              areaName: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.areaName,
-                                              regionCode: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.regionCode,
-                                              regionName: FFAppState()
-                                                  .branchDataOutput
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .selectedDropdownList
-                                                              .toList(),
-                                                          true))
-                                                  ?.regionName,
-                                              locatCode: _model.dropDownValue,
-                                              receiver: ((FFAppState().profileLevel ==
-                                                              'สาขา') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
-                                                              'เขต') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
-                                                              'ภาค')
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_role'),
-                                                          widget!
-                                                              .userRoleSave)!)
-                                                  ? _model
-                                                      .deliverTextFieldTextController
-                                                      .text
-                                                  : '',
-                                              deliverLocateName: ((FFAppState()
-                                                                  .profileLevel ==
-                                                              'สาขา') ||
-                                                          (FFAppState().profileLevel ==
-                                                              'เขต') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
-                                                              'ภาค')
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_role'),
-                                                          widget!
-                                                              .userRoleSave)!)
-                                                  ? FFAppState()
-                                                      .impoundDeliverLocateName
-                                                  : '',
-                                              deliverLocateCode: ((FFAppState()
-                                                                  .profileLevel ==
-                                                              'สาขา') ||
-                                                          (FFAppState().profileLevel ==
-                                                              'เขต') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
-                                                              'ภาค')
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_role'),
-                                                          widget!
-                                                              .userRoleSave)!)
-                                                  ? FFAppState()
-                                                      .impoundDeliverLocateCode
-                                                  : '',
-                                              logisticsCompany: ((FFAppState()
-                                                                  .profileLevel ==
-                                                              'สาขา') ||
-                                                          (FFAppState().profileLevel ==
-                                                              'เขต') ||
-                                                          (FFAppState().profileLevel ==
-                                                              'ภาค')
-                                                      ? functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_level'),
-                                                          FFAppState()
-                                                              .profileLevel)!
-                                                      : functions.containsValueInJsonList(
-                                                          functions.getDataFromMapJson(
-                                                              functions.getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  widget!.step),
-                                                              'include_deliver_data_role'),
-                                                          widget!
-                                                              .userRoleSave)!)
-                                                  ? _model
-                                                      .companyTextFieldTextController
-                                                      .text
-                                                  : '',
-                                            ),
-                                            ParamType.DataStruct,
-                                          ),
-                                          'carConfig': serializeParam(
-                                            widget!.carConfig,
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                          'motocycleConfig': serializeParam(
-                                            widget!.motocycleConfig,
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                          'editAccessRoleData': serializeParam(
-                                            widget!.editAccessRoleData,
-                                            ParamType.JSON,
-                                          ),
-                                          'userRoleEdit': serializeParam(
-                                            widget!.userRoleEdit,
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    }
-
                                     if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  text: widget!.fromPage == 'takeImages'
-                                      ? 'ถ่ายรูป'
-                                      : 'บันทึก',
-                                  options: FFButtonOptions(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.45,
-                                    height: 60.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFFD9761A),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          font: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.w600,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
+                                    return;
+                                  }
+
+                                  if (widget!.step == 'step4') {
+                                    context.pushNamed(
+                                      CustomerCarDeailsStep4Widget.routeName,
+                                      queryParameters: {
+                                        'step': serializeParam(
+                                          widget!.step,
+                                          ParamType.String,
+                                        ),
+                                        'readAccessRoleData': serializeParam(
+                                          widget!.readAccessRoleData,
+                                          ParamType.JSON,
+                                        ),
+                                        'saveAccessRoleData': serializeParam(
+                                          widget!.saveAccessRoleData,
+                                          ParamType.JSON,
+                                        ),
+                                        'userRoleRead': serializeParam(
+                                          widget!.userRoleRead,
+                                          ParamType.String,
+                                        ),
+                                        'userRoleSave': serializeParam(
+                                          widget!.userRoleSave,
+                                          ParamType.String,
+                                        ),
+                                        'impoundCarParamSet': serializeParam(
+                                          widget!.impoundCarParamSet,
+                                          ParamType.DataStruct,
+                                        ),
+                                        'impoundCarLocateParamSet':
+                                            serializeParam(
+                                          ImpoundCarLocateParamSetStruct(
+                                            improundcarLocatId:
+                                                containerImpoundCarMasterRecord
+                                                    .impoundCarLocateId
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfSomethingList(
+                                                            containerImpoundCarMasterRecord
+                                                                .locateCode
+                                                                .toList(),
+                                                            _model
+                                                                .dropDownValue)),
+                                            locatName: containerImpoundCarMasterRecord
+                                                .locateName
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfSomethingList(
+                                                        containerImpoundCarMasterRecord
+                                                            .locateCode
+                                                            .toList(),
+                                                        _model.dropDownValue)),
+                                            improundcarSubLocatId:
+                                                ImproundCarGetBranchCall
+                                                                .subLocatId(
+                                                              (_model.getBranchOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ) !=
+                                                            null &&
+                                                        (ImproundCarGetBranchCall
+                                                                .subLocatId(
+                                                          (_model.getBranchOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ))!
+                                                            .isNotEmpty
+                                                    ? FFAppState()
+                                                        .branchDataOutput
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .selectedDropdownList
+                                                                    .toList(),
+                                                                true))
+                                                        ?.improundcarSubLocatId
+                                                    : '',
+                                            branchNameLocat: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.branchName,
+                                            address: ImproundCarGetBranchCall
+                                                            .address(
+                                                          (_model.getBranchOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) !=
+                                                        null &&
+                                                    (ImproundCarGetBranchCall
+                                                            .address(
+                                                      (_model.getBranchOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ))!
+                                                        .isNotEmpty
+                                                ? FFAppState()
+                                                    .branchDataOutput
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            true))
+                                                    ?.address
+                                                : '',
+                                            subDistrict: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.subDistrict,
+                                            district: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.district,
+                                            province: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.province,
+                                            postcode: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.postcode,
+                                            phoneNumber: ImproundCarGetBranchCall
+                                                            .phoneNumber(
+                                                          (_model.getBranchOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) !=
+                                                        null &&
+                                                    (ImproundCarGetBranchCall
+                                                            .phoneNumber(
+                                                      (_model.getBranchOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ))!
+                                                        .isNotEmpty
+                                                ? FFAppState()
+                                                    .branchDataOutput
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            true))
+                                                    ?.phoneNumber
+                                                : '',
+                                            latitude: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.latitude,
+                                            longitude: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.longitude,
+                                            branchCodeLocat: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.branchCode,
+                                            areaCode: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.areaCode,
+                                            areaName: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.areaName,
+                                            regionCode: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.regionCode,
+                                            regionName: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.regionName,
+                                            locatCode: _model.dropDownValue,
+                                            receiver: ((FFAppState().profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions
+                                                                .getDataFromMapJson(
+                                                                    widget!
+                                                                        .saveAccessRoleData,
+                                                                    widget!
+                                                                        .step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? _model
+                                                    .deliverTextFieldTextController
+                                                    .text
+                                                : '',
+                                            deliverLocateName: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? FFAppState()
+                                                    .impoundDeliverLocateName
+                                                : '',
+                                            deliverLocateCode: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? FFAppState()
+                                                    .impoundDeliverLocateCode
+                                                : '',
+                                            logisticsCompany: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState().profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? _model
+                                                    .companyTextFieldTextController
+                                                    .text
+                                                : '',
                                           ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBtnText,
-                                          letterSpacing: 0.0,
+                                          ParamType.DataStruct,
+                                        ),
+                                        'carConfig': serializeParam(
+                                          widget!.carConfig,
+                                          ParamType.String,
+                                          isList: true,
+                                        ),
+                                        'motocycleConfig': serializeParam(
+                                          widget!.motocycleConfig,
+                                          ParamType.String,
+                                          isList: true,
+                                        ),
+                                        'editAccessRoleData': serializeParam(
+                                          widget!.editAccessRoleData,
+                                          ParamType.JSON,
+                                        ),
+                                        'userRoleEdit': serializeParam(
+                                          widget!.userRoleEdit,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  } else {
+                                    context.pushNamed(
+                                      CustomerCarDeailsStep1Widget.routeName,
+                                      queryParameters: {
+                                        'step': serializeParam(
+                                          widget!.step,
+                                          ParamType.String,
+                                        ),
+                                        'readAccessRoleData': serializeParam(
+                                          widget!.readAccessRoleData,
+                                          ParamType.JSON,
+                                        ),
+                                        'saveAccessRoleData': serializeParam(
+                                          widget!.saveAccessRoleData,
+                                          ParamType.JSON,
+                                        ),
+                                        'userRoleRead': serializeParam(
+                                          widget!.userRoleRead,
+                                          ParamType.String,
+                                        ),
+                                        'userRoleSave': serializeParam(
+                                          widget!.userRoleSave,
+                                          ParamType.String,
+                                        ),
+                                        'impoundCarParamSet': serializeParam(
+                                          widget!.impoundCarParamSet,
+                                          ParamType.DataStruct,
+                                        ),
+                                        'impoundCarLocateParamSet':
+                                            serializeParam(
+                                          ImpoundCarLocateParamSetStruct(
+                                            improundcarLocatId:
+                                                containerImpoundCarMasterRecord
+                                                    .impoundCarLocateId
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfSomethingList(
+                                                            containerImpoundCarMasterRecord
+                                                                .locateCode
+                                                                .toList(),
+                                                            _model
+                                                                .dropDownValue)),
+                                            locatName: containerImpoundCarMasterRecord
+                                                .locateName
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfSomethingList(
+                                                        containerImpoundCarMasterRecord
+                                                            .locateCode
+                                                            .toList(),
+                                                        _model.dropDownValue)),
+                                            improundcarSubLocatId:
+                                                ImproundCarGetBranchCall
+                                                                .subLocatId(
+                                                              (_model.getBranchOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ) !=
+                                                            null &&
+                                                        (ImproundCarGetBranchCall
+                                                                .subLocatId(
+                                                          (_model.getBranchOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ))!
+                                                            .isNotEmpty
+                                                    ? FFAppState()
+                                                        .branchDataOutput
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .selectedDropdownList
+                                                                    .toList(),
+                                                                true))
+                                                        ?.improundcarSubLocatId
+                                                    : '',
+                                            branchNameLocat: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.branchName,
+                                            address: ImproundCarGetBranchCall
+                                                            .address(
+                                                          (_model.getBranchOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) !=
+                                                        null &&
+                                                    (ImproundCarGetBranchCall
+                                                            .address(
+                                                      (_model.getBranchOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ))!
+                                                        .isNotEmpty
+                                                ? FFAppState()
+                                                    .branchDataOutput
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            true))
+                                                    ?.address
+                                                : '',
+                                            subDistrict: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.subDistrict,
+                                            district: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.district,
+                                            province: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.province,
+                                            postcode: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.postcode,
+                                            phoneNumber: ImproundCarGetBranchCall
+                                                            .phoneNumber(
+                                                          (_model.getBranchOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) !=
+                                                        null &&
+                                                    (ImproundCarGetBranchCall
+                                                            .phoneNumber(
+                                                      (_model.getBranchOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ))!
+                                                        .isNotEmpty
+                                                ? FFAppState()
+                                                    .branchDataOutput
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            true))
+                                                    ?.phoneNumber
+                                                : '',
+                                            latitude: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.latitude,
+                                            longitude: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.longitude,
+                                            branchCodeLocat: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.branchCode,
+                                            areaCode: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.areaCode,
+                                            areaName: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.areaName,
+                                            regionCode: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.regionCode,
+                                            regionName: FFAppState()
+                                                .branchDataOutput
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true))
+                                                ?.regionName,
+                                            locatCode: _model.dropDownValue,
+                                            receiver: ((FFAppState().profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions
+                                                                .getDataFromMapJson(
+                                                                    widget!
+                                                                        .saveAccessRoleData,
+                                                                    widget!
+                                                                        .step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? _model
+                                                    .deliverTextFieldTextController
+                                                    .text
+                                                : '',
+                                            deliverLocateName: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? FFAppState()
+                                                    .impoundDeliverLocateName
+                                                : '',
+                                            deliverLocateCode: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? FFAppState()
+                                                    .impoundDeliverLocateCode
+                                                : '',
+                                            logisticsCompany: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState().profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? _model
+                                                    .companyTextFieldTextController
+                                                    .text
+                                                : '',
+                                          ),
+                                          ParamType.DataStruct,
+                                        ),
+                                        'carConfig': serializeParam(
+                                          widget!.carConfig,
+                                          ParamType.String,
+                                          isList: true,
+                                        ),
+                                        'motocycleConfig': serializeParam(
+                                          widget!.motocycleConfig,
+                                          ParamType.String,
+                                          isList: true,
+                                        ),
+                                        'editAccessRoleData': serializeParam(
+                                          widget!.editAccessRoleData,
+                                          ParamType.JSON,
+                                        ),
+                                        'userRoleEdit': serializeParam(
+                                          widget!.userRoleEdit,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  }
+
+                                  if (_shouldSetState) safeSetState(() {});
+                                },
+                                text: widget!.fromPage == 'takeImages'
+                                    ? 'ถ่ายรูป'
+                                    : 'บันทึก',
+                                options: FFButtonOptions(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.45,
+                                  height: 60.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Color(0xFFD9761A),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.poppins(
                                           fontWeight: FontWeight.w600,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .fontStyle,
                                         ),
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(16.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
                                   ),
+                                  borderRadius: BorderRadius.circular(16.0),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ],

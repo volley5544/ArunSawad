@@ -4472,7 +4472,7 @@ bool? containsValueInJsonList(
 }
 
 List<String>? getListStringFromJson(dynamic listFromJson) {
-  dynamic inputList = jsonDecode(listFromJson!);
+  dynamic inputList = List<String>.from(jsonDecode(listFromJson!));
 
   return inputList;
 }
