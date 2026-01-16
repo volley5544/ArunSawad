@@ -3318,27 +3318,17 @@ class _ChangeCarLocationPageWidgetState
                                             (FFAppState().profileLevel ==
                                                 'เขต') ||
                                             (FFAppState().profileLevel == 'ภาค')
-                                        ? (functions.containsValueInJsonList(
-                                                functions.getDataFromMapJson(
-                                                    functions.getDataFromMapJson(
-                                                        widget!
-                                                            .editAccessRoleData,
-                                                        widget!.step),
-                                                    'price_edit_level'),
-                                                FFAppState().profileLevel)! &&
-                                            (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'position_name'))!.length > 0
-                                                ? functions.containsValueInJsonList(
-                                                    functions.getDataFromMapJson(
-                                                        functions.getDataFromMapJson(
-                                                            widget!
-                                                                .editAccessRoleData,
-                                                            widget!.step),
-                                                        'position_name'),
-                                                    FFAppState()
-                                                        .profilePositionName)!
-                                                : true))
+                                        ? functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                widget!.step),
+                                            'include_deliver_data_level')!
                                         : functions.containsValueInJsonList(
-                                            functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'include_deliver_data_role'),
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
                                             widget!.userRoleSave)!) {
                                       if (!((FFAppState()
                                                   .impoundDeliverLocateName !=
