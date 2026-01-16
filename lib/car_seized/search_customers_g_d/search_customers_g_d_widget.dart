@@ -2797,8 +2797,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             (FFAppState().profileLevel ==
                                                                                 'ภาค')
                                                                         ? (functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'profile_level'), FFAppState().profileLevel)! &&
-                                                                            functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'position_name'),
-                                                                                FFAppState().profilePositionName)!)
+                                                                            (functions.getListStringFromJson(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'position_name'))!.length > 0
+                                                                                ? functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'position_name'), FFAppState().profilePositionName)!
+                                                                                : true))
                                                                         : (widget!.userRolePrice != 'no_role')))
                                                                 : true)
                                                               Padding(
@@ -2828,7 +2829,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                               (FFAppState().profileLevel ==
                                                                                   'ภาค')
                                                                           ? (functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'profile_level'), FFAppState().profileLevel)! &&
-                                                                              functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'position_name'), FFAppState().profilePositionName)!)
+                                                                              (functions.getListStringFromJson(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'position_name'))!.length > 0 ? functions.containsValueInJsonList(functions.getDataFromMapJson(widget!.priceAccessRoleData, 'position_name'), FFAppState().profilePositionName)! : true))
                                                                           : (widget!.userRolePrice != 'no_role'))) {
                                                                         await showDialog(
                                                                           context:

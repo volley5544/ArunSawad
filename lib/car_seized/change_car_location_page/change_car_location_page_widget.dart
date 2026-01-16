@@ -2751,17 +2751,20 @@ class _ChangeCarLocationPageWidgetState
                                                         widget!.step),
                                                     'price_edit_level'),
                                                 FFAppState().profileLevel)! &&
-                                            (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'position_name')) != null &&
-                                                    (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'position_name')))!
-                                                        .isNotEmpty
+                                            (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'position_name'))!.length > 0
                                                 ? functions.containsValueInJsonList(
                                                     functions.getDataFromMapJson(
                                                         functions.getDataFromMapJson(
-                                                            widget!.editAccessRoleData, widget!.step),
+                                                            widget!
+                                                                .editAccessRoleData,
+                                                            widget!.step),
                                                         'position_name'),
-                                                    FFAppState().profilePositionName)!
+                                                    FFAppState()
+                                                        .profilePositionName)!
                                                 : true))
-                                        : functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'price_edit_role'), widget!.userRoleEdit)) ??
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'price_edit_role'),
+                                            widget!.userRoleEdit)) ??
                                     true)
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -3323,21 +3326,19 @@ class _ChangeCarLocationPageWidgetState
                                                         widget!.step),
                                                     'price_edit_level'),
                                                 FFAppState().profileLevel)! &&
-                                            functions.containsValueInJsonList(
-                                                functions.getDataFromMapJson(
+                                            (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'position_name'))!.length > 0
+                                                ? functions.containsValueInJsonList(
                                                     functions.getDataFromMapJson(
-                                                        widget!
-                                                            .editAccessRoleData,
-                                                        widget!.step),
-                                                    'position_name'),
-                                                FFAppState()
-                                                    .profilePositionName)!)
+                                                        functions.getDataFromMapJson(
+                                                            widget!
+                                                                .editAccessRoleData,
+                                                            widget!.step),
+                                                        'position_name'),
+                                                    FFAppState()
+                                                        .profilePositionName)!
+                                                : true))
                                         : functions.containsValueInJsonList(
-                                            functions.getDataFromMapJson(
-                                                functions.getDataFromMapJson(
-                                                    widget!.saveAccessRoleData,
-                                                    widget!.step),
-                                                'include_deliver_data_role'),
+                                            functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'include_deliver_data_role'),
                                             widget!.userRoleSave)!) {
                                       if (!((FFAppState()
                                                   .impoundDeliverLocateName !=
@@ -3505,21 +3506,19 @@ class _ChangeCarLocationPageWidgetState
                                                         widget!.step),
                                                     'price_edit_level'),
                                                 FFAppState().profileLevel)! &&
-                                            functions.containsValueInJsonList(
-                                                functions.getDataFromMapJson(
+                                            (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'position_name'))!.length > 0
+                                                ? functions.containsValueInJsonList(
                                                     functions.getDataFromMapJson(
-                                                        widget!
-                                                            .editAccessRoleData,
-                                                        widget!.step),
-                                                    'position_name'),
-                                                FFAppState()
-                                                    .profilePositionName)!)
+                                                        functions.getDataFromMapJson(
+                                                            widget!
+                                                                .editAccessRoleData,
+                                                            widget!.step),
+                                                        'position_name'),
+                                                    FFAppState()
+                                                        .profilePositionName)!
+                                                : true))
                                         : functions.containsValueInJsonList(
-                                            functions.getDataFromMapJson(
-                                                functions.getDataFromMapJson(
-                                                    widget!.editAccessRoleData,
-                                                    widget!.step),
-                                                'price_edit_role'),
+                                            functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'price_edit_role'),
                                             widget!.userRoleEdit)!) {
                                       if ((_model.priceTextFieldTextController
                                                   .text !=

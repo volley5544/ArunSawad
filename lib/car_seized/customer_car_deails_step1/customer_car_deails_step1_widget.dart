@@ -10473,7 +10473,8 @@ class _CustomerCarDeailsStep1WidgetState
                                               widget!.step),
                                           'price_edit_level'),
                                       FFAppState().profileLevel)! &&
-                                  (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name')) != null && (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name')))!.isNotEmpty
+                                  (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name'))!.length >
+                                          0
                                       ? functions.containsValueInJsonList(
                                           functions.getDataFromMapJson(
                                               functions.getDataFromMapJson(
@@ -10483,7 +10484,11 @@ class _CustomerCarDeailsStep1WidgetState
                                           FFAppState().profilePositionName)!
                                       : true))
                               : functions.containsValueInJsonList(
-                                  functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_role'),
+                                  functions.getDataFromMapJson(
+                                      functions.getDataFromMapJson(
+                                          widget!.saveAccessRoleData,
+                                          widget!.step),
+                                      'price_edit_role'),
                                   widget!.userRoleSave)) ??
                           true)
                         Column(
@@ -11234,7 +11239,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                     widget!.step),
                                                 'price_edit_level'),
                                             FFAppState().profileLevel)! &&
-                                        (functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name') != null
+                                        (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name'))!.length > 0
                                             ? functions.containsValueInJsonList(
                                                 functions.getDataFromMapJson(
                                                     functions.getDataFromMapJson(
@@ -11247,8 +11252,7 @@ class _CustomerCarDeailsStep1WidgetState
                                             : true))
                                     : functions.containsValueInJsonList(
                                         functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step),
-                                            'price_edit_role'),
+                                            functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_role'),
                                         widget!.userRoleSave)!) {
                                   if (!((_model.priceTextFieldTextController
                                               .text !=
