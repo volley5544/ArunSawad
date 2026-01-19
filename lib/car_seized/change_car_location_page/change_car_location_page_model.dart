@@ -36,8 +36,15 @@ class ChangeCarLocationPageModel
     updateFn(tempImpoundCarParamSet ??= ImpoundCarParamSetStruct());
   }
 
+  BranchDataTypeStruct? branchSearchData;
+  void updateBranchSearchDataStruct(Function(BranchDataTypeStruct) updateFn) {
+    updateFn(branchSearchData ??= BranchDataTypeStruct());
+  }
+
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (improundCarSearchBranch)] action in ChangeCarLocationPage widget.
+  ApiCallResponse? improundCarSearchBranchOutput;
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
   // State field(s) for DropDown widget.

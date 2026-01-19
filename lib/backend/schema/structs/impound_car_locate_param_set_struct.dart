@@ -33,6 +33,8 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
     String? deliverLocateCode,
     String? logisticsCompany,
     String? receiver,
+    String? impoundLocatBranchCode,
+    String? impoundLocatBranchName,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _improundcarLocatId = improundcarLocatId,
         _locatName = locatName,
@@ -57,6 +59,8 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         _deliverLocateCode = deliverLocateCode,
         _logisticsCompany = logisticsCompany,
         _receiver = receiver,
+        _impoundLocatBranchCode = impoundLocatBranchCode,
+        _impoundLocatBranchName = impoundLocatBranchName,
         super(firestoreUtilData);
 
   // "improundcar_locat_id" field.
@@ -220,6 +224,20 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
 
   bool hasReceiver() => _receiver != null;
 
+  // "impound_locat_branch_code" field.
+  String? _impoundLocatBranchCode;
+  String get impoundLocatBranchCode => _impoundLocatBranchCode ?? '';
+  set impoundLocatBranchCode(String? val) => _impoundLocatBranchCode = val;
+
+  bool hasImpoundLocatBranchCode() => _impoundLocatBranchCode != null;
+
+  // "impound_locat_branch_name" field.
+  String? _impoundLocatBranchName;
+  String get impoundLocatBranchName => _impoundLocatBranchName ?? '';
+  set impoundLocatBranchName(String? val) => _impoundLocatBranchName = val;
+
+  bool hasImpoundLocatBranchName() => _impoundLocatBranchName != null;
+
   static ImpoundCarLocateParamSetStruct fromMap(Map<String, dynamic> data) =>
       ImpoundCarLocateParamSetStruct(
         improundcarLocatId: data['improundcar_locat_id'] as String?,
@@ -245,6 +263,8 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         deliverLocateCode: data['deliver_locate_code'] as String?,
         logisticsCompany: data['logistics_company'] as String?,
         receiver: data['receiver'] as String?,
+        impoundLocatBranchCode: data['impound_locat_branch_code'] as String?,
+        impoundLocatBranchName: data['impound_locat_branch_name'] as String?,
       );
 
   static ImpoundCarLocateParamSetStruct? maybeFromMap(dynamic data) =>
@@ -276,6 +296,8 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         'deliver_locate_code': _deliverLocateCode,
         'logistics_company': _logisticsCompany,
         'receiver': _receiver,
+        'impound_locat_branch_code': _impoundLocatBranchCode,
+        'impound_locat_branch_name': _impoundLocatBranchName,
       }.withoutNulls;
 
   @override
@@ -370,6 +392,14 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         ),
         'receiver': serializeParam(
           _receiver,
+          ParamType.String,
+        ),
+        'impound_locat_branch_code': serializeParam(
+          _impoundLocatBranchCode,
+          ParamType.String,
+        ),
+        'impound_locat_branch_name': serializeParam(
+          _impoundLocatBranchName,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -492,6 +522,16 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        impoundLocatBranchCode: deserializeParam(
+          data['impound_locat_branch_code'],
+          ParamType.String,
+          false,
+        ),
+        impoundLocatBranchName: deserializeParam(
+          data['impound_locat_branch_name'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -522,7 +562,9 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         deliverLocateName == other.deliverLocateName &&
         deliverLocateCode == other.deliverLocateCode &&
         logisticsCompany == other.logisticsCompany &&
-        receiver == other.receiver;
+        receiver == other.receiver &&
+        impoundLocatBranchCode == other.impoundLocatBranchCode &&
+        impoundLocatBranchName == other.impoundLocatBranchName;
   }
 
   @override
@@ -549,7 +591,9 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         deliverLocateName,
         deliverLocateCode,
         logisticsCompany,
-        receiver
+        receiver,
+        impoundLocatBranchCode,
+        impoundLocatBranchName
       ]);
 }
 
@@ -577,6 +621,8 @@ ImpoundCarLocateParamSetStruct createImpoundCarLocateParamSetStruct({
   String? deliverLocateCode,
   String? logisticsCompany,
   String? receiver,
+  String? impoundLocatBranchCode,
+  String? impoundLocatBranchName,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -606,6 +652,8 @@ ImpoundCarLocateParamSetStruct createImpoundCarLocateParamSetStruct({
       deliverLocateCode: deliverLocateCode,
       logisticsCompany: logisticsCompany,
       receiver: receiver,
+      impoundLocatBranchCode: impoundLocatBranchCode,
+      impoundLocatBranchName: impoundLocatBranchName,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

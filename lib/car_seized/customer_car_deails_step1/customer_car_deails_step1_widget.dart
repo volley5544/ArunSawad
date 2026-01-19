@@ -37,6 +37,7 @@ class CustomerCarDeailsStep1Widget extends StatefulWidget {
     required this.motocycleConfig,
     required this.editAccessRoleData,
     required this.userRoleEdit,
+    this.regionList,
   });
 
   final String? step;
@@ -50,6 +51,7 @@ class CustomerCarDeailsStep1Widget extends StatefulWidget {
   final List<String>? motocycleConfig;
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
+  final List<String>? regionList;
 
   static String routeName = 'CustomerCarDeailsStep1';
   static String routePath = 'customerCarDeailsStep1';
@@ -10466,30 +10468,26 @@ class _CustomerCarDeailsStep1WidgetState
                       if (((FFAppState().profileLevel == 'สาขา') ||
                                   (FFAppState().profileLevel == 'เขต') ||
                                   (FFAppState().profileLevel == 'ภาค')
-                              ? (functions.containsValueInJsonList(
-                                      functions.getDataFromMapJson(
-                                          functions.getDataFromMapJson(
-                                              widget!.saveAccessRoleData,
-                                              widget!.step),
-                                          'price_edit_level'),
-                                      FFAppState().profileLevel)! &&
-                                  (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name'))!.length >
-                                          0
-                                      ? functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
+                              ? ((functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_level'), FFAppState().profileLevel)! &&
+                                      (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name'))!.length > 0
+                                          ? functions.containsValueInJsonList(
                                               functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  widget!.step),
-                                              'position_name'),
-                                          FFAppState().profilePositionName)!
+                                                  functions.getDataFromMapJson(
+                                                      widget!
+                                                          .saveAccessRoleData,
+                                                      widget!.step),
+                                                  'position_name'),
+                                              FFAppState().profilePositionName)!
+                                          : true)) ||
+                                  (widget!.step == 'step3'
+                                      ? ((FFAppState().profileBranch ==
+                                              widget!.impoundCarLocateParamSet
+                                                  ?.areaCode) ||
+                                          (FFAppState().profileBranch ==
+                                              widget!.impoundCarLocateParamSet?.regionCode) ||
+                                          widget!.regionList!.contains(FFAppState().profileBranch))
                                       : true))
-                              : functions.containsValueInJsonList(
-                                  functions.getDataFromMapJson(
-                                      functions.getDataFromMapJson(
-                                          widget!.saveAccessRoleData,
-                                          widget!.step),
-                                      'price_edit_role'),
-                                  widget!.userRoleSave)) ??
+                              : functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_role'), widget!.userRoleSave)) ??
                           true)
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -11232,28 +11230,25 @@ class _CustomerCarDeailsStep1WidgetState
                                 if ((FFAppState().profileLevel == 'สาขา') ||
                                         (FFAppState().profileLevel == 'เขต') ||
                                         (FFAppState().profileLevel == 'ภาค')
-                                    ? (functions.containsValueInJsonList(
-                                            functions.getDataFromMapJson(
-                                                functions.getDataFromMapJson(
-                                                    widget!.saveAccessRoleData,
-                                                    widget!.step),
-                                                'price_edit_level'),
-                                            FFAppState().profileLevel)! &&
-                                        (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name'))!.length > 0
-                                            ? functions.containsValueInJsonList(
-                                                functions.getDataFromMapJson(
+                                    ? ((functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_level'), FFAppState().profileLevel)! &&
+                                            (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name'))!.length > 0
+                                                ? functions.containsValueInJsonList(
                                                     functions.getDataFromMapJson(
-                                                        widget!
-                                                            .saveAccessRoleData,
-                                                        widget!.step),
-                                                    'position_name'),
-                                                FFAppState()
-                                                    .profilePositionName)!
+                                                        functions.getDataFromMapJson(
+                                                            widget!
+                                                                .saveAccessRoleData,
+                                                            widget!.step),
+                                                        'position_name'),
+                                                    FFAppState()
+                                                        .profilePositionName)!
+                                                : true)) ||
+                                        (widget!.step == 'step3'
+                                            ? ((FFAppState().profileBranch == widget!.impoundCarLocateParamSet?.areaCode) ||
+                                                (FFAppState().profileBranch ==
+                                                    widget!.impoundCarLocateParamSet?.regionCode) ||
+                                                widget!.regionList!.contains(FFAppState().profileBranch))
                                             : true))
-                                    : functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_role'),
-                                        widget!.userRoleSave)!) {
+                                    : functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_role'), widget!.userRoleSave)!) {
                                   if (!((_model.priceTextFieldTextController
                                               .text !=
                                           '') &&
@@ -11737,6 +11732,22 @@ class _CustomerCarDeailsStep1WidgetState
                                     : '',
                                 images17:
                                     _model.uploadedLocalFile_carUploaded13,
+                                impoundLocatBranchCode: widget!.step == 'step3'
+                                    ? (widget!.impoundCarLocateParamSet
+                                                ?.locatCode ==
+                                            'L001'
+                                        ? widget!.impoundCarLocateParamSet
+                                            ?.branchCodeLocat
+                                        : '')
+                                    : '',
+                                impoundLocatBranchName: widget!.step == 'step3'
+                                    ? (widget!.impoundCarLocateParamSet
+                                                ?.locatCode ==
+                                            'L001'
+                                        ? widget!.impoundCarLocateParamSet
+                                            ?.branchNameLocat
+                                        : '')
+                                    : '',
                               );
 
                               _shouldSetState = true;
@@ -11855,6 +11866,11 @@ class _CustomerCarDeailsStep1WidgetState
                                   'userRoleEdit': serializeParam(
                                     widget!.userRoleEdit,
                                     ParamType.String,
+                                  ),
+                                  'regionCodeList': serializeParam(
+                                    widget!.regionList,
+                                    ParamType.String,
+                                    isList: true,
                                   ),
                                 }.withoutNulls,
                               );

@@ -28,6 +28,8 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
     String? regionCode,
     String? regionName,
     String? locatCode,
+    String? impoundLocatBranchCode,
+    String? impoundLocatBranchName,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _improundcarSubLocatId = improundcarSubLocatId,
         _improundcarLocatId = improundcarLocatId,
@@ -47,6 +49,8 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
         _regionCode = regionCode,
         _regionName = regionName,
         _locatCode = locatCode,
+        _impoundLocatBranchCode = impoundLocatBranchCode,
+        _impoundLocatBranchName = impoundLocatBranchName,
         super(firestoreUtilData);
 
   // "improundcar_sub_locat_id" field.
@@ -175,6 +179,20 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
 
   bool hasLocatCode() => _locatCode != null;
 
+  // "impound_locat_branch_code" field.
+  String? _impoundLocatBranchCode;
+  String get impoundLocatBranchCode => _impoundLocatBranchCode ?? '';
+  set impoundLocatBranchCode(String? val) => _impoundLocatBranchCode = val;
+
+  bool hasImpoundLocatBranchCode() => _impoundLocatBranchCode != null;
+
+  // "impound_locat_branch_name" field.
+  String? _impoundLocatBranchName;
+  String get impoundLocatBranchName => _impoundLocatBranchName ?? '';
+  set impoundLocatBranchName(String? val) => _impoundLocatBranchName = val;
+
+  bool hasImpoundLocatBranchName() => _impoundLocatBranchName != null;
+
   static BranchDataTypeStruct fromMap(Map<String, dynamic> data) =>
       BranchDataTypeStruct(
         improundcarSubLocatId: data['improundcar_sub_locat_id'] as String?,
@@ -195,6 +213,8 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
         regionCode: data['region_code'] as String?,
         regionName: data['region_name'] as String?,
         locatCode: data['locat_code'] as String?,
+        impoundLocatBranchCode: data['impound_locat_branch_code'] as String?,
+        impoundLocatBranchName: data['impound_locat_branch_name'] as String?,
       );
 
   static BranchDataTypeStruct? maybeFromMap(dynamic data) => data is Map
@@ -220,6 +240,8 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
         'region_code': _regionCode,
         'region_name': _regionName,
         'locat_code': _locatCode,
+        'impound_locat_branch_code': _impoundLocatBranchCode,
+        'impound_locat_branch_name': _impoundLocatBranchName,
       }.withoutNulls;
 
   @override
@@ -294,6 +316,14 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
         ),
         'locat_code': serializeParam(
           _locatCode,
+          ParamType.String,
+        ),
+        'impound_locat_branch_code': serializeParam(
+          _impoundLocatBranchCode,
+          ParamType.String,
+        ),
+        'impound_locat_branch_name': serializeParam(
+          _impoundLocatBranchName,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -390,6 +420,16 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        impoundLocatBranchCode: deserializeParam(
+          data['impound_locat_branch_code'],
+          ParamType.String,
+          false,
+        ),
+        impoundLocatBranchName: deserializeParam(
+          data['impound_locat_branch_name'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -415,7 +455,9 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
         areaName == other.areaName &&
         regionCode == other.regionCode &&
         regionName == other.regionName &&
-        locatCode == other.locatCode;
+        locatCode == other.locatCode &&
+        impoundLocatBranchCode == other.impoundLocatBranchCode &&
+        impoundLocatBranchName == other.impoundLocatBranchName;
   }
 
   @override
@@ -437,7 +479,9 @@ class BranchDataTypeStruct extends FFFirebaseStruct {
         areaName,
         regionCode,
         regionName,
-        locatCode
+        locatCode,
+        impoundLocatBranchCode,
+        impoundLocatBranchName
       ]);
 }
 
@@ -460,6 +504,8 @@ BranchDataTypeStruct createBranchDataTypeStruct({
   String? regionCode,
   String? regionName,
   String? locatCode,
+  String? impoundLocatBranchCode,
+  String? impoundLocatBranchName,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -484,6 +530,8 @@ BranchDataTypeStruct createBranchDataTypeStruct({
       regionCode: regionCode,
       regionName: regionName,
       locatCode: locatCode,
+      impoundLocatBranchCode: impoundLocatBranchCode,
+      impoundLocatBranchName: impoundLocatBranchName,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

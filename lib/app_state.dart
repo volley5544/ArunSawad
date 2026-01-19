@@ -10251,6 +10251,35 @@ class FFAppState extends ChangeNotifier {
   set authorizeationKpiMenuDocRef(DocumentReference? value) {
     _authorizeationKpiMenuDocRef = value;
   }
+
+  List<String> _improundLocatBranchCode = [];
+  List<String> get improundLocatBranchCode => _improundLocatBranchCode;
+  set improundLocatBranchCode(List<String> value) {
+    _improundLocatBranchCode = value;
+  }
+
+  void addToImproundLocatBranchCode(String value) {
+    improundLocatBranchCode.add(value);
+  }
+
+  void removeFromImproundLocatBranchCode(String value) {
+    improundLocatBranchCode.remove(value);
+  }
+
+  void removeAtIndexFromImproundLocatBranchCode(int index) {
+    improundLocatBranchCode.removeAt(index);
+  }
+
+  void updateImproundLocatBranchCodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundLocatBranchCode[index] = updateFn(_improundLocatBranchCode[index]);
+  }
+
+  void insertAtIndexInImproundLocatBranchCode(int index, String value) {
+    improundLocatBranchCode.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

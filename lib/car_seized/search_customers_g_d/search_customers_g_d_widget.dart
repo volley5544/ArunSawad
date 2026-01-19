@@ -1502,6 +1502,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 )!
                                                 .toList()
                                                 .cast<String>();
+                                        FFAppState().improundLocatBranchCode =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .improundLocatBranchCode(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                         _model.dataImpound =
                                             UploadImagesGoogleDriveGroup
@@ -3016,6 +3026,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                                 deliverLocateName: FFAppState().impoundDeliverLocateNameList.elementAtOrNull(listImproundIndex),
                                                                                 deliverLocateCode: FFAppState().impoundDeliverLocateCodeList.elementAtOrNull(listImproundIndex),
                                                                                 logisticsCompany: FFAppState().impoundLogisticsCompany.elementAtOrNull(listImproundIndex),
+                                                                                impoundLocatBranchCode: FFAppState().improundLocatBranchCode.elementAtOrNull(listImproundIndex),
                                                                               ),
                                                                               ParamType.DataStruct,
                                                                             ),
@@ -3155,6 +3166,13 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                               receiver: '',
                                                                             ),
                                                                             ParamType.DataStruct,
+                                                                          ),
+                                                                          'regionCodeList':
+                                                                              serializeParam(
+                                                                            FFAppState().impoundCarRegionCodeList,
+                                                                            ParamType.String,
+                                                                            isList:
+                                                                                true,
                                                                           ),
                                                                         }.withoutNulls,
                                                                       );

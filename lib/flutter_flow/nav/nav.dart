@@ -2039,6 +2039,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'userRoleEdit',
                   ParamType.String,
                 ),
+                regionList: params.getParam<String>(
+                  'regionList',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
@@ -2290,6 +2295,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'fromPage2',
                   ParamType.String,
                 ),
+                regionCodeList: params.getParam<String>(
+                  'regionCodeList',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
@@ -2368,6 +2378,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 userRoleEdit: params.getParam(
                   'userRoleEdit',
                   ParamType.String,
+                ),
+                regionCodeList: params.getParam<String>(
+                  'regionCodeList',
+                  ParamType.String,
+                  isList: true,
                 ),
               ),
             ),

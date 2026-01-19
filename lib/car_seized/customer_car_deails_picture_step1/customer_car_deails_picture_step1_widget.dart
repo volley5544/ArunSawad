@@ -38,6 +38,7 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
     required this.editAccessRoleData,
     required this.userRoleEdit,
     String? fromPage2,
+    this.regionCodeList,
   }) : this.fromPage2 = fromPage2 ?? 'fromPage2';
 
   final String? step;
@@ -54,6 +55,7 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
   final String fromPage2;
+  final List<String>? regionCodeList;
 
   static String routeName = 'customerCarDeailsPictureStep1';
   static String routePath = 'customerCarDeailsPictureStep1';
@@ -568,6 +570,11 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         widget!.impoundCarLocateParamSet,
                         ParamType.DataStruct,
                       ),
+                      'regionCodeList': serializeParam(
+                        widget!.regionCodeList,
+                        ParamType.String,
+                        isList: true,
+                      ),
                     }.withoutNulls,
                   );
                 },
@@ -1015,6 +1022,12 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                   widget!
                                                       .impoundCarLocateParamSet,
                                                   ParamType.DataStruct,
+                                                ),
+                                                'regionCodeList':
+                                                    serializeParam(
+                                                  widget!.regionCodeList,
+                                                  ParamType.String,
+                                                  isList: true,
                                                 ),
                                               }.withoutNulls,
                                             );
