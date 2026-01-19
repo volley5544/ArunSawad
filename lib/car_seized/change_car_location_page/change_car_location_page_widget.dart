@@ -3318,11 +3318,13 @@ class _ChangeCarLocationPageWidgetState
                                             (FFAppState().profileLevel ==
                                                 'เขต') ||
                                             (FFAppState().profileLevel == 'ภาค')
-                                        ? functions.getDataFromMapJson(
+                                        ? functions.containsValueInJsonList(
                                             functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                widget!.step),
-                                            'include_deliver_data_level')!
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_level'),
+                                            FFAppState().profileLevel)!
                                         : functions.containsValueInJsonList(
                                             functions.getDataFromMapJson(
                                                 functions.getDataFromMapJson(
