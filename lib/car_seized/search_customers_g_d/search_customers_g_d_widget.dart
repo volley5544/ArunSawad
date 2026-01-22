@@ -2830,6 +2830,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                           .transparent,
                                                                   onTap:
                                                                       () async {
+                                                                    var _shouldSetState =
+                                                                        false;
                                                                     if (widget!
                                                                             .fromPage ==
                                                                         'price') {
@@ -2859,6 +2861,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             );
                                                                           },
                                                                         );
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
                                                                         return;
                                                                       }
                                                                       await showModalBottomSheet(
@@ -2898,6 +2903,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                           safeSetState(
                                                                               () {}));
 
+                                                                      if (_shouldSetState)
+                                                                        safeSetState(
+                                                                            () {});
                                                                       return;
                                                                     }
                                                                     if ((widget!.fromPage ==
@@ -3043,6 +3051,81 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                           }.withoutNulls,
                                                                         );
 
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
+                                                                        return;
+                                                                      }
+                                                                      _model.searchBranchOutput =
+                                                                          await ImproundCarSearchBranchCall
+                                                                              .call(
+                                                                        apiUrl:
+                                                                            FFAppState().impoundUrlVloan,
+                                                                        token: FFAppState()
+                                                                            .impoundUrlVloanToken,
+                                                                        branchCode: FFAppState()
+                                                                            .improundLOCAT
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                      );
+
+                                                                      _shouldSetState =
+                                                                          true;
+                                                                      if ((_model.searchBranchOutput?.statusCode ??
+                                                                              200) !=
+                                                                          200) {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('พบข้อผิดพลาด Connection(${(_model.searchBranchOutput?.statusCode ?? 200).toString()})'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
+                                                                        return;
+                                                                      }
+                                                                      if ('${getJsonField(
+                                                                            (_model.searchBranchOutput?.jsonBody ??
+                                                                                ''),
+                                                                            r'''$.code''',
+                                                                          ).toString()}' !=
+                                                                          '200') {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('${getJsonField(
+                                                                                  (_model.searchBranchOutput?.jsonBody ?? ''),
+                                                                                  r'''$.message''',
+                                                                                ).toString()}'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
                                                                         return;
                                                                       }
 
@@ -3170,7 +3253,19 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                           ),
                                                                           'regionCodeList':
                                                                               serializeParam(
-                                                                            FFAppState().impoundCarRegionCodeList,
+                                                                            (String areaCode, String regionCode) {
+                                                                              return [
+                                                                                areaCode,
+                                                                                regionCode
+                                                                              ];
+                                                                            }(
+                                                                                '${ImproundCarSearchBranchCall.data(
+                                                                                  (_model.searchBranchOutput?.jsonBody ?? ''),
+                                                                                )?.areaCode}',
+                                                                                ImproundCarSearchBranchCall.data(
+                                                                                  (_model.searchBranchOutput?.jsonBody ?? ''),
+                                                                                )!
+                                                                                    .regionCode),
                                                                             ParamType.String,
                                                                             isList:
                                                                                 true,
@@ -3290,6 +3385,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                         }.withoutNulls,
                                                                       );
                                                                     }
+
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
                                                                   },
                                                                   child:
                                                                       Container(

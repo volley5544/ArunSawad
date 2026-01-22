@@ -54,6 +54,8 @@ class SearchCustomersGDModel extends FlutterFlowModel<SearchCustomersGDWidget> {
   ApiCallResponse? vloanContractAPIOutput;
   // Stores action output result for [Backend Call - API (searchContractNumber)] action in Button widget.
   ApiCallResponse? searchAPIOutput;
+  // Stores action output result for [Backend Call - API (improundCarSearchBranch)] action in Container widget.
+  ApiCallResponse? searchBranchOutput;
   // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
   String? selectedSeeTypeOutput;
 
