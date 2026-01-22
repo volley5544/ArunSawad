@@ -227,26 +227,12 @@ class _ChangeCarLocationPageWidgetState
             _model.priceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.priceTextFieldTextController.text);
-            _model.priceTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.priceTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.priceTextFieldTextController!.text.length,
-              );
-            });
           });
         } else {
           safeSetState(() {
             _model.priceTextFieldTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.priceTextFieldTextController.text)!;
-            _model.priceTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.priceTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.priceTextFieldTextController!.text.length,
-              );
-            });
           });
         }
       },
@@ -1607,10 +1593,11 @@ class _ChangeCarLocationPageWidgetState
                                           safeSetState(() {});
                                         return;
                                       }
-                                      if (ImproundCarGetBranchCall.statusLayer1(
+                                      if ('${getJsonField(
                                             (_model.getBranchOutput?.jsonBody ??
                                                 ''),
-                                          ) !=
+                                            r'''$.code''',
+                                          ).toString()}' !=
                                           '200') {
                                         await showDialog(
                                           context: context,
@@ -6293,6 +6280,9 @@ class _ChangeCarLocationPageWidgetState
                                                       .companyTextFieldTextController
                                                       .text
                                                   : '',
+                                              impoundLocatBranchCode: widget!
+                                                  .impoundCarLocateParamSet
+                                                  ?.impoundLocatBranchCode,
                                             ),
                                             ParamType.DataStruct,
                                           ),

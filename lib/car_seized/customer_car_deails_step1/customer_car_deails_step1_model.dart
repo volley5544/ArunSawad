@@ -3,6 +3,7 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/capture_camera_widget_widget.dart';
+import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/loading_scene_insurance/loading_scene_insurance_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -17,6 +18,7 @@ import '/index.dart';
 import 'customer_car_deails_step1_widget.dart'
     show CustomerCarDeailsStep1Widget;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -35,6 +37,8 @@ class CustomerCarDeailsStep1Model
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (improundCarSearchBranch)] action in CustomerCarDeailsStep1 widget.
+  ApiCallResponse? branchSearchOutput;
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel1;
   bool isDataUploading_carUploaded01 = false;

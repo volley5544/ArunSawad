@@ -3164,6 +3164,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                               deliverLocateCode: FFAppState().impoundDeliverLocateCodeList.elementAtOrNull(listImproundIndex),
                                                                               logisticsCompany: '',
                                                                               receiver: '',
+                                                                              impoundLocatBranchCode: FFAppState().improundLocatBranchCode.elementAtOrNull(listImproundIndex),
                                                                             ),
                                                                             ParamType.DataStruct,
                                                                           ),

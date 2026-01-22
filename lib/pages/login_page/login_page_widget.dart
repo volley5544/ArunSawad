@@ -420,23 +420,45 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               ),
                               Align(
                                 alignment: AlignmentDirectional(-2.91, -6.61),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.8,
-                                  height:
-                                      MediaQuery.sizeOf(context).width * 0.8,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        Color(0xFFD63C00),
-                                        Color(0xFFFFA071)
-                                      ],
-                                      stops: [0.0, 1.0],
-                                      begin: AlignmentDirectional(0.0, -1.0),
-                                      end: AlignmentDirectional(0, 1.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      WebviewPageWidget.routeName,
+                                      queryParameters: {
+                                        'titleName': serializeParam(
+                                          '',
+                                          ParamType.String,
+                                        ),
+                                        'webUrl': serializeParam(
+                                          '',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.8,
+                                    height:
+                                        MediaQuery.sizeOf(context).width * 0.8,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xFFD63C00),
+                                          Color(0xFFFFA071)
+                                        ],
+                                        stops: [0.0, 1.0],
+                                        begin: AlignmentDirectional(0.0, -1.0),
+                                        end: AlignmentDirectional(0, 1.0),
+                                      ),
+                                      shape: BoxShape.circle,
                                     ),
-                                    shape: BoxShape.circle,
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                   ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
                                 ).animateOnPageLoad(animationsMap[
                                     'containerOnPageLoadAnimation3']!),
                               ),
@@ -832,11 +854,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           color: Color(0xFF0006D6),
                                         ),
                                         suffixIcon: InkWell(
-                                          onTap: () => safeSetState(
-                                            () => _model
+                                          onTap: () async {
+                                            safeSetState(() => _model
                                                     .passwordInputVisibility =
-                                                !_model.passwordInputVisibility,
-                                          ),
+                                                !_model
+                                                    .passwordInputVisibility);
+                                          },
                                           focusNode:
                                               FocusNode(skipTraversal: true),
                                           child: Icon(
