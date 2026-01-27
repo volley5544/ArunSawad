@@ -168,6 +168,22 @@ class _CarSeizedDashboardPageWidgetState
                                         widget!.editAccessRoleData, 'step1'),
                                     'role_name'),
                                 widget!.userRoleEdit));
+                      } else if (widget!.fromPage == 'price') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.priceAccessRoleData, 'step1'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.priceAccessRoleData, 'step1'),
+                                    'role_name'),
+                                widget!.userRolePrice));
                       } else {
                         return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
@@ -211,6 +227,8 @@ class _CarSeizedDashboardPageWidgetState
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
                                 return 'แก้ไขข้อมูลส่งเปลี่ยนเป้ารถยึด';
+                              } else if (widget!.fromPage == 'price') {
+                                return 'ตั้งราคาส่งเปลี่ยนเป้ารถยึด';
                               } else {
                                 return 'ดูรูปส่งเปลี่ยนเป้ารถยึด';
                               }
@@ -356,6 +374,32 @@ class _CarSeizedDashboardPageWidgetState
                                   ),
                                 ),
                               ),
+                            if (widget!.fromPage == 'price')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.attach_money_outlined,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               flex: 1,
                               child: Column(
@@ -371,6 +415,9 @@ class _CarSeizedDashboardPageWidgetState
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
                                           return 'แก้ไขข้อมูลรูป';
+                                        } else if (widget!.fromPage ==
+                                            'price') {
+                                          return 'ตั้งราคา';
                                         } else {
                                           return 'ดูรูป';
                                         }
@@ -410,7 +457,8 @@ class _CarSeizedDashboardPageWidgetState
                                       visible: (widget!.fromPage ==
                                               'changeCarLocation') ||
                                           (widget!.fromPage == 'takeImages') ||
-                                          (widget!.fromPage == 'seeImages'),
+                                          (widget!.fromPage == 'seeImages') ||
+                                          (widget!.fromPage == 'price'),
                                       child: Text(
                                         () {
                                           if (widget!.fromPage ==
@@ -493,6 +541,22 @@ class _CarSeizedDashboardPageWidgetState
                                         widget!.editAccessRoleData, 'step2'),
                                     'role_name'),
                                 widget!.userRoleEdit));
+                      } else if (widget!.fromPage == 'price') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.priceAccessRoleData, 'step2'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.priceAccessRoleData, 'step2'),
+                                    'role_name'),
+                                widget!.userRolePrice));
                       } else {
                         return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
@@ -536,6 +600,8 @@ class _CarSeizedDashboardPageWidgetState
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
                                 return 'แก้ไขข้อมูลส่งมอบรถ';
+                              } else if (widget!.fromPage == 'price') {
+                                return 'ตั้งราคาส่งมอบรถ';
                               } else {
                                 return 'ดูรูปส่งมอบรถ';
                               }
@@ -682,6 +748,32 @@ class _CarSeizedDashboardPageWidgetState
                                   ),
                                 ),
                               ),
+                            if (widget!.fromPage == 'price')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.attach_money_outlined,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               flex: 1,
                               child: Column(
@@ -694,6 +786,8 @@ class _CarSeizedDashboardPageWidgetState
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
                                         return 'แก้ไขข้อมูลรูป';
+                                      } else if (widget!.fromPage == 'price') {
+                                        return 'ตั้งราคา';
                                       } else {
                                         return 'ดูรูป';
                                       }
@@ -728,7 +822,8 @@ class _CarSeizedDashboardPageWidgetState
                                   if ((widget!.fromPage ==
                                           'changeCarLocation') ||
                                       (widget!.fromPage == 'takeImages') ||
-                                      (widget!.fromPage == 'seeImages'))
+                                      (widget!.fromPage == 'seeImages') ||
+                                      (widget!.fromPage == 'price'))
                                     Text(
                                       () {
                                         if (widget!.fromPage == 'takeImages') {
@@ -808,6 +903,22 @@ class _CarSeizedDashboardPageWidgetState
                                         widget!.editAccessRoleData, 'step3'),
                                     'role_name'),
                                 widget!.userRoleEdit));
+                      } else if (widget!.fromPage == 'price') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.priceAccessRoleData, 'step3'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.priceAccessRoleData, 'step3'),
+                                    'role_name'),
+                                widget!.userRolePrice));
                       } else {
                         return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
@@ -851,6 +962,8 @@ class _CarSeizedDashboardPageWidgetState
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
                                 return 'แก้ไขข้อมูลตั้งราคา';
+                              } else if (widget!.fromPage == 'price') {
+                                return 'ตั้งราคา';
                               } else {
                                 return 'ดูรูปตั้งราคา';
                               }
@@ -997,6 +1110,32 @@ class _CarSeizedDashboardPageWidgetState
                                   ),
                                 ),
                               ),
+                            if (widget!.fromPage == 'price')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.attach_money_outlined,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               flex: 1,
                               child: Column(
@@ -1008,7 +1147,9 @@ class _CarSeizedDashboardPageWidgetState
                                         return 'ถ่ายรูปตั้งราคา';
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
-                                        return 'แก้ไขข้อมูล';
+                                        return 'แก้ไขข้อมูลรูป';
+                                      } else if (widget!.fromPage == 'price') {
+                                        return 'ตั้งราคา';
                                       } else {
                                         return 'ดูรูปตั้งราคา';
                                       }
@@ -1043,7 +1184,8 @@ class _CarSeizedDashboardPageWidgetState
                                   if ((widget!.fromPage ==
                                           'changeCarLocation') ||
                                       (widget!.fromPage == 'takeImages') ||
-                                      (widget!.fromPage == 'seeImages'))
+                                      (widget!.fromPage == 'seeImages') ||
+                                      (widget!.fromPage == 'price'))
                                     Text(
                                       () {
                                         if (widget!.fromPage == 'takeImages') {
@@ -1123,6 +1265,22 @@ class _CarSeizedDashboardPageWidgetState
                                         widget!.editAccessRoleData, 'step4'),
                                     'role_name'),
                                 widget!.userRoleEdit));
+                      } else if (widget!.fromPage == 'price') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.priceAccessRoleData, 'step4'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.priceAccessRoleData, 'step4'),
+                                    'role_name'),
+                                widget!.userRolePrice));
                       } else {
                         return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
@@ -1166,6 +1324,8 @@ class _CarSeizedDashboardPageWidgetState
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
                                 return 'แก้ไขข้อมูลเข้าประมูล';
+                              } else if (widget!.fromPage == 'price') {
+                                return 'ตั้งราคาเข้าประมูล';
                               } else {
                                 return 'ดูรูปเข้าประมูล';
                               }
@@ -1312,6 +1472,32 @@ class _CarSeizedDashboardPageWidgetState
                                   ),
                                 ),
                               ),
+                            if (widget!.fromPage == 'price')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.attach_money_outlined,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               flex: 1,
                               child: Column(
@@ -1324,6 +1510,8 @@ class _CarSeizedDashboardPageWidgetState
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
                                         return 'แก้ไขข้อมูล';
+                                      } else if (widget!.fromPage == 'price') {
+                                        return 'ตั้งราคา';
                                       } else {
                                         return 'ดูรูป';
                                       }
@@ -1358,7 +1546,8 @@ class _CarSeizedDashboardPageWidgetState
                                   if ((widget!.fromPage ==
                                           'changeCarLocation') ||
                                       (widget!.fromPage == 'takeImages') ||
-                                      (widget!.fromPage == 'seeImages'))
+                                      (widget!.fromPage == 'seeImages') ||
+                                      (widget!.fromPage == 'price'))
                                     Text(
                                       () {
                                         if (widget!.fromPage == 'takeImages') {

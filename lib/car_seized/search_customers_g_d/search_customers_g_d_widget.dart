@@ -2893,6 +2893,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                                   child: ImpoundCarPriceInputComponentWidget(
                                                                                     contNo: FFAppState().improundCONTNO.elementAtOrNull(listImproundIndex),
                                                                                     dataImpound: _model.dataImpound.elementAtOrNull(listImproundIndex),
+                                                                                    step: widget!.step,
                                                                                   ),
                                                                                 ),
                                                                               ),

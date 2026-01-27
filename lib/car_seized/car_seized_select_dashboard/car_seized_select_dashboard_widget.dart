@@ -827,18 +827,10 @@ class _CarSeizedSelectDashboardWidgetState
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          SearchCustomersGDWidget.routeName,
+                          CarSeizedDashboardPageWidget.routeName,
                           queryParameters: {
                             'fromPage': serializeParam(
                               'price',
-                              ParamType.String,
-                            ),
-                            'step': serializeParam(
-                              'step1',
-                              ParamType.String,
-                            ),
-                            'textShow': serializeParam(
-                              'ตั้งราคา',
                               ParamType.String,
                             ),
                             'readAccessRoleData': serializeParam(
@@ -873,10 +865,6 @@ class _CarSeizedSelectDashboardWidgetState
                             ),
                             'userRoleEdit': serializeParam(
                               _model.userRoleEdit,
-                              ParamType.String,
-                            ),
-                            'contractNumber': serializeParam(
-                              '',
                               ParamType.String,
                             ),
                             'priceAccessRoleData': serializeParam(

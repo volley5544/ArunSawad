@@ -18,10 +18,12 @@ class ImpoundCarPriceInputComponentWidget extends StatefulWidget {
     super.key,
     String? contNo,
     this.dataImpound,
+    this.step,
   }) : this.contNo = contNo ?? 'cont_no';
 
   final String contNo;
   final ImpoundCarDetailDataTypeStruct? dataImpound;
+  final String? step;
 
   @override
   State<ImpoundCarPriceInputComponentWidget> createState() =>
@@ -326,7 +328,7 @@ class _ImpoundCarPriceInputComponentWidgetState
                           userid: FFAppState().employeeID,
                           impoundcarPrice:
                               _model.priceTextfieldTextController.text,
-                          step: 'step1',
+                          step: widget!.step,
                           improundcarLocatId:
                               widget!.dataImpound?.improundcarLocatId,
                           locatName: widget!.dataImpound?.locatName,
