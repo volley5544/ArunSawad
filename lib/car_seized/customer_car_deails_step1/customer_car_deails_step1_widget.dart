@@ -11673,7 +11673,14 @@ class _CustomerCarDeailsStep1WidgetState
                                           (FFAppState().profileLevel ==
                                               'เขต') ||
                                           (FFAppState().profileLevel == 'ภาค')
-                                      ? ((functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_level'), FFAppState().profileLevel)! &&
+                                      ? ((functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          widget!.step),
+                                                      'price_edit_level'),
+                                                  FFAppState().profileLevel)! &&
                                               (functions.getListStringFromJson(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'position_name'))!.length > 0
                                                   ? functions.containsValueInJsonList(
                                                       functions.getDataFromMapJson(
@@ -11684,13 +11691,21 @@ class _CustomerCarDeailsStep1WidgetState
                                                           'position_name'),
                                                       FFAppState()
                                                           .profilePositionName)!
-                                                  : true)) ||
+                                                  : true)) &&
                                           (widget!.step == 'step3'
-                                              ? ((FFAppState().profileBranch == widget!.impoundCarLocateParamSet?.areaCode) ||
-                                                  (FFAppState().profileBranch ==
-                                                      widget!
-                                                          .impoundCarLocateParamSet
-                                                          ?.regionCode) ||
+                                              ? ((widget!.impoundCarLocateParamSet?.locatCode ==
+                                                          'L001'
+                                                      ? ((FFAppState().profileBranch == widget!.impoundCarLocateParamSet?.areaCode) ||
+                                                          (FFAppState().profileBranch == widget!.impoundCarLocateParamSet?.regionCode))
+                                                      : ('${getJsonField(
+                                                                (_model.branchSearchOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                                r'''$.code''',
+                                                              ).toString()}' ==
+                                                              '200'
+                                                          ? ((FFAppState().profileBranch == widget!.impoundCarLocateParamSet?.areaCode) || (FFAppState().profileBranch == widget!.impoundCarLocateParamSet?.regionCode))
+                                                          : false)) ||
                                                   widget!.regionList!.contains(FFAppState().profileBranch))
                                               : true))
                                       : functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'price_edit_role'), widget!.userRoleSave)!) {
