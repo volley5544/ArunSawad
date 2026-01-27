@@ -3049,6 +3049,12 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                               widget!.userRoleEdit,
                                                                               ParamType.String,
                                                                             ),
+                                                                            'regionCodeList':
+                                                                                serializeParam(
+                                                                              [],
+                                                                              ParamType.String,
+                                                                              isList: true,
+                                                                            ),
                                                                           }.withoutNulls,
                                                                         );
 
