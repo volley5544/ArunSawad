@@ -3051,7 +3051,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             ),
                                                                             'regionCodeList':
                                                                                 serializeParam(
-                                                                              [],
+                                                                              FFAppState().impoundCarRegionCodeList,
                                                                               ParamType.String,
                                                                               isList: true,
                                                                             ),
