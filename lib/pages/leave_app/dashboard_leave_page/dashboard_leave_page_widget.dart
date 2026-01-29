@@ -87,7 +87,9 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.getLocationOnPageLoad = await actions.getLocation();
+      _model.getLocationOnPageLoad = await actions.getLocation(
+        context,
+      );
 
       var userLogRecordReference = UserLogRecord.collection.doc();
       await userLogRecordReference.set(createUserLogRecordData(

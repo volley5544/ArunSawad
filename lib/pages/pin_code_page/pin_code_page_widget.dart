@@ -861,7 +861,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  _model.getLocationLogoutButton = await actions.getLocation();
+                                                                                  _model.getLocationLogoutButton = await actions.getLocation(
+                                                                                    context,
+                                                                                  );
                                                                                   _shouldSetState = true;
 
                                                                                   var userLogRecordReference = UserLogRecord.collection.doc();
@@ -1841,7 +1843,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                                                   return;
                                                                                                                 }
-                                                                                                                _model.getLocationPin1 = await actions.getLocation();
+                                                                                                                _model.getLocationPin1 = await actions.getLocation(
+                                                                                                                  context,
+                                                                                                                );
                                                                                                                 _shouldSetState = true;
 
                                                                                                                 var userLogRecordReference = UserLogRecord.collection.doc();
@@ -2566,7 +2570,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                             if (_shouldSetState) safeSetState(() {});
                                                                                                                             return;
                                                                                                                           }
-                                                                                                                          _model.getLocationBioAuthen1 = await actions.getLocation();
+                                                                                                                          _model.getLocationBioAuthen1 = await actions.getLocation(
+                                                                                                                            context,
+                                                                                                                          );
                                                                                                                           _shouldSetState = true;
 
                                                                                                                           var userLogRecordReference = UserLogRecord.collection.doc();

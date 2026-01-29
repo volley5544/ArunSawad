@@ -100,7 +100,9 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                   (_model.leaveListAPIOutput?.jsonBody ?? ''),
                 ) ==
                 'Token Signature could not be verified.')) {
-          _model.getLocationOnPageLoad = await actions.getLocation();
+          _model.getLocationOnPageLoad = await actions.getLocation(
+            context,
+          );
 
           var userLogRecordReference = UserLogRecord.collection.doc();
           await userLogRecordReference.set(createUserLogRecordData(

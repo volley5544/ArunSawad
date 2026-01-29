@@ -134,7 +134,9 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                     (_model.checkinThisMonthOutput?.jsonBody ?? ''),
                   ) ==
                   'Token Signature could not be verified.')) {
-            _model.getLocationOnPageLoad3 = await actions.getLocation();
+            _model.getLocationOnPageLoad3 = await actions.getLocation(
+              context,
+            );
 
             var userLogRecordReference1 = UserLogRecord.collection.doc();
             await userLogRecordReference1.set(createUserLogRecordData(
@@ -298,7 +300,9 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                     (_model.checkinLastMonthOutput?.jsonBody ?? ''),
                   ) ==
                   'Token Signature could not be verified.')) {
-            _model.getLocationOnPageLoad4 = await actions.getLocation();
+            _model.getLocationOnPageLoad4 = await actions.getLocation(
+              context,
+            );
 
             var userLogRecordReference2 = UserLogRecord.collection.doc();
             await userLogRecordReference2.set(createUserLogRecordData(

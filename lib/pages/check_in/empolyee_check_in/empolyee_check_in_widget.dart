@@ -261,7 +261,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                         (_model.getLocationOutput1?.jsonBody ?? ''),
                       ) ==
                       'Token Signature could not be verified.')) {
-                _model.getLocationOnPageLoad1 = await actions.getLocation();
+                _model.getLocationOnPageLoad1 = await actions.getLocation(
+                  context,
+                );
 
                 var userLogRecordReference1 = UserLogRecord.collection.doc();
                 await userLogRecordReference1.set(createUserLogRecordData(
@@ -419,7 +421,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                     (_model.getLocationOutput?.jsonBody ?? ''),
                   ) ==
                   'Token Signature could not be verified.')) {
-            _model.getLocationOnPageLoad2 = await actions.getLocation();
+            _model.getLocationOnPageLoad2 = await actions.getLocation(
+              context,
+            );
 
             var userLogRecordReference2 = UserLogRecord.collection.doc();
             await userLogRecordReference2.set(createUserLogRecordData(
@@ -2717,7 +2721,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                     '') &&
                                             (FFAppState().imgURLTemp != '')) {
                                           _model.getLocationSubmitButton1 =
-                                              await actions.getLocation();
+                                              await actions.getLocation(
+                                            context,
+                                          );
                                           _shouldSetState = true;
                                           _model.inCurrentLocation =
                                               await actions.locationCal(
@@ -2963,7 +2969,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                           return;
                                         }
                                         _model.getLocationSubmitButton2 =
-                                            await actions.getLocation();
+                                            await actions.getLocation(
+                                          context,
+                                        );
                                         _shouldSetState = true;
                                         _model.inCurrentLocation2 =
                                             await actions.locationCal(
@@ -3045,7 +3053,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                       _shouldSetState = true;
                                       if (_model.checkGPSBeforeSave!) {
                                         _model.getLocationSubmitButton3 =
-                                            await actions.getLocation();
+                                            await actions.getLocation(
+                                          context,
+                                        );
                                         _shouldSetState = true;
                                         _model.checkinAPIOutput =
                                             await CheckinAPICall.call(

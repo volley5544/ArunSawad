@@ -515,7 +515,9 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
       );
       return;
     }
-    getLocationPinActionBloc = await actions.getLocation();
+    getLocationPinActionBloc = await actions.getLocation(
+      context,
+    );
 
     var userLogRecordReference = UserLogRecord.collection.doc();
     await userLogRecordReference.set(createUserLogRecordData(
