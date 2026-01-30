@@ -57,6 +57,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? userUIDguest;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   UserCustomRecord? createdUserCustomguest;
+  // Stores action output result for [Custom Action - checkDeveloperMode] action in Button widget.
+  bool? checkDeveloperMode;
   // Stores action output result for [Backend Call - API (authenAPI)] action in Button widget.
   ApiCallResponse? authenAPIOutputBtn;
   // Stores action output result for [Backend Call - API (authenAPI)] action in Button widget.

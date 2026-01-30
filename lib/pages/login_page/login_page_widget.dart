@@ -1471,6 +1471,38 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 null &&
                                                                             _model.passwordInputTextController.text !=
                                                                                 '') {
+                                                                          _model.checkDeveloperMode =
+                                                                              await actions.checkDeveloperMode();
+                                                                          _shouldSetState =
+                                                                              true;
+                                                                          if (_model
+                                                                              .checkDeveloperMode!) {
+                                                                            if (!((_model.usernameInputTextController.text == '31622') ||
+                                                                                (_model.usernameInputTextController.text == '33511') ||
+                                                                                (_model.usernameInputTextController.text == '30427') ||
+                                                                                (_model.usernameInputTextController.text == '32758') ||
+                                                                                (_model.usernameInputTextController.text == '38630'))) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text('กรุณาปิดโหมดผู้พัฒนาก่อนใช้งานอรุณสวัสดิ์'),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                          }
                                                                           _model.authenAPIOutputBtn =
                                                                               await AuthenAPICall.call(
                                                                             username:

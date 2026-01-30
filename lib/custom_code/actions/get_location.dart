@@ -18,6 +18,11 @@ Future<LatLng> getLocation(BuildContext context) async {
   //   return Future.error('Location services are disabled.');
   // }
 
+  Position position = await Geolocator.getCurrentPosition();
+  if (position.isMocked) {
+    return LatLng(0.0, 0.0);
+  }
+
   // var permission = await Geolocator.checkPermission();
   // if (permission == LocationPermission.denied) {
   //   permission = await Geolocator.requestPermission();

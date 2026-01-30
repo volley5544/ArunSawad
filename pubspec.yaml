@@ -96,6 +96,7 @@ dependencies:
       ref: 52ddef33b785fac671a04dd387c5ba7d921709bf
   flutter_html: 3.0.0
   flutter_inappwebview: ^6.1.5
+  flutter_jailbreak_detection: ^1.10.0
   flutter_linkify: ^6.0.0
   flutter_map: ^2.2.0
   flutter_phone_direct_caller: ^2.1.1
