@@ -38,7 +38,6 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
   late TimeSheetPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -49,8 +48,6 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
         parameters: {'screen_name': 'TimeSheetPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       showDialog(
         context: context,
         builder: (dialogContext) {
@@ -83,7 +80,9 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVTimeSheet = await actions.a8();
+      _model.checkLatLngBVTimeSheet = await actions.a8(
+        'Branch_View_TimeSheet',
+      );
       if (!_model.checkLatLngBVTimeSheet!) {
         Navigator.pop(context);
         await showDialog(
@@ -108,7 +107,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
         return;
       }
       _model.getLocationOnPageLoad = await actions.getLocation(
-        context,
+        'Branch_View_TimeSheet',
       );
 
       var userLogRecordReference = UserLogRecord.collection.doc();

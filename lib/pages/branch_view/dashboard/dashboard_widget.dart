@@ -107,6 +107,36 @@ class _DashboardWidgetState extends State<DashboardWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      _model.checkDeveloperMode = await actions.checkDeveloperMode();
+      if (_model.checkDeveloperMode!) {
+        if (!((FFAppState().employeeID == '31622') ||
+            (FFAppState().employeeID == '33511') ||
+            (FFAppState().employeeID == '30427') ||
+            (FFAppState().employeeID == '32758') ||
+            (FFAppState().employeeID == '38630'))) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text('กรุณาปิดโหมดผู้พัฒนาก่อนใช้งานอรุณสวัสดิ์'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          Navigator.pop(context);
+
+          context.goNamed(SuperAppPageWidget.routeName);
+
+          return;
+        }
+      }
       FFAppState().counterNum = 0;
       FFAppState().isFromTimesheetPage = false;
       FFAppState().update(() {});

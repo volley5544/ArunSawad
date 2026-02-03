@@ -35,6 +35,8 @@ class SaveOnSiteFollowUpDebtModel
     extends FlutterFlowModel<SaveOnSiteFollowUpDebtWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - checkDeveloperMode] action in saveOnSiteFollowUpDebt widget.
+  bool? checkDeveloperMode;
   // Stores action output result for [Custom Action - a8] action in saveOnSiteFollowUpDebt widget.
   bool? checkLatLngBVCollection;
   // Stores action output result for [Backend Call - Create Document] action in saveOnSiteFollowUpDebt widget.

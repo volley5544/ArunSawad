@@ -35,6 +35,8 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - checkDeveloperMode] action in EmpolyeeCheckIn widget.
+  bool? checkDeveloperMode;
   // Stores action output result for [Backend Call - API (GetlocationAPI)] action in EmpolyeeCheckIn widget.
   ApiCallResponse? getLocationOutput1;
   // Stores action output result for [Custom Action - getLocation] action in EmpolyeeCheckIn widget.

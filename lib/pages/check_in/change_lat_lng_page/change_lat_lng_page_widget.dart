@@ -63,7 +63,9 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVCheckIn = await actions.a8();
+      _model.checkLatLngBVCheckIn = await actions.a8(
+        'Change_LatLng',
+      );
       if (!_model.checkLatLngBVCheckIn!) {
         await showDialog(
           context: context,
@@ -91,14 +93,14 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
         var userLogRecordReference = UserLogRecord.collection.doc();
         await userLogRecordReference.set(createUserLogRecordData(
           employeeId: FFAppState().employeeID,
-          action: 'Branch_View_CheckIn',
+          action: 'Change_LatLng',
           actionTime: getCurrentTimestamp,
           userLocation: currentUserLocationValue,
         ));
         _model.createdUserLogBVCheckIn = UserLogRecord.getDocumentFromData(
             createUserLogRecordData(
               employeeId: FFAppState().employeeID,
-              action: 'Branch_View_CheckIn',
+              action: 'Change_LatLng',
               actionTime: getCurrentTimestamp,
               userLocation: currentUserLocationValue,
             ),

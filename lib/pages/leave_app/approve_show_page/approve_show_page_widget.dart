@@ -151,7 +151,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                 ) ==
                 'Token Signature could not be verified.')) {
           _model.getLocationOnPageLoad = await actions.getLocation(
-            context,
+            'Logout',
           );
 
           var userLogRecordReference = UserLogRecord.collection.doc();

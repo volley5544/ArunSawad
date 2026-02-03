@@ -839,7 +839,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  _model.checkLatLngLogout = await actions.a8();
+                                                                                  _model.checkLatLngLogout = await actions.a8(
+                                                                                    'Logout',
+                                                                                  );
                                                                                   _shouldSetState = true;
                                                                                   if (!_model.checkLatLngLogout!) {
                                                                                     await showDialog(
@@ -862,7 +864,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     return;
                                                                                   }
                                                                                   _model.getLocationLogoutButton = await actions.getLocation(
-                                                                                    context,
+                                                                                    'Logout',
                                                                                   );
                                                                                   _shouldSetState = true;
 
@@ -956,20 +958,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                      child: FlutterFlowIconButton(
-                                                                                        borderColor: Colors.transparent,
-                                                                                        borderRadius: 30.0,
-                                                                                        borderWidth: 1.0,
-                                                                                        buttonSize: 55.0,
-                                                                                        icon: Icon(
-                                                                                          Icons.logout,
-                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          size: 35.0,
-                                                                                        ),
-                                                                                        onPressed: () {
-                                                                                          print('IconButton pressed ...');
-                                                                                        },
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                      child: Icon(
+                                                                                        Icons.logout,
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                        size: 33.0,
                                                                                       ),
                                                                                     ),
                                                                                     Text(
@@ -1042,20 +1035,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                      child: FlutterFlowIconButton(
-                                                                                        borderColor: Colors.transparent,
-                                                                                        borderRadius: 30.0,
-                                                                                        borderWidth: 1.0,
-                                                                                        buttonSize: 55.0,
-                                                                                        icon: Icon(
-                                                                                          Icons.app_blocking_rounded,
-                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          size: 33.0,
-                                                                                        ),
-                                                                                        onPressed: () {
-                                                                                          print('IconButton pressed ...');
-                                                                                        },
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 5.0, 0.0),
+                                                                                      child: Icon(
+                                                                                        Icons.app_blocking,
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                        size: 33.0,
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
@@ -1820,7 +1804,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   }
                                                                                                                 }
 
-                                                                                                                _model.checkLatLngBeforeEnterApp = await actions.a8();
+                                                                                                                _model.checkLatLngBeforeEnterApp = await actions.a8(
+                                                                                                                  'Login_With_Pin',
+                                                                                                                );
                                                                                                                 _shouldSetState = true;
                                                                                                                 if (!_model.checkLatLngBeforeEnterApp!) {
                                                                                                                   Navigator.pop(context);
@@ -1844,7 +1830,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   return;
                                                                                                                 }
                                                                                                                 _model.getLocationPin1 = await actions.getLocation(
-                                                                                                                  context,
+                                                                                                                  'Login_With_Pin',
                                                                                                                 );
                                                                                                                 _shouldSetState = true;
 
@@ -2547,7 +2533,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                             }
                                                                                                                           }
 
-                                                                                                                          _model.checkLatLngBeforeEnterAppBio = await actions.a8();
+                                                                                                                          _model.checkLatLngBeforeEnterAppBio = await actions.a8(
+                                                                                                                            'Login_With_Bio',
+                                                                                                                          );
                                                                                                                           _shouldSetState = true;
                                                                                                                           if (!_model.checkLatLngBeforeEnterAppBio!) {
                                                                                                                             Navigator.pop(context);
@@ -2571,7 +2559,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                             return;
                                                                                                                           }
                                                                                                                           _model.getLocationBioAuthen1 = await actions.getLocation(
-                                                                                                                            context,
+                                                                                                                            'Login_With_Bio',
                                                                                                                           );
                                                                                                                           _shouldSetState = true;
 

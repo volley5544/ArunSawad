@@ -87,7 +87,9 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVMarketing = await actions.a8();
+      _model.checkLatLngBVMarketing = await actions.a8(
+        'Branch_View_Marketing',
+      );
       if (!_model.checkLatLngBVMarketing!) {
         await showDialog(
           context: context,
@@ -4265,8 +4267,9 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     }
                                   }
 
-                                  _model.checkGPSBeforeSave =
-                                      await actions.a8();
+                                  _model.checkGPSBeforeSave = await actions.a8(
+                                    'Branch_View_Marketing_Submit',
+                                  );
                                   _shouldSetState = true;
                                   if (!_model.checkGPSBeforeSave!) {
                                     await showDialog(

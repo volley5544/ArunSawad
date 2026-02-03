@@ -125,7 +125,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           await actions.allowScreenRecordIOS();
         }
 
-        _model.checkLatLngBVCheckIn = await actions.a8();
+        _model.checkLatLngBVCheckIn = await actions.a8(
+          'Branch_View_Remark_Type_D',
+        );
         if (_model.checkLatLngBVCheckIn!) {
           _model.remarkIDList = functions
               .getDataFromMapJsonToList(
@@ -171,14 +173,14 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           var userLogRecordReference = UserLogRecord.collection.doc();
           await userLogRecordReference.set(createUserLogRecordData(
             employeeId: FFAppState().employeeID,
-            action: 'Branch_View_CheckIn',
+            action: 'Branch_View_Remark_Type_D',
             actionTime: getCurrentTimestamp,
             userLocation: currentUserLocationValue,
           ));
           _model.createdUserLogBVCheckIn = UserLogRecord.getDocumentFromData(
               createUserLogRecordData(
                 employeeId: FFAppState().employeeID,
-                action: 'Branch_View_CheckIn',
+                action: 'Branch_View_Remark_Type_D',
                 actionTime: getCurrentTimestamp,
                 userLocation: currentUserLocationValue,
               ),
@@ -4194,7 +4196,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           return;
                                         }
                                         _model.checkGPSBeforeSave =
-                                            await actions.a8();
+                                            await actions.a8(
+                                          'Branch_View_Remark_Type_D_Submit',
+                                        );
                                         _shouldSetState = true;
                                         if (!_model.checkGPSBeforeSave!) {
                                           await showDialog(

@@ -10,8 +10,11 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'package:geolocator/geolocator.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:io';
 
-Future<bool> a8() async {
+Future<bool> a8(String? getLocationFrom) async {
   // Add your function code here!
   bool areLocationServicesEnabled;
   areLocationServicesEnabled = await Geolocator.isLocationServiceEnabled();
@@ -20,9 +23,36 @@ Future<bool> a8() async {
 
   LatLng currentLocation = LatLng(position.latitude, position.longitude);
 
-  if (position.isMocked) {
-    return false;
+  if (Platform.isAndroid) {
+    Position position = await Geolocator.getCurrentPosition();
+    Timestamp now = Timestamp.now();
+    if (position.isMocked) {
+      try {
+        FirebaseFirestore firestore = FirebaseFirestore.instance;
+        // Firestore-based document ID
+        String docId =
+            '${now.seconds}_${now.nanoseconds}_${FFAppState().employeeID}';
+
+        Map<String, dynamic> data = {
+          'employee_id': '${FFAppState().employeeID}',
+          'date_time': FieldValue.serverTimestamp(),
+          'device_id': '${FFAppState().imei}',
+          'operating_system': Platform.isAndroid ? 'Android' : 'iOS',
+          'log_from': '${getLocationFrom!}'
+        };
+        await firestore.collection('FakeLocationLog').doc(docId).set(data);
+      } catch (e) {
+        print('Error creating document: $e');
+      }
+      if (FFAppState().blockMockedLocation) {
+        return false;
+      }
+    }
   }
+
+  // if (position.isMocked) {
+  //   return false;
+  // }
 
   if (areLocationServicesEnabled &&
       currentLocation != LatLng(0, 0) &&

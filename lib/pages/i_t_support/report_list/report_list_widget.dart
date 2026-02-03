@@ -45,7 +45,9 @@ class _ReportListWidgetState extends State<ReportListWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      _model.checkLatLngBVTimeSheet = await actions.a8();
+      _model.checkLatLngBVTimeSheet = await actions.a8(
+        'Branch_View_TimeSheet',
+      );
       if (!_model.checkLatLngBVTimeSheet!) {
         await showDialog(
           context: context,

@@ -62,7 +62,9 @@ class _InsuranceRequestDashboardPageWidgetState
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngCheckinPage = await actions.a8();
+      _model.checkLatLngCheckinPage = await actions.a8(
+        'Insurance_None_Package',
+      );
       if (!_model.checkLatLngCheckinPage!) {
         await showDialog(
           context: context,

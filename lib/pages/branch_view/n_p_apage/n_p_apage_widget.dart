@@ -79,7 +79,9 @@ class _NPApageWidgetState extends State<NPApageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVSurveyNPA = await actions.a8();
+      _model.checkLatLngBVSurveyNPA = await actions.a8(
+        'Branch_View_NPA',
+      );
       if (!_model.checkLatLngBVSurveyNPA!) {
         await showDialog(
           context: context,
@@ -2471,7 +2473,9 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                       return;
                                     }
                                     _model.checkGPSBeforeSave =
-                                        await actions.a8();
+                                        await actions.a8(
+                                      'Branch_View_NPA_Submit',
+                                    );
                                     _shouldSetState = true;
                                     if (!_model.checkGPSBeforeSave!) {
                                       await showDialog(

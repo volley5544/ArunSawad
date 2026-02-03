@@ -66,7 +66,9 @@ class _InspocPageWidgetState extends State<InspocPageWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
-      _model.checkLatLngClassroom = await actions.a8();
+      _model.checkLatLngClassroom = await actions.a8(
+        'Classroom',
+      );
       if (!_model.checkLatLngClassroom!) {
         Navigator.pop(context);
         await showDialog(

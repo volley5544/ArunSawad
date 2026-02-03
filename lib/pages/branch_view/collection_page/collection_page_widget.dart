@@ -86,7 +86,9 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVCollection = await actions.a8();
+      _model.checkLatLngBVCollection = await actions.a8(
+        'Branch_View_Collection',
+      );
       if (!_model.checkLatLngBVCollection!) {
         await showDialog(
           context: context,
@@ -3730,8 +3732,9 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
-                                  _model.checkGPSBeforeSave =
-                                      await actions.a8();
+                                  _model.checkGPSBeforeSave = await actions.a8(
+                                    'Branch_View_Collection_Submit',
+                                  );
                                   _shouldSetState = true;
                                   if (!_model.checkGPSBeforeSave!) {
                                     await showDialog(

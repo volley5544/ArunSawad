@@ -88,7 +88,7 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
       }
 
       _model.getLocationOnPageLoad = await actions.getLocation(
-        context,
+        'Leave_Dashboard',
       );
 
       var userLogRecordReference = UserLogRecord.collection.doc();

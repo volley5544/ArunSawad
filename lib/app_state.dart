@@ -10115,7 +10115,7 @@ class FFAppState extends ChangeNotifier {
     _groceryAssignUrlDocRef = value;
   }
 
-  bool _isProductionNew = false;
+  bool _isProductionNew = true;
   bool get isProductionNew => _isProductionNew;
   set isProductionNew(bool value) {
     _isProductionNew = value;
@@ -10279,6 +10279,20 @@ class FFAppState extends ChangeNotifier {
 
   void insertAtIndexInImproundLocatBranchCode(int index, String value) {
     improundLocatBranchCode.insert(index, value);
+  }
+
+  DocumentReference? _blockMockedLocationDocRef =
+      FirebaseFirestore.instance.doc('/hideInAppContent/i6Hs6ISKi6B4eI5E1NrI');
+  DocumentReference? get blockMockedLocationDocRef =>
+      _blockMockedLocationDocRef;
+  set blockMockedLocationDocRef(DocumentReference? value) {
+    _blockMockedLocationDocRef = value;
+  }
+
+  bool _blockMockedLocation = false;
+  bool get blockMockedLocation => _blockMockedLocation;
+  set blockMockedLocation(bool value) {
+    _blockMockedLocation = value;
   }
 }
 

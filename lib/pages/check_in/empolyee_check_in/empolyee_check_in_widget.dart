@@ -98,6 +98,36 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
       FFAppState().imgURLTemp =
           'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7';
       FFAppState().update(() {});
+      _model.checkDeveloperMode = await actions.checkDeveloperMode();
+      if (_model.checkDeveloperMode!) {
+        if (!((FFAppState().employeeID == '31622') ||
+            (FFAppState().employeeID == '33511') ||
+            (FFAppState().employeeID == '30427') ||
+            (FFAppState().employeeID == '32758') ||
+            (FFAppState().employeeID == '38630'))) {
+          Navigator.pop(context);
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text('กรุณาปิดโหมดผู้พัฒนาก่อนใช้งานอรุณสวัสดิ์'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+
+          context.goNamed(DashboardCheckinWidget.routeName);
+
+          return;
+        }
+      }
       if (true) {
         FFAppState().branchLo = functions.getDefaultLocation();
         FFAppState().update(() {});
@@ -262,7 +292,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                       ) ==
                       'Token Signature could not be verified.')) {
                 _model.getLocationOnPageLoad1 = await actions.getLocation(
-                  context,
+                  'Logout',
                 );
 
                 var userLogRecordReference1 = UserLogRecord.collection.doc();
@@ -422,7 +452,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                   ) ==
                   'Token Signature could not be verified.')) {
             _model.getLocationOnPageLoad2 = await actions.getLocation(
-              context,
+              'Logout',
             );
 
             var userLogRecordReference2 = UserLogRecord.collection.doc();
@@ -2722,7 +2752,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             (FFAppState().imgURLTemp != '')) {
                                           _model.getLocationSubmitButton1 =
                                               await actions.getLocation(
-                                            context,
+                                            'Checkin_Submit',
                                           );
                                           _shouldSetState = true;
                                           _model.inCurrentLocation =
@@ -2970,7 +3000,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                         }
                                         _model.getLocationSubmitButton2 =
                                             await actions.getLocation(
-                                          context,
+                                          'Checkin_Submit',
                                         );
                                         _shouldSetState = true;
                                         _model.inCurrentLocation2 =
@@ -3049,12 +3079,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                       }
 
                                       _model.checkGPSBeforeSave =
-                                          await actions.a8();
+                                          await actions.a8(
+                                        'Checkin_Submit',
+                                      );
                                       _shouldSetState = true;
                                       if (_model.checkGPSBeforeSave!) {
                                         _model.getLocationSubmitButton3 =
                                             await actions.getLocation(
-                                          context,
+                                          'Checkin_Submit',
                                         );
                                         _shouldSetState = true;
                                         _model.checkinAPIOutput =

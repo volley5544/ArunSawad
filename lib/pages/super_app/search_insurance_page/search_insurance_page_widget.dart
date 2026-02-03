@@ -62,7 +62,9 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      _model.checkLatLngBVSurvey = await actions.a8();
+      _model.checkLatLngBVSurvey = await actions.a8(
+        'Branch_View_Survey',
+      );
       if (!_model.checkLatLngBVSurvey!) {
         await showDialog(
           context: context,

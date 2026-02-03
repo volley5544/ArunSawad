@@ -85,7 +85,9 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVChecker = await actions.a8();
+      _model.checkLatLngBVChecker = await actions.a8(
+        'Branch_View_Checker',
+      );
       if (!_model.checkLatLngBVChecker!) {
         await showDialog(
           context: context,
@@ -3484,8 +3486,9 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
-                                  _model.checkGPSBeforeSave =
-                                      await actions.a8();
+                                  _model.checkGPSBeforeSave = await actions.a8(
+                                    'Branch_View_Checker_Submit',
+                                  );
                                   _shouldSetState = true;
                                   if (!_model.checkGPSBeforeSave!) {
                                     await showDialog(

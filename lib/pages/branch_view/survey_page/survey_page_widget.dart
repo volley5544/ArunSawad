@@ -85,7 +85,9 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVSurvey = await actions.a8();
+      _model.checkLatLngBVSurvey = await actions.a8(
+        'Branch_View_Survey',
+      );
       if (!_model.checkLatLngBVSurvey!) {
         await showDialog(
           context: context,
@@ -3588,8 +3590,9 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
-                                  _model.checkGPSBeforeSave =
-                                      await actions.a8();
+                                  _model.checkGPSBeforeSave = await actions.a8(
+                                    'Branch_View_Survey_Submit',
+                                  );
                                   _shouldSetState = true;
                                   if (!_model.checkGPSBeforeSave!) {
                                     await showDialog(

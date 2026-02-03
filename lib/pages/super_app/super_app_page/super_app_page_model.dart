@@ -125,6 +125,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   dynamic? getDataRoleMenu;
   // Stores action output result for [Firestore Query - Query a collection] action in SuperAppPage widget.
   List<SawadAnnouncementRecord>? queryAnnouncement;
+  // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
+  HideInAppContentRecord? queryBlockMockedLocationDoc;
+  // Stores action output result for [Custom Action - checkDeveloperMode] action in SuperAppPage widget.
+  bool? checkDeveloperMode;
   // Stores action output result for [Custom Action - a17] action in SuperAppPage widget.
   bool? checkDoNotShowIsEmpty;
   // Stores action output result for [Custom Action - a18] action in SuperAppPage widget.

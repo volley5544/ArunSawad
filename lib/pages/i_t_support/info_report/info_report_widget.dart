@@ -49,7 +49,9 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      _model.checkLatLngBVCheckIn = await actions.a8();
+      _model.checkLatLngBVCheckIn = await actions.a8(
+        'Branch_View_CheckIn',
+      );
       if (!_model.checkLatLngBVCheckIn!) {
         await showDialog(
           context: context,

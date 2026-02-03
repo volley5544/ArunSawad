@@ -494,7 +494,9 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
       }
     }
 
-    checkLatLngActionBloc = await actions.a8();
+    checkLatLngActionBloc = await actions.a8(
+      'Login_With_Pin',
+    );
     if (!checkLatLngActionBloc!) {
       Navigator.pop(context);
       await showDialog(
@@ -516,7 +518,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
       return;
     }
     getLocationPinActionBloc = await actions.getLocation(
-      context,
+      'Login_With_Pin',
     );
 
     var userLogRecordReference = UserLogRecord.collection.doc();

@@ -187,7 +187,7 @@ class _DetailListFollowUpDebtWidgetState
           widget!.cusCod,
         );
         _model.getLocationOnPageLoad1 = await actions.getLocation(
-          context,
+          'BranchView_Collection_Call',
         );
         await actions.addUserLogDocument(
           'BranchView_Collection_Call',

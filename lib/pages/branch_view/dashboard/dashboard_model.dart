@@ -28,6 +28,8 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - checkDeveloperMode] action in Dashboard widget.
+  bool? checkDeveloperMode;
   // Stores action output result for [Firestore Query - Query a collection] action in Dashboard widget.
   HideInAppContentRecord? showRemarkOutput;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.

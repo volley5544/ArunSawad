@@ -135,7 +135,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                   ) ==
                   'Token Signature could not be verified.')) {
             _model.getLocationOnPageLoad3 = await actions.getLocation(
-              context,
+              'Logout',
             );
 
             var userLogRecordReference1 = UserLogRecord.collection.doc();
@@ -301,7 +301,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                   ) ==
                   'Token Signature could not be verified.')) {
             _model.getLocationOnPageLoad4 = await actions.getLocation(
-              context,
+              'Logout',
             );
 
             var userLogRecordReference2 = UserLogRecord.collection.doc();
