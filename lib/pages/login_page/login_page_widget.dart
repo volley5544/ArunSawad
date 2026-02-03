@@ -1471,6 +1471,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 null &&
                                                                             _model.passwordInputTextController.text !=
                                                                                 '') {
+                                                                          FFAppState().employeeID = _model
+                                                                              .usernameInputTextController
+                                                                              .text;
+                                                                          safeSetState(
+                                                                              () {});
                                                                           _model.checkDeveloperMode =
                                                                               await actions.checkDeveloperMode();
                                                                           _shouldSetState =
@@ -1503,6 +1508,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               return;
                                                                             }
                                                                           }
+                                                                          FFAppState().employeeID = _model
+                                                                              .usernameInputTextController
+                                                                              .text;
+                                                                          safeSetState(
+                                                                              () {});
                                                                           _model.authenAPIOutputBtn =
                                                                               await AuthenAPICall.call(
                                                                             username:
