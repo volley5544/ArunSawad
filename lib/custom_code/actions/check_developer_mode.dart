@@ -20,6 +20,14 @@ Future<bool> checkDeveloperMode() async {
   bool isDevMode = false;
   if (!Platform.isAndroid) return false;
 
+  if ('${FFAppState().employeeID}' == '31622' ||
+      '${FFAppState().employeeID}' == '33511' ||
+      '${FFAppState().employeeID}' == '30427' ||
+      '${FFAppState().employeeID}' == '32758' ||
+      '${FFAppState().employeeID}' == '38630') {
+    return false;
+  }
+
   try {
     isDevMode = await FlutterJailbreakDetection.developerMode ?? false;
   } on PlatformException {
@@ -44,7 +52,7 @@ Future<bool> checkDeveloperMode() async {
     } catch (e) {
       print('Error creating document: $e');
     }
-    if (FFAppState().blockMockedLocation) {
+    if (!FFAppState().blockMockedLocation) {
       return false;
     }
   }
