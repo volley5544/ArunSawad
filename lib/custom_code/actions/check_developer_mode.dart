@@ -22,29 +22,28 @@ Future<bool> checkDeveloperMode() async {
 
   if (Platform.isAndroid) {
     Timestamp now = Timestamp.now();
+    if (FFAppState().blockMockedLocation) {
+      try {
+        FirebaseFirestore firestore = FirebaseFirestore.instance;
+        // Firestore-based document ID
+        String docId =
+            '${now.seconds}_${now.nanoseconds}_${FFAppState().employeeID}';
 
-    try {
-      FirebaseFirestore firestore = FirebaseFirestore.instance;
-      // Firestore-based document ID
-      String docId =
-          '${now.seconds}_${now.nanoseconds}_${FFAppState().employeeID}';
+        Map<String, dynamic> data = {
+          'employee_id': '${FFAppState().employeeID}',
+          'date_time': FieldValue.serverTimestamp(),
+          'device_id': '${FFAppState().imei}',
+          'operating_system': Platform.isAndroid ? 'Android' : 'iOS',
+          'log_from': 'Developer_Mode_On'
+        };
+        await firestore.collection('FakeLocationLog').doc(docId).set(data);
 
-      Map<String, dynamic> data = {
-        'employee_id': '${FFAppState().employeeID}',
-        'date_time': FieldValue.serverTimestamp(),
-        'device_id': '${FFAppState().imei}',
-        'operating_system': Platform.isAndroid ? 'Android' : 'iOS',
-        'log_from': 'Developer_Mode_On'
-      };
-      await firestore.collection('FakeLocationLog').doc(docId).set(data);
-
-      if (FFAppState().blockMockedLocation) {
         return false;
-      }
 
-      isDevMode = await FlutterJailbreakDetection.developerMode ?? false;
-    } on PlatformException {
-      return true;
+        isDevMode = await FlutterJailbreakDetection.developerMode ?? false;
+      } on PlatformException {
+        return true;
+      }
     }
   }
 

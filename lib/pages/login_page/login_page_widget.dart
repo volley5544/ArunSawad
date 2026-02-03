@@ -1508,9 +1508,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               return;
                                                                             }
                                                                           }
-                                                                          FFAppState().employeeID = _model
-                                                                              .usernameInputTextController
-                                                                              .text;
+                                                                          FFAppState()
+                                                                              .deleteEmployeeID();
+                                                                          FFAppState().employeeID =
+                                                                              'employee_id';
+
                                                                           safeSetState(
                                                                               () {});
                                                                           _model.authenAPIOutputBtn =
