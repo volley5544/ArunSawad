@@ -10294,6 +10294,26 @@ class FFAppState extends ChangeNotifier {
   set blockMockedLocation(bool value) {
     _blockMockedLocation = value;
   }
+
+  DocumentReference? _mcLeadAssignUrlDocRef;
+  DocumentReference? get mcLeadAssignUrlDocRef => _mcLeadAssignUrlDocRef;
+  set mcLeadAssignUrlDocRef(DocumentReference? value) {
+    _mcLeadAssignUrlDocRef = value;
+  }
+
+  DocumentReference? _mcLeadAssignUatDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/PgRTRHIDiWTGpn4MIDOW');
+  DocumentReference? get mcLeadAssignUatDocRef => _mcLeadAssignUatDocRef;
+  set mcLeadAssignUatDocRef(DocumentReference? value) {
+    _mcLeadAssignUatDocRef = value;
+  }
+
+  DocumentReference? _mcLeadAssignDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/hf3DdhcghhwGfqekpZgD');
+  DocumentReference? get mcLeadAssignDocRef => _mcLeadAssignDocRef;
+  set mcLeadAssignDocRef(DocumentReference? value) {
+    _mcLeadAssignDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

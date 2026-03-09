@@ -562,7 +562,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
     });
 
     _model.expandableExpandableController =
-        ExpandableController(initialExpanded: false);
+        ExpandableController(initialExpanded: false)
+          ..addListener(() => safeSetState(() {}));
     _model.tabBarController = TabController(
       vsync: this,
       length: 2,

@@ -110,7 +110,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
         context.goNamed(
           PinCodePageWidget.routeName,
           extra: <String, dynamic>{
-            kTransitionInfoKey: TransitionInfo(
+            '__transition_info__': TransitionInfo(
               hasTransition: true,
               transitionType: PageTransitionType.topToBottom,
             ),
@@ -311,7 +311,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                     context.goNamed(
                       PinCodePageWidget.routeName,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        '__transition_info__': TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.topToBottom,
                         ),
@@ -778,7 +778,7 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                     context.pushNamed(
                       ChangePinCodePageWidget.routeName,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        '__transition_info__': TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.rightToLeft,
                         ),

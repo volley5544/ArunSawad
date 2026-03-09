@@ -2034,7 +2034,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                                   ),
                                                                                                                                 }.withoutNulls,
                                                                                                                                 extra: <String, dynamic>{
-                                                                                                                                  kTransitionInfoKey: TransitionInfo(
+                                                                                                                                  '__transition_info__': TransitionInfo(
                                                                                                                                     hasTransition: true,
                                                                                                                                     transitionType: PageTransitionType.bottomToTop,
                                                                                                                                   ),
@@ -2721,7 +2721,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                         ),
                                                                                                                       }.withoutNulls,
                                                                                                                       extra: <String, dynamic>{
-                                                                                                                        kTransitionInfoKey: TransitionInfo(
+                                                                                                                        '__transition_info__': TransitionInfo(
                                                                                                                           hasTransition: true,
                                                                                                                           transitionType: PageTransitionType.bottomToTop,
                                                                                                                         ),

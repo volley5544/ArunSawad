@@ -1814,10 +1814,11 @@ class TimesheetDetailAPICall {
         response,
         r'''$.info[:].Data.Marketing[:].RecordId''',
       ));
-  static dynamic statusDescription(dynamic response) => getJsonField(
+  static String? statusDescription(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].status_desc''',
-      );
+      ));
   static dynamic? lawLedDataJson(dynamic response) => getJsonField(
         response,
         r'''$.results.data[0]''',

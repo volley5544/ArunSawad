@@ -135,7 +135,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                           context.pushNamed(
                             ChatSearchPageWidget.routeName,
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              '__transition_info__': TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.rightToLeft,
                               ),
@@ -226,7 +226,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                         ),
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        '__transition_info__': TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.rightToLeft,

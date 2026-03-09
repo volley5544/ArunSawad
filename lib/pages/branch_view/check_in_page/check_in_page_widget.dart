@@ -2186,7 +2186,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                                 .statusDescription(
                                               (_model.updateCheckin?.jsonBody ??
                                                   ''),
-                                            ).toString()),
+                                            )!),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(

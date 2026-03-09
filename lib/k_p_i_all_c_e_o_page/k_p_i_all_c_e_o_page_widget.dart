@@ -135,12 +135,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
     )..addListener(() => safeSetState(() {}));
 
     _model.expandableExpandableController1 =
-        ExpandableController(initialExpanded: true);
+        ExpandableController(initialExpanded: true)
+          ..addListener(() => safeSetState(() {}));
     _model.branchInputTextController ??= TextEditingController();
     _model.branchInputFocusNode ??= FocusNode();
 
     _model.expandableExpandableController2 =
-        ExpandableController(initialExpanded: true);
+        ExpandableController(initialExpanded: true)
+          ..addListener(() => safeSetState(() {}));
     _model.employeeKeywordInputTextController ??= TextEditingController();
     _model.employeeKeywordInputFocusNode ??= FocusNode();
 

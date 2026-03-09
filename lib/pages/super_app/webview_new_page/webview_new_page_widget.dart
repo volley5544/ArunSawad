@@ -22,6 +22,7 @@ class WebviewNewPageWidget extends StatefulWidget {
     this.levelSearch,
     this.regionAccessToken,
     this.regionEmployeeId,
+    this.product,
   });
 
   final String? webUrl;
@@ -29,6 +30,7 @@ class WebviewNewPageWidget extends StatefulWidget {
   final String? levelSearch;
   final String? regionAccessToken;
   final String? regionEmployeeId;
+  final String? product;
 
   static String routeName = 'WebviewNewPage';
   static String routePath = 'webviewNewPage';
@@ -177,8 +179,8 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                                     ?.toList(),
                                 FFAppState().employeeID,
                                 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินTester')!
-                            ? '${widget!.webUrl}?employeeId=${widget!.regionEmployeeId}&branchCodeSearch=${widget!.branchCodeSearch}&token=${widget!.regionAccessToken}&level=ภาค&mode=ภาค&projectName=Arunsawad'
-                            : '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.branchCodeSearch : FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.levelSearch : FFAppState().profileLevel}&projectName=Arunsawad',
+                            ? '${widget!.webUrl}?employeeId=${widget!.regionEmployeeId}&branchCodeSearch=${widget!.branchCodeSearch}&token=${widget!.regionAccessToken}&level=ภาค&mode=ภาค&projectName=Arunsawad${('${widget!.product}' != '') && ('${widget!.product}' != 'null') ? '&product=${widget!.product}' : ''}'
+                            : '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.branchCodeSearch : FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.levelSearch : FFAppState().profileLevel}&projectName=Arunsawad${('${widget!.product}' != '') && ('${widget!.product}' != 'null') ? '&product=${widget!.product}' : ''}',
                       ),
                     ),
                   ),
