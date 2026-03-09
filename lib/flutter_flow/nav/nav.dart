@@ -2435,10 +2435,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'regionEmployeeId',
                   ParamType.String,
                 ),
-                product: params.getParam(
-                  'product',
-                  ParamType.String,
-                ),
               ),
             ),
             FFRoute(

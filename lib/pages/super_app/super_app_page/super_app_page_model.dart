@@ -3,7 +3,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
-import '/components/lead_assign_type_selecting_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
 import '/components/search_employee_component/search_employee_component_widget.dart';
@@ -164,8 +163,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? bossCheckOutput;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginBranchView;
-  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
-  String? selectProductOutput;
   // Stores action output result for [Bottom Sheet - searchProfileLevelComponent] action in Container widget.
   dynamic? searchProfileLevelOutputCar;
   // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in Container widget.

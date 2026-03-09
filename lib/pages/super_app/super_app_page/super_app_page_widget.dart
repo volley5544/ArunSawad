@@ -3,7 +3,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
-import '/components/lead_assign_type_selecting_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
 import '/components/search_employee_component/search_employee_component_widget.dart';
@@ -4127,57 +4126,74 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     ),
                                                                                   ),
                                                                                 if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ลูกค้าสนใจสินเชื่อรถ', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อรถ')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ลูกค้าสนใจสินเชื่อรถ')?.toList(), FFAppState().profilePositionName)!)
-                                                                                  Builder(
-                                                                                    builder: (context) => InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        var _shouldSetState = false;
-                                                                                        HapticFeedback.mediumImpact();
-                                                                                        if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                          Navigator.pop(context);
+                                                                                  InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      var _shouldSetState = false;
+                                                                                      HapticFeedback.mediumImpact();
+                                                                                      if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                        Navigator.pop(context);
 
-                                                                                          context.goNamed(PinCodePageWidget.routeName);
+                                                                                        context.goNamed(PinCodePageWidget.routeName);
 
-                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                          return;
-                                                                                        }
-                                                                                        await showDialog(
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      if (functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อรถAdmin')!) {
+                                                                                        _model.branchCodeLandAndHouse = null;
+                                                                                        _model.levelLandAndHouse = null;
+                                                                                        safeSetState(() {});
+                                                                                        await showModalBottomSheet(
+                                                                                          isScrollControlled: true,
+                                                                                          backgroundColor: Colors.transparent,
+                                                                                          barrierColor: Color(0xBC000000),
+                                                                                          enableDrag: false,
                                                                                           context: context,
-                                                                                          builder: (dialogContext) {
-                                                                                            return Dialog(
-                                                                                              elevation: 0,
-                                                                                              insetPadding: EdgeInsets.zero,
-                                                                                              backgroundColor: Colors.transparent,
-                                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                              child: WebViewAware(
-                                                                                                child: GestureDetector(
-                                                                                                  onTap: () {
-                                                                                                    FocusScope.of(dialogContext).unfocus();
-                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                  },
-                                                                                                  child: LeadAssignTypeSelectingComponentWidget(),
+                                                                                          builder: (context) {
+                                                                                            return WebViewAware(
+                                                                                              child: GestureDetector(
+                                                                                                onTap: () {
+                                                                                                  FocusScope.of(context).unfocus();
+                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                },
+                                                                                                child: Padding(
+                                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                                  child: Container(
+                                                                                                    height: MediaQuery.sizeOf(context).height * 0.5,
+                                                                                                    child: SearchProfileLevelComponentWidget(),
+                                                                                                  ),
                                                                                                 ),
                                                                                               ),
                                                                                             );
                                                                                           },
-                                                                                        ).then((value) => safeSetState(() => _model.selectProductOutput = value));
+                                                                                        ).then((value) => safeSetState(() => _model.searchProfileLevelOutputCar = value));
 
                                                                                         _shouldSetState = true;
-                                                                                        if (!(('${_model.selectProductOutput}' != '') && ('${_model.selectProductOutput}' != 'null'))) {
+                                                                                        if (!(_model.searchProfileLevelOutputCar != null)) {
                                                                                           if (_shouldSetState) safeSetState(() {});
                                                                                           return;
                                                                                         }
-                                                                                        if (functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อรถAdmin')!) {
-                                                                                          _model.branchCodeLandAndHouse = null;
-                                                                                          _model.levelLandAndHouse = null;
-                                                                                          safeSetState(() {});
-                                                                                          await showModalBottomSheet(
+                                                                                        _model.branchCodeLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
+                                                                                            ? getJsonField(
+                                                                                                _model.searchProfileLevelOutputCar,
+                                                                                                r'''$.branchCode''',
+                                                                                              ).toString()
+                                                                                            : '';
+                                                                                        _model.levelLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
+                                                                                            ? getJsonField(
+                                                                                                _model.searchProfileLevelOutputCar,
+                                                                                                r'''$.level''',
+                                                                                              ).toString()
+                                                                                            : '';
+                                                                                        safeSetState(() {});
+                                                                                      } else {
+                                                                                        if (functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อรถTester')!) {
+                                                                                          showModalBottomSheet(
                                                                                             isScrollControlled: true,
                                                                                             backgroundColor: Colors.transparent,
-                                                                                            barrierColor: Color(0xBC000000),
                                                                                             enableDrag: false,
                                                                                             context: context,
                                                                                             builder: (context) {
@@ -4190,203 +4206,61 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                   child: Padding(
                                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                                     child: Container(
-                                                                                                      height: MediaQuery.sizeOf(context).height * 0.5,
-                                                                                                      child: SearchProfileLevelComponentWidget(),
+                                                                                                      height: double.infinity,
+                                                                                                      child: LoadingSceneWidget(),
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
                                                                                               );
                                                                                             },
-                                                                                          ).then((value) => safeSetState(() => _model.searchProfileLevelOutputCar = value));
+                                                                                          ).then((value) => safeSetState(() {}));
+
+                                                                                          await showModalBottomSheet(
+                                                                                            isScrollControlled: true,
+                                                                                            backgroundColor: Colors.transparent,
+                                                                                            isDismissible: false,
+                                                                                            enableDrag: false,
+                                                                                            context: context,
+                                                                                            builder: (context) {
+                                                                                              return WebViewAware(
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(context).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                  },
+                                                                                                  child: Padding(
+                                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                                    child: Container(
+                                                                                                      height: MediaQuery.sizeOf(context).height * 0.35,
+                                                                                                      child: EmployeeInputForCEOComponentWidget(),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          ).then((value) => safeSetState(() => _model.employeeInputOutput5544Car = value));
 
                                                                                           _shouldSetState = true;
-                                                                                          if (!(_model.searchProfileLevelOutputCar != null)) {
-                                                                                            if (_shouldSetState) safeSetState(() {});
-                                                                                            return;
-                                                                                          }
-                                                                                          _model.branchCodeLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
-                                                                                              ? getJsonField(
-                                                                                                  _model.searchProfileLevelOutputCar,
-                                                                                                  r'''$.branchCode''',
-                                                                                                ).toString()
-                                                                                              : '';
-                                                                                          _model.levelLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
-                                                                                              ? getJsonField(
-                                                                                                  _model.searchProfileLevelOutputCar,
-                                                                                                  r'''$.level''',
-                                                                                                ).toString()
-                                                                                              : '';
-                                                                                          safeSetState(() {});
-                                                                                        } else {
-                                                                                          if (functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อรถTester')!) {
-                                                                                            showModalBottomSheet(
-                                                                                              isScrollControlled: true,
-                                                                                              backgroundColor: Colors.transparent,
-                                                                                              enableDrag: false,
-                                                                                              context: context,
-                                                                                              builder: (context) {
-                                                                                                return WebViewAware(
-                                                                                                  child: GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: Container(
-                                                                                                        height: double.infinity,
-                                                                                                        child: LoadingSceneWidget(),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                );
-                                                                                              },
-                                                                                            ).then((value) => safeSetState(() {}));
-
-                                                                                            await showModalBottomSheet(
-                                                                                              isScrollControlled: true,
-                                                                                              backgroundColor: Colors.transparent,
-                                                                                              isDismissible: false,
-                                                                                              enableDrag: false,
-                                                                                              context: context,
-                                                                                              builder: (context) {
-                                                                                                return WebViewAware(
-                                                                                                  child: GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: Container(
-                                                                                                        height: MediaQuery.sizeOf(context).height * 0.35,
-                                                                                                        child: EmployeeInputForCEOComponentWidget(),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                );
-                                                                                              },
-                                                                                            ).then((value) => safeSetState(() => _model.employeeInputOutput5544Car = value));
-
-                                                                                            _shouldSetState = true;
-                                                                                            if ((_model.employeeInputOutput5544Car != '') && (_model.employeeInputOutput5544Car != null && _model.employeeInputOutput5544Car != '')) {
-                                                                                              if (_model.employeeInputOutput5544Car == 'cancel') {
-                                                                                                Navigator.pop(context);
-                                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                                                return;
-                                                                                              }
-                                                                                              _model.getEmployeeTokenOutputCar = await GetTokenEmployeeCall.call(
-                                                                                                username: _model.employeeInputOutput5544Car,
-                                                                                                apiUrl: FFAppState().apiURLLocalState,
-                                                                                              );
-
-                                                                                              _shouldSetState = true;
-                                                                                              if ((_model.getEmployeeTokenOutputCar?.statusCode ?? 200) != 200) {
-                                                                                                Navigator.pop(context);
-                                                                                                await showDialog(
-                                                                                                  context: context,
-                                                                                                  builder: (alertDialogContext) {
-                                                                                                    return WebViewAware(
-                                                                                                      child: AlertDialog(
-                                                                                                        content: Text('พบข้อผิดพลาดGet Token Connection(${(_model.getEmployeeTokenOutputCar?.statusCode ?? 200).toString()})'),
-                                                                                                        actions: [
-                                                                                                          TextButton(
-                                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                            child: Text('Ok'),
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                    );
-                                                                                                  },
-                                                                                                );
-                                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                                                return;
-                                                                                              }
-                                                                                              if ('${getJsonField(
-                                                                                                    (_model.getEmployeeTokenOutputCar?.jsonBody ?? ''),
-                                                                                                    r'''$.status''',
-                                                                                                  ).toString()}' !=
-                                                                                                  '200') {
-                                                                                                Navigator.pop(context);
-                                                                                                await showDialog(
-                                                                                                  context: context,
-                                                                                                  builder: (alertDialogContext) {
-                                                                                                    return WebViewAware(
-                                                                                                      child: AlertDialog(
-                                                                                                        content: Text('พบข้อผิดพลาดGet Token(${getJsonField(
-                                                                                                          (_model.getEmployeeTokenOutputCar?.jsonBody ?? ''),
-                                                                                                          r'''$.status''',
-                                                                                                        ).toString()})'),
-                                                                                                        actions: [
-                                                                                                          TextButton(
-                                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                            child: Text('Ok'),
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                    );
-                                                                                                  },
-                                                                                                );
-                                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                                                return;
-                                                                                              }
-                                                                                              _model.getRegionProfileCar = await GetUserProfileAPICall.call(
-                                                                                                token: GetTokenEmployeeCall.accessToken(
-                                                                                                  (_model.getEmployeeTokenOutputCar?.jsonBody ?? ''),
-                                                                                                ),
-                                                                                                apiUrl: FFAppState().apiURLLocalState,
-                                                                                                projectName: 'SSW_ARUNSAWAD_API',
-                                                                                              );
-
-                                                                                              _shouldSetState = true;
-                                                                                              _model.queryMCUrlTester = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().mcLeadAssignDocRef! : FFAppState().mcLeadAssignUatDocRef!);
-                                                                                              _shouldSetState = true;
+                                                                                          if ((_model.employeeInputOutput5544Car != '') && (_model.employeeInputOutput5544Car != null && _model.employeeInputOutput5544Car != '')) {
+                                                                                            if (_model.employeeInputOutput5544Car == 'cancel') {
                                                                                               Navigator.pop(context);
-
-                                                                                              context.goNamed(
-                                                                                                WebviewNewPageWidget.routeName,
-                                                                                                queryParameters: {
-                                                                                                  'webUrl': serializeParam(
-                                                                                                    _model.queryMCUrlTester?.urlLink,
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'branchCodeSearch': serializeParam(
-                                                                                                    GetUserProfileAPICall.profileBranch(
-                                                                                                      (_model.getRegionProfileCar?.jsonBody ?? ''),
-                                                                                                    ),
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'levelSearch': serializeParam(
-                                                                                                    'ภาค',
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'regionAccessToken': serializeParam(
-                                                                                                    GetTokenEmployeeCall.accessToken(
-                                                                                                      (_model.getEmployeeTokenOutputCar?.jsonBody ?? ''),
-                                                                                                    ),
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'regionEmployeeId': serializeParam(
-                                                                                                    _model.employeeInputOutput5544Car,
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'product': serializeParam(
-                                                                                                    _model.selectProductOutput,
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                }.withoutNulls,
-                                                                                              );
-
                                                                                               if (_shouldSetState) safeSetState(() {});
                                                                                               return;
-                                                                                            } else {
+                                                                                            }
+                                                                                            _model.getEmployeeTokenOutputCar = await GetTokenEmployeeCall.call(
+                                                                                              username: _model.employeeInputOutput5544Car,
+                                                                                              apiUrl: FFAppState().apiURLLocalState,
+                                                                                            );
+
+                                                                                            _shouldSetState = true;
+                                                                                            if ((_model.getEmployeeTokenOutputCar?.statusCode ?? 200) != 200) {
                                                                                               Navigator.pop(context);
                                                                                               await showDialog(
                                                                                                 context: context,
                                                                                                 builder: (alertDialogContext) {
                                                                                                   return WebViewAware(
                                                                                                     child: AlertDialog(
-                                                                                                      content: Text('กรุณาใส่รหัสพนักงานของภาคที่ต้องการ'),
+                                                                                                      content: Text('พบข้อผิดพลาดGet Token Connection(${(_model.getEmployeeTokenOutputCar?.statusCode ?? 200).toString()})'),
                                                                                                       actions: [
                                                                                                         TextButton(
                                                                                                           onPressed: () => Navigator.pop(alertDialogContext),
@@ -4400,131 +4274,220 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                               if (_shouldSetState) safeSetState(() {});
                                                                                               return;
                                                                                             }
+                                                                                            if ('${getJsonField(
+                                                                                                  (_model.getEmployeeTokenOutputCar?.jsonBody ?? ''),
+                                                                                                  r'''$.status''',
+                                                                                                ).toString()}' !=
+                                                                                                '200') {
+                                                                                              Navigator.pop(context);
+                                                                                              await showDialog(
+                                                                                                context: context,
+                                                                                                builder: (alertDialogContext) {
+                                                                                                  return WebViewAware(
+                                                                                                    child: AlertDialog(
+                                                                                                      content: Text('พบข้อผิดพลาดGet Token(${getJsonField(
+                                                                                                        (_model.getEmployeeTokenOutputCar?.jsonBody ?? ''),
+                                                                                                        r'''$.status''',
+                                                                                                      ).toString()})'),
+                                                                                                      actions: [
+                                                                                                        TextButton(
+                                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                          child: Text('Ok'),
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  );
+                                                                                                },
+                                                                                              );
+                                                                                              if (_shouldSetState) safeSetState(() {});
+                                                                                              return;
+                                                                                            }
+                                                                                            _model.getRegionProfileCar = await GetUserProfileAPICall.call(
+                                                                                              token: GetTokenEmployeeCall.accessToken(
+                                                                                                (_model.getEmployeeTokenOutputCar?.jsonBody ?? ''),
+                                                                                              ),
+                                                                                              apiUrl: FFAppState().apiURLLocalState,
+                                                                                              projectName: 'SSW_ARUNSAWAD_API',
+                                                                                            );
+
+                                                                                            _shouldSetState = true;
+                                                                                            _model.queryMCUrlTester = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().mcLeadAssignDocRef! : FFAppState().mcLeadAssignUatDocRef!);
+                                                                                            _shouldSetState = true;
+                                                                                            Navigator.pop(context);
+
+                                                                                            context.goNamed(
+                                                                                              WebviewNewPageWidget.routeName,
+                                                                                              queryParameters: {
+                                                                                                'webUrl': serializeParam(
+                                                                                                  _model.queryMCUrlTester?.urlLink,
+                                                                                                  ParamType.String,
+                                                                                                ),
+                                                                                                'branchCodeSearch': serializeParam(
+                                                                                                  GetUserProfileAPICall.profileBranch(
+                                                                                                    (_model.getRegionProfileCar?.jsonBody ?? ''),
+                                                                                                  ),
+                                                                                                  ParamType.String,
+                                                                                                ),
+                                                                                                'levelSearch': serializeParam(
+                                                                                                  'ภาค',
+                                                                                                  ParamType.String,
+                                                                                                ),
+                                                                                                'regionAccessToken': serializeParam(
+                                                                                                  GetTokenEmployeeCall.accessToken(
+                                                                                                    (_model.getEmployeeTokenOutputCar?.jsonBody ?? ''),
+                                                                                                  ),
+                                                                                                  ParamType.String,
+                                                                                                ),
+                                                                                                'regionEmployeeId': serializeParam(
+                                                                                                  _model.employeeInputOutput5544Car,
+                                                                                                  ParamType.String,
+                                                                                                ),
+                                                                                              }.withoutNulls,
+                                                                                            );
+
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
+                                                                                          } else {
+                                                                                            Navigator.pop(context);
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    content: Text('กรุณาใส่รหัสพนักงานของภาคที่ต้องการ'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
                                                                                           }
                                                                                         }
+                                                                                      }
 
-                                                                                        showModalBottomSheet(
-                                                                                          isScrollControlled: true,
-                                                                                          backgroundColor: Colors.transparent,
-                                                                                          enableDrag: false,
-                                                                                          context: context,
-                                                                                          builder: (context) {
-                                                                                            return WebViewAware(
-                                                                                              child: GestureDetector(
-                                                                                                onTap: () {
-                                                                                                  FocusScope.of(context).unfocus();
-                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                },
-                                                                                                child: Padding(
-                                                                                                  padding: MediaQuery.viewInsetsOf(context),
-                                                                                                  child: Container(
-                                                                                                    height: double.infinity,
-                                                                                                    child: LoadingSceneWidget(),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        ).then((value) => safeSetState(() {}));
-
-                                                                                        _model.queryMCAssignUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().mcLeadAssignDocRef! : FFAppState().mcLeadAssignUatDocRef!);
-                                                                                        _shouldSetState = true;
-                                                                                        Navigator.pop(context);
-
-                                                                                        context.goNamed(
-                                                                                          WebviewNewPageWidget.routeName,
-                                                                                          queryParameters: {
-                                                                                            'webUrl': serializeParam(
-                                                                                              _model.queryMCAssignUrl?.urlLink,
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                            'branchCodeSearch': serializeParam(
-                                                                                              _model.branchCodeLandAndHouse,
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                            'levelSearch': serializeParam(
-                                                                                              _model.levelLandAndHouse,
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                            'product': serializeParam(
-                                                                                              _model.selectProductOutput,
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                          }.withoutNulls,
-                                                                                        );
-
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                      },
-                                                                                      child: Container(
-                                                                                        width: 100.0,
-                                                                                        height: 100.0,
-                                                                                        decoration: BoxDecoration(
-                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        ),
-                                                                                        child: Column(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                                              child: Container(
-                                                                                                width: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 50.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  }
-                                                                                                }(),
-                                                                                                height: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 50.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  }
-                                                                                                }(),
-                                                                                                clipBehavior: Clip.antiAlias,
-                                                                                                decoration: BoxDecoration(
-                                                                                                  shape: BoxShape.circle,
-                                                                                                ),
-                                                                                                child: Image.asset(
-                                                                                                  'assets/images/Untitled-3.jpg',
-                                                                                                  fit: BoxFit.contain,
+                                                                                      showModalBottomSheet(
+                                                                                        isScrollControlled: true,
+                                                                                        backgroundColor: Colors.transparent,
+                                                                                        enableDrag: false,
+                                                                                        context: context,
+                                                                                        builder: (context) {
+                                                                                          return WebViewAware(
+                                                                                            child: GestureDetector(
+                                                                                              onTap: () {
+                                                                                                FocusScope.of(context).unfocus();
+                                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                                              },
+                                                                                              child: Padding(
+                                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                                child: Container(
+                                                                                                  height: double.infinity,
+                                                                                                  child: LoadingSceneWidget(),
                                                                                                 ),
                                                                                               ),
                                                                                             ),
-                                                                                            Text(
-                                                                                              'ลูกค้าสนใจสินเชื่อ\nรถ',
-                                                                                              textAlign: TextAlign.center,
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    font: GoogleFonts.poppins(
-                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    fontSize: () {
-                                                                                                      if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                        return 12.0;
-                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                        return 20.0;
-                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                        return 20.0;
-                                                                                                      } else {
-                                                                                                        return 20.0;
-                                                                                                      }
-                                                                                                    }(),
-                                                                                                    letterSpacing: 0.0,
+                                                                                          );
+                                                                                        },
+                                                                                      ).then((value) => safeSetState(() {}));
+
+                                                                                      _model.queryMCAssignUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().mcLeadAssignDocRef! : FFAppState().mcLeadAssignUatDocRef!);
+                                                                                      _shouldSetState = true;
+                                                                                      Navigator.pop(context);
+
+                                                                                      context.goNamed(
+                                                                                        WebviewNewPageWidget.routeName,
+                                                                                        queryParameters: {
+                                                                                          'webUrl': serializeParam(
+                                                                                            _model.queryMCAssignUrl?.urlLink,
+                                                                                            ParamType.String,
+                                                                                          ),
+                                                                                          'branchCodeSearch': serializeParam(
+                                                                                            _model.branchCodeLandAndHouse,
+                                                                                            ParamType.String,
+                                                                                          ),
+                                                                                          'levelSearch': serializeParam(
+                                                                                            _model.levelLandAndHouse,
+                                                                                            ParamType.String,
+                                                                                          ),
+                                                                                        }.withoutNulls,
+                                                                                      );
+
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                    },
+                                                                                    child: Container(
+                                                                                      width: 100.0,
+                                                                                      height: 100.0,
+                                                                                      decoration: BoxDecoration(
+                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      ),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                            child: Container(
+                                                                                              width: () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 50.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                }
+                                                                                              }(),
+                                                                                              height: () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 50.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                }
+                                                                                              }(),
+                                                                                              clipBehavior: Clip.antiAlias,
+                                                                                              decoration: BoxDecoration(
+                                                                                                shape: BoxShape.circle,
+                                                                                              ),
+                                                                                              child: Image.asset(
+                                                                                                'assets/images/Untitled-3.jpg',
+                                                                                                fit: BoxFit.contain,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                          Text(
+                                                                                            'ลูกค้าสนใจ\nสินเชื่อรถ',
+                                                                                            textAlign: TextAlign.center,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  font: GoogleFonts.poppins(
                                                                                                     fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                     fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
+                                                                                                  fontSize: () {
+                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                      return 12.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                      return 20.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                      return 20.0;
+                                                                                                    } else {
+                                                                                                      return 20.0;
+                                                                                                    }
+                                                                                                  }(),
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
+                                                                                          ),
+                                                                                        ],
                                                                                       ),
                                                                                     ),
                                                                                   ),

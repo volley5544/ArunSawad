@@ -746,7 +746,6 @@ final parametersBuilderMap =
           'levelSearch': getParameter<String>(data, 'levelSearch'),
           'regionAccessToken': getParameter<String>(data, 'regionAccessToken'),
           'regionEmployeeId': getParameter<String>(data, 'regionEmployeeId'),
-          'product': getParameter<String>(data, 'product'),
         },
       ),
   'trackingEmpPage': (data) async => ParameterData(

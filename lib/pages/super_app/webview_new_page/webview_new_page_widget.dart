@@ -22,7 +22,6 @@ class WebviewNewPageWidget extends StatefulWidget {
     this.levelSearch,
     this.regionAccessToken,
     this.regionEmployeeId,
-    this.product,
   });
 
   final String? webUrl;
@@ -30,7 +29,6 @@ class WebviewNewPageWidget extends StatefulWidget {
   final String? levelSearch;
   final String? regionAccessToken;
   final String? regionEmployeeId;
-  final String? product;
 
   static String routeName = 'WebviewNewPage';
   static String routePath = 'webviewNewPage';
