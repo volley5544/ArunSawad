@@ -8,6 +8,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:379132035355:android:6d1a9c3e026a60732153be",
+        "android_client_info": {
+          "package_name": "com.mycompany.arunsawadchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOACtWXC1vzqk2EikhCN0rEdhn_FMQRbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:379132035355:android:0d301cbb85a5725f2153be",
         "android_client_info": {
           "package_name": "com.mycompany.publicarunsawad"
