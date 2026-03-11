@@ -33,6 +33,8 @@ class NotificationDetailPageModel
   ApiCallResponse? bossCheckOutputNotipageCopy;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryLandAndHouseUrlCopy;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryMCAssignUrl;
 
   @override
   void initState(BuildContext context) {}

@@ -549,6 +549,83 @@ class _NotificationDetailPageWidgetState
                                                 safeSetState(() {});
                                               return;
                                             }
+                                            if (listViewNotificationRecord
+                                                    .notiType ==
+                                                'm_c_assign') {
+                                              showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Container(
+                                                          height:
+                                                              double.infinity,
+                                                          width:
+                                                              double.infinity,
+                                                          child:
+                                                              LoadingSceneWidget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+
+                                              _model.queryMCAssignUrl =
+                                                  await UrlLinkStorageRecord
+                                                      .getDocumentOnce(FFAppState()
+                                                              .isProductionNew
+                                                          ? FFAppState()
+                                                              .mcLeadAssignDocRef!
+                                                          : FFAppState()
+                                                              .mcLeadAssignUatDocRef!);
+                                              _shouldSetState = true;
+                                              Navigator.pop(context);
+
+                                              context.goNamed(
+                                                WebviewNewPageWidget.routeName,
+                                                queryParameters: {
+                                                  'webUrl': serializeParam(
+                                                    _model.queryMCAssignUrl
+                                                        ?.urlLink,
+                                                    ParamType.String,
+                                                  ),
+                                                  'branchCodeSearch':
+                                                      serializeParam(
+                                                    FFAppState().profileBranch,
+                                                    ParamType.String,
+                                                  ),
+                                                  'levelSearch': serializeParam(
+                                                    FFAppState().profileLevel,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
                                           }
 
                                           if (_shouldSetState)

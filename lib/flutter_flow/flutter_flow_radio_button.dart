@@ -35,7 +35,7 @@ class FlutterFlowRadioButton extends StatefulWidget {
     required this.options,
     required this.onChanged,
     required this.controller,
-    required this.optionHeight,
+    this.optionHeight,
     required this.textStyle,
     this.optionWidth,
     this.selectedTextStyle,
@@ -51,13 +51,15 @@ class FlutterFlowRadioButton extends StatefulWidget {
     this.focusBorderRadius,
     this.focusBorderPadding,
     this.showBorderAroundRadioButtonAndText = true,
+    this.optionSpacing,
   });
 
   final List<String> options;
   final Function(String?)? onChanged;
   final FormFieldController<String> controller;
-  final double optionHeight;
+  final double? optionHeight;
   final double? optionWidth;
+  final double? optionSpacing;
   final TextStyle textStyle;
   final TextStyle? selectedTextStyle;
   final EdgeInsetsGeometry textPadding;
@@ -137,6 +139,7 @@ class _FlutterFlowRadioButtonState extends State<FlutterFlowRadioButton> {
         textPadding: widget.textPadding,
         optionHeight: widget.optionHeight,
         optionWidth: widget.optionWidth,
+        optionSpacing: widget.optionSpacing,
         horizontalAlignment: widget.horizontalAlignment,
         verticalAlignment: widget.verticalAlignment,
         items: effectiveOptions,
@@ -286,7 +289,7 @@ class RadioGroup<T> extends StatelessWidget {
     required this.items,
     required this.itemBuilder,
     required this.direction,
-    required this.optionHeight,
+    this.optionHeight,
     required this.horizontalAlignment,
     required this.activeColor,
     required this.toggleable,
@@ -299,6 +302,7 @@ class RadioGroup<T> extends StatelessWidget {
     this.focusBorderRadius,
     this.focusBorderPadding,
     this.showBorderAroundRadioButtonAndText = true,
+    this.optionSpacing,
   });
 
   final T? groupValue;
@@ -306,8 +310,9 @@ class RadioGroup<T> extends StatelessWidget {
   final RadioButtonBuilder Function(T value) itemBuilder;
   final void Function(T?)? onChanged;
   final Axis direction;
-  final double optionHeight;
+  final double? optionHeight;
   final double? optionWidth;
+  final double? optionSpacing;
   final WrapAlignment horizontalAlignment;
   final WrapCrossAlignment verticalAlignment;
   final Color activeColor;
@@ -349,15 +354,22 @@ class RadioGroup<T> extends StatelessWidget {
       ).toList();
 
   @override
-  Widget build(BuildContext context) => direction == Axis.horizontal
-      ? Wrap(
-          direction: direction,
-          alignment: horizontalAlignment,
-          children: _group,
-        )
-      : Wrap(
-          direction: direction,
-          crossAxisAlignment: verticalAlignment,
-          children: _group,
-        );
+  Widget build(BuildContext context) {
+    final effectiveSpacing = optionSpacing ?? 0.0;
+    return direction == Axis.horizontal
+        ? Wrap(
+            direction: direction,
+            alignment: horizontalAlignment,
+            spacing: effectiveSpacing,
+            runSpacing: effectiveSpacing,
+            children: _group,
+          )
+        : Wrap(
+            direction: direction,
+            crossAxisAlignment: verticalAlignment,
+            spacing: effectiveSpacing,
+            runSpacing: effectiveSpacing,
+            children: _group,
+          );
+  }
 }
