@@ -50,6 +50,7 @@ import 'schema/impound_car_master_record.dart';
 import 'schema/sawad_chat_room_record.dart';
 import 'schema/chat_messages_record.dart';
 import 'schema/fake_location_log_record.dart';
+import 'schema/menu_icon_other_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -103,6 +104,7 @@ export 'schema/impound_car_master_record.dart';
 export 'schema/sawad_chat_room_record.dart';
 export 'schema/chat_messages_record.dart';
 export 'schema/fake_location_log_record.dart';
+export 'schema/menu_icon_other_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -1783,6 +1785,43 @@ Future<List<FakeLocationLogRecord>> queryFakeLocationLogRecordOnce({
     queryCollectionOnce(
       FakeLocationLogRecord.collection,
       FakeLocationLogRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query MenuIconOtherRecords (as a Stream and as a Future).
+Future<int> queryMenuIconOtherRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      MenuIconOtherRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<MenuIconOtherRecord>> queryMenuIconOtherRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      MenuIconOtherRecord.collection,
+      MenuIconOtherRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<MenuIconOtherRecord>> queryMenuIconOtherRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      MenuIconOtherRecord.collection,
+      MenuIconOtherRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

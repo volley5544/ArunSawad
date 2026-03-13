@@ -41,12 +41,24 @@ class ArunSawadImgBannerRecord extends FirestoreRecord {
   List<String> get blurHash => _blurHash ?? const [];
   bool hasBlurHash() => _blurHash != null;
 
+  // "open_type" field.
+  List<String>? _openType;
+  List<String> get openType => _openType ?? const [];
+  bool hasOpenType() => _openType != null;
+
+  // "param_type" field.
+  List<String>? _paramType;
+  List<String> get paramType => _paramType ?? const [];
+  bool hasParamType() => _paramType != null;
+
   void _initializeFields() {
     _imgUrl = getDataList(snapshotData['img_url']);
     _isHaveLink = getDataList(snapshotData['isHaveLink']);
     _linkUrl = getDataList(snapshotData['link_url']);
     _index = getDataList(snapshotData['index']);
     _blurHash = getDataList(snapshotData['blur_hash']);
+    _openType = getDataList(snapshotData['open_type']);
+    _paramType = getDataList(snapshotData['param_type']);
   }
 
   static CollectionReference get collection =>
@@ -103,12 +115,21 @@ class ArunSawadImgBannerRecordDocumentEquality
         listEquality.equals(e1?.isHaveLink, e2?.isHaveLink) &&
         listEquality.equals(e1?.linkUrl, e2?.linkUrl) &&
         listEquality.equals(e1?.index, e2?.index) &&
-        listEquality.equals(e1?.blurHash, e2?.blurHash);
+        listEquality.equals(e1?.blurHash, e2?.blurHash) &&
+        listEquality.equals(e1?.openType, e2?.openType) &&
+        listEquality.equals(e1?.paramType, e2?.paramType);
   }
 
   @override
-  int hash(ArunSawadImgBannerRecord? e) => const ListEquality()
-      .hash([e?.imgUrl, e?.isHaveLink, e?.linkUrl, e?.index, e?.blurHash]);
+  int hash(ArunSawadImgBannerRecord? e) => const ListEquality().hash([
+        e?.imgUrl,
+        e?.isHaveLink,
+        e?.linkUrl,
+        e?.index,
+        e?.blurHash,
+        e?.openType,
+        e?.paramType
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ArunSawadImgBannerRecord;

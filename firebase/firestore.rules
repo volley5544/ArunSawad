@@ -345,5 +345,12 @@ service cloud.firestore {
       allow write: if false;
       allow delete: if false;
     }
+
+    match /MenuIconOther/{document} {
+      allow create: if request.auth != null;
+      allow read: if request.auth != null;
+      allow write: if false;
+      allow delete: if false;
+    }
   }
 }

@@ -3651,10 +3651,11 @@ class GetVloanContractAPICall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getVloanContractAPI',
-      apiUrl: '${apiUrl}/api/v1/branchview/contract',
+      apiUrl:
+          'https://sawad-prod-dgv4.srisawadpower.com:8442/api/v1/branchview/contract',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Basic ${token}',
+        'Authorization': 'Basic bG9zX3NpdF8wMTpQQHNzdzByZA==',
       },
       params: {
         'func': "get_contract",
@@ -13101,6 +13102,31 @@ class PaymentQrGenCall {
         response,
         r'''$.message''',
       ));
+}
+
+class TestGetContractCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'testGetContract',
+      apiUrl:
+          'https://dd39-115-31-145-24.ngrok-free.app/api/v1/branchview/contract',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Basic bG9zX3NpdF8wMTpQQHNzdzByZA==',
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+      },
+      params: {
+        'cuscod': "1100201382609",
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class ApiPagingParams {

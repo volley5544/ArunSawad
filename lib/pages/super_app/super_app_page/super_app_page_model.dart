@@ -129,6 +129,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   HideInAppContentRecord? queryBlockMockedLocationDoc;
   // Stores action output result for [Custom Action - checkDeveloperMode] action in SuperAppPage widget.
   bool? checkDeveloperMode;
+  // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
+  UrlLinkStorageRecord? queryMCAssignUrlFcmNoti;
   // Stores action output result for [Custom Action - a17] action in SuperAppPage widget.
   bool? checkDoNotShowIsEmpty;
   // Stores action output result for [Custom Action - a18] action in SuperAppPage widget.
@@ -283,6 +285,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   UrlLinkStorageRecord? queryMarketingUrl1;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryMarketingUrl2;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginOtherMenuIcon;
   // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in Container widget.
   ApiCallResponse? gerBrandService;
   // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in Container widget.

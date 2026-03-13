@@ -275,6 +275,33 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
             return;
           }
+          if (_model.leadNotiOutput == 'm_c_assign') {
+            _model.queryMCAssignUrlFcmNoti =
+                await UrlLinkStorageRecord.getDocumentOnce(
+                    FFAppState().isProductionNew
+                        ? FFAppState().mcLeadAssignDocRef!
+                        : FFAppState().mcLeadAssignUatDocRef!);
+
+            context.goNamed(
+              WebviewNewPageWidget.routeName,
+              queryParameters: {
+                'webUrl': serializeParam(
+                  _model.queryMCAssignUrlFcmNoti?.urlLink,
+                  ParamType.String,
+                ),
+                'branchCodeSearch': serializeParam(
+                  FFAppState().profileBranch,
+                  ParamType.String,
+                ),
+                'levelSearch': serializeParam(
+                  FFAppState().profileLevel,
+                  ParamType.String,
+                ),
+              }.withoutNulls,
+            );
+
+            return;
+          }
           FFAppState().inAppViaNotification = false;
           FFAppState().update(() {});
           Navigator.pop(context);
@@ -2065,23 +2092,154 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
                                                                 return;
                                                               }
-                                                              await actions
-                                                                  .openTableauBrowser(
-                                                                FFAppState()
-                                                                    .accessToken,
-                                                                functions
-                                                                    .sortingListByOrder(
-                                                                        pageViewBannerArunSawadImgBannerRecord
-                                                                            ?.linkUrl
-                                                                            ?.toList(),
-                                                                        pageViewBannerArunSawadImgBannerRecord
-                                                                            ?.index
-                                                                            ?.toList())
-                                                                    ?.elementAtOrNull(
-                                                                        bannerImgListIndex),
-                                                                FFAppState()
-                                                                    .isOpenAndroidTableauBrowser,
-                                                              );
+                                                              if ((functions
+                                                                      .sortingListByOrder(
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.openType
+                                                                              ?.toList(),
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.index
+                                                                              ?.toList())
+                                                                      ?.elementAtOrNull(
+                                                                          bannerImgListIndex)) ==
+                                                                  'launch_url') {
+                                                                await launchURL(
+                                                                    '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerImgListIndex)}${() {
+                                                                  if ((functions
+                                                                          .sortingListByOrder(
+                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
+                                                                                  ?.toList(),
+                                                                              pageViewBannerArunSawadImgBannerRecord?.index
+                                                                                  ?.toList())
+                                                                          ?.elementAtOrNull(
+                                                                              bannerImgListIndex)) ==
+                                                                      'no') {
+                                                                    return '';
+                                                                  } else if ((functions
+                                                                          .sortingListByOrder(
+                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
+                                                                                  ?.toList(),
+                                                                              pageViewBannerArunSawadImgBannerRecord?.index
+                                                                                  ?.toList())
+                                                                          ?.elementAtOrNull(
+                                                                              bannerImgListIndex)) ==
+                                                                      'token') {
+                                                                    return '/${FFAppState().accessToken}';
+                                                                  } else if ((functions
+                                                                          .sortingListByOrder(
+                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
+                                                                                  ?.toList(),
+                                                                              pageViewBannerArunSawadImgBannerRecord?.index
+                                                                                  ?.toList())
+                                                                          ?.elementAtOrNull(
+                                                                              bannerImgListIndex)) ==
+                                                                      'employee_id') {
+                                                                    return '/${FFAppState().employeeID}';
+                                                                  } else if ((functions
+                                                                          .sortingListByOrder(
+                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
+                                                                              pageViewBannerArunSawadImgBannerRecord?.index?.toList())
+                                                                          ?.elementAtOrNull(bannerImgListIndex)) ==
+                                                                      'branch_code') {
+                                                                    return '/${FFAppState().profileBranch}';
+                                                                  } else {
+                                                                    return '';
+                                                                  }
+                                                                }()}');
+                                                              } else if ((functions
+                                                                      .sortingListByOrder(
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.openType
+                                                                              ?.toList(),
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.index
+                                                                              ?.toList())
+                                                                      ?.elementAtOrNull(
+                                                                          bannerImgListIndex)) ==
+                                                                  'in_app_browser') {
+                                                                await actions
+                                                                    .openTableauBrowser(
+                                                                  () {
+                                                                    if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
+                                                                            bannerImgListIndex)) ==
+                                                                        'no') {
+                                                                      return '';
+                                                                    } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
+                                                                            bannerImgListIndex)) ==
+                                                                        'token') {
+                                                                      return '${FFAppState().accessToken}';
+                                                                    } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
+                                                                            bannerImgListIndex)) ==
+                                                                        'employee_id') {
+                                                                      return '${FFAppState().employeeID}';
+                                                                    } else if ((functions
+                                                                            .sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
+                                                                                pageViewBannerArunSawadImgBannerRecord?.index?.toList())
+                                                                            ?.elementAtOrNull(bannerImgListIndex)) ==
+                                                                        'branch_code') {
+                                                                      return '${FFAppState().profileBranch}';
+                                                                    } else {
+                                                                      return '';
+                                                                    }
+                                                                  }(),
+                                                                  functions
+                                                                      .sortingListByOrder(
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.linkUrl
+                                                                              ?.toList(),
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.index
+                                                                              ?.toList())
+                                                                      ?.elementAtOrNull(
+                                                                          bannerImgListIndex),
+                                                                  FFAppState()
+                                                                      .isOpenAndroidTableauBrowser,
+                                                                );
+                                                              } else {
+                                                                await launchURL(
+                                                                    '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerImgListIndex)}${() {
+                                                                  if ((functions
+                                                                          .sortingListByOrder(
+                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
+                                                                                  ?.toList(),
+                                                                              pageViewBannerArunSawadImgBannerRecord?.index
+                                                                                  ?.toList())
+                                                                          ?.elementAtOrNull(
+                                                                              bannerImgListIndex)) ==
+                                                                      'no') {
+                                                                    return '';
+                                                                  } else if ((functions
+                                                                          .sortingListByOrder(
+                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
+                                                                                  ?.toList(),
+                                                                              pageViewBannerArunSawadImgBannerRecord?.index
+                                                                                  ?.toList())
+                                                                          ?.elementAtOrNull(
+                                                                              bannerImgListIndex)) ==
+                                                                      'token') {
+                                                                    return '/${FFAppState().accessToken}';
+                                                                  } else if ((functions
+                                                                          .sortingListByOrder(
+                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
+                                                                                  ?.toList(),
+                                                                              pageViewBannerArunSawadImgBannerRecord?.index
+                                                                                  ?.toList())
+                                                                          ?.elementAtOrNull(
+                                                                              bannerImgListIndex)) ==
+                                                                      'employee_id') {
+                                                                    return '/${FFAppState().employeeID}';
+                                                                  } else if ((functions
+                                                                          .sortingListByOrder(
+                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
+                                                                              pageViewBannerArunSawadImgBannerRecord?.index?.toList())
+                                                                          ?.elementAtOrNull(bannerImgListIndex)) ==
+                                                                      'branch_code') {
+                                                                    return '/${FFAppState().profileBranch}';
+                                                                  } else {
+                                                                    return '';
+                                                                  }
+                                                                }()}');
+                                                              }
                                                             }
                                                           }
                                                         },
@@ -2466,7 +2624,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
                                     return Container(
                                       width: double.infinity,
-                                      height: 1000.0,
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
@@ -12083,6 +12240,445 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                             },
                                                           ),
                                                         ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      15.0,
+                                                                      10.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: () {
+                                                                    if (MediaQuery.sizeOf(context)
+                                                                            .width <
+                                                                        kBreakpointSmall) {
+                                                                      return 180.0;
+                                                                    } else if (MediaQuery.sizeOf(context)
+                                                                            .width <
+                                                                        kBreakpointMedium) {
+                                                                      return 300.0;
+                                                                    } else if (MediaQuery.sizeOf(context)
+                                                                            .width <
+                                                                        kBreakpointLarge) {
+                                                                      return 300.0;
+                                                                    } else {
+                                                                      return 300.0;
+                                                                    }
+                                                                  }(),
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    boxShadow: [
+                                                                      BoxShadow(
+                                                                        blurRadius:
+                                                                            4.0,
+                                                                        color: Color(
+                                                                            0x33000000),
+                                                                        offset:
+                                                                            Offset(
+                                                                          0.0,
+                                                                          2.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    borderRadius:
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                  ),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            24.0,
+                                                                            20.0,
+                                                                            15.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Text(
+                                                                              'อื่นๆ',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: () {
+                                                                                      if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                        return 20.0;
+                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                        return 32.0;
+                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                        return 32.0;
+                                                                                      } else {
+                                                                                        return 32.0;
+                                                                                      }
+                                                                                    }(),
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Divider(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .grayIcon,
+                                                                      ),
+                                                                      Expanded(
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              12.0,
+                                                                              18.0,
+                                                                              12.0,
+                                                                              10.0),
+                                                                          child:
+                                                                              FutureBuilder<List<MenuIconOtherRecord>>(
+                                                                            future:
+                                                                                queryMenuIconOtherRecordOnce(
+                                                                              queryBuilder: (menuIconOtherRecord) => menuIconOtherRecord.orderBy('order'),
+                                                                            ),
+                                                                            builder:
+                                                                                (context, snapshot) {
+                                                                              // Customize what your widget looks like when it's loading.
+                                                                              if (!snapshot.hasData) {
+                                                                                return Center(
+                                                                                  child: SizedBox(
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    child: CircularProgressIndicator(
+                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                        FlutterFlowTheme.of(context).tertiary,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              }
+                                                                              List<MenuIconOtherRecord> gridViewMenuIconOtherRecordList = snapshot.data!;
+
+                                                                              return GridView.builder(
+                                                                                padding: EdgeInsets.zero,
+                                                                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                                                                  crossAxisCount: 1,
+                                                                                  crossAxisSpacing: 10.0,
+                                                                                  mainAxisSpacing: 5.0,
+                                                                                  childAspectRatio: () {
+                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                      return 1.0;
+                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                      return 1.2;
+                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                      return 1.2;
+                                                                                    } else {
+                                                                                      return 1.2;
+                                                                                    }
+                                                                                  }(),
+                                                                                ),
+                                                                                shrinkWrap: true,
+                                                                                scrollDirection: Axis.horizontal,
+                                                                                itemCount: gridViewMenuIconOtherRecordList.length,
+                                                                                itemBuilder: (context, gridViewIndex) {
+                                                                                  final gridViewMenuIconOtherRecord = gridViewMenuIconOtherRecordList[gridViewIndex];
+                                                                                  return Visibility(
+                                                                                    visible: functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, gridViewMenuIconOtherRecord.name, FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, gridViewMenuIconOtherRecord.name)! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', gridViewMenuIconOtherRecord.name)?.toList(), FFAppState().profilePositionName)!,
+                                                                                    child: InkWell(
+                                                                                      splashColor: Colors.transparent,
+                                                                                      focusColor: Colors.transparent,
+                                                                                      hoverColor: Colors.transparent,
+                                                                                      highlightColor: Colors.transparent,
+                                                                                      onTap: () async {
+                                                                                        var _shouldSetState = false;
+                                                                                        _model.checkLoginOtherMenuIcon = await ActionUserAPICall.call(
+                                                                                          token: FFAppState().accessToken,
+                                                                                          apiUrl: FFAppState().apiURLLocalState,
+                                                                                        );
+
+                                                                                        _shouldSetState = true;
+                                                                                        if ((_model.checkLoginOtherMenuIcon?.statusCode ?? 200) != 200) {
+                                                                                          if (!((ActionUserAPICall.message(
+                                                                                                    (_model.checkLoginOtherMenuIcon?.jsonBody ?? ''),
+                                                                                                  ) ==
+                                                                                                  'The token has been blacklisted') ||
+                                                                                              (ActionUserAPICall.message(
+                                                                                                    (_model.checkLoginOtherMenuIcon?.jsonBody ?? ''),
+                                                                                                  ) ==
+                                                                                                  'Token Signature could not be verified.'))) {
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    content: Text('พบข้อผิดพลาด (${(_model.checkLoginOtherMenuIcon?.statusCode ?? 200).toString()})'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
+                                                                                          }
+                                                                                          await showDialog(
+                                                                                            context: context,
+                                                                                            builder: (alertDialogContext) {
+                                                                                              return WebViewAware(
+                                                                                                child: AlertDialog(
+                                                                                                  content: Text('Session Loginหมดอายุ'),
+                                                                                                  actions: [
+                                                                                                    TextButton(
+                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                      child: Text('Ok'),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          );
+                                                                                          FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                          FFAppState().deleteAccessToken();
+                                                                                          FFAppState().accessToken = 'access_token';
+
+                                                                                          FFAppState().update(() {});
+                                                                                          FFAppState().deleteEmployeeID();
+                                                                                          FFAppState().employeeID = 'employee_id';
+
+                                                                                          FFAppState().QRCodeLink = 'qrcode_link';
+                                                                                          FFAppState().update(() {});
+                                                                                          FFAppState().deleteApiURLLocalState();
+                                                                                          FFAppState().apiURLLocalState = 'api_url_local_state';
+
+                                                                                          FFAppState().deleteBranchCode();
+                                                                                          FFAppState().branchCode = 'branch_code';
+
+                                                                                          FFAppState().update(() {});
+                                                                                          FFAppState().isFromSetPinPage = false;
+                                                                                          FFAppState().leadChannelColor = [];
+                                                                                          FFAppState().update(() {});
+                                                                                          FFAppState().leadChannelList = [];
+                                                                                          FFAppState().isFromLoginPage = false;
+                                                                                          FFAppState().update(() {});
+                                                                                          FFAppState().deletePinCodeAuthen();
+                                                                                          FFAppState().pinCodeAuthen = '013972';
+
+                                                                                          FFAppState().isFromAuthenPage = false;
+                                                                                          FFAppState().update(() {});
+                                                                                          FFAppState().deleteDateDoNotShowAgain();
+                                                                                          FFAppState().dateDoNotShowAgain = null;
+
+                                                                                          FFAppState().deleteDoNotShowAgain();
+                                                                                          FFAppState().doNotShowAgain = false;
+
+                                                                                          FFAppState().update(() {});
+                                                                                          FFAppState().inAppViaNotification = true;
+                                                                                          FFAppState().isInApp = false;
+                                                                                          FFAppState().update(() {});
+                                                                                          FFAppState().fcmToken = 'fcm_token';
+                                                                                          FFAppState().isPassLoginSection = false;
+                                                                                          FFAppState().update(() {});
+                                                                                          Navigator.pop(context);
+                                                                                          await actions.a22();
+
+                                                                                          context.goNamed(LoginPageWidget.routeName);
+
+                                                                                          if (_shouldSetState) safeSetState(() {});
+                                                                                          return;
+                                                                                        }
+                                                                                        if (gridViewMenuIconOtherRecord.openType == 'launch_url') {
+                                                                                          await launchURL('${gridViewMenuIconOtherRecord.linkUrl}${() {
+                                                                                            if (gridViewMenuIconOtherRecord.paramType == 'no') {
+                                                                                              return '';
+                                                                                            } else if (gridViewMenuIconOtherRecord.paramType == 'token') {
+                                                                                              return '/${FFAppState().accessToken}';
+                                                                                            } else if (gridViewMenuIconOtherRecord.paramType == 'employee_id') {
+                                                                                              return '/${FFAppState().employeeID}';
+                                                                                            } else if (gridViewMenuIconOtherRecord.paramType == 'branch_code') {
+                                                                                              return '/${FFAppState().profileBranch}';
+                                                                                            } else {
+                                                                                              return '';
+                                                                                            }
+                                                                                          }()}');
+                                                                                        } else if (gridViewMenuIconOtherRecord.openType == 'in_app_browser') {
+                                                                                          await actions.openTableauBrowser(
+                                                                                            () {
+                                                                                              if (gridViewMenuIconOtherRecord.paramType == 'no') {
+                                                                                                return '';
+                                                                                              } else if (gridViewMenuIconOtherRecord.paramType == 'token') {
+                                                                                                return '${FFAppState().accessToken}';
+                                                                                              } else if (gridViewMenuIconOtherRecord.paramType == 'employee_id') {
+                                                                                                return '${FFAppState().employeeID}';
+                                                                                              } else if (gridViewMenuIconOtherRecord.paramType == 'branch_code') {
+                                                                                                return '${FFAppState().profileBranch}';
+                                                                                              } else {
+                                                                                                return '';
+                                                                                              }
+                                                                                            }(),
+                                                                                            gridViewMenuIconOtherRecord.linkUrl,
+                                                                                            FFAppState().isOpenAndroidTableauBrowser,
+                                                                                          );
+                                                                                        } else {
+                                                                                          await launchURL('${gridViewMenuIconOtherRecord.linkUrl}${() {
+                                                                                            if (gridViewMenuIconOtherRecord.paramType == 'no') {
+                                                                                              return '';
+                                                                                            } else if (gridViewMenuIconOtherRecord.paramType == 'token') {
+                                                                                              return '/${FFAppState().accessToken}';
+                                                                                            } else if (gridViewMenuIconOtherRecord.paramType == 'employee_id') {
+                                                                                              return '/${FFAppState().employeeID}';
+                                                                                            } else if (gridViewMenuIconOtherRecord.paramType == 'branch_code') {
+                                                                                              return '/${FFAppState().profileBranch}';
+                                                                                            } else {
+                                                                                              return '';
+                                                                                            }
+                                                                                          }()}');
+                                                                                        }
+
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                      },
+                                                                                      child: Container(
+                                                                                        width: 100.0,
+                                                                                        height: 100.0,
+                                                                                        decoration: BoxDecoration(),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            ClipRRect(
+                                                                                              borderRadius: BorderRadius.circular(50.0),
+                                                                                              child: OctoImage(
+                                                                                                placeholderBuilder: (_) => SizedBox.expand(
+                                                                                                  child: Image(
+                                                                                                    image: BlurHashImage(gridViewMenuIconOtherRecord.iconBlurHash),
+                                                                                                    fit: BoxFit.cover,
+                                                                                                  ),
+                                                                                                ),
+                                                                                                image: NetworkImage(
+                                                                                                  gridViewMenuIconOtherRecord.icon,
+                                                                                                ),
+                                                                                                width: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 50.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  }
+                                                                                                }(),
+                                                                                                height: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 50.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  }
+                                                                                                }(),
+                                                                                                fit: BoxFit.cover,
+                                                                                              ),
+                                                                                            ),
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                                  0.0,
+                                                                                                  valueOrDefault<double>(
+                                                                                                    () {
+                                                                                                      if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                        return 4.0;
+                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                        return 10.0;
+                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                        return 10.0;
+                                                                                                      } else {
+                                                                                                        return 10.0;
+                                                                                                      }
+                                                                                                    }(),
+                                                                                                    0.0,
+                                                                                                  ),
+                                                                                                  0.0,
+                                                                                                  0.0),
+                                                                                              child: Text(
+                                                                                                gridViewMenuIconOtherRecord.name,
+                                                                                                textAlign: TextAlign.center,
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      font: GoogleFonts.poppins(
+                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                      ),
+                                                                                                      color: Color(0xFF3C4059),
+                                                                                                      fontSize: () {
+                                                                                                        if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                          return 12.0;
+                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                          return 20.0;
+                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                          return 20.0;
+                                                                                                        } else {
+                                                                                                          return 20.0;
+                                                                                                        }
+                                                                                                      }(),
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w600,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                            },
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
                                                         if (false)
                                                           FutureBuilder<
                                                               List<
@@ -12978,170 +13574,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                     ),
                                                                                                   ),
                                                                                                 ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                      },
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  if (false)
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          10.0,
-                                                                          15.0,
-                                                                          10.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Expanded(
-                                                                            child:
-                                                                                Container(
-                                                                              width: double.infinity,
-                                                                              height: 180.0,
-                                                                              decoration: BoxDecoration(
-                                                                                color: Colors.white,
-                                                                                boxShadow: [
-                                                                                  BoxShadow(
-                                                                                    blurRadius: 4.0,
-                                                                                    color: Color(0x33000000),
-                                                                                    offset: Offset(
-                                                                                      0.0,
-                                                                                      2.0,
-                                                                                    ),
-                                                                                  )
-                                                                                ],
-                                                                                borderRadius: BorderRadius.only(
-                                                                                  bottomLeft: Radius.circular(12.0),
-                                                                                  bottomRight: Radius.circular(12.0),
-                                                                                  topLeft: Radius.circular(12.0),
-                                                                                  topRight: Radius.circular(12.0),
-                                                                                ),
-                                                                              ),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 10.0),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Text(
-                                                                                          'อื่นๆ',
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                font: GoogleFonts.poppins(
-                                                                                                  fontWeight: FontWeight.w600,
-                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                ),
-                                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                fontSize: 20.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.w600,
-                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
-                                                                                  Divider(
-                                                                                    color: FlutterFlowTheme.of(context).grayIcon,
-                                                                                  ),
-                                                                                  Expanded(
-                                                                                    child: Builder(
-                                                                                      builder: (context) {
-                                                                                        final otherMenuListItem = columnRoleMenuRecord?.othermenuName?.toList() ?? [];
-
-                                                                                        return ListView.builder(
-                                                                                          padding: EdgeInsets.zero,
-                                                                                          scrollDirection: Axis.horizontal,
-                                                                                          itemCount: otherMenuListItem.length,
-                                                                                          itemBuilder: (context, otherMenuListItemIndex) {
-                                                                                            final otherMenuListItemItem = otherMenuListItem[otherMenuListItemIndex];
-                                                                                            return InkWell(
-                                                                                              splashColor: Colors.transparent,
-                                                                                              focusColor: Colors.transparent,
-                                                                                              hoverColor: Colors.transparent,
-                                                                                              highlightColor: Colors.transparent,
-                                                                                              onTap: () async {
-                                                                                                if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'COACH') {
-                                                                                                  await launchURL(columnRoleMenuRecord!.otherMenuUrl.elementAtOrNull(otherMenuListItemIndex)!);
-                                                                                                  return;
-                                                                                                }
-                                                                                                if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'ฟอร์มลีด') {
-                                                                                                  context.goNamed(LeadSurveyRegisPageWidget.routeName);
-
-                                                                                                  return;
-                                                                                                }
-
-                                                                                                context.pushNamed(
-                                                                                                  WebviewPageWidget.routeName,
-                                                                                                  queryParameters: {
-                                                                                                    'titleName': serializeParam(
-                                                                                                      columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
-                                                                                                      ParamType.String,
-                                                                                                    ),
-                                                                                                    'webUrl': serializeParam(
-                                                                                                      columnRoleMenuRecord?.otherMenuUrl?.elementAtOrNull(otherMenuListItemIndex),
-                                                                                                      ParamType.String,
-                                                                                                    ),
-                                                                                                  }.withoutNulls,
-                                                                                                );
-                                                                                              },
-                                                                                              child: Container(
-                                                                                                width: 100.0,
-                                                                                                height: 100.0,
-                                                                                                decoration: BoxDecoration(),
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  children: [
-                                                                                                    Container(
-                                                                                                      width: 50.0,
-                                                                                                      height: 50.0,
-                                                                                                      clipBehavior: Clip.antiAlias,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                      child: Image.network(
-                                                                                                        valueOrDefault<String>(
-                                                                                                          columnRoleMenuRecord?.otherMenuIcon?.elementAtOrNull(otherMenuListItemIndex),
-                                                                                                          'test',
-                                                                                                        ),
-                                                                                                        fit: BoxFit.cover,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                                      child: Text(
-                                                                                                        valueOrDefault<String>(
-                                                                                                          columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
-                                                                                                          'test',
-                                                                                                        ),
-                                                                                                        textAlign: TextAlign.center,
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              font: GoogleFonts.poppins(
-                                                                                                                fontWeight: FontWeight.w600,
-                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                              ),
-                                                                                                              color: Color(0xFF3C4059),
-                                                                                                              fontSize: 12.0,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.w600,
-                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                            ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
                                                                                               ),
                                                                                             );
                                                                                           },

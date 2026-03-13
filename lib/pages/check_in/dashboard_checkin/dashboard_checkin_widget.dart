@@ -1,10 +1,8 @@
 import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -12,7 +10,6 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -34,13 +31,10 @@ class DashboardCheckinWidget extends StatefulWidget {
   State<DashboardCheckinWidget> createState() => _DashboardCheckinWidgetState();
 }
 
-class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
-    with TickerProviderStateMixin {
+class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget> {
   late DashboardCheckinModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -87,88 +81,6 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
       FFAppState().update(() {});
       Navigator.pop(context);
     });
-
-    animationsMap.addAll({
-      'containerOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 500.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 150.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 150.0.ms,
-            duration: 500.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 150.0.ms,
-            duration: 500.0.ms,
-            begin: Offset(0.0, -100.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation3': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 350.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 350.0.ms,
-            duration: 500.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 350.0.ms,
-            duration: 500.0.ms,
-            begin: Offset(-100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation4': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 350.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 350.0.ms,
-            duration: 500.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 350.0.ms,
-            duration: 500.0.ms,
-            begin: Offset(-100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-    });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -328,8 +240,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                             ),
                           ),
                         ),
-                      ).animateOnPageLoad(
-                          animationsMap['containerOnPageLoadAnimation1']!),
+                      ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
@@ -471,8 +382,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                         ),
                                       ),
                                     ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation2']!),
+                                  ),
                                   InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -581,8 +491,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                         ),
                                       ),
                                     ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation3']!),
+                                  ),
                                   if ((FFAppState().employeeID == '31622') ||
                                       (FFAppState().employeeID == '33511') ||
                                       (FFAppState().employeeID == '32758') ||
@@ -693,8 +602,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                           ),
                                         ),
                                       ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation4']!),
+                                    ),
                                 ],
                               );
                             },

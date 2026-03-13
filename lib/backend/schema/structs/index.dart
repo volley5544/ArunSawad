@@ -12,6 +12,7 @@ export 'impound_car_detail_data_type_struct.dart';
 export 'impound_car_locate_param_set_struct.dart';
 export 'impound_car_param_set_struct.dart';
 export 'impound_car_role_struct.dart';
+export 'menu_icon_data_model_struct.dart';
 export 'r_p72_check_list_data_model_struct.dart';
 export 'tracking_employee_date_model_struct.dart';
 export 'tracking_employee_location_model_struct.dart';
