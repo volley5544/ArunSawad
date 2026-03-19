@@ -1338,6 +1338,9 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             await GetVloanContractAPICall.call(
                                           cuscod:
                                               _model.idInputTextController.text,
+                                          token: FFAppState().tokenVloanRemark,
+                                          apiUrl:
+                                              FFAppState().apiUrlVloanRemark,
                                         );
 
                                         _shouldSetState = true;

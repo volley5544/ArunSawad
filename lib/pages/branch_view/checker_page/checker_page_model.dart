@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -117,6 +118,8 @@ class CheckerPageModel extends FlutterFlowModel<CheckerPageWidget> {
   FileUploadRecord? saveImgToFirebase;
   // Stores action output result for [Backend Call - API (remarkVLoneAPI)] action in Button widget.
   ApiCallResponse? remarkVLoneOutput;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  VLoanRemarkLogRecord? createVloanLog;
 
   @override
   void initState(BuildContext context) {

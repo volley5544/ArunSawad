@@ -51,6 +51,7 @@ import 'schema/sawad_chat_room_record.dart';
 import 'schema/chat_messages_record.dart';
 import 'schema/fake_location_log_record.dart';
 import 'schema/menu_icon_other_record.dart';
+import 'schema/v_loan_remark_log_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -105,6 +106,7 @@ export 'schema/sawad_chat_room_record.dart';
 export 'schema/chat_messages_record.dart';
 export 'schema/fake_location_log_record.dart';
 export 'schema/menu_icon_other_record.dart';
+export 'schema/v_loan_remark_log_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -1822,6 +1824,43 @@ Future<List<MenuIconOtherRecord>> queryMenuIconOtherRecordOnce({
     queryCollectionOnce(
       MenuIconOtherRecord.collection,
       MenuIconOtherRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query VLoanRemarkLogRecords (as a Stream and as a Future).
+Future<int> queryVLoanRemarkLogRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      VLoanRemarkLogRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<VLoanRemarkLogRecord>> queryVLoanRemarkLogRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      VLoanRemarkLogRecord.collection,
+      VLoanRemarkLogRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<VLoanRemarkLogRecord>> queryVLoanRemarkLogRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      VLoanRemarkLogRecord.collection,
+      VLoanRemarkLogRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

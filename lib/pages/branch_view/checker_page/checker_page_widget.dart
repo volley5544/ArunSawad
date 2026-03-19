@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -2260,17 +2261,47 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     );
 
                                     _shouldSetState = true;
-                                    if (GetVloanContractAPICall.result(
+                                    if ('${getJsonField(
                                           (_model.getVloanContract?.jsonBody ??
                                               ''),
-                                        ) !=
+                                          r'''$.result''',
+                                        ).toString()}' !=
                                         'Success') {
+                                      if ('${getJsonField(
+                                            (_model.getVloanContract
+                                                    ?.jsonBody ??
+                                                ''),
+                                            r'''$.contract''',
+                                          ).toString()}' !=
+                                          'NODATA') {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    '${(_model.getVloanContract?.jsonBody ?? '').toString()}'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              title: Text('ระบบ'),
                                               content: Text('ไม่พบข้อมูลสัญญา'),
                                               actions: [
                                                 TextButton(
@@ -3744,6 +3775,135 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     FFAppState().imgURLTemp =
                                         'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389';
                                     FFAppState().update(() {});
+
+                                    var vLoanRemarkLogRecordReference =
+                                        VLoanRemarkLogRecord.collection.doc();
+                                    await vLoanRemarkLogRecordReference.set({
+                                      ...createVLoanRemarkLogRecordData(
+                                        func: 'checker',
+                                        menu: 'Checker',
+                                        recordId: CheckerAPICall.recordID(
+                                          (_model.checkerAPISubmit?.jsonBody ??
+                                              ''),
+                                        ),
+                                        requestBody:
+                                            updateVloanRemarkRequestModelStruct(
+                                          VloanRemarkRequestModelStruct(
+                                            func: 'checker',
+                                            cuscod: _model
+                                                .idInputTextController2.text,
+                                            lat: functions.userLatitude(
+                                                currentUserLocationValue),
+                                            long: functions.userLongitude(
+                                                currentUserLocationValue),
+                                            contno: _model.contNoDropDownValue,
+                                            server: functions.showMatNameInList(
+                                                FFAppState()
+                                                    .vloanServerListTemp
+                                                    .toList(),
+                                                functions.findContNoIndex(
+                                                    _model.contNoDropDownValue,
+                                                    FFAppState()
+                                                        .vloanContNoListTemp
+                                                        .toList())),
+                                            msg: '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CheckerAPICall.recordID(
+                                                  (_model.checkerAPISubmit
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ))), _model.remarkInput33TextController.text)} ${functions.generateBranchViewMapLink(CheckerAPICall.recordID(
+                                              (_model.checkerAPISubmit
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ))}',
+                                            remgroup: '',
+                                            remcode: '',
+                                          ),
+                                          clearUnsetFields: false,
+                                          create: true,
+                                        ),
+                                        responseBody:
+                                            updateVloanRemarkResponseModelStruct(
+                                          VloanRemarkResponseModelStruct(
+                                            httpStatus:
+                                                '${(_model.remarkVLoneOutput?.statusCode ?? 200).toString()}',
+                                            responseBody:
+                                                '${(_model.remarkVLoneOutput?.jsonBody ?? '').toString()}',
+                                          ),
+                                          clearUnsetFields: false,
+                                          create: true,
+                                        ),
+                                        contNo: _model.contNoDropDownValue,
+                                      ),
+                                      ...mapToFirestore(
+                                        {
+                                          'time': FieldValue.serverTimestamp(),
+                                        },
+                                      ),
+                                    });
+                                    _model.createVloanLog = VLoanRemarkLogRecord
+                                        .getDocumentFromData({
+                                      ...createVLoanRemarkLogRecordData(
+                                        func: 'checker',
+                                        menu: 'Checker',
+                                        recordId: CheckerAPICall.recordID(
+                                          (_model.checkerAPISubmit?.jsonBody ??
+                                              ''),
+                                        ),
+                                        requestBody:
+                                            updateVloanRemarkRequestModelStruct(
+                                          VloanRemarkRequestModelStruct(
+                                            func: 'checker',
+                                            cuscod: _model
+                                                .idInputTextController2.text,
+                                            lat: functions.userLatitude(
+                                                currentUserLocationValue),
+                                            long: functions.userLongitude(
+                                                currentUserLocationValue),
+                                            contno: _model.contNoDropDownValue,
+                                            server: functions.showMatNameInList(
+                                                FFAppState()
+                                                    .vloanServerListTemp
+                                                    .toList(),
+                                                functions.findContNoIndex(
+                                                    _model.contNoDropDownValue,
+                                                    FFAppState()
+                                                        .vloanContNoListTemp
+                                                        .toList())),
+                                            msg: '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CheckerAPICall.recordID(
+                                                  (_model.checkerAPISubmit
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ))), _model.remarkInput33TextController.text)} ${functions.generateBranchViewMapLink(CheckerAPICall.recordID(
+                                              (_model.checkerAPISubmit
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ))}',
+                                            remgroup: '',
+                                            remcode: '',
+                                          ),
+                                          clearUnsetFields: false,
+                                          create: true,
+                                        ),
+                                        responseBody:
+                                            updateVloanRemarkResponseModelStruct(
+                                          VloanRemarkResponseModelStruct(
+                                            httpStatus:
+                                                '${(_model.remarkVLoneOutput?.statusCode ?? 200).toString()}',
+                                            responseBody:
+                                                '${(_model.remarkVLoneOutput?.jsonBody ?? '').toString()}',
+                                          ),
+                                          clearUnsetFields: false,
+                                          create: true,
+                                        ),
+                                        contNo: _model.contNoDropDownValue,
+                                      ),
+                                      ...mapToFirestore(
+                                        {
+                                          'time': DateTime.now(),
+                                        },
+                                      ),
+                                    }, vLoanRemarkLogRecordReference);
+                                    _shouldSetState = true;
                                     if ((_model.remarkVLoneOutput?.statusCode ??
                                             200) ==
                                         200) {

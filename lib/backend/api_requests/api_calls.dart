@@ -3651,11 +3651,10 @@ class GetVloanContractAPICall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getVloanContractAPI',
-      apiUrl:
-          'https://sawad-prod-dgv4.srisawadpower.com:8442/api/v1/branchview/contract',
+      apiUrl: '${apiUrl}/api/v1/branchview/contract',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Basic bG9zX3NpdF8wMTpQQHNzdzByZA==',
+        'Authorization': 'Basic ${token}',
       },
       params: {
         'func': "get_contract",

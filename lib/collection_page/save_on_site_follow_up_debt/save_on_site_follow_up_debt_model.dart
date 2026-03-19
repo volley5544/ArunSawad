@@ -72,6 +72,8 @@ class SaveOnSiteFollowUpDebtModel
   FileUploadRecord? saveImgToFirebase;
   // Stores action output result for [Backend Call - API (remarkVLoneAPI)] action in Button widget.
   ApiCallResponse? remarkVLoneOutput;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  VLoanRemarkLogRecord? createVloneLog;
 
   @override
   void initState(BuildContext context) {

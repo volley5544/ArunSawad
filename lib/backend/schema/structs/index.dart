@@ -18,6 +18,8 @@ export 'tracking_employee_date_model_struct.dart';
 export 'tracking_employee_location_model_struct.dart';
 export 'url_link_storage_struct.dart';
 export 'vehicle_type_list_struct.dart';
+export 'vloan_remark_request_model_struct.dart';
+export 'vloan_remark_response_model_struct.dart';
 export 'data_struct.dart';
 export 'data_payment_qr_code_struct.dart';
 export 'emp_data_location_struct.dart';

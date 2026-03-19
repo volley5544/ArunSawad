@@ -3194,32 +3194,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-
                                     if (FFAppState().profileLevel == 'สาขา') {
                                       _model.getUserBranchLocation =
                                           await ChangeLocationAPICall.call(
@@ -3385,7 +3359,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 ''),
                                           ))}') >
                                           300) {
-                                        Navigator.pop(context);
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
@@ -3480,29 +3453,190 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       FFAppState().imgURLTemp =
                                           'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389';
                                       FFAppState().update(() {});
+
+                                      var vLoanRemarkLogRecordReference =
+                                          VLoanRemarkLogRecord.collection.doc();
+                                      await vLoanRemarkLogRecordReference.set({
+                                        ...createVLoanRemarkLogRecordData(
+                                          func: (String dropdownValue) {
+                                            return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                                'AS';
+                                          }(_model.dropDownFollowupValue!)
+                                              ? 'custom'
+                                              : 'dsi',
+                                          menu: 'Collection',
+                                          recordId: CollectionAPICall.recordID(
+                                            (_model.collectionAPISubmit
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ),
+                                          requestBody:
+                                              updateVloanRemarkRequestModelStruct(
+                                            VloanRemarkRequestModelStruct(
+                                              func: (String dropdownValue) {
+                                                return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                                    'AS';
+                                              }(_model.dropDownFollowupValue!)
+                                                  ? 'custom'
+                                                  : 'dsi',
+                                              cuscod: widget!.cusCode,
+                                              lat: functions.userLatitude(
+                                                  currentUserLocationValue),
+                                              long: functions.userLongitude(
+                                                  currentUserLocationValue),
+                                              contno: widget!.contNo,
+                                              server: widget!.database,
+                                              msg: '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CollectionAPICall.recordID(
+                                                    (_model.collectionAPISubmit
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldTextController.text} ดูข้อมูลเพิ่มเติม ')} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
+                                                (_model.collectionAPISubmit
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))}',
+                                              remgroup: (String dropdownValue) {
+                                                return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                                    'AS';
+                                              }(_model.dropDownFollowupValue!)
+                                                  ? '5'
+                                                  : '',
+                                              remcode: (String dropdownValue) {
+                                                return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                                    'AS';
+                                              }(_model.dropDownFollowupValue!)
+                                                  ? ((String dropdownValue) {
+                                                      return '${dropdownValue[0]}${dropdownValue[1]}${dropdownValue[2]}';
+                                                    }(_model
+                                                      .dropDownFollowupValue!))
+                                                  : '',
+                                            ),
+                                            clearUnsetFields: false,
+                                            create: true,
+                                          ),
+                                          responseBody:
+                                              updateVloanRemarkResponseModelStruct(
+                                            VloanRemarkResponseModelStruct(
+                                              httpStatus:
+                                                  '${(_model.remarkVLoneOutput?.statusCode ?? 200).toString()}',
+                                              responseBody:
+                                                  '${(_model.remarkVLoneOutput?.jsonBody ?? '').toString()}',
+                                            ),
+                                            clearUnsetFields: false,
+                                            create: true,
+                                          ),
+                                          contNo: widget!.contNo,
+                                        ),
+                                        ...mapToFirestore(
+                                          {
+                                            'time':
+                                                FieldValue.serverTimestamp(),
+                                          },
+                                        ),
+                                      });
+                                      _model.createVloneLog =
+                                          VLoanRemarkLogRecord
+                                              .getDocumentFromData({
+                                        ...createVLoanRemarkLogRecordData(
+                                          func: (String dropdownValue) {
+                                            return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                                'AS';
+                                          }(_model.dropDownFollowupValue!)
+                                              ? 'custom'
+                                              : 'dsi',
+                                          menu: 'Collection',
+                                          recordId: CollectionAPICall.recordID(
+                                            (_model.collectionAPISubmit
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ),
+                                          requestBody:
+                                              updateVloanRemarkRequestModelStruct(
+                                            VloanRemarkRequestModelStruct(
+                                              func: (String dropdownValue) {
+                                                return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                                    'AS';
+                                              }(_model.dropDownFollowupValue!)
+                                                  ? 'custom'
+                                                  : 'dsi',
+                                              cuscod: widget!.cusCode,
+                                              lat: functions.userLatitude(
+                                                  currentUserLocationValue),
+                                              long: functions.userLongitude(
+                                                  currentUserLocationValue),
+                                              contno: widget!.contNo,
+                                              server: widget!.database,
+                                              msg: '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CollectionAPICall.recordID(
+                                                    (_model.collectionAPISubmit
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldTextController.text} ดูข้อมูลเพิ่มเติม ')} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
+                                                (_model.collectionAPISubmit
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))}',
+                                              remgroup: (String dropdownValue) {
+                                                return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                                    'AS';
+                                              }(_model.dropDownFollowupValue!)
+                                                  ? '5'
+                                                  : '',
+                                              remcode: (String dropdownValue) {
+                                                return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                                    'AS';
+                                              }(_model.dropDownFollowupValue!)
+                                                  ? ((String dropdownValue) {
+                                                      return '${dropdownValue[0]}${dropdownValue[1]}${dropdownValue[2]}';
+                                                    }(_model
+                                                      .dropDownFollowupValue!))
+                                                  : '',
+                                            ),
+                                            clearUnsetFields: false,
+                                            create: true,
+                                          ),
+                                          responseBody:
+                                              updateVloanRemarkResponseModelStruct(
+                                            VloanRemarkResponseModelStruct(
+                                              httpStatus:
+                                                  '${(_model.remarkVLoneOutput?.statusCode ?? 200).toString()}',
+                                              responseBody:
+                                                  '${(_model.remarkVLoneOutput?.jsonBody ?? '').toString()}',
+                                            ),
+                                            clearUnsetFields: false,
+                                            create: true,
+                                          ),
+                                          contNo: widget!.contNo,
+                                        ),
+                                        ...mapToFirestore(
+                                          {
+                                            'time': DateTime.now(),
+                                          },
+                                        ),
+                                      }, vLoanRemarkLogRecordReference);
+                                      _shouldSetState = true;
                                       if ((_model.remarkVLoneOutput
                                                   ?.statusCode ??
                                               200) ==
                                           200) {
-                                        if (functions.toUpperCase(
-                                                '${RemarkVLoneAPICall.result(
+                                        if (functions
+                                                .toUpperCase('${getJsonField(
                                               (_model.remarkVLoneOutput
                                                       ?.jsonBody ??
                                                   ''),
-                                            )}') !=
+                                              r'''$.result''',
+                                            ).toString()}') !=
                                             'SUCCESS') {
-                                          Navigator.pop(context);
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
                                                 child: AlertDialog(
-                                                  content: Text(
-                                                      RemarkVLoneAPICall.result(
+                                                  content: Text('${getJsonField(
                                                     (_model.remarkVLoneOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )!),
+                                                    r'''$.result''',
+                                                  ).toString()}'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>
@@ -3520,7 +3654,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           return;
                                         }
                                       } else {
-                                        Navigator.pop(context);
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
@@ -3554,7 +3687,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       FFAppState().rp72DataList = [];
                                       safeSetState(() {});
                                     } else {
-                                      Navigator.pop(context);
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
