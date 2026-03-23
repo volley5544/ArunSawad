@@ -5134,3 +5134,7 @@ bool? checkContainsChatRoom(
 LatLng? getDefaultLocation() {
   return LatLng(0.0, 0.0);
 }
+
+List<dynamic>? generateEmptyJsonList() {
+  return [];
+}

@@ -255,10 +255,19 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
 
                           return Builder(
                             builder: (context) {
-                              final timesheetDataList =
-                                  GetTimesheetAPICall.timesheetData(
-                                listViewGetTimesheetAPIResponse.jsonBody,
-                              ).toList();
+                              final timesheetDataList = ('${getJsonField(
+                                                listViewGetTimesheetAPIResponse
+                                                    .jsonBody,
+                                                r'''$.info.Timesheet.Data''',
+                                              ).toString()}' !=
+                                              'null'
+                                          ? GetTimesheetAPICall.timesheetData(
+                                              listViewGetTimesheetAPIResponse
+                                                  .jsonBody,
+                                            )
+                                          : functions.generateEmptyJsonList())
+                                      ?.toList() ??
+                                  [];
                               if (timesheetDataList.isEmpty) {
                                 return NoDataComponentWidget(
                                   text: 'ไม่พบข้อมูลไทม์ชีท',
