@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
+import '/components/no_data_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -258,6 +259,11 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                   GetTimesheetAPICall.timesheetData(
                                 listViewGetTimesheetAPIResponse.jsonBody,
                               ).toList();
+                              if (timesheetDataList.isEmpty) {
+                                return NoDataComponentWidget(
+                                  text: 'ไม่พบข้อมูลไทม์ชีท',
+                                );
+                              }
 
                               return RefreshIndicator(
                                 color: FlutterFlowTheme.of(context).tertiary,
