@@ -3446,6 +3446,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 return '${dropdownValue[0]}${dropdownValue[1]}${dropdownValue[2]}';
                                               }(_model.dropDownFollowupValue!))
                                             : '',
+                                        user: FFAppState().employeeID,
                                       );
 
                                       _shouldSetState = true;

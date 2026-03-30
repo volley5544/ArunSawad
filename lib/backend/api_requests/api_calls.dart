@@ -3651,7 +3651,7 @@ class GetVloanContractAPICall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getVloanContractAPI',
-      apiUrl: '${apiUrl}/api/v1/branchview/contract',
+      apiUrl: '${apiUrl}',
       callType: ApiCallType.POST,
       headers: {
         'Authorization': 'Basic ${token}',
@@ -3781,10 +3781,11 @@ class RemarkVLoneAPICall {
     String? token = '',
     String? remgroup = '',
     String? remcode = '',
+    String? user = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'remarkVLoneAPI',
-      apiUrl: '${apiUrl}/api/v1/branchview/remark',
+      apiUrl: '${apiUrl}',
       callType: ApiCallType.POST,
       headers: {
         'Authorization': 'Basic ${token}',
@@ -3799,6 +3800,7 @@ class RemarkVLoneAPICall {
         'msg': msg,
         'remgroup': remgroup,
         'remcode': remcode,
+        'user': user,
       },
       bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,

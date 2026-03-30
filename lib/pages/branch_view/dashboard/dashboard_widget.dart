@@ -2644,7 +2644,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                               (urlLinkStorageRecord) =>
                                                   urlLinkStorageRecord.where(
                                             'url_name',
-                                            isEqualTo: 'vloan_remark',
+                                            isEqualTo:
+                                                FFAppState().isProductionNew
+                                                    ? 'vloan_remark'
+                                                    : 'vloan_remark_uat',
                                           ),
                                           singleRecord: true,
                                         ).then((s) => s.firstOrNull);
@@ -2653,6 +2656,27 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             .getVloanRemarkApiUrl!.urlLink;
                                         FFAppState().tokenVloanRemark = _model
                                             .getVloanRemarkApiUrl!.urlToken;
+                                        safeSetState(() {});
+                                        _model.getVloanGetContractApiUrl =
+                                            await queryUrlLinkStorageRecordOnce(
+                                          queryBuilder:
+                                              (urlLinkStorageRecord) =>
+                                                  urlLinkStorageRecord.where(
+                                            'url_name',
+                                            isEqualTo:
+                                                FFAppState().isProductionNew
+                                                    ? 'vloan_get_contract'
+                                                    : 'vloan_get_contract_uat',
+                                          ),
+                                          singleRecord: true,
+                                        ).then((s) => s.firstOrNull);
+                                        _shouldSetState = true;
+                                        FFAppState().apiUrlVloanGetContract =
+                                            _model.getVloanGetContractApiUrl!
+                                                .urlLink;
+                                        FFAppState().tokenVloanGetContract =
+                                            _model.getVloanGetContractApiUrl!
+                                                .urlToken;
                                         safeSetState(() {});
                                         Navigator.pop(context);
                                       } else {

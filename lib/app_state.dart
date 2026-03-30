@@ -10115,7 +10115,7 @@ class FFAppState extends ChangeNotifier {
     _groceryAssignUrlDocRef = value;
   }
 
-  bool _isProductionNew = true;
+  bool _isProductionNew = false;
   bool get isProductionNew => _isProductionNew;
   set isProductionNew(bool value) {
     _isProductionNew = value;
@@ -10313,6 +10313,18 @@ class FFAppState extends ChangeNotifier {
   DocumentReference? get mcLeadAssignDocRef => _mcLeadAssignDocRef;
   set mcLeadAssignDocRef(DocumentReference? value) {
     _mcLeadAssignDocRef = value;
+  }
+
+  String _apiUrlVloanGetContract = '';
+  String get apiUrlVloanGetContract => _apiUrlVloanGetContract;
+  set apiUrlVloanGetContract(String value) {
+    _apiUrlVloanGetContract = value;
+  }
+
+  String _tokenVloanGetContract = '';
+  String get tokenVloanGetContract => _tokenVloanGetContract;
+  set tokenVloanGetContract(String value) {
+    _tokenVloanGetContract = value;
   }
 }
 
