@@ -4269,7 +4269,7 @@ List<String>? imgPathListToStringList(List<String>? somethingList) {
 }
 
 String? dateToBEDate(String? inputDate) {
-  if ('${inputDate!}' == '' || '${inputDate!}' == 'null') {
+  if ('${inputDate}' == '' || '${inputDate}' == 'null') {
     return '-';
   }
 
