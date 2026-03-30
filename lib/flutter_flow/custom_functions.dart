@@ -4269,6 +4269,10 @@ List<String>? imgPathListToStringList(List<String>? somethingList) {
 }
 
 String? dateToBEDate(String? inputDate) {
+  if ('${inputDate!}' == '' || '${inputDate!}' == 'null') {
+    return '-';
+  }
+
   List<String> dateSplitList = inputDate!.split('/');
   int yearOutput = int.parse(dateSplitList[2]) + 543;
 
