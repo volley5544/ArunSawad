@@ -56,6 +56,12 @@ class _FlutterFlowPdfViewerState extends State<FlutterFlowPdfViewer> {
   }
 
   @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  @override
   void didUpdateWidget(FlutterFlowPdfViewer oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.networkPath != widget.networkPath ||
@@ -83,6 +89,12 @@ class _FlutterFlowPdfViewerState extends State<FlutterFlowPdfViewer> {
                       pageLoaderBuilder: (_) =>
                           const Center(child: CircularProgressIndicator()),
                       errorBuilder: (_, __) => Container(),
+                      pageBuilder: (context, pageImage, index, document) =>
+                          PhotoViewGalleryPageOptions(
+                        imageProvider:
+                            PdfPageImageProvider(pageImage, index, document.id),
+                        filterQuality: FilterQuality.high,
+                      ),
                     ),
                   )
                 : const SizedBox(),
