@@ -305,3 +305,5 @@ export '/pages/profile_page_folder/change_pin_code_page/change_pin_code_page_wid
     show ChangePinCodePageWidget;
 export '/pages/profile_page_folder/setting_app_page/setting_app_page_widget.dart'
     show SettingAppPageWidget;
+export '/work_list_team_m/cathay_province_tab_page/cathay_province_tab_page_widget.dart'
+    show CathayProvinceTabPageWidget;

@@ -869,6 +869,12 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
+  'CathayProvinceTabPage': (data) async => ParameterData(
+        allParams: {
+          'branchCode': getParameter<String>(data, 'branchCode'),
+          'profileLevel': getParameter<String>(data, 'profileLevel'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

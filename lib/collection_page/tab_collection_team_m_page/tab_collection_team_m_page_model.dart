@@ -69,6 +69,14 @@ class TabCollectionTeamMPageModel
           int index, Function(CollectionTabMDataModelStruct) updateFn) =>
       showingData[index] = updateFn(showingData[index]);
 
+  int? cathayTabState = 1;
+
+  String? cathayProvince;
+
+  String? cathayDistrict;
+
+  String? cathaySubDistrict;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in tabCollectionTeamMPage widget.

@@ -2853,6 +2853,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: CathayProvinceTabPageWidget.routeName,
+              path: CathayProvinceTabPageWidget.routePath,
+              builder: (context, params) => CathayProvinceTabPageWidget(
+                branchCode: params.getParam(
+                  'branchCode',
+                  ParamType.String,
+                ),
+                profileLevel: params.getParam(
+                  'profileLevel',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
