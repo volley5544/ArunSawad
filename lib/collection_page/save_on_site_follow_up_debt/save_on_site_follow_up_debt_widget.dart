@@ -3382,7 +3382,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           safeSetState(() {});
                                         return;
                                       }
-                                      if (!FFAppState().isProductionNew) {
+                                      if (!true) {
                                         FFAppState().isGetVloanContract = false;
                                         FFAppState().vloanCustomerNameListTemp =
                                             [];
