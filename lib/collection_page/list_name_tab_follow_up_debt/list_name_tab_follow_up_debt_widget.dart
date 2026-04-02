@@ -163,7 +163,7 @@ class _ListNameTabFollowUpDebtWidgetState
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(),
-                          child: Text(
+                          child: AutoSizeText(
                             () {
                               if (widget!.followUpDebtTab == 1) {
                                 return 'เตือนก่อนดิว';

@@ -787,7 +787,7 @@ class _TabCollectionTeamMPageWidgetState
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {},
-                            child: Text(
+                            child: AutoSizeText(
                               valueOrDefault<String>(
                                 _model.choiceChipsValue == 'ตามที่อยู่'
                                     ? () {
@@ -803,6 +803,7 @@ class _TabCollectionTeamMPageWidgetState
                                 '-',
                               ),
                               textAlign: TextAlign.center,
+                              minFontSize: 12.0,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -7071,6 +7072,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     ),
                                                     'fromPage': serializeParam(
                                                       'TeamM',
+                                                      ParamType.String,
+                                                    ),
+                                                    'pageTitle': serializeParam(
+                                                      '${_model.cathayProvince}/${_model.cathayDistrict}/${_model.cathaySubDistrict}',
                                                       ParamType.String,
                                                     ),
                                                   }.withoutNulls,
