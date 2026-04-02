@@ -5,13 +5,13 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/data_not_found_component_widget.dart';
-import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
@@ -70,64 +70,42 @@ class _TabCollectionTeamMPageWidgetState
         parameters: {'screen_name': 'tabCollectionTeamMPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        enableDrag: false,
-        context: context,
-        builder: (context) {
-          return WebViewAware(
-            child: GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: Container(
-                  height: double.infinity,
-                  child: LoadingSceneWidget(),
-                ),
-              ),
-            ),
-          );
-        },
-      ).then((value) => safeSetState(() {}));
+      unawaited(
+        () async {}(),
+      );
+      if (FFAppState().isProductionNew) {
+        _model.getCollectionApiUrl = await queryUrlLinkStorageRecordOnce(
+          queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
+            'url_name',
+            isEqualTo: 'branch_view_collection',
+          ),
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        FFAppState().apiUrlBranchViewCollection =
+            _model.getCollectionApiUrl!.urlLink;
+        safeSetState(() {});
+      } else {
+        _model.queryBranchViewApiUrlUat =
+            await UrlLinkStorageRecord.getDocumentOnce(
+                FFAppState().branchViewCollectionApiUrlUatDocRef!);
+        FFAppState().apiUrlBranchViewCollection =
+            _model.queryBranchViewApiUrlUat!.urlLink;
+        safeSetState(() {});
+      }
 
+      _model.choicechipsData = ['รายชื่อลูกค้า'].toList().cast<String>();
+      _model.cathayTabState = 1;
+      safeSetState(() {});
+      safeSetState(() {
+        _model.choiceChipsValueController?.value = ['รายชื่อลูกค้า'];
+      });
+      await _model.pageViewController?.animateToPage(
+        0,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.ease,
+      );
       await Future.wait([
         Future(() async {
-          _model.choicechipsData = ['รายชื่อลูกค้า'].toList().cast<String>();
-          _model.cathayTabState = 1;
-          safeSetState(() {});
-          safeSetState(() {
-            _model.choiceChipsValueController?.value = ['รายชื่อลูกค้า'];
-          });
-          await _model.pageViewController?.animateToPage(
-            0,
-            duration: Duration(milliseconds: 500),
-            curve: Curves.ease,
-          );
-          if (FFAppState().isProductionNew) {
-            _model.getCollectionApiUrl = await queryUrlLinkStorageRecordOnce(
-              queryBuilder: (urlLinkStorageRecord) =>
-                  urlLinkStorageRecord.where(
-                'url_name',
-                isEqualTo: 'branch_view_collection',
-              ),
-              singleRecord: true,
-            ).then((s) => s.firstOrNull);
-            FFAppState().apiUrlBranchViewCollection =
-                _model.getCollectionApiUrl!.urlLink;
-            safeSetState(() {});
-          } else {
-            _model.queryBranchViewApiUrlUat =
-                await UrlLinkStorageRecord.getDocumentOnce(
-                    FFAppState().branchViewCollectionApiUrlUatDocRef!);
-            FFAppState().apiUrlBranchViewCollection =
-                _model.queryBranchViewApiUrlUat!.urlLink;
-            safeSetState(() {});
-          }
-
           FFAppState().collectionBranchCode = widget!.branchCode!;
           FFAppState().collectionProfileLevel = widget!.profileLevel!;
           safeSetState(() {});
@@ -417,7 +395,9 @@ class _TabCollectionTeamMPageWidgetState
           safeSetState(() {});
         }),
       ]);
-      Navigator.pop(context);
+      unawaited(
+        () async {}(),
+      );
     });
 
     _model.textController ??= TextEditingController();
