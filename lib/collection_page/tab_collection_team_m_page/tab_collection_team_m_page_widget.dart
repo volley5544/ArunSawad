@@ -324,7 +324,7 @@ class _TabCollectionTeamMPageWidgetState
       });
       if (_model.dataTabM.isNotEmpty) {
         await _model.pageViewController?.animateToPage(
-          2,
+          1,
           duration: Duration(milliseconds: 500),
           curve: Curves.ease,
         );
@@ -880,7 +880,7 @@ class _TabCollectionTeamMPageWidgetState
                                 if (_model.choiceChipsValue == 'สถานีตำรวจ') {
                                   await _model.pageViewController
                                       ?.animateToPage(
-                                    2,
+                                    1,
                                     duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
@@ -929,9 +929,9 @@ class _TabCollectionTeamMPageWidgetState
                                     ),
                                 iconColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                iconSize: 24.0,
+                                iconSize: 16.0,
                                 labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
+                                    4.0, 0.0, 4.0, 0.0),
                                 elevation: 2.0,
                                 borderRadius: BorderRadius.circular(50.0),
                               ),
