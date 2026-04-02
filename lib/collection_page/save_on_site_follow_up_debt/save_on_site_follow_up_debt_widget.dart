@@ -3528,6 +3528,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             create: true,
                                           ),
                                           contNo: widget!.contNo,
+                                          user: FFAppState().employeeID,
                                         ),
                                         ...mapToFirestore(
                                           {
@@ -3608,6 +3609,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             create: true,
                                           ),
                                           contNo: widget!.contNo,
+                                          user: FFAppState().employeeID,
                                         ),
                                         ...mapToFirestore(
                                           {

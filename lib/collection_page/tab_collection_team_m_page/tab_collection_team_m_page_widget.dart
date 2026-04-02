@@ -787,7 +787,7 @@ class _TabCollectionTeamMPageWidgetState
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {},
-                            child: AutoSizeText(
+                            child: Text(
                               valueOrDefault<String>(
                                 _model.choiceChipsValue == 'ตามที่อยู่'
                                     ? () {
@@ -803,7 +803,6 @@ class _TabCollectionTeamMPageWidgetState
                                 '-',
                               ),
                               textAlign: TextAlign.center,
-                              minFontSize: 12.0,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -816,7 +815,19 @@ class _TabCollectionTeamMPageWidgetState
                                           .fontStyle,
                                     ),
                                     color: Colors.white,
-                                    fontSize: 18.0,
+                                    fontSize: _model.choiceChipsValue ==
+                                            'ตามที่อยู่'
+                                        ? () {
+                                            if (_model.cathayTabState == 2) {
+                                              return 18.0;
+                                            } else if (_model.cathayTabState ==
+                                                3) {
+                                              return 14.0;
+                                            } else {
+                                              return 18.0;
+                                            }
+                                          }()
+                                        : 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -7063,7 +7074,7 @@ class _TabCollectionTeamMPageWidgetState
                                                   queryParameters: {
                                                     'followUpDebtTab':
                                                         serializeParam(
-                                                      1,
+                                                      98,
                                                       ParamType.int,
                                                     ),
                                                     'branchM': serializeParam(

@@ -3835,6 +3835,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           create: true,
                                         ),
                                         contNo: _model.contNoDropDownValue,
+                                        user: FFAppState().employeeID,
                                       ),
                                       ...mapToFirestore(
                                         {
@@ -3898,6 +3899,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           create: true,
                                         ),
                                         contNo: _model.contNoDropDownValue,
+                                        user: FFAppState().employeeID,
                                       ),
                                       ...mapToFirestore(
                                         {

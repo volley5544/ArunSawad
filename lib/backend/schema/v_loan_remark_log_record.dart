@@ -53,6 +53,11 @@ class VLoanRemarkLogRecord extends FirestoreRecord {
   String get contNo => _contNo ?? '';
   bool hasContNo() => _contNo != null;
 
+  // "user" field.
+  String? _user;
+  String get user => _user ?? '';
+  bool hasUser() => _user != null;
+
   void _initializeFields() {
     _func = snapshotData['func'] as String?;
     _menu = snapshotData['menu'] as String?;
@@ -68,6 +73,7 @@ class VLoanRemarkLogRecord extends FirestoreRecord {
             : VloanRemarkResponseModelStruct.maybeFromMap(
                 snapshotData['response_body']);
     _contNo = snapshotData['cont_no'] as String?;
+    _user = snapshotData['user'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -112,6 +118,7 @@ Map<String, dynamic> createVLoanRemarkLogRecordData({
   VloanRemarkRequestModelStruct? requestBody,
   VloanRemarkResponseModelStruct? responseBody,
   String? contNo,
+  String? user,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -122,6 +129,7 @@ Map<String, dynamic> createVLoanRemarkLogRecordData({
       'request_body': VloanRemarkRequestModelStruct().toMap(),
       'response_body': VloanRemarkResponseModelStruct().toMap(),
       'cont_no': contNo,
+      'user': user,
     }.withoutNulls,
   );
 
@@ -148,7 +156,8 @@ class VLoanRemarkLogRecordDocumentEquality
         e1?.time == e2?.time &&
         e1?.requestBody == e2?.requestBody &&
         e1?.responseBody == e2?.responseBody &&
-        e1?.contNo == e2?.contNo;
+        e1?.contNo == e2?.contNo &&
+        e1?.user == e2?.user;
   }
 
   @override
@@ -159,7 +168,8 @@ class VLoanRemarkLogRecordDocumentEquality
         e?.time,
         e?.requestBody,
         e?.responseBody,
-        e?.contNo
+        e?.contNo,
+        e?.user
       ]);
 
   @override

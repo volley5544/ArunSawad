@@ -163,7 +163,7 @@ class _ListNameTabFollowUpDebtWidgetState
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(),
-                          child: AutoSizeText(
+                          child: Text(
                             () {
                               if (widget!.followUpDebtTab == 1) {
                                 return 'เตือนก่อนดิว';
@@ -213,7 +213,9 @@ class _ListNameTabFollowUpDebtWidgetState
                                         .fontStyle,
                                   ),
                                   color: Colors.white,
-                                  fontSize: 18.0,
+                                  fontSize: widget!.followUpDebtTab == 98
+                                      ? 12.0
+                                      : 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium
