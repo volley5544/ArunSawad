@@ -393,6 +393,22 @@ class _TabCollectionTeamMPageWidgetState
               .toList()
               .cast<SLSCollectionDataModelStruct>();
           safeSetState(() {});
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(_model.slsDataPageState.length.toString()),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
         }),
       ]);
       unawaited(
