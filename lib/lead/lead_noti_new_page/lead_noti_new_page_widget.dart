@@ -492,10 +492,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           elevation: 2.0,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(0.0),
-                                              bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(24.0),
-                                              topRight: Radius.circular(0.0),
                                             ),
                                           ),
                                           child: Container(
@@ -515,12 +512,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   : FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
                                                 topLeft: Radius.circular(24.0),
-                                                topRight: Radius.circular(0.0),
                                               ),
                                             ),
                                             child: Column(
@@ -675,12 +667,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           color: Colors.transparent,
                                           elevation: 2.0,
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(0.0),
-                                              bottomRight: Radius.circular(0.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
-                                            ),
+                                            borderRadius: BorderRadius.only(),
                                           ),
                                           child: Container(
                                             width: 95.0,
@@ -698,14 +685,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               'Lead Topup')))
                                                   : FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(0.0),
-                                                topRight: Radius.circular(0.0),
-                                              ),
+                                              borderRadius: BorderRadius.only(),
                                             ),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -881,12 +861,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           color: Colors.transparent,
                                           elevation: 2.0,
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(0.0),
-                                              bottomRight: Radius.circular(0.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
-                                            ),
+                                            borderRadius: BorderRadius.only(),
                                           ),
                                           child: Container(
                                             width: 95.0,
@@ -904,14 +879,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               'Lead Telesale')))
                                                   : FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(0.0),
-                                                topRight: Radius.circular(0.0),
-                                              ),
+                                              borderRadius: BorderRadius.only(),
                                             ),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -1069,12 +1037,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           color: Colors.transparent,
                                           elevation: 2.0,
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(0.0),
-                                              bottomRight: Radius.circular(0.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
-                                            ),
+                                            borderRadius: BorderRadius.only(),
                                           ),
                                           child: Container(
                                             width: 95.0,
@@ -1091,14 +1054,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               'Lead HP')))
                                                   : FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(0.0),
-                                                topRight: Radius.circular(0.0),
-                                              ),
+                                              borderRadius: BorderRadius.only(),
                                             ),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -1256,12 +1212,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           color: Colors.transparent,
                                           elevation: 2.0,
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(0.0),
-                                              bottomRight: Radius.circular(0.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
-                                            ),
+                                            borderRadius: BorderRadius.only(),
                                           ),
                                           child: Container(
                                             width: 95.0,
@@ -1279,14 +1230,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               'Lead Truck')))
                                                   : FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(0.0),
-                                                topRight: Radius.circular(0.0),
-                                              ),
+                                              borderRadius: BorderRadius.only(),
                                             ),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -1459,9 +1403,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           elevation: 2.0,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(0.0),
-                                              bottomRight: Radius.circular(0.0),
-                                              topLeft: Radius.circular(0.0),
                                               topRight: Radius.circular(24.0),
                                             ),
                                           ),
@@ -1482,11 +1423,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   : FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(0.0),
                                                 topRight: Radius.circular(24.0),
                                               ),
                                             ),
@@ -1611,9 +1547,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(24.0),
-                                              bottomRight: Radius.circular(0.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
                                             ),
                                           ),
                                           child: Container(
@@ -1626,10 +1559,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(24.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(0.0),
-                                                topRight: Radius.circular(0.0),
                                               ),
                                               border: Border.all(
                                                 color: _model.selectedTab ==
@@ -1809,11 +1738,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           elevation: 2.0,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(0.0),
                                               bottomRight:
                                                   Radius.circular(24.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
                                             ),
                                           ),
                                           child: Container(
@@ -1824,12 +1750,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
                                                 bottomRight:
                                                     Radius.circular(24.0),
-                                                topLeft: Radius.circular(0.0),
-                                                topRight: Radius.circular(0.0),
                                               ),
                                               border: Border.all(
                                                 color: _model.selectedTab ==
@@ -2195,12 +2117,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         BorderRadius.only(
                                                       bottomLeft:
                                                           Radius.circular(24.0),
-                                                      bottomRight:
-                                                          Radius.circular(0.0),
-                                                      topLeft:
-                                                          Radius.circular(0.0),
-                                                      topRight:
-                                                          Radius.circular(0.0),
                                                     ),
                                                   ),
                                                   child: Container(
@@ -2215,15 +2131,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         bottomLeft:
                                                             Radius.circular(
                                                                 24.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                0.0),
                                                       ),
                                                       border: Border.all(
                                                         color: _model
@@ -2344,14 +2251,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(0.0),
                                                       bottomRight:
                                                           Radius.circular(24.0),
-                                                      topLeft:
-                                                          Radius.circular(0.0),
-                                                      topRight:
-                                                          Radius.circular(0.0),
                                                     ),
                                                   ),
                                                   child: Container(
@@ -2363,18 +2264,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           .secondaryBackground,
                                                       borderRadius:
                                                           BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                0.0),
                                                         bottomRight:
                                                             Radius.circular(
                                                                 24.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                0.0),
                                                       ),
                                                       border: Border.all(
                                                         color: _model
@@ -2595,19 +2487,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          0.0),
                                                               topLeft: Radius
                                                                   .circular(
                                                                       24.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      0.0),
                                                             ),
                                                           ),
                                                           child: Column(
@@ -2766,16 +2648,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
                                                               topRight: Radius
                                                                   .circular(
                                                                       24.0),
@@ -2951,16 +2823,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               bottomLeft: Radius
                                                                   .circular(
                                                                       24.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      0.0),
                                                             ),
                                                           ),
                                                           child: Column(
@@ -3124,19 +2986,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
                                                               bottomRight:
                                                                   Radius
                                                                       .circular(
                                                                           24.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      0.0),
                                                             ),
                                                           ),
                                                           child: Column(
@@ -3303,12 +3156,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        0.0),
                                                                 topLeft: Radius
                                                                     .circular(
                                                                         24.0),
@@ -3475,12 +3322,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 bottomRight: Radius
                                                                     .circular(
                                                                         24.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        0.0),
                                                               ),
                                                               border:
                                                                   Border.all(
@@ -4140,18 +3981,12 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                12.0),
                                                         topLeft:
                                                             Radius.circular(
                                                                 12.0),
-                                                        topRight:
+                                                        bottomRight:
                                                             Radius.circular(
-                                                                0.0),
+                                                                12.0),
                                                       ),
                                                     ),
                                                   ),
@@ -4659,13 +4494,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           ClipRRect(
                                                                         borderRadius:
                                                                             BorderRadius.only(
-                                                                          bottomLeft:
-                                                                              Radius.circular(0.0),
-                                                                          bottomRight:
-                                                                              Radius.circular(12.0),
-                                                                          topLeft:
-                                                                              Radius.circular(0.0),
                                                                           topRight:
+                                                                              Radius.circular(12.0),
+                                                                          bottomRight:
                                                                               Radius.circular(12.0),
                                                                         ),
                                                                         child: Image
@@ -4698,13 +4529,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       borderRadius:
                                                                           BorderRadius
                                                                               .only(
-                                                                        bottomLeft:
-                                                                            Radius.circular(0.0),
-                                                                        bottomRight:
-                                                                            Radius.circular(12.0),
-                                                                        topLeft:
-                                                                            Radius.circular(0.0),
                                                                         topRight:
+                                                                            Radius.circular(12.0),
+                                                                        bottomRight:
                                                                             Radius.circular(12.0),
                                                                       ),
                                                                       child: Image

@@ -160,7 +160,7 @@ Map<String, dynamic> getCollectionTabMDataModelFirestoreData(
   final firestoreData = mapToFirestore(collectionTabMDataModel.toMap());
 
   // Add any Firestore field values
-  collectionTabMDataModel.firestoreUtilData.fieldValues
+  mapToFirestore(collectionTabMDataModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

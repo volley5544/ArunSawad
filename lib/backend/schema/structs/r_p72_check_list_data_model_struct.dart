@@ -227,7 +227,7 @@ Map<String, dynamic> getRP72CheckListDataModelFirestoreData(
   final firestoreData = mapToFirestore(rP72CheckListDataModel.toMap());
 
   // Add any Firestore field values
-  rP72CheckListDataModel.firestoreUtilData.fieldValues
+  mapToFirestore(rP72CheckListDataModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

@@ -537,6 +537,7 @@ final parametersBuilderMap =
           'branchM': getParameter<String>(data, 'branchM'),
           'policeName': getParameter<String>(data, 'policeName'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'pageTitle': getParameter<String>(data, 'pageTitle'),
         },
       ),
   'RecordVideoWebviewPage': (data) async => ParameterData(
@@ -867,12 +868,6 @@ final parametersBuilderMap =
   'SettingAppPage': (data) async => ParameterData(
         allParams: {
           'fromPage': getParameter<String>(data, 'fromPage'),
-        },
-      ),
-  'CathayProvinceTabPage': (data) async => ParameterData(
-        allParams: {
-          'branchCode': getParameter<String>(data, 'branchCode'),
-          'profileLevel': getParameter<String>(data, 'profileLevel'),
         },
       ),
 };

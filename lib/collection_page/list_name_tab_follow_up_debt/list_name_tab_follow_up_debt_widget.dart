@@ -34,12 +34,14 @@ class ListNameTabFollowUpDebtWidget extends StatefulWidget {
     this.branchM,
     this.policeName,
     this.fromPage,
-  });
+    String? pageTitle,
+  }) : this.pageTitle = pageTitle ?? '-';
 
   final int? followUpDebtTab;
   final String? branchM;
   final String? policeName;
   final String? fromPage;
+  final String pageTitle;
 
   static String routeName = 'listNameTabFollowUpDebt';
   static String routePath = 'listNameTabFollowUpDebt';
@@ -142,7 +144,9 @@ class _ListNameTabFollowUpDebtWidgetState
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: AppbarFollowUpDebtWidget(),
+                        child: AppbarFollowUpDebtWidget(
+                          slsTabBackAction: () async {},
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -190,6 +194,8 @@ class _ListNameTabFollowUpDebtWidgetState
                                   widget!.policeName,
                                   'หน่วย M ',
                                 );
+                              } else if (widget!.followUpDebtTab == 98) {
+                                return widget!.pageTitle;
                               } else {
                                 return '-';
                               }
@@ -776,8 +782,6 @@ class _ListNameTabFollowUpDebtWidgetState
                     decoration: BoxDecoration(
                       color: Color(0xFFEBEBED),
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(8.0),
                         topRight: Radius.circular(8.0),
                       ),
@@ -1321,6 +1325,104 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                                 return 'ยังไม่โทร';
                                                                               }
                                                                             }(),
+                                                                            maxLines:
+                                                                                1,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                                  fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Expanded(
+                                                                          flex:
+                                                                              2,
+                                                                          child:
+                                                                              AutoSizeText(
+                                                                            'บริษัท',
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            maxLines:
+                                                                                1,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                                  fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        AutoSizeText(
+                                                                          ': ',
+                                                                          textAlign:
+                                                                              TextAlign.start,
+                                                                          maxLines:
+                                                                              1,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                                fontSize: 12.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
+                                                                        ),
+                                                                        Expanded(
+                                                                          flex:
+                                                                              5,
+                                                                          child:
+                                                                              AutoSizeText(
+                                                                            ('${getJsonField(
+                                                                                          listNameItem,
+                                                                                          r'''$.Creditor''',
+                                                                                        ).toString()}' !=
+                                                                                        'null') &&
+                                                                                    ('${getJsonField(
+                                                                                          listNameItem,
+                                                                                          r'''$.Creditor''',
+                                                                                        ).toString()}' !=
+                                                                                        '')
+                                                                                ? '${getJsonField(
+                                                                                    listNameItem,
+                                                                                    r'''$.Creditor''',
+                                                                                  ).toString()}'
+                                                                                : '-',
                                                                             maxLines:
                                                                                 1,
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(

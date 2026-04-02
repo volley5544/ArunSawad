@@ -178,7 +178,7 @@ Map<String, dynamic> getUrlLinkStorageFirestoreData(
   final firestoreData = mapToFirestore(urlLinkStorage.toMap());
 
   // Add any Firestore field values
-  urlLinkStorage.firestoreUtilData.fieldValues
+  mapToFirestore(urlLinkStorage.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

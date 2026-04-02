@@ -91,10 +91,10 @@ class _Ew9tf0uewitfWidgetState extends State<Ew9tf0uewitfWidget> {
                     height: MediaQuery.sizeOf(context).height * 0.3,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(100.0),
-                        bottomRight: Radius.circular(100.0),
                         topLeft: Radius.circular(100.0),
                         topRight: Radius.circular(100.0),
+                        bottomLeft: Radius.circular(100.0),
+                        bottomRight: Radius.circular(100.0),
                       ),
                       border: Border.all(
                         color: Colors.white,
@@ -109,12 +109,7 @@ class _Ew9tf0uewitfWidgetState extends State<Ew9tf0uewitfWidget> {
                     width: MediaQuery.sizeOf(context).width * 0.7,
                     height: MediaQuery.sizeOf(context).height * 0.2,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(0.0),
-                        topRight: Radius.circular(0.0),
-                      ),
+                      borderRadius: BorderRadius.only(),
                       border: Border.all(
                         color: Colors.white,
                         width: 5.0,

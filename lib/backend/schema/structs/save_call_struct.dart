@@ -458,7 +458,7 @@ Map<String, dynamic> getSaveCallFirestoreData(
   final firestoreData = mapToFirestore(saveCall.toMap());
 
   // Add any Firestore field values
-  saveCall.firestoreUtilData.fieldValues
+  mapToFirestore(saveCall.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

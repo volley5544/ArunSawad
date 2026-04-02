@@ -181,16 +181,10 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                bottomRight: Radius
+                                                                topRight: Radius
                                                                     .circular(
                                                                         35.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                topRight: Radius
+                                                                bottomRight: Radius
                                                                     .circular(
                                                                         35.0),
                                                               ),

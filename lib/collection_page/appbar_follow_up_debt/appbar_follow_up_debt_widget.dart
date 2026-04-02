@@ -14,9 +14,16 @@ class AppbarFollowUpDebtWidget extends StatefulWidget {
   const AppbarFollowUpDebtWidget({
     super.key,
     this.fromPage,
-  });
+    String? choiceChip,
+    int? state,
+    this.slsTabBackAction,
+  })  : this.choiceChip = choiceChip ?? 'รายชื่อลูกค้า',
+        this.state = state ?? 1;
 
   final String? fromPage;
+  final String choiceChip;
+  final int state;
+  final Future Function()? slsTabBackAction;
 
   @override
   State<AppbarFollowUpDebtWidget> createState() =>
@@ -57,8 +64,6 @@ class _AppbarFollowUpDebtWidgetState extends State<AppbarFollowUpDebtWidget> {
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
-          topLeft: Radius.circular(0.0),
-          topRight: Radius.circular(0.0),
         ),
       ),
       child: Stack(
@@ -78,6 +83,11 @@ class _AppbarFollowUpDebtWidgetState extends State<AppbarFollowUpDebtWidget> {
                   size: 20.0,
                 ),
                 onPressed: () async {
+                  if ((widget!.choiceChip == 'ตามที่อยู่') &&
+                      ((widget!.state == 2) || (widget!.state == 3))) {
+                    await widget.slsTabBackAction?.call();
+                    return;
+                  }
                   if (widget!.fromPage == 'OnSide') {
                     FFAppState().rp72DataList = [];
                     safeSetState(() {});

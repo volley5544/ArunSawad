@@ -155,7 +155,7 @@ Map<String, dynamic> getNotificationFirestoreData(
   final firestoreData = mapToFirestore(notification.toMap());
 
   // Add any Firestore field values
-  notification.firestoreUtilData.fieldValues
+  mapToFirestore(notification.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

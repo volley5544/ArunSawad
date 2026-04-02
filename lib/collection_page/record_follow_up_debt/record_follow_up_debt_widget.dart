@@ -200,7 +200,9 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                       child: wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: AppbarFollowUpDebtWidget(),
+                        child: AppbarFollowUpDebtWidget(
+                          slsTabBackAction: () async {},
+                        ),
                       ),
                     ),
                     Text(

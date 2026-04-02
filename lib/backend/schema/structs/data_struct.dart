@@ -150,7 +150,8 @@ Map<String, dynamic> getDataFirestoreData(
   final firestoreData = mapToFirestore(data.toMap());
 
   // Add any Firestore field values
-  data.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(data.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }

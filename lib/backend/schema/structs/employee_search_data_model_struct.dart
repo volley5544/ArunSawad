@@ -283,7 +283,7 @@ Map<String, dynamic> getEmployeeSearchDataModelFirestoreData(
   final firestoreData = mapToFirestore(employeeSearchDataModel.toMap());
 
   // Add any Firestore field values
-  employeeSearchDataModel.firestoreUtilData.fieldValues
+  mapToFirestore(employeeSearchDataModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

@@ -1565,6 +1565,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'fromPage',
                   ParamType.String,
                 ),
+                pageTitle: params.getParam(
+                  'pageTitle',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2850,20 +2854,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => SettingAppPageWidget(
                 fromPage: params.getParam(
                   'fromPage',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: CathayProvinceTabPageWidget.routeName,
-              path: CathayProvinceTabPageWidget.routePath,
-              builder: (context, params) => CathayProvinceTabPageWidget(
-                branchCode: params.getParam(
-                  'branchCode',
-                  ParamType.String,
-                ),
-                profileLevel: params.getParam(
-                  'profileLevel',
                   ParamType.String,
                 ),
               ),

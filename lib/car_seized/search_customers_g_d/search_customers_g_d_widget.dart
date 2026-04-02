@@ -1658,10 +1658,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                           )
                                         ],
                                         borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(16.0),
-                                          bottomRight: Radius.circular(16.0),
                                           topLeft: Radius.circular(16.0),
                                           topRight: Radius.circular(16.0),
+                                          bottomLeft: Radius.circular(16.0),
+                                          bottomRight: Radius.circular(16.0),
                                         ),
                                       ),
                                       child: Column(

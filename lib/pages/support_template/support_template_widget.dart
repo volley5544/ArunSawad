@@ -629,8 +629,6 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(8.0),
                               bottomRight: Radius.circular(8.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
                             ),
                           ),
                           child: Padding(
@@ -778,8 +776,6 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(8.0),
                               bottomRight: Radius.circular(8.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
                             ),
                           ),
                           child: Padding(
@@ -927,8 +923,6 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(8.0),
                               bottomRight: Radius.circular(8.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
                             ),
                           ),
                           child: Padding(

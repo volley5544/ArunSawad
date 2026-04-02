@@ -349,6 +349,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                             updateCallback: () => safeSetState(() {}),
                             child: AppbarFollowUpDebtWidget(
                               fromPage: 'OnSide',
+                              slsTabBackAction: () async {},
                             ),
                           ),
                           Padding(

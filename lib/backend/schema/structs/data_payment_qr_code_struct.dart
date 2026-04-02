@@ -327,7 +327,7 @@ Map<String, dynamic> getDataPaymentQrCodeFirestoreData(
   final firestoreData = mapToFirestore(dataPaymentQrCode.toMap());
 
   // Add any Firestore field values
-  dataPaymentQrCode.firestoreUtilData.fieldValues
+  mapToFirestore(dataPaymentQrCode.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

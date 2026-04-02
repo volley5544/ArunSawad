@@ -70,7 +70,9 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: AppbarFollowUpDebtWidget(),
+                        child: AppbarFollowUpDebtWidget(
+                          slsTabBackAction: () async {},
+                        ),
                       ),
                       Text(
                         'รายละเอียดการชำระเงิน',
@@ -138,10 +140,10 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10.0),
-                              bottomRight: Radius.circular(10.0),
                               topLeft: Radius.circular(10.0),
                               topRight: Radius.circular(10.0),
+                              bottomLeft: Radius.circular(10.0),
+                              bottomRight: Radius.circular(10.0),
                             ),
                             border: Border.all(
                               color: Color(0xFFD0D0D1),

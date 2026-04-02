@@ -158,7 +158,7 @@ Map<String, dynamic> getVloanRemarkResponseModelFirestoreData(
   final firestoreData = mapToFirestore(vloanRemarkResponseModel.toMap());
 
   // Add any Firestore field values
-  vloanRemarkResponseModel.firestoreUtilData.fieldValues
+  mapToFirestore(vloanRemarkResponseModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

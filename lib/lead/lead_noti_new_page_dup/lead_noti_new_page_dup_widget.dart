@@ -647,14 +647,10 @@ class _LeadNotiNewPageDupWidgetState extends State<LeadNotiNewPageDupWidget> {
                                                   color: Color(0xFF616161),
                                                   borderRadius:
                                                       BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(0.0),
-                                                    bottomRight:
-                                                        Radius.circular(24.0),
                                                     topLeft:
                                                         Radius.circular(24.0),
-                                                    topRight:
-                                                        Radius.circular(0.0),
+                                                    bottomRight:
+                                                        Radius.circular(24.0),
                                                   ),
                                                 ),
                                               ),
@@ -1022,16 +1018,10 @@ class _LeadNotiNewPageDupWidgetState extends State<LeadNotiNewPageDupWidget> {
                                                                     borderRadius:
                                                                         BorderRadius
                                                                             .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                      bottomRight:
+                                                                      topRight:
                                                                           Radius.circular(
                                                                               12.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              0.0),
-                                                                      topRight:
+                                                                      bottomRight:
                                                                           Radius.circular(
                                                                               12.0),
                                                                     ),
@@ -1063,17 +1053,11 @@ class _LeadNotiNewPageDupWidgetState extends State<LeadNotiNewPageDupWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            0.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            0.0),
                                                                     topRight: Radius
                                                                         .circular(
+                                                                            12.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
                                                                             12.0),
                                                                   ),
                                                                   child: Image

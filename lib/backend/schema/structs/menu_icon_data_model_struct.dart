@@ -251,7 +251,7 @@ Map<String, dynamic> getMenuIconDataModelFirestoreData(
   final firestoreData = mapToFirestore(menuIconDataModel.toMap());
 
   // Add any Firestore field values
-  menuIconDataModel.firestoreUtilData.fieldValues
+  mapToFirestore(menuIconDataModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

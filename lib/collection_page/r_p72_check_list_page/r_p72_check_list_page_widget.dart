@@ -142,7 +142,9 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: AppbarFollowUpDebtWidget(),
+                        child: AppbarFollowUpDebtWidget(
+                          slsTabBackAction: () async {},
+                        ),
                       ),
                       Padding(
                         padding:

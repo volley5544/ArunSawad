@@ -123,12 +123,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                       children: [
                         if (widget!.numberOfImage == '1')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/01.jpg',
                               width: 300.0,
@@ -138,12 +133,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '2')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/02_45_.jpg',
                               width: 300.0,
@@ -153,12 +143,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '3')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/03_45_.jpg',
                               width: 300.0,
@@ -168,12 +153,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '4')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/04.jpg',
                               width: 300.0,
@@ -183,12 +163,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '5')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/05_45_.jpg',
                               width: 300.0,
@@ -198,12 +173,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '6')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/06_45_.jpg',
                               width: 300.0,
@@ -213,12 +183,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '7')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/07.jpg',
                               width: 300.0,
@@ -228,12 +193,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '8')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/08.jpg',
                               width: 300.0,
@@ -243,12 +203,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '9')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/09_().jpg',
                               width: 300.0,
@@ -258,12 +213,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '10')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/10.jpg',
                               width: 300.0,
@@ -273,12 +223,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '11')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/11.jpg',
                               width: 300.0,
@@ -288,12 +233,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '12')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/12.jpg',
                               width: 300.0,
@@ -314,12 +254,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                       children: [
                         if (widget!.numberOfImage == '1')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/01M.jpg',
                               width: 300.0,
@@ -329,12 +264,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '2')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/02M_45_.jpg',
                               width: 300.0,
@@ -344,12 +274,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '3')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/03M_45_.jpg',
                               width: 300.0,
@@ -359,12 +284,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '4')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/04M.jpg',
                               width: 300.0,
@@ -374,12 +294,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '5')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/05M_45_.jpg',
                               width: 300.0,
@@ -389,12 +304,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '6')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/06M_45_.jpg',
                               width: 300.0,
@@ -404,12 +314,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '7')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/07M.jpg',
                               width: 300.0,
@@ -419,12 +324,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '8')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/messageImage_1737352949356.jpg',
                               width: 300.0,
@@ -434,12 +334,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                           ),
                         if (widget!.numberOfImage == '9')
                           ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                            borderRadius: BorderRadius.only(),
                             child: Image.asset(
                               'assets/images/09M.jpg',
                               width: 300.0,

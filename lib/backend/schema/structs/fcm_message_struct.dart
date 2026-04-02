@@ -207,7 +207,7 @@ Map<String, dynamic> getFcmMessageFirestoreData(
   );
 
   // Add any Firestore field values
-  fcmMessage.firestoreUtilData.fieldValues
+  mapToFirestore(fcmMessage.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

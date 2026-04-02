@@ -113,7 +113,9 @@ class _ImagesMPageWidgetState extends State<ImagesMPageWidget> {
                         wrapWithModel(
                           model: _model.appbarFollowUpDebtModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: AppbarFollowUpDebtWidget(),
+                          child: AppbarFollowUpDebtWidget(
+                            slsTabBackAction: () async {},
+                          ),
                         ),
                         Text(
                           'รายละเอียดรูปถ่าย',

@@ -2109,7 +2109,7 @@ Map<String, dynamic> getImpoundCarDetailDataTypeFirestoreData(
   final firestoreData = mapToFirestore(impoundCarDetailDataType.toMap());
 
   // Add any Firestore field values
-  impoundCarDetailDataType.firestoreUtilData.fieldValues
+  mapToFirestore(impoundCarDetailDataType.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

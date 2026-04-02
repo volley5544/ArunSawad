@@ -713,7 +713,7 @@ Map<String, dynamic> getImpoundCarLocateParamSetFirestoreData(
   final firestoreData = mapToFirestore(impoundCarLocateParamSet.toMap());
 
   // Add any Firestore field values
-  impoundCarLocateParamSet.firestoreUtilData.fieldValues
+  mapToFirestore(impoundCarLocateParamSet.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

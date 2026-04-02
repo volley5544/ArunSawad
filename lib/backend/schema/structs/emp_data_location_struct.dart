@@ -305,7 +305,7 @@ Map<String, dynamic> getEmpDataLocationFirestoreData(
   final firestoreData = mapToFirestore(empDataLocation.toMap());
 
   // Add any Firestore field values
-  empDataLocation.firestoreUtilData.fieldValues
+  mapToFirestore(empDataLocation.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

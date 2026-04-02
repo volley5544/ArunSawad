@@ -200,10 +200,10 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                           elevation: 2.0,
                                           borderWidth: 4.0,
                                           borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(11.0),
-                                            bottomRight: Radius.circular(11.0),
                                             topLeft: Radius.circular(11.0),
                                             topRight: Radius.circular(11.0),
+                                            bottomLeft: Radius.circular(11.0),
+                                            bottomRight: Radius.circular(11.0),
                                           ),
                                         ),
                                         unselectedChipStyle: ChipStyle(
@@ -240,10 +240,10 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                           elevation: 2.0,
                                           borderWidth: 4.0,
                                           borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(11.0),
-                                            bottomRight: Radius.circular(11.0),
                                             topLeft: Radius.circular(11.0),
                                             topRight: Radius.circular(11.0),
+                                            bottomLeft: Radius.circular(11.0),
+                                            bottomRight: Radius.circular(11.0),
                                           ),
                                         ),
                                         chipSpacing: 12.0,
@@ -314,10 +314,10 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                             )
                                           ],
                                           borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(14.0),
-                                            bottomRight: Radius.circular(14.0),
                                             topLeft: Radius.circular(14.0),
                                             topRight: Radius.circular(14.0),
+                                            bottomLeft: Radius.circular(14.0),
+                                            bottomRight: Radius.circular(14.0),
                                           ),
                                           border: Border.all(
                                             color: Color(0xFF908F8F),
@@ -697,10 +697,10 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(12.0),
-                          bottomRight: Radius.circular(12.0),
                           topLeft: Radius.circular(12.0),
                           topRight: Radius.circular(12.0),
+                          bottomLeft: Radius.circular(12.0),
+                          bottomRight: Radius.circular(12.0),
                         ),
                       ),
                     ),
@@ -776,10 +776,10 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(12.0),
-                            bottomRight: Radius.circular(12.0),
                             topLeft: Radius.circular(12.0),
                             topRight: Radius.circular(12.0),
+                            bottomLeft: Radius.circular(12.0),
+                            bottomRight: Radius.circular(12.0),
                           ),
                         ),
                       ),

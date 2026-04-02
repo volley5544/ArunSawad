@@ -671,18 +671,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                         ],
                                                         borderRadius:
                                                             BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  0.0),
                                                           topLeft:
                                                               Radius.circular(
                                                                   24.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  0.0),
                                                         ),
                                                       ),
                                                       child: Column(
@@ -821,15 +812,6 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                         ],
                                                         borderRadius:
                                                             BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  0.0),
                                                           topRight:
                                                               Radius.circular(
                                                                   24.0),
@@ -979,15 +961,6 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   24.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  0.0),
                                                         ),
                                                       ),
                                                       child: Column(
@@ -1126,18 +1099,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                         ],
                                                         borderRadius:
                                                             BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  0.0),
                                                           bottomRight:
                                                               Radius.circular(
                                                                   24.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  0.0),
                                                         ),
                                                       ),
                                                       child: Column(
@@ -1620,12 +1584,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                     .textColor,
                                               ),
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(12.0),
                                                 bottomRight:
                                                     Radius.circular(12.0),
-                                                topLeft: Radius.circular(12.0),
-                                                topRight: Radius.circular(0.0),
                                               ),
                                             ),
                                           ),
@@ -2051,16 +2012,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .only(
-                                                                  bottomLeft: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                  bottomRight: Radius
+                                                                  topRight: Radius
                                                                       .circular(
                                                                           12.0),
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                  topRight: Radius
+                                                                  bottomRight: Radius
                                                                       .circular(
                                                                           12.0),
                                                                 ),
@@ -2089,16 +2044,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                bottomRight: Radius
+                                                                topRight: Radius
                                                                     .circular(
                                                                         12.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                topRight: Radius
+                                                                bottomRight: Radius
                                                                     .circular(
                                                                         12.0),
                                                               ),

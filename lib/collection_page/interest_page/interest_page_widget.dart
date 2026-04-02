@@ -120,7 +120,9 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                         wrapWithModel(
                           model: _model.appbarFollowUpDebtModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: AppbarFollowUpDebtWidget(),
+                          child: AppbarFollowUpDebtWidget(
+                            slsTabBackAction: () async {},
+                          ),
                         ),
                         Text(
                           'คำนวณดอกเบี้ยปรับ',
@@ -484,10 +486,10 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10.0),
-                                  bottomRight: Radius.circular(10.0),
                                   topLeft: Radius.circular(10.0),
                                   topRight: Radius.circular(10.0),
+                                  bottomLeft: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(10.0),
                                 ),
                                 border: Border.all(
                                   color: Color(0xFFD0D0D1),
@@ -745,12 +747,12 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(10.0),
+                                                topRight: Radius.circular(10.0),
                                                 bottomLeft:
                                                     Radius.circular(10.0),
                                                 bottomRight:
                                                     Radius.circular(10.0),
-                                                topLeft: Radius.circular(10.0),
-                                                topRight: Radius.circular(10.0),
                                               ),
                                             ),
                                             child: Padding(
@@ -1457,12 +1459,12 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                             decoration: BoxDecoration(
                                               color: Color(0xFFFBEDEC),
                                               borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(16.0),
+                                                topRight: Radius.circular(16.0),
                                                 bottomLeft:
                                                     Radius.circular(16.0),
                                                 bottomRight:
                                                     Radius.circular(16.0),
-                                                topLeft: Radius.circular(16.0),
-                                                topRight: Radius.circular(16.0),
                                               ),
                                             ),
                                             child: Row(

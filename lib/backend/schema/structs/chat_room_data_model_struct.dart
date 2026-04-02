@@ -137,7 +137,7 @@ Map<String, dynamic> getChatRoomDataModelFirestoreData(
   final firestoreData = mapToFirestore(chatRoomDataModel.toMap());
 
   // Add any Firestore field values
-  chatRoomDataModel.firestoreUtilData.fieldValues
+  mapToFirestore(chatRoomDataModel.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

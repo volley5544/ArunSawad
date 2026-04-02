@@ -186,7 +186,7 @@ Map<String, dynamic> getAdminRoleGroupFirestoreData(
   final firestoreData = mapToFirestore(adminRoleGroup.toMap());
 
   // Add any Firestore field values
-  adminRoleGroup.firestoreUtilData.fieldValues
+  mapToFirestore(adminRoleGroup.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

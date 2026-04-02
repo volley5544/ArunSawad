@@ -110,10 +110,10 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(8.0),
-                    bottomRight: Radius.circular(8.0),
                     topLeft: Radius.circular(24.0),
                     topRight: Radius.circular(24.0),
+                    bottomLeft: Radius.circular(8.0),
+                    bottomRight: Radius.circular(8.0),
                   ),
                 ),
                 child: Column(

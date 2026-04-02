@@ -164,7 +164,7 @@ Map<String, dynamic> getImpoundCarAdminRoleFirestoreData(
   final firestoreData = mapToFirestore(impoundCarAdminRole.toMap());
 
   // Add any Firestore field values
-  impoundCarAdminRole.firestoreUtilData.fieldValues
+  mapToFirestore(impoundCarAdminRole.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

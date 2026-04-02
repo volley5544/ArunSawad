@@ -166,8 +166,6 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(12.0),
                               bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
                             ),
                             child: Container(
                               width: 100.0,
@@ -178,8 +176,6 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(12.0),
                                   bottomRight: Radius.circular(12.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
                                 ),
                               ),
                               child: Builder(

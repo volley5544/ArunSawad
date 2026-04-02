@@ -287,7 +287,9 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: AppbarFollowUpDebtWidget(),
+                        child: AppbarFollowUpDebtWidget(
+                          slsTabBackAction: () async {},
+                        ),
                       ),
                       Padding(
                         padding:

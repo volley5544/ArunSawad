@@ -140,7 +140,9 @@ class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: AppbarFollowUpDebtWidget(),
+                        child: AppbarFollowUpDebtWidget(
+                          slsTabBackAction: () async {},
+                        ),
                       ),
                       Text(
                         'ค้นหาลูกค้า',
@@ -727,8 +729,6 @@ class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
                     decoration: BoxDecoration(
                       color: Color(0xFFEBEBED),
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(8.0),
                         topRight: Radius.circular(8.0),
                       ),

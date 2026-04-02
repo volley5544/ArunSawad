@@ -249,7 +249,9 @@ class _TabCollectionExtraMWidgetState extends State<TabCollectionExtraMWidget>
                     wrapWithModel(
                       model: _model.appbarFollowUpDebtModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: AppbarFollowUpDebtWidget(),
+                      child: AppbarFollowUpDebtWidget(
+                        slsTabBackAction: () async {},
+                      ),
                     ),
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),

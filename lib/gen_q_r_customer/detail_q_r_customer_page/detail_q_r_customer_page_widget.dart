@@ -299,7 +299,9 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                         wrapWithModel(
                           model: _model.appbarFollowUpDebtModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: AppbarFollowUpDebtWidget(),
+                          child: AppbarFollowUpDebtWidget(
+                            slsTabBackAction: () async {},
+                          ),
                         ),
                         Text(
                           'สัญญาลูกค้า',

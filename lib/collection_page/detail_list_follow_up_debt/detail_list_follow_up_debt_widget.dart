@@ -354,7 +354,9 @@ class _DetailListFollowUpDebtWidgetState
                         wrapWithModel(
                           model: _model.appbarFollowUpDebtModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: AppbarFollowUpDebtWidget(),
+                          child: AppbarFollowUpDebtWidget(
+                            slsTabBackAction: () async {},
+                          ),
                         ),
                         if (((_model.getListDataPerson?.statusCode ?? 200) ==
                                 200) &&
