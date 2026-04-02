@@ -214,7 +214,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                   ),
                                   color: Colors.white,
                                   fontSize: widget!.followUpDebtTab == 98
-                                      ? 12.0
+                                      ? 13.0
                                       : 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)

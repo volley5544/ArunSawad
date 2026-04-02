@@ -34,7 +34,7 @@ class ImagesMPageModel extends FlutterFlowModel<ImagesMPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - API (collectionApiImageM)] action in imagesMPage widget.
+  // Stores action output result for [Backend Call - API (collectionApiImage)] action in imagesMPage widget.
   ApiCallResponse? imageOutput;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;

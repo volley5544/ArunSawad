@@ -10852,16 +10852,16 @@ class CollectionFollowupDebtPPCall {
 class CollectionFollowupDebtSLSCall {
   static Future<ApiCallResponse> call({
     String? branchCode = '',
-    String? areaCode = '',
-    String? regionCode = '',
+    String? codeKate = '',
+    String? codeRegion = '',
     String? role = '',
     String? apiUrl = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "branchCode": "${branchCode}",
-  "codeKate": "${areaCode}",
-  "codeRegion": "${regionCode}",
+  "codeKate": "${codeKate}",
+  "codeRegion": "${codeRegion}",
   "role": "${role}"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -10908,11 +10908,16 @@ class CollectionFollowupDebtSLSCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static List? data(dynamic response) => getJsonField(
+  static List<SLSCollectionDataModelStruct>? data(dynamic response) =>
+      (getJsonField(
         response,
         r'''$.data''',
         true,
-      ) as List?;
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => SLSCollectionDataModelStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
   static String? messageLayer1(dynamic response) =>
       castToType<String>(getJsonField(
         response,
@@ -11391,7 +11396,7 @@ class CollectionApiVloanDataCall {
       );
 }
 
-class CollectionApiImageMCall {
+class CollectionApiImageCall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? contNo = '',
@@ -11401,8 +11406,8 @@ class CollectionApiImageMCall {
   "cont_no": "${contNo}"
 }''';
     return ApiManager.instance.makeApiCall(
-      callName: 'collectionApiImageM',
-      apiUrl: '${apiUrl}/collection/api/get_data_imagesM',
+      callName: 'collectionApiImage',
+      apiUrl: '${apiUrl}/collection/api/get_data_images',
       callType: ApiCallType.POST,
       headers: {},
       params: {},

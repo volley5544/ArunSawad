@@ -63,12 +63,12 @@ class _ImagesMPageWidgetState extends State<ImagesMPageWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
-      _model.imageOutput = await CollectionApiImageMCall.call(
+      _model.imageOutput = await CollectionApiImageCall.call(
         apiUrl: 'https://49e91f2cdb22.ngrok-free.app',
         contNo: '2022010002021',
       );
 
-      _model.dataImage = CollectionApiImageMCall.data(
+      _model.dataImage = CollectionApiImageCall.data(
         (_model.imageOutput?.jsonBody ?? ''),
       )!
           .toList()

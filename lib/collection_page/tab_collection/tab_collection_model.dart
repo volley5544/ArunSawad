@@ -5,13 +5,16 @@ import '/backend/backend.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'tab_collection_widget.dart' show TabCollectionWidget;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -25,6 +28,26 @@ import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
+  ///  Local state fields for this page.
+
+  int? cathayTabState = 1;
+
+  String? cathayProvince;
+
+  String? cathayDistrict;
+
+  String? cathaySubDistrict;
+
+  List<String> choiceChipData = ['รายชื่อลูกค้า', 'ตามที่อยู่'];
+  void addToChoiceChipData(String item) => choiceChipData.add(item);
+  void removeFromChoiceChipData(String item) => choiceChipData.remove(item);
+  void removeAtIndexFromChoiceChipData(int index) =>
+      choiceChipData.removeAt(index);
+  void insertAtIndexInChoiceChipData(int index, String item) =>
+      choiceChipData.insert(index, item);
+  void updateChoiceChipDataAtIndex(int index, Function(String) updateFn) =>
+      choiceChipData[index] = updateFn(choiceChipData[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in tabCollection widget.
@@ -35,6 +58,20 @@ class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
   ApiCallResponse? apiOutputCountPP;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
+  // State field(s) for ChoiceChips widget.
+  FormFieldController<List<String>>? choiceChipsValueController;
+  String? get choiceChipsValue =>
+      choiceChipsValueController?.value?.firstOrNull;
+  set choiceChipsValue(String? val) =>
+      choiceChipsValueController?.value = val != null ? [val] : [];
+  // State field(s) for PageView widget.
+  PageController? pageViewController;
+
+  int get pageViewCurrentIndex => pageViewController != null &&
+          pageViewController!.hasClients &&
+          pageViewController!.page != null
+      ? pageViewController!.page!.round()
+      : 0;
 
   @override
   void initState(BuildContext context) {

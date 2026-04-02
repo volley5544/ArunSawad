@@ -77,6 +77,24 @@ class TabCollectionTeamMPageModel
 
   String? cathaySubDistrict;
 
+  List<SLSCollectionDataModelStruct> slsDataPageState = [];
+  void addToSlsDataPageState(SLSCollectionDataModelStruct item) =>
+      slsDataPageState.add(item);
+  void removeFromSlsDataPageState(SLSCollectionDataModelStruct item) =>
+      slsDataPageState.remove(item);
+  void removeAtIndexFromSlsDataPageState(int index) =>
+      slsDataPageState.removeAt(index);
+  void insertAtIndexInSlsDataPageState(
+          int index, SLSCollectionDataModelStruct item) =>
+      slsDataPageState.insert(index, item);
+  void updateSlsDataPageStateAtIndex(
+          int index, Function(SLSCollectionDataModelStruct) updateFn) =>
+      slsDataPageState[index] = updateFn(slsDataPageState[index]);
+
+  int? cathayProvinceIndex;
+
+  int? cathayDistrictIndex;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in tabCollectionTeamMPage widget.
@@ -89,6 +107,8 @@ class TabCollectionTeamMPageModel
   ApiCallResponse? apiOutputCountPP;
   // Stores action output result for [Backend Call - API (collectionApiGetDataCount ExtraM)] action in tabCollectionTeamMPage widget.
   ApiCallResponse? collectionApiGetdataCountM;
+  // Stores action output result for [Backend Call - API (collectionFollowupDebtSLS)] action in tabCollectionTeamMPage widget.
+  ApiCallResponse? sLSAPIOutput;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // State field(s) for ChoiceChips widget.
