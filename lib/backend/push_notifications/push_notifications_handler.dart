@@ -870,6 +870,11 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
+  'SlsShowImagePage': (data) async => ParameterData(
+        allParams: {
+          'contNo': getParameter<String>(data, 'contNo'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

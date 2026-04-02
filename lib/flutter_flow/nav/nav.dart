@@ -2857,6 +2857,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: SlsShowImagePageWidget.routeName,
+              path: SlsShowImagePageWidget.routePath,
+              builder: (context, params) => SlsShowImagePageWidget(
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
