@@ -10849,6 +10849,108 @@ class CollectionFollowupDebtPPCall {
           .toList();
 }
 
+class CollectionFollowupDebtSLSCall {
+  static Future<ApiCallResponse> call({
+    String? branchCode = '',
+    String? areaCode = '',
+    String? regionCode = '',
+    String? role = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "branchCode": "${branchCode}",
+  "codeKate": "${areaCode}",
+  "codeRegion": "${regionCode}",
+  "role": "${role}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionFollowupDebtSLS',
+      apiUrl: '${apiUrl}/collection/api/get_data_sls',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? name1(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].NAME1''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name2(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].NAME2''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? cusCod(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CUSCOD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static List<String>? remdetcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDETCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? arappdate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ARAPPDATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regno(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REGNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
 class CollectionApiGetDataPersonCall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',

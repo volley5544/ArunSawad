@@ -877,80 +877,63 @@ class _TabCollectionTeamMPageWidgetState
                     ),
                   ],
                 ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
-                if (!((_model.choiceChipsValue == 'ตามที่อยู่') &&
-                    ((_model.cathayTabState == 2) ||
-                        (_model.cathayTabState == 3))))
-                  Builder(
-                    builder: (context) {
-                      if (!((_model.choiceChipsValue == 'ตามที่อยู่') &&
-                          ((_model.cathayTabState == 2) ||
-                              (_model.cathayTabState == 3)))) {
-                        return Container(
-                          width: double.infinity,
-                          height: 60.0,
-                          decoration: BoxDecoration(),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 0.0, 0.0),
-                                  child: FlutterFlowChoiceChips(
-                                    options: [
-                                      ChipData('รายชื่อลูกค้า'),
-                                      ChipData('สถานีตำรวจ'),
-                                      ChipData('ตามที่อยู่')
-                                    ],
-                                    onChanged: (val) async {
-                                      safeSetState(() => _model
-                                          .choiceChipsValue = val?.firstOrNull);
-                                      if (_model.choiceChipsValue ==
-                                          'สถานีตำรวจ') {
-                                        await _model.pageViewController
-                                            ?.animateToPage(
-                                          1,
-                                          duration: Duration(milliseconds: 500),
-                                          curve: Curves.ease,
-                                        );
-                                      } else if (_model.choiceChipsValue ==
-                                          'รายชื่อลูกค้า') {
-                                        await _model.pageViewController
-                                            ?.animateToPage(
-                                          0,
-                                          duration: Duration(milliseconds: 500),
-                                          curve: Curves.ease,
-                                        );
-                                      } else {
-                                        await _model.pageViewController
-                                            ?.animateToPage(
-                                          2,
-                                          duration: Duration(milliseconds: 500),
-                                          curve: Curves.ease,
-                                        );
-                                      }
-                                    },
-                                    selectedChipStyle: ChipStyle(
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.poppins(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
+                Builder(
+                  builder: (context) {
+                    if (!((_model.choiceChipsValue == 'ตามที่อยู่') &&
+                        ((_model.cathayTabState == 2) ||
+                            (_model.cathayTabState == 3)))) {
+                      return Container(
+                        width: double.infinity,
+                        height: 60.0,
+                        decoration: BoxDecoration(),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
+                                child: FlutterFlowChoiceChips(
+                                  options: [
+                                    ChipData('รายชื่อลูกค้า'),
+                                    ChipData('สถานีตำรวจ'),
+                                    ChipData('ตามที่อยู่')
+                                  ],
+                                  onChanged: (val) async {
+                                    safeSetState(() => _model.choiceChipsValue =
+                                        val?.firstOrNull);
+                                    if (_model.choiceChipsValue ==
+                                        'สถานีตำรวจ') {
+                                      await _model.pageViewController
+                                          ?.animateToPage(
+                                        1,
+                                        duration: Duration(milliseconds: 500),
+                                        curve: Curves.ease,
+                                      );
+                                    } else if (_model.choiceChipsValue ==
+                                        'รายชื่อลูกค้า') {
+                                      await _model.pageViewController
+                                          ?.animateToPage(
+                                        0,
+                                        duration: Duration(milliseconds: 500),
+                                        curve: Curves.ease,
+                                      );
+                                    } else {
+                                      await _model.pageViewController
+                                          ?.animateToPage(
+                                        2,
+                                        duration: Duration(milliseconds: 500),
+                                        curve: Curves.ease,
+                                      );
+                                    }
+                                  },
+                                  selectedChipStyle: ChipStyle(
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.poppins(
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -959,38 +942,38 @@ class _TabCollectionTeamMPageWidgetState
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .fontStyle,
-                                            lineHeight: 2.3,
                                           ),
-                                      iconColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      iconSize: 16.0,
-                                      labelPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              4.0, 0.0, 4.0, 0.0),
-                                      elevation: 2.0,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    unselectedChipStyle: ChipStyle(
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
+                                          color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.poppins(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
+                                          fontSize: 12.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                          lineHeight: 2.3,
+                                        ),
+                                    iconColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    iconSize: 16.0,
+                                    labelPadding:
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            4.0, 0.0, 4.0, 0.0),
+                                    elevation: 2.0,
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  unselectedChipStyle: ChipStyle(
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.poppins(
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -999,48 +982,60 @@ class _TabCollectionTeamMPageWidgetState
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .fontStyle,
-                                            lineHeight: 2.3,
                                           ),
-                                      iconColor: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      iconSize: 16.0,
-                                      labelPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              16.0, 0.0, 16.0, 0.0),
-                                      elevation: 2.0,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    chipSpacing: 8.0,
-                                    rowSpacing: 12.0,
-                                    multiselect: false,
-                                    initialized:
-                                        _model.choiceChipsValue != null,
-                                    alignment: WrapAlignment.center,
-                                    controller:
-                                        _model.choiceChipsValueController ??=
-                                            FormFieldController<List<String>>(
-                                      [
-                                        _model.dataTabM.isNotEmpty
-                                            ? 'สถานีตำรวจ'
-                                            : 'รายชื่อลูกค้า'
-                                      ],
-                                    ),
-                                    wrapped: true,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 12.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                          lineHeight: 2.3,
+                                        ),
+                                    iconColor: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    iconSize: 16.0,
+                                    labelPadding:
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                    elevation: 2.0,
+                                    borderRadius: BorderRadius.circular(50.0),
                                   ),
+                                  chipSpacing: 8.0,
+                                  rowSpacing: 12.0,
+                                  multiselect: false,
+                                  initialized: _model.choiceChipsValue != null,
+                                  alignment: WrapAlignment.center,
+                                  controller:
+                                      _model.choiceChipsValueController ??=
+                                          FormFieldController<List<String>>(
+                                    [
+                                      _model.dataTabM.isNotEmpty
+                                          ? 'สถานีตำรวจ'
+                                          : 'รายชื่อลูกค้า'
+                                    ],
+                                  ),
+                                  wrapped: true,
                                 ),
                               ),
-                            ],
-                          ),
-                        );
-                      } else {
-                        return Container(
-                          width: double.infinity,
-                          height: 60.0,
-                          decoration: BoxDecoration(),
-                        );
-                      }
-                    },
-                  ),
+                            ),
+                          ],
+                        ),
+                      );
+                    } else {
+                      return Container(
+                        width: double.infinity,
+                        height: 60.0,
+                        decoration: BoxDecoration(),
+                      );
+                    }
+                  },
+                ),
                 Expanded(
                   child: Container(
                     width: double.infinity,
