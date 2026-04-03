@@ -22,6 +22,7 @@ import '/index.dart';
 import 'save_on_site_follow_up_debt_widget.dart'
     show SaveOnSiteFollowUpDebtWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -35,6 +36,8 @@ class SaveOnSiteFollowUpDebtModel
     extends FlutterFlowModel<SaveOnSiteFollowUpDebtWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in saveOnSiteFollowUpDebt widget.
+  RoleMenuRecord? roleMenufirebase;
   // Stores action output result for [Custom Action - checkDeveloperMode] action in saveOnSiteFollowUpDebt widget.
   bool? checkDeveloperMode;
   // Stores action output result for [Custom Action - a8] action in saveOnSiteFollowUpDebt widget.

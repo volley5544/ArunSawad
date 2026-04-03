@@ -20,6 +20,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -127,6 +128,9 @@ class _SaveOnSiteFollowUpDebtWidgetState
         },
       );
 
+      _model.roleMenufirebase = await queryRoleMenuRecordOnce(
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
       FFAppState().rp72DataList = [];
       safeSetState(() {});
       _model.checkDeveloperMode = await actions.checkDeveloperMode();
@@ -3385,7 +3389,9 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           safeSetState(() {});
                                         return;
                                       }
-                                      if (widget!.creditor != 'SSW') {
+                                      if (!_model
+                                          .roleMenufirebase!.sLSRemarkList
+                                          .contains(widget!.creditor)) {
                                         FFAppState().isGetVloanContract = false;
                                         FFAppState().vloanCustomerNameListTemp =
                                             [];
