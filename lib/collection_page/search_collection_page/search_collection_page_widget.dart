@@ -1278,6 +1278,89 @@ class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
                                                                         ],
                                                                       ),
                                                                     ),
+                                                                    Container(
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                2,
+                                                                            child:
+                                                                                AutoSizeText(
+                                                                              'บริษัท',
+                                                                              textAlign: TextAlign.start,
+                                                                              maxLines: 1,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
+                                                                                    fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          AutoSizeText(
+                                                                            ': ',
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            maxLines:
+                                                                                1,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                                  fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                AutoSizeText(
+                                                                              ('${getJsonField(
+                                                                                            listNameItem,
+                                                                                            r'''$.Creditor''',
+                                                                                          ).toString()}' !=
+                                                                                          'null') &&
+                                                                                      ('${getJsonField(
+                                                                                            listNameItem,
+                                                                                            r'''$.Creditor''',
+                                                                                          ).toString()}' !=
+                                                                                          '')
+                                                                                  ? '${getJsonField(
+                                                                                      listNameItem,
+                                                                                      r'''$.Creditor''',
+                                                                                    ).toString()}'
+                                                                                  : '-',
+                                                                              maxLines: 1,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
+                                                                                    fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
                                                                   ].divide(SizedBox(
                                                                       height:
                                                                           4.0)),

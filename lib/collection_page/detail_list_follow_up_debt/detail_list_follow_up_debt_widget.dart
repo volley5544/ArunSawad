@@ -1397,7 +1397,7 @@ class _DetailListFollowUpDebtWidgetState
                                                   (_model.getListDataPerson
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$.Creditor''',
+                                                  r'''$.data[*].Creditor''',
                                                   true,
                                                 ) as List?)
                                                     ?.map<String>(
