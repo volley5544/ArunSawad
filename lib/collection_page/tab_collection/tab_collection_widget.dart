@@ -722,6 +722,9 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                             _model.cathayProvince = null;
                             safeSetState(() {});
                           }
+
+                          _model.cathayTabState = _model.cathayTabState! + -1;
+                          safeSetState(() {});
                         },
                       ),
                     ),

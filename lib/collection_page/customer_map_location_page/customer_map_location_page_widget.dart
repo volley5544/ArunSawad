@@ -6,9 +6,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'customer_map_location_page_model.dart';
@@ -124,6 +127,30 @@ class _CustomerMapLocationPageWidgetState
                                 .fontStyle,
                           ),
                     ),
+                    Align(
+                      alignment: AlignmentDirectional(1.0, 0.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await actions.urlLauncher(
+                              'https://www.google.com/maps?q=${functions.userLatitude(widget!.location)},${functions.userLongitude(widget!.location)}',
+                            );
+                          },
+                          child: FaIcon(
+                            FontAwesomeIcons.mapMarkedAlt,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            size: 36.0,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
               ),
@@ -171,6 +198,11 @@ class _CustomerMapLocationPageWidgetState
                         FlutterFlowMarker(
                           _googleMapMarker.serialize(),
                           _googleMapMarker,
+                          () async {
+                            await actions.urlLauncher(
+                              'https://www.google.com/maps?q=${functions.userLatitude(widget!.location)},${functions.userLongitude(widget!.location)}',
+                            );
+                          },
                         ),
                     ],
                     markerColor: GoogleMarkerColor.red,

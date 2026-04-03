@@ -3193,12 +3193,12 @@ class _DetailListFollowUpDebtWidgetState
                                                                       ),
                                                                     if (('${getJsonField(
                                                                               listCardItem,
-                                                                              r'''$.LAT_HOME''',
+                                                                              r'''$.LAT_OFFICE''',
                                                                             ).toString()}' !=
                                                                             '0.0') &&
                                                                         ('${getJsonField(
                                                                               listCardItem,
-                                                                              r'''$.LON_HOME''',
+                                                                              r'''$.LON_OFFICE''',
                                                                             ).toString()}' !=
                                                                             '0.0'))
                                                                       Expanded(
