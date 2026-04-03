@@ -1070,7 +1070,7 @@ class _DetailListFollowUpDebtWidgetState
                                   options: FFButtonOptions(
                                     height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        12.0, 0.0, 12.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFF004984),
@@ -1418,7 +1418,7 @@ class _DetailListFollowUpDebtWidgetState
                                     options: FFButtonOptions(
                                       height: 40.0,
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
+                                          8.0, 0.0, 8.0, 0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
@@ -1474,7 +1474,7 @@ class _DetailListFollowUpDebtWidgetState
                                                         (_model.getListDataPerson
                                                                 ?.jsonBody ??
                                                             ''),
-                                                        r'''$.data.LAT_HOME''',
+                                                        r'''$.data[*].LAT_HOME''',
                                                         true,
                                                       ) as List?)
                                                           ?.map<String>((e) =>
@@ -1485,7 +1485,7 @@ class _DetailListFollowUpDebtWidgetState
                                                         (_model.getListDataPerson
                                                                 ?.jsonBody ??
                                                             ''),
-                                                        r'''$.data.LON_HOME''',
+                                                        r'''$.data[*].LON_HOME''',
                                                         true,
                                                       ) as List?)
                                                           ?.map<String>((e) =>
@@ -1499,7 +1499,7 @@ class _DetailListFollowUpDebtWidgetState
                                                         (_model.getListDataPerson
                                                                 ?.jsonBody ??
                                                             ''),
-                                                        r'''$.data.LAT_OFFICE''',
+                                                        r'''$.data[*].LAT_OFFICE''',
                                                         true,
                                                       ) as List?)
                                                           ?.map<String>((e) =>
@@ -1510,7 +1510,7 @@ class _DetailListFollowUpDebtWidgetState
                                                         (_model.getListDataPerson
                                                                 ?.jsonBody ??
                                                             ''),
-                                                        r'''$.data.LON_OFFICE''',
+                                                        r'''$.data[*].LON_OFFICE''',
                                                         true,
                                                       ) as List?)
                                                           ?.map<String>((e) =>
@@ -1535,7 +1535,7 @@ class _DetailListFollowUpDebtWidgetState
                                   options: FFButtonOptions(
                                     height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        12.0, 0.0, 12.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color:
@@ -1573,7 +1573,7 @@ class _DetailListFollowUpDebtWidgetState
                                   ),
                                 ).animateOnPageLoad(animationsMap[
                                     'buttonOnPageLoadAnimation3']!),
-                              ].divide(SizedBox(width: 4.0)),
+                              ].divide(SizedBox(width: 8.0)),
                             ),
                           ),
                           Padding(
@@ -1771,6 +1771,7 @@ class _DetailListFollowUpDebtWidgetState
                                       0,
                                       24.0,
                                     ),
+                                    primary: false,
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemCount: listCard.length,
@@ -3093,197 +3094,200 @@ class _DetailListFollowUpDebtWidgetState
                                                                       MainAxisAlignment
                                                                           .spaceEvenly,
                                                                   children: [
-                                                                    Expanded(
-                                                                      child:
-                                                                          FFButtonWidget(
-                                                                        onPressed:
-                                                                            () async {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            CustomerMapLocationPageWidget.routeName,
-                                                                            queryParameters:
-                                                                                {
-                                                                              'title': serializeParam(
-                                                                                'ตำแหน่งบ้าน',
-                                                                                ParamType.String,
-                                                                              ),
-                                                                              'location': serializeParam(
-                                                                                functions.stringToLatLng(
-                                                                                    getJsonField(
-                                                                                      listCardItem,
-                                                                                      r'''$.LAT_HOME''',
-                                                                                    ).toString(),
-                                                                                    getJsonField(
-                                                                                      listCardItem,
-                                                                                      r'''$.LON_HOME''',
-                                                                                    ).toString()),
-                                                                                ParamType.LatLng,
-                                                                              ),
-                                                                              'contNo': serializeParam(
-                                                                                '${getJsonField(
-                                                                                  listCardItem,
-                                                                                  r'''$.CONTNO''',
-                                                                                ).toString()}',
-                                                                                ParamType.String,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                            extra: <String,
-                                                                                dynamic>{
-                                                                              '__transition_info__': TransitionInfo(
-                                                                                hasTransition: true,
-                                                                                transitionType: PageTransitionType.rightToLeft,
-                                                                              ),
-                                                                            },
-                                                                          );
-                                                                        },
-                                                                        text:
-                                                                            'ตำแหน่งบ้าน',
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .house,
-                                                                          size:
-                                                                              24.0,
-                                                                        ),
-                                                                        options:
-                                                                            FFButtonOptions(
-                                                                          height:
-                                                                              40.0,
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              12.0,
-                                                                              0.0,
-                                                                              12.0,
-                                                                              0.0),
-                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          textStyle: FlutterFlowTheme.of(context)
-                                                                              .titleSmall
-                                                                              .override(
-                                                                                font: GoogleFonts.poppins(
+                                                                    if (('${getJsonField(
+                                                                              listCardItem,
+                                                                              r'''$.LAT_HOME''',
+                                                                            ).toString()}' !=
+                                                                            '0.0') &&
+                                                                        ('${getJsonField(
+                                                                              listCardItem,
+                                                                              r'''$.LON_HOME''',
+                                                                            ).toString()}' !=
+                                                                            '0.0'))
+                                                                      Expanded(
+                                                                        child:
+                                                                            FFButtonWidget(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            context.pushNamed(
+                                                                              CustomerMapLocationPageWidget.routeName,
+                                                                              queryParameters: {
+                                                                                'title': serializeParam(
+                                                                                  'ตำแหน่งบ้าน',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                                'location': serializeParam(
+                                                                                  functions.stringToLatLng(
+                                                                                      getJsonField(
+                                                                                        listCardItem,
+                                                                                        r'''$.LAT_HOME''',
+                                                                                      ).toString(),
+                                                                                      getJsonField(
+                                                                                        listCardItem,
+                                                                                        r'''$.LON_HOME''',
+                                                                                      ).toString()),
+                                                                                  ParamType.LatLng,
+                                                                                ),
+                                                                                'contNo': serializeParam(
+                                                                                  '${getJsonField(
+                                                                                    listCardItem,
+                                                                                    r'''$.CONTNO''',
+                                                                                  ).toString()}',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                              extra: <String, dynamic>{
+                                                                                '__transition_info__': TransitionInfo(
+                                                                                  hasTransition: true,
+                                                                                  transitionType: PageTransitionType.rightToLeft,
+                                                                                ),
+                                                                              },
+                                                                            );
+                                                                          },
+                                                                          text:
+                                                                              'ตำแหน่งบ้าน',
+                                                                          icon:
+                                                                              Icon(
+                                                                            Icons.house,
+                                                                            size:
+                                                                                24.0,
+                                                                          ),
+                                                                          options:
+                                                                              FFButtonOptions(
+                                                                            height:
+                                                                                40.0,
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                12.0,
+                                                                                0.0,
+                                                                                12.0,
+                                                                                0.0),
+                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                                  ),
+                                                                                  color: Color(0xFFDB771A),
+                                                                                  fontSize: 15.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
                                                                                   fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                                 ),
-                                                                                color: Color(0xFFDB771A),
-                                                                                fontSize: 15.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
-                                                                                fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                                                                              ),
-                                                                          elevation:
-                                                                              3.0,
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Color(0xFFDB771A),
-                                                                            width:
-                                                                                2.0,
+                                                                            elevation:
+                                                                                3.0,
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0xFFDB771A),
+                                                                              width: 2.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(10.0),
                                                                           ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(10.0),
-                                                                        ),
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['buttonOnPageLoadAnimation4']!),
-                                                                    ),
-                                                                    Expanded(
-                                                                      child:
-                                                                          FFButtonWidget(
-                                                                        onPressed:
-                                                                            () async {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            CustomerMapLocationPageWidget.routeName,
-                                                                            queryParameters:
-                                                                                {
-                                                                              'title': serializeParam(
-                                                                                'ตำแหน่งที่ทำงาน',
-                                                                                ParamType.String,
-                                                                              ),
-                                                                              'location': serializeParam(
-                                                                                functions.stringToLatLng(
-                                                                                    getJsonField(
-                                                                                      listCardItem,
-                                                                                      r'''$.LAT_OFFICE''',
-                                                                                    ).toString(),
-                                                                                    getJsonField(
-                                                                                      listCardItem,
-                                                                                      r'''$.LON_OFFICE''',
-                                                                                    ).toString()),
-                                                                                ParamType.LatLng,
-                                                                              ),
-                                                                              'contNo': serializeParam(
-                                                                                '${getJsonField(
-                                                                                  listCardItem,
-                                                                                  r'''$.CONTNO''',
-                                                                                ).toString()}',
-                                                                                ParamType.String,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                            extra: <String,
-                                                                                dynamic>{
-                                                                              '__transition_info__': TransitionInfo(
-                                                                                hasTransition: true,
-                                                                                transitionType: PageTransitionType.rightToLeft,
-                                                                              ),
-                                                                            },
-                                                                          );
-                                                                        },
-                                                                        text:
-                                                                            'ตำแหน่งที่ทำงาน',
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .work_rounded,
-                                                                          size:
-                                                                              24.0,
-                                                                        ),
-                                                                        options:
-                                                                            FFButtonOptions(
-                                                                          height:
-                                                                              40.0,
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              12.0,
-                                                                              0.0,
-                                                                              12.0,
-                                                                              0.0),
-                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          textStyle: FlutterFlowTheme.of(context)
-                                                                              .titleSmall
-                                                                              .override(
-                                                                                font: GoogleFonts.poppins(
+                                                                        ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation4']!),
+                                                                      ),
+                                                                    if (('${getJsonField(
+                                                                              listCardItem,
+                                                                              r'''$.LAT_HOME''',
+                                                                            ).toString()}' !=
+                                                                            '0.0') &&
+                                                                        ('${getJsonField(
+                                                                              listCardItem,
+                                                                              r'''$.LON_HOME''',
+                                                                            ).toString()}' !=
+                                                                            '0.0'))
+                                                                      Expanded(
+                                                                        child:
+                                                                            FFButtonWidget(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            context.pushNamed(
+                                                                              CustomerMapLocationPageWidget.routeName,
+                                                                              queryParameters: {
+                                                                                'title': serializeParam(
+                                                                                  'ตำแหน่งที่ทำงาน',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                                'location': serializeParam(
+                                                                                  functions.stringToLatLng(
+                                                                                      getJsonField(
+                                                                                        listCardItem,
+                                                                                        r'''$.LAT_OFFICE''',
+                                                                                      ).toString(),
+                                                                                      getJsonField(
+                                                                                        listCardItem,
+                                                                                        r'''$.LON_OFFICE''',
+                                                                                      ).toString()),
+                                                                                  ParamType.LatLng,
+                                                                                ),
+                                                                                'contNo': serializeParam(
+                                                                                  '${getJsonField(
+                                                                                    listCardItem,
+                                                                                    r'''$.CONTNO''',
+                                                                                  ).toString()}',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                              extra: <String, dynamic>{
+                                                                                '__transition_info__': TransitionInfo(
+                                                                                  hasTransition: true,
+                                                                                  transitionType: PageTransitionType.rightToLeft,
+                                                                                ),
+                                                                              },
+                                                                            );
+                                                                          },
+                                                                          text:
+                                                                              'ตำแหน่งที่ทำงาน',
+                                                                          icon:
+                                                                              Icon(
+                                                                            Icons.work_rounded,
+                                                                            size:
+                                                                                24.0,
+                                                                          ),
+                                                                          options:
+                                                                              FFButtonOptions(
+                                                                            height:
+                                                                                40.0,
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                12.0,
+                                                                                0.0,
+                                                                                12.0,
+                                                                                0.0),
+                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                                  ),
+                                                                                  color: Color(0xFF4BB718),
+                                                                                  fontSize: 15.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
                                                                                   fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                                 ),
-                                                                                color: Color(0xFF4BB718),
-                                                                                fontSize: 15.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
-                                                                                fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                                                                              ),
-                                                                          elevation:
-                                                                              3.0,
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Color(0xFF4BB718),
-                                                                            width:
-                                                                                2.0,
+                                                                            elevation:
+                                                                                3.0,
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0xFF4BB718),
+                                                                              width: 2.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(10.0),
                                                                           ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(10.0),
                                                                         ),
                                                                       ),
-                                                                    ),
                                                                   ].divide(SizedBox(
                                                                       width:
                                                                           8.0)),

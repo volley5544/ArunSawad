@@ -255,14 +255,16 @@ class _ListNameTabFollowUpDebtWidgetState
                                 'lastname',
                                 'contractNo',
                                 'REGNO',
-                                'CUSCOD'
+                                'CUSCOD',
+                                'Creditor'
                               ]),
                               optionLabels: [
                                 'ชื่อ',
                                 'นามสกุล',
                                 'เลขที่สัญญา',
                                 'เลขทะเบียนรถ',
-                                'เลขบัตรประชาชนลูกค้า'
+                                'เลขบัตรประชาชนลูกค้า',
+                                'บริษัท'
                               ],
                               onChanged: (val) => safeSetState(
                                   () => _model.dropDownValue = val),

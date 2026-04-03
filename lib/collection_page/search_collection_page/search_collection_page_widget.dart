@@ -193,14 +193,16 @@ class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
                                 'lastname',
                                 'contractNo',
                                 'CUSCOD',
-                                'REGNO'
+                                'REGNO',
+                                'Creditor'
                               ]),
                               optionLabels: [
                                 'ชื่อ',
                                 'นามสกุล',
                                 'เลขที่สัญญา',
                                 'เลขบัตรประชาชนลูกค้า',
-                                'เลขทะเบียนรถ'
+                                'เลขทะเบียนรถ',
+                                'บริษัท'
                               ],
                               onChanged: (val) => safeSetState(
                                   () => _model.dropDownValue = val),
