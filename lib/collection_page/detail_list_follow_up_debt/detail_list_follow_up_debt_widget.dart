@@ -2840,52 +2840,77 @@ class _DetailListFollowUpDebtWidgetState
                                                                       Expanded(
                                                                         flex: 1,
                                                                         child:
-                                                                            Container(
-                                                                          width:
-                                                                              100.0,
-                                                                          decoration:
-                                                                              BoxDecoration(),
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            context.pushNamed(
+                                                                              SlsShowImagePageWidget.routeName,
+                                                                              queryParameters: {
+                                                                                'contNo': serializeParam(
+                                                                                  getJsonField(
+                                                                                    listCardItem,
+                                                                                    r'''$.CONTNO''',
+                                                                                  ).toString(),
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                            );
+                                                                          },
                                                                           child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Text(
-                                                                                ':',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.poppins(
-                                                                                        fontWeight: FontWeight.normal,
-                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                      ),
-                                                                                      fontSize: 12.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.normal,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                    ),
-                                                                              ),
-                                                                              Icon(
-                                                                                Icons.attach_file,
-                                                                                color: FlutterFlowTheme.of(context).info,
-                                                                                size: 24.0,
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  'ดูรูป',
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Text(
+                                                                                  ':',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         font: GoogleFonts.poppins(
                                                                                           fontWeight: FontWeight.normal,
                                                                                           fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
-                                                                                        color: FlutterFlowTheme.of(context).info,
-                                                                                        fontSize: 14.0,
+                                                                                        fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
                                                                                         fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                                Icon(
+                                                                                  Icons.attach_file,
+                                                                                  color: FlutterFlowTheme.of(context).info,
+                                                                                  size: 24.0,
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    'ดูรูป',
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          font: GoogleFonts.poppins(
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
+                                                                                          color: FlutterFlowTheme.of(context).info,
+                                                                                          fontSize: 14.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.normal,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),

@@ -2,7 +2,9 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
+import '/components/data_not_found_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -48,6 +50,24 @@ class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
   void updateChoiceChipDataAtIndex(int index, Function(String) updateFn) =>
       choiceChipData[index] = updateFn(choiceChipData[index]);
 
+  List<SLSCollectionDataModelStruct> slsDataPageState = [];
+  void addToSlsDataPageState(SLSCollectionDataModelStruct item) =>
+      slsDataPageState.add(item);
+  void removeFromSlsDataPageState(SLSCollectionDataModelStruct item) =>
+      slsDataPageState.remove(item);
+  void removeAtIndexFromSlsDataPageState(int index) =>
+      slsDataPageState.removeAt(index);
+  void insertAtIndexInSlsDataPageState(
+          int index, SLSCollectionDataModelStruct item) =>
+      slsDataPageState.insert(index, item);
+  void updateSlsDataPageStateAtIndex(
+          int index, Function(SLSCollectionDataModelStruct) updateFn) =>
+      slsDataPageState[index] = updateFn(slsDataPageState[index]);
+
+  int? provinceIndex;
+
+  int? districtIndex;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in tabCollection widget.
@@ -56,6 +76,8 @@ class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
   ApiCallResponse? collectionApiGetdataCount;
   // Stores action output result for [Backend Call - API (collectionApiGetDataCountPP)] action in tabCollection widget.
   ApiCallResponse? apiOutputCountPP;
+  // Stores action output result for [Backend Call - API (collectionFollowupDebtSLS)] action in tabCollection widget.
+  ApiCallResponse? sLSAPIOutput;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // State field(s) for ChoiceChips widget.

@@ -11,7 +11,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 class SLSCollectionDataModelStruct extends FFFirebaseStruct {
   SLSCollectionDataModelStruct({
     String? province,
-    String? provinceCount,
+    int? provinceCount,
     List<DistrictsStruct>? districts,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _province = province,
@@ -27,9 +27,12 @@ class SLSCollectionDataModelStruct extends FFFirebaseStruct {
   bool hasProvince() => _province != null;
 
   // "province_count" field.
-  String? _provinceCount;
-  String get provinceCount => _provinceCount ?? '';
-  set provinceCount(String? val) => _provinceCount = val;
+  int? _provinceCount;
+  int get provinceCount => _provinceCount ?? 0;
+  set provinceCount(int? val) => _provinceCount = val;
+
+  void incrementProvinceCount(int amount) =>
+      provinceCount = provinceCount + amount;
 
   bool hasProvinceCount() => _provinceCount != null;
 
@@ -47,7 +50,7 @@ class SLSCollectionDataModelStruct extends FFFirebaseStruct {
   static SLSCollectionDataModelStruct fromMap(Map<String, dynamic> data) =>
       SLSCollectionDataModelStruct(
         province: data['province'] as String?,
-        provinceCount: data['province_count'] as String?,
+        provinceCount: castToType<int>(data['province_count']),
         districts: getStructList(
           data['districts'],
           DistrictsStruct.fromMap,
@@ -72,7 +75,7 @@ class SLSCollectionDataModelStruct extends FFFirebaseStruct {
         ),
         'province_count': serializeParam(
           _provinceCount,
-          ParamType.String,
+          ParamType.int,
         ),
         'districts': serializeParam(
           _districts,
@@ -91,7 +94,7 @@ class SLSCollectionDataModelStruct extends FFFirebaseStruct {
         ),
         provinceCount: deserializeParam(
           data['province_count'],
-          ParamType.String,
+          ParamType.int,
           false,
         ),
         districts: deserializeStructParam<DistrictsStruct>(
@@ -121,7 +124,7 @@ class SLSCollectionDataModelStruct extends FFFirebaseStruct {
 
 SLSCollectionDataModelStruct createSLSCollectionDataModelStruct({
   String? province,
-  String? provinceCount,
+  int? provinceCount,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,

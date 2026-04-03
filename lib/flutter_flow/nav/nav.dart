@@ -1569,6 +1569,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'pageTitle',
                   ParamType.String,
                 ),
+                subdistrict: params.getParam(
+                  'subdistrict',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

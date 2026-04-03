@@ -68,12 +68,6 @@ class _ImagesMPageWidgetState extends State<ImagesMPageWidget> {
         contNo: '2022010002021',
       );
 
-      _model.dataImage = CollectionApiImageCall.data(
-        (_model.imageOutput?.jsonBody ?? ''),
-      )!
-          .toList()
-          .cast<ImageMDataModelStruct>();
-      safeSetState(() {});
       Navigator.pop(context);
     });
 

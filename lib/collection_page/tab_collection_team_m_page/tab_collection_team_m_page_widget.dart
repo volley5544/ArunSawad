@@ -5146,7 +5146,7 @@ class _TabCollectionTeamMPageWidgetState
                                                                             AutoSizeText(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            functions.showNumberWithComma(provinceDataItem.provinceCount),
+                                                                            functions.showNumberWithComma(provinceDataItem.provinceCount.toString()),
                                                                             '0',
                                                                           ),
                                                                           textAlign:

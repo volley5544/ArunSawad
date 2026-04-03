@@ -10488,6 +10488,7 @@ class CollectionFollowupDebtCall {
     String? branchM = '',
     String? empCode = '',
     String? policeName = '',
+    String? subdistricts = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -10503,7 +10504,8 @@ class CollectionFollowupDebtCall {
   "role": "${role}",
     "branchM":"${branchM}",
     "empCode":"${empCode}",
-    "policeName":"${policeName}"
+    "policeName":"${policeName}",
+"subdistricts":"${subdistricts}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'collectionFollowupDebt',
@@ -11426,13 +11428,14 @@ class CollectionApiImageCall {
         response,
         r'''$.statuscode''',
       ));
-  static List<ImageMDataModelStruct>? data(dynamic response) => (getJsonField(
+  static List<SLSImagesDataModelStruct>? data(dynamic response) =>
+      (getJsonField(
         response,
         r'''$.data''',
         true,
       ) as List?)
           ?.withoutNulls
-          .map((x) => ImageMDataModelStruct.maybeFromMap(x))
+          .map((x) => SLSImagesDataModelStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
   static List<String>? remgcode(dynamic response) => (getJsonField(

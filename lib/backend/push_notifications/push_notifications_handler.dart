@@ -538,6 +538,7 @@ final parametersBuilderMap =
           'policeName': getParameter<String>(data, 'policeName'),
           'fromPage': getParameter<String>(data, 'fromPage'),
           'pageTitle': getParameter<String>(data, 'pageTitle'),
+          'subdistrict': getParameter<String>(data, 'subdistrict'),
         },
       ),
   'RecordVideoWebviewPage': (data) async => ParameterData(

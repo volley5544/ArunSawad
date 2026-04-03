@@ -1,11 +1,15 @@
+import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
+import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
@@ -16,6 +20,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'sls_show_image_page_model.dart';
 export 'sls_show_image_page_model.dart';
 
@@ -49,6 +54,91 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SlsShowImagePage'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
+      _model.apiResultimage = await CollectionApiImageCall.call(
+        apiUrl: FFAppState().apiUrlBranchViewCollection,
+        contNo: widget!.contNo,
+      );
+
+      if ((_model.apiResultimage?.statusCode ?? 200) != 200) {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด connection (${(_model.apiResultimage?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        Navigator.pop(context);
+        return;
+      }
+      if ('${getJsonField(
+            (_model.apiResultimage?.jsonBody ?? ''),
+            r'''$.statuscode''',
+          ).toString()}' !=
+          '200') {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('${'${getJsonField(
+                  (_model.apiResultimage?.jsonBody ?? ''),
+                  r'''$.message''',
+                ).toString()}'}'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        Navigator.pop(context);
+        return;
+      }
+      _model.slsImgData = CollectionApiImageCall.data(
+        (_model.apiResultimage?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<SLSImagesDataModelStruct>();
+      safeSetState(() {});
+      Navigator.pop(context);
+    });
+
     animationsMap.addAll({
       'stackOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -76,6 +166,8 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

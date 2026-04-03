@@ -35,6 +35,7 @@ class ListNameTabFollowUpDebtWidget extends StatefulWidget {
     this.policeName,
     this.fromPage,
     String? pageTitle,
+    this.subdistrict,
   }) : this.pageTitle = pageTitle ?? '-';
 
   final int? followUpDebtTab;
@@ -42,6 +43,7 @@ class ListNameTabFollowUpDebtWidget extends StatefulWidget {
   final String? policeName;
   final String? fromPage;
   final String pageTitle;
+  final String? subdistrict;
 
   static String routeName = 'listNameTabFollowUpDebt';
   static String routePath = 'listNameTabFollowUpDebt';
@@ -873,6 +875,10 @@ class _ListNameTabFollowUpDebtWidgetState
                                   ? ''
                                   : FFAppState().employeeID,
                               policeName: widget!.policeName,
+                              subdistricts: widget!.subdistrict != null &&
+                                      widget!.subdistrict != ''
+                                  ? widget!.subdistrict
+                                  : '',
                             ),
                           ),
                           padding: EdgeInsets.fromLTRB(
