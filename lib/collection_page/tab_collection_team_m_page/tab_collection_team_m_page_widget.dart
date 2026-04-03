@@ -125,65 +125,11 @@ class _TabCollectionTeamMPageWidgetState
         duration: Duration(milliseconds: 500),
         curve: Curves.ease,
       );
+      FFAppState().collectionBranchCode = widget!.branchCode!;
+      FFAppState().collectionProfileLevel = widget!.profileLevel!;
+      safeSetState(() {});
       await Future.wait([
         Future(() async {
-          FFAppState().collectionBranchCode = widget!.branchCode!;
-          FFAppState().collectionProfileLevel = widget!.profileLevel!;
-          safeSetState(() {});
-          _model.collectionApiGetdataCount =
-              await CollectionApiGetDataCountCall.call(
-            branchCode: (widget!.branchCode == 'HO') ||
-                    (FFAppState().profileRoleName == 'SME') ||
-                    (widget!.profileLevel != 'สาขา')
-                ? ''
-                : widget!.branchCode,
-            codeKate: (widget!.profileLevel == 'เขต') &&
-                    (FFAppState().profileRoleName != 'SME')
-                ? widget!.branchCode
-                : '',
-            codeRegion: (widget!.profileLevel == 'ภาค') &&
-                    (FFAppState().profileRoleName != 'SME')
-                ? widget!.branchCode
-                : '',
-            role: FFAppState().profileRoleName,
-            apiUrl: FFAppState().apiUrlBranchViewCollection,
-            branchM: 'Y',
-            empCode: functions.containStringInListString(
-                    functions
-                        .getListDataFromJson(
-                            FFAppState().roleMenuJson, 'HeadTeamM')
-                        ?.toList(),
-                    FFAppState().employeeID)!
-                ? ''
-                : FFAppState().employeeID,
-          );
-
-          _model.apiOutputCountPP = await CollectionApiGetDataCountPPCall.call(
-            branchCode: (widget!.branchCode == 'HO') ||
-                    (FFAppState().profileRoleName == 'SME') ||
-                    (widget!.profileLevel != 'สาขา')
-                ? ''
-                : widget!.branchCode,
-            codeKate: (widget!.profileLevel == 'เขต') &&
-                    (FFAppState().profileRoleName != 'SME')
-                ? widget!.branchCode
-                : '',
-            codeRegion: (widget!.profileLevel == 'ภาค') &&
-                    (FFAppState().profileRoleName != 'SME')
-                ? widget!.branchCode
-                : '',
-            role: FFAppState().profileRoleName,
-            apiUrl: FFAppState().apiUrlBranchViewCollection,
-            empCode: functions.containStringInListString(
-                    functions
-                        .getListDataFromJson(
-                            FFAppState().roleMenuJson, 'HeadTeamM')
-                        ?.toList(),
-                    FFAppState().employeeID)!
-                ? ''
-                : FFAppState().employeeID,
-          );
-
           _model.collectionApiGetdataCountM =
               await CollectionApiGetDataCountExtraMCall.call(
             empCode: functions.containStringInListString(
@@ -214,6 +160,62 @@ class _TabCollectionTeamMPageWidgetState
                 : '',
             role: FFAppState().profileRoleName,
             apiUrl: FFAppState().apiUrlBranchViewCollection,
+          );
+        }),
+        Future(() async {
+          _model.collectionApiGetdataCount =
+              await CollectionApiGetDataCountCall.call(
+            branchCode: (widget!.branchCode == 'HO') ||
+                    (FFAppState().profileRoleName == 'SME') ||
+                    (widget!.profileLevel != 'สาขา')
+                ? ''
+                : widget!.branchCode,
+            codeKate: (widget!.profileLevel == 'เขต') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            codeRegion: (widget!.profileLevel == 'ภาค') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            role: FFAppState().profileRoleName,
+            apiUrl: FFAppState().apiUrlBranchViewCollection,
+            branchM: 'Y',
+            empCode: functions.containStringInListString(
+                    functions
+                        .getListDataFromJson(
+                            FFAppState().roleMenuJson, 'HeadTeamM')
+                        ?.toList(),
+                    FFAppState().employeeID)!
+                ? ''
+                : FFAppState().employeeID,
+          );
+        }),
+        Future(() async {
+          _model.apiOutputCountPP = await CollectionApiGetDataCountPPCall.call(
+            branchCode: (widget!.branchCode == 'HO') ||
+                    (FFAppState().profileRoleName == 'SME') ||
+                    (widget!.profileLevel != 'สาขา')
+                ? ''
+                : widget!.branchCode,
+            codeKate: (widget!.profileLevel == 'เขต') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            codeRegion: (widget!.profileLevel == 'ภาค') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            role: FFAppState().profileRoleName,
+            apiUrl: FFAppState().apiUrlBranchViewCollection,
+            empCode: functions.containStringInListString(
+                    functions
+                        .getListDataFromJson(
+                            FFAppState().roleMenuJson, 'HeadTeamM')
+                        ?.toList(),
+                    FFAppState().employeeID)!
+                ? ''
+                : FFAppState().employeeID,
           );
         }),
       ]);

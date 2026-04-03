@@ -103,25 +103,66 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
       FFAppState().collectionBranchCode = widget!.branchCode!;
       FFAppState().collectionProfileLevel = widget!.profileLevel!;
       safeSetState(() {});
-      _model.collectionApiGetdataCount =
-          await CollectionApiGetDataCountCall.call(
-        branchCode: (widget!.branchCode == 'HO') ||
-                (FFAppState().profileRoleName == 'SME') ||
-                (widget!.profileLevel != 'สาขา')
-            ? ''
-            : widget!.branchCode,
-        codeKate: (widget!.profileLevel == 'เขต') &&
-                (FFAppState().profileRoleName != 'SME')
-            ? widget!.branchCode
-            : '',
-        codeRegion: (widget!.profileLevel == 'ภาค') &&
-                (FFAppState().profileRoleName != 'SME')
-            ? widget!.branchCode
-            : '',
-        role: FFAppState().profileRoleName,
-        apiUrl: FFAppState().apiUrlBranchViewCollection,
-      );
-
+      await Future.wait([
+        Future(() async {
+          _model.collectionApiGetdataCount =
+              await CollectionApiGetDataCountCall.call(
+            branchCode: (widget!.branchCode == 'HO') ||
+                    (FFAppState().profileRoleName == 'SME') ||
+                    (widget!.profileLevel != 'สาขา')
+                ? ''
+                : widget!.branchCode,
+            codeKate: (widget!.profileLevel == 'เขต') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            codeRegion: (widget!.profileLevel == 'ภาค') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            role: FFAppState().profileRoleName,
+            apiUrl: FFAppState().apiUrlBranchViewCollection,
+          );
+        }),
+        Future(() async {
+          _model.apiOutputCountPP = await CollectionApiGetDataCountPPCall.call(
+            branchCode: (widget!.branchCode == 'HO') ||
+                    (FFAppState().profileRoleName == 'SME') ||
+                    (widget!.profileLevel != 'สาขา')
+                ? ''
+                : widget!.branchCode,
+            codeKate: (widget!.profileLevel == 'เขต') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            codeRegion: (widget!.profileLevel == 'ภาค') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            role: FFAppState().profileRoleName,
+            apiUrl: FFAppState().apiUrlBranchViewCollection,
+          );
+        }),
+        Future(() async {
+          _model.sLSAPIOutput = await CollectionFollowupDebtSLSCall.call(
+            branchCode: (widget!.branchCode == 'HO') ||
+                    (FFAppState().profileRoleName == 'SME') ||
+                    (widget!.profileLevel != 'สาขา')
+                ? ''
+                : widget!.branchCode,
+            codeKate: (widget!.profileLevel == 'เขต') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            codeRegion: (widget!.profileLevel == 'ภาค') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            role: FFAppState().profileRoleName,
+            apiUrl: FFAppState().apiUrlBranchViewCollection,
+          );
+        }),
+      ]);
       if ((_model.collectionApiGetdataCount?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(
@@ -168,24 +209,6 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         );
         return;
       }
-      _model.apiOutputCountPP = await CollectionApiGetDataCountPPCall.call(
-        branchCode: (widget!.branchCode == 'HO') ||
-                (FFAppState().profileRoleName == 'SME') ||
-                (widget!.profileLevel != 'สาขา')
-            ? ''
-            : widget!.branchCode,
-        codeKate: (widget!.profileLevel == 'เขต') &&
-                (FFAppState().profileRoleName != 'SME')
-            ? widget!.branchCode
-            : '',
-        codeRegion: (widget!.profileLevel == 'ภาค') &&
-                (FFAppState().profileRoleName != 'SME')
-            ? widget!.branchCode
-            : '',
-        role: FFAppState().profileRoleName,
-        apiUrl: FFAppState().apiUrlBranchViewCollection,
-      );
-
       if ((_model.apiOutputCountPP?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -232,24 +255,6 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         Navigator.pop(context);
         return;
       }
-      _model.sLSAPIOutput = await CollectionFollowupDebtSLSCall.call(
-        branchCode: (widget!.branchCode == 'HO') ||
-                (FFAppState().profileRoleName == 'SME') ||
-                (widget!.profileLevel != 'สาขา')
-            ? ''
-            : widget!.branchCode,
-        codeKate: (widget!.profileLevel == 'เขต') &&
-                (FFAppState().profileRoleName != 'SME')
-            ? widget!.branchCode
-            : '',
-        codeRegion: (widget!.profileLevel == 'ภาค') &&
-                (FFAppState().profileRoleName != 'SME')
-            ? widget!.branchCode
-            : '',
-        role: FFAppState().profileRoleName,
-        apiUrl: FFAppState().apiUrlBranchViewCollection,
-      );
-
       if ((_model.sLSAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,

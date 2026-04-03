@@ -101,14 +101,14 @@ class TabCollectionTeamMPageModel
   UrlLinkStorageRecord? getCollectionApiUrl;
   // Stores action output result for [Backend Call - Read Document] action in tabCollectionTeamMPage widget.
   UrlLinkStorageRecord? queryBranchViewApiUrlUat;
-  // Stores action output result for [Backend Call - API (collectionApiGetDataCount)] action in tabCollectionTeamMPage widget.
-  ApiCallResponse? collectionApiGetdataCount;
-  // Stores action output result for [Backend Call - API (collectionApiGetDataCountPP)] action in tabCollectionTeamMPage widget.
-  ApiCallResponse? apiOutputCountPP;
   // Stores action output result for [Backend Call - API (collectionApiGetDataCount ExtraM)] action in tabCollectionTeamMPage widget.
   ApiCallResponse? collectionApiGetdataCountM;
   // Stores action output result for [Backend Call - API (collectionFollowupDebtSLS)] action in tabCollectionTeamMPage widget.
   ApiCallResponse? sLSAPIOutput;
+  // Stores action output result for [Backend Call - API (collectionApiGetDataCount)] action in tabCollectionTeamMPage widget.
+  ApiCallResponse? collectionApiGetdataCount;
+  // Stores action output result for [Backend Call - API (collectionApiGetDataCountPP)] action in tabCollectionTeamMPage widget.
+  ApiCallResponse? apiOutputCountPP;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // State field(s) for ChoiceChips widget.
