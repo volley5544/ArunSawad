@@ -158,52 +158,6 @@ class _TabCollectionTeamMPageWidgetState
                 : FFAppState().employeeID,
           );
 
-          if ((_model.collectionApiGetdataCount?.statusCode ?? 200) != 200) {
-            Navigator.pop(context);
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
-                  child: AlertDialog(
-                    content: Text(
-                        'พบข้อผิดพลาดConnection (${(_model.collectionApiGetdataCount?.statusCode ?? 200).toString()})'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-            return;
-          }
-          if (CollectionApiGetDataCountCall.statusCode(
-                (_model.collectionApiGetdataCount?.jsonBody ?? ''),
-              ) !=
-              200) {
-            Navigator.pop(context);
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
-                  child: AlertDialog(
-                    content: Text(CollectionApiGetDataCountCall.message(
-                      (_model.collectionApiGetdataCount?.jsonBody ?? ''),
-                    )!),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-            return;
-          }
           _model.apiOutputCountPP = await CollectionApiGetDataCountPPCall.call(
             branchCode: (widget!.branchCode == 'HO') ||
                     (FFAppState().profileRoleName == 'SME') ||
@@ -230,52 +184,6 @@ class _TabCollectionTeamMPageWidgetState
                 : FFAppState().employeeID,
           );
 
-          if ((_model.apiOutputCountPP?.statusCode ?? 200) != 200) {
-            Navigator.pop(context);
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
-                  child: AlertDialog(
-                    content: Text(
-                        'พบข้อผิดพลาด (${(_model.apiOutputCountPP?.statusCode ?? 200).toString()})'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-            return;
-          }
-          if (CollectionApiGetDataCountPPCall.statusCode(
-                (_model.apiOutputCountPP?.jsonBody ?? ''),
-              ) !=
-              200) {
-            Navigator.pop(context);
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
-                  child: AlertDialog(
-                    content: Text(CollectionApiGetDataCountPPCall.message(
-                      (_model.apiOutputCountPP?.jsonBody ?? ''),
-                    )!),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-            return;
-          }
           _model.collectionApiGetdataCountM =
               await CollectionApiGetDataCountExtraMCall.call(
             empCode: functions.containStringInListString(
@@ -288,58 +196,6 @@ class _TabCollectionTeamMPageWidgetState
                 : FFAppState().employeeID,
             apiUrl: FFAppState().apiUrlBranchViewCollection,
           );
-
-          if ((_model.collectionApiGetdataCountM?.statusCode ?? 200) != 200) {
-            Navigator.pop(context);
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
-                  child: AlertDialog(
-                    content: Text(
-                        'พบข้อผิดพลาด Connection (${(_model.collectionApiGetdataCountM?.statusCode ?? 200).toString()})'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-            return;
-          }
-          _model.dataTabM = CollectionApiGetDataCountExtraMCall.data(
-            (_model.collectionApiGetdataCountM?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<CollectionTabMDataModelStruct>();
-          safeSetState(() {});
-          _model.choicechipsData = _model.dataTabM.isNotEmpty
-              ? (['รายชื่อลูกค้า', 'สถานีตำรวจ', 'ตามที่อยู่'])
-              : (['รายชื่อลูกค้า', 'ตามที่อยู่']).toList().cast<String>();
-          _model.showingData =
-              _model.dataTabM.toList().cast<CollectionTabMDataModelStruct>();
-          safeSetState(() {});
-          safeSetState(() {
-            _model.choiceChipsValueController?.value = [
-              (_model.dataTabM.isNotEmpty ? 'สถานีตำรวจ' : 'รายชื่อลูกค้า')
-            ];
-          });
-          if (_model.dataTabM.isNotEmpty) {
-            await _model.pageViewController?.animateToPage(
-              1,
-              duration: Duration(milliseconds: 500),
-              curve: Curves.ease,
-            );
-          } else {
-            await _model.pageViewController?.animateToPage(
-              0,
-              duration: Duration(milliseconds: 500),
-              curve: Curves.ease,
-            );
-          }
         }),
         Future(() async {
           _model.sLSAPIOutput = await CollectionFollowupDebtSLSCall.call(
@@ -359,79 +215,206 @@ class _TabCollectionTeamMPageWidgetState
             role: FFAppState().profileRoleName,
             apiUrl: FFAppState().apiUrlBranchViewCollection,
           );
-
-          if ((_model.sLSAPIOutput?.statusCode ?? 200) != 200) {
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
-                  child: AlertDialog(
-                    content: Text(
-                        'พบข้อผิดพลาดConnection (${(_model.sLSAPIOutput?.statusCode ?? 200).toString()})'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-            Navigator.pop(context);
-            return;
-          }
-          if ('${getJsonField(
-                (_model.sLSAPIOutput?.jsonBody ?? ''),
-                r'''$.statuscode''',
-              ).toString()}' !=
-              '200') {
-            Navigator.pop(context);
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
-                  child: AlertDialog(
-                    content: Text('${getJsonField(
-                      (_model.sLSAPIOutput?.jsonBody ?? ''),
-                      r'''$.message''',
-                    ).toString()}'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-            return;
-          }
-          _model.slsDataPageState = CollectionFollowupDebtSLSCall.data(
-            (_model.sLSAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<SLSCollectionDataModelStruct>();
-          safeSetState(() {});
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                child: AlertDialog(
-                  content: Text(_model.slsDataPageState.length.toString()),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext),
-                      child: Text('Ok'),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
         }),
       ]);
+      if ((_model.collectionApiGetdataCount?.statusCode ?? 200) != 200) {
+        Navigator.pop(context);
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาดConnection (${(_model.collectionApiGetdataCount?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        return;
+      }
+      if (CollectionApiGetDataCountCall.statusCode(
+            (_model.collectionApiGetdataCount?.jsonBody ?? ''),
+          ) !=
+          200) {
+        Navigator.pop(context);
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text(CollectionApiGetDataCountCall.message(
+                  (_model.collectionApiGetdataCount?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        return;
+      }
+      if ((_model.apiOutputCountPP?.statusCode ?? 200) != 200) {
+        Navigator.pop(context);
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${(_model.apiOutputCountPP?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        return;
+      }
+      if (CollectionApiGetDataCountPPCall.statusCode(
+            (_model.apiOutputCountPP?.jsonBody ?? ''),
+          ) !=
+          200) {
+        Navigator.pop(context);
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text(CollectionApiGetDataCountPPCall.message(
+                  (_model.apiOutputCountPP?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        return;
+      }
+      if ((_model.collectionApiGetdataCountM?.statusCode ?? 200) != 200) {
+        Navigator.pop(context);
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด Connection (${(_model.collectionApiGetdataCountM?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        return;
+      }
+      if ((_model.sLSAPIOutput?.statusCode ?? 200) != 200) {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาดConnection (${(_model.sLSAPIOutput?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        Navigator.pop(context);
+        return;
+      }
+      if ('${getJsonField(
+            (_model.sLSAPIOutput?.jsonBody ?? ''),
+            r'''$.statuscode''',
+          ).toString()}' !=
+          '200') {
+        Navigator.pop(context);
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('${getJsonField(
+                  (_model.sLSAPIOutput?.jsonBody ?? ''),
+                  r'''$.message''',
+                ).toString()}'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        return;
+      }
+      _model.slsDataPageState = CollectionFollowupDebtSLSCall.data(
+        (_model.sLSAPIOutput?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<SLSCollectionDataModelStruct>();
+      safeSetState(() {});
+      _model.dataTabM = CollectionApiGetDataCountExtraMCall.data(
+        (_model.collectionApiGetdataCountM?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<CollectionTabMDataModelStruct>();
+      safeSetState(() {});
+      _model.choicechipsData = _model.dataTabM.isNotEmpty
+          ? (['รายชื่อลูกค้า', 'สถานีตำรวจ', 'ตามที่อยู่'])
+          : (['รายชื่อลูกค้า', 'ตามที่อยู่']).toList().cast<String>();
+      _model.showingData =
+          _model.dataTabM.toList().cast<CollectionTabMDataModelStruct>();
+      safeSetState(() {});
+      safeSetState(() {
+        _model.choiceChipsValueController?.value = [
+          (_model.dataTabM.isNotEmpty ? 'สถานีตำรวจ' : 'รายชื่อลูกค้า')
+        ];
+      });
+      if (_model.dataTabM.isNotEmpty) {
+        await _model.pageViewController?.animateToPage(
+          1,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
+      } else {
+        await _model.pageViewController?.animateToPage(
+          0,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
+      }
+
       Navigator.pop(context);
     });
 
