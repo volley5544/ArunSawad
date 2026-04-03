@@ -575,6 +575,7 @@ final parametersBuilderMap =
           'lastPayDate': getParameter<String>(data, 'lastPayDate'),
           'historyCount': getParameter<String>(data, 'historyCount'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'creditor': getParameter<String>(data, 'creditor'),
         },
       ),
   'saveCallFollowUpDebt': (data) async => ParameterData(

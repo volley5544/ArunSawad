@@ -51,6 +51,7 @@ class SaveOnSiteFollowUpDebtWidget extends StatefulWidget {
     required this.lastPayDate,
     this.historyCount,
     this.fromPage,
+    this.creditor,
   });
 
   final String? firstname;
@@ -70,6 +71,7 @@ class SaveOnSiteFollowUpDebtWidget extends StatefulWidget {
   final String? lastPayDate;
   final String? historyCount;
   final String? fromPage;
+  final String? creditor;
 
   static String routeName = 'saveOnSiteFollowUpDebt';
   static String routePath = 'saveOnSiteFollowUpDebt';
@@ -3383,7 +3385,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           safeSetState(() {});
                                         return;
                                       }
-                                      if (!true) {
+                                      if (widget!.creditor != 'SSW') {
                                         FFAppState().isGetVloanContract = false;
                                         FFAppState().vloanCustomerNameListTemp =
                                             [];

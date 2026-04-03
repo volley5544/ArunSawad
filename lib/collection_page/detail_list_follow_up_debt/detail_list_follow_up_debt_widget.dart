@@ -1040,6 +1040,27 @@ class _DetailListFollowUpDebtWidgetState
                                           widget!.fromPage,
                                           ParamType.String,
                                         ),
+                                        'creditor': serializeParam(
+                                          functions
+                                              .returnMappedListFromBoolList(
+                                                  (getJsonField(
+                                                    (_model.getListDataPerson
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                    r'''$.Creditor''',
+                                                    true,
+                                                  ) as List?)
+                                                      ?.map<String>(
+                                                          (e) => e.toString())
+                                                      .toList()
+                                                      .cast<String>(),
+                                                  FFAppState()
+                                                      .selectCardList
+                                                      .toList(),
+                                                  true)
+                                              ?.firstOrNull,
+                                          ParamType.String,
+                                        ),
                                       }.withoutNulls,
                                     );
 

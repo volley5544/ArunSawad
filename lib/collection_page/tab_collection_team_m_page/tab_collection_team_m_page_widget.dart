@@ -5574,6 +5574,12 @@ class _TabCollectionTeamMPageWidgetState
                                                           '${_model.cathayProvince}/${_model.cathayDistrict}/${_model.cathaySubDistrict}',
                                                           ParamType.String,
                                                         ),
+                                                        'subdistrict':
+                                                            serializeParam(
+                                                          _model
+                                                              .cathaySubDistrict,
+                                                          ParamType.String,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },

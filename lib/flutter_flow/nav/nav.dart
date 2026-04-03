@@ -1687,6 +1687,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'fromPage',
                   ParamType.String,
                 ),
+                creditor: params.getParam(
+                  'creditor',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
