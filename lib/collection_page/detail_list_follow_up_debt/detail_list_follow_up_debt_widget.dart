@@ -1047,7 +1047,7 @@ class _DetailListFollowUpDebtWidgetState
                                                     (_model.getListDataPerson
                                                             ?.jsonBody ??
                                                         ''),
-                                                    r'''$.Creditor''',
+                                                    r'''$.data[*].Creditor''',
                                                     true,
                                                   ) as List?)
                                                       ?.map<String>(
@@ -2957,7 +2957,11 @@ class _DetailListFollowUpDebtWidgetState
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              if (true)
+                                                              if ('${getJsonField(
+                                                                    listCardItem,
+                                                                    r'''$.Creditor''',
+                                                                  ).toString()}' !=
+                                                                  'SSW')
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
