@@ -876,6 +876,18 @@ final parametersBuilderMap =
           'contNo': getParameter<String>(data, 'contNo'),
         },
       ),
+  'CustomerMapLocationPage': (data) async => ParameterData(
+        allParams: {
+          'title': getParameter<String>(data, 'title'),
+          'location': getParameter<LatLng>(data, 'location'),
+          'contNo': getParameter<String>(data, 'contNo'),
+        },
+      ),
+  'CustomerMapMultiLocationPage': (data) async => ParameterData(
+        allParams: {
+          'title': getParameter<String>(data, 'title'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

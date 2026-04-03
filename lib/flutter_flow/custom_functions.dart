@@ -5142,3 +5142,10 @@ LatLng? getDefaultLocation() {
 List<dynamic>? generateEmptyJsonList() {
   return [];
 }
+
+List<LatLng>? combineLatLngList(
+  List<LatLng>? latlngList1,
+  List<LatLng>? latlngList2,
+) {
+  return [...latlngList1!, ...latlngList2!];
+}

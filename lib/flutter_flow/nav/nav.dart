@@ -1775,6 +1775,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                creditor: params.getParam<String>(
+                  'creditor',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
@@ -2869,6 +2874,39 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 contNo: params.getParam(
                   'contNo',
                   ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: CustomerMapLocationPageWidget.routeName,
+              path: CustomerMapLocationPageWidget.routePath,
+              builder: (context, params) => CustomerMapLocationPageWidget(
+                title: params.getParam(
+                  'title',
+                  ParamType.String,
+                ),
+                location: params.getParam(
+                  'location',
+                  ParamType.LatLng,
+                ),
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: CustomerMapMultiLocationPageWidget.routeName,
+              path: CustomerMapMultiLocationPageWidget.routePath,
+              builder: (context, params) => CustomerMapMultiLocationPageWidget(
+                title: params.getParam(
+                  'title',
+                  ParamType.String,
+                ),
+                location: params.getParam<LatLng>(
+                  'location',
+                  ParamType.LatLng,
+                  isList: true,
                 ),
               ),
             )

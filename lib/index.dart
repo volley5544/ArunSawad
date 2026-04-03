@@ -307,3 +307,7 @@ export '/pages/profile_page_folder/setting_app_page/setting_app_page_widget.dart
     show SettingAppPageWidget;
 export '/collection_page/sls_show_image_page/sls_show_image_page_widget.dart'
     show SlsShowImagePageWidget;
+export '/collection_page/customer_map_location_page/customer_map_location_page_widget.dart'
+    show CustomerMapLocationPageWidget;
+export '/collection_page/customer_map_multi_location_page/customer_map_multi_location_page_widget.dart'
+    show CustomerMapMultiLocationPageWidget;

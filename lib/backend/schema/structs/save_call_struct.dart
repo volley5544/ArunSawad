@@ -23,6 +23,7 @@ class SaveCallStruct extends FFFirebaseStruct {
     List<String>? remdetcode,
     List<String>? amount,
     List<String>? server,
+    List<String>? creditor,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _contnoId = contnoId,
         _contno = contno,
@@ -37,6 +38,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         _remdetcode = remdetcode,
         _amount = amount,
         _server = server,
+        _creditor = creditor,
         super(firestoreUtilData);
 
   // "CONTNO_ID" field.
@@ -182,6 +184,17 @@ class SaveCallStruct extends FFFirebaseStruct {
 
   bool hasServer() => _server != null;
 
+  // "Creditor" field.
+  List<String>? _creditor;
+  List<String> get creditor => _creditor ?? const [];
+  set creditor(List<String>? val) => _creditor = val;
+
+  void updateCreditor(Function(List<String>) updateFn) {
+    updateFn(_creditor ??= []);
+  }
+
+  bool hasCreditor() => _creditor != null;
+
   static SaveCallStruct fromMap(Map<String, dynamic> data) => SaveCallStruct(
         contnoId: getDataList(data['CONTNO_ID']),
         contno: getDataList(data['CONTNO']),
@@ -196,6 +209,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         remdetcode: getDataList(data['REMDETCODE']),
         amount: getDataList(data['AMOUNT']),
         server: getDataList(data['SERVER']),
+        creditor: getDataList(data['Creditor']),
       );
 
   static SaveCallStruct? maybeFromMap(dynamic data) =>
@@ -215,6 +229,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         'REMDETCODE': _remdetcode,
         'AMOUNT': _amount,
         'SERVER': _server,
+        'Creditor': _creditor,
       }.withoutNulls;
 
   @override
@@ -281,6 +296,11 @@ class SaveCallStruct extends FFFirebaseStruct {
         ),
         'SERVER': serializeParam(
           _server,
+          ParamType.String,
+          isList: true,
+        ),
+        'Creditor': serializeParam(
+          _creditor,
           ParamType.String,
           isList: true,
         ),
@@ -353,6 +373,11 @@ class SaveCallStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        creditor: deserializeParam<String>(
+          data['Creditor'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -374,7 +399,8 @@ class SaveCallStruct extends FFFirebaseStruct {
         listEquality.equals(remgcode, other.remgcode) &&
         listEquality.equals(remdetcode, other.remdetcode) &&
         listEquality.equals(amount, other.amount) &&
-        listEquality.equals(server, other.server);
+        listEquality.equals(server, other.server) &&
+        listEquality.equals(creditor, other.creditor);
   }
 
   @override
@@ -391,7 +417,8 @@ class SaveCallStruct extends FFFirebaseStruct {
         remgcode,
         remdetcode,
         amount,
-        server
+        server,
+        creditor
       ]);
 }
 
