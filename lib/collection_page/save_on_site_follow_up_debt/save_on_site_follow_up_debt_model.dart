@@ -70,7 +70,7 @@ class SaveOnSiteFollowUpDebtModel
   // Stores action output result for [Backend Call - API (ChangeLocationAPI)] action in Button widget.
   ApiCallResponse? getUserBranchLocation;
   // Stores action output result for [Backend Call - API (CollectionAPI)] action in Button widget.
-  ApiCallResponse? collectionAPISubmit;
+  ApiCallResponse? collectionAPISubmit1;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FileUploadRecord? saveImgToFirebase;
   // Stores action output result for [Backend Call - API (remarkVLoneAPI)] action in Button widget.

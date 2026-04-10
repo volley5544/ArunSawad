@@ -1936,6 +1936,12 @@ String showCoverTypeThai(String? coverTypeEng) {
 }
 
 String? showNumberWithComma(String? number) {
+  if ('${number}' == 'null' ||
+      '${number}' == '' ||
+      number == null ||
+      int.tryParse('${number}') == null) {
+    return '0';
+  }
   RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
   String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
@@ -3208,7 +3214,10 @@ List<String>? convertIntListToStringList(List<int>? callStatusId) {
 }
 
 String? returnNumberWithComma2Decimal(String? number) {
-  if (number == 'null') {
+  if ('${number}' == 'null' ||
+      '${number}' == '' ||
+      number == null ||
+      int.tryParse(number.replaceAll('-', '')) == null) {
     return '0.00';
   }
 

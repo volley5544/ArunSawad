@@ -3247,7 +3247,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         safeSetState(() {});
                                       }
                                     }
-                                    _model.collectionAPISubmit =
+                                    _model.collectionAPISubmit1 =
                                         await CollectionAPICall.call(
                                       location: functions.getUserLocation(
                                           currentUserLocationValue),
@@ -3255,8 +3255,8 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       contNo: widget!.contNo,
                                       customerName:
                                           '${widget!.firstname} ${widget!.lastname}',
-                                      remark: _model
-                                          .remarkTextFieldTextController.text,
+                                      remark:
+                                          '${functions.generateBranchViewVloneRemark(functions.checkStringLength(''), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldTextController.text}')}',
                                       uid: FFAppState().imei,
                                       description: 'ติดตามหนี้',
                                       jobType: 'Collection',
@@ -3305,7 +3305,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
 
                                     _shouldSetState = true;
                                     if (CollectionAPICall.status(
-                                          (_model.collectionAPISubmit
+                                          (_model.collectionAPISubmit1
                                                   ?.jsonBody ??
                                               ''),
                                         ) ==
@@ -3317,7 +3317,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           ...createFileUploadRecordData(
                                             recordId:
                                                 CollectionAPICall.recordID(
-                                              (_model.collectionAPISubmit
+                                              (_model.collectionAPISubmit1
                                                       ?.jsonBody ??
                                                   ''),
                                             ),
@@ -3338,7 +3338,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           ...createFileUploadRecordData(
                                             recordId:
                                                 CollectionAPICall.recordID(
-                                              (_model.collectionAPISubmit
+                                              (_model.collectionAPISubmit1
                                                       ?.jsonBody ??
                                                   ''),
                                             ),
@@ -3357,11 +3357,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       }
                                       if (functions.checkStringLength(
                                               '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CollectionAPICall.recordID(
-                                                    (_model.collectionAPISubmit
+                                                    (_model.collectionAPISubmit1
                                                             ?.jsonBody ??
                                                         ''),
                                                   ))), _model.remarkTextFieldTextController.text)} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
-                                            (_model.collectionAPISubmit
+                                            (_model.collectionAPISubmit1
                                                     ?.jsonBody ??
                                                 ''),
                                           ))}') >
@@ -3427,11 +3427,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         contno: widget!.contNo,
                                         server: widget!.database,
                                         msg: '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CollectionAPICall.recordID(
-                                              (_model.collectionAPISubmit
+                                              (_model.collectionAPISubmit1
                                                       ?.jsonBody ??
                                                   ''),
                                             ))), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldTextController.text} ดูข้อมูลเพิ่มเติม ')} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
-                                          (_model.collectionAPISubmit
+                                          (_model.collectionAPISubmit1
                                                   ?.jsonBody ??
                                               ''),
                                         ))}',
@@ -3476,7 +3476,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               : 'dsi',
                                           menu: 'Collection',
                                           recordId: CollectionAPICall.recordID(
-                                            (_model.collectionAPISubmit
+                                            (_model.collectionAPISubmit1
                                                     ?.jsonBody ??
                                                 ''),
                                           ),
@@ -3497,11 +3497,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               contno: widget!.contNo,
                                               server: widget!.database,
                                               msg: '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CollectionAPICall.recordID(
-                                                    (_model.collectionAPISubmit
+                                                    (_model.collectionAPISubmit1
                                                             ?.jsonBody ??
                                                         ''),
                                                   ))), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldTextController.text} ดูข้อมูลเพิ่มเติม ')} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
-                                                (_model.collectionAPISubmit
+                                                (_model.collectionAPISubmit1
                                                         ?.jsonBody ??
                                                     ''),
                                               ))}',
@@ -3557,7 +3557,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               : 'dsi',
                                           menu: 'Collection',
                                           recordId: CollectionAPICall.recordID(
-                                            (_model.collectionAPISubmit
+                                            (_model.collectionAPISubmit1
                                                     ?.jsonBody ??
                                                 ''),
                                           ),
@@ -3578,11 +3578,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               contno: widget!.contNo,
                                               server: widget!.database,
                                               msg: '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CollectionAPICall.recordID(
-                                                    (_model.collectionAPISubmit
+                                                    (_model.collectionAPISubmit1
                                                             ?.jsonBody ??
                                                         ''),
                                                   ))), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldTextController.text} ดูข้อมูลเพิ่มเติม ')} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
-                                                (_model.collectionAPISubmit
+                                                (_model.collectionAPISubmit1
                                                         ?.jsonBody ??
                                                     ''),
                                               ))}',
@@ -3706,7 +3706,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             child: AlertDialog(
                                               content: Text(
                                                   'พบข้อผิดพลาด (${CollectionAPICall.status(
-                                                (_model.collectionAPISubmit
+                                                (_model.collectionAPISubmit1
                                                         ?.jsonBody ??
                                                     ''),
                                               )?.toString()}) กรุณาลองใหม่ภายหลัง'),
