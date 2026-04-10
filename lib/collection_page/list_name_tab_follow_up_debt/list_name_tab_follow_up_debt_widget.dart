@@ -1440,6 +1440,29 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                                     fontWeight: FontWeight.normal,
                                                                                     fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
+                                                                                  color: () {
+                                                                                    if ('${getJsonField(
+                                                                                          listNameItem,
+                                                                                          r'''$.Creditor''',
+                                                                                        ).toString()}' ==
+                                                                                        'จำนำ') {
+                                                                                      return Color(0xFF0000FF);
+                                                                                    } else if ('${getJsonField(
+                                                                                          listNameItem,
+                                                                                          r'''$.Creditor''',
+                                                                                        ).toString()}' ==
+                                                                                        'เช่าชื้อ') {
+                                                                                      return Color(0xFF00CB00);
+                                                                                    } else if ('${getJsonField(
+                                                                                          listNameItem,
+                                                                                          r'''$.Creditor''',
+                                                                                        ).toString()}' ==
+                                                                                        'AMC') {
+                                                                                      return FlutterFlowTheme.of(context).secondary;
+                                                                                    } else {
+                                                                                      return FlutterFlowTheme.of(context).primaryText;
+                                                                                    }
+                                                                                  }(),
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,

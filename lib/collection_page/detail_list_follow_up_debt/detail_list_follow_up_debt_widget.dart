@@ -2936,13 +2936,29 @@ class _DetailListFollowUpDebtWidgetState
                                                                                               fontWeight: FontWeight.normal,
                                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                             ),
-                                                                                            color: int.parse(getJsonField(
-                                                                                                      listCardItem,
-                                                                                                      r'''$.historyCount''',
-                                                                                                    ).toString()) ==
-                                                                                                    0
-                                                                                                ? Color(0xFFFF0000)
-                                                                                                : FlutterFlowTheme.of(context).primaryText,
+                                                                                            color: () {
+                                                                                              if ('${getJsonField(
+                                                                                                    listCardItem,
+                                                                                                    r'''$.Creditor''',
+                                                                                                  ).toString()}' ==
+                                                                                                  'จำนำ') {
+                                                                                                return Color(0xFF0000FF);
+                                                                                              } else if ('${getJsonField(
+                                                                                                    listCardItem,
+                                                                                                    r'''$.Creditor''',
+                                                                                                  ).toString()}' ==
+                                                                                                  'เช่าชื้อ') {
+                                                                                                return Color(0xFF00CB00);
+                                                                                              } else if ('${getJsonField(
+                                                                                                    listCardItem,
+                                                                                                    r'''$.Creditor''',
+                                                                                                  ).toString()}' ==
+                                                                                                  'AMC') {
+                                                                                                return FlutterFlowTheme.of(context).secondary;
+                                                                                              } else {
+                                                                                                return FlutterFlowTheme.of(context).primaryText;
+                                                                                              }
+                                                                                            }(),
                                                                                             fontSize: 14.0,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.normal,
@@ -3041,13 +3057,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                                               fontWeight: FontWeight.normal,
                                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                             ),
-                                                                                            color: int.parse(getJsonField(
-                                                                                                      listCardItem,
-                                                                                                      r'''$.historyCount''',
-                                                                                                    ).toString()) ==
-                                                                                                    0
-                                                                                                ? Color(0xFFFF0000)
-                                                                                                : FlutterFlowTheme.of(context).primaryText,
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
                                                                                             fontSize: 14.0,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.normal,
