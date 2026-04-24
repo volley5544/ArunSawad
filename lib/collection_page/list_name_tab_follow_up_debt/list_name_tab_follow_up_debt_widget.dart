@@ -1460,7 +1460,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                                         'AMC') {
                                                                                       return FlutterFlowTheme.of(context).secondary;
                                                                                     } else {
-                                                                                      return FlutterFlowTheme.of(context).primaryText;
+                                                                                      return Colors.black;
                                                                                     }
                                                                                   }(),
                                                                                   fontSize: 12.0,

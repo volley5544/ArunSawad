@@ -3718,8 +3718,9 @@ int checkStringLength(String? inputString) {
 String generateBranchViewVloneRemark(
   int? urlLength,
   String? remark,
+  int? vloanMsgMaxLength,
 ) {
-  int endIndex = 300 - (urlLength! + 1);
+  int endIndex = vloanMsgMaxLength! - (urlLength! + 1);
   if (endIndex > remark!.length) {
     return remark!;
   }

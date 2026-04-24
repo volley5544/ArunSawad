@@ -57,6 +57,16 @@ class BranchviewDropdownRecord extends FirestoreRecord {
   List<String> get urlLinkUat => _urlLinkUat ?? const [];
   bool hasUrlLinkUat() => _urlLinkUat != null;
 
+  // "remark_max_length" field.
+  int? _remarkMaxLength;
+  int get remarkMaxLength => _remarkMaxLength ?? 0;
+  bool hasRemarkMaxLength() => _remarkMaxLength != null;
+
+  // "vloan_msg_max_length" field.
+  int? _vloanMsgMaxLength;
+  int get vloanMsgMaxLength => _vloanMsgMaxLength ?? 0;
+  bool hasVloanMsgMaxLength() => _vloanMsgMaxLength != null;
+
   void _initializeFields() {
     _dropdownName = getDataList(snapshotData['dropdown_name']);
     _dropdownValue = getDataList(snapshotData['dropdown_value']);
@@ -67,6 +77,8 @@ class BranchviewDropdownRecord extends FirestoreRecord {
     _dropdownNameUat = getDataList(snapshotData['dropdown_name_uat']);
     _dropdownValueUat = getDataList(snapshotData['dropdown_value_uat']);
     _urlLinkUat = getDataList(snapshotData['url_link_uat']);
+    _remarkMaxLength = castToType<int>(snapshotData['remark_max_length']);
+    _vloanMsgMaxLength = castToType<int>(snapshotData['vloan_msg_max_length']);
   }
 
   static CollectionReference get collection =>
@@ -104,9 +116,15 @@ class BranchviewDropdownRecord extends FirestoreRecord {
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createBranchviewDropdownRecordData() {
+Map<String, dynamic> createBranchviewDropdownRecordData({
+  int? remarkMaxLength,
+  int? vloanMsgMaxLength,
+}) {
   final firestoreData = mapToFirestore(
-    <String, dynamic>{}.withoutNulls,
+    <String, dynamic>{
+      'remark_max_length': remarkMaxLength,
+      'vloan_msg_max_length': vloanMsgMaxLength,
+    }.withoutNulls,
   );
 
   return firestoreData;
@@ -127,7 +145,9 @@ class BranchviewDropdownRecordDocumentEquality
         listEquality.equals(e1?.urlLink, e2?.urlLink) &&
         listEquality.equals(e1?.dropdownNameUat, e2?.dropdownNameUat) &&
         listEquality.equals(e1?.dropdownValueUat, e2?.dropdownValueUat) &&
-        listEquality.equals(e1?.urlLinkUat, e2?.urlLinkUat);
+        listEquality.equals(e1?.urlLinkUat, e2?.urlLinkUat) &&
+        e1?.remarkMaxLength == e2?.remarkMaxLength &&
+        e1?.vloanMsgMaxLength == e2?.vloanMsgMaxLength;
   }
 
   @override
@@ -139,7 +159,9 @@ class BranchviewDropdownRecordDocumentEquality
         e?.urlLink,
         e?.dropdownNameUat,
         e?.dropdownValueUat,
-        e?.urlLinkUat
+        e?.urlLinkUat,
+        e?.remarkMaxLength,
+        e?.vloanMsgMaxLength
       ]);
 
   @override

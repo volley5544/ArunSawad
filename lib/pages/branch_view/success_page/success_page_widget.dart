@@ -48,6 +48,8 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -133,7 +135,18 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                           onPressed: () async {
                             if ('${widget!.fromPage}' == 'TeamM') {
                               context.pushNamed(
-                                  TabCollectionTeamMPageWidget.routeName);
+                                TabCollectionTeamMPageWidget.routeName,
+                                queryParameters: {
+                                  'branchCode': serializeParam(
+                                    FFAppState().branchCode,
+                                    ParamType.String,
+                                  ),
+                                  'profileLevel': serializeParam(
+                                    FFAppState().profileLevel,
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
+                              );
 
                               return;
                             }
