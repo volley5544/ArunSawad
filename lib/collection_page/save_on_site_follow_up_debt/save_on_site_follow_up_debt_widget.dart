@@ -3000,7 +3000,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 8.0, 0.0),
                                             child: Text(
-                                              '',
+                                              '${functions.checkStringLength(_model.remarkTextFieldTextController.text).toString()}/${columnBranchviewDropdownRecord?.remarkMaxLength?.toString()}',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
