@@ -849,6 +849,15 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         )!
                                                 .toList()
                                                 .cast<String>();
+                                        FFAppState().improundLDATE =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .ldate(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                         FFAppState().impoundCarBranchName =
                                             SswSurveyAPIVloanGetContractCall
@@ -1506,6 +1515,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                             UploadImagesGoogleDriveGroup
                                                 .searchContractNumberCall
                                                 .improundLocatBranchCode(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundLDATE =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .ldate(
                                                   (_model.searchAPIOutput
                                                           ?.jsonBody ??
                                                       ''),
@@ -2980,6 +2999,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                                 impoundPrice: FFAppState().impoundPriceCurrentStep.elementAtOrNull(listImproundIndex),
                                                                                 impoundDbName: FFAppState().impoundVloanDbName.elementAtOrNull(listImproundIndex),
                                                                                 impoundDbCode: FFAppState().impoundVloanDbCode.elementAtOrNull(listImproundIndex),
+                                                                                impoundLDATE: FFAppState().improundLDATE.elementAtOrNull(listImproundIndex),
                                                                               ),
                                                                               ParamType.DataStruct,
                                                                             ),
@@ -3199,6 +3219,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                               improundMANUYRCONVERT: FFAppState().improundMANUYRCONVERT.elementAtOrNull(listImproundIndex),
                                                                               impoundDbName: FFAppState().impoundVloanDbName.elementAtOrNull(listImproundIndex),
                                                                               impoundDbCode: FFAppState().impoundVloanDbCode.elementAtOrNull(listImproundIndex),
+                                                                              impoundLDATE: FFAppState().improundLDATE.elementAtOrNull(listImproundIndex),
                                                                             ),
                                                                             ParamType.DataStruct,
                                                                           ),
@@ -3339,6 +3360,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                               impoundDbName: FFAppState().impoundVloanDbName.elementAtOrNull(listImproundIndex),
                                                                               impoundDbCode: FFAppState().impoundVloanDbCode.elementAtOrNull(listImproundIndex),
                                                                               impoundPrice: FFAppState().impoundPriceCurrentStep.elementAtOrNull(listImproundIndex),
+                                                                              impoundLDATE: FFAppState().improundLDATE.elementAtOrNull(listImproundIndex),
                                                                             ),
                                                                             ParamType.DataStruct,
                                                                           ),
@@ -3685,6 +3707,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                                 impoundDbName: FFAppState().impoundVloanDbName.elementAtOrNull(listImproundIndex),
                                                                                 impoundDbCode: FFAppState().impoundVloanDbCode.elementAtOrNull(listImproundIndex),
                                                                                 impoundPrice: FFAppState().impoundPriceCurrentStep.elementAtOrNull(listImproundIndex),
+                                                                                impoundLDATE: FFAppState().improundLDATE.elementAtOrNull(listImproundIndex),
                                                                               ),
                                                                               ParamType.DataStruct,
                                                                             ),

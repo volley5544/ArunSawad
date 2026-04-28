@@ -93,6 +93,7 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
     String? stepPrice,
     List<String>? images,
     String? regionCode,
+    String? ldate,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _improundcarHistoryId = improundcarHistoryId,
         _improundcarId = improundcarId,
@@ -177,6 +178,7 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
         _stepPrice = stepPrice,
         _images = images,
         _regionCode = regionCode,
+        _ldate = ldate,
         super(firestoreUtilData);
 
   // "improundcar_history_id" field.
@@ -764,6 +766,13 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
 
   bool hasRegionCode() => _regionCode != null;
 
+  // "ldate" field.
+  String? _ldate;
+  String get ldate => _ldate ?? '';
+  set ldate(String? val) => _ldate = val;
+
+  bool hasLdate() => _ldate != null;
+
   static ImpoundCarDetailDataTypeStruct fromMap(Map<String, dynamic> data) =>
       ImpoundCarDetailDataTypeStruct(
         improundcarHistoryId: data['improundcar_history_id'] as String?,
@@ -849,6 +858,7 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
         stepPrice: data['step_price'] as String?,
         images: getDataList(data['images']),
         regionCode: data['region_code'] as String?,
+        ldate: data['ldate'] as String?,
       );
 
   static ImpoundCarDetailDataTypeStruct? maybeFromMap(dynamic data) =>
@@ -940,6 +950,7 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
         'step_price': _stepPrice,
         'images': _images,
         'region_code': _regionCode,
+        'ldate': _ldate,
       }.withoutNulls;
 
   @override
@@ -1275,6 +1286,10 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
         ),
         'region_code': serializeParam(
           _regionCode,
+          ParamType.String,
+        ),
+        'ldate': serializeParam(
+          _ldate,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -1697,6 +1712,11 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        ldate: deserializeParam(
+          data['ldate'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -1788,7 +1808,8 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
         receiver == other.receiver &&
         stepPrice == other.stepPrice &&
         listEquality.equals(images, other.images) &&
-        regionCode == other.regionCode;
+        regionCode == other.regionCode &&
+        ldate == other.ldate;
   }
 
   @override
@@ -1875,7 +1896,8 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
         receiver,
         stepPrice,
         images,
-        regionCode
+        regionCode,
+        ldate
       ]);
 }
 
@@ -1962,6 +1984,7 @@ ImpoundCarDetailDataTypeStruct createImpoundCarDetailDataTypeStruct({
   String? receiver,
   String? stepPrice,
   String? regionCode,
+  String? ldate,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -2050,6 +2073,7 @@ ImpoundCarDetailDataTypeStruct createImpoundCarDetailDataTypeStruct({
       receiver: receiver,
       stepPrice: stepPrice,
       regionCode: regionCode,
+      ldate: ldate,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

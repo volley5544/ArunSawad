@@ -866,6 +866,15 @@ class SearchContractNumberCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<String>? ldate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ldate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class UploadGoogleDriveAPICall {
@@ -949,6 +958,7 @@ class UploadGoogleDriveAPICall {
     FFUploadedFile? images17,
     String? impoundLocatBranchCode = '',
     String? impoundLocatBranchName = '',
+    String? ldate = '',
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -1040,6 +1050,7 @@ class UploadGoogleDriveAPICall {
         'images17': images17,
         'impound_locat_branch_code': impoundLocatBranchCode,
         'impound_locat_branch_name': impoundLocatBranchName,
+        'ldate': ldate,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
@@ -12389,6 +12400,15 @@ class SswSurveyAPIVloanGetContractCall {
   static List<String>? locateNameDeliverCar(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].locat_name_delivercar''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? ldate(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].LDATE''',
         true,
       ) as List?)
           ?.withoutNulls

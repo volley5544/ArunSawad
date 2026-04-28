@@ -12315,6 +12315,9 @@ class _CustomerCarDeailsStep4WidgetState
                             dbCode: widget!.impoundCarParamSet?.impoundDbCode,
                             dbName: widget!.impoundCarParamSet?.impoundDbName,
                             images17: _model.uploadedLocalFile_car4Uploaded131,
+                            ldate: functions.getDateFormat(
+                                functions.parseStringToDatetime(
+                                    widget!.impoundCarParamSet?.impoundLDATE)),
                           );
 
                           _shouldSetState = true;

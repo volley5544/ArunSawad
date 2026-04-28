@@ -35,6 +35,7 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
     String? impoundPrice,
     String? impoundDbName,
     String? impoundDbCode,
+    String? impoundLDATE,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _improundCONTNO = improundCONTNO,
         _improundLOCAT = improundLOCAT,
@@ -61,6 +62,7 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         _impoundPrice = impoundPrice,
         _impoundDbName = impoundDbName,
         _impoundDbCode = impoundDbCode,
+        _impoundLDATE = impoundLDATE,
         super(firestoreUtilData);
 
   // "improundCONTNO" field.
@@ -238,6 +240,13 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
 
   bool hasImpoundDbCode() => _impoundDbCode != null;
 
+  // "impoundLDATE" field.
+  String? _impoundLDATE;
+  String get impoundLDATE => _impoundLDATE ?? '';
+  set impoundLDATE(String? val) => _impoundLDATE = val;
+
+  bool hasImpoundLDATE() => _impoundLDATE != null;
+
   static ImpoundCarParamSetStruct fromMap(Map<String, dynamic> data) =>
       ImpoundCarParamSetStruct(
         improundCONTNO: data['improundCONTNO'] as String?,
@@ -265,6 +274,7 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         impoundPrice: data['impoundPrice'] as String?,
         impoundDbName: data['impoundDbName'] as String?,
         impoundDbCode: data['impoundDbCode'] as String?,
+        impoundLDATE: data['impoundLDATE'] as String?,
       );
 
   static ImpoundCarParamSetStruct? maybeFromMap(dynamic data) => data is Map
@@ -297,6 +307,7 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         'impoundPrice': _impoundPrice,
         'impoundDbName': _impoundDbName,
         'impoundDbCode': _impoundDbCode,
+        'impoundLDATE': _impoundLDATE,
       }.withoutNulls;
 
   @override
@@ -399,6 +410,10 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         ),
         'impoundDbCode': serializeParam(
           _impoundDbCode,
+          ParamType.String,
+        ),
+        'impoundLDATE': serializeParam(
+          _impoundLDATE,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -531,6 +546,11 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        impoundLDATE: deserializeParam(
+          data['impoundLDATE'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -563,7 +583,8 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         improundMANUYRCONVERT == other.improundMANUYRCONVERT &&
         impoundPrice == other.impoundPrice &&
         impoundDbName == other.impoundDbName &&
-        impoundDbCode == other.impoundDbCode;
+        impoundDbCode == other.impoundDbCode &&
+        impoundLDATE == other.impoundLDATE;
   }
 
   @override
@@ -592,7 +613,8 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         improundMANUYRCONVERT,
         impoundPrice,
         impoundDbName,
-        impoundDbCode
+        impoundDbCode,
+        impoundLDATE
       ]);
 }
 
@@ -622,6 +644,7 @@ ImpoundCarParamSetStruct createImpoundCarParamSetStruct({
   String? impoundPrice,
   String? impoundDbName,
   String? impoundDbCode,
+  String? impoundLDATE,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -653,6 +676,7 @@ ImpoundCarParamSetStruct createImpoundCarParamSetStruct({
       impoundPrice: impoundPrice,
       impoundDbName: impoundDbName,
       impoundDbCode: impoundDbCode,
+      impoundLDATE: impoundLDATE,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

@@ -2661,7 +2661,6 @@ bool? checkSickLeaveIsBeforeCurrentDate(
 
 String? getDateFormat(DateTime? leaveEndDate) {
   return DateFormat('yyyy-MM-dd').format(leaveEndDate!);
-  ;
 }
 
 List<String>? sortStringList(List<String>? stringList) {

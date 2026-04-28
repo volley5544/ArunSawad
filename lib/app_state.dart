@@ -10326,6 +10326,35 @@ class FFAppState extends ChangeNotifier {
   set tokenVloanGetContract(String value) {
     _tokenVloanGetContract = value;
   }
+
+  List<String> _improundLDATE = [];
+  List<String> get improundLDATE => _improundLDATE;
+  set improundLDATE(List<String> value) {
+    _improundLDATE = value;
+  }
+
+  void addToImproundLDATE(String value) {
+    improundLDATE.add(value);
+  }
+
+  void removeFromImproundLDATE(String value) {
+    improundLDATE.remove(value);
+  }
+
+  void removeAtIndexFromImproundLDATE(int index) {
+    improundLDATE.removeAt(index);
+  }
+
+  void updateImproundLDATEAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundLDATE[index] = updateFn(_improundLDATE[index]);
+  }
+
+  void insertAtIndexInImproundLDATE(int index, String value) {
+    improundLDATE.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {
