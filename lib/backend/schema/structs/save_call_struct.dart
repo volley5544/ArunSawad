@@ -24,6 +24,7 @@ class SaveCallStruct extends FFFirebaseStruct {
     List<String>? amount,
     List<String>? server,
     List<String>? creditor,
+    List<String>? ldate,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _contnoId = contnoId,
         _contno = contno,
@@ -39,6 +40,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         _amount = amount,
         _server = server,
         _creditor = creditor,
+        _ldate = ldate,
         super(firestoreUtilData);
 
   // "CONTNO_ID" field.
@@ -195,6 +197,17 @@ class SaveCallStruct extends FFFirebaseStruct {
 
   bool hasCreditor() => _creditor != null;
 
+  // "LDATE" field.
+  List<String>? _ldate;
+  List<String> get ldate => _ldate ?? const [];
+  set ldate(List<String>? val) => _ldate = val;
+
+  void updateLdate(Function(List<String>) updateFn) {
+    updateFn(_ldate ??= []);
+  }
+
+  bool hasLdate() => _ldate != null;
+
   static SaveCallStruct fromMap(Map<String, dynamic> data) => SaveCallStruct(
         contnoId: getDataList(data['CONTNO_ID']),
         contno: getDataList(data['CONTNO']),
@@ -210,6 +223,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         amount: getDataList(data['AMOUNT']),
         server: getDataList(data['SERVER']),
         creditor: getDataList(data['Creditor']),
+        ldate: getDataList(data['LDATE']),
       );
 
   static SaveCallStruct? maybeFromMap(dynamic data) =>
@@ -230,6 +244,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         'AMOUNT': _amount,
         'SERVER': _server,
         'Creditor': _creditor,
+        'LDATE': _ldate,
       }.withoutNulls;
 
   @override
@@ -301,6 +316,11 @@ class SaveCallStruct extends FFFirebaseStruct {
         ),
         'Creditor': serializeParam(
           _creditor,
+          ParamType.String,
+          isList: true,
+        ),
+        'LDATE': serializeParam(
+          _ldate,
           ParamType.String,
           isList: true,
         ),
@@ -378,6 +398,11 @@ class SaveCallStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        ldate: deserializeParam<String>(
+          data['LDATE'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -400,7 +425,8 @@ class SaveCallStruct extends FFFirebaseStruct {
         listEquality.equals(remdetcode, other.remdetcode) &&
         listEquality.equals(amount, other.amount) &&
         listEquality.equals(server, other.server) &&
-        listEquality.equals(creditor, other.creditor);
+        listEquality.equals(creditor, other.creditor) &&
+        listEquality.equals(ldate, other.ldate);
   }
 
   @override
@@ -418,7 +444,8 @@ class SaveCallStruct extends FFFirebaseStruct {
         remdetcode,
         amount,
         server,
-        creditor
+        creditor,
+        ldate
       ]);
 }
 

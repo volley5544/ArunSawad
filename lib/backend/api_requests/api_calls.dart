@@ -11295,6 +11295,15 @@ class CollectionApiGetDataPersonCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? ldate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].LDATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class SaveCallCollectionCall {

@@ -1784,6 +1784,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                ldate: params.getParam<String>(
+                  'ldate',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(

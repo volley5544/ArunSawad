@@ -47,6 +47,7 @@ class SaveCallFollowUpDebtWidget extends StatefulWidget {
     this.arnow,
     this.dbName,
     this.creditor,
+    this.ldate,
   })  : this.name1 = name1 ?? '-',
         this.name2 = name2 ?? '-';
 
@@ -68,6 +69,7 @@ class SaveCallFollowUpDebtWidget extends StatefulWidget {
   final List<String>? arnow;
   final List<String>? dbName;
   final List<String>? creditor;
+  final List<String>? ldate;
 
   static String routeName = 'saveCallFollowUpDebt';
   static String routePath = 'saveCallFollowUpDebt';
@@ -3618,6 +3620,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                           .ppAmountList),
                                               server: widget!.dbName,
                                               creditor: widget!.creditor,
+                                              ldate: widget!.ldate,
                                             );
                                             safeSetState(() {});
                                             if (_model.dropDownSaveCallValue !=

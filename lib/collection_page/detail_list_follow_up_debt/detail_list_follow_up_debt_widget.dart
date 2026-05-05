@@ -1411,6 +1411,21 @@ class _DetailListFollowUpDebtWidgetState
                                             ParamType.String,
                                             isList: true,
                                           ),
+                                          'ldate': serializeParam(
+                                            functions.returnMapListFromBoolList(
+                                                CollectionApiGetDataPersonCall
+                                                    .ldate(
+                                                  (_model.getListDataPerson
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?.toList(),
+                                                FFAppState()
+                                                    .selectCardList
+                                                    .toList(),
+                                                true),
+                                            ParamType.String,
+                                            isList: true,
+                                          ),
                                         }.withoutNulls,
                                       );
                                     },
