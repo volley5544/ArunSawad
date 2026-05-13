@@ -12243,7 +12243,7 @@ class _CustomerCarDeailsStep1WidgetState
                                               : '')
                                           : '',
                                   ldate:
-                                      '${functions.getDateFormat(functions.parseStringToDatetime(widget!.impoundCarParamSet?.impoundLDATE))}',
+                                      '${functions.getDateFormat(functions.parseStringToDatetime('${widget!.impoundCarParamSet?.impoundLDATE}'))}',
                                 );
 
                                 _shouldSetState = true;

@@ -2660,6 +2660,9 @@ bool? checkSickLeaveIsBeforeCurrentDate(
 }
 
 String? getDateFormat(DateTime? leaveEndDate) {
+  if ('${leaveEndDate}' == '' || '${leaveEndDate}' == 'null') {
+    return '';
+  }
   return DateFormat('yyyy-MM-dd').format(leaveEndDate!);
 }
 
@@ -3262,6 +3265,9 @@ List<String>? changeValueAtIndexSomethingList(
 }
 
 DateTime? parseStringToDatetime(String? datetimeStr) {
+  if ('${datetimeStr}' == '' || '${datetimeStr}' == 'null') {
+    return null;
+  }
   return DateTime.parse(datetimeStr!);
 }
 
