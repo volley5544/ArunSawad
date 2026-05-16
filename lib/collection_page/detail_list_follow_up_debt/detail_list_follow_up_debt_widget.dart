@@ -2547,10 +2547,10 @@ class _DetailListFollowUpDebtWidgetState
                                                                                                 r'''$.EXP_AMT''',
                                                                                               ).toString())
                                                                                       ? '-'
-                                                                                      : '${functions.showNumberWithComma(getJsonField(
+                                                                                      : '${functions.returnNumberWithComma2Decimal('${getJsonField(
                                                                                           listCardItem,
                                                                                           r'''$.EXP_AMT''',
-                                                                                        ).toString())} บาท',
+                                                                                        ).toString()}')} บาท',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         font: GoogleFonts.poppins(
                                                                                           fontWeight: FontWeight.normal,

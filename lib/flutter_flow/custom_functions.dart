@@ -3219,7 +3219,7 @@ String? returnNumberWithComma2Decimal(String? number) {
   if ('${number}' == 'null' ||
       '${number}' == '' ||
       number == null ||
-      int.tryParse(number.replaceAll('-', '')) == null) {
+      double.tryParse(number.replaceAll('-', '')) == null) {
     return '0.00';
   }
 

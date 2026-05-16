@@ -4778,7 +4778,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                         ),
                                                         'branchM':
                                                             serializeParam(
-                                                          'Y',
+                                                          'N',
                                                           ParamType.String,
                                                         ),
                                                         'fromPage':
