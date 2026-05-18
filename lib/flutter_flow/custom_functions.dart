@@ -5164,3 +5164,13 @@ List<LatLng>? combineLatLngList(
 ) {
   return [...latlngList1!, ...latlngList2!];
 }
+
+List<SLSImagesDataModelStruct>? reorderSlsImageList(
+  List<SLSImagesDataModelStruct>? inputList,
+  int? index,
+) {
+  List<SLSImagesDataModelStruct> outputList = inputList!;
+  final item = inputList!.removeAt(index!); // remove and return item
+  outputList.insert(0, item);
+  return outputList;
+}

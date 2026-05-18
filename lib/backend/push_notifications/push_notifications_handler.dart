@@ -875,6 +875,7 @@ final parametersBuilderMap =
   'SlsShowImagePage': (data) async => ParameterData(
         allParams: {
           'contNo': getParameter<String>(data, 'contNo'),
+          'openFrom': getParameter<String>(data, 'openFrom'),
         },
       ),
   'CustomerMapLocationPage': (data) async => ParameterData(

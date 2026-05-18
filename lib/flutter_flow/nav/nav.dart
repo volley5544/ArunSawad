@@ -2884,6 +2884,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'contNo',
                   ParamType.String,
                 ),
+                openFrom: params.getParam(
+                  'openFrom',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

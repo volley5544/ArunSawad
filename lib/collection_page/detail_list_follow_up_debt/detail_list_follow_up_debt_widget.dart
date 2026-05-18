@@ -3515,6 +3515,31 @@ class _DetailListFollowUpDebtWidgetState
                                                                           FFButtonWidget(
                                                                         onPressed:
                                                                             () async {
+                                                                          if ('${getJsonField(
+                                                                                listCardItem,
+                                                                                r'''$.Creditor''',
+                                                                              ).toString()}' !=
+                                                                              'SSW') {
+                                                                            context.pushNamed(
+                                                                              SlsShowImagePageWidget.routeName,
+                                                                              queryParameters: {
+                                                                                'contNo': serializeParam(
+                                                                                  getJsonField(
+                                                                                    listCardItem,
+                                                                                    r'''$.CONTNO''',
+                                                                                  ).toString(),
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                                'openFrom': serializeParam(
+                                                                                  'qr',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                            );
+
+                                                                            return;
+                                                                          }
+
                                                                           context
                                                                               .pushNamed(
                                                                             InterestPageWidget.routeName,

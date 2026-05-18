@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -28,9 +29,11 @@ class SlsShowImagePageWidget extends StatefulWidget {
   const SlsShowImagePageWidget({
     super.key,
     required this.contNo,
-  });
+    String? openFrom,
+  }) : this.openFrom = openFrom ?? '-';
 
   final String? contNo;
+  final String openFrom;
 
   static String routeName = 'SlsShowImagePage';
   static String routePath = 'SlsShowImagePage';
@@ -130,13 +133,52 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
         Navigator.pop(context);
         return;
       }
-      _model.slsImgData = CollectionApiImageCall.data(
-        (_model.apiResultimage?.jsonBody ?? ''),
-      )!
-          .toList()
-          .cast<SLSImagesDataModelStruct>();
+      _model.slsImgData = functions.getIndexOfSomethingList(
+                  CollectionApiImageCall.data(
+                    (_model.apiResultimage?.jsonBody ?? ''),
+                  )?.map((e) => e.imgTypeName).toList()?.toList(),
+                  'Payment Card') !=
+              -1
+          ? functions.reorderSlsImageList(
+              CollectionApiImageCall.data(
+                (_model.apiResultimage?.jsonBody ?? ''),
+              )?.toList(),
+              functions.getIndexOfSomethingList(
+                  CollectionApiImageCall.data(
+                    (_model.apiResultimage?.jsonBody ?? ''),
+                  )?.map((e) => e.imgTypeName).toList()?.toList(),
+                  'Payment Card'))!
+          : CollectionApiImageCall.data(
+              (_model.apiResultimage?.jsonBody ?? ''),
+            )!
+              .toList()
+              .cast<SLSImagesDataModelStruct>();
       safeSetState(() {});
       Navigator.pop(context);
+      if ((widget!.openFrom == 'qr') &&
+          (functions.getIndexOfSomethingList(
+                  CollectionApiImageCall.data(
+                    (_model.apiResultimage?.jsonBody ?? ''),
+                  )?.map((e) => e.imgTypeName).toList()?.toList(),
+                  'Payment Card') ==
+              -1)) {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('ไม่พบไฟล์ใบจ่ายเงิน'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      }
     });
 
     animationsMap.addAll({
@@ -309,6 +351,16 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
                                   )
                                 ],
                                 borderRadius: BorderRadius.circular(8.0),
+                                border: Border.all(
+                                  color: imgDataListItemItem.imgTypeName ==
+                                          'Payment Card'
+                                      ? Color(0xFFFF002B)
+                                      : Colors.transparent,
+                                  width: imgDataListItemItem.imgTypeName ==
+                                          'Payment Card'
+                                      ? 3.0
+                                      : 0.0,
+                                ),
                               ),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,

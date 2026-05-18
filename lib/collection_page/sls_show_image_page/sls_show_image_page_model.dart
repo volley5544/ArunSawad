@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'sls_show_image_page_widget.dart' show SlsShowImagePageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
