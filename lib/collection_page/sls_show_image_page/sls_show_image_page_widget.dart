@@ -357,7 +357,7 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
                                       ? Color(0xFFFF002B)
                                       : Colors.transparent,
                                   width: imgDataListItemItem.imgTypeName ==
-                                          'Payment Card'
+                                          'Payment Card '
                                       ? 3.0
                                       : 0.0,
                                 ),
