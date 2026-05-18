@@ -137,7 +137,7 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
                   CollectionApiImageCall.data(
                     (_model.apiResultimage?.jsonBody ?? ''),
                   )?.map((e) => e.imgTypeName).toList()?.toList(),
-                  'Payment Card') !=
+                  'Payment Card ') !=
               -1
           ? functions.reorderSlsImageList(
               CollectionApiImageCall.data(
@@ -160,7 +160,7 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
                   CollectionApiImageCall.data(
                     (_model.apiResultimage?.jsonBody ?? ''),
                   )?.map((e) => e.imgTypeName).toList()?.toList(),
-                  'Payment Card') ==
+                  'Payment Card ') ==
               -1)) {
         await showDialog(
           context: context,
