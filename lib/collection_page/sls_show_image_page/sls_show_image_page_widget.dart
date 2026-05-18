@@ -147,7 +147,7 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
                   CollectionApiImageCall.data(
                     (_model.apiResultimage?.jsonBody ?? ''),
                   )?.map((e) => e.imgTypeName).toList()?.toList(),
-                  'Payment Card'))!
+                  'Payment Card '))!
           : CollectionApiImageCall.data(
               (_model.apiResultimage?.jsonBody ?? ''),
             )!
@@ -353,7 +353,7 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
                                 borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: imgDataListItemItem.imgTypeName ==
-                                          'Payment Card'
+                                          'Payment Card '
                                       ? Color(0xFFFF002B)
                                       : Colors.transparent,
                                   width: imgDataListItemItem.imgTypeName ==
