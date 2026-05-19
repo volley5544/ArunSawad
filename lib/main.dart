@@ -1,3 +1,4 @@
+import '/custom_code/actions/index.dart' as actions;
 import 'package:provider/provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,10 @@ void main() async {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
   await initializeFirebaseRemoteConfig();
+
+  // Start final custom actions code
+  await actions.listenFirestoreAppVersion();
+  // End final custom actions code
 
   FFAppEventService.instance.init(onGlobalEvent: handleGlobalEvent);
 
