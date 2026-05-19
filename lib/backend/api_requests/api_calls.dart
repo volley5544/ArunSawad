@@ -10499,7 +10499,7 @@ class CollectionFollowupDebtCall {
     String? branchM = '',
     String? empCode = '',
     String? policeName = '',
-    String? subdistricts = '',
+    String? subdistrict = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -10513,10 +10513,10 @@ class CollectionFollowupDebtCall {
   "codeKate": "${areaCode}",
   "codeRegion": "${regionCode}",
   "role": "${role}",
-    "branchM":"${branchM}",
-    "empCode":"${empCode}",
-    "policeName":"${policeName}",
-"subdistricts":"${subdistricts}"
+  "branchM": "${branchM}",
+  "empCode": "${empCode}",
+  "policeName": "${policeName}",
+  "subdistrict": "${subdistrict}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'collectionFollowupDebt',
