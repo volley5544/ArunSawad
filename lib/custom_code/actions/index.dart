@@ -77,3 +77,4 @@ export 'url_launcher.dart' show urlLauncher;
 export 'download_file_from_file_path.dart' show downloadFileFromFilePath;
 export 'get_location.dart' show getLocation;
 export 'check_developer_mode.dart' show checkDeveloperMode;
+export 'listen_firestore_app_version.dart' show listenFirestoreAppVersion;

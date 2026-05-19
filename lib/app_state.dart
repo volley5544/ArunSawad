@@ -10355,6 +10355,12 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImproundLDATE(int index, String value) {
     improundLDATE.insert(index, value);
   }
+
+  int _firestoreAppVersion = 0;
+  int get firestoreAppVersion => _firestoreAppVersion;
+  set firestoreAppVersion(int value) {
+    _firestoreAppVersion = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -19,6 +19,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
+import '/app_events/index.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
@@ -35,6 +37,8 @@ void main() async {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
   await initializeFirebaseRemoteConfig();
+
+  FFAppEventService.instance.init(onGlobalEvent: handleGlobalEvent);
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
