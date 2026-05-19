@@ -3093,7 +3093,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                     listCardItem,
                                                                     r'''$.Creditor''',
                                                                   ).toString()}' !=
-                                                                  'SSW')
+                                                                  'จำนำ')
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
@@ -3519,7 +3519,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 listCardItem,
                                                                                 r'''$.Creditor''',
                                                                               ).toString()}' !=
-                                                                              'SSW') {
+                                                                              'จำนำ') {
                                                                             context.pushNamed(
                                                                               SlsShowImagePageWidget.routeName,
                                                                               queryParameters: {
