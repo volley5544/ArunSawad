@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -66,6 +67,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   ApiCallResponse? getUserProfilePin;
   // Stores action output result for [Backend Call - API (getUserInsuranceLicense)] action in PinCode widget.
   ApiCallResponse? getUserInsuranceLicense;
+  // Stores action output result for [Action Block - checkToken] action in PinCode widget.
+  bool? checkTokenOutput;
   // Stores action output result for [Custom Action - a8] action in PinCode widget.
   bool? checkLatLngBeforeEnterApp;
   // Stores action output result for [Custom Action - getLocation] action in PinCode widget.

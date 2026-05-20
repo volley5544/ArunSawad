@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -1712,98 +1713,16 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                       safeSetState(() {});
                                                                                                                     }
                                                                                                                   } else {
-                                                                                                                    if (!((GetUserProfileAPICall.message(
-                                                                                                                              (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                                                            ) ==
-                                                                                                                            'The token has been blacklisted') ||
-                                                                                                                        (GetUserProfileAPICall.message(
-                                                                                                                              (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                                                            ) ==
-                                                                                                                            'Token Signature could not be verified.'))) {
-                                                                                                                      Navigator.pop(context);
-                                                                                                                      await showDialog(
-                                                                                                                        context: context,
-                                                                                                                        builder: (alertDialogContext) {
-                                                                                                                          return WebViewAware(
-                                                                                                                            child: AlertDialog(
-                                                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getUserProfilePin?.statusCode ?? 200).toString()})${(_model.getUserProfilePin?.jsonBody ?? '').toString()}'),
-                                                                                                                              actions: [
-                                                                                                                                TextButton(
-                                                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                  child: Text('Ok'),
-                                                                                                                                ),
-                                                                                                                              ],
-                                                                                                                            ),
-                                                                                                                          );
-                                                                                                                        },
-                                                                                                                      );
-                                                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                                                      return;
-                                                                                                                    }
-                                                                                                                    await showDialog(
-                                                                                                                      context: context,
-                                                                                                                      builder: (alertDialogContext) {
-                                                                                                                        return WebViewAware(
-                                                                                                                          child: AlertDialog(
-                                                                                                                            content: Text('Session Loginหมดอายุ'),
-                                                                                                                            actions: [
-                                                                                                                              TextButton(
-                                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                                child: Text('Ok'),
-                                                                                                                              ),
-                                                                                                                            ],
-                                                                                                                          ),
-                                                                                                                        );
-                                                                                                                      },
+                                                                                                                    _model.checkTokenOutput = await action_blocks.checkToken(
+                                                                                                                      context,
+                                                                                                                      statuscode: GetUserProfileAPICall.statuslayer1(
+                                                                                                                        (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                                                      )?.toString(),
                                                                                                                     );
-                                                                                                                    FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                                                    FFAppState().deleteAccessToken();
-                                                                                                                    FFAppState().accessToken = 'access_token';
-
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().deleteEmployeeID();
-                                                                                                                    FFAppState().employeeID = 'employee_id';
-
-                                                                                                                    FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().deleteApiURLLocalState();
-                                                                                                                    FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                                                    FFAppState().deleteBranchCode();
-                                                                                                                    FFAppState().branchCode = 'branch_code';
-
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().isFromSetPinPage = false;
-                                                                                                                    FFAppState().leadChannelColor = [];
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().leadChannelList = [];
-                                                                                                                    FFAppState().isFromLoginPage = false;
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().deletePinCodeAuthen();
-                                                                                                                    FFAppState().pinCodeAuthen = '013972';
-
-                                                                                                                    FFAppState().isFromAuthenPage = false;
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().deleteDateDoNotShowAgain();
-                                                                                                                    FFAppState().dateDoNotShowAgain = null;
-
-                                                                                                                    FFAppState().deleteDoNotShowAgain();
-                                                                                                                    FFAppState().doNotShowAgain = false;
-
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().inAppViaNotification = true;
-                                                                                                                    FFAppState().isInApp = false;
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    FFAppState().fcmToken = 'fcm_token';
-                                                                                                                    FFAppState().isPassLoginSection = false;
-                                                                                                                    FFAppState().update(() {});
-                                                                                                                    Navigator.pop(context);
-                                                                                                                    await actions.a22();
-
-                                                                                                                    context.goNamed(LoginPageWidget.routeName);
-
-                                                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                                                    return;
+                                                                                                                    _shouldSetState = true;
+                                                                                                                    if (!_model.checkTokenOutput!) {
+                                                                                                                      context.goNamed(LoginPageWidget.routeName);
+                                                                                                                    }
                                                                                                                   }
                                                                                                                 }
 
