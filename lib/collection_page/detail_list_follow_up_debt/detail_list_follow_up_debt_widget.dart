@@ -3521,7 +3521,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               ).toString()}' !=
                                                                               'จำนำ') {
                                                                             context.pushNamed(
-                                                                              SlsShowImagePageWidget.routeName,
+                                                                              SlsShowQRPaymentWidget.routeName,
                                                                               queryParameters: {
                                                                                 'contNo': serializeParam(
                                                                                   getJsonField(
@@ -3530,8 +3530,11 @@ class _DetailListFollowUpDebtWidgetState
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
-                                                                                'openFrom': serializeParam(
-                                                                                  'qr',
+                                                                                'comcode': serializeParam(
+                                                                                  getJsonField(
+                                                                                    listCardItem,
+                                                                                    r'''$.COMCODE''',
+                                                                                  ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                               }.withoutNulls,

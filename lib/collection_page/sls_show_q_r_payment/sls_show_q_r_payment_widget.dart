@@ -110,7 +110,7 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
       }
       if ('${getJsonField(
             (_model.apiResultpayment?.jsonBody ?? ''),
-            r'''$.statuscode''',
+            r'''$.statusCode''',
           ).toString()}' !=
           '200') {
         await showDialog(
@@ -135,7 +135,10 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
         Navigator.pop(context);
         return;
       }
-
+      _model.slspaymentdata =
+          SLSCTLPaymentGroupApiGroup.getCustomerPaymentCall.data(
+        (_model.apiResultpayment?.jsonBody ?? ''),
+      );
       safeSetState(() {});
       Navigator.pop(context);
     });
@@ -351,7 +354,11 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
                             ),
                             BarcodeWidget(
                               data: functions.genQRCodePayment(
-                                  '', '', '', '', '')!,
+                                  '',
+                                  _model.slspaymentdata?.qrContractNo,
+                                  _model.slspaymentdata?.qrPaymentType,
+                                  '0',
+                                  _model.slspaymentdata?.qrTaxId)!,
                               barcode: Barcode.qrCode(),
                               width: 250.0,
                               height: 250.0,
