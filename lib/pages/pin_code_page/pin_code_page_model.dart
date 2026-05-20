@@ -507,7 +507,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
         builder: (alertDialogContext) {
           return WebViewAware(
             child: AlertDialog(
-              content: Text('กรุณาเปิดGPS เพื่อเข้าใช้งานอรุณสวัสดิ์'),
+              content: Text(
+                  'กรุณาเปิดGPS และอนุญาตให้อรุณสวัสดิ์เข้าถึงตำแหน่งของคุณ'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
