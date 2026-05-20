@@ -81,6 +81,86 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
 
       _model.slsUrlOutput = await UrlLinkStorageRecord.getDocumentOnce(
           FFAppState().slsUrlDocRef!);
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('${widget!.contNo}'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('${widget!.comcode}'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('${_model.slsUrlOutput?.urlPath}'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('${_model.slsUrlOutput?.urlLink}'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('${_model.slsUrlOutput?.urlToken}'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       _model.apiResultpayment =
           await SLSCTLPaymentGroupApiGroup.getCustomerPaymentCall.call(
         contractNo: widget!.contNo,
