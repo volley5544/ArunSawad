@@ -405,7 +405,7 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
                                         _model.slspaymentdata?.qrPaymentType,
                                         '0',
                                         _model.slspaymentdata?.qrTaxId,
-                                        '',
+                                        widget!.contNo,
                                       );
                                     },
                                     text: 'บันทึกรูป',
