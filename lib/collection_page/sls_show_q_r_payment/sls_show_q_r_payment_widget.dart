@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
@@ -13,6 +14,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:barcode_widget/barcode_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -77,14 +79,15 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      _model.slsUrlOutput = await UrlLinkStorageRecord.getDocumentOnce(
+          FFAppState().slsUrlDocRef!);
       _model.apiResultpayment =
           await SLSCTLPaymentGroupApiGroup.getCustomerPaymentCall.call(
         contractNo: widget!.contNo,
         companyCode: widget!.comcode,
-        path:
-            'cfast-topup/lms-center-api/api/DigitalCard/ReceivePayment/GetCustomerPayment',
-        url: 'http://115.31.163.81',
-        apiKey: '0f3421f6-01a8-2ea3-ab10-f162ace9f0f8',
+        path: _model.slsUrlOutput?.urlPath,
+        url: _model.slsUrlOutput?.urlLink,
+        apiKey: _model.slsUrlOutput?.urlToken,
       );
 
       if ((_model.apiResultpayment?.statusCode ?? 200) != 200) {
@@ -170,6 +173,8 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

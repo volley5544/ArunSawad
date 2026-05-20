@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
-import '/actions/actions.dart' as action_blocks;
 import '/app_events/index.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -90,11 +89,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       FFAppState().insuranceLicenseStatusCode =
           FFAppState().InsuranceLicenseStatusCodeDefault.toList().cast<int>();
       safeSetState(() {});
-      if (_model.deviceBuildNumber! < FFAppState().firestoreAppVersion) {
-        await action_blocks.alertUpdateAppBlock(context);
-        safeSetState(() {});
-        return;
-      }
       if (!FFAppState().firstUseApp) {
         context.goNamed(IntrodutionPageWidget.routeName);
 

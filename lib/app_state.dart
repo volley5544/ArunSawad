@@ -10361,6 +10361,13 @@ class FFAppState extends ChangeNotifier {
   set firestoreAppVersion(int value) {
     _firestoreAppVersion = value;
   }
+
+  DocumentReference? _slsUrlDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/EUFKNTcHETyHkXLWE5G3');
+  DocumentReference? get slsUrlDocRef => _slsUrlDocRef;
+  set slsUrlDocRef(DocumentReference? value) {
+    _slsUrlDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

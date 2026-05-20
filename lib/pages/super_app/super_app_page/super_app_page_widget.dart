@@ -20,6 +20,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -147,6 +148,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
           _model.getHideContentTableauDoc!.isShowContent;
       safeSetState(() {});
       _model.getDeviceVersion = await actions.getBuildVersion();
+      _model.getBuildNumber = await actions.getBuildNumber();
       FFAppState().isFromTimesheetPage = false;
       FFAppState().leadChannelAmountList =
           functions.resetLeadChannelAmount().toList().cast<int>();
@@ -431,6 +433,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       }
       FFAppState().isInApp = true;
       FFAppState().update(() {});
+      if (_model.getBuildNumber! < FFAppState().firestoreAppVersion) {
+        await action_blocks.alertUpdateAppBlock(context);
+        safeSetState(() {});
+        return;
+      }
       _model.isShowVideoPlayer = true;
       safeSetState(() {});
     });

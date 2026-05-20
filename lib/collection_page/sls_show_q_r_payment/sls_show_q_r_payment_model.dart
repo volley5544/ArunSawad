@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
@@ -14,6 +15,7 @@ import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'sls_show_q_r_payment_widget.dart' show SlsShowQRPaymentWidget;
 import 'package:barcode_widget/barcode_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -32,6 +34,8 @@ class SlsShowQRPaymentModel extends FlutterFlowModel<SlsShowQRPaymentWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - Read Document] action in SlsShowQRPayment widget.
+  UrlLinkStorageRecord? slsUrlOutput;
   // Stores action output result for [Backend Call - API (GetCustomerPayment)] action in SlsShowQRPayment widget.
   ApiCallResponse? apiResultpayment;
   // Model for appbarFollowUpDebt component.

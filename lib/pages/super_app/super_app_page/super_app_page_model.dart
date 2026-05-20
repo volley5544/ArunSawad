@@ -20,6 +20,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -119,6 +120,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   HideInAppContentRecord? getHideContentTableauDoc;
   // Stores action output result for [Custom Action - getBuildVersion] action in SuperAppPage widget.
   String? getDeviceVersion;
+  // Stores action output result for [Custom Action - getBuildNumber] action in SuperAppPage widget.
+  int? getBuildNumber;
   // Stores action output result for [Custom Action - a14] action in SuperAppPage widget.
   String? leadNotiOutput;
   // Stores action output result for [Custom Action - getDataFromCollection] action in SuperAppPage widget.

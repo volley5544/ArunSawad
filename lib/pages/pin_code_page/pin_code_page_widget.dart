@@ -1722,6 +1722,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     _shouldSetState = true;
                                                                                                                     if (!_model.checkTokenOutput!) {
                                                                                                                       context.goNamed(LoginPageWidget.routeName);
+
+                                                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                                                      return;
                                                                                                                     }
                                                                                                                   }
                                                                                                                 }
