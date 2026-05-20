@@ -11,13 +11,13 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import '/custom_code/actions/index.dart';
+import '/flutter_flow/custom_functions.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'dart:typed_data';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:permission_handler/permission_handler.dart';
 
 Future capQrCode(
   BuildContext context,
@@ -28,7 +28,6 @@ Future capQrCode(
   String? taxId,
   String? contno,
 ) async {
-  // Add your function code here!
   try {
     ScreenshotController screenshotController = ScreenshotController();
 
@@ -41,7 +40,6 @@ Future capQrCode(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Contract number above QR
             Text(
               contno ?? '',
               style: const TextStyle(
@@ -52,7 +50,6 @@ Future capQrCode(
               ),
             ),
             const SizedBox(height: 16),
-            // QR Code
             BarcodeWidget(
               data: functions.genQRCodePayment(
                   suffix!, ref1!, ref2!, amount!, taxId!)!,
@@ -68,12 +65,12 @@ Future capQrCode(
               drawText: false,
             ),
             const SizedBox(height: 16),
-            // Label below QR
             Text(
               '|${taxId} ${ref1} ${ref2} 0',
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 fontFamily: 'Noto Sans Thai',
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.normal,
                 color: Colors.black,
               ),
@@ -92,8 +89,20 @@ Future capQrCode(
       );
     });
 
-    return 'บันทึกภาพ QR Code ลง Gallery สำเร็จ';
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('บันทึกภาพ QR Code ลง Gallery สำเร็จ'),
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 3),
+      ),
+    );
   } catch (e) {
-    return e.toString();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('เกิดข้อผิดพลาด: ${e.toString()}'),
+        backgroundColor: Colors.red,
+        duration: const Duration(seconds: 3),
+      ),
+    );
   }
 }

@@ -20,6 +20,12 @@ Future<bool> a8(String? getLocationFrom) async {
   // Add your function code here!
   bool areLocationServicesEnabled;
   areLocationServicesEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!areLocationServicesEnabled) {
+    // Location services are enabled
+    //''
+    return false;
+  }
+
   Position position = await Geolocator.getCurrentPosition();
   print(position.isMocked); // true on emulator
 

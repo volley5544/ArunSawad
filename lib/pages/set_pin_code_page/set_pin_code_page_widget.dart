@@ -444,7 +444,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       return WebViewAware(
                                         child: AlertDialog(
                                           content: Text(
-                                              'กรุณาเปิดGPSและทำรายการอีกครั้ง'),
+                                              'กรุณาเปิดGPSและอนุญาตให้อรุณสวัสดิ์เข้าถึงตำแหน่งของคุณ'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
