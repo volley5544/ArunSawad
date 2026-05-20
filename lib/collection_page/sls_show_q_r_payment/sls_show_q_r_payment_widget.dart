@@ -170,6 +170,22 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
         apiKey: _model.slsUrlOutput?.urlToken,
       );
 
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text((_model.apiResultpayment?.bodyText ?? '')),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       if ((_model.apiResultpayment?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
