@@ -1,14 +1,41 @@
 import '/backend/api_requests/api_manager.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/force_update_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
-import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 Future alertUpdateAppBlock(BuildContext context) async {
-  context.goNamed(Ew9tf0uewitfWidget.routeName);
+  String? forceUpdateAlertOutput;
+
+  await showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (dialogContext) {
+      return Dialog(
+        elevation: 0,
+        insetPadding: EdgeInsets.zero,
+        backgroundColor: Colors.transparent,
+        alignment:
+            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+        child: WebViewAware(
+          child: ForceUpdateComponentWidget(),
+        ),
+      );
+    },
+  ).then((value) => forceUpdateAlertOutput = value);
+
+  if (isAndroid) {
+    await launchURL(
+        'https://play.google.com/store/apps/details?id=com.mycompany.publicarunsawad');
+    await actions.terminateAppAction();
+  } else if (isiOS) {
+    await launchURL('itms-beta://testflight.apple.com/join/8sA3XObM');
+    await actions.terminateAppAction();
+  }
 }
 
 Future<bool?> checkToken(

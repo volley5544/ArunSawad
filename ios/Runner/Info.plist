@@ -65,6 +65,8 @@
     <string>อนุญาตให้อรุณสวัสดิ์ใช้งาน Biometric Verification เพื่อทำการยืนยันตัวตนในการใช้งาน</string>
 	<key>PermissionGroupNotification</key>
     <string>อนุญาตให้อรุณสวัสดิ์ส่ง Notifications เพื่อรับการแจ้งเตือนเรื่องต่างๆ</string>
+	<key>LSApplicationQueriesSchemes</key>
+    <string>tms-beta</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>
