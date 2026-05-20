@@ -369,6 +369,32 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
                                     ),
                                     drawText: true,
                                   ),
+                                  Text(
+                                    '|${_model.slspaymentdata?.qrTaxId} ${_model.slspaymentdata?.qrContractNo} ${_model.slspaymentdata?.qrPaymentType} 0',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
                                 ]
                                     .divide(SizedBox(height: 12.0))
                                     .addToStart(SizedBox(height: 12.0))
