@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'sls_show_q_r_payment_widget.dart' show SlsShowQRPaymentWidget;
 import 'package:barcode_widget/barcode_widget.dart';

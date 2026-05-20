@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -396,8 +397,16 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
                                         ),
                                   ),
                                   FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      await actions.capQrCode(
+                                        context,
+                                        '',
+                                        _model.slspaymentdata?.qrContractNo,
+                                        _model.slspaymentdata?.qrPaymentType,
+                                        '0',
+                                        _model.slspaymentdata?.qrTaxId,
+                                        '',
+                                      );
                                     },
                                     text: 'บันทึกรูป',
                                     options: FFButtonOptions(
