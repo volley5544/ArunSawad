@@ -1300,6 +1300,69 @@ class SaveCollectionCall {
 
 /// End Example API Group Code
 
+/// Start SLS CTL Payment group api Group Code
+
+class SLSCTLPaymentGroupApiGroup {
+  static String getBaseUrl({
+    String? url = '',
+    String? apiKey = '',
+  }) =>
+      '${url}';
+  static Map<String, String> headers = {
+    'Content-Type': 'application/json',
+    'x-api-key': '[api_key]',
+  };
+  static GetCustomerPaymentCall getCustomerPaymentCall =
+      GetCustomerPaymentCall();
+}
+
+class GetCustomerPaymentCall {
+  Future<ApiCallResponse> call({
+    String? contractNo = '',
+    String? companyCode = '',
+    String? path = '',
+    String? url = '',
+    String? apiKey = '',
+  }) async {
+    final baseUrl = SLSCTLPaymentGroupApiGroup.getBaseUrl(
+      url: url,
+      apiKey: apiKey,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "contractNo": "${escapeStringForJson(contractNo)}",
+  "companyCode": "${escapeStringForJson(companyCode)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetCustomerPayment',
+      apiUrl: '${baseUrl}/${path}',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': '${apiKey}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  SLSQrCodePaymentDataModelStruct? data(dynamic response) =>
+      SLSQrCodePaymentDataModelStruct.maybeFromMap(getJsonField(
+        response,
+        r'''$.data''',
+      ));
+}
+
+/// End SLS CTL Payment group api Group Code
+
 class AuthenAPICall {
   static Future<ApiCallResponse> call({
     String? username = '',

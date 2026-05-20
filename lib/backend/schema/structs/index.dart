@@ -17,6 +17,7 @@ export 'menu_icon_data_model_struct.dart';
 export 'r_p72_check_list_data_model_struct.dart';
 export 's_l_s_collection_data_model_struct.dart';
 export 's_l_s_images_data_model_struct.dart';
+export 's_l_s_qr_code_payment_data_model_struct.dart';
 export 'tracking_employee_date_model_struct.dart';
 export 'tracking_employee_location_model_struct.dart';
 export 'url_link_storage_struct.dart';

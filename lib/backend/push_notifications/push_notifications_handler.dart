@@ -893,6 +893,7 @@ final parametersBuilderMap =
   'SlsShowQRPayment': (data) async => ParameterData(
         allParams: {
           'contNo': getParameter<String>(data, 'contNo'),
+          'comcode': getParameter<String>(data, 'comcode'),
         },
       ),
 };

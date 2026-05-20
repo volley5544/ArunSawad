@@ -22,38 +22,46 @@ Future listenFirestoreAppVersion() async {
       .snapshots()
       .listen((docSnapshot) async {
     print('queryVersion : ${docSnapshot.data()!}');
+    FFAppState().firestoreAppVersion = Platform.isAndroid
+        ? docSnapshot.data()!['build_number_android']
+        : Platform.isIOS
+            ? docSnapshot.data()!['build_number_ios']
+            : 0;
 
     if (FFAppState().isProductionNew) {
-      int appVersion = await getBuildNumber() ?? 0;
-      print('app version : ${appVersion}');
-      if (Platform.isAndroid) {
-        print('android build : ${docSnapshot.data()!['build_number_android']}');
+      if (FFAppState().isInApp) {
+        int appVersion = await getBuildNumber() ?? 0;
+        print('app version : ${appVersion}');
+        if (Platform.isAndroid) {
+          print(
+              'android build : ${docSnapshot.data()!['build_number_android']}');
 
-        docSnapshot.data()!['build_number_android'];
-        if (int.parse('${appVersion}') <
-            docSnapshot.data()!['build_number_android']) {
-          FFAppEventService.instance.triggerAppEvent(
-            CheckAppVersionEvent(
-              timestamp: DateTime.now(),
-              waitForCompletion: false,
-              debugId: '5544',
-            ),
-          );
-        }
-      } else if (Platform.isIOS) {
-        print('ios build : ${docSnapshot.data()!['build_number_ios']}');
-        docSnapshot.data()!['build_number_ios'];
-        if (int.parse('${appVersion}') <
-            docSnapshot.data()!['build_number_ios']) {
-          FFAppEventService.instance.triggerAppEvent(
-            CheckAppVersionEvent(
-              timestamp: DateTime.now(),
-              waitForCompletion: false,
-              debugId: '5544',
-            ),
-          );
-        }
-      } else {}
+          docSnapshot.data()!['build_number_android'];
+          if (int.parse('${appVersion}') <
+              docSnapshot.data()!['build_number_android']) {
+            FFAppEventService.instance.triggerAppEvent(
+              CheckAppVersionEvent(
+                timestamp: DateTime.now(),
+                waitForCompletion: true,
+                debugId: '5544',
+              ),
+            );
+          }
+        } else if (Platform.isIOS) {
+          print('ios build : ${docSnapshot.data()!['build_number_ios']}');
+          docSnapshot.data()!['build_number_ios'];
+          if (int.parse('${appVersion}') <
+              docSnapshot.data()!['build_number_ios']) {
+            FFAppEventService.instance.triggerAppEvent(
+              CheckAppVersionEvent(
+                timestamp: DateTime.now(),
+                waitForCompletion: true,
+                debugId: '5544',
+              ),
+            );
+          }
+        } else {}
+      }
     }
   });
 }

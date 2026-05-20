@@ -2931,6 +2931,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'contNo',
                   ParamType.String,
                 ),
+                comcode: params.getParam(
+                  'comcode',
+                  ParamType.String,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

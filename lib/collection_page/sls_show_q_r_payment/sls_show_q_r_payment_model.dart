@@ -24,21 +24,16 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SlsShowQRPaymentModel extends FlutterFlowModel<SlsShowQRPaymentWidget> {
   ///  Local state fields for this page.
 
-  List<SLSImagesDataModelStruct> slsImgData = [];
-  void addToSlsImgData(SLSImagesDataModelStruct item) => slsImgData.add(item);
-  void removeFromSlsImgData(SLSImagesDataModelStruct item) =>
-      slsImgData.remove(item);
-  void removeAtIndexFromSlsImgData(int index) => slsImgData.removeAt(index);
-  void insertAtIndexInSlsImgData(int index, SLSImagesDataModelStruct item) =>
-      slsImgData.insert(index, item);
-  void updateSlsImgDataAtIndex(
-          int index, Function(SLSImagesDataModelStruct) updateFn) =>
-      slsImgData[index] = updateFn(slsImgData[index]);
+  SLSQrCodePaymentDataModelStruct? slspaymentdata;
+  void updateSlspaymentdataStruct(
+      Function(SLSQrCodePaymentDataModelStruct) updateFn) {
+    updateFn(slspaymentdata ??= SLSQrCodePaymentDataModelStruct());
+  }
 
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - API (collectionApiImage)] action in SlsShowQRPayment widget.
-  ApiCallResponse? apiResultimage;
+  // Stores action output result for [Backend Call - API (GetCustomerPayment)] action in SlsShowQRPayment widget.
+  ApiCallResponse? apiResultpayment;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
 

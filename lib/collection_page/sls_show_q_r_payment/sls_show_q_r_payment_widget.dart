@@ -26,9 +26,11 @@ class SlsShowQRPaymentWidget extends StatefulWidget {
   const SlsShowQRPaymentWidget({
     super.key,
     required this.contNo,
+    this.comcode,
   });
 
   final String? contNo;
+  final String? comcode;
 
   static String routeName = 'SlsShowQRPayment';
   static String routePath = 'SlsShowQRPayment';
@@ -75,19 +77,24 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      _model.apiResultimage = await CollectionApiImageCall.call(
-        apiUrl: FFAppState().apiUrlBranchViewCollection,
-        contNo: widget!.contNo,
+      _model.apiResultpayment =
+          await SLSCTLPaymentGroupApiGroup.getCustomerPaymentCall.call(
+        contractNo: widget!.contNo,
+        companyCode: widget!.comcode,
+        path:
+            'cfast-topup/lms-center-api/api/DigitalCard/ReceivePayment/GetCustomerPayment',
+        url: 'http://115.31.163.81',
+        apiKey: '0f3421f6-01a8-2ea3-ab10-f162ace9f0f8',
       );
 
-      if ((_model.apiResultimage?.statusCode ?? 200) != 200) {
+      if ((_model.apiResultpayment?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
               child: AlertDialog(
                 content: Text(
-                    'พบข้อผิดพลาด connection (${(_model.apiResultimage?.statusCode ?? 200).toString()})'),
+                    'พบข้อผิดพลาด connection (${(_model.apiResultpayment?.statusCode ?? 200).toString()})'),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(alertDialogContext),
@@ -102,7 +109,7 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
         return;
       }
       if ('${getJsonField(
-            (_model.apiResultimage?.jsonBody ?? ''),
+            (_model.apiResultpayment?.jsonBody ?? ''),
             r'''$.statuscode''',
           ).toString()}' !=
           '200') {
@@ -112,7 +119,7 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
             return WebViewAware(
               child: AlertDialog(
                 content: Text('${'${getJsonField(
-                  (_model.apiResultimage?.jsonBody ?? ''),
+                  (_model.apiResultpayment?.jsonBody ?? ''),
                   r'''$.message''',
                 ).toString()}'}'),
                 actions: [
@@ -128,26 +135,7 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
         Navigator.pop(context);
         return;
       }
-      _model.slsImgData = functions.getIndexOfSomethingList(
-                  CollectionApiImageCall.data(
-                    (_model.apiResultimage?.jsonBody ?? ''),
-                  )?.map((e) => e.imgTypeName).toList()?.toList(),
-                  'Payment Card') !=
-              -1
-          ? functions.reorderSlsImageList(
-              CollectionApiImageCall.data(
-                (_model.apiResultimage?.jsonBody ?? ''),
-              )?.toList(),
-              functions.getIndexOfSomethingList(
-                  CollectionApiImageCall.data(
-                    (_model.apiResultimage?.jsonBody ?? ''),
-                  )?.map((e) => e.imgTypeName).toList()?.toList(),
-                  'Payment Card'))!
-          : CollectionApiImageCall.data(
-              (_model.apiResultimage?.jsonBody ?? ''),
-            )!
-              .toList()
-              .cast<SLSImagesDataModelStruct>();
+
       safeSetState(() {});
       Navigator.pop(context);
     });
@@ -179,8 +167,6 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
