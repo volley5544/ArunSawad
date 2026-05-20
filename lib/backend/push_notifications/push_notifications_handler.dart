@@ -890,6 +890,11 @@ final parametersBuilderMap =
           'title': getParameter<String>(data, 'title'),
         },
       ),
+  'SlsShowQRPayment': (data) async => ParameterData(
+        allParams: {
+          'contNo': getParameter<String>(data, 'contNo'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

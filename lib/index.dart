@@ -311,3 +311,5 @@ export '/collection_page/customer_map_location_page/customer_map_location_page_w
     show CustomerMapLocationPageWidget;
 export '/collection_page/customer_map_multi_location_page/customer_map_multi_location_page_widget.dart'
     show CustomerMapMultiLocationPageWidget;
+export '/collection_page/sls_show_q_r_payment/sls_show_q_r_payment_widget.dart'
+    show SlsShowQRPaymentWidget;

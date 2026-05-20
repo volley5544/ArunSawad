@@ -4,8 +4,10 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/app_events/index.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'ew9tf0uewitf_model.dart';
 export 'ew9tf0uewitf_model.dart';
 
@@ -31,6 +33,26 @@ class _Ew9tf0uewitfWidgetState extends State<Ew9tf0uewitfWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ew9tf0uewitf'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('มีเวอร์ใหม่แล้ว ไปอัพด้วย'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 

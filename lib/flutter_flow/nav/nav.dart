@@ -2922,6 +2922,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   isList: true,
                 ),
               ),
+            ),
+            FFRoute(
+              name: SlsShowQRPaymentWidget.routeName,
+              path: SlsShowQRPaymentWidget.routePath,
+              builder: (context, params) => SlsShowQRPaymentWidget(
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
