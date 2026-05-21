@@ -802,23 +802,25 @@ class _CarSeizedSelectDashboardWidgetState
                   if ((FFAppState().profileLevel == 'สาขา') ||
                           (FFAppState().profileLevel == 'เขต') ||
                           (FFAppState().profileLevel == 'ภาค')
-                      ? (functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  _model.priceAccessRoleData, 'profile_level'),
-                              FFAppState().profileLevel)! &&
-                          (functions
-                                      .getListStringFromJson(
-                                          functions.getDataFromMapJson(
-                                              _model.priceAccessRoleData,
-                                              'position_name'))!
-                                      .length >
-                                  0
-                              ? functions.containsValueInJsonList(
+                      ? ((functions.containsValueInJsonList(
                                   functions.getDataFromMapJson(
                                       _model.priceAccessRoleData,
-                                      'position_name'),
-                                  FFAppState().profilePositionName)!
-                              : true))
+                                      'profile_level'),
+                                  FFAppState().profileLevel)! &&
+                              (functions
+                                          .getListStringFromJson(
+                                              functions.getDataFromMapJson(
+                                                  _model.priceAccessRoleData,
+                                                  'position_name'))!
+                                          .length >
+                                      0
+                                  ? functions.containsValueInJsonList(
+                                      functions.getDataFromMapJson(
+                                          _model.priceAccessRoleData,
+                                          'position_name'),
+                                      FFAppState().profilePositionName)!
+                                  : true)) ||
+                          (_model.userRolePrice != 'no_role'))
                       : (_model.userRolePrice != 'no_role'))
                     InkWell(
                       splashColor: Colors.transparent,

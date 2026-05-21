@@ -66,6 +66,11 @@ class UserCustomRecord extends FirestoreRecord {
   DateTime? get consentDate => _consentDate;
   bool hasConsentDate() => _consentDate != null;
 
+  // "access_token" field.
+  String? _accessToken;
+  String get accessToken => _accessToken ?? '';
+  bool hasAccessToken() => _accessToken != null;
+
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _email = snapshotData['email'] as String?;
@@ -77,6 +82,7 @@ class UserCustomRecord extends FirestoreRecord {
     _imgProfileBlurHash = snapshotData['img_profile_blur_hash'] as String?;
     _goldCupConsent = snapshotData['gold_cup_consent'] as bool?;
     _consentDate = snapshotData['consent_date'] as DateTime?;
+    _accessToken = snapshotData['access_token'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -123,6 +129,7 @@ Map<String, dynamic> createUserCustomRecordData({
   String? imgProfileBlurHash,
   bool? goldCupConsent,
   DateTime? consentDate,
+  String? accessToken,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -135,6 +142,7 @@ Map<String, dynamic> createUserCustomRecordData({
       'img_profile_blur_hash': imgProfileBlurHash,
       'gold_cup_consent': goldCupConsent,
       'consent_date': consentDate,
+      'access_token': accessToken,
     }.withoutNulls,
   );
 
@@ -156,7 +164,8 @@ class UserCustomRecordDocumentEquality implements Equality<UserCustomRecord> {
         listEquality.equals(e1?.sawadChatRoomRef, e2?.sawadChatRoomRef) &&
         e1?.imgProfileBlurHash == e2?.imgProfileBlurHash &&
         e1?.goldCupConsent == e2?.goldCupConsent &&
-        e1?.consentDate == e2?.consentDate;
+        e1?.consentDate == e2?.consentDate &&
+        e1?.accessToken == e2?.accessToken;
   }
 
   @override
@@ -170,7 +179,8 @@ class UserCustomRecordDocumentEquality implements Equality<UserCustomRecord> {
         e?.sawadChatRoomRef,
         e?.imgProfileBlurHash,
         e?.goldCupConsent,
-        e?.consentDate
+        e?.consentDate,
+        e?.accessToken
       ]);
 
   @override
