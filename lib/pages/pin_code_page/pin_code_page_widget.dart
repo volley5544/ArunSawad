@@ -799,6 +799,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   _model.checkDeviceLocSerLogout = await actions.a1();
                                                                                   _shouldSetState = true;
                                                                                   if (!_model.checkDeviceLocSerLogout!) {
+                                                                                    Navigator.pop(context);
                                                                                     await showDialog(
                                                                                       context: context,
                                                                                       builder: (alertDialogContext) {
@@ -821,6 +822,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   _model.checkDeviceLocPerLogout = await actions.a2();
                                                                                   _shouldSetState = true;
                                                                                   if (!_model.checkDeviceLocPerLogout!) {
+                                                                                    Navigator.pop(context);
                                                                                     await showDialog(
                                                                                       context: context,
                                                                                       builder: (alertDialogContext) {
@@ -845,12 +847,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   );
                                                                                   _shouldSetState = true;
                                                                                   if (!_model.checkLatLngLogout!) {
+                                                                                    Navigator.pop(context);
                                                                                     await showDialog(
                                                                                       context: context,
                                                                                       builder: (alertDialogContext) {
                                                                                         return WebViewAware(
                                                                                           child: AlertDialog(
-                                                                                            content: Text('กรุณาเปิดGPSเพื่อทำรายการ'),
+                                                                                            content: Text('กรุณาเปิดGPSเพื่อทำรายการ และอนุญาตให้อรุณสวัสดิ์เข้าถึงตำแหน่งของคุณ'),
                                                                                             actions: [
                                                                                               TextButton(
                                                                                                 onPressed: () => Navigator.pop(alertDialogContext),
@@ -1031,6 +1034,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                       );
                                                                                     },
                                                                                   );
+                                                                                  await actions.terminateAppAction();
                                                                                 },
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
