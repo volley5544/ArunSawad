@@ -108,7 +108,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   }
 
   /// Action blocks.
-  Future getUserProfilePinPage(BuildContext context) async {
+  Future<bool> getUserProfilePinPage(BuildContext context) async {
     SplashPageImgRecord? querySplashPageImage;
     SplashPageHolidayImgRecord? querySplashPageHoliday;
     UserCustomRecord? queryProfile;
@@ -184,7 +184,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
 
         context.goNamed(SuperAppPageWidget.routeName);
 
-        return;
+        return false;
       }
     }
     FFAppState().userRef = queryProfile?.reference;
@@ -235,7 +235,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
               );
             },
           );
-          return;
+          return false;
         }
         FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
           (getUserProfilePinActionBloc?.jsonBody ?? ''),
@@ -429,7 +429,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
               );
             },
           );
-          return;
+          return false;
         }
         await showDialog(
           context: context,
@@ -493,7 +493,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
 
         context.goNamed(LoginPageWidget.routeName);
 
-        return;
+        return false;
       }
     }
 
@@ -519,7 +519,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
           );
         },
       );
-      return;
+      return false;
     }
     getLocationPinActionBloc = await actions.getLocation(
       'Login_With_Pin',
@@ -633,7 +633,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
 
       context.goNamed(SuperAppPageWidget.routeName);
 
-      return;
+      return true;
     }
 
     while (FFAppState().superAppi <=
@@ -694,5 +694,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
     Navigator.pop(context);
 
     context.goNamed(SuperAppPageWidget.routeName);
+
+    return true;
   }
 }

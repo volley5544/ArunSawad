@@ -1555,6 +1555,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                           (_model.getUserProfilePin?.jsonBody ?? ''),
                                                                                                                         ) !=
                                                                                                                         200) {
+                                                                                                                      safeSetState(() {
+                                                                                                                        _model.pinCodeController?.clear();
+                                                                                                                      });
                                                                                                                       Navigator.pop(context);
                                                                                                                       await showDialog(
                                                                                                                         context: context,
@@ -1734,6 +1737,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 );
                                                                                                                 _shouldSetState = true;
                                                                                                                 if (!_model.checkLatLngBeforeEnterApp!) {
+                                                                                                                  safeSetState(() {
+                                                                                                                    _model.pinCodeController?.clear();
+                                                                                                                  });
                                                                                                                   Navigator.pop(context);
                                                                                                                   await showDialog(
                                                                                                                     context: context,
