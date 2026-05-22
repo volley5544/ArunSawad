@@ -24,7 +24,7 @@ Future<void> handleGlobalEvent(FFAppEvent event) async {
       );
       return;
     case CheckTokenAliveEvent():
-      await action_blocks.alertUpdateAppBlock(
+      await action_blocks.listenUserProfileBlock(
         context,
       );
       return;
