@@ -35,3 +35,13 @@ class CheckAppVersionEvent extends FFAppEvent {
           scope: FFAppEventScope.GLOBAL,
         );
 }
+
+class CheckTokenAliveEvent extends FFAppEvent {
+  const CheckTokenAliveEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.GLOBAL,
+        );
+}

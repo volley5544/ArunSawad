@@ -1,3 +1,4 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -342,6 +343,10 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                         defaultLocation: LatLng(0.0, 0.0));
                                 var _shouldSetState = false;
                                 HapticFeedback.mediumImpact();
+                                if (!loggedIn) {
+                                  if (_shouldSetState) safeSetState(() {});
+                                  return;
+                                }
                                 if (!(_model.pinCodeController!.text != null &&
                                     _model.pinCodeController!.text != '')) {
                                   ScaffoldMessenger.of(context).showSnackBar(

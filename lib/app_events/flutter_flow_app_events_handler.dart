@@ -23,6 +23,11 @@ Future<void> handleGlobalEvent(FFAppEvent event) async {
         context,
       );
       return;
+    case CheckTokenAliveEvent():
+      await action_blocks.alertUpdateAppBlock(
+        context,
+      );
+      return;
 
     default:
       return;

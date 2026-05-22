@@ -89,3 +89,5 @@ Future<bool?> checkToken(
   await actions.a22();
   return false;
 }
+
+Future sessionExpiredBlock(BuildContext context) async {}
