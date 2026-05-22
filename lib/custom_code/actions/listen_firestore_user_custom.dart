@@ -16,7 +16,7 @@ import '/auth/base_auth_user_provider.dart';
 
 Future listenFirestoreUserCustom() async {
   // Add your function code here!
-  userCustomListener = FirebaseFirestore.instance
+  FirebaseFirestore.instance
       .collection('user_custom')
       .where('employee_id', isEqualTo: '${FFAppState().employeeID}')
       .snapshots()
