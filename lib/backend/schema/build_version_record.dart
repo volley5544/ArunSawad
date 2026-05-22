@@ -36,11 +36,17 @@ class BuildVersionRecord extends FirestoreRecord {
   int get buildNumberIos => _buildNumberIos ?? 0;
   bool hasBuildNumberIos() => _buildNumberIos != null;
 
+  // "force_update" field.
+  bool? _forceUpdate;
+  bool get forceUpdate => _forceUpdate ?? false;
+  bool hasForceUpdate() => _forceUpdate != null;
+
   void _initializeFields() {
     _appVersion = snapshotData['app_version'] as String?;
     _appVersionIos = snapshotData['app_version_ios'] as String?;
     _buildNumberAndroid = castToType<int>(snapshotData['build_number_android']);
     _buildNumberIos = castToType<int>(snapshotData['build_number_ios']);
+    _forceUpdate = snapshotData['force_update'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -82,6 +88,7 @@ Map<String, dynamic> createBuildVersionRecordData({
   String? appVersionIos,
   int? buildNumberAndroid,
   int? buildNumberIos,
+  bool? forceUpdate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -89,6 +96,7 @@ Map<String, dynamic> createBuildVersionRecordData({
       'app_version_ios': appVersionIos,
       'build_number_android': buildNumberAndroid,
       'build_number_ios': buildNumberIos,
+      'force_update': forceUpdate,
     }.withoutNulls,
   );
 
@@ -104,7 +112,8 @@ class BuildVersionRecordDocumentEquality
     return e1?.appVersion == e2?.appVersion &&
         e1?.appVersionIos == e2?.appVersionIos &&
         e1?.buildNumberAndroid == e2?.buildNumberAndroid &&
-        e1?.buildNumberIos == e2?.buildNumberIos;
+        e1?.buildNumberIos == e2?.buildNumberIos &&
+        e1?.forceUpdate == e2?.forceUpdate;
   }
 
   @override
@@ -112,7 +121,8 @@ class BuildVersionRecordDocumentEquality
         e?.appVersion,
         e?.appVersionIos,
         e?.buildNumberAndroid,
-        e?.buildNumberIos
+        e?.buildNumberIos,
+        e?.forceUpdate
       ]);
 
   @override

@@ -470,6 +470,13 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 FFAppState().firstLoginLocation =
                                     currentUserLocationValue;
                                 safeSetState(() {});
+
+                                await FFAppState()
+                                    .userRef!
+                                    .update(createUserCustomRecordData(
+                                      fcmToken: FFAppState().fcmToken,
+                                      accessToken: FFAppState().accessToken,
+                                    ));
                                 if (functions.checkIntFromString(
                                     FFAppState().employeeID)!) {
                                   var userLogRecordReference1 =

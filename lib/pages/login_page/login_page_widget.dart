@@ -2234,6 +2234,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               FFAppState().fcmToken,
                                                                           imgProfileBlurHash:
                                                                               'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
+                                                                          accessToken:
+                                                                              FFAppState().accessToken,
                                                                         ));
                                                                         _model.createdUserCustom = UserCustomRecord.getDocumentFromData(
                                                                             createUserCustomRecordData(
@@ -2244,6 +2246,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               imgProfile: 'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
                                                                               fcmToken: FFAppState().fcmToken,
                                                                               imgProfileBlurHash: 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
+                                                                              accessToken: FFAppState().accessToken,
                                                                             ),
                                                                             userCustomRecordReference2);
                                                                         _shouldSetState =
@@ -2329,80 +2332,39 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           true;
                                                                       safeSetState(
                                                                           () {});
-                                                                      if (isAndroid) {
-                                                                        var fCMTokenRecordReference1 = FCMTokenRecord
-                                                                            .collection
-                                                                            .doc();
-                                                                        await fCMTokenRecordReference1
-                                                                            .set(createFCMTokenRecordData(
-                                                                          createdAt:
-                                                                              getCurrentTimestamp,
-                                                                          deviceType:
-                                                                              'Android',
-                                                                          fcmToken:
-                                                                              FFAppState().fcmToken,
-                                                                          employeeId: _model
-                                                                              .usernameInputTextController
-                                                                              .text,
-                                                                        ));
-                                                                        _model.androidCreateFMCTokenDoc = FCMTokenRecord.getDocumentFromData(
-                                                                            createFCMTokenRecordData(
-                                                                              createdAt: getCurrentTimestamp,
-                                                                              deviceType: 'Android',
-                                                                              fcmToken: FFAppState().fcmToken,
-                                                                              employeeId: _model.usernameInputTextController.text,
-                                                                            ),
-                                                                            fCMTokenRecordReference1);
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                      } else {
-                                                                        if (!isiOS) {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  content: Text('แอพพลิเคชั่นนี้ ให้ใช้ได้แค่ใน Android หรือ Ios เท่านั้น'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-                                                                        }
 
-                                                                        var fCMTokenRecordReference2 = FCMTokenRecord
-                                                                            .collection
-                                                                            .doc();
-                                                                        await fCMTokenRecordReference2
-                                                                            .set(createFCMTokenRecordData(
-                                                                          createdAt:
-                                                                              getCurrentTimestamp,
-                                                                          deviceType:
-                                                                              'Ios',
-                                                                          fcmToken:
-                                                                              FFAppState().fcmToken,
-                                                                          employeeId: _model
-                                                                              .usernameInputTextController
-                                                                              .text,
-                                                                        ));
-                                                                        _model.iosCreateFMCTokenDoc = FCMTokenRecord.getDocumentFromData(
-                                                                            createFCMTokenRecordData(
-                                                                              createdAt: getCurrentTimestamp,
-                                                                              deviceType: 'Ios',
-                                                                              fcmToken: FFAppState().fcmToken,
-                                                                              employeeId: _model.usernameInputTextController.text,
-                                                                            ),
-                                                                            fCMTokenRecordReference2);
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                      }
+                                                                      var fCMTokenRecordReference = FCMTokenRecord
+                                                                          .collection
+                                                                          .doc();
+                                                                      await fCMTokenRecordReference
+                                                                          .set(
+                                                                              createFCMTokenRecordData(
+                                                                        createdAt:
+                                                                            getCurrentTimestamp,
+                                                                        deviceType: isAndroid
+                                                                            ? 'Android'
+                                                                            : 'Ios',
+                                                                        fcmToken:
+                                                                            FFAppState().fcmToken,
+                                                                        employeeId: _model
+                                                                            .usernameInputTextController
+                                                                            .text,
+                                                                      ));
+                                                                      _model.androidCreateFMCTokenDoc = FCMTokenRecord.getDocumentFromData(
+                                                                          createFCMTokenRecordData(
+                                                                            createdAt:
+                                                                                getCurrentTimestamp,
+                                                                            deviceType: isAndroid
+                                                                                ? 'Android'
+                                                                                : 'Ios',
+                                                                            fcmToken:
+                                                                                FFAppState().fcmToken,
+                                                                            employeeId:
+                                                                                _model.usernameInputTextController.text,
+                                                                          ),
+                                                                          fCMTokenRecordReference);
+                                                                      _shouldSetState =
+                                                                          true;
 
                                                                       context.goNamedAuth(
                                                                           SetPinCodePageWidget

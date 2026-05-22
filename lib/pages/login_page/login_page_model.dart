@@ -86,8 +86,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   UserLogRecord? createdUserLogLogin;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FCMTokenRecord? androidCreateFMCTokenDoc;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  FCMTokenRecord? iosCreateFMCTokenDoc;
 
   @override
   void initState(BuildContext context) {
