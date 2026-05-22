@@ -91,3 +91,7 @@ Future<bool?> checkToken(
 }
 
 Future sessionExpiredBlock(BuildContext context) async {}
+
+Future listenUserProfileBlock(BuildContext context) async {
+  await actions.listenFirestoreUserCustom();
+}

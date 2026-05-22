@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
+import '/app_events/index.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -1901,6 +1902,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 });
                                                                                                                 FFAppState().firstLoginLocation = _model.getLocationPin1;
                                                                                                                 safeSetState(() {});
+                                                                                                                FFAppEventService.instance.triggerAppEvent(
+                                                                                                                  CheckTokenAliveEvent(
+                                                                                                                    timestamp: DateTime.now(),
+                                                                                                                    waitForCompletion: false,
+                                                                                                                    debugId: '4321',
+                                                                                                                  ),
+                                                                                                                );
+
                                                                                                                 Navigator.pop(context);
 
                                                                                                                 context.goNamed(SuperAppPageWidget.routeName);

@@ -10,11 +10,13 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/actions/actions.dart' as action_blocks;
 import '/app_events/index.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -553,6 +555,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             debugId: '5544',
                                           ),
                                         );
+
+                                        _model.checkTokenAliveNewSubscription =
+                                            FFAppEventService
+                                                .instance.localEventsStream
+                                                .where((event) => event
+                                                    is CheckTokenAliveNewEvent)
+                                                .cast<CheckTokenAliveNewEvent>()
+                                                .listen((CheckTokenAliveNewEvent
+                                                    event) async {
+                                          await action_blocks
+                                              .sessionExpiredBlock(
+                                            context,
+                                          );
+                                        });
                                       },
                                       child: Text(
                                         'UAT',

@@ -10,11 +10,13 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import '/actions/actions.dart' as action_blocks;
 import '/app_events/index.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
+import 'dart:async';
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -43,6 +45,9 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? androidIMEI;
   // Stores action output result for [Custom Action - a4] action in LoginPage widget.
   String? iOSidentifierForVendor;
+  // Subscription for local app event CheckTokenAliveNewEvent
+  StreamSubscription<CheckTokenAliveNewEvent>? checkTokenAliveNewSubscription;
+
   // State field(s) for usernameInput widget.
   FocusNode? usernameInputFocusNode;
   TextEditingController? usernameInputTextController;
@@ -94,6 +99,9 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   @override
   void dispose() {
+    // Cancel the subscription for local app event CheckTokenAliveNewEvent
+    checkTokenAliveNewSubscription?.cancel();
+
     usernameInputFocusNode?.dispose();
     usernameInputTextController?.dispose();
 

@@ -10368,6 +10368,12 @@ class FFAppState extends ChangeNotifier {
   set slsUrlDocRef(DocumentReference? value) {
     _slsUrlDocRef = value;
   }
+
+  String _accessTokenFirestore = 'access_token_firestore';
+  String get accessTokenFirestore => _accessTokenFirestore;
+  set accessTokenFirestore(String value) {
+    _accessTokenFirestore = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
