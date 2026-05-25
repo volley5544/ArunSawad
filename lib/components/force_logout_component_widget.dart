@@ -85,7 +85,7 @@ class _ForceLogoutComponentWidgetState
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: SvgPicture.asset(
-                    'assets/images/mwmx0_600',
+                    'assets/images/error-icon.svg',
                     width: 55.0,
                     height: 55.0,
                     fit: BoxFit.cover,
