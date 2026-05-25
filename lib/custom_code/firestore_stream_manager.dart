@@ -63,22 +63,20 @@ class FirestoreStreamManager {
         if (loggedIn) {
           if ('${docSnapshot.docs.first.data()!['access_token']}' != '' &&
               '${docSnapshot.docs.first.data()!['access_token']}' != 'null') {
-            if (FFAppState().isInApp) {
-              if ('${FFAppState().accessToken}' != '' &&
-                  '${FFAppState().accessToken}' != 'null' &&
-                  '${FFAppState().accessToken}' != 'access_token') {
-                if (FFAppState().isProductionNew) {
-                  if ('${docSnapshot.docs.first.data()!['access_token']}' !=
-                      '${FFAppState().accessToken}') {
-                    print('Force Logout 5544');
-                    // FFAppEventService.instance.triggerAppEvent(
-                    //   CheckAppVersionEvent(
-                    //     timestamp: DateTime.now(),
-                    //     waitForCompletion: true,
-                    //     debugId: '5544',
-                    //   ),
-                    // );
-                  }
+            if ('${FFAppState().accessToken}' != '' &&
+                '${FFAppState().accessToken}' != 'null' &&
+                '${FFAppState().accessToken}' != 'access_token') {
+              if (FFAppState().isProductionNew) {
+                if ('${docSnapshot.docs.first.data()!['access_token']}' !=
+                    '${FFAppState().accessToken}') {
+                  print('Force Logout 5544');
+                  // FFAppEventService.instance.triggerAppEvent(
+                  //   CheckAppVersionEvent(
+                  //     timestamp: DateTime.now(),
+                  //     waitForCompletion: true,
+                  //     debugId: '5544',
+                  //   ),
+                  // );
                 }
               }
             }
