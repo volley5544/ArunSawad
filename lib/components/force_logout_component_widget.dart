@@ -81,16 +81,13 @@ class _ForceLogoutComponentWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                child: Container(
-                  width: 55.0,
-                  height: 55.0,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
                   child: SvgPicture.asset(
-                    'assets/images/error-icon.svg',
+                    'assets/images/mwmx0_600',
+                    width: 55.0,
+                    height: 55.0,
                     fit: BoxFit.cover,
                   ),
                 ),

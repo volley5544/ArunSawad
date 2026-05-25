@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../auth/base_auth_user_provider.dart';
 import '../backend/schema/user_custom_record.dart';
-import '../app_events/flutter_flow_app_event_service.dart';
+import '/app_events/index.dart';
 
 class FirestoreStreamManager {
   FirestoreStreamManager._();
