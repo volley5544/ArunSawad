@@ -22,36 +22,39 @@ Future<LatLng> getLocation(String? getLocationFrom) async {
   // if (!serviceEnabled) {
   //   return Future.error('Location services are disabled.');
   // }
-  if ('${FFAppState().employeeID}' == '31622' ||
-      '${FFAppState().employeeID}' == '33511' ||
-      '${FFAppState().employeeID}' == '30427' ||
-      '${FFAppState().employeeID}' == '32758' ||
-      '${FFAppState().employeeID}' == '38630') {
-    print('is admin');
-  } else {
-    if (Platform.isAndroid) {
-      Position position = await Geolocator.getCurrentPosition();
-      Timestamp now = Timestamp.now();
-      if (position.isMocked) {
-        try {
-          FirebaseFirestore firestore = FirebaseFirestore.instance;
-          // Firestore-based document ID
-          String docId =
-              '${now.seconds}_${now.nanoseconds}_${FFAppState().employeeID}';
 
-          Map<String, dynamic> data = {
-            'employee_id': '${FFAppState().employeeID}',
-            'date_time': FieldValue.serverTimestamp(),
-            'device_id': '${FFAppState().imei}',
-            'operating_system': Platform.isAndroid ? 'Android' : 'iOS',
-            'log_from': '${getLocationFrom!}'
-          };
-          await firestore.collection('FakeLocationLog').doc(docId).set(data);
-        } catch (e) {
-          print('Error creating document: $e');
-        }
-        if (FFAppState().blockMockedLocation) {
-          return LatLng(0.0, 0.0);
+  if ('${getLocationFrom}' != 'ForceLogout') {
+    if ('${FFAppState().employeeID}' == '31622' ||
+        '${FFAppState().employeeID}' == '33511' ||
+        '${FFAppState().employeeID}' == '30427' ||
+        '${FFAppState().employeeID}' == '32758' ||
+        '${FFAppState().employeeID}' == '38630') {
+      print('is admin');
+    } else {
+      if (Platform.isAndroid) {
+        Position position = await Geolocator.getCurrentPosition();
+        Timestamp now = Timestamp.now();
+        if (position.isMocked) {
+          try {
+            FirebaseFirestore firestore = FirebaseFirestore.instance;
+            // Firestore-based document ID
+            String docId =
+                '${now.seconds}_${now.nanoseconds}_${FFAppState().employeeID}';
+
+            Map<String, dynamic> data = {
+              'employee_id': '${FFAppState().employeeID}',
+              'date_time': FieldValue.serverTimestamp(),
+              'device_id': '${FFAppState().imei}',
+              'operating_system': Platform.isAndroid ? 'Android' : 'iOS',
+              'log_from': '${getLocationFrom!}'
+            };
+            await firestore.collection('FakeLocationLog').doc(docId).set(data);
+          } catch (e) {
+            print('Error creating document: $e');
+          }
+          if (FFAppState().blockMockedLocation) {
+            return LatLng(0.0, 0.0);
+          }
         }
       }
     }

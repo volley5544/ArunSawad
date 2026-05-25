@@ -36,22 +36,12 @@ class CheckAppVersionEvent extends FFAppEvent {
         );
 }
 
-class CheckTokenAliveEvent extends FFAppEvent {
-  const CheckTokenAliveEvent({
+class ForceLogoutEventEvent extends FFAppEvent {
+  const ForceLogoutEventEvent({
     super.debugId,
     super.waitForCompletion = true,
     required super.timestamp,
   }) : super(
           scope: FFAppEventScope.GLOBAL,
-        );
-}
-
-class CheckTokenAliveNewEvent extends FFAppEvent {
-  const CheckTokenAliveNewEvent({
-    super.debugId,
-    super.waitForCompletion = true,
-    required super.timestamp,
-  }) : super(
-          scope: FFAppEventScope.LOCAL,
         );
 }

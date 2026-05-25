@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../auth/base_auth_user_provider.dart';
 import '../backend/schema/user_custom_record.dart';
+import '../app_events/flutter_flow_app_event_service.dart';
 
 class FirestoreStreamManager {
   FirestoreStreamManager._();
@@ -70,13 +71,13 @@ class FirestoreStreamManager {
                 if ('${docSnapshot.docs.first.data()!['access_token']}' !=
                     '${FFAppState().accessToken}') {
                   print('Force Logout 5544');
-                  // FFAppEventService.instance.triggerAppEvent(
-                  //   CheckAppVersionEvent(
-                  //     timestamp: DateTime.now(),
-                  //     waitForCompletion: true,
-                  //     debugId: '5544',
-                  //   ),
-                  // );
+                  FFAppEventService.instance.triggerAppEvent(
+                    ForceLogoutEventEvent(
+                      timestamp: DateTime.now(),
+                      waitForCompletion: true,
+                      debugId: '3579',
+                    ),
+                  );
                 }
               }
             }

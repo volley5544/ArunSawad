@@ -14,6 +14,7 @@ import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 String getUserLocation(LatLng? userLocation) {
+//
   String userLatLng = '${userLocation!.latitude},${userLocation.longitude}';
   return userLatLng;
 }

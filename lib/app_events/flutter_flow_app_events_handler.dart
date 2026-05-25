@@ -23,8 +23,8 @@ Future<void> handleGlobalEvent(FFAppEvent event) async {
         context,
       );
       return;
-    case CheckTokenAliveEvent():
-      await action_blocks.listenUserProfileBlock(
+    case ForceLogoutEventEvent():
+      await action_blocks.forceLogoutActionBlock(
         context,
       );
       return;
