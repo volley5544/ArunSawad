@@ -433,7 +433,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       }
       FFAppState().isInApp = true;
       FFAppState().update(() {});
-      if (_model.getBuildNumber! < FFAppState().firestoreAppVersion) {
+      if ((FFAppState().employeeID != '31622') &&
+              (FFAppState().employeeID != '33511')
+          ? (_model.getBuildNumber! < FFAppState().firestoreAppVersion)
+          : false) {
         await action_blocks.alertUpdateAppBlock(context);
         safeSetState(() {});
         return;

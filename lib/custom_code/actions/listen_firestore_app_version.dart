@@ -39,9 +39,9 @@ Future listenFirestoreAppVersion() async {
           docSnapshot.data()!['build_number_android'];
           if (int.parse('${appVersion}') <
               docSnapshot.data()!['build_number_android']) {
-            if (docSnapshot.data()!['force_update'] ||
-                '${FFAppState().employeeId}' == '31622' ||
-                '${FFAppState().employeeId}' == '33511') {
+            if (docSnapshot.data()!['force_update'] &&
+                '${FFAppState().employeeID}' != '31622' &&
+                '${FFAppState().employeeID}' != '33511') {
               FFAppEventService.instance.triggerAppEvent(
                 CheckAppVersionEvent(
                   timestamp: DateTime.now(),
@@ -51,7 +51,7 @@ Future listenFirestoreAppVersion() async {
               );
             } else {
               FFAppEventService.instance.triggerAppEvent(
-                AlertAppUpdateEvent(
+                AlertAppUpdateEventEvent(
                   timestamp: DateTime.now(),
                   waitForCompletion: true,
                   debugId: '5544',
@@ -64,9 +64,9 @@ Future listenFirestoreAppVersion() async {
           docSnapshot.data()!['build_number_ios'];
           if (int.parse('${appVersion}') <
               docSnapshot.data()!['build_number_ios']) {
-            if (docSnapshot.data()!['force_update'] ||
-                '${FFAppState().employeeId}' == '31622' ||
-                '${FFAppState().employeeId}' == '33511') {
+            if (docSnapshot.data()!['force_update'] &&
+                '${FFAppState().employeeID}' != '31622' &&
+                '${FFAppState().employeeID}' != '33511') {
               FFAppEventService.instance.triggerAppEvent(
                 CheckAppVersionEvent(
                   timestamp: DateTime.now(),
@@ -76,7 +76,7 @@ Future listenFirestoreAppVersion() async {
               );
             } else {
               FFAppEventService.instance.triggerAppEvent(
-                AlertAppUpdateEvent(
+                AlertAppUpdateEventEvent(
                   timestamp: DateTime.now(),
                   waitForCompletion: true,
                   debugId: '5544',

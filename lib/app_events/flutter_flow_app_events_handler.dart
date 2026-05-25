@@ -29,7 +29,7 @@ Future<void> handleGlobalEvent(FFAppEvent event) async {
       );
       return;
     case AlertAppUpdateEventEvent():
-      await action_blocks.alearUpdateAppBlock2(
+      await action_blocks.alertUpdateAppBlock2(
         context,
       );
       return;

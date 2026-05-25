@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_manager.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/alert_update_app_component_widget.dart';
 import '/components/force_logout_component_widget.dart';
 import '/components/force_update_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
@@ -225,7 +226,7 @@ Future forceLogoutActionBlock(BuildContext context) async {
   context.goNamed(LoginPageWidget.routeName);
 }
 
-Future alearUpdateAppBlock2(BuildContext context) async {
+Future alertUpdateAppBlock2(BuildContext context) async {
   String? forceUpdateAlertOutput;
 
   await showDialog(
@@ -239,7 +240,7 @@ Future alearUpdateAppBlock2(BuildContext context) async {
         alignment:
             AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
         child: WebViewAware(
-          child: ForceUpdateComponentWidget(),
+          child: AlertUpdateAppComponentWidget(),
         ),
       );
     },

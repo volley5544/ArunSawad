@@ -6,20 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'alert_update_app_component_copy_model.dart';
-export 'alert_update_app_component_copy_model.dart';
+import 'alert_update_app_component_model.dart';
+export 'alert_update_app_component_model.dart';
 
-class AlertUpdateAppComponentCopyWidget extends StatefulWidget {
-  const AlertUpdateAppComponentCopyWidget({super.key});
+class AlertUpdateAppComponentWidget extends StatefulWidget {
+  const AlertUpdateAppComponentWidget({super.key});
 
   @override
-  State<AlertUpdateAppComponentCopyWidget> createState() =>
-      _AlertUpdateAppComponentCopyWidgetState();
+  State<AlertUpdateAppComponentWidget> createState() =>
+      _AlertUpdateAppComponentWidgetState();
 }
 
-class _AlertUpdateAppComponentCopyWidgetState
-    extends State<AlertUpdateAppComponentCopyWidget> {
-  late AlertUpdateAppComponentCopyModel _model;
+class _AlertUpdateAppComponentWidgetState
+    extends State<AlertUpdateAppComponentWidget> {
+  late AlertUpdateAppComponentModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -30,7 +30,7 @@ class _AlertUpdateAppComponentCopyWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AlertUpdateAppComponentCopyModel());
+    _model = createModel(context, () => AlertUpdateAppComponentModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
