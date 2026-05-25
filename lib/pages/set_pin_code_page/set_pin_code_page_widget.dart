@@ -1,11 +1,9 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/app_events/index.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -344,10 +342,6 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                         defaultLocation: LatLng(0.0, 0.0));
                                 var _shouldSetState = false;
                                 HapticFeedback.mediumImpact();
-                                if (!loggedIn) {
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                }
                                 if (!(_model.pinCodeController!.text != null &&
                                     _model.pinCodeController!.text != '')) {
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -546,13 +540,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                   _shouldSetState = true;
                                 }
 
-                                FFAppEventService.instance.triggerAppEvent(
-                                  CheckTokenAliveEvent(
-                                    timestamp: DateTime.now(),
-                                    waitForCompletion: false,
-                                    debugId: '1234',
-                                  ),
-                                );
+                                await actions.startListenProfileAction();
 
                                 context.goNamed(SuperAppPageWidget.routeName);
 

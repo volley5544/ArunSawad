@@ -630,6 +630,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
           },
         ),
       }, insuranceNotiDataRecordReference);
+      await actions.startListenProfileAction();
       Navigator.pop(context);
 
       context.goNamed(SuperAppPageWidget.routeName);
@@ -692,14 +693,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
       ),
     });
     FFAppState().firstLoginLocation = getLocationPinActionBloc;
-    FFAppEventService.instance.triggerAppEvent(
-      CheckTokenAliveEvent(
-        timestamp: DateTime.now(),
-        waitForCompletion: false,
-        debugId: '3124',
-      ),
-    );
-
+    await actions.startListenProfileAction();
     Navigator.pop(context);
 
     context.goNamed(SuperAppPageWidget.routeName);

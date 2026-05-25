@@ -80,3 +80,5 @@ export 'check_developer_mode.dart' show checkDeveloperMode;
 export 'listen_firestore_app_version.dart' show listenFirestoreAppVersion;
 export 'listen_firestore_user_custom.dart' show listenFirestoreUserCustom;
 export 'cap_qr_code.dart' show capQrCode;
+export 'start_listen_profile_action.dart' show startListenProfileAction;
+export 'stop_listen_profile_action.dart' show stopListenProfileAction;

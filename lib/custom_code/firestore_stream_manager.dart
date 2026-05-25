@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:arun_sawad/app_state.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'auth/base_auth_user_provider.dart';
-import 'backend/schema/user_custom_record.dart';
+import '../auth/base_auth_user_provider.dart';
+import '../backend/schema/user_custom_record.dart';
 
 class FirestoreStreamManager {
+  FirestoreStreamManager._();
+  static final FirestoreStreamManager instance = FirestoreStreamManager._();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   /// ----------------------------
@@ -31,7 +33,13 @@ class FirestoreStreamManager {
   /// ----------------------------
 
   void start() {
+    print('start listenProfile :');
     _startUserProfileListener();
+  }
+
+  void stop() {
+    print('stopped listenProfile :');
+    _userProfileSubscription?.cancel();
   }
 
   /// ============================================================
