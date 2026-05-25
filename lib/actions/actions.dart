@@ -224,3 +224,34 @@ Future forceLogoutActionBlock(BuildContext context) async {
 
   context.goNamed(LoginPageWidget.routeName);
 }
+
+Future alearUpdateAppBlock2(BuildContext context) async {
+  String? forceUpdateAlertOutput;
+
+  await showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (dialogContext) {
+      return Dialog(
+        elevation: 0,
+        insetPadding: EdgeInsets.zero,
+        backgroundColor: Colors.transparent,
+        alignment:
+            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+        child: WebViewAware(
+          child: ForceUpdateComponentWidget(),
+        ),
+      );
+    },
+  ).then((value) => forceUpdateAlertOutput = value);
+
+  if ('${forceUpdateAlertOutput}' != 'update') {
+    return;
+  }
+  if (isAndroid) {
+    await launchURL(
+        'https://play.google.com/store/apps/details?id=com.mycompany.publicarunsawad');
+  } else if (isiOS) {
+    await launchURL('itms-beta://testflight.apple.com/join/8sA3XObM');
+  }
+}

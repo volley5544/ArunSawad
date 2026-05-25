@@ -30,16 +30,18 @@ Future listenFirestoreAppVersion() async {
 
     if (FFAppState().isProductionNew) {
       if (FFAppState().isInApp) {
-        if (docSnapshot.data()!['force_update']) {
-          int appVersion = await getBuildNumber() ?? 0;
-          print('app version : ${appVersion}');
-          if (Platform.isAndroid) {
-            print(
-                'android build : ${docSnapshot.data()!['build_number_android']}');
+        int appVersion = await getBuildNumber() ?? 0;
+        print('app version : ${appVersion}');
+        if (Platform.isAndroid) {
+          print(
+              'android build : ${docSnapshot.data()!['build_number_android']}');
 
-            docSnapshot.data()!['build_number_android'];
-            if (int.parse('${appVersion}') <
-                docSnapshot.data()!['build_number_android']) {
+          docSnapshot.data()!['build_number_android'];
+          if (int.parse('${appVersion}') <
+              docSnapshot.data()!['build_number_android']) {
+            if (docSnapshot.data()!['force_update'] ||
+                '${FFAppState().employeeId}' == '31622' ||
+                '${FFAppState().employeeId}' == '33511') {
               FFAppEventService.instance.triggerAppEvent(
                 CheckAppVersionEvent(
                   timestamp: DateTime.now(),
@@ -47,12 +49,24 @@ Future listenFirestoreAppVersion() async {
                   debugId: '5544',
                 ),
               );
+            } else {
+              FFAppEventService.instance.triggerAppEvent(
+                AlertAppUpdateEvent(
+                  timestamp: DateTime.now(),
+                  waitForCompletion: true,
+                  debugId: '5544',
+                ),
+              );
             }
-          } else if (Platform.isIOS) {
-            print('ios build : ${docSnapshot.data()!['build_number_ios']}');
-            docSnapshot.data()!['build_number_ios'];
-            if (int.parse('${appVersion}') <
-                docSnapshot.data()!['build_number_ios']) {
+          }
+        } else if (Platform.isIOS) {
+          print('ios build : ${docSnapshot.data()!['build_number_ios']}');
+          docSnapshot.data()!['build_number_ios'];
+          if (int.parse('${appVersion}') <
+              docSnapshot.data()!['build_number_ios']) {
+            if (docSnapshot.data()!['force_update'] ||
+                '${FFAppState().employeeId}' == '31622' ||
+                '${FFAppState().employeeId}' == '33511') {
               FFAppEventService.instance.triggerAppEvent(
                 CheckAppVersionEvent(
                   timestamp: DateTime.now(),
@@ -60,9 +74,17 @@ Future listenFirestoreAppVersion() async {
                   debugId: '5544',
                 ),
               );
+            } else {
+              FFAppEventService.instance.triggerAppEvent(
+                AlertAppUpdateEvent(
+                  timestamp: DateTime.now(),
+                  waitForCompletion: true,
+                  debugId: '5544',
+                ),
+              );
             }
-          } else {}
-        }
+          }
+        } else {}
       }
     }
   });
