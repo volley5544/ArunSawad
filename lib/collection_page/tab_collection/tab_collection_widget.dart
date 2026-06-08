@@ -5425,36 +5425,36 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
+                                              FFAppState().collectionSortBy =
+                                                  '';
+                                              FFAppState().collectionSearch =
+                                                  '';
+                                              FFAppState().collectionSearchBy =
+                                                  '';
+                                              FFAppState().selectCardList = [];
+                                              FFAppState()
+                                                  .collectionListBoolean = [];
+                                              FFAppState().saveCalled = SaveCallStruct
+                                                  .fromSerializableMap(jsonDecode(
+                                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                              safeSetState(() {});
+                                              FFAppState().collectionSortBy =
+                                                  '';
+                                              FFAppState().collectionSearch =
+                                                  '';
+                                              FFAppState().collectionSearchBy =
+                                                  '';
+                                              FFAppState().selectCardList = [];
+                                              FFAppState()
+                                                  .collectionListBoolean = [];
+                                              FFAppState().saveCalled = SaveCallStruct
+                                                  .fromSerializableMap(jsonDecode(
+                                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                              safeSetState(() {});
                                               FFAppState().collectionSearchBy =
                                                   'Creditor';
                                               FFAppState().collectionSearch =
                                                   'CTL';
-                                              safeSetState(() {});
-                                              FFAppState().collectionSortBy =
-                                                  '';
-                                              FFAppState().collectionSearch =
-                                                  '';
-                                              FFAppState().collectionSearchBy =
-                                                  '';
-                                              FFAppState().selectCardList = [];
-                                              FFAppState()
-                                                  .collectionListBoolean = [];
-                                              FFAppState().saveCalled = SaveCallStruct
-                                                  .fromSerializableMap(jsonDecode(
-                                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                              safeSetState(() {});
-                                              FFAppState().collectionSortBy =
-                                                  '';
-                                              FFAppState().collectionSearch =
-                                                  '';
-                                              FFAppState().collectionSearchBy =
-                                                  '';
-                                              FFAppState().selectCardList = [];
-                                              FFAppState()
-                                                  .collectionListBoolean = [];
-                                              FFAppState().saveCalled = SaveCallStruct
-                                                  .fromSerializableMap(jsonDecode(
-                                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
                                               safeSetState(() {});
 
                                               context.pushNamed(
