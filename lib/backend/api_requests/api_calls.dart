@@ -1379,7 +1379,8 @@ class AuthenAPICall {
   "api_url": "${apiUrl}",
   "fcm_token": "${fcmToken}",
   "uid": "${uid}",
-  "check": "${check}"
+  "check": "${check}",
+"line_uid": ""
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'authenAPI',

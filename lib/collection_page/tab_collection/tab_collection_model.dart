@@ -40,7 +40,7 @@ class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
 
   String? cathaySubDistrict;
 
-  List<String> choiceChipData = ['รายชื่อลูกค้า', 'ตามที่อยู่'];
+  List<String> choiceChipData = ['รายชื่อลูกค้า', 'ตามที่อยู่', 'ลูกค้า SCAP'];
   void addToChoiceChipData(String item) => choiceChipData.add(item);
   void removeFromChoiceChipData(String item) => choiceChipData.remove(item);
   void removeAtIndexFromChoiceChipData(int index) =>

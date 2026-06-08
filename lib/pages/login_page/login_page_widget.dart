@@ -1620,9 +1620,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                   builder: (alertDialogContext) {
                                                                                     return WebViewAware(
                                                                                       child: AlertDialog(
-                                                                                        content: Text(AuthenAPICall.message(
+                                                                                        content: Text('${getJsonField(
                                                                                           (_model.confirmAuthen?.jsonBody ?? ''),
-                                                                                        )!),
+                                                                                          r'''$.message''',
+                                                                                        ).toString()}'),
                                                                                         actions: [
                                                                                           TextButton(
                                                                                             onPressed: () => Navigator.pop(alertDialogContext),
@@ -1891,9 +1892,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 (alertDialogContext) {
                                                                               return WebViewAware(
                                                                                 child: AlertDialog(
-                                                                                  content: Text('${GetUserProfileAPICall.message(
+                                                                                  content: Text('${getJsonField(
                                                                                     (_model.getUserProfile?.jsonBody ?? ''),
-                                                                                  )}'),
+                                                                                    r'''$.message''',
+                                                                                  ).toString()}'),
                                                                                   actions: [
                                                                                     TextButton(
                                                                                       onPressed: () => Navigator.pop(alertDialogContext),
