@@ -194,7 +194,8 @@ class _ListNameTabFollowUpDebtWidgetState
                                 return 'OD6 เป็นต้นไป';
                               } else if (widget!.followUpDebtTab == 23) {
                                 return 'ลงพื้นที่';
-                              } else if (widget!.followUpDebtTab == 99) {
+                              } else if ((widget!.followUpDebtTab == 99) &&
+                                  (widget!.fromPage != 'SCAP')) {
                                 return valueOrDefault<String>(
                                   widget!.policeName,
                                   'หน่วย M ',

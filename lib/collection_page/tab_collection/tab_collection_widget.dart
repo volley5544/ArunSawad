@@ -971,7 +971,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                     } else {
                                       await _model.pageViewController
                                           ?.animateToPage(
-                                        2,
+                                        1,
                                         duration: Duration(milliseconds: 500),
                                         curve: Curves.ease,
                                       );
