@@ -70,6 +70,9 @@ class _ListNameTabFollowUpDebtWidgetState
         parameters: {'screen_name': 'listNameTabFollowUpDebt'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (widget!.fromPage == 'SCAP') {
+        return;
+      }
       FFAppState().collectionSearchBy = '';
       FFAppState().collectionSearch = '';
       FFAppState().collectionSortBy = '';
