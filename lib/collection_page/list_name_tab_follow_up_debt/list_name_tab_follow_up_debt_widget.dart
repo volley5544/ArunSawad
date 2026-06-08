@@ -202,8 +202,20 @@ class _ListNameTabFollowUpDebtWidgetState
                                 );
                               } else if (widget!.followUpDebtTab == 98) {
                                 return widget!.pageTitle;
+                              } else if ((widget!.followUpDebtTab == 99) &&
+                                  (widget!.fromPage == 'SCAP')) {
+                                return () {
+                                  if (FFAppState().collectionSearch == 'SLS') {
+                                    return 'S Leasing';
+                                  } else if (FFAppState().collectionSearch ==
+                                      'CTL') {
+                                    return 'Cathay';
+                                  } else {
+                                    return 'SCAP';
+                                  }
+                                }();
                               } else {
-                                return '-';
+                                return 'รายชื่อลูกค้า';
                               }
                             }(),
                             textAlign: TextAlign.center,

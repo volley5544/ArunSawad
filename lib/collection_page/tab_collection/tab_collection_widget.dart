@@ -841,27 +841,30 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                 Stack(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   children: [
-                    wrapWithModel(
-                      model: _model.appbarFollowUpDebtModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: AppbarFollowUpDebtWidget(
-                        choiceChip: _model.choiceChipsValue,
-                        state: _model.cathayTabState,
-                        slsTabBackAction: () async {
-                          if (_model.cathayTabState == 3) {
-                            _model.cathayDistrict = null;
-                            _model.cathaySubDistrict = null;
-                            safeSetState(() {});
-                          } else if (_model.cathayTabState == 2) {
-                            _model.cathayDistrict = null;
-                            _model.cathaySubDistrict = null;
-                            _model.cathayProvince = null;
-                            safeSetState(() {});
-                          }
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: wrapWithModel(
+                        model: _model.appbarFollowUpDebtModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: AppbarFollowUpDebtWidget(
+                          choiceChip: _model.choiceChipsValue,
+                          state: _model.cathayTabState,
+                          slsTabBackAction: () async {
+                            if (_model.cathayTabState == 3) {
+                              _model.cathayDistrict = null;
+                              _model.cathaySubDistrict = null;
+                              safeSetState(() {});
+                            } else if (_model.cathayTabState == 2) {
+                              _model.cathayDistrict = null;
+                              _model.cathaySubDistrict = null;
+                              _model.cathayProvince = null;
+                              safeSetState(() {});
+                            }
 
-                          _model.cathayTabState = _model.cathayTabState! + -1;
-                          safeSetState(() {});
-                        },
+                            _model.cathayTabState = _model.cathayTabState! + -1;
+                            safeSetState(() {});
+                          },
+                        ),
                       ),
                     ),
                     Align(
