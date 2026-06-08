@@ -5158,6 +5158,26 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               FFAppState().collectionSearchBy =
+                                                  '';
+                                              FFAppState().collectionSearch =
+                                                  '';
+                                              FFAppState().collectionSortBy =
+                                                  '';
+                                              safeSetState(() {});
+                                              FFAppState().collectionSortBy =
+                                                  '';
+                                              FFAppState().collectionSearch =
+                                                  '';
+                                              FFAppState().collectionSearchBy =
+                                                  '';
+                                              FFAppState().selectCardList = [];
+                                              FFAppState()
+                                                  .collectionListBoolean = [];
+                                              FFAppState().saveCalled = SaveCallStruct
+                                                  .fromSerializableMap(jsonDecode(
+                                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                              safeSetState(() {});
+                                              FFAppState().collectionSearchBy =
                                                   'Creditor';
                                               FFAppState().collectionSearch =
                                                   'SLS';
@@ -5171,6 +5191,10 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                       serializeParam(
                                                     99,
                                                     ParamType.int,
+                                                  ),
+                                                  'fromPage': serializeParam(
+                                                    'SCAP',
+                                                    ParamType.String,
                                                   ),
                                                 }.withoutNulls,
                                               );
@@ -5406,6 +5430,32 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                               FFAppState().collectionSearch =
                                                   'CTL';
                                               safeSetState(() {});
+                                              FFAppState().collectionSortBy =
+                                                  '';
+                                              FFAppState().collectionSearch =
+                                                  '';
+                                              FFAppState().collectionSearchBy =
+                                                  '';
+                                              FFAppState().selectCardList = [];
+                                              FFAppState()
+                                                  .collectionListBoolean = [];
+                                              FFAppState().saveCalled = SaveCallStruct
+                                                  .fromSerializableMap(jsonDecode(
+                                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                              safeSetState(() {});
+                                              FFAppState().collectionSortBy =
+                                                  '';
+                                              FFAppState().collectionSearch =
+                                                  '';
+                                              FFAppState().collectionSearchBy =
+                                                  '';
+                                              FFAppState().selectCardList = [];
+                                              FFAppState()
+                                                  .collectionListBoolean = [];
+                                              FFAppState().saveCalled = SaveCallStruct
+                                                  .fromSerializableMap(jsonDecode(
+                                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                              safeSetState(() {});
 
                                               context.pushNamed(
                                                 ListNameTabFollowUpDebtWidget
@@ -5415,6 +5465,10 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                       serializeParam(
                                                     99,
                                                     ParamType.int,
+                                                  ),
+                                                  'fromPage': serializeParam(
+                                                    'SCAP',
+                                                    ParamType.String,
                                                   ),
                                                 }.withoutNulls,
                                               );
