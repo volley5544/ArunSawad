@@ -36,11 +36,23 @@ class UrlLinkStorageRecord extends FirestoreRecord {
   String get urlPath => _urlPath ?? '';
   bool hasUrlPath() => _urlPath != null;
 
+  // "url_token_uat" field.
+  String? _urlTokenUat;
+  String get urlTokenUat => _urlTokenUat ?? '';
+  bool hasUrlTokenUat() => _urlTokenUat != null;
+
+  // "url_link_uat" field.
+  String? _urlLinkUat;
+  String get urlLinkUat => _urlLinkUat ?? '';
+  bool hasUrlLinkUat() => _urlLinkUat != null;
+
   void _initializeFields() {
     _urlName = snapshotData['url_name'] as String?;
     _urlLink = snapshotData['url_link'] as String?;
     _urlToken = snapshotData['url_token'] as String?;
     _urlPath = snapshotData['url_path'] as String?;
+    _urlTokenUat = snapshotData['url_token_uat'] as String?;
+    _urlLinkUat = snapshotData['url_link_uat'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -82,6 +94,8 @@ Map<String, dynamic> createUrlLinkStorageRecordData({
   String? urlLink,
   String? urlToken,
   String? urlPath,
+  String? urlTokenUat,
+  String? urlLinkUat,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -89,6 +103,8 @@ Map<String, dynamic> createUrlLinkStorageRecordData({
       'url_link': urlLink,
       'url_token': urlToken,
       'url_path': urlPath,
+      'url_token_uat': urlTokenUat,
+      'url_link_uat': urlLinkUat,
     }.withoutNulls,
   );
 
@@ -104,12 +120,20 @@ class UrlLinkStorageRecordDocumentEquality
     return e1?.urlName == e2?.urlName &&
         e1?.urlLink == e2?.urlLink &&
         e1?.urlToken == e2?.urlToken &&
-        e1?.urlPath == e2?.urlPath;
+        e1?.urlPath == e2?.urlPath &&
+        e1?.urlTokenUat == e2?.urlTokenUat &&
+        e1?.urlLinkUat == e2?.urlLinkUat;
   }
 
   @override
-  int hash(UrlLinkStorageRecord? e) => const ListEquality()
-      .hash([e?.urlName, e?.urlLink, e?.urlToken, e?.urlPath]);
+  int hash(UrlLinkStorageRecord? e) => const ListEquality().hash([
+        e?.urlName,
+        e?.urlLink,
+        e?.urlToken,
+        e?.urlPath,
+        e?.urlTokenUat,
+        e?.urlLinkUat
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is UrlLinkStorageRecord;

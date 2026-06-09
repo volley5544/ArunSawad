@@ -215,7 +215,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                   }
                                 }();
                               } else {
-                                return 'รายชื่อลูกค้า';
+                                return '-';
                               }
                             }(),
                             textAlign: TextAlign.center,

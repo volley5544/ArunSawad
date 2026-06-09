@@ -87,8 +87,12 @@ class _SlsShowQRPaymentWidgetState extends State<SlsShowQRPaymentWidget>
         contractNo: widget!.contNo,
         companyCode: widget!.comcode,
         path: _model.slsUrlOutput?.urlPath,
-        url: _model.slsUrlOutput?.urlLink,
-        apiKey: _model.slsUrlOutput?.urlToken,
+        url: FFAppState().isProductionNew == true
+            ? _model.slsUrlOutput?.urlLink
+            : _model.slsUrlOutput?.urlLinkUat,
+        apiKey: FFAppState().isProductionNew == true
+            ? _model.slsUrlOutput?.urlToken
+            : _model.slsUrlOutput?.urlTokenUat,
       );
 
       if ('${getJsonField(
