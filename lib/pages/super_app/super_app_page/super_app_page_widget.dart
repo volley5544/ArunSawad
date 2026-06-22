@@ -4590,6 +4590,70 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       decoration: BoxDecoration(
                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       ),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                            child: Container(
+                                                                                              width: () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 50.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                }
+                                                                                              }(),
+                                                                                              height: () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 50.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                } else {
+                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                }
+                                                                                              }(),
+                                                                                              clipBehavior: Clip.antiAlias,
+                                                                                              decoration: BoxDecoration(
+                                                                                                shape: BoxShape.circle,
+                                                                                              ),
+                                                                                              child: Image.asset(
+                                                                                                'assets/images/Untitled-3.jpg',
+                                                                                                fit: BoxFit.contain,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                          Text(
+                                                                                            'ลูกค้าสนใจ\nสินเชื่อรถ',
+                                                                                            textAlign: TextAlign.center,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  font: GoogleFonts.poppins(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
+                                                                                                  fontSize: () {
+                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                      return 12.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                      return 20.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                      return 20.0;
+                                                                                                    } else {
+                                                                                                      return 20.0;
+                                                                                                    }
+                                                                                                  }(),
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)!)
@@ -5047,70 +5111,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                   fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
-                                                                                          ),
-                                                                                          Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                                                child: Container(
-                                                                                                  width: () {
-                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                      return 50.0;
-                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                    } else {
-                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                    }
-                                                                                                  }(),
-                                                                                                  height: () {
-                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                      return 50.0;
-                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                    } else {
-                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                    }
-                                                                                                  }(),
-                                                                                                  clipBehavior: Clip.antiAlias,
-                                                                                                  decoration: BoxDecoration(
-                                                                                                    shape: BoxShape.circle,
-                                                                                                  ),
-                                                                                                  child: Image.asset(
-                                                                                                    'assets/images/Untitled-3.jpg',
-                                                                                                    fit: BoxFit.contain,
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Text(
-                                                                                                'ลูกค้าสนใจ\nสินเชื่อรถ',
-                                                                                                textAlign: TextAlign.center,
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      font: GoogleFonts.poppins(
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                      ),
-                                                                                                      fontSize: () {
-                                                                                                        if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                          return 12.0;
-                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                          return 20.0;
-                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                          return 20.0;
-                                                                                                        } else {
-                                                                                                          return 20.0;
-                                                                                                        }
-                                                                                                      }(),
-                                                                                                      letterSpacing: 0.0,
-                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            ],
                                                                                           ),
                                                                                         ],
                                                                                       ),
