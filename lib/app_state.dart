@@ -10374,6 +10374,24 @@ class FFAppState extends ChangeNotifier {
   set accessTokenFirestore(String value) {
     _accessTokenFirestore = value;
   }
+
+  String _insuranceURL = '';
+  String get insuranceURL => _insuranceURL;
+  set insuranceURL(String value) {
+    _insuranceURL = value;
+  }
+
+  UrlLinkStorageDataModelStruct _urlStorageData =
+      UrlLinkStorageDataModelStruct();
+  UrlLinkStorageDataModelStruct get urlStorageData => _urlStorageData;
+  set urlStorageData(UrlLinkStorageDataModelStruct value) {
+    _urlStorageData = value;
+  }
+
+  void updateUrlStorageDataStruct(
+      Function(UrlLinkStorageDataModelStruct) updateFn) {
+    updateFn(_urlStorageData);
+  }
 }
 
 void _safeInit(Function() initializeField) {

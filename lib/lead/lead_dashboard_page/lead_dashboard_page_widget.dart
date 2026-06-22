@@ -1,4 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,6 +9,8 @@ import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -142,27 +146,49 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                       size: 30.0,
                     ),
                   ),
-                  title: Text(
-                    'รายชื่อลีด',
-                    style: FlutterFlowTheme.of(context).headlineMedium.override(
-                          font: GoogleFonts.poppins(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .headlineMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .headlineMedium
-                                .fontStyle,
-                          ),
-                          color: Colors.white,
-                          fontSize: 22.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .headlineMedium
-                              .fontWeight,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .headlineMedium
-                              .fontStyle,
-                        ),
+                  title: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      _model.queryLink = await queryUrlLinkStorageRecordOnce();
+                      FFAppState().updateUrlStorageDataStruct(
+                        (e) => e
+                          ..urlLink =
+                              _model.queryLink!.map((e) => e.urlLink).toList()
+                          ..urlName =
+                              _model.queryLink!.map((e) => e.urlName).toList()
+                          ..urlToken =
+                              _model.queryLink!.map((e) => e.urlToken).toList(),
+                      );
+                      safeSetState(() {});
+
+                      safeSetState(() {});
+                    },
+                    child: Text(
+                      'รายชื่อลีด',
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontStyle,
+                                ),
+                                color: Colors.white,
+                                fontSize: 22.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontStyle,
+                              ),
+                    ),
                   ),
                   actions: [],
                   centerTitle: true,

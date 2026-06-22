@@ -1,0 +1,33 @@
+import 'dart:convert';
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:timeago/timeago.dart' as timeago;
+import '/flutter_flow/custom_functions.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
+import '/flutter_flow/uploaded_file.dart';
+import '/backend/backend.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '/backend/schema/structs/index.dart';
+import '/auth/firebase_auth/auth_util.dart';
+
+List<int> setLeadChannelAmount(List<String>? leadChannelList) {
+  // Add your function code here!
+  List<int> leadChannelAmountList = [0, 0, 0, 0]; //Survey,Telesale,Agent,GSB
+  for (var i = 0; i < leadChannelList!.length; i++) {
+    if (leadChannelList[i] == 'Lead Survey') {
+      leadChannelAmountList[0]++;
+    } else if (leadChannelList[i] == 'Lead Telesale') {
+      leadChannelAmountList[1]++;
+    } else if (leadChannelList[i] == 'Lead Agent') {
+      leadChannelAmountList[2]++;
+    } else if (leadChannelList[i] == 'Lead GSB') {
+      leadChannelAmountList[3]++;
+    }
+  }
+
+  return leadChannelAmountList;
+}

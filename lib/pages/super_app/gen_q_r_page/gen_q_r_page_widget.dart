@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -85,6 +86,26 @@ class _GenQRPageWidgetState extends State<GenQRPageWidget>
           ),
         ],
       ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 500.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'imageOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -105,7 +126,7 @@ class _GenQRPageWidgetState extends State<GenQRPageWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation2': AnimationInfo(
+      'textOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 1000.ms),
@@ -210,25 +231,29 @@ class _GenQRPageWidgetState extends State<GenQRPageWidget>
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    BarcodeWidget(
-                      data: FFAppState().QRCodeLink,
-                      barcode: Barcode.qrCode(),
-                      width: 250.0,
-                      height: 250.0,
-                      color: Colors.black,
-                      backgroundColor: Colors.transparent,
-                      errorBuilder: (_context, _error) => SizedBox(
-                        width: 250.0,
-                        height: 250.0,
-                      ),
-                      drawText: false,
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Text(
-                        'QR พนักงาน',
-                        style:
-                            FlutterFlowTheme.of(context).titleMedium.override(
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        BarcodeWidget(
+                          data: FFAppState().QRCodeLink,
+                          barcode: Barcode.qrCode(),
+                          width: 250.0,
+                          height: 250.0,
+                          color: Colors.black,
+                          backgroundColor: Colors.transparent,
+                          errorBuilder: (_context, _error) => SizedBox(
+                            width: 250.0,
+                            height: 250.0,
+                          ),
+                          drawText: false,
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'QR ลีดและติดตาม',
+                            style: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
                                   font: GoogleFonts.poppins(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleMedium
@@ -246,8 +271,56 @@ class _GenQRPageWidgetState extends State<GenQRPageWidget>
                                       .titleMedium
                                       .fontStyle,
                                 ),
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation1']!),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation1']!),
+                        ),
+                      ].addToEnd(SizedBox(height: 30.0)),
+                    ),
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        BarcodeWidget(
+                          data:
+                              '${FFAppState().urlStorageData.urlLink.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'tanjai_insurance'))}?agentCode=${FFAppState().employeeID}&branchCode=${FFAppState().profileBranch}&branchName=${FFAppState().profileUnitCodeName}',
+                          barcode: Barcode.qrCode(),
+                          width: 250.0,
+                          height: 250.0,
+                          color: Colors.black,
+                          backgroundColor: Colors.transparent,
+                          errorBuilder: (_context, _error) => SizedBox(
+                            width: 250.0,
+                            height: 250.0,
+                          ),
+                          drawText: false,
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'QR ประกัน',
+                            style: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontStyle,
+                                ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation2']!),
+                        ),
+                      ],
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -296,7 +369,7 @@ class _GenQRPageWidgetState extends State<GenQRPageWidget>
                                           .fontStyle,
                                     ),
                               ).animateOnPageLoad(
-                                  animationsMap['textOnPageLoadAnimation2']!),
+                                  animationsMap['textOnPageLoadAnimation3']!),
                             ),
                           ),
                         ),

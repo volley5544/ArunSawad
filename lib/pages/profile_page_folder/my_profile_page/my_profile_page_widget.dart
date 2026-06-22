@@ -1545,22 +1545,22 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                           color: Color(0x98FFFFFF),
                         ),
                       ),
-                    if ((valueOrDefault(currentUserDocument?.employeeId, 0) <=
-                            100000) &&
-                        responsiveVisibility(
-                          context: context,
-                          tabletLandscape: false,
-                          desktop: false,
-                        ))
-                      AuthUserStreamWidget(
-                        builder: (context) => Container(
-                          width: double.infinity,
-                          height: 250.0,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                          ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 150.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -1599,70 +1599,147 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       ),
                                     ),
                                   ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 4.0, 0.0, 4.0),
+                                    child: Text(
+                                      'QR ฟอร์มลีด',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.poppins(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ),
                                 ],
                               ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: 160.0,
+                                        height: 160.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 10.0, 0.0),
+                                          child: BarcodeWidget(
+                                            data:
+                                                '${FFAppState().urlStorageData.urlLink.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'tanjai_insurance'))}agentCode=${FFAppState().employeeID}&branchCode=${FFAppState().branchCode}&branchName=${FFAppState().profileUnitCodeName}',
+                                            barcode: Barcode.qrCode(),
+                                            width: 100.0,
+                                            height: 180.0,
+                                            color: Colors.black,
+                                            backgroundColor: Colors.transparent,
+                                            errorBuilder: (_context, _error) =>
+                                                SizedBox(
+                                              width: 100.0,
+                                              height: 180.0,
+                                            ),
+                                            drawText: false,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 4.0, 0.0, 4.0),
+                                    child: Text(
+                                      'QR ประกัน',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.poppins(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      thickness: 2.0,
+                      color: Color(0x98FFFFFF),
+                    ),
+                    if ((valueOrDefault(currentUserDocument?.employeeId, 0) <=
+                            100000) &&
+                        responsiveVisibility(
+                          context: context,
+                          tabletLandscape: false,
+                          desktop: false,
+                        ))
+                      AuthUserStreamWidget(
+                        builder: (context) => Container(
+                          width: double.infinity,
+                          height: 250.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
                               Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รหัสพนักงาน: ${FFAppState().employeeID}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.poppins(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
-                                    Text(
-                                      'สาขา: (${FFAppState().branchCode}) ${FFAppState().profileUnitCodeName}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.poppins(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
-                                    if (FFAppState().branchCode != 'HO')
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
                                       Text(
-                                        'เขต: ${FFAppState().profileParentUnit}',
+                                        'รหัสพนักงาน: ${FFAppState().employeeID}',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1687,9 +1764,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       .fontStyle,
                                             ),
                                       ),
-                                    if (FFAppState().branchCode != 'HO')
                                       Text(
-                                        'ภาค: ${FFAppState().profileRegion}',
+                                        'สาขา: (${FFAppState().branchCode}) ${FFAppState().profileUnitCodeName}',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1714,98 +1790,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       .fontStyle,
                                             ),
                                       ),
-                                    if (FFAppState().profileHiredDate != 'null')
-                                      Text(
-                                        'วันเริ่มงาน: ${FFAppState().profileHiredDate != 'null' ? dateTimeFormat(
-                                            "d/M/y",
-                                            functions.showClockIn(
-                                                FFAppState().profileHiredDate),
-                                            locale: FFLocalizations.of(context)
-                                                .languageCode,
-                                          ) : '-'}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.poppins(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    Text(
-                                      'อายุงาน: ${FFAppState().profileServiceDuration}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.poppins(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
-                                    if (FFAppState().profilePositionAgeCheck !=
-                                        '-')
-                                      Text(
-                                        'อายุตำแหน่ง: ${FFAppState().profilePositionAge}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.poppins(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
+                                      if (FFAppState().branchCode != 'HO')
                                         Text(
-                                          'แผนประกัน: ${functions.insurancePlanToThai(FFAppState().insurancePlanNumber)}',
+                                          'เขต: ${FFAppState().profileParentUnit}',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -1832,74 +1819,247 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                         .fontStyle,
                                               ),
                                         ),
-                                        if (functions.insurancePlanToThai(
-                                                FFAppState()
-                                                    .insurancePlanNumber) !=
-                                            '-')
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.goNamed(
-                                                InsurancePlanWidget.routeName,
-                                                queryParameters: {
-                                                  'planInsurance':
-                                                      serializeParam(
-                                                    functions.insurancePlanToThai(
-                                                        FFAppState()
-                                                            .insurancePlanNumber),
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: FaIcon(
-                                              FontAwesomeIcons
-                                                  .exclamationTriangle,
-                                              color:
+                                      if (FFAppState().branchCode != 'HO')
+                                        Text(
+                                          'ภาค: ${FFAppState().profileRegion}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      if (FFAppState().profileHiredDate !=
+                                          'null')
+                                        Text(
+                                          'วันเริ่มงาน: ${FFAppState().profileHiredDate != 'null' ? dateTimeFormat(
+                                              "d/M/y",
+                                              functions.showClockIn(FFAppState()
+                                                  .profileHiredDate),
+                                              locale:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            ) : '-'}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      Text(
+                                        'อายุงาน: ${FFAppState().profileServiceDuration}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              letterSpacing: 0.0,
+                                              fontWeight:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              size: 24.0,
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
-                                          ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          40.0, 0.0, 40.0, 0.0),
-                                      child: Row(
+                                      ),
+                                      if (FFAppState()
+                                              .profilePositionAgeCheck !=
+                                          '-')
+                                        Text(
+                                          'อายุตำแหน่ง: ${FFAppState().profilePositionAge}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  context.goNamed(
-                                                      GuideBookPageWidget
-                                                          .routeName);
-                                                },
-                                                text: 'คู่มือพนักงาน',
-                                                options: FFButtonOptions(
-                                                  width: 130.0,
-                                                  height: 35.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: Color(0xFF0039E3),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
+                                          Text(
+                                            'แผนประกัน: ${functions.insurancePlanToThai(FFAppState().insurancePlanNumber)}',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                          if (functions.insurancePlanToThai(
+                                                  FFAppState()
+                                                      .insurancePlanNumber) !=
+                                              '-')
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.goNamed(
+                                                  InsurancePlanWidget.routeName,
+                                                  queryParameters: {
+                                                    'planInsurance':
+                                                        serializeParam(
+                                                      functions.insurancePlanToThai(
+                                                          FFAppState()
+                                                              .insurancePlanNumber),
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: FaIcon(
+                                                FontAwesomeIcons
+                                                    .exclamationTriangle,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 24.0,
+                                              ),
+                                            ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            40.0, 0.0, 40.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    context.goNamed(
+                                                        GuideBookPageWidget
+                                                            .routeName);
+                                                  },
+                                                  text: 'คู่มือพนักงาน',
+                                                  options: FFButtonOptions(
+                                                    width: 130.0,
+                                                    height: 35.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: Color(0xFF0039E3),
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: Colors.white,
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -1911,36 +2071,23 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                   .titleSmall
                                                                   .fontStyle,
                                                         ),
-                                                        color: Colors.white,
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                                  elevation: 2.0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
+                                                    elevation: 2.0,
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

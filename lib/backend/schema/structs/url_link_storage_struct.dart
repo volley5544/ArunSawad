@@ -10,9 +10,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class UrlLinkStorageStruct extends FFFirebaseStruct {
   UrlLinkStorageStruct({
-    String? urlLink,
-    String? urlName,
-    String? urlToken,
+    List<String>? urlLink,
+    List<String>? urlName,
+    List<String>? urlToken,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _urlLink = urlLink,
         _urlName = urlName,
@@ -20,31 +20,43 @@ class UrlLinkStorageStruct extends FFFirebaseStruct {
         super(firestoreUtilData);
 
   // "url_link" field.
-  String? _urlLink;
-  String get urlLink => _urlLink ?? '';
-  set urlLink(String? val) => _urlLink = val;
+  List<String>? _urlLink;
+  List<String> get urlLink => _urlLink ?? const [];
+  set urlLink(List<String>? val) => _urlLink = val;
+
+  void updateUrlLink(Function(List<String>) updateFn) {
+    updateFn(_urlLink ??= []);
+  }
 
   bool hasUrlLink() => _urlLink != null;
 
   // "url_name" field.
-  String? _urlName;
-  String get urlName => _urlName ?? '';
-  set urlName(String? val) => _urlName = val;
+  List<String>? _urlName;
+  List<String> get urlName => _urlName ?? const [];
+  set urlName(List<String>? val) => _urlName = val;
+
+  void updateUrlName(Function(List<String>) updateFn) {
+    updateFn(_urlName ??= []);
+  }
 
   bool hasUrlName() => _urlName != null;
 
   // "url_token" field.
-  String? _urlToken;
-  String get urlToken => _urlToken ?? '';
-  set urlToken(String? val) => _urlToken = val;
+  List<String>? _urlToken;
+  List<String> get urlToken => _urlToken ?? const [];
+  set urlToken(List<String>? val) => _urlToken = val;
+
+  void updateUrlToken(Function(List<String>) updateFn) {
+    updateFn(_urlToken ??= []);
+  }
 
   bool hasUrlToken() => _urlToken != null;
 
   static UrlLinkStorageStruct fromMap(Map<String, dynamic> data) =>
       UrlLinkStorageStruct(
-        urlLink: data['url_link'] as String?,
-        urlName: data['url_name'] as String?,
-        urlToken: data['url_token'] as String?,
+        urlLink: getDataList(data['url_link']),
+        urlName: getDataList(data['url_name']),
+        urlToken: getDataList(data['url_token']),
       );
 
   static UrlLinkStorageStruct? maybeFromMap(dynamic data) => data is Map
@@ -62,33 +74,36 @@ class UrlLinkStorageStruct extends FFFirebaseStruct {
         'url_link': serializeParam(
           _urlLink,
           ParamType.String,
+          isList: true,
         ),
         'url_name': serializeParam(
           _urlName,
           ParamType.String,
+          isList: true,
         ),
         'url_token': serializeParam(
           _urlToken,
           ParamType.String,
+          isList: true,
         ),
       }.withoutNulls;
 
   static UrlLinkStorageStruct fromSerializableMap(Map<String, dynamic> data) =>
       UrlLinkStorageStruct(
-        urlLink: deserializeParam(
+        urlLink: deserializeParam<String>(
           data['url_link'],
           ParamType.String,
-          false,
+          true,
         ),
-        urlName: deserializeParam(
+        urlName: deserializeParam<String>(
           data['url_name'],
           ParamType.String,
-          false,
+          true,
         ),
-        urlToken: deserializeParam(
+        urlToken: deserializeParam<String>(
           data['url_token'],
           ParamType.String,
-          false,
+          true,
         ),
       );
 
@@ -97,10 +112,11 @@ class UrlLinkStorageStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
+    const listEquality = ListEquality();
     return other is UrlLinkStorageStruct &&
-        urlLink == other.urlLink &&
-        urlName == other.urlName &&
-        urlToken == other.urlToken;
+        listEquality.equals(urlLink, other.urlLink) &&
+        listEquality.equals(urlName, other.urlName) &&
+        listEquality.equals(urlToken, other.urlToken);
   }
 
   @override
@@ -108,18 +124,12 @@ class UrlLinkStorageStruct extends FFFirebaseStruct {
 }
 
 UrlLinkStorageStruct createUrlLinkStorageStruct({
-  String? urlLink,
-  String? urlName,
-  String? urlToken,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     UrlLinkStorageStruct(
-      urlLink: urlLink,
-      urlName: urlName,
-      urlToken: urlToken,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
