@@ -41,6 +41,7 @@ void main() async {
 
   // Start final custom actions code
   await actions.listenFirestoreAppVersion();
+  await actions.initialSetUrlStorage();
   // End final custom actions code
 
   FFAppEventService.instance.init(onGlobalEvent: handleGlobalEvent);
