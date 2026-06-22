@@ -250,7 +250,7 @@ class _GenQRPageWidgetState extends State<GenQRPageWidget>
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
-                            'QR ลีดและติดตาม',
+                            'QR ฟอร์มลีด',
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(

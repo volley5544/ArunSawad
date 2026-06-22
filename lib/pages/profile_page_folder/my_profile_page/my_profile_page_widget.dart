@@ -1707,6 +1707,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                       ),
                     ),
                     Divider(
+                      height: 10.0,
                       thickness: 2.0,
                       color: Color(0x98FFFFFF),
                     ),
