@@ -19,8 +19,8 @@ Future initialSetUrlStorage() async {
 
   FFAppState().updateUrlStorageDataStruct(
     (e) => e
-      ..urlLink = queryUrl!.map((e) => e.urlLink).toList()
-      ..urlName = queryUrl!.map((e) => e.urlName).toList()
-      ..urlToken = queryUrl!.map((e) => e.urlToken).toList(),
+      ..urlLink = queryUrl!.map((e) => e!.urlLink).toList()
+      ..urlName = queryUrl!.map((e) => e!.urlName).toList()
+      ..urlToken = queryUrl!.map((e) => e!.urlToken).toList(),
   );
 }

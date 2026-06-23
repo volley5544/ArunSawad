@@ -32,5 +32,4 @@ List<dynamic>? addDataToJson(List<dynamic>? jsonList) {
     print("Error processing JSON: $e");
     return null; // Return null if an error occurs
   }
-//
 }
