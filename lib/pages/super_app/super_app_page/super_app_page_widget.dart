@@ -2981,6 +2981,137 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               shrinkWrap: true,
                                                                               scrollDirection: Axis.horizontal,
                                                                               children: [
+                                                                                if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'เว็บประกันทันใจ', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'เว็บประกันทันใจ')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'เว็บประกันทันใจ')?.toList(), FFAppState().profilePositionName)!)
+                                                                                  InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      HapticFeedback.mediumImpact();
+                                                                                      if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                        Navigator.pop(context);
+
+                                                                                        context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                        return;
+                                                                                      }
+                                                                                      await launchURL('${FFAppState().urlStorageData.urlLink.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'tanjai_insurance'))}?agentCode=${FFAppState().employeeID}&branchCode=${FFAppState().profileBranch}&branchName=${FFAppState().profileUnitCodeName}');
+                                                                                    },
+                                                                                    child: Container(
+                                                                                      width: 100.0,
+                                                                                      height: 100.0,
+                                                                                      decoration: BoxDecoration(
+                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      ),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          Container(
+                                                                                            width: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            height: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            decoration: BoxDecoration(
+                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                                            ),
+                                                                                            child: ClipRRect(
+                                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                                              child: Image.asset(
+                                                                                                'assets/images/44519.jpg',
+                                                                                                width: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 50.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  }
+                                                                                                }(),
+                                                                                                height: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 50.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  }
+                                                                                                }(),
+                                                                                                fit: BoxFit.cover,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                                0.0,
+                                                                                                valueOrDefault<double>(
+                                                                                                  () {
+                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                      return 4.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                      return 10.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                      return 10.0;
+                                                                                                    } else {
+                                                                                                      return 10.0;
+                                                                                                    }
+                                                                                                  }(),
+                                                                                                  0.0,
+                                                                                                ),
+                                                                                                0.0,
+                                                                                                0.0),
+                                                                                            child: Text(
+                                                                                              'เว็บประกันทันใจ',
+                                                                                              textAlign: TextAlign.center,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    font: GoogleFonts.poppins(
+                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
+                                                                                                    fontSize: () {
+                                                                                                      if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                        return 12.0;
+                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                        return 20.0;
+                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                        return 20.0;
+                                                                                                      } else {
+                                                                                                        return 20.0;
+                                                                                                      }
+                                                                                                    }(),
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
                                                                                 if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ประกันทันใจ', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ประกันทันใจ')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ประกันทันใจ')?.toList(), FFAppState().profilePositionName)!)
                                                                                   InkWell(
                                                                                     splashColor: Colors.transparent,
@@ -3327,137 +3458,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                 0.0),
                                                                                             child: Text(
                                                                                               'ศรีสวัสดิ์\nเงินสดทันใจ',
-                                                                                              textAlign: TextAlign.center,
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    font: GoogleFonts.poppins(
-                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    fontSize: () {
-                                                                                                      if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                        return 12.0;
-                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                        return 20.0;
-                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                        return 20.0;
-                                                                                                      } else {
-                                                                                                        return 20.0;
-                                                                                                      }
-                                                                                                    }(),
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'เว็บประกันทันใจ', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'เว็บประกันทันใจ')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'เว็บประกันทันใจ')?.toList(), FFAppState().profilePositionName)!)
-                                                                                  InkWell(
-                                                                                    splashColor: Colors.transparent,
-                                                                                    focusColor: Colors.transparent,
-                                                                                    hoverColor: Colors.transparent,
-                                                                                    highlightColor: Colors.transparent,
-                                                                                    onTap: () async {
-                                                                                      HapticFeedback.mediumImpact();
-                                                                                      if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                        Navigator.pop(context);
-
-                                                                                        context.goNamed(PinCodePageWidget.routeName);
-
-                                                                                        return;
-                                                                                      }
-                                                                                      await launchURL('${FFAppState().urlStorageData.urlLink.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'tanjai_insurance'))}?agentCode=${FFAppState().employeeID}&branchCode=${FFAppState().profileBranch}&branchName=${FFAppState().profileUnitCodeName}');
-                                                                                    },
-                                                                                    child: Container(
-                                                                                      width: 100.0,
-                                                                                      height: 100.0,
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                      ),
-                                                                                      child: Column(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          Container(
-                                                                                            width: () {
-                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                return 50.0;
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              }
-                                                                                            }(),
-                                                                                            height: () {
-                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                return 50.0;
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              }
-                                                                                            }(),
-                                                                                            decoration: BoxDecoration(
-                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                              borderRadius: BorderRadius.circular(8.0),
-                                                                                            ),
-                                                                                            child: ClipRRect(
-                                                                                              borderRadius: BorderRadius.circular(8.0),
-                                                                                              child: Image.asset(
-                                                                                                'assets/images/44519.jpg',
-                                                                                                width: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 50.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  }
-                                                                                                }(),
-                                                                                                height: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 50.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  }
-                                                                                                }(),
-                                                                                                fit: BoxFit.cover,
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                                0.0,
-                                                                                                valueOrDefault<double>(
-                                                                                                  () {
-                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                      return 4.0;
-                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                      return 10.0;
-                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                      return 10.0;
-                                                                                                    } else {
-                                                                                                      return 10.0;
-                                                                                                    }
-                                                                                                  }(),
-                                                                                                  0.0,
-                                                                                                ),
-                                                                                                0.0,
-                                                                                                0.0),
-                                                                                            child: Text(
-                                                                                              'เว็บประกันทันใจ',
                                                                                               textAlign: TextAlign.center,
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     font: GoogleFonts.poppins(
