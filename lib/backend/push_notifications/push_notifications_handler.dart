@@ -857,7 +857,11 @@ final parametersBuilderMap =
   'LeadDashboardPageDraft': ParameterData.none(),
   'LeadDashboardPageCopy': ParameterData.none(),
   'LeadDashboardPageCopyCopy': ParameterData.none(),
-  'LeadDashboardPage': ParameterData.none(),
+  'LeadDashboardPage': (data) async => ParameterData(
+        allParams: {
+          'token': getParameter<String>(data, 'token'),
+        },
+      ),
   'imagesMPage': ParameterData.none(),
   'tabCollectionExtraM': ParameterData.none(),
   'tabCollectionTeamMPage': (data) async => ParameterData(

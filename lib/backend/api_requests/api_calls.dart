@@ -1363,6 +1363,50 @@ class GetCustomerPaymentCall {
 
 /// End SLS CTL Payment group api Group Code
 
+/// Start LeadApi Group Code
+
+class LeadApiGroup {
+  static String getBaseUrl({
+    String? token = '',
+  }) =>
+      'https://dev.swpfin.com:8179';
+  static Map<String, String> headers = {
+    'Authorization': 'Bearer [token]',
+    'Accept': 'application/json',
+  };
+  static LeadDataSummaryApiCall leadDataSummaryApiCall =
+      LeadDataSummaryApiCall();
+}
+
+class LeadDataSummaryApiCall {
+  Future<ApiCallResponse> call({
+    String? token = '',
+  }) async {
+    final baseUrl = LeadApiGroup.getBaseUrl(
+      token: token,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'LeadDataSummaryApi',
+      apiUrl: '${baseUrl}/api/v2/leads/summary-by-channel',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+        'Accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End LeadApi Group Code
+
 class AuthenAPICall {
   static Future<ApiCallResponse> call({
     String? username = '',

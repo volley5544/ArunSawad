@@ -2835,7 +2835,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: LeadDashboardPageWidget.routeName,
               path: LeadDashboardPageWidget.routePath,
-              builder: (context, params) => LeadDashboardPageWidget(),
+              builder: (context, params) => LeadDashboardPageWidget(
+                token: params.getParam(
+                  'token',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: ImagesMPageWidget.routeName,
