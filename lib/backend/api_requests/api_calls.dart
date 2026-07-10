@@ -1403,6 +1403,17 @@ class LeadDataSummaryApiCall {
       alwaysAllowBody: false,
     );
   }
+
+  LeadUserDetailStruct? userDetail(dynamic response) =>
+      LeadUserDetailStruct.maybeFromMap(getJsonField(
+        response,
+        r'''$.user_info''',
+      ));
+  LeadDataModelStruct? leadData(dynamic response) =>
+      LeadDataModelStruct.maybeFromMap(getJsonField(
+        response,
+        r'''$.data''',
+      ));
 }
 
 /// End LeadApi Group Code

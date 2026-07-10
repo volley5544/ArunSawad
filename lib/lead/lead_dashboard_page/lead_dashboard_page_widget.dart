@@ -262,13 +262,13 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                                   child: Builder(
                                     builder: (context) {
                                       final leadGroupItem =
-                                          LeadDataModelStruct.maybeFromMap(
-                                                  getJsonField(
-                                                columnLeadDataSummaryApiResponse
-                                                    .jsonBody,
-                                                r'''$.data''',
-                                                true,
-                                              ))?.summary?.toList() ??
+                                          LeadApiGroup.leadDataSummaryApiCall
+                                                  .leadData(
+                                                    columnLeadDataSummaryApiResponse
+                                                        .jsonBody,
+                                                  )
+                                                  ?.summary
+                                                  ?.toList() ??
                                               [];
 
                                       return ListView.separated(
@@ -1480,15 +1480,14 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
-                                              final leadDataItem = (LeadDataModelStruct
-                                                          .maybeFromMap(
-                                                              getJsonField(
-                                                    columnLeadDataSummaryApiResponse
-                                                        .jsonBody,
-                                                    r'''$.data''',
-                                                    true,
-                                                  ))?.summary?.elementAtOrNull(
-                                                          _model
+                                              final leadDataItem = (LeadApiGroup
+                                                          .leadDataSummaryApiCall
+                                                          .leadData(
+                                                            columnLeadDataSummaryApiResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.summary
+                                                          ?.elementAtOrNull(_model
                                                               .leadGroupSelectedIndex!))
                                                       ?.types
                                                       ?.toList() ??
