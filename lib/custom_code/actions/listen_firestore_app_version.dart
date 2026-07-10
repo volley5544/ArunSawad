@@ -12,10 +12,13 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 
 Future listenFirestoreAppVersion() async {
   // Add your function code here!
-
+  if (kIsWeb) {
+    return;
+  }
   FirebaseFirestore.instance
       .collection('BuildVersion')
       .doc('64QVxJ3DHbmVMUPVLnWr')

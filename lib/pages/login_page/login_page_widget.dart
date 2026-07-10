@@ -60,6 +60,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'LoginPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (isWeb) {
+        return;
+      }
       await actions.stopListenProfileAction();
       if (!(await getPermissionStatus(notificationsPermission))) {
         await requestPermission(notificationsPermission);
