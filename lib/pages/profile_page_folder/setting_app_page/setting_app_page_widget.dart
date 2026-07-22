@@ -710,7 +710,6 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                     await actions.openInAppBrowser(
                       '',
                       'http://10.1.114.86/survey/public/notice/leads-notice',
-                      false,
                     );
                   },
                   child: Container(

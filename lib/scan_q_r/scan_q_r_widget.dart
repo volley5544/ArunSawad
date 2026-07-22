@@ -206,7 +206,6 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                             await actions.openInAppBrowser(
                               '',
                               '${columnUrlLinkStorageRecord.urlLink}/${_model.scanOutput}',
-                              true,
                             );
 
                             safeSetState(() {});

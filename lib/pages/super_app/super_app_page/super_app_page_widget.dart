@@ -5395,6 +5395,31 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'Lead',
                                                                                       );
                                                                                       Navigator.pop(context);
+                                                                                      if (true) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                title: Text('url'),
+                                                                                                content: Text('${FFAppState().isProductionNew ? FFAppState().urlStorageData.urlLink.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'lead_list_web')) : FFAppState().urlStorageData.urlLinkUat.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'lead_list_web'))}?token=${FFAppState().accessToken}'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        await actions.openInAppBrowser(
+                                                                                          '',
+                                                                                          '${FFAppState().isProductionNew ? FFAppState().urlStorageData.urlLink.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'lead_list_web')) : FFAppState().urlStorageData.urlLinkUat.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'lead_list_web'))}?token=${FFAppState().accessToken}',
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
 
                                                                                       context.goNamed(LeadNotiNewPageWidget.routeName);
 
@@ -6882,7 +6907,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       await actions.openInAppBrowser(
                                                                                         '',
                                                                                         '${_model.queryAuctionAppointmentUrl?.urlLink}${FFAppState().employeeID}',
-                                                                                        false,
                                                                                       );
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                     },
@@ -6970,7 +6994,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         await actions.openInAppBrowser(
                                                                                           '',
                                                                                           '${columnQrcodeUrlLinkStorageRecord.urlLink}/${_model.scanQrCode}',
-                                                                                          true,
                                                                                         );
                                                                                       }
 
@@ -15011,7 +15034,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                               await actions.openInAppBrowser(
                                                                                                 '',
                                                                                                 '${columnQrcodeUrlLinkStorageRecord.urlLink}/${_model.scanQRTablet}',
-                                                                                                true,
                                                                                               );
                                                                                             }
 

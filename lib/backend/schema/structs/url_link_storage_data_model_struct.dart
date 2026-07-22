@@ -13,10 +13,14 @@ class UrlLinkStorageDataModelStruct extends FFFirebaseStruct {
     List<String>? urlLink,
     List<String>? urlName,
     List<String>? urlToken,
+    List<String>? urlLinkUat,
+    List<String>? urlTokenUat,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _urlLink = urlLink,
         _urlName = urlName,
         _urlToken = urlToken,
+        _urlLinkUat = urlLinkUat,
+        _urlTokenUat = urlTokenUat,
         super(firestoreUtilData);
 
   // "url_link" field.
@@ -52,11 +56,35 @@ class UrlLinkStorageDataModelStruct extends FFFirebaseStruct {
 
   bool hasUrlToken() => _urlToken != null;
 
+  // "url_link_uat" field.
+  List<String>? _urlLinkUat;
+  List<String> get urlLinkUat => _urlLinkUat ?? const [];
+  set urlLinkUat(List<String>? val) => _urlLinkUat = val;
+
+  void updateUrlLinkUat(Function(List<String>) updateFn) {
+    updateFn(_urlLinkUat ??= []);
+  }
+
+  bool hasUrlLinkUat() => _urlLinkUat != null;
+
+  // "url_token_uat" field.
+  List<String>? _urlTokenUat;
+  List<String> get urlTokenUat => _urlTokenUat ?? const [];
+  set urlTokenUat(List<String>? val) => _urlTokenUat = val;
+
+  void updateUrlTokenUat(Function(List<String>) updateFn) {
+    updateFn(_urlTokenUat ??= []);
+  }
+
+  bool hasUrlTokenUat() => _urlTokenUat != null;
+
   static UrlLinkStorageDataModelStruct fromMap(Map<String, dynamic> data) =>
       UrlLinkStorageDataModelStruct(
         urlLink: getDataList(data['url_link']),
         urlName: getDataList(data['url_name']),
         urlToken: getDataList(data['url_token']),
+        urlLinkUat: getDataList(data['url_link_uat']),
+        urlTokenUat: getDataList(data['url_token_uat']),
       );
 
   static UrlLinkStorageDataModelStruct? maybeFromMap(dynamic data) =>
@@ -68,6 +96,8 @@ class UrlLinkStorageDataModelStruct extends FFFirebaseStruct {
         'url_link': _urlLink,
         'url_name': _urlName,
         'url_token': _urlToken,
+        'url_link_uat': _urlLinkUat,
+        'url_token_uat': _urlTokenUat,
       }.withoutNulls;
 
   @override
@@ -84,6 +114,16 @@ class UrlLinkStorageDataModelStruct extends FFFirebaseStruct {
         ),
         'url_token': serializeParam(
           _urlToken,
+          ParamType.String,
+          isList: true,
+        ),
+        'url_link_uat': serializeParam(
+          _urlLinkUat,
+          ParamType.String,
+          isList: true,
+        ),
+        'url_token_uat': serializeParam(
+          _urlTokenUat,
           ParamType.String,
           isList: true,
         ),
@@ -107,6 +147,16 @@ class UrlLinkStorageDataModelStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        urlLinkUat: deserializeParam<String>(
+          data['url_link_uat'],
+          ParamType.String,
+          true,
+        ),
+        urlTokenUat: deserializeParam<String>(
+          data['url_token_uat'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -118,11 +168,14 @@ class UrlLinkStorageDataModelStruct extends FFFirebaseStruct {
     return other is UrlLinkStorageDataModelStruct &&
         listEquality.equals(urlLink, other.urlLink) &&
         listEquality.equals(urlName, other.urlName) &&
-        listEquality.equals(urlToken, other.urlToken);
+        listEquality.equals(urlToken, other.urlToken) &&
+        listEquality.equals(urlLinkUat, other.urlLinkUat) &&
+        listEquality.equals(urlTokenUat, other.urlTokenUat);
   }
 
   @override
-  int get hashCode => const ListEquality().hash([urlLink, urlName, urlToken]);
+  int get hashCode => const ListEquality()
+      .hash([urlLink, urlName, urlToken, urlLinkUat, urlTokenUat]);
 }
 
 UrlLinkStorageDataModelStruct createUrlLinkStorageDataModelStruct({

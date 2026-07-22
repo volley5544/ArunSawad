@@ -51,7 +51,6 @@ export '/custom_code/actions/open_tableau_browser.dart' show openTableauBrowser;
 export '/custom_code/actions/open3_c_x_action.dart' show open3CXAction;
 export '/custom_code/actions/get_device_contract_phone_number.dart'
     show getDeviceContractPhoneNumber;
-export '/custom_code/actions/open_inapp_browser.dart' show openInappBrowser;
 export '/custom_code/actions/lock_lanscape_orientation.dart'
     show lockLanscapeOrientation;
 export '/custom_code/actions/check_status_firebase.dart'

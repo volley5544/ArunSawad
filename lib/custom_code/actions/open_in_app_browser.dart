@@ -20,8 +20,7 @@ import 'package:http/http.dart' as http;
 //flutter_web_browser: ^0.17.1
 //flutter_inappwebview: 5.4.0
 
-Future openInAppBrowser(
-    String? token, String? tableauURL, bool? isOpenAndroidBrowser) async {
+Future openInAppBrowser(String? token, String? tableauURL) async {
   // Add your function code here!
   String browserUrl = '${tableauURL}/${token}';
   String encodedUrl =
@@ -33,8 +32,6 @@ Future openInAppBrowser(
   WidgetsFlutterBinding.ensureInitialized();
 
   final MyInAppBrowser browser = new MyInAppBrowser();
-  // await inappWebview.AndroidInAppWebViewController
-  //     .setWebContentsDebuggingEnabled(true);
   var options;
 
   if (Platform.isAndroid) {
@@ -42,29 +39,6 @@ Future openInAppBrowser(
       browserSettings: inappWebview.InAppBrowserSettings(
         hideUrlBar: true,
         hideToolbarTop: true,
-        toolbarTopBackgroundColor: Colors.black,
-      ),
-      webViewSettings: inappWebview.InAppWebViewSettings(
-        cacheEnabled: false,
-        javaScriptEnabled: true,
-        allowFileAccessFromFileURLs: true,
-        allowUniversalAccessFromFileURLs: true,
-        javaScriptCanOpenWindowsAutomatically: true,
-        useOnDownloadStart: true,
-        useShouldOverrideUrlLoading: true,
-        mediaPlaybackRequiresUserGesture: false,
-        clearCache: true,
-        useHybridComposition: true,
-        clearSessionCache: true,
-        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
-        allowsInlineMediaPlayback: true,
-      ),
-    );
-  } else {
-    options = inappWebview.InAppBrowserClassSettings(
-      browserSettings: inappWebview.InAppBrowserSettings(
-        hideUrlBar: true,
-        hideToolbarTop: false,
         toolbarTopBackgroundColor: Colors.black,
         toolbarBottomBackgroundColor: Colors.white,
         hideToolbarBottom: true,
@@ -84,15 +58,83 @@ Future openInAppBrowser(
         clearSessionCache: true,
         cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
         allowsInlineMediaPlayback: true,
+        geolocationEnabled: true,
+      ),
+    );
+  } else {
+    options = inappWebview.InAppBrowserClassSettings(
+      browserSettings: inappWebview.InAppBrowserSettings(
+        hideUrlBar: true,
+        hideToolbarTop: false,
+        toolbarTopBackgroundColor: Colors.black,
+        toolbarBottomBackgroundColor: Colors.white,
+        hideToolbarBottom: true,
+        closeButtonCaption: 'ปิด',
+      ),
+      webViewSettings: inappWebview.InAppWebViewSettings(
+        cacheEnabled: false,
+        javaScriptEnabled: true,
+        allowFileAccessFromFileURLs: true,
+        allowUniversalAccessFromFileURLs: true,
+        javaScriptCanOpenWindowsAutomatically: true,
+        useOnDownloadStart: true,
+        // useShouldOverrideUrlLoading: true,
+        mediaPlaybackRequiresUserGesture: false,
+        clearCache: true,
+        // useHybridComposition: false,
+        clearSessionCache: true,
+        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
+        allowsInlineMediaPlayback: true,
+        geolocationEnabled: true,
       ),
     );
   }
   await browser.openUrlRequest(
       urlRequest: inappWebview.URLRequest(
-          url: inappWebview.WebUri(encodedUrl),
-          method: 'GET',
-          headers: headers),
+          url: WebUri(encodedUrl), method: 'GET', headers: headers),
       settings: options);
+  // await inappWebview.AndroidInAppWebViewController
+  //     .setWebContentsDebuggingEnabled(true);
+
+  // var options = inappWebview.InAppBrowserClassOptions(
+  //     crossPlatform: inappWebview.InAppBrowserOptions(
+  //       hideUrlBar: true,
+  //       hideToolbarTop: false,
+  //       toolbarTopBackgroundColor: Colors.black,
+  //     ),
+  //     ios: inappWebview.IOSInAppBrowserOptions(
+  //       toolbarBottomBackgroundColor: Colors.white,
+  //       hideToolbarBottom: true,
+  //       closeButtonCaption: 'ปิด',
+  //
+  //
+  //     ),
+  //     inAppWebViewGroupOptions: inappWebview.InAppWebViewGroupOptions(
+  //         crossPlatform: inappWebview.InAppWebViewOptions(
+  //           cacheEnabled: false,
+  //           javaScriptEnabled: true,
+  //           allowFileAccessFromFileURLs: true,
+  //           allowUniversalAccessFromFileURLs: true,
+  //           javaScriptCanOpenWindowsAutomatically: true,
+  //           useOnDownloadStart: true,
+  //           useShouldOverrideUrlLoading: true,
+  //           mediaPlaybackRequiresUserGesture: false,
+  //           clearCache: true,
+  //         ),
+  //         android: inappWebview.AndroidInAppWebViewOptions(
+  //           useHybridComposition: true,
+  //           clearSessionCache: true,
+  //           cacheMode: inappWebview.AndroidCacheMode.LOAD_NO_CACHE,
+  //
+  //         ),
+  //         ios: inappWebview.IOSInAppWebViewOptions(
+  //           allowsInlineMediaPlayback: true,
+  //         )));
+  //
+  //   await browser.openUrlRequest(
+  //       urlRequest: inappWebview.URLRequest(
+  //           url: Uri.parse(encodedUrl), method: 'GET', headers: headers),
+  //       options: options);
 
   // use here
   // final ChromeSafariBrowser browser = ChromeSafariBrowser();
@@ -176,7 +218,13 @@ Future openInAppBrowser(
   //}
 }
 
-class MyInAppBrowser extends inappWebview.InAppBrowser {
+class MyInAppBrowser extends InAppBrowser {
+  @override
+  Future<PermissionResponse> onPermissionRequest(request) async {
+    return await PermissionResponse(
+        resources: request.resources, action: PermissionResponseAction.GRANT);
+  }
+
   @override
   Future onBrowserCreated() async {
     print("Browser Created!");
@@ -203,11 +251,28 @@ class MyInAppBrowser extends inappWebview.InAppBrowser {
   }
 
   @override
-  void onDownloadStart(url) async {
+  void onDownloadStartRequest(url) async {
     print('onDownload');
-    final String _url_files = "$url";
+    print("${url.url}");
+    final String _url_files = "${url.url}";
 
     await launchURL(_url_files);
+  }
+
+  @override
+  Future<NavigationActionPolicy> shouldOverrideUrlLoading(
+      navigationAction) async {
+    print("\n\nOverride5544 ${navigationAction.request.url}\n\n");
+    if (navigationAction.request.url != null &&
+        '${navigationAction.request.url}'.contains('tel')) {
+      print('in open3CX'); // http://tel:1669/
+      await open3CXAction(
+          '${'${navigationAction.request.url}'.split(':').last.replaceAll('/', '')}');
+      return NavigationActionPolicy
+          .CANCEL; // Stop WebView from trying to open it
+    }
+    // await launchURL(navigationAction.request.url.toString());
+    return NavigationActionPolicy.ALLOW;
   }
 
   @override
@@ -219,6 +284,21 @@ class MyInAppBrowser extends inappWebview.InAppBrowser {
     print("Browser Pop!");
     await close();
     Navigator.of(context).pop(); // Close the browser and go back to the app
+  }
+}
+
+Future<bool> open3CXAction(String? phoneNumber) async {
+  // Add your function code here!
+
+  final url = 'sip:${Uri.encodeComponent(phoneNumber!)}';
+  final urlPhone = 'tel:${Uri.encodeComponent(phoneNumber!)}';
+// http://tel:1669/
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await launchUrl(Uri.parse(url));
+    return true;
+  } else {
+    await launchUrl(Uri.parse(urlPhone));
+    return true;
   }
 }
 // Set your action name, define your arguments and return parameter,

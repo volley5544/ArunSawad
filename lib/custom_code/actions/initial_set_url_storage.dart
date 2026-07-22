@@ -21,6 +21,8 @@ Future initialSetUrlStorage() async {
     (e) => e
       ..urlLink = queryUrl!.map((e) => e!.urlLink).toList()
       ..urlName = queryUrl!.map((e) => e!.urlName).toList()
-      ..urlToken = queryUrl!.map((e) => e!.urlToken).toList(),
+      ..urlToken = queryUrl!.map((e) => e!.urlToken).toList()
+      ..urlLinkUat = queryUrl!.map((e) => e!.urlLinkUat).toList()
+      ..urlTokenUat = queryUrl!.map((e) => e!.urlTokenUat).toList(),
   );
 }
