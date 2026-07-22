@@ -10988,13 +10988,15 @@ class CollectionFollowupDebtSLSCall {
     String? codeRegion = '',
     String? role = '',
     String? apiUrl = '',
+    String? empCode = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "branchCode": "${branchCode}",
   "codeKate": "${codeKate}",
   "codeRegion": "${codeRegion}",
-  "role": "${role}"
+  "role": "${role}",
+  "empCode": "${empCode}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'collectionFollowupDebtSLS',
