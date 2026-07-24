@@ -12,8 +12,9 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'dart:io';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart' as inappWebview;
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 //flutter_inappwebview: ^5.7.2+3
 //flutter_inappwebview: 6.0.0-beta.22
@@ -35,8 +36,8 @@ Future openInAppBrowser(String? token, String? tableauURL) async {
   var options;
 
   if (Platform.isAndroid) {
-    options = inappWebview.InAppBrowserClassSettings(
-      browserSettings: inappWebview.InAppBrowserSettings(
+    options = InAppBrowserClassSettings(
+      browserSettings: InAppBrowserSettings(
         hideUrlBar: true,
         hideToolbarTop: true,
         toolbarTopBackgroundColor: Colors.black,
@@ -44,7 +45,7 @@ Future openInAppBrowser(String? token, String? tableauURL) async {
         hideToolbarBottom: true,
         closeButtonCaption: 'ปิด',
       ),
-      webViewSettings: inappWebview.InAppWebViewSettings(
+      webViewSettings: InAppWebViewSettings(
         cacheEnabled: false,
         javaScriptEnabled: true,
         allowFileAccessFromFileURLs: true,
@@ -56,14 +57,14 @@ Future openInAppBrowser(String? token, String? tableauURL) async {
         clearCache: true,
         useHybridComposition: true,
         clearSessionCache: true,
-        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
+        cacheMode: CacheMode.LOAD_NO_CACHE,
         allowsInlineMediaPlayback: true,
         geolocationEnabled: true,
       ),
     );
   } else {
-    options = inappWebview.InAppBrowserClassSettings(
-      browserSettings: inappWebview.InAppBrowserSettings(
+    options = InAppBrowserClassSettings(
+      browserSettings: InAppBrowserSettings(
         hideUrlBar: true,
         hideToolbarTop: false,
         toolbarTopBackgroundColor: Colors.black,
@@ -71,7 +72,7 @@ Future openInAppBrowser(String? token, String? tableauURL) async {
         hideToolbarBottom: true,
         closeButtonCaption: 'ปิด',
       ),
-      webViewSettings: inappWebview.InAppWebViewSettings(
+      webViewSettings: InAppWebViewSettings(
         cacheEnabled: false,
         javaScriptEnabled: true,
         allowFileAccessFromFileURLs: true,
@@ -83,139 +84,16 @@ Future openInAppBrowser(String? token, String? tableauURL) async {
         clearCache: true,
         // useHybridComposition: false,
         clearSessionCache: true,
-        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
+        cacheMode: CacheMode.LOAD_NO_CACHE,
         allowsInlineMediaPlayback: true,
         geolocationEnabled: true,
       ),
     );
   }
   await browser.openUrlRequest(
-      urlRequest: inappWebview.URLRequest(
-          url: WebUri(encodedUrl), method: 'GET', headers: headers),
+      urlRequest:
+          URLRequest(url: WebUri(encodedUrl), method: 'GET', headers: headers),
       settings: options);
-  // await inappWebview.AndroidInAppWebViewController
-  //     .setWebContentsDebuggingEnabled(true);
-
-  // var options = inappWebview.InAppBrowserClassOptions(
-  //     crossPlatform: inappWebview.InAppBrowserOptions(
-  //       hideUrlBar: true,
-  //       hideToolbarTop: false,
-  //       toolbarTopBackgroundColor: Colors.black,
-  //     ),
-  //     ios: inappWebview.IOSInAppBrowserOptions(
-  //       toolbarBottomBackgroundColor: Colors.white,
-  //       hideToolbarBottom: true,
-  //       closeButtonCaption: 'ปิด',
-  //
-  //
-  //     ),
-  //     inAppWebViewGroupOptions: inappWebview.InAppWebViewGroupOptions(
-  //         crossPlatform: inappWebview.InAppWebViewOptions(
-  //           cacheEnabled: false,
-  //           javaScriptEnabled: true,
-  //           allowFileAccessFromFileURLs: true,
-  //           allowUniversalAccessFromFileURLs: true,
-  //           javaScriptCanOpenWindowsAutomatically: true,
-  //           useOnDownloadStart: true,
-  //           useShouldOverrideUrlLoading: true,
-  //           mediaPlaybackRequiresUserGesture: false,
-  //           clearCache: true,
-  //         ),
-  //         android: inappWebview.AndroidInAppWebViewOptions(
-  //           useHybridComposition: true,
-  //           clearSessionCache: true,
-  //           cacheMode: inappWebview.AndroidCacheMode.LOAD_NO_CACHE,
-  //
-  //         ),
-  //         ios: inappWebview.IOSInAppWebViewOptions(
-  //           allowsInlineMediaPlayback: true,
-  //         )));
-  //
-  //   await browser.openUrlRequest(
-  //       urlRequest: inappWebview.URLRequest(
-  //           url: Uri.parse(encodedUrl), method: 'GET', headers: headers),
-  //       options: options);
-
-  // use here
-  // final ChromeSafariBrowser browser = ChromeSafariBrowser();
-
-  // await browser.open(
-  //     url: Uri.parse(encodedUrl),
-  //     options: ChromeSafariBrowserClassOptions(
-  //         android: AndroidChromeCustomTabsOptions(
-  //       shareState: CustomTabsShareState.SHARE_STATE_OFF,
-  //       showTitle: false,
-  //       toolbarBackgroundColor: Colors.red,
-  //       enableUrlBarHiding: true,
-  //       isSingleInstance: false,
-  //       isTrustedWebActivity: false,
-  //       keepAliveEnabled: true,
-  //       //shareState: SHARE_STATE_OFF,
-  //       // hideToolbarTop: true,
-  //       // hideUrlBar: true,
-  //     )));
-
-  // not use here
-  // await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
-
-  // final MyInAppBrowser browser = new MyInAppBrowser();
-  // // await browser.openUrlRequest(
-  // //     urlRequest: URLRequest(url: WebUri.uri(Uri.parse(encodedUrl))),
-  // //     settings: InAppBrowserClassSettings(
-  // //       browserSettings: InAppBrowserSettings(
-  // //         hideUrlBar: true,
-  // //         hideToolbarTop: true,
-  // //       ),
-  // //     ));
-
-  // await browser.openUrlRequest(
-  //     urlRequest: URLRequest(url: Uri.parse(encodedUrl)),
-  //     options: InAppBrowserClassOptions(
-  //       crossPlatform: InAppBrowserOptions(
-  //         hideUrlBar: true,
-  //         hideToolbarTop: true,
-  //       ),
-  //     ));
-
-  // inAppWebViewGroupOptions:
-  // InAppWebViewGroupOptions(
-  //     crossPlatform: InAppWebViewOptions(
-  //   javaScriptEnabled: true,
-  //   //disableContextMenu: false,
-  //   //javaScriptCanOpenWindowsAutomatically: true,
-  // ));
-
-  //await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
-
-  //final MyInAppBrowser browser = new MyInAppBrowser();
-
-  // await browser.openUrlRequest(
-  //   urlRequest: URLRequest(
-  //       url: Uri(
-  //           "https://pt.swpfin.com/ssw_mis/mis/tb/mb/EmployeeInsurancePerformance/Top_10_Sales/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC80My4yNDkuMTExLjIxOjgwODhcL2FwaVwvbG9naW4iLCJpYXQiOjE2ODcwMDk0MDMsIm5iZiI6MTY4NzAwOTQwMywianRpIjoidkZNVkRtcDh2RDh2WlBXOCIsInN1YiI6Mzk4NjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.I55TRV7sYlGy3t-oRDLv686R2p2WRQIElF2FsKEEAtI")),
-  //   settings: InAppBrowserClassSettings(
-  //     browserSettings: InAppBrowserSettings(
-  //         toolbarTopBackgroundColor: Colors.red,
-  //         presentationStyle: ModalPresentationStyle.POPOVER,
-  //         hideToolbarTop: true,
-  //         hideUrlBar: true),
-  //     webViewSettings: InAppWebViewSettings(
-  //       // useShouldOverrideUrlLoading: false,
-  //       // useOnLoadResource: false,
-  //       // isElementFullscreenEnabled: true,
-  //       // allowUniversalAccessFromFileURLs: true,
-  //       // allowFileAccessFromFileURLs: true,
-  //       // disableContextMenu: true,
-  //       // javaScriptCanOpenWindowsAutomatically: true,
-  //       javaScriptEnabled: true,
-  //       // allowContentAccess: true,
-  //       // allowFileAccess: true,
-  //       // clearCache: true,
-  //       // disabledActionModeMenuItems: ActionModeMenuItem.MENU_ITEM_NONE,
-  //     ),
-  // ),
-  //);
-  //}
 }
 
 class MyInAppBrowser extends InAppBrowser {

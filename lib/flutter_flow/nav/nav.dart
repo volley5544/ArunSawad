@@ -2941,6 +2941,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: TeamMSelectBranchPageWidget.routeName,
+              path: TeamMSelectBranchPageWidget.routePath,
+              builder: (context, params) => TeamMSelectBranchPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

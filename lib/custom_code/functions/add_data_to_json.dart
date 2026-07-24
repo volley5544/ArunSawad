@@ -15,7 +15,6 @@ import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 List<dynamic>? addDataToJson(List<dynamic>? jsonList) {
-//
   if (jsonList == null || jsonList.isEmpty) {
     return []; // Return an empty list if input is null or empty
   }

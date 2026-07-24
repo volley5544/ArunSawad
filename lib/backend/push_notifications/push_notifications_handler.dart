@@ -900,6 +900,7 @@ final parametersBuilderMap =
           'comcode': getParameter<String>(data, 'comcode'),
         },
       ),
+  'TeamMSelectBranchPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

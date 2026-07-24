@@ -313,3 +313,5 @@ export '/collection_page/customer_map_multi_location_page/customer_map_multi_loc
     show CustomerMapMultiLocationPageWidget;
 export '/collection_page/sls_show_q_r_payment/sls_show_q_r_payment_widget.dart'
     show SlsShowQRPaymentWidget;
+export '/collection_page/team_m_select_branch_page/team_m_select_branch_page_widget.dart'
+    show TeamMSelectBranchPageWidget;
