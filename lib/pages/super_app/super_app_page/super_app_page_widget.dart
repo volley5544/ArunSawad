@@ -4944,6 +4944,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             FFAppState().profileLevel,
                                                                                             ParamType.String,
                                                                                           ),
+                                                                                          'isTeamM': serializeParam(
+                                                                                            !functions.containStringInListString1(functions.getListDataFromJson(FFAppState().roleMenuJson, 'region_role_position')?.toList(), FFAppState().profilePositionName)!,
+                                                                                            ParamType.bool,
+                                                                                          ),
                                                                                         }.withoutNulls,
                                                                                       );
 

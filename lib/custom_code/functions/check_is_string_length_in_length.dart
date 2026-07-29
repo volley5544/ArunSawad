@@ -20,7 +20,7 @@ bool? checkIsStringLengthInLength(
 ) {
   bool isInLength = false;
 
-  if (inputString!.length <= length!) {
+  if (inputString!.length < length!) {
     isInLength = true;
   }
 

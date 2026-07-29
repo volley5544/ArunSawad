@@ -2864,6 +2864,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'profileLevel',
                   ParamType.String,
                 ),
+                isTeamM: params.getParam(
+                  'isTeamM',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(

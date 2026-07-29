@@ -11823,9 +11823,15 @@ class CollectionApiGetDataCountExtraMCall {
   static Future<ApiCallResponse> call({
     String? empCode = '',
     String? apiUrl = '',
+    String? branchCode = '',
+    String? codeKate = '',
+    String? codeRegion = '',
   }) async {
     final ffApiRequestBody = '''
 {
+  "branchCode": "${branchCode}",
+  "codeKate": "${codeKate}",
+  "codeRegion": "${codeRegion}",
   "empCode": "${empCode}"
 }''';
     return ApiManager.instance.makeApiCall(

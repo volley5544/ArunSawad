@@ -868,6 +868,7 @@ final parametersBuilderMap =
         allParams: {
           'branchCode': getParameter<String>(data, 'branchCode'),
           'profileLevel': getParameter<String>(data, 'profileLevel'),
+          'isTeamM': getParameter<bool>(data, 'isTeamM'),
         },
       ),
   'ChangePinCodePage': ParameterData.none(),

@@ -36,10 +36,12 @@ class TabCollectionTeamMPageWidget extends StatefulWidget {
     super.key,
     this.branchCode,
     this.profileLevel,
+    this.isTeamM,
   });
 
   final String? branchCode;
   final String? profileLevel;
+  final bool? isTeamM;
 
   static String routeName = 'tabCollectionTeamMPage';
   static String routePath = 'tabCollectionTeamMPage';
@@ -193,8 +195,21 @@ class _TabCollectionTeamMPageWidgetState
                         ?.toList(),
                     FFAppState().employeeID)!
                 ? ''
-                : FFAppState().employeeID,
+                : (widget!.isTeamM! ? FFAppState().employeeID : ''),
             apiUrl: FFAppState().apiUrlBranchViewCollection,
+            branchCode: (widget!.branchCode == 'HO') ||
+                    (FFAppState().profileRoleName == 'SME') ||
+                    (widget!.profileLevel != 'สาขา')
+                ? ''
+                : widget!.branchCode,
+            codeKate: (widget!.profileLevel == 'เขต') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
+            codeRegion: (widget!.profileLevel == 'ภาค') &&
+                    (FFAppState().profileRoleName != 'SME')
+                ? widget!.branchCode
+                : '',
           );
         }),
         Future(() async {
@@ -214,7 +229,14 @@ class _TabCollectionTeamMPageWidgetState
                 : '',
             role: FFAppState().profileRoleName,
             apiUrl: FFAppState().apiUrlBranchViewCollection,
-            empCode: FFAppState().employeeID,
+            empCode: functions.containStringInListString(
+                    functions
+                        .getListDataFromJson(
+                            FFAppState().roleMenuJson, 'HeadTeamM')
+                        ?.toList(),
+                    FFAppState().employeeID)!
+                ? ''
+                : (widget!.isTeamM! ? FFAppState().employeeID : ''),
           );
         }),
       ]);
