@@ -36,7 +36,9 @@ class ListNameTabFollowUpDebtWidget extends StatefulWidget {
     this.fromPage,
     String? pageTitle,
     this.subdistrict,
-  }) : this.pageTitle = pageTitle ?? '-';
+    bool? isTeamM,
+  })  : this.pageTitle = pageTitle ?? '-',
+        this.isTeamM = isTeamM ?? true;
 
   final int? followUpDebtTab;
   final String? branchM;
@@ -44,6 +46,7 @@ class ListNameTabFollowUpDebtWidget extends StatefulWidget {
   final String? fromPage;
   final String pageTitle;
   final String? subdistrict;
+  final bool isTeamM;
 
   static String routeName = 'listNameTabFollowUpDebt';
   static String routePath = 'listNameTabFollowUpDebt';

@@ -5603,6 +5603,11 @@ class _TabCollectionTeamMPageWidgetState
                                                               .cathaySubDistrict,
                                                           ParamType.String,
                                                         ),
+                                                        'isTeamM':
+                                                            serializeParam(
+                                                          widget!.isTeamM,
+                                                          ParamType.bool,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },

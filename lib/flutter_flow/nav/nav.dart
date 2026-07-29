@@ -1573,6 +1573,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'subdistrict',
                   ParamType.String,
                 ),
+                isTeamM: params.getParam(
+                  'isTeamM',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(
