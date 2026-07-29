@@ -894,7 +894,9 @@ class _ListNameTabFollowUpDebtWidgetState
                                           ?.toList(),
                                       FFAppState().employeeID)!
                                   ? ''
-                                  : FFAppState().employeeID,
+                                  : (widget!.isTeamM
+                                      ? FFAppState().employeeID
+                                      : ''),
                               policeName: widget!.policeName,
                               subdistrict: widget!.subdistrict != null &&
                                       widget!.subdistrict != ''
