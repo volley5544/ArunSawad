@@ -157,7 +157,7 @@ class _TabCollectionTeamMPageWidgetState
                         ?.toList(),
                     FFAppState().employeeID)!
                 ? ''
-                : FFAppState().employeeID,
+                : (widget!.isTeamM! ? FFAppState().employeeID : ''),
           );
 
           _model.apiOutputCountPP = await CollectionApiGetDataCountPPCall.call(
@@ -183,7 +183,7 @@ class _TabCollectionTeamMPageWidgetState
                         ?.toList(),
                     FFAppState().employeeID)!
                 ? ''
-                : FFAppState().employeeID,
+                : (widget!.isTeamM! ? FFAppState().employeeID : ''),
           );
 
           _model.collectionApiGetdataCountM =
