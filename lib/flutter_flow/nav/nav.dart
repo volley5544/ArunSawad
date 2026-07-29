@@ -1850,6 +1850,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'fromPage',
                   ParamType.String,
                 ),
+                isTeamM: params.getParam(
+                  'isTeamM',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(

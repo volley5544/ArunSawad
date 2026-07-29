@@ -27,10 +27,12 @@ class SearchCollectionPPWidget extends StatefulWidget {
     super.key,
     required this.followUpDebtTab,
     this.fromPage,
+    this.isTeamM,
   });
 
   final int? followUpDebtTab;
   final String? fromPage;
+  final bool? isTeamM;
 
   static String routeName = 'SearchCollectionPP';
   static String routePath = 'SearchCollectionPP';

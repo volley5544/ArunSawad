@@ -608,6 +608,7 @@ final parametersBuilderMap =
         allParams: {
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'isTeamM': getParameter<bool>(data, 'isTeamM'),
         },
       ),
   'register': ParameterData.none(),

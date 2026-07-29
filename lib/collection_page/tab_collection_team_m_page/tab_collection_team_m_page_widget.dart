@@ -1189,6 +1189,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     'TeamM',
                                                     ParamType.String,
                                                   ),
+                                                  'isTeamM': serializeParam(
+                                                    widget!.isTeamM,
+                                                    ParamType.bool,
+                                                  ),
                                                 }.withoutNulls,
                                               );
                                             },
@@ -1445,6 +1449,11 @@ class _TabCollectionTeamMPageWidgetState
                                                           'TeamM',
                                                           ParamType.String,
                                                         ),
+                                                        'isTeamM':
+                                                            serializeParam(
+                                                          widget!.isTeamM,
+                                                          ParamType.bool,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },
@@ -1683,6 +1692,11 @@ class _TabCollectionTeamMPageWidgetState
                                                             serializeParam(
                                                           'TeamM',
                                                           ParamType.String,
+                                                        ),
+                                                        'isTeamM':
+                                                            serializeParam(
+                                                          widget!.isTeamM,
+                                                          ParamType.bool,
                                                         ),
                                                       }.withoutNulls,
                                                     );
@@ -1923,6 +1937,16 @@ class _TabCollectionTeamMPageWidgetState
                                                           'TeamM',
                                                           ParamType.String,
                                                         ),
+                                                        'policeName':
+                                                            serializeParam(
+                                                          '',
+                                                          ParamType.String,
+                                                        ),
+                                                        'isTeamM':
+                                                            serializeParam(
+                                                          widget!.isTeamM,
+                                                          ParamType.bool,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },
@@ -2161,6 +2185,11 @@ class _TabCollectionTeamMPageWidgetState
                                                             serializeParam(
                                                           'TeamM',
                                                           ParamType.String,
+                                                        ),
+                                                        'isTeamM':
+                                                            serializeParam(
+                                                          widget!.isTeamM,
+                                                          ParamType.bool,
                                                         ),
                                                       }.withoutNulls,
                                                     );
@@ -2435,6 +2464,11 @@ class _TabCollectionTeamMPageWidgetState
                                                             serializeParam(
                                                           'TeamM',
                                                           ParamType.String,
+                                                        ),
+                                                        'isTeamM':
+                                                            serializeParam(
+                                                          widget!.isTeamM,
+                                                          ParamType.bool,
                                                         ),
                                                       }.withoutNulls,
                                                     );
@@ -3396,6 +3430,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     'TeamM',
                                                     ParamType.String,
                                                   ),
+                                                  'isTeamM': serializeParam(
+                                                    widget!.isTeamM,
+                                                    ParamType.bool,
+                                                  ),
                                                 }.withoutNulls,
                                               );
                                             },
@@ -3686,6 +3724,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     'TeamM',
                                                     ParamType.String,
                                                   ),
+                                                  'isTeamM': serializeParam(
+                                                    widget!.isTeamM,
+                                                    ParamType.bool,
+                                                  ),
                                                 }.withoutNulls,
                                               );
                                             },
@@ -3923,6 +3965,10 @@ class _TabCollectionTeamMPageWidgetState
                                                     'TeamM',
                                                     ParamType.String,
                                                   ),
+                                                  'isTeamM': serializeParam(
+                                                    widget!.isTeamM,
+                                                    ParamType.bool,
+                                                  ),
                                                 }.withoutNulls,
                                               );
                                             },
@@ -4153,6 +4199,10 @@ class _TabCollectionTeamMPageWidgetState
                                                   'fromPage': serializeParam(
                                                     'TeamM',
                                                     ParamType.String,
+                                                  ),
+                                                  'isTeamM': serializeParam(
+                                                    widget!.isTeamM,
+                                                    ParamType.bool,
                                                   ),
                                                 }.withoutNulls,
                                               );
@@ -4728,6 +4778,10 @@ class _TabCollectionTeamMPageWidgetState
                                                   'fromPage': serializeParam(
                                                     'TeamM',
                                                     ParamType.String,
+                                                  ),
+                                                  'isTeamM': serializeParam(
+                                                    widget!.isTeamM,
+                                                    ParamType.bool,
                                                   ),
                                                 }.withoutNulls,
                                               );
