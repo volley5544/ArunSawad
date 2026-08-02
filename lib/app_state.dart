@@ -10115,7 +10115,7 @@ class FFAppState extends ChangeNotifier {
     _groceryAssignUrlDocRef = value;
   }
 
-  bool _isProductionNew = false;
+  bool _isProductionNew = true;
   bool get isProductionNew => _isProductionNew;
   set isProductionNew(bool value) {
     _isProductionNew = value;
@@ -10391,6 +10391,12 @@ class FFAppState extends ChangeNotifier {
   void updateUrlStorageDataStruct(
       Function(UrlLinkStorageDataModelStruct) updateFn) {
     updateFn(_urlStorageData);
+  }
+
+  bool _leadOpenOnWeb = false;
+  bool get leadOpenOnWeb => _leadOpenOnWeb;
+  set leadOpenOnWeb(bool value) {
+    _leadOpenOnWeb = value;
   }
 }
 

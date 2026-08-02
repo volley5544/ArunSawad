@@ -30,7 +30,8 @@ Future listenFirestoreAppVersion() async {
         : Platform.isIOS
             ? docSnapshot.data()!['build_number_ios']
             : 0;
-
+    FFAppState().leadOpenOnWeb =
+        docSnapshot.data()!['lead_open_on_web'] ?? false;
     if (FFAppState().isProductionNew) {
       if (FFAppState().isInApp) {
         int appVersion = await getBuildNumber() ?? 0;

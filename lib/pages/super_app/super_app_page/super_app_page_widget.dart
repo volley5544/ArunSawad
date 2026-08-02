@@ -5399,24 +5399,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'Lead',
                                                                                       );
                                                                                       Navigator.pop(context);
-                                                                                      if (true) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                title: Text('url'),
-                                                                                                content: Text('${FFAppState().isProductionNew ? FFAppState().urlStorageData.urlLink.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'lead_list_web')) : FFAppState().urlStorageData.urlLinkUat.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'lead_list_web'))}?token=${FFAppState().accessToken}'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
+                                                                                      if (FFAppState().leadOpenOnWeb) {
                                                                                         await actions.openInAppBrowser(
                                                                                           '',
                                                                                           '${FFAppState().isProductionNew ? FFAppState().urlStorageData.urlLink.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'lead_list_web')) : FFAppState().urlStorageData.urlLinkUat.elementAtOrNull(functions.getIndexOfSomethingList(FFAppState().urlStorageData.urlName.toList(), 'lead_list_web'))}?token=${FFAppState().accessToken}',
