@@ -4790,242 +4790,301 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! || functions.containStringInListString1(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)!)
-                                                                                  InkWell(
-                                                                                    splashColor: Colors.transparent,
-                                                                                    focusColor: Colors.transparent,
-                                                                                    hoverColor: Colors.transparent,
-                                                                                    highlightColor: Colors.transparent,
-                                                                                    onTap: () async {
-                                                                                      var _shouldSetState = false;
-                                                                                      HapticFeedback.mediumImpact();
-                                                                                      if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                        Navigator.pop(context);
-
-                                                                                        context.goNamed(PinCodePageWidget.routeName);
-
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      showModalBottomSheet(
-                                                                                        isScrollControlled: true,
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        barrierColor: Color(0x00000000),
-                                                                                        enableDrag: false,
-                                                                                        context: context,
-                                                                                        builder: (context) {
-                                                                                          return WebViewAware(
-                                                                                            child: GestureDetector(
-                                                                                              onTap: () {
-                                                                                                FocusScope.of(context).unfocus();
-                                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                                              },
-                                                                                              child: Padding(
-                                                                                                padding: MediaQuery.viewInsetsOf(context),
-                                                                                                child: Container(
-                                                                                                  height: double.infinity,
-                                                                                                  child: LoadingSceneWidget(),
-                                                                                                ),
-                                                                                              ),
+                                                                                FutureBuilder<ApiCallResponse>(
+                                                                                  future: GetUserProfileAPICall.call(
+                                                                                    token: FFAppState().accessToken,
+                                                                                    apiUrl: FFAppState().apiURLLocalState,
+                                                                                    projectName: 'SSW_SURVEY',
+                                                                                  ),
+                                                                                  builder: (context, snapshot) {
+                                                                                    // Customize what your widget looks like when it's loading.
+                                                                                    if (!snapshot.hasData) {
+                                                                                      return Center(
+                                                                                        child: SizedBox(
+                                                                                          width: 50.0,
+                                                                                          height: 50.0,
+                                                                                          child: CircularProgressIndicator(
+                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                              FlutterFlowTheme.of(context).tertiary,
                                                                                             ),
-                                                                                          );
-                                                                                        },
-                                                                                      ).then((value) => safeSetState(() {}));
-
-                                                                                      _model.checkLoginTeamM = await ActionUserAPICall.call(
-                                                                                        token: FFAppState().accessToken,
-                                                                                        apiUrl: FFAppState().apiURLLocalState,
+                                                                                          ),
+                                                                                        ),
                                                                                       );
+                                                                                    }
+                                                                                    final columnGetUserProfileAPIResponse = snapshot.data!;
 
-                                                                                      _shouldSetState = true;
-                                                                                      if ((_model.checkLoginTeamM?.statusCode ?? 200) != 200) {
-                                                                                        if (!((ActionUserAPICall.message(
-                                                                                                  (_model.checkLoginTeamM?.jsonBody ?? ''),
-                                                                                                ) ==
-                                                                                                'The token has been blacklisted') ||
-                                                                                            (ActionUserAPICall.message(
-                                                                                                  (_model.checkLoginTeamM?.jsonBody ?? ''),
-                                                                                                ) ==
-                                                                                                'Token Signature could not be verified.'))) {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                child: AlertDialog(
-                                                                                                  content: Text('พบข้อผิดพลาด (${(_model.checkLoginTeamM?.statusCode ?? 200).toString()})'),
-                                                                                                  actions: [
-                                                                                                    TextButton(
-                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                      child: Text('Ok'),
+                                                                                    return Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! ||
+                                                                                            functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! ||
+                                                                                            functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! ||
+                                                                                            functions.containStringInListString1(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)! ||
+                                                                                            ('${getJsonField(
+                                                                                                  columnGetUserProfileAPIResponse.jsonBody,
+                                                                                                  r'''$.UserRole[0].profile[0].role_name''',
+                                                                                                ).toString()}' ==
+                                                                                                'UNIT_M'))
+                                                                                          InkWell(
+                                                                                            splashColor: Colors.transparent,
+                                                                                            focusColor: Colors.transparent,
+                                                                                            hoverColor: Colors.transparent,
+                                                                                            highlightColor: Colors.transparent,
+                                                                                            onTap: () async {
+                                                                                              var _shouldSetState = false;
+                                                                                              HapticFeedback.mediumImpact();
+                                                                                              if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                                Navigator.pop(context);
+
+                                                                                                context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              showModalBottomSheet(
+                                                                                                isScrollControlled: true,
+                                                                                                backgroundColor: Colors.transparent,
+                                                                                                barrierColor: Color(0x00000000),
+                                                                                                enableDrag: false,
+                                                                                                context: context,
+                                                                                                builder: (context) {
+                                                                                                  return WebViewAware(
+                                                                                                    child: GestureDetector(
+                                                                                                      onTap: () {
+                                                                                                        FocusScope.of(context).unfocus();
+                                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                      },
+                                                                                                      child: Padding(
+                                                                                                        padding: MediaQuery.viewInsetsOf(context),
+                                                                                                        child: Container(
+                                                                                                          height: double.infinity,
+                                                                                                          child: LoadingSceneWidget(),
+                                                                                                        ),
+                                                                                                      ),
                                                                                                     ),
-                                                                                                  ],
-                                                                                                ),
+                                                                                                  );
+                                                                                                },
+                                                                                              ).then((value) => safeSetState(() {}));
+
+                                                                                              _model.checkLoginTeamM = await ActionUserAPICall.call(
+                                                                                                token: FFAppState().accessToken,
+                                                                                                apiUrl: FFAppState().apiURLLocalState,
                                                                                               );
+
+                                                                                              _shouldSetState = true;
+                                                                                              if ((_model.checkLoginTeamM?.statusCode ?? 200) != 200) {
+                                                                                                if (!((ActionUserAPICall.message(
+                                                                                                          (_model.checkLoginTeamM?.jsonBody ?? ''),
+                                                                                                        ) ==
+                                                                                                        'The token has been blacklisted') ||
+                                                                                                    (ActionUserAPICall.message(
+                                                                                                          (_model.checkLoginTeamM?.jsonBody ?? ''),
+                                                                                                        ) ==
+                                                                                                        'Token Signature could not be verified.'))) {
+                                                                                                  await showDialog(
+                                                                                                    context: context,
+                                                                                                    builder: (alertDialogContext) {
+                                                                                                      return WebViewAware(
+                                                                                                        child: AlertDialog(
+                                                                                                          content: Text('พบข้อผิดพลาด (${(_model.checkLoginTeamM?.statusCode ?? 200).toString()})'),
+                                                                                                          actions: [
+                                                                                                            TextButton(
+                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                              child: Text('Ok'),
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                      );
+                                                                                                    },
+                                                                                                  );
+                                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                                  return;
+                                                                                                }
+                                                                                                await showDialog(
+                                                                                                  context: context,
+                                                                                                  builder: (alertDialogContext) {
+                                                                                                    return WebViewAware(
+                                                                                                      child: AlertDialog(
+                                                                                                        content: Text('Session Loginหมดอายุ'),
+                                                                                                        actions: [
+                                                                                                          TextButton(
+                                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                            child: Text('Ok'),
+                                                                                                          ),
+                                                                                                        ],
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  },
+                                                                                                );
+                                                                                                FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                                FFAppState().deleteAccessToken();
+                                                                                                FFAppState().accessToken = 'access_token';
+
+                                                                                                FFAppState().update(() {});
+                                                                                                FFAppState().deleteEmployeeID();
+                                                                                                FFAppState().employeeID = 'employee_id';
+
+                                                                                                FFAppState().QRCodeLink = 'qrcode_link';
+                                                                                                FFAppState().update(() {});
+                                                                                                FFAppState().deleteApiURLLocalState();
+                                                                                                FFAppState().apiURLLocalState = 'api_url_local_state';
+
+                                                                                                FFAppState().deleteBranchCode();
+                                                                                                FFAppState().branchCode = 'branch_code';
+
+                                                                                                FFAppState().update(() {});
+                                                                                                FFAppState().isFromSetPinPage = false;
+                                                                                                FFAppState().leadChannelColor = [];
+                                                                                                FFAppState().update(() {});
+                                                                                                FFAppState().leadChannelList = [];
+                                                                                                FFAppState().isFromLoginPage = false;
+                                                                                                FFAppState().update(() {});
+                                                                                                FFAppState().deletePinCodeAuthen();
+                                                                                                FFAppState().pinCodeAuthen = '013972';
+
+                                                                                                FFAppState().isFromAuthenPage = false;
+                                                                                                FFAppState().update(() {});
+                                                                                                FFAppState().deleteDateDoNotShowAgain();
+                                                                                                FFAppState().dateDoNotShowAgain = null;
+
+                                                                                                FFAppState().deleteDoNotShowAgain();
+                                                                                                FFAppState().doNotShowAgain = false;
+
+                                                                                                FFAppState().update(() {});
+                                                                                                FFAppState().inAppViaNotification = true;
+                                                                                                FFAppState().isInApp = false;
+                                                                                                FFAppState().update(() {});
+                                                                                                FFAppState().fcmToken = 'fcm_token';
+                                                                                                FFAppState().isPassLoginSection = false;
+                                                                                                FFAppState().update(() {});
+                                                                                                Navigator.pop(context);
+                                                                                                await actions.a22();
+
+                                                                                                context.goNamed(LoginPageWidget.routeName);
+
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              Navigator.pop(context);
+                                                                                              await showDialog(
+                                                                                                context: context,
+                                                                                                builder: (alertDialogContext) {
+                                                                                                  return WebViewAware(
+                                                                                                    child: AlertDialog(
+                                                                                                      content: Text(functions.containStringInListString1(functions.getListDataFromJson(FFAppState().roleMenuJson, 'region_role_position')?.toList(), FFAppState().profilePositionName)!.toString()),
+                                                                                                      actions: [
+                                                                                                        TextButton(
+                                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                          child: Text('Ok'),
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  );
+                                                                                                },
+                                                                                              );
+
+                                                                                              context.goNamed(
+                                                                                                TabCollectionTeamMPageWidget.routeName,
+                                                                                                queryParameters: {
+                                                                                                  'branchCode': serializeParam(
+                                                                                                    FFAppState().branchCode,
+                                                                                                    ParamType.String,
+                                                                                                  ),
+                                                                                                  'profileLevel': serializeParam(
+                                                                                                    FFAppState().profileLevel,
+                                                                                                    ParamType.String,
+                                                                                                  ),
+                                                                                                  'isTeamM': serializeParam(
+                                                                                                    !functions.containStringInListString1(functions.getListDataFromJson(FFAppState().roleMenuJson, 'region_role_position')?.toList(), FFAppState().profilePositionName)! ||
+                                                                                                        ('${getJsonField(
+                                                                                                              columnGetUserProfileAPIResponse.jsonBody,
+                                                                                                              r'''$.UserRole[0].profile[0].role_name''',
+                                                                                                            ).toString()}' ==
+                                                                                                            'UNIT_M'),
+                                                                                                    ParamType.bool,
+                                                                                                  ),
+                                                                                                }.withoutNulls,
+                                                                                              );
+
+                                                                                              if (_shouldSetState) safeSetState(() {});
                                                                                             },
-                                                                                          );
-                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                          return;
-                                                                                        }
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('Session Loginหมดอายุ'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
+                                                                                            child: Container(
+                                                                                              width: 100.0,
+                                                                                              height: 100.0,
+                                                                                              decoration: BoxDecoration(
+                                                                                                color: Colors.white,
+                                                                                                shape: BoxShape.circle,
+                                                                                              ),
+                                                                                              child: Column(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                children: [
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                                    child: Container(
+                                                                                                      width: () {
+                                                                                                        if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                          return 50.0;
+                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                        } else {
+                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                        }
+                                                                                                      }(),
+                                                                                                      height: () {
+                                                                                                        if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                          return 50.0;
+                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                        } else {
+                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                        }
+                                                                                                      }(),
+                                                                                                      clipBehavior: Clip.antiAlias,
+                                                                                                      decoration: BoxDecoration(
+                                                                                                        shape: BoxShape.circle,
+                                                                                                      ),
+                                                                                                      child: Image.asset(
+                                                                                                        'assets/images/approveicon4.png',
+                                                                                                        fit: BoxFit.contain,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  Text(
+                                                                                                    'ตามหนี้หน่วยM',
+                                                                                                    textAlign: TextAlign.center,
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          font: GoogleFonts.poppins(
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                          ),
+                                                                                                          fontSize: () {
+                                                                                                            if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                              return 12.0;
+                                                                                                            } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                              return 20.0;
+                                                                                                            } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                              return 20.0;
+                                                                                                            } else {
+                                                                                                              return 20.0;
+                                                                                                            }
+                                                                                                          }(),
+                                                                                                          letterSpacing: 0.0,
+                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                        ),
                                                                                                   ),
                                                                                                 ],
                                                                                               ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                        FFAppState().deleteAccessToken();
-                                                                                        FFAppState().accessToken = 'access_token';
-
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().deleteEmployeeID();
-                                                                                        FFAppState().employeeID = 'employee_id';
-
-                                                                                        FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().deleteApiURLLocalState();
-                                                                                        FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                        FFAppState().deleteBranchCode();
-                                                                                        FFAppState().branchCode = 'branch_code';
-
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().isFromSetPinPage = false;
-                                                                                        FFAppState().leadChannelColor = [];
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().leadChannelList = [];
-                                                                                        FFAppState().isFromLoginPage = false;
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().deletePinCodeAuthen();
-                                                                                        FFAppState().pinCodeAuthen = '013972';
-
-                                                                                        FFAppState().isFromAuthenPage = false;
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().deleteDateDoNotShowAgain();
-                                                                                        FFAppState().dateDoNotShowAgain = null;
-
-                                                                                        FFAppState().deleteDoNotShowAgain();
-                                                                                        FFAppState().doNotShowAgain = false;
-
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().inAppViaNotification = true;
-                                                                                        FFAppState().isInApp = false;
-                                                                                        FFAppState().update(() {});
-                                                                                        FFAppState().fcmToken = 'fcm_token';
-                                                                                        FFAppState().isPassLoginSection = false;
-                                                                                        FFAppState().update(() {});
-                                                                                        Navigator.pop(context);
-                                                                                        await actions.a22();
-
-                                                                                        context.goNamed(LoginPageWidget.routeName);
-
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed(
-                                                                                        TabCollectionTeamMPageWidget.routeName,
-                                                                                        queryParameters: {
-                                                                                          'branchCode': serializeParam(
-                                                                                            FFAppState().branchCode,
-                                                                                            ParamType.String,
-                                                                                          ),
-                                                                                          'profileLevel': serializeParam(
-                                                                                            FFAppState().profileLevel,
-                                                                                            ParamType.String,
-                                                                                          ),
-                                                                                          'isTeamM': serializeParam(
-                                                                                            !functions.containStringInListString1(functions.getListDataFromJson(FFAppState().roleMenuJson, 'region_role_position')?.toList(), FFAppState().profilePositionName)!,
-                                                                                            ParamType.bool,
-                                                                                          ),
-                                                                                        }.withoutNulls,
-                                                                                      );
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                    },
-                                                                                    child: Container(
-                                                                                      width: 100.0,
-                                                                                      height: 100.0,
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: Colors.white,
-                                                                                        shape: BoxShape.circle,
-                                                                                      ),
-                                                                                      child: Column(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                                            child: Container(
-                                                                                              width: () {
-                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                  return 50.0;
-                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                } else {
-                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                }
-                                                                                              }(),
-                                                                                              height: () {
-                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                  return 50.0;
-                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                } else {
-                                                                                                  return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                }
-                                                                                              }(),
-                                                                                              clipBehavior: Clip.antiAlias,
-                                                                                              decoration: BoxDecoration(
-                                                                                                shape: BoxShape.circle,
-                                                                                              ),
-                                                                                              child: Image.asset(
-                                                                                                'assets/images/approveicon4.png',
-                                                                                                fit: BoxFit.contain,
-                                                                                              ),
                                                                                             ),
                                                                                           ),
-                                                                                          Text(
-                                                                                            'ตามหนี้หน่วยM',
-                                                                                            textAlign: TextAlign.center,
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  font: GoogleFonts.poppins(
-                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                  ),
-                                                                                                  fontSize: () {
-                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                      return 12.0;
-                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                      return 20.0;
-                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                      return 20.0;
-                                                                                                    } else {
-                                                                                                      return 20.0;
-                                                                                                    }
-                                                                                                  }(),
-                                                                                                  letterSpacing: 0.0,
-                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
+                                                                                      ],
+                                                                                    );
+                                                                                  },
+                                                                                ),
                                                                                 if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'QR Payment', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'QR Payment')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'QR Payment')?.toList(), FFAppState().profilePositionName)!)
                                                                                   InkWell(
                                                                                     splashColor: Colors.transparent,

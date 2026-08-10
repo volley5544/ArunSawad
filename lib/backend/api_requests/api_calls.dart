@@ -10989,9 +10989,11 @@ class CollectionFollowupDebtSLSCall {
     String? role = '',
     String? apiUrl = '',
     String? empCode = '',
+    String? branchM = '',
   }) async {
     final ffApiRequestBody = '''
 {
+"branchM":"${branchM}",
   "branchCode": "${branchCode}",
   "codeKate": "${codeKate}",
   "codeRegion": "${codeRegion}",
