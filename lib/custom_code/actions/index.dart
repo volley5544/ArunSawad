@@ -89,6 +89,8 @@ export '/custom_code/actions/convert_base64_to_f_f_files.dart'
 export '/custom_code/actions/find_most_similar_string.dart'
     show findMostSimilarString;
 export '/custom_code/actions/open_in_app_browser.dart' show openInAppBrowser;
+export '/custom_code/actions/open_in_app_browser_new.dart'
+    show openInAppBrowserNew;
 export '/custom_code/actions/scan_qr_code.dart' show scanQrCode;
 export '/custom_code/actions/check_total_file_size.dart'
     show checkTotalFileSize;

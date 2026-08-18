@@ -12765,6 +12765,23 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             gridViewMenuIconOtherRecord.linkUrl,
                                                                                             FFAppState().isOpenAndroidTableauBrowser,
                                                                                           );
+                                                                                        } else if (gridViewMenuIconOtherRecord.openType == 'browser') {
+                                                                                          await actions.openInAppBrowserNew(
+                                                                                            () {
+                                                                                              if (gridViewMenuIconOtherRecord.paramType == 'no') {
+                                                                                                return '';
+                                                                                              } else if (gridViewMenuIconOtherRecord.paramType == 'token') {
+                                                                                                return '/${FFAppState().accessToken}';
+                                                                                              } else if (gridViewMenuIconOtherRecord.paramType == 'employee_id') {
+                                                                                                return '/${FFAppState().employeeID}';
+                                                                                              } else if (gridViewMenuIconOtherRecord.paramType == 'branch_code') {
+                                                                                                return '/${FFAppState().profileBranch}';
+                                                                                              } else {
+                                                                                                return '';
+                                                                                              }
+                                                                                            }(),
+                                                                                            gridViewMenuIconOtherRecord.linkUrl,
+                                                                                          );
                                                                                         } else {
                                                                                           await launchURL('${gridViewMenuIconOtherRecord.linkUrl}${() {
                                                                                             if (gridViewMenuIconOtherRecord.paramType == 'no') {
