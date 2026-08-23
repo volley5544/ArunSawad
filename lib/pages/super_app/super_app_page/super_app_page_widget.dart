@@ -2205,6 +2205,53 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                   FFAppState()
                                                                       .isOpenAndroidTableauBrowser,
                                                                 );
+                                                              } else if ((functions
+                                                                      .sortingListByOrder(
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.openType
+                                                                              ?.toList(),
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.index
+                                                                              ?.toList())
+                                                                      ?.elementAtOrNull(
+                                                                          bannerImgListIndex)) ==
+                                                                  'browser') {
+                                                                await actions
+                                                                    .openInAppBrowserNew(
+                                                                  () {
+                                                                    if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
+                                                                            bannerImgListIndex)) ==
+                                                                        'no') {
+                                                                      return '';
+                                                                    } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
+                                                                            bannerImgListIndex)) ==
+                                                                        'token') {
+                                                                      return '/${FFAppState().accessToken}';
+                                                                    } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
+                                                                            bannerImgListIndex)) ==
+                                                                        'employee_id') {
+                                                                      return '/${FFAppState().employeeID}';
+                                                                    } else if ((functions
+                                                                            .sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
+                                                                                pageViewBannerArunSawadImgBannerRecord?.index?.toList())
+                                                                            ?.elementAtOrNull(bannerImgListIndex)) ==
+                                                                        'branch_code') {
+                                                                      return '/${FFAppState().profileBranch}';
+                                                                    } else {
+                                                                      return '';
+                                                                    }
+                                                                  }(),
+                                                                  functions
+                                                                      .sortingListByOrder(
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.linkUrl
+                                                                              ?.toList(),
+                                                                          pageViewBannerArunSawadImgBannerRecord
+                                                                              ?.index
+                                                                              ?.toList())
+                                                                      ?.elementAtOrNull(
+                                                                          bannerImgListIndex),
+                                                                );
                                                               } else {
                                                                 await launchURL(
                                                                     '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerImgListIndex)}${() {
