@@ -51,6 +51,11 @@ class ArunSawadImgBannerRecord extends FirestoreRecord {
   List<String> get paramType => _paramType ?? const [];
   bool hasParamType() => _paramType != null;
 
+  // "include_slash" field.
+  List<bool>? _includeSlash;
+  List<bool> get includeSlash => _includeSlash ?? const [];
+  bool hasIncludeSlash() => _includeSlash != null;
+
   void _initializeFields() {
     _imgUrl = getDataList(snapshotData['img_url']);
     _isHaveLink = getDataList(snapshotData['isHaveLink']);
@@ -59,6 +64,7 @@ class ArunSawadImgBannerRecord extends FirestoreRecord {
     _blurHash = getDataList(snapshotData['blur_hash']);
     _openType = getDataList(snapshotData['open_type']);
     _paramType = getDataList(snapshotData['param_type']);
+    _includeSlash = getDataList(snapshotData['include_slash']);
   }
 
   static CollectionReference get collection =>
@@ -117,7 +123,8 @@ class ArunSawadImgBannerRecordDocumentEquality
         listEquality.equals(e1?.index, e2?.index) &&
         listEquality.equals(e1?.blurHash, e2?.blurHash) &&
         listEquality.equals(e1?.openType, e2?.openType) &&
-        listEquality.equals(e1?.paramType, e2?.paramType);
+        listEquality.equals(e1?.paramType, e2?.paramType) &&
+        listEquality.equals(e1?.includeSlash, e2?.includeSlash);
   }
 
   @override
@@ -128,7 +135,8 @@ class ArunSawadImgBannerRecordDocumentEquality
         e?.index,
         e?.blurHash,
         e?.openType,
-        e?.paramType
+        e?.paramType,
+        e?.includeSlash
       ]);
 
   @override

@@ -2134,7 +2134,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           ?.elementAtOrNull(
                                                                               bannerImgListIndex)) ==
                                                                       'token') {
-                                                                    return '/${FFAppState().accessToken}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().accessToken}';
                                                                   } else if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType
@@ -2144,14 +2144,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           ?.elementAtOrNull(
                                                                               bannerImgListIndex)) ==
                                                                       'employee_id') {
-                                                                    return '/${FFAppState().employeeID}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().employeeID}';
                                                                   } else if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
                                                                               pageViewBannerArunSawadImgBannerRecord?.index?.toList())
                                                                           ?.elementAtOrNull(bannerImgListIndex)) ==
                                                                       'branch_code') {
-                                                                    return '/${FFAppState().profileBranch}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().profileBranch}';
                                                                   } else {
                                                                     return '';
                                                                   }
@@ -2226,17 +2226,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                     } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
                                                                             bannerImgListIndex)) ==
                                                                         'token') {
-                                                                      return '/${FFAppState().accessToken}';
+                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().accessToken}';
                                                                     } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
                                                                             bannerImgListIndex)) ==
                                                                         'employee_id') {
-                                                                      return '/${FFAppState().employeeID}';
+                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().employeeID}';
                                                                     } else if ((functions
                                                                             .sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
                                                                                 pageViewBannerArunSawadImgBannerRecord?.index?.toList())
                                                                             ?.elementAtOrNull(bannerImgListIndex)) ==
                                                                         'branch_code') {
-                                                                      return '/${FFAppState().profileBranch}';
+                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().profileBranch}';
                                                                     } else {
                                                                       return '';
                                                                     }
@@ -2274,7 +2274,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           ?.elementAtOrNull(
                                                                               bannerImgListIndex)) ==
                                                                       'token') {
-                                                                    return '/${FFAppState().accessToken}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().accessToken}';
                                                                   } else if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType
@@ -2284,14 +2284,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           ?.elementAtOrNull(
                                                                               bannerImgListIndex)) ==
                                                                       'employee_id') {
-                                                                    return '/${FFAppState().employeeID}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().employeeID}';
                                                                   } else if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
                                                                               pageViewBannerArunSawadImgBannerRecord?.index?.toList())
                                                                           ?.elementAtOrNull(bannerImgListIndex)) ==
                                                                       'branch_code') {
-                                                                    return '/${FFAppState().profileBranch}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().profileBranch}';
                                                                   } else {
                                                                     return '';
                                                                   }
@@ -12785,11 +12785,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             if (gridViewMenuIconOtherRecord.paramType == 'no') {
                                                                                               return '';
                                                                                             } else if (gridViewMenuIconOtherRecord.paramType == 'token') {
-                                                                                              return '/${FFAppState().accessToken}';
+                                                                                              return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().accessToken}';
                                                                                             } else if (gridViewMenuIconOtherRecord.paramType == 'employee_id') {
-                                                                                              return '/${FFAppState().employeeID}';
+                                                                                              return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().employeeID}';
                                                                                             } else if (gridViewMenuIconOtherRecord.paramType == 'branch_code') {
-                                                                                              return '/${FFAppState().profileBranch}';
+                                                                                              return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
                                                                                             } else {
                                                                                               return '';
                                                                                             }
@@ -12818,11 +12818,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                               if (gridViewMenuIconOtherRecord.paramType == 'no') {
                                                                                                 return '';
                                                                                               } else if (gridViewMenuIconOtherRecord.paramType == 'token') {
-                                                                                                return '/${FFAppState().accessToken}';
+                                                                                                return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().accessToken}';
                                                                                               } else if (gridViewMenuIconOtherRecord.paramType == 'employee_id') {
-                                                                                                return '/${FFAppState().employeeID}';
+                                                                                                return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().employeeID}';
                                                                                               } else if (gridViewMenuIconOtherRecord.paramType == 'branch_code') {
-                                                                                                return '/${FFAppState().profileBranch}';
+                                                                                                return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
                                                                                               } else {
                                                                                                 return '';
                                                                                               }
@@ -12834,11 +12834,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             if (gridViewMenuIconOtherRecord.paramType == 'no') {
                                                                                               return '';
                                                                                             } else if (gridViewMenuIconOtherRecord.paramType == 'token') {
-                                                                                              return '/${FFAppState().accessToken}';
+                                                                                              return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().accessToken}';
                                                                                             } else if (gridViewMenuIconOtherRecord.paramType == 'employee_id') {
-                                                                                              return '/${FFAppState().employeeID}';
+                                                                                              return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().employeeID}';
                                                                                             } else if (gridViewMenuIconOtherRecord.paramType == 'branch_code') {
-                                                                                              return '/${FFAppState().profileBranch}';
+                                                                                              return '${gridViewMenuIconOtherRecord.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
                                                                                             } else {
                                                                                               return '';
                                                                                             }

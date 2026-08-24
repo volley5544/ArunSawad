@@ -51,6 +51,11 @@ class MenuIconOtherRecord extends FirestoreRecord {
   String get iconBlurHash => _iconBlurHash ?? '';
   bool hasIconBlurHash() => _iconBlurHash != null;
 
+  // "include_slash" field.
+  bool? _includeSlash;
+  bool get includeSlash => _includeSlash ?? false;
+  bool hasIncludeSlash() => _includeSlash != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _icon = snapshotData['icon'] as String?;
@@ -59,6 +64,7 @@ class MenuIconOtherRecord extends FirestoreRecord {
     _order = castToType<int>(snapshotData['order']);
     _openType = snapshotData['open_type'] as String?;
     _iconBlurHash = snapshotData['icon_blur_hash'] as String?;
+    _includeSlash = snapshotData['include_slash'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -103,6 +109,7 @@ Map<String, dynamic> createMenuIconOtherRecordData({
   int? order,
   String? openType,
   String? iconBlurHash,
+  bool? includeSlash,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -113,6 +120,7 @@ Map<String, dynamic> createMenuIconOtherRecordData({
       'order': order,
       'open_type': openType,
       'icon_blur_hash': iconBlurHash,
+      'include_slash': includeSlash,
     }.withoutNulls,
   );
 
@@ -131,7 +139,8 @@ class MenuIconOtherRecordDocumentEquality
         e1?.paramType == e2?.paramType &&
         e1?.order == e2?.order &&
         e1?.openType == e2?.openType &&
-        e1?.iconBlurHash == e2?.iconBlurHash;
+        e1?.iconBlurHash == e2?.iconBlurHash &&
+        e1?.includeSlash == e2?.includeSlash;
   }
 
   @override
@@ -142,7 +151,8 @@ class MenuIconOtherRecordDocumentEquality
         e?.paramType,
         e?.order,
         e?.openType,
-        e?.iconBlurHash
+        e?.iconBlurHash,
+        e?.includeSlash
       ]);
 
   @override
