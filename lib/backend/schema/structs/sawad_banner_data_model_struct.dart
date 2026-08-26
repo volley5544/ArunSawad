@@ -18,6 +18,8 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
     String? linkUrl,
     String? openType,
     String? paramType,
+    bool? showingAll,
+    String? bannerCode,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _blurHash = blurHash,
         _imgUrl = imgUrl,
@@ -27,6 +29,8 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
         _linkUrl = linkUrl,
         _openType = openType,
         _paramType = paramType,
+        _showingAll = showingAll,
+        _bannerCode = bannerCode,
         super(firestoreUtilData);
 
   // "blur_hash" field.
@@ -87,6 +91,20 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
 
   bool hasParamType() => _paramType != null;
 
+  // "showing_all" field.
+  bool? _showingAll;
+  bool get showingAll => _showingAll ?? false;
+  set showingAll(bool? val) => _showingAll = val;
+
+  bool hasShowingAll() => _showingAll != null;
+
+  // "banner_code" field.
+  String? _bannerCode;
+  String get bannerCode => _bannerCode ?? '';
+  set bannerCode(String? val) => _bannerCode = val;
+
+  bool hasBannerCode() => _bannerCode != null;
+
   static SawadBannerDataModelStruct fromMap(Map<String, dynamic> data) =>
       SawadBannerDataModelStruct(
         blurHash: data['blur_hash'] as String?,
@@ -97,6 +115,8 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
         linkUrl: data['link_url'] as String?,
         openType: data['open_type'] as String?,
         paramType: data['param_type'] as String?,
+        showingAll: data['showing_all'] as bool?,
+        bannerCode: data['banner_code'] as String?,
       );
 
   static SawadBannerDataModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -112,6 +132,8 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
         'link_url': _linkUrl,
         'open_type': _openType,
         'param_type': _paramType,
+        'showing_all': _showingAll,
+        'banner_code': _bannerCode,
       }.withoutNulls;
 
   @override
@@ -146,6 +168,14 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
         ),
         'param_type': serializeParam(
           _paramType,
+          ParamType.String,
+        ),
+        'showing_all': serializeParam(
+          _showingAll,
+          ParamType.bool,
+        ),
+        'banner_code': serializeParam(
+          _bannerCode,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -193,6 +223,16 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        showingAll: deserializeParam(
+          data['showing_all'],
+          ParamType.bool,
+          false,
+        ),
+        bannerCode: deserializeParam(
+          data['banner_code'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -208,7 +248,9 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
         isHaveLink == other.isHaveLink &&
         linkUrl == other.linkUrl &&
         openType == other.openType &&
-        paramType == other.paramType;
+        paramType == other.paramType &&
+        showingAll == other.showingAll &&
+        bannerCode == other.bannerCode;
   }
 
   @override
@@ -220,7 +262,9 @@ class SawadBannerDataModelStruct extends FFFirebaseStruct {
         isHaveLink,
         linkUrl,
         openType,
-        paramType
+        paramType,
+        showingAll,
+        bannerCode
       ]);
 }
 
@@ -233,6 +277,8 @@ SawadBannerDataModelStruct createSawadBannerDataModelStruct({
   String? linkUrl,
   String? openType,
   String? paramType,
+  bool? showingAll,
+  String? bannerCode,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -247,6 +293,8 @@ SawadBannerDataModelStruct createSawadBannerDataModelStruct({
       linkUrl: linkUrl,
       openType: openType,
       paramType: paramType,
+      showingAll: showingAll,
+      bannerCode: bannerCode,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

@@ -1938,484 +1938,338 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
-                                  child: FutureBuilder<
-                                      List<ArunSawadImgBannerRecord>>(
-                                    future: queryArunSawadImgBannerRecordOnce(
-                                      singleRecord: true,
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .tertiary,
+                                  child: Builder(
+                                    builder: (context) {
+                                      final bannerListItem = _model
+                                          .bannerListData
+                                          .where((e) => e.showingAll
+                                              ? true
+                                              : (functions.getSpecificIndexFromJson(
+                                                      FFAppState().roleMenuJson,
+                                                      '${e.bannerCode}',
+                                                      FFAppState()
+                                                          .profileLevel)! ||
+                                                  functions.containStringInListString(
+                                                      functions
+                                                          .getListDataFromJson(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'empAdmin')
+                                                          ?.toList(),
+                                                      FFAppState()
+                                                          .employeeID)! ||
+                                                  functions.containsValueInDataTypeList(
+                                                      functions
+                                                          .getDataTypeFromJson(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'adminRoleGroup')
+                                                          ?.toList(),
+                                                      FFAppState().employeeID,
+                                                      '${e.bannerCode}')! ||
+                                                  functions.containListInString(
+                                                      functions
+                                                          .getListDataFromJsonList(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'positionName',
+                                                              '${e.bannerCode}')
+                                                          ?.toList(),
+                                                      FFAppState().profilePositionName)!))
+                                          .toList();
+
+                                      return Container(
+                                        width: double.infinity,
+                                        height: 300.0,
+                                        child: Stack(
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 40.0),
+                                              child: PageView.builder(
+                                                controller: _model
+                                                        .pageViewBannerController ??=
+                                                    PageController(
+                                                        initialPage: max(
+                                                            0,
+                                                            min(
+                                                                0,
+                                                                bannerListItem
+                                                                        .length -
+                                                                    1))),
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                itemCount:
+                                                    bannerListItem.length,
+                                                itemBuilder: (context,
+                                                    bannerListItemIndex) {
+                                                  final bannerListItemItem =
+                                                      bannerListItem[
+                                                          bannerListItemIndex];
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      if (bannerListItemItem
+                                                              .linkUrl !=
+                                                          'Hello World') {
+                                                        if (!bannerListItemItem
+                                                            .isHaveLink) {
+                                                          await launchURL(
+                                                              bannerListItemItem
+                                                                  .linkUrl);
+                                                        } else {
+                                                          if (bannerListItemItem
+                                                                  .linkUrl ==
+                                                              'Bottom Sheet') {
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              enableDrag: false,
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          Container(
+                                                                        height:
+                                                                            double.infinity,
+                                                                        child:
+                                                                            TiktokSplashPageWidget(),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) =>
+                                                                safeSetState(
+                                                                    () {}));
+
+                                                            return;
+                                                          }
+                                                          if (bannerListItemItem
+                                                                  .openType ==
+                                                              'launch_url') {
+                                                            await launchURL(
+                                                                '${bannerListItemItem.linkUrl}${() {
+                                                              if (bannerListItemItem
+                                                                      .paramType ==
+                                                                  'no') {
+                                                                return '';
+                                                              } else if (bannerListItemItem
+                                                                      .paramType ==
+                                                                  'token') {
+                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                              } else if (bannerListItemItem
+                                                                      .paramType ==
+                                                                  'employee_id') {
+                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                              } else if (bannerListItemItem
+                                                                      .paramType ==
+                                                                  'branch_code') {
+                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                              } else {
+                                                                return '';
+                                                              }
+                                                            }()}');
+                                                          } else if (bannerListItemItem
+                                                                  .openType ==
+                                                              'in_app_browser') {
+                                                            await actions
+                                                                .openTableauBrowser(
+                                                              () {
+                                                                if (bannerListItemItem
+                                                                        .paramType ==
+                                                                    'no') {
+                                                                  return '';
+                                                                } else if (bannerListItemItem
+                                                                        .paramType ==
+                                                                    'token') {
+                                                                  return '${FFAppState().accessToken}';
+                                                                } else if (bannerListItemItem
+                                                                        .paramType ==
+                                                                    'employee_id') {
+                                                                  return '${FFAppState().employeeID}';
+                                                                } else if (bannerListItemItem
+                                                                        .paramType ==
+                                                                    'branch_code') {
+                                                                  return '${FFAppState().profileBranch}';
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                              bannerListItemItem
+                                                                  .linkUrl,
+                                                              FFAppState()
+                                                                  .isOpenAndroidTableauBrowser,
+                                                            );
+                                                          } else if (bannerListItemItem
+                                                                  .openType ==
+                                                              'browser') {
+                                                            await actions
+                                                                .openInAppBrowserNew(
+                                                              () {
+                                                                if (bannerListItemItem
+                                                                        .paramType ==
+                                                                    'no') {
+                                                                  return '';
+                                                                } else if (bannerListItemItem
+                                                                        .paramType ==
+                                                                    'token') {
+                                                                  return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                                } else if (bannerListItemItem
+                                                                        .paramType ==
+                                                                    'employee_id') {
+                                                                  return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                                } else if (bannerListItemItem
+                                                                        .paramType ==
+                                                                    'branch_code') {
+                                                                  return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                              bannerListItemItem
+                                                                  .linkUrl,
+                                                            );
+                                                          } else {
+                                                            await launchURL(
+                                                                '${bannerListItemItem.linkUrl}${() {
+                                                              if (bannerListItemItem
+                                                                      .paramType ==
+                                                                  'no') {
+                                                                return '';
+                                                              } else if (bannerListItemItem
+                                                                      .paramType ==
+                                                                  'token') {
+                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                              } else if (bannerListItemItem
+                                                                      .paramType ==
+                                                                  'employee_id') {
+                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                              } else if (bannerListItemItem
+                                                                      .paramType ==
+                                                                  'branch_code') {
+                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                              } else {
+                                                                return '';
+                                                              }
+                                                            }()}');
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    child: OctoImage(
+                                                      placeholderBuilder: (_) {
+                                                        final blurHash =
+                                                            bannerListItemItem
+                                                                .blurHash;
+
+                                                        if (!validateBlurhash(
+                                                            blurHash)) {
+                                                          return const SizedBox
+                                                              .shrink();
+                                                        }
+                                                        return SizedBox.expand(
+                                                          child: Image(
+                                                            image:
+                                                                BlurHashImage(
+                                                                    blurHash),
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        );
+                                                      },
+                                                      image:
+                                                          CachedNetworkImageProvider(
+                                                        functions.stringToImgPath(
+                                                            bannerListItemItem
+                                                                .imgUrl)!,
+                                                      ),
+                                                      width: 100.0,
+                                                      height: 100.0,
+                                                      fit: BoxFit.fitWidth,
+                                                    ),
+                                                  );
+                                                },
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      }
-                                      List<ArunSawadImgBannerRecord>
-                                          pageViewBannerArunSawadImgBannerRecordList =
-                                          snapshot.data!;
-                                      // Return an empty Container when the item does not exist.
-                                      if (snapshot.data!.isEmpty) {
-                                        return Container();
-                                      }
-                                      final pageViewBannerArunSawadImgBannerRecord =
-                                          pageViewBannerArunSawadImgBannerRecordList
-                                                  .isNotEmpty
-                                              ? pageViewBannerArunSawadImgBannerRecordList
-                                                  .first
-                                              : null;
-
-                                      return Builder(
-                                        builder: (context) {
-                                          final bannerListItem =
-                                              _model.bannerListData.toList();
-
-                                          return Container(
-                                            width: double.infinity,
-                                            height: 300.0,
-                                            child: Stack(
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 40.0),
-                                                  child: PageView.builder(
-                                                    controller: _model
-                                                            .pageViewBannerController ??=
-                                                        PageController(
-                                                            initialPage: max(
-                                                                0,
-                                                                min(
-                                                                    0,
-                                                                    bannerListItem
-                                                                            .length -
-                                                                        1))),
-                                                    scrollDirection:
-                                                        Axis.horizontal,
-                                                    itemCount:
-                                                        bannerListItem.length,
-                                                    itemBuilder: (context,
-                                                        bannerListItemIndex) {
-                                                      final bannerListItemItem =
-                                                          bannerListItem[
-                                                              bannerListItemIndex];
-                                                      return InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          if ((functions
-                                                                  .sortingListByOrder(
-                                                                      pageViewBannerArunSawadImgBannerRecord
-                                                                          ?.linkUrl
-                                                                          ?.toList(),
-                                                                      pageViewBannerArunSawadImgBannerRecord
-                                                                          ?.index
-                                                                          ?.toList())
-                                                                  ?.elementAtOrNull(
-                                                                      bannerListItemIndex)) !=
-                                                              'Hello World') {
-                                                            if ((functions
-                                                                    .sortingBoolListByOrder(
-                                                                        pageViewBannerArunSawadImgBannerRecord
-                                                                            ?.isHaveLink
-                                                                            ?.toList(),
-                                                                        pageViewBannerArunSawadImgBannerRecord
-                                                                            ?.index
-                                                                            ?.toList())
-                                                                    ?.elementAtOrNull(
-                                                                        bannerListItemIndex)) !=
-                                                                true) {
-                                                              await launchURL((functions
-                                                                  .sortingListByOrder(
-                                                                      pageViewBannerArunSawadImgBannerRecord
-                                                                          ?.linkUrl
-                                                                          ?.toList(),
-                                                                      pageViewBannerArunSawadImgBannerRecord
-                                                                          ?.index
-                                                                          ?.toList())!
-                                                                  .elementAtOrNull(
-                                                                      bannerListItemIndex))!);
-                                                            } else {
-                                                              if ((functions
-                                                                      .sortingListByOrder(
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.linkUrl
-                                                                              ?.toList(),
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.index
-                                                                              ?.toList())
-                                                                      ?.elementAtOrNull(
-                                                                          bannerListItemIndex)) ==
-                                                                  'Bottom Sheet') {
-                                                                await showModalBottomSheet(
-                                                                  isScrollControlled:
-                                                                      true,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  enableDrag:
-                                                                      false,
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (context) {
-                                                                    return WebViewAware(
-                                                                      child:
-                                                                          GestureDetector(
-                                                                        onTap:
-                                                                            () {
-                                                                          FocusScope.of(context)
-                                                                              .unfocus();
-                                                                          FocusManager
-                                                                              .instance
-                                                                              .primaryFocus
-                                                                              ?.unfocus();
-                                                                        },
-                                                                        child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
-                                                                          child:
-                                                                              Container(
-                                                                            height:
-                                                                                double.infinity,
-                                                                            child:
-                                                                                TiktokSplashPageWidget(),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                ).then((value) =>
-                                                                    safeSetState(
-                                                                        () {}));
-
-                                                                return;
-                                                              }
-                                                              if ((functions
-                                                                      .sortingListByOrder(
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.openType
-                                                                              ?.toList(),
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.index
-                                                                              ?.toList())
-                                                                      ?.elementAtOrNull(
-                                                                          bannerListItemIndex)) ==
-                                                                  'launch_url') {
-                                                                await launchURL(
-                                                                    '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerListItemIndex)}${() {
-                                                                  if ((functions
-                                                                          .sortingListByOrder(
-                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
-                                                                                  ?.toList(),
-                                                                              pageViewBannerArunSawadImgBannerRecord?.index
-                                                                                  ?.toList())
-                                                                          ?.elementAtOrNull(
-                                                                              bannerListItemIndex)) ==
-                                                                      'no') {
-                                                                    return '';
-                                                                  } else if ((functions
-                                                                          .sortingListByOrder(
-                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
-                                                                                  ?.toList(),
-                                                                              pageViewBannerArunSawadImgBannerRecord?.index
-                                                                                  ?.toList())
-                                                                          ?.elementAtOrNull(
-                                                                              bannerListItemIndex)) ==
-                                                                      'token') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().accessToken}';
-                                                                  } else if ((functions
-                                                                          .sortingListByOrder(
-                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
-                                                                                  ?.toList(),
-                                                                              pageViewBannerArunSawadImgBannerRecord?.index
-                                                                                  ?.toList())
-                                                                          ?.elementAtOrNull(
-                                                                              bannerListItemIndex)) ==
-                                                                      'employee_id') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().employeeID}';
-                                                                  } else if ((functions
-                                                                          .sortingListByOrder(
-                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
-                                                                              pageViewBannerArunSawadImgBannerRecord?.index?.toList())
-                                                                          ?.elementAtOrNull(bannerListItemIndex)) ==
-                                                                      'branch_code') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().profileBranch}';
-                                                                  } else {
-                                                                    return '';
-                                                                  }
-                                                                }()}');
-                                                              } else if ((functions
-                                                                      .sortingListByOrder(
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.openType
-                                                                              ?.toList(),
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.index
-                                                                              ?.toList())
-                                                                      ?.elementAtOrNull(
-                                                                          bannerListItemIndex)) ==
-                                                                  'in_app_browser') {
-                                                                await actions
-                                                                    .openTableauBrowser(
-                                                                  () {
-                                                                    if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerListItemIndex)) ==
-                                                                        'no') {
-                                                                      return '';
-                                                                    } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerListItemIndex)) ==
-                                                                        'token') {
-                                                                      return '${FFAppState().accessToken}';
-                                                                    } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerListItemIndex)) ==
-                                                                        'employee_id') {
-                                                                      return '${FFAppState().employeeID}';
-                                                                    } else if ((functions
-                                                                            .sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
-                                                                                pageViewBannerArunSawadImgBannerRecord?.index?.toList())
-                                                                            ?.elementAtOrNull(bannerListItemIndex)) ==
-                                                                        'branch_code') {
-                                                                      return '${FFAppState().profileBranch}';
-                                                                    } else {
-                                                                      return '';
-                                                                    }
-                                                                  }(),
-                                                                  functions
-                                                                      .sortingListByOrder(
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.linkUrl
-                                                                              ?.toList(),
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.index
-                                                                              ?.toList())
-                                                                      ?.elementAtOrNull(
-                                                                          bannerListItemIndex),
-                                                                  FFAppState()
-                                                                      .isOpenAndroidTableauBrowser,
-                                                                );
-                                                              } else if ((functions
-                                                                      .sortingListByOrder(
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.openType
-                                                                              ?.toList(),
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.index
-                                                                              ?.toList())
-                                                                      ?.elementAtOrNull(
-                                                                          bannerListItemIndex)) ==
-                                                                  'browser') {
-                                                                await actions
-                                                                    .openInAppBrowserNew(
-                                                                  () {
-                                                                    if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerListItemIndex)) ==
-                                                                        'no') {
-                                                                      return '';
-                                                                    } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerListItemIndex)) ==
-                                                                        'token') {
-                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().accessToken}';
-                                                                    } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerListItemIndex)) ==
-                                                                        'employee_id') {
-                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().employeeID}';
-                                                                    } else if ((functions
-                                                                            .sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
-                                                                                pageViewBannerArunSawadImgBannerRecord?.index?.toList())
-                                                                            ?.elementAtOrNull(bannerListItemIndex)) ==
-                                                                        'branch_code') {
-                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().profileBranch}';
-                                                                    } else {
-                                                                      return '';
-                                                                    }
-                                                                  }(),
-                                                                  functions
-                                                                      .sortingListByOrder(
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.linkUrl
-                                                                              ?.toList(),
-                                                                          pageViewBannerArunSawadImgBannerRecord
-                                                                              ?.index
-                                                                              ?.toList())
-                                                                      ?.elementAtOrNull(
-                                                                          bannerListItemIndex),
-                                                                );
-                                                              } else {
-                                                                await launchURL(
-                                                                    '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerListItemIndex)}${() {
-                                                                  if ((functions
-                                                                          .sortingListByOrder(
-                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
-                                                                                  ?.toList(),
-                                                                              pageViewBannerArunSawadImgBannerRecord?.index
-                                                                                  ?.toList())
-                                                                          ?.elementAtOrNull(
-                                                                              bannerListItemIndex)) ==
-                                                                      'no') {
-                                                                    return '';
-                                                                  } else if ((functions
-                                                                          .sortingListByOrder(
-                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
-                                                                                  ?.toList(),
-                                                                              pageViewBannerArunSawadImgBannerRecord?.index
-                                                                                  ?.toList())
-                                                                          ?.elementAtOrNull(
-                                                                              bannerListItemIndex)) ==
-                                                                      'token') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().accessToken}';
-                                                                  } else if ((functions
-                                                                          .sortingListByOrder(
-                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType
-                                                                                  ?.toList(),
-                                                                              pageViewBannerArunSawadImgBannerRecord?.index
-                                                                                  ?.toList())
-                                                                          ?.elementAtOrNull(
-                                                                              bannerListItemIndex)) ==
-                                                                      'employee_id') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().employeeID}';
-                                                                  } else if ((functions
-                                                                          .sortingListByOrder(
-                                                                              pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
-                                                                              pageViewBannerArunSawadImgBannerRecord?.index?.toList())
-                                                                          ?.elementAtOrNull(bannerListItemIndex)) ==
-                                                                      'branch_code') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().profileBranch}';
-                                                                  } else {
-                                                                    return '';
-                                                                  }
-                                                                }()}');
-                                                              }
-                                                            }
-                                                          }
-                                                        },
-                                                        child: OctoImage(
-                                                          placeholderBuilder:
-                                                              (_) {
-                                                            final blurHash = (functions
-                                                                .sortingListByOrder(
-                                                                    pageViewBannerArunSawadImgBannerRecord
-                                                                        ?.blurHash
-                                                                        ?.toList(),
-                                                                    pageViewBannerArunSawadImgBannerRecord
-                                                                        ?.index
-                                                                        ?.toList())!
-                                                                .elementAtOrNull(
-                                                                    bannerListItemIndex))!;
-
-                                                            if (!validateBlurhash(
-                                                                blurHash)) {
-                                                              return const SizedBox
-                                                                  .shrink();
-                                                            }
-                                                            return SizedBox
-                                                                .expand(
-                                                              child: Image(
-                                                                image:
-                                                                    BlurHashImage(
-                                                                        blurHash),
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            );
-                                                          },
-                                                          image:
-                                                              CachedNetworkImageProvider(
-                                                            functions.stringToImgPath(functions
-                                                                .sortingListByOrder(
-                                                                    functions
-                                                                        .imgPathListToStringList(pageViewBannerArunSawadImgBannerRecord
-                                                                            ?.imgUrl
-                                                                            ?.toList())
-                                                                        ?.toList(),
-                                                                    pageViewBannerArunSawadImgBannerRecord
-                                                                        ?.index
-                                                                        ?.toList())
-                                                                ?.elementAtOrNull(
-                                                                    bannerListItemIndex))!,
-                                                          ),
-                                                          width: 100.0,
-                                                          height: 100.0,
-                                                          fit: BoxFit.fitWidth,
-                                                        ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 10.0),
-                                                    child: smooth_page_indicator
-                                                        .SmoothPageIndicator(
-                                                      controller: _model
-                                                              .pageViewBannerController ??=
-                                                          PageController(
-                                                              initialPage: max(
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 10.0),
+                                                child: smooth_page_indicator
+                                                    .SmoothPageIndicator(
+                                                  controller: _model
+                                                          .pageViewBannerController ??=
+                                                      PageController(
+                                                          initialPage: max(
+                                                              0,
+                                                              min(
                                                                   0,
-                                                                  min(
-                                                                      0,
-                                                                      bannerListItem
-                                                                              .length -
-                                                                          1))),
-                                                      count:
-                                                          bannerListItem.length,
-                                                      axisDirection:
-                                                          Axis.horizontal,
-                                                      onDotClicked: (i) async {
-                                                        await _model
-                                                            .pageViewBannerController!
-                                                            .animateToPage(
-                                                          i,
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  500),
-                                                          curve: Curves.ease,
-                                                        );
-                                                        safeSetState(() {});
-                                                      },
-                                                      effect: smooth_page_indicator
-                                                          .ExpandingDotsEffect(
-                                                        expansionFactor: 2.0,
-                                                        spacing: 8.0,
-                                                        radius: 16.0,
-                                                        dotWidth: 16.0,
-                                                        dotHeight: 16.0,
-                                                        dotColor:
-                                                            Color(0xFF9E9E9E),
-                                                        activeDotColor:
-                                                            Color(0xFF3F51B5),
-                                                        paintStyle:
-                                                            PaintingStyle.fill,
-                                                      ),
-                                                    ),
+                                                                  bannerListItem
+                                                                          .length -
+                                                                      1))),
+                                                  count: bannerListItem.length,
+                                                  axisDirection:
+                                                      Axis.horizontal,
+                                                  onDotClicked: (i) async {
+                                                    await _model
+                                                        .pageViewBannerController!
+                                                        .animateToPage(
+                                                      i,
+                                                      duration: Duration(
+                                                          milliseconds: 500),
+                                                      curve: Curves.ease,
+                                                    );
+                                                    safeSetState(() {});
+                                                  },
+                                                  effect: smooth_page_indicator
+                                                      .ExpandingDotsEffect(
+                                                    expansionFactor: 2.0,
+                                                    spacing: 8.0,
+                                                    radius: 16.0,
+                                                    dotWidth: 16.0,
+                                                    dotHeight: 16.0,
+                                                    dotColor: Color(0xFF9E9E9E),
+                                                    activeDotColor:
+                                                        Color(0xFF3F51B5),
+                                                    paintStyle:
+                                                        PaintingStyle.fill,
                                                   ),
                                                 ),
-                                              ],
+                                              ),
                                             ),
-                                          );
-                                        },
+                                          ],
+                                        ),
                                       );
                                     },
                                   ),
