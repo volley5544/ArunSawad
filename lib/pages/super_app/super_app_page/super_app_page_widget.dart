@@ -28,6 +28,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -1925,6 +1926,356 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                   );
                                 },
                               ),
+                              if (false &&
+                                  responsiveVisibility(
+                                    context: context,
+                                    tablet: false,
+                                    tabletLandscape: false,
+                                    desktop: false,
+                                  ))
+                                Container(
+                                  width: double.infinity,
+                                  height: 255.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final bannerListItem1 = _model.bannerListData
+                                          .where((e) => e.showingAll
+                                              ? true
+                                              : (functions.getSpecificIndexFromJson(
+                                                      FFAppState().roleMenuJson,
+                                                      '${e.bannerCode}',
+                                                      FFAppState()
+                                                          .profileLevel)! ||
+                                                  functions.containStringInListString(
+                                                      functions
+                                                          .getListDataFromJson(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'empAdmin')
+                                                          ?.toList(),
+                                                      FFAppState()
+                                                          .employeeID)! ||
+                                                  functions.containsValueInDataTypeList(
+                                                      functions
+                                                          .getDataTypeFromJson(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'adminRoleGroup')
+                                                          ?.toList(),
+                                                      FFAppState().employeeID,
+                                                      '${e.bannerCode}')! ||
+                                                  functions.containListInString(
+                                                      functions
+                                                          .getListDataFromJsonList(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'positionName',
+                                                              '${e.bannerCode}')
+                                                          ?.toList(),
+                                                      FFAppState()
+                                                          .profilePositionName)!))
+                                          .toList();
+
+                                      return Container(
+                                        width: double.infinity,
+                                        height: 300.0,
+                                        child: Stack(
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 40.0),
+                                              child: PageView.builder(
+                                                controller: _model
+                                                        .pageViewBannerController ??=
+                                                    PageController(
+                                                        initialPage: max(
+                                                            0,
+                                                            min(
+                                                                0,
+                                                                bannerListItem1
+                                                                        .length -
+                                                                    1))),
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                itemCount:
+                                                    bannerListItem1.length,
+                                                itemBuilder: (context,
+                                                    bannerListItem1Index) {
+                                                  final bannerListItem1Item =
+                                                      bannerListItem1[
+                                                          bannerListItem1Index];
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      if (bannerListItem1Item
+                                                              .linkUrl !=
+                                                          'Hello World') {
+                                                        if (!bannerListItem1Item
+                                                            .isHaveLink) {
+                                                          await launchURL(
+                                                              bannerListItem1Item
+                                                                  .linkUrl);
+                                                        } else {
+                                                          if (bannerListItem1Item
+                                                                  .linkUrl ==
+                                                              'Bottom Sheet') {
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              enableDrag: false,
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          Container(
+                                                                        height:
+                                                                            double.infinity,
+                                                                        child:
+                                                                            TiktokSplashPageWidget(),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) =>
+                                                                safeSetState(
+                                                                    () {}));
+
+                                                            return;
+                                                          }
+                                                          if (bannerListItem1Item
+                                                                  .openType ==
+                                                              'launch_url') {
+                                                            await launchURL(
+                                                                '${bannerListItem1Item.linkUrl}${() {
+                                                              if (bannerListItem1Item
+                                                                      .paramType ==
+                                                                  'no') {
+                                                                return '';
+                                                              } else if (bannerListItem1Item
+                                                                      .paramType ==
+                                                                  'token') {
+                                                                return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                              } else if (bannerListItem1Item
+                                                                      .paramType ==
+                                                                  'employee_id') {
+                                                                return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                              } else if (bannerListItem1Item
+                                                                      .paramType ==
+                                                                  'branch_code') {
+                                                                return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                              } else {
+                                                                return '';
+                                                              }
+                                                            }()}');
+                                                          } else if (bannerListItem1Item
+                                                                  .openType ==
+                                                              'in_app_browser') {
+                                                            await actions
+                                                                .openTableauBrowser(
+                                                              () {
+                                                                if (bannerListItem1Item
+                                                                        .paramType ==
+                                                                    'no') {
+                                                                  return '';
+                                                                } else if (bannerListItem1Item
+                                                                        .paramType ==
+                                                                    'token') {
+                                                                  return '${FFAppState().accessToken}';
+                                                                } else if (bannerListItem1Item
+                                                                        .paramType ==
+                                                                    'employee_id') {
+                                                                  return '${FFAppState().employeeID}';
+                                                                } else if (bannerListItem1Item
+                                                                        .paramType ==
+                                                                    'branch_code') {
+                                                                  return '${FFAppState().profileBranch}';
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                              bannerListItem1Item
+                                                                  .linkUrl,
+                                                              FFAppState()
+                                                                  .isOpenAndroidTableauBrowser,
+                                                            );
+                                                          } else if (bannerListItem1Item
+                                                                  .openType ==
+                                                              'browser') {
+                                                            await actions
+                                                                .openInAppBrowserNew(
+                                                              () {
+                                                                if (bannerListItem1Item
+                                                                        .paramType ==
+                                                                    'no') {
+                                                                  return '';
+                                                                } else if (bannerListItem1Item
+                                                                        .paramType ==
+                                                                    'token') {
+                                                                  return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                                } else if (bannerListItem1Item
+                                                                        .paramType ==
+                                                                    'employee_id') {
+                                                                  return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                                } else if (bannerListItem1Item
+                                                                        .paramType ==
+                                                                    'branch_code') {
+                                                                  return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                              bannerListItem1Item
+                                                                  .linkUrl,
+                                                            );
+                                                          } else {
+                                                            await launchURL(
+                                                                '${bannerListItem1Item.linkUrl}${() {
+                                                              if (bannerListItem1Item
+                                                                      .paramType ==
+                                                                  'no') {
+                                                                return '';
+                                                              } else if (bannerListItem1Item
+                                                                      .paramType ==
+                                                                  'token') {
+                                                                return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                              } else if (bannerListItem1Item
+                                                                      .paramType ==
+                                                                  'employee_id') {
+                                                                return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                              } else if (bannerListItem1Item
+                                                                      .paramType ==
+                                                                  'branch_code') {
+                                                                return '${bannerListItem1Item.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                              } else {
+                                                                return '';
+                                                              }
+                                                            }()}');
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    child: OctoImage(
+                                                      placeholderBuilder: (_) {
+                                                        final blurHash =
+                                                            bannerListItem1Item
+                                                                .blurHash;
+
+                                                        if (!validateBlurhash(
+                                                            blurHash)) {
+                                                          return const SizedBox
+                                                              .shrink();
+                                                        }
+                                                        return SizedBox.expand(
+                                                          child: Image(
+                                                            image:
+                                                                BlurHashImage(
+                                                                    blurHash),
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        );
+                                                      },
+                                                      image:
+                                                          CachedNetworkImageProvider(
+                                                        functions.stringToImgPath(
+                                                            bannerListItem1Item
+                                                                .imgUrl)!,
+                                                      ),
+                                                      width: 100.0,
+                                                      height: 100.0,
+                                                      fit: BoxFit.fitWidth,
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 10.0),
+                                                child: smooth_page_indicator
+                                                    .SmoothPageIndicator(
+                                                  controller: _model
+                                                          .pageViewBannerController ??=
+                                                      PageController(
+                                                          initialPage: max(
+                                                              0,
+                                                              min(
+                                                                  0,
+                                                                  bannerListItem1
+                                                                          .length -
+                                                                      1))),
+                                                  count: bannerListItem1.length,
+                                                  axisDirection:
+                                                      Axis.horizontal,
+                                                  onDotClicked: (i) async {
+                                                    await _model
+                                                        .pageViewBannerController!
+                                                        .animateToPage(
+                                                      i,
+                                                      duration: Duration(
+                                                          milliseconds: 500),
+                                                      curve: Curves.ease,
+                                                    );
+                                                    safeSetState(() {});
+                                                  },
+                                                  effect: smooth_page_indicator
+                                                      .ExpandingDotsEffect(
+                                                    expansionFactor: 2.0,
+                                                    spacing: 8.0,
+                                                    radius: 16.0,
+                                                    dotWidth: 16.0,
+                                                    dotHeight: 16.0,
+                                                    dotColor: Color(0xFF9E9E9E),
+                                                    activeDotColor:
+                                                        Color(0xFF3F51B5),
+                                                    paintStyle:
+                                                        PaintingStyle.fill,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
                               if (responsiveVisibility(
                                 context: context,
                                 tablet: false,
@@ -1980,296 +2331,336 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
                                       return Container(
                                         width: double.infinity,
-                                        height: 300.0,
-                                        child: Stack(
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 40.0),
-                                              child: PageView.builder(
-                                                controller: _model
-                                                        .pageViewBannerController ??=
-                                                    PageController(
-                                                        initialPage: max(
-                                                            0,
-                                                            min(
-                                                                0,
-                                                                bannerListItem
-                                                                        .length -
-                                                                    1))),
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                itemCount:
-                                                    bannerListItem.length,
-                                                itemBuilder: (context,
-                                                    bannerListItemIndex) {
-                                                  final bannerListItemItem =
-                                                      bannerListItem[
-                                                          bannerListItemIndex];
-                                                  return InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      if (bannerListItemItem
-                                                              .linkUrl !=
-                                                          'Hello World') {
-                                                        if (!bannerListItemItem
-                                                            .isHaveLink) {
-                                                          await launchURL(
-                                                              bannerListItemItem
-                                                                  .linkUrl);
-                                                        } else {
-                                                          if (bannerListItemItem
-                                                                  .linkUrl ==
-                                                              'Bottom Sheet') {
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              enableDrag: false,
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
-                                                                    onTap: () {
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus();
-                                                                      FocusManager
-                                                                          .instance
-                                                                          .primaryFocus
-                                                                          ?.unfocus();
-                                                                    },
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          Container(
-                                                                        height:
-                                                                            double.infinity,
-                                                                        child:
-                                                                            TiktokSplashPageWidget(),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                );
+                                        height: 200.0,
+                                        child: CarouselSlider.builder(
+                                          itemCount: bannerListItem.length,
+                                          itemBuilder: (context,
+                                              bannerListItemIndex, _) {
+                                            final bannerListItemItem =
+                                                bannerListItem[
+                                                    bannerListItemIndex];
+                                            return InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (bannerListItemItem
+                                                        .linkUrl !=
+                                                    'Hello World') {
+                                                  if (!bannerListItemItem
+                                                      .isHaveLink) {
+                                                    await launchURL(
+                                                        bannerListItemItem
+                                                            .linkUrl);
+                                                  } else {
+                                                    if (bannerListItemItem
+                                                            .linkUrl ==
+                                                        'Bottom Sheet') {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
                                                               },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    Container(
+                                                                  height: double
+                                                                      .infinity,
+                                                                  child:
+                                                                      TiktokSplashPageWidget(),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
 
-                                                            return;
-                                                          }
+                                                      return;
+                                                    }
+                                                    if (bannerListItemItem
+                                                            .openType ==
+                                                        'launch_url') {
+                                                      await launchURL(
+                                                          '${bannerListItemItem.linkUrl}${() {
+                                                        if (bannerListItemItem
+                                                                .paramType ==
+                                                            'no') {
+                                                          return '';
+                                                        } else if (bannerListItemItem
+                                                                .paramType ==
+                                                            'token') {
+                                                          return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                        } else if (bannerListItemItem
+                                                                .paramType ==
+                                                            'employee_id') {
+                                                          return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                        } else if (bannerListItemItem
+                                                                .paramType ==
+                                                            'branch_code') {
+                                                          return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                        } else {
+                                                          return '';
+                                                        }
+                                                      }()}');
+                                                    } else if (bannerListItemItem
+                                                            .openType ==
+                                                        'in_app_browser') {
+                                                      await actions
+                                                          .openTableauBrowser(
+                                                        () {
                                                           if (bannerListItemItem
-                                                                  .openType ==
-                                                              'launch_url') {
-                                                            await launchURL(
-                                                                '${bannerListItemItem.linkUrl}${() {
-                                                              if (bannerListItemItem
-                                                                      .paramType ==
-                                                                  'no') {
-                                                                return '';
-                                                              } else if (bannerListItemItem
-                                                                      .paramType ==
-                                                                  'token') {
-                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
-                                                              } else if (bannerListItemItem
-                                                                      .paramType ==
-                                                                  'employee_id') {
-                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
-                                                              } else if (bannerListItemItem
-                                                                      .paramType ==
-                                                                  'branch_code') {
-                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
-                                                              } else {
-                                                                return '';
-                                                              }
-                                                            }()}');
+                                                                  .paramType ==
+                                                              'no') {
+                                                            return '';
                                                           } else if (bannerListItemItem
-                                                                  .openType ==
-                                                              'in_app_browser') {
-                                                            await actions
-                                                                .openTableauBrowser(
-                                                              () {
-                                                                if (bannerListItemItem
-                                                                        .paramType ==
-                                                                    'no') {
-                                                                  return '';
-                                                                } else if (bannerListItemItem
-                                                                        .paramType ==
-                                                                    'token') {
-                                                                  return '${FFAppState().accessToken}';
-                                                                } else if (bannerListItemItem
-                                                                        .paramType ==
-                                                                    'employee_id') {
-                                                                  return '${FFAppState().employeeID}';
-                                                                } else if (bannerListItemItem
-                                                                        .paramType ==
-                                                                    'branch_code') {
-                                                                  return '${FFAppState().profileBranch}';
-                                                                } else {
-                                                                  return '';
-                                                                }
-                                                              }(),
-                                                              bannerListItemItem
-                                                                  .linkUrl,
-                                                              FFAppState()
-                                                                  .isOpenAndroidTableauBrowser,
-                                                            );
+                                                                  .paramType ==
+                                                              'token') {
+                                                            return '${FFAppState().accessToken}';
                                                           } else if (bannerListItemItem
-                                                                  .openType ==
-                                                              'browser') {
-                                                            await actions
-                                                                .openInAppBrowserNew(
-                                                              () {
-                                                                if (bannerListItemItem
-                                                                        .paramType ==
-                                                                    'no') {
-                                                                  return '';
-                                                                } else if (bannerListItemItem
-                                                                        .paramType ==
-                                                                    'token') {
-                                                                  return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
-                                                                } else if (bannerListItemItem
-                                                                        .paramType ==
-                                                                    'employee_id') {
-                                                                  return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
-                                                                } else if (bannerListItemItem
-                                                                        .paramType ==
-                                                                    'branch_code') {
-                                                                  return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
-                                                                } else {
-                                                                  return '';
-                                                                }
-                                                              }(),
-                                                              bannerListItemItem
-                                                                  .linkUrl,
-                                                            );
+                                                                  .paramType ==
+                                                              'employee_id') {
+                                                            return '${FFAppState().employeeID}';
+                                                          } else if (bannerListItemItem
+                                                                  .paramType ==
+                                                              'branch_code') {
+                                                            return '${FFAppState().profileBranch}';
                                                           } else {
-                                                            await launchURL(
-                                                                '${bannerListItemItem.linkUrl}${() {
-                                                              if (bannerListItemItem
-                                                                      .paramType ==
-                                                                  'no') {
-                                                                return '';
-                                                              } else if (bannerListItemItem
-                                                                      .paramType ==
-                                                                  'token') {
-                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
-                                                              } else if (bannerListItemItem
-                                                                      .paramType ==
-                                                                  'employee_id') {
-                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
-                                                              } else if (bannerListItemItem
-                                                                      .paramType ==
-                                                                  'branch_code') {
-                                                                return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
-                                                              } else {
-                                                                return '';
-                                                              }
-                                                            }()}');
+                                                            return '';
                                                           }
+                                                        }(),
+                                                        bannerListItemItem
+                                                            .linkUrl,
+                                                        FFAppState()
+                                                            .isOpenAndroidTableauBrowser,
+                                                      );
+                                                    } else if (bannerListItemItem
+                                                            .openType ==
+                                                        'browser') {
+                                                      await actions
+                                                          .openInAppBrowserNew(
+                                                        () {
+                                                          if (bannerListItemItem
+                                                                  .paramType ==
+                                                              'no') {
+                                                            return '';
+                                                          } else if (bannerListItemItem
+                                                                  .paramType ==
+                                                              'token') {
+                                                            return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                          } else if (bannerListItemItem
+                                                                  .paramType ==
+                                                              'employee_id') {
+                                                            return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                          } else if (bannerListItemItem
+                                                                  .paramType ==
+                                                              'branch_code') {
+                                                            return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                          } else {
+                                                            return '';
+                                                          }
+                                                        }(),
+                                                        bannerListItemItem
+                                                            .linkUrl,
+                                                      );
+                                                    } else {
+                                                      await launchURL(
+                                                          '${bannerListItemItem.linkUrl}${() {
+                                                        if (bannerListItemItem
+                                                                .paramType ==
+                                                            'no') {
+                                                          return '';
+                                                        } else if (bannerListItemItem
+                                                                .paramType ==
+                                                            'token') {
+                                                          return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().accessToken}';
+                                                        } else if (bannerListItemItem
+                                                                .paramType ==
+                                                            'employee_id') {
+                                                          return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().employeeID}';
+                                                        } else if (bannerListItemItem
+                                                                .paramType ==
+                                                            'branch_code') {
+                                                          return '${bannerListItemItem.includeSlash ? '/' : ''}${FFAppState().profileBranch}';
+                                                        } else {
+                                                          return '';
                                                         }
-                                                      }
-                                                    },
-                                                    child: OctoImage(
-                                                      placeholderBuilder: (_) {
-                                                        final blurHash =
-                                                            bannerListItemItem
-                                                                .blurHash;
+                                                      }()}');
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              child: OctoImage(
+                                                placeholderBuilder: (_) {
+                                                  final blurHash =
+                                                      bannerListItemItem
+                                                          .blurHash;
 
-                                                        if (!validateBlurhash(
-                                                            blurHash)) {
-                                                          return const SizedBox
-                                                              .shrink();
-                                                        }
-                                                        return SizedBox.expand(
-                                                          child: Image(
-                                                            image:
-                                                                BlurHashImage(
-                                                                    blurHash),
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        );
-                                                      },
-                                                      image:
-                                                          CachedNetworkImageProvider(
-                                                        functions.stringToImgPath(
-                                                            bannerListItemItem
-                                                                .imgUrl)!,
-                                                      ),
-                                                      width: 100.0,
-                                                      height: 100.0,
-                                                      fit: BoxFit.fitWidth,
+                                                  if (!validateBlurhash(
+                                                      blurHash)) {
+                                                    return const SizedBox
+                                                        .shrink();
+                                                  }
+                                                  return SizedBox.expand(
+                                                    child: Image(
+                                                      image: BlurHashImage(
+                                                          blurHash),
+                                                      fit: BoxFit.cover,
                                                     ),
                                                   );
                                                 },
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 1.0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 10.0),
-                                                child: smooth_page_indicator
-                                                    .SmoothPageIndicator(
-                                                  controller: _model
-                                                          .pageViewBannerController ??=
-                                                      PageController(
-                                                          initialPage: max(
-                                                              0,
-                                                              min(
-                                                                  0,
-                                                                  bannerListItem
-                                                                          .length -
-                                                                      1))),
-                                                  count: bannerListItem.length,
-                                                  axisDirection:
-                                                      Axis.horizontal,
-                                                  onDotClicked: (i) async {
-                                                    await _model
-                                                        .pageViewBannerController!
-                                                        .animateToPage(
-                                                      i,
-                                                      duration: Duration(
-                                                          milliseconds: 500),
-                                                      curve: Curves.ease,
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  effect: smooth_page_indicator
-                                                      .ExpandingDotsEffect(
-                                                    expansionFactor: 2.0,
-                                                    spacing: 8.0,
-                                                    radius: 16.0,
-                                                    dotWidth: 16.0,
-                                                    dotHeight: 16.0,
-                                                    dotColor: Color(0xFF9E9E9E),
-                                                    activeDotColor:
-                                                        Color(0xFF3F51B5),
-                                                    paintStyle:
-                                                        PaintingStyle.fill,
-                                                  ),
+                                                image:
+                                                    CachedNetworkImageProvider(
+                                                  functions.stringToImgPath(
+                                                      bannerListItemItem
+                                                          .imgUrl)!,
                                                 ),
+                                                width: 100.0,
+                                                height: 100.0,
+                                                fit: BoxFit.fitWidth,
                                               ),
-                                            ),
-                                          ],
+                                            );
+                                          },
+                                          carouselController:
+                                              _model.carouselController ??=
+                                                  CarouselSliderController(),
+                                          options: CarouselOptions(
+                                            initialPage: max(
+                                                0,
+                                                min(1,
+                                                    bannerListItem.length - 1)),
+                                            viewportFraction: 1.0,
+                                            disableCenter: true,
+                                            enlargeCenterPage: true,
+                                            enlargeFactor: 0.25,
+                                            enableInfiniteScroll: true,
+                                            scrollDirection: Axis.horizontal,
+                                            autoPlay: true,
+                                            autoPlayAnimationDuration:
+                                                Duration(milliseconds: 500),
+                                            autoPlayInterval: Duration(
+                                                milliseconds: (500 + 4000)),
+                                            autoPlayCurve: Curves.linear,
+                                            pauseAutoPlayInFiniteScroll: true,
+                                            onPageChanged: (index, _) => _model
+                                                .carouselCurrentIndex = index,
+                                          ),
                                         ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              if (responsiveVisibility(
+                                context: context,
+                                tablet: false,
+                                tabletLandscape: false,
+                                desktop: false,
+                              ))
+                                Container(
+                                  width: double.infinity,
+                                  height: 30.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final indicatorListItem = _model.bannerListData
+                                          .where((e) => e.showingAll
+                                              ? true
+                                              : (functions.getSpecificIndexFromJson(
+                                                      FFAppState().roleMenuJson,
+                                                      '${e.bannerCode}',
+                                                      FFAppState()
+                                                          .profileLevel)! ||
+                                                  functions.containStringInListString(
+                                                      functions
+                                                          .getListDataFromJson(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'empAdmin')
+                                                          ?.toList(),
+                                                      FFAppState()
+                                                          .employeeID)! ||
+                                                  functions.containsValueInDataTypeList(
+                                                      functions
+                                                          .getDataTypeFromJson(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'adminRoleGroup')
+                                                          ?.toList(),
+                                                      FFAppState().employeeID,
+                                                      '${e.bannerCode}')! ||
+                                                  functions.containListInString(
+                                                      functions
+                                                          .getListDataFromJsonList(
+                                                              FFAppState()
+                                                                  .roleMenuJson,
+                                                              'positionName',
+                                                              '${e.bannerCode}')
+                                                          ?.toList(),
+                                                      FFAppState()
+                                                          .profilePositionName)!))
+                                          .toList();
+
+                                      return Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: List.generate(
+                                            indicatorListItem.length,
+                                            (indicatorListItemIndex) {
+                                          final indicatorListItemItem =
+                                              indicatorListItem[
+                                                  indicatorListItemIndex];
+                                          return Builder(
+                                            builder: (context) {
+                                              if (_model.carouselCurrentIndex ==
+                                                  indicatorListItemIndex) {
+                                                return Container(
+                                                  width: 32.0,
+                                                  height: 16.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFF3F51B5),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    shape: BoxShape.rectangle,
+                                                  ),
+                                                );
+                                              } else {
+                                                return Container(
+                                                  width: 16.0,
+                                                  height: 16.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFF9E9E9E),
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                );
+                                              }
+                                            },
+                                          );
+                                        }).divide(SizedBox(width: 8.0)),
                                       );
                                     },
                                   ),

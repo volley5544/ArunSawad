@@ -28,6 +28,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'super_app_page_widget.dart' show SuperAppPageWidget;
@@ -167,6 +168,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
           pageViewBannerController!.page != null
       ? pageViewBannerController!.page!.round()
       : 0;
+  // State field(s) for Carousel widget.
+  CarouselSliderController? carouselController;
+  int carouselCurrentIndex = 1;
+
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
