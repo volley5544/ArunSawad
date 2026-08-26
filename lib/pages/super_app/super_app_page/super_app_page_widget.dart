@@ -2547,7 +2547,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                           options: CarouselOptions(
                                             initialPage: max(
                                                 0,
-                                                min(1,
+                                                min(0,
                                                     bannerListItem.length - 1)),
                                             viewportFraction: 1.0,
                                             disableCenter: true,
@@ -2559,11 +2559,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                             autoPlayAnimationDuration:
                                                 Duration(milliseconds: 500),
                                             autoPlayInterval: Duration(
-                                                milliseconds: (500 + 4000)),
+                                                milliseconds: (500 + 5000)),
                                             autoPlayCurve: Curves.linear,
                                             pauseAutoPlayInFiniteScroll: true,
-                                            onPageChanged: (index, _) => _model
-                                                .carouselCurrentIndex = index,
+                                            onPageChanged: (index, _) async {
+                                              _model.carouselCurrentIndex =
+                                                  index;
+                                              safeSetState(() {});
+                                            },
                                           ),
                                         ),
                                       );

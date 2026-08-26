@@ -170,7 +170,7 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
       : 0;
   // State field(s) for Carousel widget.
   CarouselSliderController? carouselController;
-  int carouselCurrentIndex = 1;
+  int carouselCurrentIndex = 0;
 
   // State field(s) for PageView widget.
   PageController? pageViewController;
