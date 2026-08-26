@@ -2652,12 +2652,32 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                   ),
                                                 );
                                               } else {
-                                                return Container(
-                                                  width: 16.0,
-                                                  height: 16.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFF9E9E9E),
-                                                    shape: BoxShape.circle,
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    await _model
+                                                        .carouselController
+                                                        ?.animateToPage(
+                                                      indicatorListItemIndex,
+                                                      duration: Duration(
+                                                          milliseconds: 500),
+                                                      curve: Curves.ease,
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: 16.0,
+                                                    height: 16.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFF9E9E9E),
+                                                      shape: BoxShape.circle,
+                                                    ),
                                                   ),
                                                 );
                                               }
