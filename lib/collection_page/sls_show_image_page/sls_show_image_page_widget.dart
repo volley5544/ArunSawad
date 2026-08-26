@@ -425,14 +425,23 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
                                           type: PageTransitionType.fade,
                                           child: FlutterFlowExpandedImageView(
                                             image: OctoImage(
-                                              placeholderBuilder: (_) =>
-                                                  SizedBox.expand(
-                                                child: Image(
-                                                  image: BlurHashImage(
-                                                      'L8PQHWt700j@*0V[%2of00j?00WB'),
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
+                                              placeholderBuilder: (_) {
+                                                final blurHash =
+                                                    'L8PQHWt700j@*0V[%2of00j?00WB';
+
+                                                if (!validateBlurhash(
+                                                    blurHash)) {
+                                                  return const SizedBox
+                                                      .shrink();
+                                                }
+                                                return SizedBox.expand(
+                                                  child: Image(
+                                                    image:
+                                                        BlurHashImage(blurHash),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                );
+                                              },
                                               image: NetworkImage(
                                                 '${imgDataListItemItem.imgPath}',
                                               ),
@@ -453,14 +462,20 @@ class _SlsShowImagePageWidgetState extends State<SlsShowImagePageWidget>
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: OctoImage(
-                                          placeholderBuilder: (_) =>
-                                              SizedBox.expand(
-                                            child: Image(
-                                              image: BlurHashImage(
-                                                  'L8PQHWt700j@*0V[%2of00j?00WB'),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
+                                          placeholderBuilder: (_) {
+                                            final blurHash =
+                                                'L8PQHWt700j@*0V[%2of00j?00WB';
+
+                                            if (!validateBlurhash(blurHash)) {
+                                              return const SizedBox.shrink();
+                                            }
+                                            return SizedBox.expand(
+                                              child: Image(
+                                                image: BlurHashImage(blurHash),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            );
+                                          },
                                           image: NetworkImage(
                                             '${imgDataListItemItem.imgPath}',
                                           ),

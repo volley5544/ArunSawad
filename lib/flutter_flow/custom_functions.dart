@@ -344,3 +344,4 @@ export '/custom_code/functions/generate_empty_json_list.dart';
 export '/custom_code/functions/combine_lat_lng_list.dart';
 export '/custom_code/functions/reorder_sls_image_list.dart';
 export '/custom_code/functions/contain_string_in_list_string1.dart';
+export '/custom_code/functions/create_banner_data_type.dart';

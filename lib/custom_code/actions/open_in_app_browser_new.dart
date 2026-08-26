@@ -25,7 +25,7 @@ Future openInAppBrowserNew(String? token, String? tableauURL) async {
   // Add your function code here!
   String browserUrl = '${tableauURL}${token}';
   String encodedUrl =
-      '${tableauURL!}'; //Uri.encodeFull('${tableauURL}/${token}');
+      '${browserUrl!}'; //Uri.encodeFull('${tableauURL}/${token}');
   Map<String, String> headers = {'X-Application': 'ArunSawad'};
 
   print('tavleauUrl : ${tableauURL}');

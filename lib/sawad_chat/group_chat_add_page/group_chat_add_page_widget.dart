@@ -903,16 +903,26 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                               FlutterFlowExpandedImageView(
                                                             image: OctoImage(
                                                               placeholderBuilder:
-                                                                  (_) => SizedBox
-                                                                      .expand(
-                                                                child: Image(
-                                                                  image: BlurHashImage(
-                                                                      selectedEmployeeListItemItem
-                                                                          .userDisplayImageBlurHash),
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
+                                                                  (_) {
+                                                                final blurHash =
+                                                                    selectedEmployeeListItemItem
+                                                                        .userDisplayImageBlurHash;
+
+                                                                if (!validateBlurhash(
+                                                                    blurHash)) {
+                                                                  return const SizedBox
+                                                                      .shrink();
+                                                                }
+                                                                return SizedBox
+                                                                    .expand(
+                                                                  child: Image(
+                                                                    image: BlurHashImage(
+                                                                        blurHash),
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                );
+                                                              },
                                                               image:
                                                                   NetworkImage(
                                                                 selectedEmployeeListItemItem
@@ -943,15 +953,27 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                                 .circular(8.0),
                                                         child: OctoImage(
                                                           placeholderBuilder:
-                                                              (_) => SizedBox
-                                                                  .expand(
-                                                            child: Image(
-                                                              image: BlurHashImage(
-                                                                  selectedEmployeeListItemItem
-                                                                      .userDisplayImageBlurHash),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
+                                                              (_) {
+                                                            final blurHash =
+                                                                selectedEmployeeListItemItem
+                                                                    .userDisplayImageBlurHash;
+
+                                                            if (!validateBlurhash(
+                                                                blurHash)) {
+                                                              return const SizedBox
+                                                                  .shrink();
+                                                            }
+                                                            return SizedBox
+                                                                .expand(
+                                                              child: Image(
+                                                                image:
+                                                                    BlurHashImage(
+                                                                        blurHash),
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            );
+                                                          },
                                                           image: NetworkImage(
                                                             selectedEmployeeListItemItem
                                                                 .userDisplayImage,
@@ -1501,19 +1523,29 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                                 image:
                                                                     OctoImage(
                                                                   placeholderBuilder:
-                                                                      (_) => SizedBox
-                                                                          .expand(
-                                                                    child:
-                                                                        Image(
-                                                                      image: BlurHashImage(containerUserCustomRecord!
-                                                                              .hasImgProfileBlurHash()
-                                                                          ? containerUserCustomRecord!
-                                                                              .imgProfileBlurHash
-                                                                          : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
+                                                                      (_) {
+                                                                    final blurHash = containerUserCustomRecord!
+                                                                            .hasImgProfileBlurHash()
+                                                                        ? containerUserCustomRecord!
+                                                                            .imgProfileBlurHash
+                                                                        : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ';
+
+                                                                    if (!validateBlurhash(
+                                                                        blurHash)) {
+                                                                      return const SizedBox
+                                                                          .shrink();
+                                                                    }
+                                                                    return SizedBox
+                                                                        .expand(
+                                                                      child:
+                                                                          Image(
+                                                                        image: BlurHashImage(
+                                                                            blurHash),
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    );
+                                                                  },
                                                                   image:
                                                                       NetworkImage(
                                                                     containerUserCustomRecord!
@@ -1545,18 +1577,28 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                                         50.0),
                                                             child: OctoImage(
                                                               placeholderBuilder:
-                                                                  (_) => SizedBox
-                                                                      .expand(
-                                                                child: Image(
-                                                                  image: BlurHashImage(containerUserCustomRecord!
-                                                                          .hasImgProfileBlurHash()
-                                                                      ? containerUserCustomRecord!
-                                                                          .imgProfileBlurHash
-                                                                      : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
+                                                                  (_) {
+                                                                final blurHash = containerUserCustomRecord!
+                                                                        .hasImgProfileBlurHash()
+                                                                    ? containerUserCustomRecord!
+                                                                        .imgProfileBlurHash
+                                                                    : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ';
+
+                                                                if (!validateBlurhash(
+                                                                    blurHash)) {
+                                                                  return const SizedBox
+                                                                      .shrink();
+                                                                }
+                                                                return SizedBox
+                                                                    .expand(
+                                                                  child: Image(
+                                                                    image: BlurHashImage(
+                                                                        blurHash),
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                );
+                                                              },
                                                               image:
                                                                   NetworkImage(
                                                                 containerUserCustomRecord!

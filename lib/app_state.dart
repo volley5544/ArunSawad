@@ -10398,6 +10398,13 @@ class FFAppState extends ChangeNotifier {
   set leadOpenOnWeb(bool value) {
     _leadOpenOnWeb = value;
   }
+
+  DocumentReference? _sawadBannerDocRef = FirebaseFirestore.instance
+      .doc('/ArunSawadImgBanner/2XTAd3Jv8Sc6eHdsiSlb');
+  DocumentReference? get sawadBannerDocRef => _sawadBannerDocRef;
+  set sawadBannerDocRef(DocumentReference? value) {
+    _sawadBannerDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -220,22 +220,31 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                             child: OctoImage(
-                                              placeholderBuilder: (_) =>
-                                                  SizedBox.expand(
-                                                child: Image(
-                                                  image: BlurHashImage((functions
-                                                      .sortingListByOrder(
-                                                          containerSplashPageHolidayImgRecord
-                                                              ?.blurHash
-                                                              ?.toList(),
-                                                          containerSplashPageHolidayImgRecord
-                                                              ?.index
-                                                              ?.toList())!
-                                                      .elementAtOrNull(
-                                                          splashPageHolidayImgListIndex))!),
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
+                                              placeholderBuilder: (_) {
+                                                final blurHash = (functions
+                                                    .sortingListByOrder(
+                                                        containerSplashPageHolidayImgRecord
+                                                            ?.blurHash
+                                                            ?.toList(),
+                                                        containerSplashPageHolidayImgRecord
+                                                            ?.index
+                                                            ?.toList())!
+                                                    .elementAtOrNull(
+                                                        splashPageHolidayImgListIndex))!;
+
+                                                if (!validateBlurhash(
+                                                    blurHash)) {
+                                                  return const SizedBox
+                                                      .shrink();
+                                                }
+                                                return SizedBox.expand(
+                                                  child: Image(
+                                                    image:
+                                                        BlurHashImage(blurHash),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                );
+                                              },
                                               image: NetworkImage(
                                                 functions.stringToImgPath(functions
                                                     .sortingListByOrder(

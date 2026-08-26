@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
@@ -182,6 +183,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         }
       }
 
+      _model.getBannerDoc = await ArunSawadImgBannerRecord.getDocumentOnce(
+          FFAppState().sawadBannerDocRef!);
+      _model.bannerListData = functions
+          .createBannerDataType(_model.getBannerDoc)!
+          .toList()
+          .cast<SawadBannerDataModelStruct>();
+      safeSetState(() {});
       _model.getDataRoleMenu = await actions.getDataFromCollection(
         'role_menu',
       );
@@ -1968,11 +1976,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
                                       return Builder(
                                         builder: (context) {
-                                          final bannerImgList =
-                                              pageViewBannerArunSawadImgBannerRecord
-                                                      ?.imgUrl
-                                                      ?.toList() ??
-                                                  [];
+                                          final bannerListItem =
+                                              _model.bannerListData.toList();
 
                                           return Container(
                                             width: double.infinity,
@@ -1991,18 +1996,18 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                 0,
                                                                 min(
                                                                     0,
-                                                                    bannerImgList
+                                                                    bannerListItem
                                                                             .length -
                                                                         1))),
                                                     scrollDirection:
                                                         Axis.horizontal,
                                                     itemCount:
-                                                        bannerImgList.length,
+                                                        bannerListItem.length,
                                                     itemBuilder: (context,
-                                                        bannerImgListIndex) {
-                                                      final bannerImgListItem =
-                                                          bannerImgList[
-                                                              bannerImgListIndex];
+                                                        bannerListItemIndex) {
+                                                      final bannerListItemItem =
+                                                          bannerListItem[
+                                                              bannerListItemIndex];
                                                       return InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -2022,7 +2027,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           ?.index
                                                                           ?.toList())
                                                                   ?.elementAtOrNull(
-                                                                      bannerImgListIndex)) !=
+                                                                      bannerListItemIndex)) !=
                                                               'Hello World') {
                                                             if ((functions
                                                                     .sortingBoolListByOrder(
@@ -2033,7 +2038,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ?.index
                                                                             ?.toList())
                                                                     ?.elementAtOrNull(
-                                                                        bannerImgListIndex)) !=
+                                                                        bannerListItemIndex)) !=
                                                                 true) {
                                                               await launchURL((functions
                                                                   .sortingListByOrder(
@@ -2044,7 +2049,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           ?.index
                                                                           ?.toList())!
                                                                   .elementAtOrNull(
-                                                                      bannerImgListIndex))!);
+                                                                      bannerListItemIndex))!);
                                                             } else {
                                                               if ((functions
                                                                       .sortingListByOrder(
@@ -2055,7 +2060,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ?.index
                                                                               ?.toList())
                                                                       ?.elementAtOrNull(
-                                                                          bannerImgListIndex)) ==
+                                                                          bannerListItemIndex)) ==
                                                                   'Bottom Sheet') {
                                                                 await showModalBottomSheet(
                                                                   isScrollControlled:
@@ -2111,10 +2116,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ?.index
                                                                               ?.toList())
                                                                       ?.elementAtOrNull(
-                                                                          bannerImgListIndex)) ==
+                                                                          bannerListItemIndex)) ==
                                                                   'launch_url') {
                                                                 await launchURL(
-                                                                    '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerImgListIndex)}${() {
+                                                                    '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerListItemIndex)}${() {
                                                                   if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType
@@ -2122,7 +2127,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               pageViewBannerArunSawadImgBannerRecord?.index
                                                                                   ?.toList())
                                                                           ?.elementAtOrNull(
-                                                                              bannerImgListIndex)) ==
+                                                                              bannerListItemIndex)) ==
                                                                       'no') {
                                                                     return '';
                                                                   } else if ((functions
@@ -2132,9 +2137,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               pageViewBannerArunSawadImgBannerRecord?.index
                                                                                   ?.toList())
                                                                           ?.elementAtOrNull(
-                                                                              bannerImgListIndex)) ==
+                                                                              bannerListItemIndex)) ==
                                                                       'token') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().accessToken}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().accessToken}';
                                                                   } else if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType
@@ -2142,16 +2147,16 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               pageViewBannerArunSawadImgBannerRecord?.index
                                                                                   ?.toList())
                                                                           ?.elementAtOrNull(
-                                                                              bannerImgListIndex)) ==
+                                                                              bannerListItemIndex)) ==
                                                                       'employee_id') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().employeeID}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().employeeID}';
                                                                   } else if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
                                                                               pageViewBannerArunSawadImgBannerRecord?.index?.toList())
-                                                                          ?.elementAtOrNull(bannerImgListIndex)) ==
+                                                                          ?.elementAtOrNull(bannerListItemIndex)) ==
                                                                       'branch_code') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().profileBranch}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().profileBranch}';
                                                                   } else {
                                                                     return '';
                                                                   }
@@ -2165,27 +2170,27 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ?.index
                                                                               ?.toList())
                                                                       ?.elementAtOrNull(
-                                                                          bannerImgListIndex)) ==
+                                                                          bannerListItemIndex)) ==
                                                                   'in_app_browser') {
                                                                 await actions
                                                                     .openTableauBrowser(
                                                                   () {
                                                                     if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerImgListIndex)) ==
+                                                                            bannerListItemIndex)) ==
                                                                         'no') {
                                                                       return '';
                                                                     } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerImgListIndex)) ==
+                                                                            bannerListItemIndex)) ==
                                                                         'token') {
                                                                       return '${FFAppState().accessToken}';
                                                                     } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerImgListIndex)) ==
+                                                                            bannerListItemIndex)) ==
                                                                         'employee_id') {
                                                                       return '${FFAppState().employeeID}';
                                                                     } else if ((functions
                                                                             .sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
                                                                                 pageViewBannerArunSawadImgBannerRecord?.index?.toList())
-                                                                            ?.elementAtOrNull(bannerImgListIndex)) ==
+                                                                            ?.elementAtOrNull(bannerListItemIndex)) ==
                                                                         'branch_code') {
                                                                       return '${FFAppState().profileBranch}';
                                                                     } else {
@@ -2201,7 +2206,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ?.index
                                                                               ?.toList())
                                                                       ?.elementAtOrNull(
-                                                                          bannerImgListIndex),
+                                                                          bannerListItemIndex),
                                                                   FFAppState()
                                                                       .isOpenAndroidTableauBrowser,
                                                                 );
@@ -2214,29 +2219,29 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ?.index
                                                                               ?.toList())
                                                                       ?.elementAtOrNull(
-                                                                          bannerImgListIndex)) ==
+                                                                          bannerListItemIndex)) ==
                                                                   'browser') {
                                                                 await actions
                                                                     .openInAppBrowserNew(
                                                                   () {
                                                                     if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerImgListIndex)) ==
+                                                                            bannerListItemIndex)) ==
                                                                         'no') {
                                                                       return '';
                                                                     } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerImgListIndex)) ==
+                                                                            bannerListItemIndex)) ==
                                                                         'token') {
-                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().accessToken}';
+                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().accessToken}';
                                                                     } else if ((functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(
-                                                                            bannerImgListIndex)) ==
+                                                                            bannerListItemIndex)) ==
                                                                         'employee_id') {
-                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().employeeID}';
+                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().employeeID}';
                                                                     } else if ((functions
                                                                             .sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
                                                                                 pageViewBannerArunSawadImgBannerRecord?.index?.toList())
-                                                                            ?.elementAtOrNull(bannerImgListIndex)) ==
+                                                                            ?.elementAtOrNull(bannerListItemIndex)) ==
                                                                         'branch_code') {
-                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().profileBranch}';
+                                                                      return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().profileBranch}';
                                                                     } else {
                                                                       return '';
                                                                     }
@@ -2250,11 +2255,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ?.index
                                                                               ?.toList())
                                                                       ?.elementAtOrNull(
-                                                                          bannerImgListIndex),
+                                                                          bannerListItemIndex),
                                                                 );
                                                               } else {
                                                                 await launchURL(
-                                                                    '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerImgListIndex)}${() {
+                                                                    '${functions.sortingListByOrder(pageViewBannerArunSawadImgBannerRecord?.linkUrl?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())?.elementAtOrNull(bannerListItemIndex)}${() {
                                                                   if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType
@@ -2262,7 +2267,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               pageViewBannerArunSawadImgBannerRecord?.index
                                                                                   ?.toList())
                                                                           ?.elementAtOrNull(
-                                                                              bannerImgListIndex)) ==
+                                                                              bannerListItemIndex)) ==
                                                                       'no') {
                                                                     return '';
                                                                   } else if ((functions
@@ -2272,9 +2277,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               pageViewBannerArunSawadImgBannerRecord?.index
                                                                                   ?.toList())
                                                                           ?.elementAtOrNull(
-                                                                              bannerImgListIndex)) ==
+                                                                              bannerListItemIndex)) ==
                                                                       'token') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().accessToken}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().accessToken}';
                                                                   } else if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType
@@ -2282,16 +2287,16 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               pageViewBannerArunSawadImgBannerRecord?.index
                                                                                   ?.toList())
                                                                           ?.elementAtOrNull(
-                                                                              bannerImgListIndex)) ==
+                                                                              bannerListItemIndex)) ==
                                                                       'employee_id') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().employeeID}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().employeeID}';
                                                                   } else if ((functions
                                                                           .sortingListByOrder(
                                                                               pageViewBannerArunSawadImgBannerRecord?.paramType?.toList(),
                                                                               pageViewBannerArunSawadImgBannerRecord?.index?.toList())
-                                                                          ?.elementAtOrNull(bannerImgListIndex)) ==
+                                                                          ?.elementAtOrNull(bannerListItemIndex)) ==
                                                                       'branch_code') {
-                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerImgListIndex))! ? '/' : ''}${FFAppState().profileBranch}';
+                                                                    return '${(functions.sortingBoolListByOrder(pageViewBannerArunSawadImgBannerRecord?.includeSlash?.toList(), pageViewBannerArunSawadImgBannerRecord?.index?.toList())!.elementAtOrNull(bannerListItemIndex))! ? '/' : ''}${FFAppState().profileBranch}';
                                                                   } else {
                                                                     return '';
                                                                   }
@@ -2302,22 +2307,34 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                         },
                                                         child: OctoImage(
                                                           placeholderBuilder:
-                                                              (_) => SizedBox
-                                                                  .expand(
-                                                            child: Image(
-                                                              image: BlurHashImage((functions
-                                                                  .sortingListByOrder(
-                                                                      pageViewBannerArunSawadImgBannerRecord
-                                                                          ?.blurHash
-                                                                          ?.toList(),
-                                                                      pageViewBannerArunSawadImgBannerRecord
-                                                                          ?.index
-                                                                          ?.toList())!
-                                                                  .elementAtOrNull(
-                                                                      bannerImgListIndex))!),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
+                                                              (_) {
+                                                            final blurHash = (functions
+                                                                .sortingListByOrder(
+                                                                    pageViewBannerArunSawadImgBannerRecord
+                                                                        ?.blurHash
+                                                                        ?.toList(),
+                                                                    pageViewBannerArunSawadImgBannerRecord
+                                                                        ?.index
+                                                                        ?.toList())!
+                                                                .elementAtOrNull(
+                                                                    bannerListItemIndex))!;
+
+                                                            if (!validateBlurhash(
+                                                                blurHash)) {
+                                                              return const SizedBox
+                                                                  .shrink();
+                                                            }
+                                                            return SizedBox
+                                                                .expand(
+                                                              child: Image(
+                                                                image:
+                                                                    BlurHashImage(
+                                                                        blurHash),
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            );
+                                                          },
                                                           image:
                                                               CachedNetworkImageProvider(
                                                             functions.stringToImgPath(functions
@@ -2331,7 +2348,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ?.index
                                                                         ?.toList())
                                                                 ?.elementAtOrNull(
-                                                                    bannerImgListIndex))!,
+                                                                    bannerListItemIndex))!,
                                                           ),
                                                           width: 100.0,
                                                           height: 100.0,
@@ -2359,11 +2376,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                   0,
                                                                   min(
                                                                       0,
-                                                                      bannerImgList
+                                                                      bannerListItem
                                                                               .length -
                                                                           1))),
                                                       count:
-                                                          bannerImgList.length,
+                                                          bannerListItem.length,
                                                       axisDirection:
                                                           Axis.horizontal,
                                                       onDotClicked: (i) async {
@@ -2535,22 +2552,34 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                         },
                                                         child: OctoImage(
                                                           placeholderBuilder:
-                                                              (_) => SizedBox
-                                                                  .expand(
-                                                            child: Image(
-                                                              image: BlurHashImage((functions
-                                                                  .sortingListByOrder(
-                                                                      pageViewArunSawadImgBannerRecord
-                                                                          ?.blurHash
-                                                                          ?.toList(),
-                                                                      pageViewArunSawadImgBannerRecord
-                                                                          ?.index
-                                                                          ?.toList())!
-                                                                  .elementAtOrNull(
-                                                                      bannerImgListIndex))!),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
+                                                              (_) {
+                                                            final blurHash = (functions
+                                                                .sortingListByOrder(
+                                                                    pageViewArunSawadImgBannerRecord
+                                                                        ?.blurHash
+                                                                        ?.toList(),
+                                                                    pageViewArunSawadImgBannerRecord
+                                                                        ?.index
+                                                                        ?.toList())!
+                                                                .elementAtOrNull(
+                                                                    bannerImgListIndex))!;
+
+                                                            if (!validateBlurhash(
+                                                                blurHash)) {
+                                                              return const SizedBox
+                                                                  .shrink();
+                                                            }
+                                                            return SizedBox
+                                                                .expand(
+                                                              child: Image(
+                                                                image:
+                                                                    BlurHashImage(
+                                                                        blurHash),
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            );
+                                                          },
                                                           image:
                                                               CachedNetworkImageProvider(
                                                             functions.stringToImgPath(functions
@@ -4837,188 +4866,72 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                FutureBuilder<ApiCallResponse>(
-                                                                                  future: GetUserProfileAPICall.call(
-                                                                                    token: FFAppState().accessToken,
-                                                                                    apiUrl: FFAppState().apiURLLocalState,
-                                                                                    projectName: 'SSW_SURVEY',
-                                                                                  ),
-                                                                                  builder: (context, snapshot) {
-                                                                                    // Customize what your widget looks like when it's loading.
-                                                                                    if (!snapshot.hasData) {
-                                                                                      return Center(
-                                                                                        child: SizedBox(
-                                                                                          width: 50.0,
-                                                                                          height: 50.0,
-                                                                                          child: CircularProgressIndicator(
-                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                              FlutterFlowTheme.of(context).tertiary,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      );
-                                                                                    }
-                                                                                    final columnGetUserProfileAPIResponse = snapshot.data!;
+                                                                                Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! || functions.containStringInListString1(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)!)
+                                                                                      InkWell(
+                                                                                        splashColor: Colors.transparent,
+                                                                                        focusColor: Colors.transparent,
+                                                                                        hoverColor: Colors.transparent,
+                                                                                        highlightColor: Colors.transparent,
+                                                                                        onTap: () async {
+                                                                                          var _shouldSetState = false;
+                                                                                          HapticFeedback.mediumImpact();
+                                                                                          if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                            Navigator.pop(context);
 
-                                                                                    return Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! ||
-                                                                                            functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! ||
-                                                                                            functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! ||
-                                                                                            functions.containStringInListString1(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)! ||
-                                                                                            ('${getJsonField(
-                                                                                                  columnGetUserProfileAPIResponse.jsonBody,
-                                                                                                  r'''$.UserRole[0].profile[0].role_name''',
-                                                                                                ).toString()}' ==
-                                                                                                'UNIT_M'))
-                                                                                          InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              var _shouldSetState = false;
-                                                                                              HapticFeedback.mediumImpact();
-                                                                                              if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                                Navigator.pop(context);
+                                                                                            context.goNamed(PinCodePageWidget.routeName);
 
-                                                                                                context.goNamed(PinCodePageWidget.routeName);
-
-                                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                                                return;
-                                                                                              }
-                                                                                              showModalBottomSheet(
-                                                                                                isScrollControlled: true,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                barrierColor: Color(0x00000000),
-                                                                                                enableDrag: false,
-                                                                                                context: context,
-                                                                                                builder: (context) {
-                                                                                                  return WebViewAware(
-                                                                                                    child: GestureDetector(
-                                                                                                      onTap: () {
-                                                                                                        FocusScope.of(context).unfocus();
-                                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                      },
-                                                                                                      child: Padding(
-                                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                                        child: Container(
-                                                                                                          height: double.infinity,
-                                                                                                          child: LoadingSceneWidget(),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ).then((value) => safeSetState(() {}));
-
-                                                                                              _model.checkLoginTeamM = await ActionUserAPICall.call(
-                                                                                                token: FFAppState().accessToken,
-                                                                                                apiUrl: FFAppState().apiURLLocalState,
-                                                                                              );
-
-                                                                                              _shouldSetState = true;
-                                                                                              if ((_model.checkLoginTeamM?.statusCode ?? 200) != 200) {
-                                                                                                if (!((ActionUserAPICall.message(
-                                                                                                          (_model.checkLoginTeamM?.jsonBody ?? ''),
-                                                                                                        ) ==
-                                                                                                        'The token has been blacklisted') ||
-                                                                                                    (ActionUserAPICall.message(
-                                                                                                          (_model.checkLoginTeamM?.jsonBody ?? ''),
-                                                                                                        ) ==
-                                                                                                        'Token Signature could not be verified.'))) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${(_model.checkLoginTeamM?.statusCode ?? 200).toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                await showDialog(
-                                                                                                  context: context,
-                                                                                                  builder: (alertDialogContext) {
-                                                                                                    return WebViewAware(
-                                                                                                      child: AlertDialog(
-                                                                                                        content: Text('Session Loginหมดอายุ'),
-                                                                                                        actions: [
-                                                                                                          TextButton(
-                                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                            child: Text('Ok'),
-                                                                                                          ),
-                                                                                                        ],
-                                                                                                      ),
-                                                                                                    );
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
+                                                                                          }
+                                                                                          showModalBottomSheet(
+                                                                                            isScrollControlled: true,
+                                                                                            backgroundColor: Colors.transparent,
+                                                                                            barrierColor: Color(0x00000000),
+                                                                                            enableDrag: false,
+                                                                                            context: context,
+                                                                                            builder: (context) {
+                                                                                              return WebViewAware(
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(context).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
                                                                                                   },
-                                                                                                );
-                                                                                                FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                                FFAppState().deleteAccessToken();
-                                                                                                FFAppState().accessToken = 'access_token';
+                                                                                                  child: Padding(
+                                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                                    child: Container(
+                                                                                                      height: double.infinity,
+                                                                                                      child: LoadingSceneWidget(),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          ).then((value) => safeSetState(() {}));
 
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().deleteEmployeeID();
-                                                                                                FFAppState().employeeID = 'employee_id';
+                                                                                          _model.checkLoginTeamM = await ActionUserAPICall.call(
+                                                                                            token: FFAppState().accessToken,
+                                                                                            apiUrl: FFAppState().apiURLLocalState,
+                                                                                          );
 
-                                                                                                FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().deleteApiURLLocalState();
-                                                                                                FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                                FFAppState().deleteBranchCode();
-                                                                                                FFAppState().branchCode = 'branch_code';
-
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().isFromSetPinPage = false;
-                                                                                                FFAppState().leadChannelColor = [];
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().leadChannelList = [];
-                                                                                                FFAppState().isFromLoginPage = false;
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().deletePinCodeAuthen();
-                                                                                                FFAppState().pinCodeAuthen = '013972';
-
-                                                                                                FFAppState().isFromAuthenPage = false;
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().deleteDateDoNotShowAgain();
-                                                                                                FFAppState().dateDoNotShowAgain = null;
-
-                                                                                                FFAppState().deleteDoNotShowAgain();
-                                                                                                FFAppState().doNotShowAgain = false;
-
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().inAppViaNotification = true;
-                                                                                                FFAppState().isInApp = false;
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().fcmToken = 'fcm_token';
-                                                                                                FFAppState().isPassLoginSection = false;
-                                                                                                FFAppState().update(() {});
-                                                                                                Navigator.pop(context);
-                                                                                                await actions.a22();
-
-                                                                                                context.goNamed(LoginPageWidget.routeName);
-
-                                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                                                return;
-                                                                                              }
-                                                                                              Navigator.pop(context);
+                                                                                          _shouldSetState = true;
+                                                                                          if ((_model.checkLoginTeamM?.statusCode ?? 200) != 200) {
+                                                                                            if (!((ActionUserAPICall.message(
+                                                                                                      (_model.checkLoginTeamM?.jsonBody ?? ''),
+                                                                                                    ) ==
+                                                                                                    'The token has been blacklisted') ||
+                                                                                                (ActionUserAPICall.message(
+                                                                                                      (_model.checkLoginTeamM?.jsonBody ?? ''),
+                                                                                                    ) ==
+                                                                                                    'Token Signature could not be verified.'))) {
                                                                                               await showDialog(
                                                                                                 context: context,
                                                                                                 builder: (alertDialogContext) {
                                                                                                   return WebViewAware(
                                                                                                     child: AlertDialog(
-                                                                                                      content: Text(functions.containStringInListString1(functions.getListDataFromJson(FFAppState().roleMenuJson, 'region_role_position')?.toList(), FFAppState().profilePositionName)!.toString()),
+                                                                                                      content: Text('พบข้อผิดพลาด (${(_model.checkLoginTeamM?.statusCode ?? 200).toString()})'),
                                                                                                       actions: [
                                                                                                         TextButton(
                                                                                                           onPressed: () => Navigator.pop(alertDialogContext),
@@ -5029,108 +4942,170 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                   );
                                                                                                 },
                                                                                               );
-
-                                                                                              context.goNamed(
-                                                                                                TabCollectionTeamMPageWidget.routeName,
-                                                                                                queryParameters: {
-                                                                                                  'branchCode': serializeParam(
-                                                                                                    FFAppState().branchCode,
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'profileLevel': serializeParam(
-                                                                                                    FFAppState().profileLevel,
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'isTeamM': serializeParam(
-                                                                                                    !functions.containStringInListString1(functions.getListDataFromJson(FFAppState().roleMenuJson, 'region_role_position')?.toList(), FFAppState().profilePositionName)! ||
-                                                                                                        ('${getJsonField(
-                                                                                                              columnGetUserProfileAPIResponse.jsonBody,
-                                                                                                              r'''$.UserRole[0].profile[0].role_name''',
-                                                                                                            ).toString()}' ==
-                                                                                                            'UNIT_M'),
-                                                                                                    ParamType.bool,
-                                                                                                  ),
-                                                                                                }.withoutNulls,
-                                                                                              );
-
                                                                                               if (_shouldSetState) safeSetState(() {});
-                                                                                            },
-                                                                                            child: Container(
-                                                                                              width: 100.0,
-                                                                                              height: 100.0,
-                                                                                              decoration: BoxDecoration(
-                                                                                                color: Colors.white,
-                                                                                                shape: BoxShape.circle,
-                                                                                              ),
-                                                                                              child: Column(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                children: [
-                                                                                                  Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                                                    child: Container(
-                                                                                                      width: () {
-                                                                                                        if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                          return 50.0;
-                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                        } else {
-                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                        }
-                                                                                                      }(),
-                                                                                                      height: () {
-                                                                                                        if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                          return 50.0;
-                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                        } else {
-                                                                                                          return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                        }
-                                                                                                      }(),
-                                                                                                      clipBehavior: Clip.antiAlias,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        shape: BoxShape.circle,
+                                                                                              return;
+                                                                                            }
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    content: Text('Session Loginหมดอายุ'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
                                                                                                       ),
-                                                                                                      child: Image.asset(
-                                                                                                        'assets/images/approveicon4.png',
-                                                                                                        fit: BoxFit.contain,
-                                                                                                      ),
-                                                                                                    ),
+                                                                                                    ],
                                                                                                   ),
-                                                                                                  Text(
-                                                                                                    'ตามหนี้หน่วยM',
-                                                                                                    textAlign: TextAlign.center,
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          font: GoogleFonts.poppins(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          fontSize: () {
-                                                                                                            if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                              return 12.0;
-                                                                                                            } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                              return 20.0;
-                                                                                                            } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                              return 20.0;
-                                                                                                            } else {
-                                                                                                              return 20.0;
-                                                                                                            }
-                                                                                                          }(),
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ],
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                            FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                            FFAppState().deleteAccessToken();
+                                                                                            FFAppState().accessToken = 'access_token';
+
+                                                                                            FFAppState().update(() {});
+                                                                                            FFAppState().deleteEmployeeID();
+                                                                                            FFAppState().employeeID = 'employee_id';
+
+                                                                                            FFAppState().QRCodeLink = 'qrcode_link';
+                                                                                            FFAppState().update(() {});
+                                                                                            FFAppState().deleteApiURLLocalState();
+                                                                                            FFAppState().apiURLLocalState = 'api_url_local_state';
+
+                                                                                            FFAppState().deleteBranchCode();
+                                                                                            FFAppState().branchCode = 'branch_code';
+
+                                                                                            FFAppState().update(() {});
+                                                                                            FFAppState().isFromSetPinPage = false;
+                                                                                            FFAppState().leadChannelColor = [];
+                                                                                            FFAppState().update(() {});
+                                                                                            FFAppState().leadChannelList = [];
+                                                                                            FFAppState().isFromLoginPage = false;
+                                                                                            FFAppState().update(() {});
+                                                                                            FFAppState().deletePinCodeAuthen();
+                                                                                            FFAppState().pinCodeAuthen = '013972';
+
+                                                                                            FFAppState().isFromAuthenPage = false;
+                                                                                            FFAppState().update(() {});
+                                                                                            FFAppState().deleteDateDoNotShowAgain();
+                                                                                            FFAppState().dateDoNotShowAgain = null;
+
+                                                                                            FFAppState().deleteDoNotShowAgain();
+                                                                                            FFAppState().doNotShowAgain = false;
+
+                                                                                            FFAppState().update(() {});
+                                                                                            FFAppState().inAppViaNotification = true;
+                                                                                            FFAppState().isInApp = false;
+                                                                                            FFAppState().update(() {});
+                                                                                            FFAppState().fcmToken = 'fcm_token';
+                                                                                            FFAppState().isPassLoginSection = false;
+                                                                                            FFAppState().update(() {});
+                                                                                            Navigator.pop(context);
+                                                                                            await actions.a22();
+
+                                                                                            context.goNamed(LoginPageWidget.routeName);
+
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
+                                                                                          }
+                                                                                          Navigator.pop(context);
+
+                                                                                          context.goNamed(
+                                                                                            TabCollectionTeamMPageWidget.routeName,
+                                                                                            queryParameters: {
+                                                                                              'branchCode': serializeParam(
+                                                                                                FFAppState().branchCode,
+                                                                                                ParamType.String,
                                                                                               ),
-                                                                                            ),
+                                                                                              'profileLevel': serializeParam(
+                                                                                                FFAppState().profileLevel,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'isTeamM': serializeParam(
+                                                                                                !functions.containStringInListString1(functions.getListDataFromJson(FFAppState().roleMenuJson, 'region_role_position')?.toList(), FFAppState().profilePositionName)!,
+                                                                                                ParamType.bool,
+                                                                                              ),
+                                                                                            }.withoutNulls,
+                                                                                          );
+
+                                                                                          if (_shouldSetState) safeSetState(() {});
+                                                                                        },
+                                                                                        child: Container(
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
+                                                                                          decoration: BoxDecoration(
+                                                                                            color: Colors.white,
+                                                                                            shape: BoxShape.circle,
                                                                                           ),
-                                                                                      ],
-                                                                                    );
-                                                                                  },
+                                                                                          child: Column(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            children: [
+                                                                                              Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                                child: Container(
+                                                                                                  width: () {
+                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                      return 50.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                    } else {
+                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                    }
+                                                                                                  }(),
+                                                                                                  height: () {
+                                                                                                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                      return 50.0;
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                    } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                    } else {
+                                                                                                      return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                    }
+                                                                                                  }(),
+                                                                                                  clipBehavior: Clip.antiAlias,
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    shape: BoxShape.circle,
+                                                                                                  ),
+                                                                                                  child: Image.asset(
+                                                                                                    'assets/images/approveicon4.png',
+                                                                                                    fit: BoxFit.contain,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                              Text(
+                                                                                                'ตามหนี้หน่วยM',
+                                                                                                textAlign: TextAlign.center,
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      font: GoogleFonts.poppins(
+                                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                      ),
+                                                                                                      fontSize: () {
+                                                                                                        if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                          return 12.0;
+                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                          return 20.0;
+                                                                                                        } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                          return 20.0;
+                                                                                                        } else {
+                                                                                                          return 20.0;
+                                                                                                        }
+                                                                                                      }(),
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                  ],
                                                                                 ),
                                                                                 if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'QR Payment', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'QR Payment')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'QR Payment')?.toList(), FFAppState().profilePositionName)!)
                                                                                   InkWell(
@@ -12857,12 +12832,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             ClipRRect(
                                                                                               borderRadius: BorderRadius.circular(50.0),
                                                                                               child: OctoImage(
-                                                                                                placeholderBuilder: (_) => SizedBox.expand(
-                                                                                                  child: Image(
-                                                                                                    image: BlurHashImage(gridViewMenuIconOtherRecord.iconBlurHash),
-                                                                                                    fit: BoxFit.cover,
-                                                                                                  ),
-                                                                                                ),
+                                                                                                placeholderBuilder: (_) {
+                                                                                                  final blurHash = gridViewMenuIconOtherRecord.iconBlurHash;
+
+                                                                                                  if (!validateBlurhash(blurHash)) {
+                                                                                                    return const SizedBox.shrink();
+                                                                                                  }
+                                                                                                  return SizedBox.expand(
+                                                                                                    child: Image(
+                                                                                                      image: BlurHashImage(blurHash),
+                                                                                                      fit: BoxFit.cover,
+                                                                                                    ),
+                                                                                                  );
+                                                                                                },
                                                                                                 image: NetworkImage(
                                                                                                   gridViewMenuIconOtherRecord.icon,
                                                                                                 ),
@@ -13673,12 +13655,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                       child: ClipRRect(
                                                                                                         borderRadius: BorderRadius.circular(100.0),
                                                                                                         child: OctoImage(
-                                                                                                          placeholderBuilder: (_) => SizedBox.expand(
-                                                                                                            child: Image(
-                                                                                                              image: BlurHashImage('LnPW1|bcrFXS}rbcxGbbBSX9OYX9'),
-                                                                                                              fit: BoxFit.cover,
-                                                                                                            ),
-                                                                                                          ),
+                                                                                                          placeholderBuilder: (_) {
+                                                                                                            final blurHash = 'LnPW1|bcrFXS}rbcxGbbBSX9OYX9';
+
+                                                                                                            if (!validateBlurhash(blurHash)) {
+                                                                                                              return const SizedBox.shrink();
+                                                                                                            }
+                                                                                                            return SizedBox.expand(
+                                                                                                              child: Image(
+                                                                                                                image: BlurHashImage(blurHash),
+                                                                                                                fit: BoxFit.cover,
+                                                                                                              ),
+                                                                                                            );
+                                                                                                          },
                                                                                                           image: NetworkImage(
                                                                                                             functions.stringToImgPath(valueOrDefault<String>(
                                                                                                               _model.serviceMenuIconUrl.elementAtOrNull((int currentIndex, List<String> orderList) {

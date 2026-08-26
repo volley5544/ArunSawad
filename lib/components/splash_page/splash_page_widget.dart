@@ -152,15 +152,22 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                           child: OctoImage(
-                                            placeholderBuilder: (_) =>
-                                                SizedBox.expand(
-                                              child: Image(
-                                                image: BlurHashImage(
-                                                    containerSplashPageImgRecord!
-                                                        .blurHash.firstOrNull!),
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
+                                            placeholderBuilder: (_) {
+                                              final blurHash =
+                                                  containerSplashPageImgRecord!
+                                                      .blurHash.firstOrNull!;
+
+                                              if (!validateBlurhash(blurHash)) {
+                                                return const SizedBox.shrink();
+                                              }
+                                              return SizedBox.expand(
+                                                child: Image(
+                                                  image:
+                                                      BlurHashImage(blurHash),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              );
+                                            },
                                             image: NetworkImage(
                                               splashPageImgListItem,
                                             ),

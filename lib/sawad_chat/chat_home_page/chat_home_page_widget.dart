@@ -280,29 +280,39 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                         BorderRadius.circular(
                                                             50.0),
                                                     child: OctoImage(
-                                                      placeholderBuilder: (_) =>
-                                                          SizedBox.expand(
-                                                        child: Image(
-                                                          image: BlurHashImage(listViewSawadChatRoomRecord
-                                                                      .chatRoomType ==
-                                                                  'single'
-                                                              ? (listViewSawadChatRoomRecord
-                                                                      .hasUsersDisplayImageBlurHash()
-                                                                  ? listViewSawadChatRoomRecord
-                                                                      .usersDisplayImageBlurHash
-                                                                      .elementAtOrNull(
-                                                                          listViewSawadChatRoomRecord.usersRef.firstOrNull != FFAppState().userRef
-                                                                              ? 0
-                                                                              : 1)!
-                                                                  : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ')
-                                                              : (listViewSawadChatRoomRecord
-                                                                      .hasChatRoomDisplayImageBlurHash()
-                                                                  ? listViewSawadChatRoomRecord
-                                                                      .chatRoomDisplayImageBlurHash
-                                                                  : 'LAPG5SQ^=Sve}itOD=MzYhMx%fTf')),
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
+                                                      placeholderBuilder: (_) {
+                                                        final blurHash = listViewSawadChatRoomRecord
+                                                                    .chatRoomType ==
+                                                                'single'
+                                                            ? (listViewSawadChatRoomRecord
+                                                                    .hasUsersDisplayImageBlurHash()
+                                                                ? listViewSawadChatRoomRecord
+                                                                    .usersDisplayImageBlurHash
+                                                                    .elementAtOrNull(
+                                                                        listViewSawadChatRoomRecord.usersRef.firstOrNull != FFAppState().userRef
+                                                                            ? 0
+                                                                            : 1)!
+                                                                : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ')
+                                                            : (listViewSawadChatRoomRecord
+                                                                    .hasChatRoomDisplayImageBlurHash()
+                                                                ? listViewSawadChatRoomRecord
+                                                                    .chatRoomDisplayImageBlurHash
+                                                                : 'LAPG5SQ^=Sve}itOD=MzYhMx%fTf');
+
+                                                        if (!validateBlurhash(
+                                                            blurHash)) {
+                                                          return const SizedBox
+                                                              .shrink();
+                                                        }
+                                                        return SizedBox.expand(
+                                                          child: Image(
+                                                            image:
+                                                                BlurHashImage(
+                                                                    blurHash),
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        );
+                                                      },
                                                       image: NetworkImage(
                                                         listViewSawadChatRoomRecord
                                                                     .chatRoomType ==

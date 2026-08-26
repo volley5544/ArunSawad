@@ -958,22 +958,32 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                 child:
                                                                     OctoImage(
                                                                   placeholderBuilder:
-                                                                      (_) => SizedBox
-                                                                          .expand(
-                                                                    child:
-                                                                        Image(
-                                                                      image: BlurHashImage(containerUserCustomRecordList
-                                                                              .elementAtOrNull(
-                                                                                  employeeListItemIndex)!
-                                                                              .hasImgProfileBlurHash()
-                                                                          ? containerUserCustomRecordList
-                                                                              .elementAtOrNull(employeeListItemIndex)!
-                                                                              .imgProfileBlurHash
-                                                                          : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
+                                                                      (_) {
+                                                                    final blurHash = containerUserCustomRecordList
+                                                                            .elementAtOrNull(
+                                                                                employeeListItemIndex)!
+                                                                            .hasImgProfileBlurHash()
+                                                                        ? containerUserCustomRecordList
+                                                                            .elementAtOrNull(employeeListItemIndex)!
+                                                                            .imgProfileBlurHash
+                                                                        : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ';
+
+                                                                    if (!validateBlurhash(
+                                                                        blurHash)) {
+                                                                      return const SizedBox
+                                                                          .shrink();
+                                                                    }
+                                                                    return SizedBox
+                                                                        .expand(
+                                                                      child:
+                                                                          Image(
+                                                                        image: BlurHashImage(
+                                                                            blurHash),
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    );
+                                                                  },
                                                                   image:
                                                                       NetworkImage(
                                                                     valueOrDefault<

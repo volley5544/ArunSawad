@@ -246,15 +246,21 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                   type: PageTransitionType.fade,
                                   child: FlutterFlowExpandedImageView(
                                     image: OctoImage(
-                                      placeholderBuilder: (_) =>
-                                          SizedBox.expand(
-                                        child: Image(
-                                          image: BlurHashImage(
-                                              chattingPageSawadChatRoomRecord
-                                                  .chatRoomDisplayImageBlurHash),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
+                                      placeholderBuilder: (_) {
+                                        final blurHash =
+                                            chattingPageSawadChatRoomRecord
+                                                .chatRoomDisplayImageBlurHash;
+
+                                        if (!validateBlurhash(blurHash)) {
+                                          return const SizedBox.shrink();
+                                        }
+                                        return SizedBox.expand(
+                                          child: Image(
+                                            image: BlurHashImage(blurHash),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        );
+                                      },
                                       image: NetworkImage(
                                         valueOrDefault<String>(
                                           chattingPageSawadChatRoomRecord
@@ -285,14 +291,21 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50.0),
                                 child: OctoImage(
-                                  placeholderBuilder: (_) => SizedBox.expand(
-                                    child: Image(
-                                      image: BlurHashImage(
-                                          chattingPageSawadChatRoomRecord
-                                              .chatRoomDisplayImageBlurHash),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                                  placeholderBuilder: (_) {
+                                    final blurHash =
+                                        chattingPageSawadChatRoomRecord
+                                            .chatRoomDisplayImageBlurHash;
+
+                                    if (!validateBlurhash(blurHash)) {
+                                      return const SizedBox.shrink();
+                                    }
+                                    return SizedBox.expand(
+                                      child: Image(
+                                        image: BlurHashImage(blurHash),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    );
+                                  },
                                   image: NetworkImage(
                                     valueOrDefault<String>(
                                       chattingPageSawadChatRoomRecord
@@ -491,12 +504,19 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                               FlutterFlowExpandedImageView(
                                                                             image:
                                                                                 OctoImage(
-                                                                              placeholderBuilder: (_) => SizedBox.expand(
-                                                                                child: Image(
-                                                                                  image: BlurHashImage(listViewChatMessagesRecord.hasMessageByDisplayBlurHash() ? listViewChatMessagesRecord.messageByDisplayBlurHash : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
-                                                                                  fit: BoxFit.cover,
-                                                                                ),
-                                                                              ),
+                                                                              placeholderBuilder: (_) {
+                                                                                final blurHash = listViewChatMessagesRecord.hasMessageByDisplayBlurHash() ? listViewChatMessagesRecord.messageByDisplayBlurHash : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ';
+
+                                                                                if (!validateBlurhash(blurHash)) {
+                                                                                  return const SizedBox.shrink();
+                                                                                }
+                                                                                return SizedBox.expand(
+                                                                                  child: Image(
+                                                                                    image: BlurHashImage(blurHash),
+                                                                                    fit: BoxFit.cover,
+                                                                                  ),
+                                                                                );
+                                                                              },
                                                                               image: NetworkImage(
                                                                                 valueOrDefault<String>(
                                                                                   listViewChatMessagesRecord.messageByDisplayUrl,
@@ -534,14 +554,22 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                             BorderRadius.circular(50.0),
                                                                         child:
                                                                             OctoImage(
-                                                                          placeholderBuilder: (_) =>
-                                                                              SizedBox.expand(
-                                                                            child:
-                                                                                Image(
-                                                                              image: BlurHashImage(listViewChatMessagesRecord.hasMessageByDisplayBlurHash() ? listViewChatMessagesRecord.messageByDisplayBlurHash : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
+                                                                          placeholderBuilder:
+                                                                              (_) {
+                                                                            final blurHash = listViewChatMessagesRecord.hasMessageByDisplayBlurHash()
+                                                                                ? listViewChatMessagesRecord.messageByDisplayBlurHash
+                                                                                : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ';
+
+                                                                            if (!validateBlurhash(blurHash)) {
+                                                                              return const SizedBox.shrink();
+                                                                            }
+                                                                            return SizedBox.expand(
+                                                                              child: Image(
+                                                                                image: BlurHashImage(blurHash),
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            );
+                                                                          },
                                                                           image:
                                                                               NetworkImage(
                                                                             valueOrDefault<String>(
@@ -837,12 +865,19 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                                   type: PageTransitionType.fade,
                                                                                   child: FlutterFlowExpandedImageView(
                                                                                     image: OctoImage(
-                                                                                      placeholderBuilder: (_) => SizedBox.expand(
-                                                                                        child: Image(
-                                                                                          image: BlurHashImage(listViewChatMessagesRecord.messageImageBlurHash),
-                                                                                          fit: BoxFit.cover,
-                                                                                        ),
-                                                                                      ),
+                                                                                      placeholderBuilder: (_) {
+                                                                                        final blurHash = listViewChatMessagesRecord.messageImageBlurHash;
+
+                                                                                        if (!validateBlurhash(blurHash)) {
+                                                                                          return const SizedBox.shrink();
+                                                                                        }
+                                                                                        return SizedBox.expand(
+                                                                                          child: Image(
+                                                                                            image: BlurHashImage(blurHash),
+                                                                                            fit: BoxFit.cover,
+                                                                                          ),
+                                                                                        );
+                                                                                      },
                                                                                       image: NetworkImage(
                                                                                         listViewChatMessagesRecord.messageImageUrl,
                                                                                       ),
@@ -862,12 +897,19 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                               child: ClipRRect(
                                                                                 borderRadius: BorderRadius.circular(16.0),
                                                                                 child: OctoImage(
-                                                                                  placeholderBuilder: (_) => SizedBox.expand(
-                                                                                    child: Image(
-                                                                                      image: BlurHashImage(listViewChatMessagesRecord.messageImageBlurHash),
-                                                                                      fit: BoxFit.cover,
-                                                                                    ),
-                                                                                  ),
+                                                                                  placeholderBuilder: (_) {
+                                                                                    final blurHash = listViewChatMessagesRecord.messageImageBlurHash;
+
+                                                                                    if (!validateBlurhash(blurHash)) {
+                                                                                      return const SizedBox.shrink();
+                                                                                    }
+                                                                                    return SizedBox.expand(
+                                                                                      child: Image(
+                                                                                        image: BlurHashImage(blurHash),
+                                                                                        fit: BoxFit.cover,
+                                                                                      ),
+                                                                                    );
+                                                                                  },
                                                                                   image: NetworkImage(
                                                                                     listViewChatMessagesRecord.messageImageUrl,
                                                                                   ),
@@ -1198,14 +1240,21 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                           FlutterFlowExpandedImageView(
                                                                         image:
                                                                             OctoImage(
-                                                                          placeholderBuilder: (_) =>
-                                                                              SizedBox.expand(
-                                                                            child:
-                                                                                Image(
-                                                                              image: BlurHashImage(listViewChatMessagesRecord.messageImageBlurHash),
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
+                                                                          placeholderBuilder:
+                                                                              (_) {
+                                                                            final blurHash =
+                                                                                listViewChatMessagesRecord.messageImageBlurHash;
+
+                                                                            if (!validateBlurhash(blurHash)) {
+                                                                              return const SizedBox.shrink();
+                                                                            }
+                                                                            return SizedBox.expand(
+                                                                              child: Image(
+                                                                                image: BlurHashImage(blurHash),
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            );
+                                                                          },
                                                                           image:
                                                                               NetworkImage(
                                                                             listViewChatMessagesRecord.messageImageUrl,
@@ -1236,16 +1285,26 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                     child:
                                                                         OctoImage(
                                                                       placeholderBuilder:
-                                                                          (_) =>
-                                                                              SizedBox.expand(
-                                                                        child:
-                                                                            Image(
-                                                                          image:
-                                                                              BlurHashImage(listViewChatMessagesRecord.messageImageBlurHash),
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                        ),
-                                                                      ),
+                                                                          (_) {
+                                                                        final blurHash =
+                                                                            listViewChatMessagesRecord.messageImageBlurHash;
+
+                                                                        if (!validateBlurhash(
+                                                                            blurHash)) {
+                                                                          return const SizedBox
+                                                                              .shrink();
+                                                                        }
+                                                                        return SizedBox
+                                                                            .expand(
+                                                                          child:
+                                                                              Image(
+                                                                            image:
+                                                                                BlurHashImage(blurHash),
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
+                                                                        );
+                                                                      },
                                                                       image:
                                                                           NetworkImage(
                                                                         listViewChatMessagesRecord

@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
@@ -114,6 +115,20 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
 
   double? yAxis = 0.95;
 
+  List<SawadBannerDataModelStruct> bannerListData = [];
+  void addToBannerListData(SawadBannerDataModelStruct item) =>
+      bannerListData.add(item);
+  void removeFromBannerListData(SawadBannerDataModelStruct item) =>
+      bannerListData.remove(item);
+  void removeAtIndexFromBannerListData(int index) =>
+      bannerListData.removeAt(index);
+  void insertAtIndexInBannerListData(
+          int index, SawadBannerDataModelStruct item) =>
+      bannerListData.insert(index, item);
+  void updateBannerListDataAtIndex(
+          int index, Function(SawadBannerDataModelStruct) updateFn) =>
+      bannerListData[index] = updateFn(bannerListData[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
@@ -124,6 +139,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   int? getBuildNumber;
   // Stores action output result for [Custom Action - a14] action in SuperAppPage widget.
   String? leadNotiOutput;
+  // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
+  ArunSawadImgBannerRecord? getBannerDoc;
   // Stores action output result for [Custom Action - getDataFromCollection] action in SuperAppPage widget.
   dynamic? getDataRoleMenu;
   // Stores action output result for [Firestore Query - Query a collection] action in SuperAppPage widget.

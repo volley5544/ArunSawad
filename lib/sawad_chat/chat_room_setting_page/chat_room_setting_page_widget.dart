@@ -363,18 +363,28 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                             FlutterFlowExpandedImageView(
                                                           image: OctoImage(
                                                             placeholderBuilder:
-                                                                (_) => SizedBox
-                                                                    .expand(
-                                                              child: Image(
-                                                                image: BlurHashImage(chatRoomSettingPageSawadChatRoomRecord
-                                                                        .hasChatRoomDisplayImageBlurHash()
-                                                                    ? chatRoomSettingPageSawadChatRoomRecord
-                                                                        .chatRoomDisplayImageBlurHash
-                                                                    : 'LAPG5SQ^=Sve}itOD=MzYhMx%fTf'),
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
+                                                                (_) {
+                                                              final blurHash = chatRoomSettingPageSawadChatRoomRecord
+                                                                      .hasChatRoomDisplayImageBlurHash()
+                                                                  ? chatRoomSettingPageSawadChatRoomRecord
+                                                                      .chatRoomDisplayImageBlurHash
+                                                                  : 'LAPG5SQ^=Sve}itOD=MzYhMx%fTf';
+
+                                                              if (!validateBlurhash(
+                                                                  blurHash)) {
+                                                                return const SizedBox
+                                                                    .shrink();
+                                                              }
+                                                              return SizedBox
+                                                                  .expand(
+                                                                child: Image(
+                                                                  image: BlurHashImage(
+                                                                      blurHash),
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              );
+                                                            },
                                                             image: NetworkImage(
                                                               chatRoomSettingPageSawadChatRoomRecord
                                                                   .chatRoomDisplayImageUrl,
@@ -401,17 +411,28 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                               50.0),
                                                       child: OctoImage(
                                                         placeholderBuilder:
-                                                            (_) =>
-                                                                SizedBox.expand(
-                                                          child: Image(
-                                                            image: BlurHashImage(chatRoomSettingPageSawadChatRoomRecord
-                                                                    .hasChatRoomDisplayImageBlurHash()
-                                                                ? chatRoomSettingPageSawadChatRoomRecord
-                                                                    .chatRoomDisplayImageBlurHash
-                                                                : 'LAPG5SQ^=Sve}itOD=MzYhMx%fTf'),
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
+                                                            (_) {
+                                                          final blurHash = chatRoomSettingPageSawadChatRoomRecord
+                                                                  .hasChatRoomDisplayImageBlurHash()
+                                                              ? chatRoomSettingPageSawadChatRoomRecord
+                                                                  .chatRoomDisplayImageBlurHash
+                                                              : 'LAPG5SQ^=Sve}itOD=MzYhMx%fTf';
+
+                                                          if (!validateBlurhash(
+                                                              blurHash)) {
+                                                            return const SizedBox
+                                                                .shrink();
+                                                          }
+                                                          return SizedBox
+                                                              .expand(
+                                                            child: Image(
+                                                              image:
+                                                                  BlurHashImage(
+                                                                      blurHash),
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          );
+                                                        },
                                                         image: NetworkImage(
                                                           chatRoomSettingPageSawadChatRoomRecord
                                                               .chatRoomDisplayImageUrl,

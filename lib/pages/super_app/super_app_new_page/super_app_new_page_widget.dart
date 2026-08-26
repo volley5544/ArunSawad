@@ -1557,22 +1557,29 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                             }
                                           },
                                           child: OctoImage(
-                                            placeholderBuilder: (_) =>
-                                                SizedBox.expand(
-                                              child: Image(
-                                                image: BlurHashImage((functions
-                                                    .sortingListByOrder(
-                                                        pageViewBannerArunSawadImgBannerRecord
-                                                            ?.blurHash
-                                                            ?.toList(),
-                                                        pageViewBannerArunSawadImgBannerRecord
-                                                            ?.index
-                                                            ?.toList())!
-                                                    .elementAtOrNull(
-                                                        bannerImgListIndex))!),
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
+                                            placeholderBuilder: (_) {
+                                              final blurHash = (functions
+                                                  .sortingListByOrder(
+                                                      pageViewBannerArunSawadImgBannerRecord
+                                                          ?.blurHash
+                                                          ?.toList(),
+                                                      pageViewBannerArunSawadImgBannerRecord
+                                                          ?.index
+                                                          ?.toList())!
+                                                  .elementAtOrNull(
+                                                      bannerImgListIndex))!;
+
+                                              if (!validateBlurhash(blurHash)) {
+                                                return const SizedBox.shrink();
+                                              }
+                                              return SizedBox.expand(
+                                                child: Image(
+                                                  image:
+                                                      BlurHashImage(blurHash),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              );
+                                            },
                                             image: CachedNetworkImageProvider(
                                               functions.stringToImgPath(functions
                                                   .sortingListByOrder(
@@ -1753,22 +1760,29 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                             }
                                           },
                                           child: OctoImage(
-                                            placeholderBuilder: (_) =>
-                                                SizedBox.expand(
-                                              child: Image(
-                                                image: BlurHashImage((functions
-                                                    .sortingListByOrder(
-                                                        pageViewArunSawadImgBannerRecord
-                                                            ?.blurHash
-                                                            ?.toList(),
-                                                        pageViewArunSawadImgBannerRecord
-                                                            ?.index
-                                                            ?.toList())!
-                                                    .elementAtOrNull(
-                                                        bannerImgListIndex))!),
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
+                                            placeholderBuilder: (_) {
+                                              final blurHash = (functions
+                                                  .sortingListByOrder(
+                                                      pageViewArunSawadImgBannerRecord
+                                                          ?.blurHash
+                                                          ?.toList(),
+                                                      pageViewArunSawadImgBannerRecord
+                                                          ?.index
+                                                          ?.toList())!
+                                                  .elementAtOrNull(
+                                                      bannerImgListIndex))!;
+
+                                              if (!validateBlurhash(blurHash)) {
+                                                return const SizedBox.shrink();
+                                              }
+                                              return SizedBox.expand(
+                                                child: Image(
+                                                  image:
+                                                      BlurHashImage(blurHash),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              );
+                                            },
                                             image: CachedNetworkImageProvider(
                                               functions.stringToImgPath(functions
                                                   .sortingListByOrder(
