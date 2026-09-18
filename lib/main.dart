@@ -94,7 +94,14 @@ class _MyAppState extends State<MyApp> {
   late Stream<BaseAuthUser> userStream;
 
   final authUserSub = authenticatedUserStream.listen((_) {});
-  final fcmTokenSub = fcmTokenUserStream.listen((_) {});
+  final fcmTokenSub = fcmTokenUserStream.listen(
+    (_) {},
+    // Registering a token can fail for reasons outside the app's control (a
+    // browser without the Notification API, a revoked permission, a blocked
+    // cloud call). Swallow it here so it can't surface as an unhandled zone
+    // error and take down the app on login.
+    onError: (e) => print('Error registering FCM token: $e'),
+  );
 
   @override
   void initState() {

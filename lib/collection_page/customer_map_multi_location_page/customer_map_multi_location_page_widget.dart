@@ -132,14 +132,15 @@ class _CustomerMapMultiLocationPageWidgetState
                   onCameraIdle: (latLng) => _model.googleMapsCenter = latLng,
                   initialLocation: _model.googleMapsCenter ??=
                       widget!.location!.firstOrNull!,
-                  markers: (widget!.location ?? [])
-                      .map(
-                        (marker) => FlutterFlowMarker(
-                          marker.serialize(),
-                          marker,
-                        ),
-                      )
-                      .toList(),
+                  markers: (widget!.location ?? []).asMap().entries.map(
+                    (entry) {
+                      final marker = entry.value;
+                      return FlutterFlowMarker(
+                        entry.key.toString(),
+                        marker,
+                      );
+                    },
+                  ).toList(),
                   markerColor: GoogleMarkerColor.red,
                   mapType: MapType.normal,
                   style: GoogleMapStyle.standard,

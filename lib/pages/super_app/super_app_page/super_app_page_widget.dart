@@ -5134,10 +5134,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! || functions.containStringInListString1(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)!)
+                                                                                if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! || functions.containStringInListString1(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)!)
+                                                                                  Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
                                                                                       InkWell(
                                                                                         splashColor: Colors.transparent,
                                                                                         focusColor: Colors.transparent,
@@ -5373,8 +5373,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                           ),
                                                                                         ),
                                                                                       ),
-                                                                                  ],
-                                                                                ),
+                                                                                    ],
+                                                                                  ),
                                                                                 if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'QR Payment', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'QR Payment')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'QR Payment')?.toList(), FFAppState().profilePositionName)!)
                                                                                   InkWell(
                                                                                     splashColor: Colors.transparent,

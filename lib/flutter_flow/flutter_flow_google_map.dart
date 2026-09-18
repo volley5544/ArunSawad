@@ -59,10 +59,427 @@ class MarkerImage {
 }
 
 class FlutterFlowMarker {
-  const FlutterFlowMarker(this.markerId, this.location, [this.onTap]);
+  const FlutterFlowMarker(
+    this.markerId,
+    this.location, [
+    this.onTap,
+    this.image,
+  ]);
   final String markerId;
   final latlng.LatLng location;
   final Future Function()? onTap;
+
+  /// Overrides the map-wide marker image for this marker alone.
+  final MarkerImage? image;
+}
+
+/// The image [marker] renders with: its own, else the map-wide one, else none.
+MarkerImage? markerImageFor(
+  FlutterFlowGoogleMap map,
+  FlutterFlowMarker marker,
+) =>
+    marker.image ?? map.markerImage;
+
+/// Every distinct image the map needs: the map-wide one plus any a single
+/// marker overrides it with. Decoding is keyed on this set, so markers sharing
+/// an image share one bitmap.
+Set<MarkerImage> markerImagesFor(FlutterFlowGoogleMap map) => {
+      // Decoded even with no marker drawing it yet, so that markers arriving
+      // from a query draw their icon instead of a default pin that pops.
+      if (map.markerImage != null) map.markerImage!,
+      for (final marker in map.markers)
+        if (marker.image != null) marker.image!,
+    };
+
+/// How many decode failures one subscription reports before going quiet.
+///
+/// The failure handler runs per frame now rather than once, so reports are
+/// capped rather than latched: a run of failures cannot flood the app's error
+/// reporting, and an image that fails only now and then is still heard without
+/// reporting on every bad frame for as long as the map is open.
+const _maxMarkerImageFailureReports = 3;
+
+/// Feeds every frame [stream] delivers into [cache] for [request].
+///
+/// Where [MarkerBitmapCache.animateFrames] is set, the subscription outlives
+/// the first frame. A BitmapDescriptor is a single still bitmap, so an
+/// animated marker only moves while its stream stays attached and each frame
+/// replaces the stored bitmap. Detaching once a frame has been stored is what
+/// stops a GIF marker dead, so it is not an optimisation to make here.
+///
+/// The cost is one live listener per distinct marker image, held for as long
+/// as a marker draws it and paid for still images too, since nothing says in
+/// advance which images have a second frame. It is bounded by what is on
+/// screen: [cache] detaches when the image is replaced, when its stream fails
+/// or repeatedly cannot be decoded, when it stops being drawn, and — where
+/// frames are not wanted at all — after the first one.
+void subscribeMarkerBitmapFrames(
+  ImageStream stream,
+  MarkerBitmapCache cache,
+  MarkerBitmapRequest request, {
+  required Set<MarkerImage> Function() requiredImages,
+  required VoidCallback onFrameStored,
+}) {
+  final markerImageSize = Size.square(request.image.size);
+  var failureReports = 0;
+  late final ImageStreamListener listener;
+  listener = ImageStreamListener(
+    (img, _) async {
+      try {
+        final stored = await withOwnedImageInfo(
+          img,
+          () => cache.resolveBitmap(
+            request,
+            decode: () async {
+              final bytes = await img.image.toByteData(
+                format: ImageByteFormat.png,
+              );
+              if (bytes == null) {
+                return null;
+              }
+              return BitmapDescriptor.fromBytes(
+                bytes.buffer.asUint8List(),
+                size: markerImageSize,
+              );
+            },
+            requiredImages: requiredImages,
+          ),
+        );
+        if (stored) {
+          onFrameStored();
+        }
+      } catch (error, stackTrace) {
+        if (failureReports >= _maxMarkerImageFailureReports) {
+          return;
+        }
+        failureReports++;
+        FlutterError.reportError(
+          FlutterErrorDetails(
+            exception: error,
+            stack: stackTrace,
+            library: 'FlutterFlow Google Map',
+            context: ErrorDescription(
+              'while decoding a Google Map marker image',
+            ),
+          ),
+        );
+      }
+    },
+    onError: (_, __) => cache.fail(request),
+  );
+  if (cache.trackListener(request, () => stream.removeListener(listener))) {
+    stream.addListener(listener);
+  }
+}
+
+/// Runs [callback] while owning [imageInfo], then releases its native image.
+///
+/// Every [ImageStreamListener] success receives an owned [ImageInfo] clone.
+/// Removing the listener does not dispose that clone, so all exit paths must
+/// release it explicitly.
+@visibleForTesting
+Future<T> withOwnedImageInfo<T>(
+  ImageInfo img,
+  Future<T> Function() callback,
+) async {
+  try {
+    return await callback();
+  } finally {
+    img.dispose();
+  }
+}
+
+/// Decoded marker bitmaps, plus the plain colored pin.
+///
+/// Split out from the map state so its behaviour can be exercised directly:
+/// the state itself cannot be built in a test without a platform view.
+class MarkerBitmapCache {
+  MarkerBitmapCache({this.animateFrames = !kIsWeb});
+
+  /// Frames an image may fail in a row before its stream is let go.
+  static const _maxFrameFailures = 3;
+
+  /// Whether a stored frame keeps its stream attached so the frames after it
+  /// can replace it, which is what makes an animated marker move.
+  ///
+  /// Off on web: google_maps_flutter_web turns every distinct bitmap into an
+  /// object URL and never revokes it for markers, so a frame per tick would
+  /// leak a Blob per tick for as long as the map is open. Web keeps drawing
+  /// the first frame, as it does today.
+  final bool animateFrames;
+
+  final Map<MarkerImage, BitmapDescriptor> _images = {};
+
+  /// Generation of the live request for each image, held for as long as its
+  /// stream may still deliver frames. An animated image keeps delivering them
+  /// after the first, so this outlives the first decode.
+  final Map<MarkerImage, int> _liveRequests = {};
+
+  /// Generation of the frame being encoded right now, per image.
+  final Map<MarkerImage, int> _decoding = {};
+
+  /// Frames each image has failed in a row, cleared by one that works.
+  final Map<MarkerImage, int> _frameFailures = {};
+
+  /// The request whose frame each image is currently drawing. A bitmap kept
+  /// from an earlier subscription must not read as this one having drawn.
+  final Map<MarkerImage, int> _drawnBy = {};
+
+  /// Images not currently producing usable frames. They keep the bitmap they
+  /// last drew, so the marker holds its final frame rather than dropping back
+  /// to a plain pin, and [retain] subscribes them again. Cleared by the next
+  /// frame that decodes.
+  final Set<MarkerImage> _failed = {};
+  final Map<MarkerImage, _MarkerBitmapListener> _listeners = {};
+  int _nextGeneration = 0;
+  GoogleMarkerColor? _color;
+  BitmapDescriptor? _colored;
+
+  /// The plain pin for [color], rebuilt only when the color changes.
+  ///
+  /// BitmapDescriptor has no value equality and Marker compares its icon, so
+  /// returning a new instance per call would make every marker look changed on
+  /// every rebuild and push a full update over the platform channel.
+  BitmapDescriptor colorDescriptor(GoogleMarkerColor color) {
+    if (_colored == null || _color != color) {
+      _color = color;
+      _colored = BitmapDescriptor.defaultMarkerWithHue(
+        googleMarkerColorMap[color]!,
+      );
+    }
+    return _colored!;
+  }
+
+  BitmapDescriptor? operator [](MarkerImage image) => _images[image];
+
+  bool contains(MarkerImage image) => _images.containsKey(image);
+
+  int get length => _images.length;
+
+  /// Drops bitmaps no longer needed and returns newly required images to
+  /// decode. Images already decoding are not returned a second time, except
+  /// where a failure marked them for a fresh subscription.
+  List<MarkerBitmapRequest> retain(Set<MarkerImage> required) {
+    _listeners.keys
+        .where((image) => !required.contains(image))
+        .toList()
+        .forEach(_releaseCurrentListener);
+    _images.removeWhere((image, _) => !required.contains(image));
+    _liveRequests.removeWhere((image, _) => !required.contains(image));
+    _decoding.removeWhere((image, _) => !required.contains(image));
+    _frameFailures.removeWhere((image, _) => !required.contains(image));
+    _drawnBy.removeWhere((image, _) => !required.contains(image));
+    _failed.removeWhere((image) => !required.contains(image));
+    final requests = <MarkerBitmapRequest>[];
+    for (final image in required) {
+      final isLive = _liveRequests.containsKey(image);
+      final hasBitmap = _images.containsKey(image);
+      // A marked image is subscribed again even while a stream is attached.
+      // That stream has either failed outright or has yet to yield a usable
+      // frame, and a fresh subscription is the only way back for a still
+      // image, which has no later frame to recover on.
+      if (_failed.contains(image) || (!isLive && !hasBitmap)) {
+        _releaseCurrentListener(image);
+        final request = MarkerBitmapRequest(image, ++_nextGeneration);
+        _liveRequests[image] = request.generation;
+        _failed.remove(image);
+        _decoding.remove(image);
+        _frameFailures.remove(image);
+        requests.add(request);
+      }
+    }
+    return requests;
+  }
+
+  /// Owns the listener for an in-flight decode. Returns false when the image
+  /// was pruned before its post-frame decode began.
+  bool trackListener(MarkerBitmapRequest request, VoidCallback cancel) {
+    if (!_isCurrent(request)) {
+      return false;
+    }
+    _releaseCurrentListener(request.image);
+    _listeners[request.image] = _MarkerBitmapListener(
+      request.generation,
+      cancel,
+    );
+    return true;
+  }
+
+  /// Detaches this request's image stream, ending any animation it drives.
+  ///
+  /// A stale request must not release a newer listener for the same image.
+  bool releaseListener(MarkerBitmapRequest request) {
+    final listener = _listeners[request.image];
+    if (listener?.generation != request.generation) {
+      return false;
+    }
+    _listeners.remove(request.image);
+    listener!.cancel();
+    return true;
+  }
+
+  /// Stores a decoded frame, unless the image stopped being needed while it
+  /// was decoding or a newer request replaced this one.
+  ///
+  /// Where [animateFrames] is set the request stays live and its stream stays
+  /// attached, because an animated image delivers every later frame through
+  /// that same stream and each one replaces the bitmap the markers draw with.
+  /// Otherwise the first frame is the only one wanted and the stream is let
+  /// go here.
+  bool store(
+    MarkerBitmapRequest request,
+    BitmapDescriptor descriptor,
+    Set<MarkerImage> required,
+  ) {
+    if (!_isCurrent(request)) {
+      return false;
+    }
+    if (!required.contains(request.image)) {
+      releaseListener(request);
+      _liveRequests.remove(request.image);
+      _images.remove(request.image);
+      _drawnBy.remove(request.image);
+      return false;
+    }
+    _images[request.image] = descriptor;
+    _drawnBy[request.image] = request.generation;
+    _failed.remove(request.image);
+    _frameFailures.remove(request.image);
+    if (!animateFrames) {
+      releaseListener(request);
+      _liveRequests.remove(request.image);
+    }
+    return true;
+  }
+
+  /// Records one frame that could not be decoded.
+  ///
+  /// The stream stays attached, because it is healthy and the frame after this
+  /// one usually is too — tearing it down here would stop an animation dead
+  /// over a single bad frame. An image with no further frames coming is left
+  /// marked for [retain] to subscribe again.
+  void _frameFailed(MarkerBitmapRequest request) {
+    if (!_isCurrent(request)) {
+      return;
+    }
+    final failures = (_frameFailures[request.image] ?? 0) + 1;
+    _frameFailures[request.image] = failures;
+    // Nothing drawn yet means there is no animation to keep alive and no
+    // reason to expect another frame — a still image only ever has one. A run
+    // this long means the image will not decode at all, and re-encoding it for
+    // every frame it delivers, for as long as the map is open, is pure waste.
+    // Anything short of that is left to recover on its own next frame.
+    final hasDrawn = _drawnBy[request.image] == request.generation;
+    if (!hasDrawn || failures >= _maxFrameFailures) {
+      fail(request);
+    }
+  }
+
+  /// Marks the whole image as failed: its stream reported an error and will
+  /// deliver nothing more.
+  ///
+  /// The bitmap already on screen stays; [retain] subscribes again on the next
+  /// marker-image update.
+  bool fail(MarkerBitmapRequest request) {
+    if (!_isCurrent(request)) {
+      return false;
+    }
+    releaseListener(request);
+    _liveRequests.remove(request.image);
+    _decoding.remove(request.image);
+    _frameFailures.remove(request.image);
+    _failed.add(request.image);
+    return true;
+  }
+
+  /// Decodes and stores one request while keeping every failure retryable.
+  Future<bool> resolveBitmap(
+    MarkerBitmapRequest request, {
+    required Future<BitmapDescriptor?> Function() decode,
+    required Set<MarkerImage> Function() requiredImages,
+  }) async {
+    if (!_beginDecode(request)) {
+      return false;
+    }
+    try {
+      final descriptor = await decode();
+      if (descriptor == null) {
+        _frameFailed(request);
+        return false;
+      }
+      return store(request, descriptor, requiredImages());
+    } catch (_) {
+      _frameFailed(request);
+      rethrow;
+    } finally {
+      _endDecode(request);
+    }
+  }
+
+  /// Claims the decode slot for this image, or reports one already in flight.
+  ///
+  /// An animated image can deliver its next frame while the current one is
+  /// still encoding. Dropping that frame keeps the stored bitmaps in frame
+  /// order and holds the encodes in flight to one per image.
+  ///
+  /// This bounds the encoding, though not the fan-out behind it: every stored
+  /// frame repaints each marker drawing that image and re-sends its bitmap to
+  /// the platform, and nothing here throttles the animation when the map is
+  /// off screen.
+  ///
+  /// A dropped frame is simply replaced by the one after it. Encoding a marker
+  /// bitmap is far quicker than a frame interval, so this is rare, and the
+  /// cost when it happens is that a GIF which does not repeat can come to rest
+  /// one frame early.
+  bool _beginDecode(MarkerBitmapRequest request) {
+    if (!_isCurrent(request) || _decoding.containsKey(request.image)) {
+      return false;
+    }
+    _decoding[request.image] = request.generation;
+    return true;
+  }
+
+  void _endDecode(MarkerBitmapRequest request) {
+    if (_decoding[request.image] == request.generation) {
+      _decoding.remove(request.image);
+    }
+  }
+
+  bool _isCurrent(MarkerBitmapRequest request) =>
+      _liveRequests[request.image] == request.generation;
+
+  void _releaseCurrentListener(MarkerImage image) {
+    final listener = _listeners.remove(image);
+    listener?.cancel();
+  }
+
+  void dispose() {
+    for (final listener in _listeners.values.toList()) {
+      listener.cancel();
+    }
+    _listeners.clear();
+    _liveRequests.clear();
+    _decoding.clear();
+    _frameFailures.clear();
+    _drawnBy.clear();
+    _failed.clear();
+    _images.clear();
+  }
+}
+
+@immutable
+class MarkerBitmapRequest {
+  const MarkerBitmapRequest(this.image, this.generation);
+
+  final MarkerImage image;
+  final int generation;
+}
+
+class _MarkerBitmapListener {
+  const _MarkerBitmapListener(this.generation, this.cancel);
+
+  final int generation;
+  final VoidCallback cancel;
 }
 
 class FlutterFlowGoogleMap extends StatefulWidget {
@@ -120,52 +537,63 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
       widget.initialLocation?.toGoogleMaps() ?? const LatLng(0.0, 0.0);
 
   late Completer<GoogleMapController> _controller;
-  BitmapDescriptor? _markerDescriptor;
+  final MarkerBitmapCache _bitmaps = MarkerBitmapCache();
   late LatLng currentMapCenter;
 
-  void initializeMarkerBitmap() {
-    final markerImage = widget.markerImage;
+  /// The bitmap for [marker] — its own image, else the map-wide one, falling
+  /// back to the plain colored pin while an image is still decoding.
+  BitmapDescriptor descriptorFor(FlutterFlowMarker marker) {
+    final image = markerImageFor(widget, marker);
+    final colored = _bitmaps.colorDescriptor(widget.markerColor);
+    return image == null ? colored : (_bitmaps[image] ?? colored);
+  }
 
-    if (markerImage == null) {
-      _markerDescriptor = BitmapDescriptor.defaultMarkerWithHue(
-        googleMarkerColorMap[widget.markerColor]!,
-      );
+  void initializeMarkerBitmaps() {
+    final pending = _bitmaps.retain(markerImagesFor(widget));
+    if (pending.isEmpty) {
       return;
     }
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      final markerImageSize = Size.square(markerImage.size);
-      var imageProvider = markerImage.isAssetImage
-          ? Image.asset(markerImage.imagePath).image
-          : CachedNetworkImageProvider(markerImage.imagePath);
-      if (!kIsWeb) {
-        // workaround for https://github.com/flutter/flutter/issues/34657 to
-        // enable marker resizing on Android and iOS.
-        final targetHeight =
-            (markerImage.size * MediaQuery.of(context).devicePixelRatio)
-                .toInt();
-        imageProvider = ResizeImage(
-          imageProvider,
-          height: targetHeight,
-          policy: ResizeImagePolicy.fit,
-          allowUpscaling: true,
-        );
+      if (!mounted) {
+        return;
       }
-      final imageConfiguration =
-          createLocalImageConfiguration(context, size: markerImageSize);
-      imageProvider
-          .resolve(imageConfiguration)
-          .addListener(ImageStreamListener((img, _) async {
-        final bytes = await img.image.toByteData(format: ImageByteFormat.png);
-        if (bytes != null && mounted) {
-          _markerDescriptor = BitmapDescriptor.fromBytes(
-            bytes.buffer.asUint8List(),
-            size: markerImageSize,
-          );
+      pending.forEach(resolveMarkerBitmap);
+    });
+  }
+
+  void resolveMarkerBitmap(MarkerBitmapRequest request) {
+    final markerImage = request.image;
+    var imageProvider = markerImage.isAssetImage
+        ? Image.asset(markerImage.imagePath).image
+        : CachedNetworkImageProvider(markerImage.imagePath);
+    if (!kIsWeb) {
+      // workaround for https://github.com/flutter/flutter/issues/34657 to
+      // enable marker resizing on Android and iOS.
+      final targetHeight =
+          (markerImage.size * MediaQuery.of(context).devicePixelRatio).toInt();
+      imageProvider = ResizeImage(
+        imageProvider,
+        height: targetHeight,
+        policy: ResizeImagePolicy.fit,
+        allowUpscaling: true,
+      );
+    }
+    final imageConfiguration = createLocalImageConfiguration(
+      context,
+      size: Size.square(markerImage.size),
+    );
+    subscribeMarkerBitmapFrames(
+      imageProvider.resolve(imageConfiguration),
+      _bitmaps,
+      request,
+      requiredImages: () => mounted ? markerImagesFor(widget) : const {},
+      onFrameStored: () {
+        if (mounted) {
           setState(() {});
         }
-      }));
-    });
+      },
+    );
   }
 
   void onCameraIdle() => widget.onCameraIdle?.call(currentMapCenter.toLatLng());
@@ -175,17 +603,29 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
     super.initState();
     currentMapCenter = initialPosition;
     _controller = widget.controller;
-    initializeMarkerBitmap();
+    initializeMarkerBitmaps();
   }
 
   @override
   void didUpdateWidget(FlutterFlowGoogleMap oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // Rebuild the marker bitmap if the marker image changes.
-    if (widget.markerImage != oldWidget.markerImage) {
-      initializeMarkerBitmap();
+    // Cheap identity check first: an unchanged marker list is the common case
+    // and building both sets to compare them is not free.
+    if (identical(widget.markers, oldWidget.markers) &&
+        widget.markerImage == oldWidget.markerImage) {
+      return;
+    }
+    // Rebuild the bitmaps if the set of images the markers need changed.
+    if (!setEquals(markerImagesFor(widget), markerImagesFor(oldWidget))) {
+      initializeMarkerBitmaps();
       setState(() {});
     }
+  }
+
+  @override
+  void dispose() {
+    _bitmaps.dispose();
+    super.dispose();
   }
 
   @override
@@ -219,7 +659,7 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
               (m) => Marker(
                 markerId: MarkerId(m.markerId),
                 position: m.location.toGoogleMaps(),
-                icon: _markerDescriptor ?? BitmapDescriptor.defaultMarker,
+                icon: descriptorFor(m),
                 onTap: () async {
                   if (widget.centerMapOnMarkerTap) {
                     final controller = await _controller.future;
