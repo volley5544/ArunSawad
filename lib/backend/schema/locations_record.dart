@@ -92,8 +92,7 @@ class LocationsRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is LocationsRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is LocationsRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createLocationsRecordData({

@@ -79,8 +79,7 @@ class LeavePageDataRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is LeavePageDataRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is LeavePageDataRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createLeavePageDataRecordData({
@@ -111,10 +110,10 @@ class LeavePageDataRecordDocumentEquality
 
   @override
   int hash(LeavePageDataRecord? e) => const ListEquality().hash([
-        e?.leaveTypeList,
-        e?.reasonToLeave,
-        e?.companyAsset,
-        e?.daysLeaveTypeList,
+        const ListEquality().hash(e?.leaveTypeList),
+        const ListEquality().hash(e?.reasonToLeave),
+        const ListEquality().hash(e?.companyAsset),
+        const ListEquality().hash(e?.daysLeaveTypeList),
         e?.showSendEmailBtn
       ]);
 

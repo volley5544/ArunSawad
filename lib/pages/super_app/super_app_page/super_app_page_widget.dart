@@ -42,6 +42,7 @@ import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'super_app_page_model.dart';
@@ -222,6 +223,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       FFAppState().blockMockedLocation =
           _model.queryBlockMockedLocationDoc!.isShowContent;
       safeSetState(() {});
+      _model.getUserProfileUnitMRole = await GetUserProfileAPICall.call(
+        token: FFAppState().accessToken,
+        apiUrl: FFAppState().apiURLLocalState,
+        projectName: 'SSW_SURVEY',
+      );
+
       _model.checkDeveloperMode = await actions.checkDeveloperMode();
       if (_model.checkDeveloperMode!) {
         if (!((FFAppState().employeeID == '31622') ||
@@ -1419,7 +1426,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                               ),
                                         ),
                                         trailing: FaIcon(
-                                          FontAwesomeIcons.signOutAlt,
+                                          FaIconData(const IconData(
+                                              /* signOutAlt */ 0xf2f5,
+                                              fontFamily: 'FontAwesomeSolid',
+                                              fontPackage:
+                                                  'font_awesome_flutter')),
                                           color: Colors.white,
                                           size: 20.0,
                                         ),
@@ -5134,7 +5145,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! || functions.containStringInListString1(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)!)
+                                                                                if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ตามหนี้หน่วยM', FFAppState().profileLevel)! ||
+                                                                                    functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! ||
+                                                                                    functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ตามหนี้หน่วยM')! ||
+                                                                                    functions.containStringInListString1(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ตามหนี้หน่วยM')?.toList(), FFAppState().profilePositionName)! ||
+                                                                                    ('${getJsonField(
+                                                                                          (_model.getUserProfileUnitMRole?.jsonBody ?? ''),
+                                                                                          r'''$.UserRole[0].profile[0].role_name''',
+                                                                                        ).toString()}' ==
+                                                                                        'UNIT_M'))
                                                                                   Column(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     children: [
@@ -5279,6 +5298,29 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             return;
                                                                                           }
                                                                                           Navigator.pop(context);
+
+                                                                                          context.goNamed(
+                                                                                            TabCollectionTeamMPageWidget.routeName,
+                                                                                            queryParameters: {
+                                                                                              'branchCode': serializeParam(
+                                                                                                FFAppState().branchCode,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'profileLevel': serializeParam(
+                                                                                                FFAppState().profileLevel,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'isTeamM': serializeParam(
+                                                                                                !functions.containStringInListString1(functions.getListDataFromJson(FFAppState().roleMenuJson, 'region_role_position')?.toList(), FFAppState().profilePositionName)! ||
+                                                                                                    ('${getJsonField(
+                                                                                                          (_model.getUserProfileUnitMRole?.jsonBody ?? ''),
+                                                                                                          r'''$.UserRole[0].profile[0].role_name''',
+                                                                                                        ).toString()}' ==
+                                                                                                        'UNIT_M'),
+                                                                                                ParamType.bool,
+                                                                                              ),
+                                                                                            }.withoutNulls,
+                                                                                          );
 
                                                                                           context.goNamed(
                                                                                             TabCollectionTeamMPageWidget.routeName,
@@ -21834,19 +21876,22 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                 ),
                                 Align(
                                   alignment: AlignmentDirectional(1.0, -1.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      _model.isShowVideoPlayer = false;
-                                      safeSetState(() {});
-                                    },
-                                    child: Icon(
-                                      Icons.close_outlined,
-                                      color: Color(0xFFFF0000),
-                                      size: 24.0,
+                                  child: PointerInterceptor(
+                                    intercepting: isWeb,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        _model.isShowVideoPlayer = false;
+                                        safeSetState(() {});
+                                      },
+                                      child: Icon(
+                                        Icons.close_outlined,
+                                        color: Color(0xFFFF0000),
+                                        size: 24.0,
+                                      ),
                                     ),
                                   ),
                                 ),

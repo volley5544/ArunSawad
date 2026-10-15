@@ -115,8 +115,7 @@ class UserCustomRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is UserCustomRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is UserCustomRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createUserCustomRecordData({
@@ -176,7 +175,7 @@ class UserCustomRecordDocumentEquality implements Equality<UserCustomRecord> {
         e?.imgProfile,
         e?.employeeId,
         e?.fcmToken,
-        e?.sawadChatRoomRef,
+        const ListEquality().hash(e?.sawadChatRoomRef),
         e?.imgProfileBlurHash,
         e?.goldCupConsent,
         e?.consentDate,

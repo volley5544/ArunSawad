@@ -67,8 +67,7 @@ class HolidayDateRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is HolidayDateRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is HolidayDateRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createHolidayDateRecordData({
@@ -95,8 +94,11 @@ class HolidayDateRecordDocumentEquality implements Equality<HolidayDateRecord> {
   }
 
   @override
-  int hash(HolidayDateRecord? e) => const ListEquality()
-      .hash([e?.companyCode, e?.holidayDate, e?.holidayName]);
+  int hash(HolidayDateRecord? e) => const ListEquality().hash([
+        e?.companyCode,
+        const ListEquality().hash(e?.holidayDate),
+        const ListEquality().hash(e?.holidayName)
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is HolidayDateRecord;

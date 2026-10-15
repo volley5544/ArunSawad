@@ -999,7 +999,11 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                             ),
                                       ),
                                       trailing: FaIcon(
-                                        FontAwesomeIcons.signOutAlt,
+                                        FaIconData(const IconData(
+                                            /* signOutAlt */ 0xf2f5,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.white,
                                         size: 20.0,
                                       ),

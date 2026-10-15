@@ -194,8 +194,7 @@ class RoleMenuRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is RoleMenuRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is RoleMenuRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createRoleMenuRecordData({
@@ -255,27 +254,27 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
   @override
   int hash(RoleMenuRecord? e) => const ListEquality().hash([
         e?.roleName,
-        e?.menuName,
-        e?.menuVisible,
-        e?.menuVisibleBranch,
-        e?.menuVisibleArea,
-        e?.menuZone,
-        e?.empAdmin,
-        e?.adminRoleGroup,
-        e?.servicemenuName,
-        e?.reportmenuName,
-        e?.othermenuName,
-        e?.serviecMenuIcon,
-        e?.reportMenuIcon,
-        e?.otherMenuIcon,
-        e?.otherMenuUrl,
-        e?.servicemenuOrder,
-        e?.reportmenuOrder,
-        e?.othermenuOrder,
+        const ListEquality().hash(e?.menuName),
+        const ListEquality().hash(e?.menuVisible),
+        const ListEquality().hash(e?.menuVisibleBranch),
+        const ListEquality().hash(e?.menuVisibleArea),
+        const ListEquality().hash(e?.menuZone),
+        const ListEquality().hash(e?.empAdmin),
+        const ListEquality().hash(e?.adminRoleGroup),
+        const ListEquality().hash(e?.servicemenuName),
+        const ListEquality().hash(e?.reportmenuName),
+        const ListEquality().hash(e?.othermenuName),
+        const ListEquality().hash(e?.serviecMenuIcon),
+        const ListEquality().hash(e?.reportMenuIcon),
+        const ListEquality().hash(e?.otherMenuIcon),
+        const ListEquality().hash(e?.otherMenuUrl),
+        const ListEquality().hash(e?.servicemenuOrder),
+        const ListEquality().hash(e?.reportmenuOrder),
+        const ListEquality().hash(e?.othermenuOrder),
         e?.impoundCarReadAccessRole,
         e?.impoundCarSaveAccessRole,
-        e?.headTeamM,
-        e?.sLSRemarkList
+        const ListEquality().hash(e?.headTeamM),
+        const ListEquality().hash(e?.sLSRemarkList)
       ]);
 
   @override

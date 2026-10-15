@@ -85,8 +85,7 @@ class BuildVersionRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is BuildVersionRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is BuildVersionRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createBuildVersionRecordData({

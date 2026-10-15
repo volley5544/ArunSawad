@@ -152,8 +152,7 @@ class MessageRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is MessageRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is MessageRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createMessageRecordData({

@@ -140,8 +140,7 @@ class ChatsRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is ChatsRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is ChatsRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createChatsRecordData({
@@ -207,11 +206,11 @@ class ChatsRecordDocumentEquality implements Equality<ChatsRecord> {
   int hash(ChatsRecord? e) => const ListEquality().hash([
         e?.lastMessage,
         e?.lastMessageTime,
-        e?.users,
+        const ListEquality().hash(e?.users),
         e?.userA,
         e?.userB,
         e?.lastMessageSentBy,
-        e?.lastMessageSeenBy,
+        const ListEquality().hash(e?.lastMessageSeenBy),
         e?.userAName,
         e?.userANickname,
         e?.userBName,

@@ -113,7 +113,7 @@ class BranchviewDropdownRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is BranchviewDropdownRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createBranchviewDropdownRecordData({
@@ -152,14 +152,14 @@ class BranchviewDropdownRecordDocumentEquality
 
   @override
   int hash(BranchviewDropdownRecord? e) => const ListEquality().hash([
-        e?.dropdownName,
-        e?.dropdownValue,
-        e?.marketingDropdownValue,
-        e?.marketingFormLink,
-        e?.urlLink,
-        e?.dropdownNameUat,
-        e?.dropdownValueUat,
-        e?.urlLinkUat,
+        const ListEquality().hash(e?.dropdownName),
+        const ListEquality().hash(e?.dropdownValue),
+        const ListEquality().hash(e?.marketingDropdownValue),
+        const ListEquality().hash(e?.marketingFormLink),
+        const ListEquality().hash(e?.urlLink),
+        const ListEquality().hash(e?.dropdownNameUat),
+        const ListEquality().hash(e?.dropdownValueUat),
+        const ListEquality().hash(e?.urlLinkUat),
         e?.remarkMaxLength,
         e?.vloanMsgMaxLength
       ]);

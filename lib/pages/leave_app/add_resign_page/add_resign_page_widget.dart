@@ -626,8 +626,12 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       'ระบุวันที่',
                                                     ),
                                                     icon: FaIcon(
-                                                      FontAwesomeIcons
-                                                          .solidCalendarAlt,
+                                                      FaIconData(const IconData(
+                                                          /* solidCalendarAlt */ 0xf073,
+                                                          fontFamily:
+                                                              'FontAwesomeSolid',
+                                                          fontPackage:
+                                                              'font_awesome_flutter')),
                                                       size: 15.0,
                                                     ),
                                                     options: FFButtonOptions(
@@ -3709,8 +3713,12 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 },
                                                 text: widget!.endDate!,
                                                 icon: FaIcon(
-                                                  FontAwesomeIcons
-                                                      .solidCalendarAlt,
+                                                  FaIconData(const IconData(
+                                                      /* solidCalendarAlt */ 0xf073,
+                                                      fontFamily:
+                                                          'FontAwesomeSolid',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   size: 15.0,
                                                 ),
                                                 options: FFButtonOptions(

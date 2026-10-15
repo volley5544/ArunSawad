@@ -97,8 +97,7 @@ class MenuIconOtherRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is MenuIconOtherRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is MenuIconOtherRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createMenuIconOtherRecordData({

@@ -1036,7 +1036,11 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                       Expanded(
                                         flex: 1,
                                         child: FaIcon(
-                                          FontAwesomeIcons.edit,
+                                          FaIconData(const IconData(
+                                              /* edit */ 0xf044,
+                                              fontFamily: 'FontAwesomeRegular',
+                                              fontPackage:
+                                                  'font_awesome_flutter')),
                                           color: Colors.black,
                                           size: 29.0,
                                         ),
@@ -1545,7 +1549,11 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                       Expanded(
                                         flex: 1,
                                         child: FaIcon(
-                                          FontAwesomeIcons.edit,
+                                          FaIconData(const IconData(
+                                              /* edit */ 0xf044,
+                                              fontFamily: 'FontAwesomeRegular',
+                                              fontPackage:
+                                                  'font_awesome_flutter')),
                                           color: Colors.black,
                                           size: 29.0,
                                         ),

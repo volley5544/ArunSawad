@@ -922,7 +922,9 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                             );
                           },
                           child: FaIcon(
-                            FontAwesomeIcons.search,
+                            FaIconData(const IconData(/* search */ 0xf002,
+                                fontFamily: 'FontAwesomeSolid',
+                                fontPackage: 'font_awesome_flutter')),
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             size: 30.0,

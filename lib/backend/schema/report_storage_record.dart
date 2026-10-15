@@ -73,8 +73,7 @@ class ReportStorageRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is ReportStorageRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is ReportStorageRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createReportStorageRecordData({
@@ -103,8 +102,12 @@ class ReportStorageRecordDocumentEquality
   }
 
   @override
-  int hash(ReportStorageRecord? e) => const ListEquality()
-      .hash([e?.reportName, e?.reportUrl, e?.reportUrlName, e?.reportIsShow]);
+  int hash(ReportStorageRecord? e) => const ListEquality().hash([
+        e?.reportName,
+        const ListEquality().hash(e?.reportUrl),
+        const ListEquality().hash(e?.reportUrlName),
+        const ListEquality().hash(e?.reportIsShow)
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ReportStorageRecord;

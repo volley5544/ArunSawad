@@ -116,8 +116,8 @@ class DistrictsStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([districtName, subdistricts, districtsCount]);
+  int get hashCode => const ListEquality().hash(
+      [districtName, const ListEquality().hash(subdistricts), districtsCount]);
 }
 
 DistrictsStruct createDistrictsStruct({

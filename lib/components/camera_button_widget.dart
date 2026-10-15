@@ -191,7 +191,9 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                 if (_shouldSetState) safeSetState(() {});
               },
               child: FaIcon(
-                FontAwesomeIcons.camera,
+                FaIconData(const IconData(/* camera */ 0xf030,
+                    fontFamily: 'FontAwesomeRegular',
+                    fontPackage: 'font_awesome_flutter')),
                 color: Color(0xFBFFFFFF),
                 size: 40.0,
               ),

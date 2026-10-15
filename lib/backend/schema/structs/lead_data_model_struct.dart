@@ -95,7 +95,8 @@ class LeadDataModelStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([total, summary]);
+  int get hashCode =>
+      const ListEquality().hash([total, const ListEquality().hash(summary)]);
 }
 
 LeadDataModelStruct createLeadDataModelStruct({

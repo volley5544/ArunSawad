@@ -117,7 +117,7 @@ dependencies:
   flutter_slidable: 4.0.0
   flutter_svg: ^2.3.0
   flutter_web_browser: ^0.17.1
-  font_awesome_flutter: 10.7.0
+  font_awesome_flutter: 11.0.0
   from_css_color: 2.0.0
   geolocator: 14.0.1
   geolocator_android: 5.0.1+1
@@ -171,7 +171,7 @@ dependencies:
   open_file: 3.5.10
   package_info_plus: 8.0.2
   package_info_plus_platform_interface: 3.0.1
-  page_transition: 2.1.0
+  page_transition: 2.2.2
   path_provider: ^2.0.11
   path_provider_android: 2.2.10
   path_provider_foundation: 2.4.0
@@ -236,9 +236,9 @@ dependencies:
   wakelock_plus: 1.3.2
   wakelock_plus_platform_interface: 1.2.3
   webview_flutter: 4.13.0
-  webview_flutter_android: 4.7.0
-  webview_flutter_platform_interface: 2.13.1
-  webview_flutter_wkwebview: 3.22.0
+  webview_flutter_android: 4.10.13
+  webview_flutter_platform_interface: 2.14.0
+  webview_flutter_wkwebview: 3.23.8
   webviewx_plus: 
     git:
       url: https://github.com/FlutterFlow/webviewx_plus.git
@@ -251,12 +251,18 @@ dependencies:
 dependency_overrides:
   device_info_plus: 11.5.0
   device_info_plus_platform_interface: 7.0.3
+  font_awesome_flutter: 11.0.0
   google_api_headers: 4.5.3
   http: 1.4.0
-  intl: 0.20.2
+  intl: 0.20.3
   package_info_plus: 8.0.2
   package_info_plus_platform_interface: 3.0.1
+  page_transition: 2.2.2
   uuid: ^4.0.0
+  webview_flutter: 4.13.0
+  webview_flutter_android: 4.10.13
+  webview_flutter_platform_interface: 2.14.0
+  webview_flutter_wkwebview: 3.23.8
 
 dev_dependencies:
   flutter_launcher_icons: 0.13.1
@@ -280,6 +286,15 @@ flutter_launcher_icons:
 
 # The following section is specific to Flutter.
 flutter:
+
+  # Flutter's UIScene migrator is disabled until the managed FlutterFire graph
+  # supports the scene lifecycle without losing cold-start notifications.
+  config:
+    # Flutter uses Swift Package Manager for compatible plugins and CocoaPods
+    # for the rest. Projects using the managed Firebase Analytics/GenUI graph
+    # stay CocoaPods-only so privacy behavior and wrapper versions are stable.
+    enable-swift-package-manager: false
+    enable-uiscene-migration: false
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

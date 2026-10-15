@@ -143,7 +143,9 @@ class _CustomerMapLocationPageWidgetState
                             );
                           },
                           child: FaIcon(
-                            FontAwesomeIcons.mapMarkedAlt,
+                            FaIconData(const IconData(/* mapMarkedAlt */ 0xf5a0,
+                                fontFamily: 'FontAwesomeSolid',
+                                fontPackage: 'font_awesome_flutter')),
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             size: 36.0,

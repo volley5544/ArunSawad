@@ -146,8 +146,12 @@ class VehicleTypeListStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([vehicleId, vehicleCode, vehicleName, vehicleType]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(vehicleId),
+        const ListEquality().hash(vehicleCode),
+        const ListEquality().hash(vehicleName),
+        const ListEquality().hash(vehicleType)
+      ]);
 }
 
 VehicleTypeListStruct createVehicleTypeListStruct({

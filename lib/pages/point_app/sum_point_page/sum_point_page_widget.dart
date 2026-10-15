@@ -591,8 +591,12 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 12.0),
                                               child: FaIcon(
-                                                FontAwesomeIcons
-                                                    .handHoldingMedical,
+                                                FaIconData(const IconData(
+                                                    /* handHoldingMedical */ 0xe05c,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,

@@ -73,8 +73,7 @@ class FileUploadRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is FileUploadRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is FileUploadRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createFileUploadRecordData({
@@ -106,8 +105,12 @@ class FileUploadRecordDocumentEquality implements Equality<FileUploadRecord> {
   }
 
   @override
-  int hash(FileUploadRecord? e) => const ListEquality()
-      .hash([e?.recordId, e?.imgUrl, e?.picDatetime, e?.picCoordinate]);
+  int hash(FileUploadRecord? e) => const ListEquality().hash([
+        e?.recordId,
+        const ListEquality().hash(e?.imgUrl),
+        e?.picDatetime,
+        e?.picCoordinate
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is FileUploadRecord;

@@ -561,7 +561,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                           safeSetState(() {});
                         },
                         child: FaIcon(
-                          FontAwesomeIcons.sortAmountDown,
+                          FaIconData(const IconData(/* sortAmountDown */ 0xf160,
+                              fontFamily: 'FontAwesomeSolid',
+                              fontPackage: 'font_awesome_flutter')),
                           color: Color(0xFBFFFFFF),
                           size: 30.0,
                         ),

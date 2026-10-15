@@ -174,8 +174,13 @@ class UrlLinkStorageDataModelStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([urlLink, urlName, urlToken, urlLinkUat, urlTokenUat]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(urlLink),
+        const ListEquality().hash(urlName),
+        const ListEquality().hash(urlToken),
+        const ListEquality().hash(urlLinkUat),
+        const ListEquality().hash(urlTokenUat)
+      ]);
 }
 
 UrlLinkStorageDataModelStruct createUrlLinkStorageDataModelStruct({

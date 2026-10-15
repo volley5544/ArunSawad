@@ -431,21 +431,21 @@ class SaveCallStruct extends FFFirebaseStruct {
 
   @override
   int get hashCode => const ListEquality().hash([
-        contnoId,
-        contno,
-        historyLeadStatus,
-        historyReasonName,
-        createdUserid,
-        updatedUserid,
-        arappdate,
-        ardesc,
-        userid,
-        remgcode,
-        remdetcode,
-        amount,
-        server,
-        creditor,
-        ldate
+        const ListEquality().hash(contnoId),
+        const ListEquality().hash(contno),
+        const ListEquality().hash(historyLeadStatus),
+        const ListEquality().hash(historyReasonName),
+        const ListEquality().hash(createdUserid),
+        const ListEquality().hash(updatedUserid),
+        const ListEquality().hash(arappdate),
+        const ListEquality().hash(ardesc),
+        const ListEquality().hash(userid),
+        const ListEquality().hash(remgcode),
+        const ListEquality().hash(remdetcode),
+        const ListEquality().hash(amount),
+        const ListEquality().hash(server),
+        const ListEquality().hash(creditor),
+        const ListEquality().hash(ldate)
       ]);
 }
 

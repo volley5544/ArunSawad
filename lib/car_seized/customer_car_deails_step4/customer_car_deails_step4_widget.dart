@@ -580,7 +580,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -1193,7 +1198,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -1800,7 +1810,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -2409,7 +2424,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -3018,7 +3038,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -3627,7 +3652,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -4244,7 +4274,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -4861,7 +4896,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -5478,7 +5518,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -6095,7 +6140,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -6712,7 +6762,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
-                                              FontAwesomeIcons.image,
+                                              FaIconData(const IconData(
+                                                  /* image */ 0xf03e,
+                                                  fontFamily:
+                                                      'FontAwesomeRegular',
+                                                  fontPackage:
+                                                      'font_awesome_flutter')),
                                               color: Color(0xFF404040),
                                               size: 24.0,
                                             ),
@@ -7340,7 +7395,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),

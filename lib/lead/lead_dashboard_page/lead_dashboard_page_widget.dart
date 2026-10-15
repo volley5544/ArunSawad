@@ -1546,8 +1546,12 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                                                                       .max,
                                                               children: [
                                                                 FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .fileAlt,
+                                                                  FaIconData(const IconData(
+                                                                      /* fileAlt */ 0xf15c,
+                                                                      fontFamily:
+                                                                          'FontAwesomeRegular',
+                                                                      fontPackage:
+                                                                          'font_awesome_flutter')),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
@@ -2048,8 +2052,12 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                                                               MainAxisSize.max,
                                                           children: [
                                                             FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .truckMoving,
+                                                              FaIconData(const IconData(
+                                                                  /* truckMoving */ 0xf4df,
+                                                                  fontFamily:
+                                                                      'FontAwesomeSolid',
+                                                                  fontPackage:
+                                                                      'font_awesome_flutter')),
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
@@ -2191,8 +2199,12 @@ class _LeadDashboardPageWidgetState extends State<LeadDashboardPageWidget> {
                                                               MainAxisSize.max,
                                                           children: [
                                                             FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .carSide,
+                                                              FaIconData(const IconData(
+                                                                  /* carSide */ 0xf5e4,
+                                                                  fontFamily:
+                                                                      'FontAwesomeSolid',
+                                                                  fontPackage:
+                                                                      'font_awesome_flutter')),
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,

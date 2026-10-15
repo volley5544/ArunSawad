@@ -87,7 +87,7 @@ class SawadAnnouncementRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is SawadAnnouncementRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createSawadAnnouncementRecordData({

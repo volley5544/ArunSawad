@@ -1342,8 +1342,12 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                                     20.0,
                                                                     0.0),
                                                         child: FaIcon(
-                                                          FontAwesomeIcons
-                                                              .angleRight,
+                                                          FaIconData(const IconData(
+                                                              /* angleRight */ 0xf105,
+                                                              fontFamily:
+                                                                  'FontAwesomeSolid',
+                                                              fontPackage:
+                                                                  'font_awesome_flutter')),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .grayIcon,

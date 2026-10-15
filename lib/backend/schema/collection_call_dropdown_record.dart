@@ -68,7 +68,7 @@ class CollectionCallDropdownRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is CollectionCallDropdownRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createCollectionCallDropdownRecordData() {
@@ -94,8 +94,10 @@ class CollectionCallDropdownRecordDocumentEquality
   }
 
   @override
-  int hash(CollectionCallDropdownRecord? e) => const ListEquality()
-      .hash([e?.collectionCallDropdownValue, e?.collectiionCallDropdownName]);
+  int hash(CollectionCallDropdownRecord? e) => const ListEquality().hash([
+        const ListEquality().hash(e?.collectionCallDropdownValue),
+        const ListEquality().hash(e?.collectiionCallDropdownName)
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is CollectionCallDropdownRecord;

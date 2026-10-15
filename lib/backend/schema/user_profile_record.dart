@@ -249,8 +249,7 @@ class UserProfileRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is UserProfileRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is UserProfileRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createUserProfileRecordData({
@@ -381,12 +380,12 @@ class UserProfileRecordDocumentEquality implements Equality<UserProfileRecord> {
         e?.employeeId,
         e?.accessToken,
         e?.nickname,
-        e?.insuranceLicenseStatusCode,
-        e?.insuranceLicenseIdCard,
-        e?.insuranceLicenseLicenseNumber,
-        e?.insuranceLicenseStartDate,
-        e?.insuranceLicenseExpireDate,
-        e?.insuranceLicenseFullname
+        const ListEquality().hash(e?.insuranceLicenseStatusCode),
+        const ListEquality().hash(e?.insuranceLicenseIdCard),
+        const ListEquality().hash(e?.insuranceLicenseLicenseNumber),
+        const ListEquality().hash(e?.insuranceLicenseStartDate),
+        const ListEquality().hash(e?.insuranceLicenseExpireDate),
+        const ListEquality().hash(e?.insuranceLicenseFullname)
       ]);
 
   @override

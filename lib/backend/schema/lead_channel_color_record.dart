@@ -68,8 +68,7 @@ class LeadChannelColorRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is LeadChannelColorRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is LeadChannelColorRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createLeadChannelColorRecordData() {
@@ -93,8 +92,11 @@ class LeadChannelColorRecordDocumentEquality
   }
 
   @override
-  int hash(LeadChannelColorRecord? e) =>
-      const ListEquality().hash([e?.color, e?.leadChannel, e?.leadAge]);
+  int hash(LeadChannelColorRecord? e) => const ListEquality().hash([
+        const ListEquality().hash(e?.color),
+        const ListEquality().hash(e?.leadChannel),
+        const ListEquality().hash(e?.leadAge)
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is LeadChannelColorRecord;

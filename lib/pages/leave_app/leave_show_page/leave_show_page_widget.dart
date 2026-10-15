@@ -357,7 +357,9 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                       ),
                   hintText: 'กรุณาเลือกเดือนที่ต้องการหา',
                   icon: FaIcon(
-                    FontAwesomeIcons.solidCalendarAlt,
+                    FaIconData(const IconData(/* solidCalendarAlt */ 0xf073,
+                        fontFamily: 'FontAwesomeSolid',
+                        fontPackage: 'font_awesome_flutter')),
                     size: 15.0,
                   ),
                   fillColor: Colors.white,
@@ -2116,8 +2118,12 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'แก้ไข',
                                                                     icon:
                                                                         FaIcon(
-                                                                      FontAwesomeIcons
-                                                                          .edit,
+                                                                      FaIconData(const IconData(
+                                                                          /* edit */ 0xf044,
+                                                                          fontFamily:
+                                                                              'FontAwesomeRegular',
+                                                                          fontPackage:
+                                                                              'font_awesome_flutter')),
                                                                       size:
                                                                           22.0,
                                                                     ),
@@ -4021,8 +4027,12 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'แก้ไข',
                                                                     icon:
                                                                         FaIcon(
-                                                                      FontAwesomeIcons
-                                                                          .edit,
+                                                                      FaIconData(const IconData(
+                                                                          /* edit */ 0xf044,
+                                                                          fontFamily:
+                                                                              'FontAwesomeRegular',
+                                                                          fontPackage:
+                                                                              'font_awesome_flutter')),
                                                                       size:
                                                                           22.0,
                                                                     ),

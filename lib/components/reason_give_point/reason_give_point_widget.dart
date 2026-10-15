@@ -273,14 +273,18 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                               ),
                               child: FlutterFlowCountController(
                                 decrementIconBuilder: (enabled) => FaIcon(
-                                  FontAwesomeIcons.minus,
+                                  FaIconData(const IconData(/* minus */ 0xf068,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
                                   color: enabled
                                       ? Color(0xDD000000)
                                       : Color(0xFFEEEEEE),
                                   size: 20.0,
                                 ),
                                 incrementIconBuilder: (enabled) => FaIcon(
-                                  FontAwesomeIcons.plus,
+                                  FaIconData(const IconData(/* plus */ 0x2b,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
                                   color:
                                       enabled ? Colors.blue : Color(0xFFEEEEEE),
                                   size: 20.0,

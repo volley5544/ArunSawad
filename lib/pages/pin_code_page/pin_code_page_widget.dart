@@ -51,6 +51,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => PinCodePageModel());
+    _model.setOnUpdate(onUpdate: () => safeSetState(() {}));
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'PinCodePage'});
     // On page load action.

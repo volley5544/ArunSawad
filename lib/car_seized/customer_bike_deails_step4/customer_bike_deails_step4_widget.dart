@@ -465,7 +465,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -561,7 +566,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -817,7 +827,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -913,7 +928,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -1169,7 +1189,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -1265,7 +1290,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -1514,7 +1544,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -1610,7 +1645,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -1866,7 +1906,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -1962,7 +2007,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -2218,7 +2268,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -2314,7 +2369,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -2563,7 +2623,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -2659,7 +2724,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -2915,7 +2985,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -3011,7 +3086,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -3260,7 +3340,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -3356,7 +3441,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -3605,7 +3695,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -3701,7 +3796,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -3950,7 +4050,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -4046,7 +4151,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),
@@ -4295,7 +4405,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.image,
+                                                  FaIconData(const IconData(
+                                                      /* image */ 0xf03e,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Color(0xFF404040),
                                                   size: 24.0,
                                                 ),
@@ -4391,7 +4506,12 @@ class _CustomerBikeDeailsStep4WidgetState
                                             child: Visibility(
                                               visible: false,
                                               child: FaIcon(
-                                                FontAwesomeIcons.fileUpload,
+                                                FaIconData(const IconData(
+                                                    /* fileUpload */ 0xf574,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF404040),
                                                 size: 17.0,
                                               ),

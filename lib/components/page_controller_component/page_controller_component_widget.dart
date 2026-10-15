@@ -85,7 +85,9 @@ class _PageControllerComponentWidgetState
                     safeSetState(() {});
                   },
                   child: FaIcon(
-                    FontAwesomeIcons.fastBackward,
+                    FaIconData(const IconData(/* fastBackward */ 0xf049,
+                        fontFamily: 'FontAwesomeSolid',
+                        fontPackage: 'font_awesome_flutter')),
                     color: Color(0xFF2555FF),
                     size: 24.0,
                   ),
@@ -294,7 +296,9 @@ class _PageControllerComponentWidgetState
                     safeSetState(() {});
                   },
                   child: FaIcon(
-                    FontAwesomeIcons.fastForward,
+                    FaIconData(const IconData(/* fastForward */ 0xf050,
+                        fontFamily: 'FontAwesomeSolid',
+                        fontPackage: 'font_awesome_flutter')),
                     color: Color(0xFF2555FF),
                     size: 24.0,
                   ),

@@ -120,7 +120,8 @@ class TrackingEmployeeDateModelStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([date, totals, data]);
+  int get hashCode => const ListEquality()
+      .hash([date, totals, const ListEquality().hash(data)]);
 }
 
 TrackingEmployeeDateModelStruct createTrackingEmployeeDateModelStruct({

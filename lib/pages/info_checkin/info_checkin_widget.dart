@@ -612,7 +612,11 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: FaIcon(
-                                        FontAwesomeIcons.edit,
+                                        FaIconData(const IconData(
+                                            /* edit */ 0xf044,
+                                            fontFamily: 'FontAwesomeRegular',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.black,
                                         size: 29.0,
                                       ),

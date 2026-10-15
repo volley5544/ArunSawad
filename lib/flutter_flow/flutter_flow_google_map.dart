@@ -41,10 +41,16 @@ class MarkerImage {
     required this.imagePath,
     required this.isAssetImage,
     this.size = 20.0,
+    this.cached = true,
   });
   final String imagePath;
   final bool isAssetImage;
   final double size;
+
+  /// Whether a network image is served from the shared disk cache.
+  ///
+  /// Ignored by asset images, which never go over the network.
+  final bool cached;
 
   @override
   bool operator ==(Object other) =>
@@ -52,10 +58,11 @@ class MarkerImage {
       (other is MarkerImage &&
           imagePath == other.imagePath &&
           isAssetImage == other.isAssetImage &&
-          size == other.size);
+          size == other.size &&
+          cached == other.cached);
 
   @override
-  int get hashCode => Object.hash(imagePath, isAssetImage, size);
+  int get hashCode => Object.hash(imagePath, isAssetImage, size, cached);
 }
 
 class FlutterFlowMarker {
@@ -170,6 +177,20 @@ void subscribeMarkerBitmapFrames(
   if (cache.trackListener(request, () => stream.removeListener(listener))) {
     stream.addListener(listener);
   }
+}
+
+/// The provider [image] is loaded through.
+///
+/// Assets come from the bundle. A network image is served from the shared disk
+/// cache unless it opted out, so artwork that changed behind a stable URL is
+/// refetched on the next launch. Within a session the decoded bitmap is still
+/// held by [MarkerBitmapCache] and Flutter's own image cache.
+ImageProvider<Object> markerImageProvider(MarkerImage image) {
+  return switch (image) {
+    MarkerImage(isAssetImage: true) => Image.asset(image.imagePath).image,
+    MarkerImage(cached: true) => CachedNetworkImageProvider(image.imagePath),
+    _ => NetworkImage(image.imagePath),
+  };
 }
 
 /// Runs [callback] while owning [imageInfo], then releases its native image.
@@ -564,9 +585,7 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
 
   void resolveMarkerBitmap(MarkerBitmapRequest request) {
     final markerImage = request.image;
-    var imageProvider = markerImage.isAssetImage
-        ? Image.asset(markerImage.imagePath).image
-        : CachedNetworkImageProvider(markerImage.imagePath);
+    var imageProvider = markerImageProvider(markerImage);
     if (!kIsWeb) {
       // workaround for https://github.com/flutter/flutter/issues/34657 to
       // enable marker resizing on Android and iOS.

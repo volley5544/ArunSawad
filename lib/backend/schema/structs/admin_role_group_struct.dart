@@ -115,8 +115,11 @@ class AdminRoleGroupStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([groupName, employeeId, visibleMenuName]);
+  int get hashCode => const ListEquality().hash([
+        groupName,
+        const ListEquality().hash(employeeId),
+        const ListEquality().hash(visibleMenuName)
+      ]);
 }
 
 AdminRoleGroupStruct createAdminRoleGroupStruct({

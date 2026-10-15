@@ -506,7 +506,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                     Expanded(
                       flex: 1,
                       child: FaIcon(
-                        FontAwesomeIcons.idCard,
+                        FaIconData(const IconData(/* idCard */ 0xf2c2,
+                            fontFamily: 'FontAwesomeRegular',
+                            fontPackage: 'font_awesome_flutter')),
                         color: Colors.black,
                         size: 29.0,
                       ),
@@ -638,7 +640,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                     Expanded(
                       flex: 1,
                       child: FaIcon(
-                        FontAwesomeIcons.unlockAlt,
+                        FaIconData(const IconData(/* unlockAlt */ 0xf13e,
+                            fontFamily: 'FontAwesomeSolid',
+                            fontPackage: 'font_awesome_flutter')),
                         color: Colors.black,
                         size: 29.0,
                       ),
@@ -771,7 +775,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                     Expanded(
                       flex: 1,
                       child: FaIcon(
-                        FontAwesomeIcons.unlockAlt,
+                        FaIconData(const IconData(/* unlockAlt */ 0xf13e,
+                            fontFamily: 'FontAwesomeSolid',
+                            fontPackage: 'font_awesome_flutter')),
                         color: Colors.black,
                         size: 29.0,
                       ),

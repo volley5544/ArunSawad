@@ -270,7 +270,11 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                       ChipData('ครอบครัวสุขใจ X2', Icons.family_restroom),
                       ChipData('อุ่นใจสบายกระเป๋า', Icons.lock),
                       ChipData('พี่วินคุ้มชัวร์', Icons.motorcycle),
-                      ChipData('แคมเปญทั้งหมด', FontAwesomeIcons.borderAll)
+                      ChipData(
+                          'แคมเปญทั้งหมด',
+                          const IconData(/* borderAll */ 0xf84c,
+                              fontFamily: 'FontAwesomeSolid',
+                              fontPackage: 'font_awesome_flutter'))
                     ],
                     onChanged: (val) => safeSetState(
                         () => _model.choiceChipsValue = val?.firstOrNull),

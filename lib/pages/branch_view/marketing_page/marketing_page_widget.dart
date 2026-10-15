@@ -1095,7 +1095,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     Expanded(
                                       flex: 1,
                                       child: FaIcon(
-                                        FontAwesomeIcons.locationArrow,
+                                        FaIconData(const IconData(
+                                            /* locationArrow */ 0xf124,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.black,
                                         size: 40.0,
                                       ),
@@ -1262,7 +1266,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     Expanded(
                                       flex: 1,
                                       child: FaIcon(
-                                        FontAwesomeIcons.at,
+                                        FaIconData(const IconData(/* at */ 0x40,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.black,
                                         size: 29.0,
                                       ),
@@ -1715,7 +1722,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     Expanded(
                                       flex: 1,
                                       child: FaIcon(
-                                        FontAwesomeIcons.edit,
+                                        FaIconData(const IconData(
+                                            /* edit */ 0xf044,
+                                            fontFamily: 'FontAwesomeRegular',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.black,
                                         size: 29.0,
                                       ),
@@ -2168,7 +2179,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     Expanded(
                                       flex: 1,
                                       child: FaIcon(
-                                        FontAwesomeIcons.locationArrow,
+                                        FaIconData(const IconData(
+                                            /* locationArrow */ 0xf124,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.black,
                                         size: 29.0,
                                       ),
@@ -2337,7 +2352,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     Expanded(
                                       flex: 1,
                                       child: FaIcon(
-                                        FontAwesomeIcons.at,
+                                        FaIconData(const IconData(/* at */ 0x40,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.black,
                                         size: 29.0,
                                       ),
@@ -2675,7 +2693,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     Expanded(
                                       flex: 1,
                                       child: FaIcon(
-                                        FontAwesomeIcons.edit,
+                                        FaIconData(const IconData(
+                                            /* edit */ 0xf044,
+                                            fontFamily: 'FontAwesomeRegular',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.black,
                                         size: 29.0,
                                       ),
@@ -3093,8 +3115,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
                                                             icon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .minus,
+                                                              FaIconData(const IconData(
+                                                                  /* minus */ 0xf068,
+                                                                  fontFamily:
+                                                                      'FontAwesomeSolid',
+                                                                  fontPackage:
+                                                                      'font_awesome_flutter')),
                                                               color: Color(
                                                                   0xFFFF0000),
                                                               size: 20.0,
@@ -3132,8 +3158,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
                                                             icon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .minus,
+                                                              FaIconData(const IconData(
+                                                                  /* minus */ 0xf068,
+                                                                  fontFamily:
+                                                                      'FontAwesomeSolid',
+                                                                  fontPackage:
+                                                                      'font_awesome_flutter')),
                                                               color: Color(
                                                                   0xFFC4CBD1),
                                                               size: 20.0,
@@ -3250,8 +3280,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
                                                             icon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .plus,
+                                                              FaIconData(const IconData(
+                                                                  /* plus */ 0x2b,
+                                                                  fontFamily:
+                                                                      'FontAwesomeSolid',
+                                                                  fontPackage:
+                                                                      'font_awesome_flutter')),
                                                               color: Color(
                                                                   0xFF54FF00),
                                                               size: 20.0,
@@ -3287,8 +3321,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
                                                             icon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .plus,
+                                                              FaIconData(const IconData(
+                                                                  /* plus */ 0x2b,
+                                                                  fontFamily:
+                                                                      'FontAwesomeSolid',
+                                                                  fontPackage:
+                                                                      'font_awesome_flutter')),
                                                               color: Color(
                                                                   0xFFC4CBD1),
                                                               size: 20.0,
@@ -3599,8 +3637,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
                                                             icon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .minus,
+                                                              FaIconData(const IconData(
+                                                                  /* minus */ 0xf068,
+                                                                  fontFamily:
+                                                                      'FontAwesomeSolid',
+                                                                  fontPackage:
+                                                                      'font_awesome_flutter')),
                                                               color: Color(
                                                                   0xFFC4CBD1),
                                                               size: 20.0,
@@ -3651,8 +3693,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
                                                             icon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .plus,
+                                                              FaIconData(const IconData(
+                                                                  /* plus */ 0x2b,
+                                                                  fontFamily:
+                                                                      'FontAwesomeSolid',
+                                                                  fontPackage:
+                                                                      'font_awesome_flutter')),
                                                               color: Color(
                                                                   0xFFC4CBD1),
                                                               size: 20.0,

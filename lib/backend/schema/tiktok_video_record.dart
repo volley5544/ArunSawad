@@ -55,8 +55,7 @@ class TiktokVideoRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is TiktokVideoRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is TiktokVideoRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createTiktokVideoRecordData() {
@@ -77,7 +76,8 @@ class TiktokVideoRecordDocumentEquality implements Equality<TiktokVideoRecord> {
   }
 
   @override
-  int hash(TiktokVideoRecord? e) => const ListEquality().hash([e?.tiktokList]);
+  int hash(TiktokVideoRecord? e) =>
+      const ListEquality().hash([const ListEquality().hash(e?.tiktokList)]);
 
   @override
   bool isValidKey(Object? o) => o is TiktokVideoRecord;

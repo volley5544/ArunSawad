@@ -1895,7 +1895,7 @@ class ImpoundCarDetailDataTypeStruct extends FFFirebaseStruct {
         logisticsComany,
         receiver,
         stepPrice,
-        images,
+        const ListEquality().hash(images),
         regionCode,
         ldate
       ]);

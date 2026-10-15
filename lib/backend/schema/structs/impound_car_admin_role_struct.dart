@@ -95,7 +95,8 @@ class ImpoundCarAdminRoleStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([level, roleName]);
+  int get hashCode => const ListEquality().hash(
+      [const ListEquality().hash(level), const ListEquality().hash(roleName)]);
 }
 
 ImpoundCarAdminRoleStruct createImpoundCarAdminRoleStruct({

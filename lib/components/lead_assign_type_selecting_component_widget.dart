@@ -78,7 +78,9 @@ class _LeadAssignTypeSelectingComponentWidgetState
                   },
                   text: 'สินเชื่อรถจักรยานยนต์',
                   icon: FaIcon(
-                    FontAwesomeIcons.motorcycle,
+                    FaIconData(const IconData(/* motorcycle */ 0xf21c,
+                        fontFamily: 'FontAwesomeSolid',
+                        fontPackage: 'font_awesome_flutter')),
                     size: 15.0,
                   ),
                   options: FFButtonOptions(
@@ -128,7 +130,9 @@ class _LeadAssignTypeSelectingComponentWidgetState
                   },
                   text: 'สินเชื่อรถยนต์',
                   icon: FaIcon(
-                    FontAwesomeIcons.carSide,
+                    FaIconData(const IconData(/* carSide */ 0xf5e4,
+                        fontFamily: 'FontAwesomeSolid',
+                        fontPackage: 'font_awesome_flutter')),
                     size: 15.0,
                   ),
                   options: FFButtonOptions(

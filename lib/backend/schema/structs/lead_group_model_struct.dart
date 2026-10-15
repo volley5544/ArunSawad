@@ -139,8 +139,8 @@ class LeadGroupModelStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([leadGroup, total, percentage, types]);
+  int get hashCode => const ListEquality()
+      .hash([leadGroup, total, percentage, const ListEquality().hash(types)]);
 }
 
 LeadGroupModelStruct createLeadGroupModelStruct({

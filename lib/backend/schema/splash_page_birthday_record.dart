@@ -57,7 +57,7 @@ class SplashPageBirthdayRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is SplashPageBirthdayRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createSplashPageBirthdayRecordData() {
@@ -80,7 +80,7 @@ class SplashPageBirthdayRecordDocumentEquality
 
   @override
   int hash(SplashPageBirthdayRecord? e) =>
-      const ListEquality().hash([e?.birthDateImg]);
+      const ListEquality().hash([const ListEquality().hash(e?.birthDateImg)]);
 
   @override
   bool isValidKey(Object? o) => o is SplashPageBirthdayRecord;

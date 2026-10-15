@@ -801,7 +801,12 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: FaIcon(
-                                                          FontAwesomeIcons.line,
+                                                          FaIconData(const IconData(
+                                                              /* line */ 0xf3c0,
+                                                              fontFamily:
+                                                                  'FontAwesomeBrands',
+                                                              fontPackage:
+                                                                  'font_awesome_flutter')),
                                                           color:
                                                               Color(0xFF00B900),
                                                           size: 28.0,

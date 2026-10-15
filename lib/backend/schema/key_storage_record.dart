@@ -55,8 +55,7 @@ class KeyStorageRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is KeyStorageRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is KeyStorageRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createKeyStorageRecordData({

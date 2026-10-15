@@ -55,8 +55,7 @@ class PromotionimagesRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is PromotionimagesRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is PromotionimagesRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createPromotionimagesRecordData() {
@@ -78,7 +77,8 @@ class PromotionimagesRecordDocumentEquality
   }
 
   @override
-  int hash(PromotionimagesRecord? e) => const ListEquality().hash([e?.imgUrl]);
+  int hash(PromotionimagesRecord? e) =>
+      const ListEquality().hash([const ListEquality().hash(e?.imgUrl)]);
 
   @override
   bool isValidKey(Object? o) => o is PromotionimagesRecord;

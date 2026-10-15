@@ -109,8 +109,7 @@ class MaterialRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is MaterialRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is MaterialRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createMaterialRecordData({
@@ -162,8 +161,8 @@ class MaterialRecordDocumentEquality implements Equality<MaterialRecord> {
         e?.matetialName,
         e?.imgUrl,
         e?.recordId,
-        e?.phone,
-        e?.name,
+        const ListEquality().hash(e?.phone),
+        const ListEquality().hash(e?.name),
         e?.employeeId,
         e?.latLng,
         e?.latitude,

@@ -43,6 +43,7 @@ import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
@@ -148,6 +149,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   List<SawadAnnouncementRecord>? queryAnnouncement;
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
   HideInAppContentRecord? queryBlockMockedLocationDoc;
+  // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in SuperAppPage widget.
+  ApiCallResponse? getUserProfileUnitMRole;
   // Stores action output result for [Custom Action - checkDeveloperMode] action in SuperAppPage widget.
   bool? checkDeveloperMode;
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.

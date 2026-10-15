@@ -874,8 +874,12 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                             .center,
                                                     children: [
                                                       FaIcon(
-                                                        FontAwesomeIcons
-                                                            .solidCalendarAlt,
+                                                        FaIconData(const IconData(
+                                                            /* solidCalendarAlt */ 0xf073,
+                                                            fontFamily:
+                                                                'FontAwesomeSolid',
+                                                            fontPackage:
+                                                                'font_awesome_flutter')),
                                                         color:
                                                             Color(0xFFF46506),
                                                         size: 25.0,
@@ -1229,8 +1233,12 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                             .center,
                                                     children: [
                                                       FaIcon(
-                                                        FontAwesomeIcons
-                                                            .umbrellaBeach,
+                                                        FaIconData(const IconData(
+                                                            /* umbrellaBeach */ 0xf5ca,
+                                                            fontFamily:
+                                                                'FontAwesomeSolid',
+                                                            fontPackage:
+                                                                'font_awesome_flutter')),
                                                         color:
                                                             Color(0xFFF46506),
                                                         size: 25.0,
@@ -1584,8 +1592,12 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                             .center,
                                                     children: [
                                                       FaIcon(
-                                                        FontAwesomeIcons
-                                                            .prayingHands,
+                                                        FaIconData(const IconData(
+                                                            /* prayingHands */ 0xf684,
+                                                            fontFamily:
+                                                                'FontAwesomeSolid',
+                                                            fontPackage:
+                                                                'font_awesome_flutter')),
                                                         color:
                                                             Color(0xFFF46506),
                                                         size: 25.0,
@@ -2637,8 +2649,12 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     FaIcon(
-                                                      FontAwesomeIcons
-                                                          .venusMars,
+                                                      FaIconData(const IconData(
+                                                          /* venusMars */ 0xf228,
+                                                          fontFamily:
+                                                              'FontAwesomeSolid',
+                                                          fontPackage:
+                                                              'font_awesome_flutter')),
                                                       color: Color(0xFFF46506),
                                                       size: 28.0,
                                                     ),

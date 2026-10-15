@@ -73,8 +73,7 @@ class SplashPageImgRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is SplashPageImgRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is SplashPageImgRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createSplashPageImgRecordData({
@@ -103,8 +102,12 @@ class SplashPageImgRecordDocumentEquality
   }
 
   @override
-  int hash(SplashPageImgRecord? e) =>
-      const ListEquality().hash([e?.day, e?.imgURL, e?.text, e?.blurHash]);
+  int hash(SplashPageImgRecord? e) => const ListEquality().hash([
+        e?.day,
+        const ListEquality().hash(e?.imgURL),
+        const ListEquality().hash(e?.text),
+        const ListEquality().hash(e?.blurHash)
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is SplashPageImgRecord;

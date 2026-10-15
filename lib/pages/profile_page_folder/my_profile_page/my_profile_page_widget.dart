@@ -530,7 +530,12 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               borderWidth: 1.0,
                                               buttonSize: 60.0,
                                               icon: FaIcon(
-                                                FontAwesomeIcons.camera,
+                                                FaIconData(const IconData(
+                                                    /* camera */ 0xf030,
+                                                    fontFamily:
+                                                        'FontAwesomeRegular',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF0039E3),
                                                 size: 30.0,
                                               ),
@@ -818,7 +823,11 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       FaIcon(
-                                        FontAwesomeIcons.birthdayCake,
+                                        FaIconData(const IconData(
+                                            /* birthdayCake */ 0xf1fd,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Color(0xFF0039E3),
                                         size: 30.0,
                                       ),
@@ -1133,7 +1142,12 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               borderWidth: 1.0,
                                               buttonSize: 80.0,
                                               icon: FaIcon(
-                                                FontAwesomeIcons.camera,
+                                                FaIconData(const IconData(
+                                                    /* camera */ 0xf030,
+                                                    fontFamily:
+                                                        'FontAwesomeRegular',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Color(0xFF0039E3),
                                                 size: 50.0,
                                               ),
@@ -1421,7 +1435,11 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       FaIcon(
-                                        FontAwesomeIcons.birthdayCake,
+                                        FaIconData(const IconData(
+                                            /* birthdayCake */ 0xf1fd,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Color(0xFF0039E3),
                                         size: 35.0,
                                       ),
@@ -2324,8 +2342,12 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                 );
                                               },
                                               child: FaIcon(
-                                                FontAwesomeIcons
-                                                    .exclamationTriangle,
+                                                FaIconData(const IconData(
+                                                    /* exclamationTriangle */ 0xf071,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
@@ -2843,8 +2865,12 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                 );
                                               },
                                               child: FaIcon(
-                                                FontAwesomeIcons
-                                                    .exclamationTriangle,
+                                                FaIconData(const IconData(
+                                                    /* exclamationTriangle */ 0xf071,
+                                                    fontFamily:
+                                                        'FontAwesomeSolid',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,

@@ -69,7 +69,8 @@ class ChatRoomDataModelStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([usersEmplayeeId]);
+  int get hashCode =>
+      const ListEquality().hash([const ListEquality().hash(usersEmplayeeId)]);
 }
 
 ChatRoomDataModelStruct createChatRoomDataModelStruct({

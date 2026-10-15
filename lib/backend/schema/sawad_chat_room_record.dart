@@ -146,8 +146,7 @@ class SawadChatRoomRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is SawadChatRoomRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is SawadChatRoomRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createSawadChatRoomRecordData({
@@ -205,9 +204,9 @@ class SawadChatRoomRecordDocumentEquality
 
   @override
   int hash(SawadChatRoomRecord? e) => const ListEquality().hash([
-        e?.usersRef,
-        e?.usersEmplayeeId,
-        e?.lastSeenUsersRef,
+        const ListEquality().hash(e?.usersRef),
+        const ListEquality().hash(e?.usersEmplayeeId),
+        const ListEquality().hash(e?.lastSeenUsersRef),
         e?.lastMessageText,
         e?.lastMessageTime,
         e?.lastMessageBy,
@@ -216,9 +215,9 @@ class SawadChatRoomRecordDocumentEquality
         e?.chatRoomName,
         e?.chatRoomType,
         e?.chatRoomDisplayImageUrl,
-        e?.usersName,
-        e?.usersDisplayImage,
-        e?.usersDisplayImageBlurHash,
+        const ListEquality().hash(e?.usersName),
+        const ListEquality().hash(e?.usersDisplayImage),
+        const ListEquality().hash(e?.usersDisplayImageBlurHash),
         e?.chatRoomDisplayImageBlurHash
       ]);
 

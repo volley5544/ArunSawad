@@ -61,8 +61,7 @@ class AuthorizationRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is AuthorizationRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is AuthorizationRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createAuthorizationRecordData({
@@ -89,8 +88,8 @@ class AuthorizationRecordDocumentEquality
   }
 
   @override
-  int hash(AuthorizationRecord? e) =>
-      const ListEquality().hash([e?.contentName, e?.employeeIdList]);
+  int hash(AuthorizationRecord? e) => const ListEquality()
+      .hash([e?.contentName, const ListEquality().hash(e?.employeeIdList)]);
 
   @override
   bool isValidKey(Object? o) => o is AuthorizationRecord;

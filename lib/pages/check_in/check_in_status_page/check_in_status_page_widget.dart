@@ -704,7 +704,10 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                           ).then((value) => safeSetState(() {}));
                         },
                         child: FaIcon(
-                          FontAwesomeIcons.exclamationTriangle,
+                          FaIconData(const IconData(
+                              /* exclamationTriangle */ 0xf071,
+                              fontFamily: 'FontAwesomeSolid',
+                              fontPackage: 'font_awesome_flutter')),
                           color: Colors.white,
                           size: 35.0,
                         ),
@@ -928,7 +931,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       FaIcon(
-                                        FontAwesomeIcons.asterisk,
+                                        FaIconData(const IconData(
+                                            /* asterisk */ 0x2a,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Color(0xFFFF0000),
                                         size: 10.0,
                                       ),
@@ -936,7 +943,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 5.0, 0.0),
                                         child: FaIcon(
-                                          FontAwesomeIcons.asterisk,
+                                          FaIconData(const IconData(
+                                              /* asterisk */ 0x2a,
+                                              fontFamily: 'FontAwesomeSolid',
+                                              fontPackage:
+                                                  'font_awesome_flutter')),
                                           color: Color(0xFFFF0000),
                                           size: 10.0,
                                         ),

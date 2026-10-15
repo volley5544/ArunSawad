@@ -60,8 +60,7 @@ class Mat1Record extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is Mat1Record &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is Mat1Record && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createMat1RecordData({
@@ -87,8 +86,8 @@ class Mat1RecordDocumentEquality implements Equality<Mat1Record> {
   }
 
   @override
-  int hash(Mat1Record? e) =>
-      const ListEquality().hash([e?.recordID, e?.recordIId]);
+  int hash(Mat1Record? e) => const ListEquality()
+      .hash([e?.recordID, const ListEquality().hash(e?.recordIId)]);
 
   @override
   bool isValidKey(Object? o) => o is Mat1Record;

@@ -1010,7 +1010,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                         if (_shouldSetState) safeSetState(() {});
                       },
                       child: FaIcon(
-                        FontAwesomeIcons.camera,
+                        FaIconData(const IconData(/* camera */ 0xf030,
+                            fontFamily: 'FontAwesomeRegular',
+                            fontPackage: 'font_awesome_flutter')),
                         color: Color(0xFBFFFFFF),
                         size: 40.0,
                       ),
@@ -1267,7 +1269,12 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                           .update(() {});
                                                     },
                                                     child: FaIcon(
-                                                      FontAwesomeIcons.times,
+                                                      FaIconData(const IconData(
+                                                          /* times */ 0xf00d,
+                                                          fontFamily:
+                                                              'FontAwesomeSolid',
+                                                          fontPackage:
+                                                              'font_awesome_flutter')),
                                                       color: Color(0xFFDE1013),
                                                       size: 30.0,
                                                     ),
@@ -1446,7 +1453,12 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                           .update(() {});
                                                     },
                                                     child: FaIcon(
-                                                      FontAwesomeIcons.times,
+                                                      FaIconData(const IconData(
+                                                          /* times */ 0xf00d,
+                                                          fontFamily:
+                                                              'FontAwesomeSolid',
+                                                          fontPackage:
+                                                              'font_awesome_flutter')),
                                                       color: Color(0xFFDE1013),
                                                       size: 30.0,
                                                     ),

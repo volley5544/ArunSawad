@@ -106,8 +106,7 @@ class VLoanRemarkLogRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is VLoanRemarkLogRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is VLoanRemarkLogRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createVLoanRemarkLogRecordData({

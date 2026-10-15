@@ -67,8 +67,7 @@ class LeaveDaysAfterRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is LeaveDaysAfterRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is LeaveDaysAfterRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createLeaveDaysAfterRecordData({
@@ -96,8 +95,11 @@ class LeaveDaysAfterRecordDocumentEquality
   }
 
   @override
-  int hash(LeaveDaysAfterRecord? e) => const ListEquality()
-      .hash([e?.leaveListAllowDay, e?.leaveListAllowInt, e?.leaveYearAllow]);
+  int hash(LeaveDaysAfterRecord? e) => const ListEquality().hash([
+        const ListEquality().hash(e?.leaveListAllowDay),
+        const ListEquality().hash(e?.leaveListAllowInt),
+        e?.leaveYearAllow
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is LeaveDaysAfterRecord;

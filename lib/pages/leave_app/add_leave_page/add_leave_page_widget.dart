@@ -709,8 +709,12 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                         'ระบุวันที่',
                                                       ),
                                                       icon: FaIcon(
-                                                        FontAwesomeIcons
-                                                            .solidCalendarAlt,
+                                                        FaIconData(const IconData(
+                                                            /* solidCalendarAlt */ 0xf073,
+                                                            fontFamily:
+                                                                'FontAwesomeSolid',
+                                                            fontPackage:
+                                                                'font_awesome_flutter')),
                                                         size: 15.0,
                                                       ),
                                                       options: FFButtonOptions(

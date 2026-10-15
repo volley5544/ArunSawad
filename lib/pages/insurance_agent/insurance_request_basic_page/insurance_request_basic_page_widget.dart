@@ -1485,7 +1485,11 @@ class _InsuranceRequestBasicPageWidgetState
                                     ChipData('ตู้แห้ง',
                                         Icons.check_box_outline_blank),
                                     ChipData(
-                                        'ตู้เย็น', FontAwesomeIcons.snowflake)
+                                        'ตู้เย็น',
+                                        const IconData(/* snowflake */ 0xf2dc,
+                                            fontFamily: 'FontAwesomeRegular',
+                                            fontPackage:
+                                                'font_awesome_flutter'))
                                   ],
                                   onChanged: (val) async {
                                     safeSetState(() =>

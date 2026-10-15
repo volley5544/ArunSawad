@@ -115,7 +115,7 @@ class WorkFollowUpChatRoomRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is WorkFollowUpChatRoomRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createWorkFollowUpChatRoomRecordData({
@@ -173,7 +173,7 @@ class WorkFollowUpChatRoomRecordDocumentEquality
         e?.regionCode,
         e?.maxShowingMessage,
         e?.workSystemName,
-        e?.extraMember,
+        const ListEquality().hash(e?.extraMember),
         e?.lastMessage,
         e?.lastMessageBy,
         e?.lastMessageTime

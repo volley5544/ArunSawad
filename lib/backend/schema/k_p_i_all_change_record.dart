@@ -103,8 +103,7 @@ class KPIAllChangeRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is KPIAllChangeRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is KPIAllChangeRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createKPIAllChangeRecordData({
@@ -152,10 +151,10 @@ class KPIAllChangeRecordDocumentEquality
         e?.dangerColor,
         e?.normalColor,
         e?.goodColor,
-        e?.groupName,
-        e?.backgroundColor,
-        e?.textColor,
-        e?.borderColor
+        const ListEquality().hash(e?.groupName),
+        const ListEquality().hash(e?.backgroundColor),
+        const ListEquality().hash(e?.textColor),
+        const ListEquality().hash(e?.borderColor)
       ]);
 
   @override

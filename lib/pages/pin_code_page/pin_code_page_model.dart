@@ -189,8 +189,10 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
     }
     FFAppState().userRef = queryProfile?.reference;
     FFAppState().profileImage = queryProfile!.imgProfile;
+    updatePage(() {});
     FFAppState().adminEMP =
         queryKpiMenuAuthorize!.employeeIdList.toList().cast<String>();
+    updatePage(() {});
     if (FFAppState().isProductionNew) {
       keyStorage1ApiUrlActionBloc = await KeyStorageRecord.getDocumentOnce(
           FFAppState().keyStorage1DocRef!);
@@ -322,16 +324,19 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
           (getUserProfilePinActionBloc?.jsonBody ?? ''),
         )}';
         FFAppState().userRef = queryProfile?.reference;
+        updatePage(() {});
         FFAppState().profileFirstName =
             '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
         FFAppState().profileLastName =
             '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
+        updatePage(() {});
         FFAppState().departmentProfile = '${GetUserProfileAPICall.department(
           (getUserProfilePinActionBloc?.jsonBody ?? ''),
         )}';
         FFAppState().profileRoleName = '${GetUserProfileAPICall.profileRoleName(
           (getUserProfilePinActionBloc?.jsonBody ?? ''),
         )}';
+        updatePage(() {});
         getUserInsuranceLicenseActionBloc =
             await GetUserInsuranceLicenseCall.call(
           token: FFAppState().accessToken,
@@ -347,6 +352,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
               ))!
               .toList()
               .cast<int>();
+          updatePage(() {});
           FFAppState().profileInsuLicenseIdCard = FFAppState()
                   .insuranceLicenseStatusCode
                   .contains(FFAppState().statusCodeSuccess)
@@ -401,6 +407,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
                     (getUserInsuranceLicenseActionBloc?.jsonBody ?? ''),
                   )?.toList())!
               : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
+          updatePage(() {});
         }
       } else {
         if (!((GetUserProfileAPICall.message(
@@ -551,11 +558,13 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
         .stringlistToDateAD(FFAppState().profileInsuLicenseExpireDate.toList())!
         .toList()
         .cast<DateTime>();
+    updatePage(() {});
     FFAppState().expInsuLessthen30 = functions
         .compareDate30(FFAppState().profileInsuExpdateAD.toList(),
             getCurrentTimestamp.toString())!
         .toList()
         .cast<bool>();
+    updatePage(() {});
     queryInsuranceNotiData = await queryInsuranceNotiDataRecordOnce(
       queryBuilder: (insuranceNotiDataRecord) => insuranceNotiDataRecord.where(
         'emp_id',
@@ -655,6 +664,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
                     FFAppState().superAppi)!
                 .toList()
                 .cast<bool>();
+            updatePage(() {});
 
             var notificationRecordReference =
                 NotificationRecord.createDoc(queryProfile!.reference);
@@ -682,6 +692,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
         }
       }
       FFAppState().superAppi = FFAppState().superAppi + 1;
+      updatePage(() {});
     }
 
     await queryInsuranceNotiData!.reference.update({
@@ -692,6 +703,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
       ),
     });
     FFAppState().firstLoginLocation = getLocationPinActionBloc;
+    updatePage(() {});
     await actions.startListenProfileAction();
     Navigator.pop(context);
 

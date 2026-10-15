@@ -896,7 +896,12 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                 alignment: AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.creditCard,
+                                                  FaIconData(const IconData(
+                                                      /* creditCard */ 0xf09d,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Colors.black,
                                                   size: 29.0,
                                                 ),
@@ -1693,7 +1698,12 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                 Expanded(
                                                   flex: 1,
                                                   child: FaIcon(
-                                                    FontAwesomeIcons.edit,
+                                                    FaIconData(const IconData(
+                                                        /* edit */ 0xf044,
+                                                        fontFamily:
+                                                            'FontAwesomeRegular',
+                                                        fontPackage:
+                                                            'font_awesome_flutter')),
                                                     color: Colors.black,
                                                     size: 29.0,
                                                   ),
@@ -3212,7 +3222,12 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: FaIcon(
-                                                FontAwesomeIcons.creditCard,
+                                                FaIconData(const IconData(
+                                                    /* creditCard */ 0xf09d,
+                                                    fontFamily:
+                                                        'FontAwesomeRegular',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color: Colors.black,
                                                 size: 29.0,
                                               ),
@@ -3539,7 +3554,12 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                 alignment: AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons.edit,
+                                                  FaIconData(const IconData(
+                                                      /* edit */ 0xf044,
+                                                      fontFamily:
+                                                          'FontAwesomeRegular',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: Colors.black,
                                                   size: 29.0,
                                                 ),

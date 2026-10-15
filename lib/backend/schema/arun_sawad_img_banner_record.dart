@@ -111,7 +111,7 @@ class ArunSawadImgBannerRecord extends FirestoreRecord {
   @override
   bool operator ==(other) =>
       other is ArunSawadImgBannerRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createArunSawadImgBannerRecordData() {
@@ -143,16 +143,16 @@ class ArunSawadImgBannerRecordDocumentEquality
 
   @override
   int hash(ArunSawadImgBannerRecord? e) => const ListEquality().hash([
-        e?.imgUrl,
-        e?.isHaveLink,
-        e?.linkUrl,
-        e?.index,
-        e?.blurHash,
-        e?.openType,
-        e?.paramType,
-        e?.includeSlash,
-        e?.showingAll,
-        e?.bannerCode
+        const ListEquality().hash(e?.imgUrl),
+        const ListEquality().hash(e?.isHaveLink),
+        const ListEquality().hash(e?.linkUrl),
+        const ListEquality().hash(e?.index),
+        const ListEquality().hash(e?.blurHash),
+        const ListEquality().hash(e?.openType),
+        const ListEquality().hash(e?.paramType),
+        const ListEquality().hash(e?.includeSlash),
+        const ListEquality().hash(e?.showingAll),
+        const ListEquality().hash(e?.bannerCode)
       ]);
 
   @override

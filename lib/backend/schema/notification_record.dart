@@ -128,8 +128,7 @@ class NotificationRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is NotificationRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is NotificationRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createNotificationRecordData({
@@ -189,9 +188,9 @@ class NotificationRecordDocumentEquality
         e?.notiIsRead,
         e?.thisNotiIsRead,
         e?.notiType,
-        e?.licenseType,
-        e?.notiIsSent,
-        e?.insuExpDate,
+        const ListEquality().hash(e?.licenseType),
+        const ListEquality().hash(e?.notiIsSent),
+        const ListEquality().hash(e?.insuExpDate),
         e?.notiData,
         e?.deleted,
         e?.deletedTime

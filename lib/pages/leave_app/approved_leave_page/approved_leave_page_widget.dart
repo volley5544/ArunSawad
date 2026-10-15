@@ -808,7 +808,11 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                       },
                                       text: 'ยกเลิก',
                                       icon: FaIcon(
-                                        FontAwesomeIcons.ban,
+                                        FaIconData(const IconData(
+                                            /* ban */ 0xf05e,
+                                            fontFamily: 'FontAwesomeSolid',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         size: 18.0,
                                       ),
                                       options: FFButtonOptions(
@@ -2795,7 +2799,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                   },
                                                                                   text: 'อนุมัติ',
                                                                                   icon: FaIcon(
-                                                                                    FontAwesomeIcons.checkCircle,
+                                                                                    FaIconData(const IconData(/* checkCircle */ 0xf058, fontFamily: 'FontAwesomeRegular', fontPackage: 'font_awesome_flutter')),
                                                                                     size: 20.0,
                                                                                   ),
                                                                                   options: FFButtonOptions(
@@ -3104,7 +3108,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                   },
                                                                                   text: 'ไม่อนุมัติ',
                                                                                   icon: FaIcon(
-                                                                                    FontAwesomeIcons.ban,
+                                                                                    FaIconData(const IconData(/* ban */ 0xf05e, fontFamily: 'FontAwesomeSolid', fontPackage: 'font_awesome_flutter')),
                                                                                     size: 18.0,
                                                                                   ),
                                                                                   options: FFButtonOptions(

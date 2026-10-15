@@ -64,8 +64,7 @@ class AdminRoleGroupRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is AdminRoleGroupRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is AdminRoleGroupRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createAdminRoleGroupRecordData({
@@ -92,8 +91,8 @@ class AdminRoleGroupRecordDocumentEquality
   }
 
   @override
-  int hash(AdminRoleGroupRecord? e) =>
-      const ListEquality().hash([e?.menuName, e?.adminGroup]);
+  int hash(AdminRoleGroupRecord? e) => const ListEquality()
+      .hash([e?.menuName, const ListEquality().hash(e?.adminGroup)]);
 
   @override
   bool isValidKey(Object? o) => o is AdminRoleGroupRecord;

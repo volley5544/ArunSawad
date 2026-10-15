@@ -466,7 +466,10 @@ class _SettingAppPageWidgetState extends State<SettingAppPageWidget>
                                   borderWidth: 1.0,
                                   buttonSize: 60.0,
                                   icon: FaIcon(
-                                    FontAwesomeIcons.camera,
+                                    FaIconData(const IconData(
+                                        /* camera */ 0xf030,
+                                        fontFamily: 'FontAwesomeRegular',
+                                        fontPackage: 'font_awesome_flutter')),
                                     color: Color(0xFF0039E3),
                                     size: 30.0,
                                   ),

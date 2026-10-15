@@ -555,7 +555,11 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                       alignment:
                                           AlignmentDirectional(-0.85, 0.0),
                                       child: FaIcon(
-                                        FontAwesomeIcons.edit,
+                                        FaIconData(const IconData(
+                                            /* edit */ 0xf044,
+                                            fontFamily: 'FontAwesomeRegular',
+                                            fontPackage:
+                                                'font_awesome_flutter')),
                                         color: Colors.black,
                                         size: 29.0,
                                       ),

@@ -588,7 +588,9 @@ class _AddPeoplePageWidgetState extends State<AddPeoplePageWidget> {
                           buttonSize: 45.0,
                           fillColor: FlutterFlowTheme.of(context).primary,
                           icon: FaIcon(
-                            FontAwesomeIcons.search,
+                            FaIconData(const IconData(/* search */ 0xf002,
+                                fontFamily: 'FontAwesomeSolid',
+                                fontPackage: 'font_awesome_flutter')),
                             color: Colors.white,
                             size: 24.0,
                           ),

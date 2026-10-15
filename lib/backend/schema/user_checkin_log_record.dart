@@ -80,8 +80,7 @@ class UserCheckinLogRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is UserCheckinLogRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is UserCheckinLogRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createUserCheckinLogRecordData({
@@ -112,8 +111,12 @@ class UserCheckinLogRecordDocumentEquality
   }
 
   @override
-  int hash(UserCheckinLogRecord? e) => const ListEquality()
-      .hash([e?.employeeId, e?.checkinDate, e?.checkinTime, e?.checkinImgUrl]);
+  int hash(UserCheckinLogRecord? e) => const ListEquality().hash([
+        e?.employeeId,
+        e?.checkinDate,
+        const ListEquality().hash(e?.checkinTime),
+        const ListEquality().hash(e?.checkinImgUrl)
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is UserCheckinLogRecord;

@@ -118,8 +118,8 @@ class SLSCollectionDataModelStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([province, provinceCount, districts]);
+  int get hashCode => const ListEquality()
+      .hash([province, provinceCount, const ListEquality().hash(districts)]);
 }
 
 SLSCollectionDataModelStruct createSLSCollectionDataModelStruct({

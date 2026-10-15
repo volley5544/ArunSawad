@@ -68,8 +68,7 @@ class ImpoundCarMasterRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is ImpoundCarMasterRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is ImpoundCarMasterRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createImpoundCarMasterRecordData() {
@@ -94,8 +93,11 @@ class ImpoundCarMasterRecordDocumentEquality
   }
 
   @override
-  int hash(ImpoundCarMasterRecord? e) => const ListEquality()
-      .hash([e?.impoundCarLocateId, e?.locateName, e?.locateCode]);
+  int hash(ImpoundCarMasterRecord? e) => const ListEquality().hash([
+        const ListEquality().hash(e?.impoundCarLocateId),
+        const ListEquality().hash(e?.locateName),
+        const ListEquality().hash(e?.locateCode)
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ImpoundCarMasterRecord;

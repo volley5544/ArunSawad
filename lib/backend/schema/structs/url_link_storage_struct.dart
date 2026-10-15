@@ -120,7 +120,11 @@ class UrlLinkStorageStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([urlLink, urlName, urlToken]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(urlLink),
+        const ListEquality().hash(urlName),
+        const ListEquality().hash(urlToken)
+      ]);
 }
 
 UrlLinkStorageStruct createUrlLinkStorageStruct({

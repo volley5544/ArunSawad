@@ -120,7 +120,11 @@ class ImpoundCarRoleStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([crd, auction, admin]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(crd),
+        const ListEquality().hash(auction),
+        const ListEquality().hash(admin)
+      ]);
 }
 
 ImpoundCarRoleStruct createImpoundCarRoleStruct({
